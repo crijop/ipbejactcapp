@@ -1,0 +1,17 @@
+- model: distro.categoria
+  pk: 1
+  fields:
+    nome: professor adjunto
+- model: distro.categoria
+  pk: 2
+  fields:
+    nome: professor coordenador
+- model: distro.categoria
+  pk: 3
+  fields:
+    nome: professor coordenador principal
+- model: distro.categoria
+  pk: 4
+  fields:
+    nome: assistente
+    
