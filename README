@@ -43,3 +43,11 @@ o comando:
 e resolver quaisquer conflitos de edição de modo a colocar tudo
 coerente e a executar sem erros.
 
+5. Diretorias
+
+docs - diretoria com documentação e relatórios
+docs/reports - relatórios
+docs/reports/AntonioBaiao - relatório de estágio de António Baião
+docs/reports/CarlosPalma  - relatório de estágio de Carlos Palma
+
+
