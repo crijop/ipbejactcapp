@@ -11,6 +11,9 @@ initial:
 	python manage.py loaddata departamentos.yaml
 	python manage.py loaddata tiposcursos.yaml
 	python manage.py loaddata cursos.yaml
+	python manage.py loaddata cnaef.yaml
+	python manage.py loaddata epocas.yaml
+	python manage.py loaddata unidadecurricular.yaml
 
 clean:
 	rm ipbeja.sqlite3

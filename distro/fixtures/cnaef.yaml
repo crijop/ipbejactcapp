@@ -1,0 +1,340 @@
+- model: distro.cnaef
+  pk: 1
+  fields:
+    nome: 
+    codigo: 90
+- model: distro.cnaef
+  pk: 2
+  fields:
+    nome: 
+    codigo: 142
+- model: distro.cnaef
+  pk: 3
+  fields:
+    nome: 
+    codigo: 143
+- model: distro.cnaef
+  pk: 4
+  fields:
+    nome: 
+    codigo: 144
+- model: distro.cnaef
+  pk: 5
+  fields:
+    nome: 
+    codigo: 146
+- model: distro.cnaef
+  pk: 6
+  fields:
+    nome: 
+    codigo: 210
+- model: distro.cnaef
+  pk: 7
+  fields:
+    nome: 
+    codigo: 211
+- model: distro.cnaef
+  pk: 8
+  fields:
+    nome: 
+    codigo: 222
+- model: distro.cnaef
+  pk: 9
+  fields:
+    nome: 
+    codigo: 223
+- model: distro.cnaef
+  pk: 10
+  fields:
+    nome: 
+    codigo: 225
+- model: distro.cnaef
+  pk: 11
+  fields:
+    nome: 
+    codigo: 226
+- model: distro.cnaef
+  pk: 12
+  fields:
+    nome: 
+    codigo: 310
+- model: distro.cnaef
+  pk: 13
+  fields:
+    nome: 
+    codigo: 311
+- model: distro.cnaef
+  pk: 14
+  fields:
+    nome: 
+    codigo: 312
+- model: distro.cnaef
+  pk: 15
+  fields:
+    nome: 
+    codigo: 314
+- model: distro.cnaef
+  pk: 16
+  fields:
+    nome: 
+    codigo: 319
+- model: distro.cnaef
+  pk: 17
+  fields:
+    nome: 
+    codigo: 321
+- model: distro.cnaef
+  pk: 18
+  fields:
+    nome: 
+    codigo: 325
+- model: distro.cnaef
+  pk: 19
+  fields:
+    nome: 
+    codigo: 330
+- model: distro.cnaef
+  pk: 20
+  fields:
+    nome: 
+    codigo: 340
+- model: distro.cnaef
+  pk: 21
+  fields:
+    nome: 
+    codigo: 341
+- model: distro.cnaef
+  pk: 22
+  fields:
+    nome: 
+    codigo: 342
+- model: distro.cnaef
+  pk: 23
+  fields:
+    nome: 
+    codigo: 343
+- model: distro.cnaef
+  pk: 24
+  fields:
+    nome: 
+    codigo: 344
+- model: distro.cnaef
+  pk: 25
+  fields:
+    nome: 
+    codigo: 345
+- model: distro.cnaef
+  pk: 26
+  fields:
+    nome: 
+    codigo: 347
+- model: distro.cnaef
+  pk: 27
+  fields:
+    nome: 
+    codigo: 380
+- model: distro.cnaef
+  pk: 28
+  fields:
+    nome: 
+    codigo: 421
+- model: distro.cnaef
+  pk: 29
+  fields:
+    nome: 
+    codigo: 422
+- model: distro.cnaef
+  pk: 30
+  fields:
+    nome: 
+    codigo: 440
+- model: distro.cnaef
+  pk: 31
+  fields:
+    nome: 
+    codigo: 441
+- model: distro.cnaef
+  pk: 32
+  fields:
+    nome: 
+    codigo: 442
+- model: distro.cnaef
+  pk: 33
+  fields:
+    nome: 
+    codigo: 443
+- model: distro.cnaef
+  pk: 34
+  fields:
+    nome: 
+    codigo: 460
+- model: distro.cnaef
+  pk: 35
+  fields:
+    nome: 
+    codigo: 461
+- model: distro.cnaef
+  pk: 36
+  fields:
+    nome: 
+    codigo: 462
+- model: distro.cnaef
+  pk: 37
+  fields:
+    nome: 
+    codigo: 469
+- model: distro.cnaef
+  pk: 38
+  fields:
+    nome: 
+    codigo: 481
+- model: distro.cnaef
+  pk: 39
+  fields:
+    nome: 
+    codigo: 482
+- model: distro.cnaef
+  pk: 40
+  fields:
+    nome: 
+    codigo: 521
+- model: distro.cnaef
+  pk: 41
+  fields:
+    nome: 
+    codigo: 522
+- model: distro.cnaef
+  pk: 42
+  fields:
+    nome: 
+    codigo: 523
+- model: distro.cnaef
+  pk: 43
+  fields:
+    nome: 
+    codigo: 524
+- model: distro.cnaef
+  pk: 44
+  fields:
+    nome: 
+    codigo: 541
+- model: distro.cnaef
+  pk: 45
+  fields:
+    nome: 
+    codigo: 581
+- model: distro.cnaef
+  pk: 46
+  fields:
+    nome: 
+    codigo: 582
+- model: distro.cnaef
+  pk: 47
+  fields:
+    nome: 
+    codigo: 621
+- model: distro.cnaef
+  pk: 48
+  fields:
+    nome: 
+    codigo: 640
+- model: distro.cnaef
+  pk: 49
+  fields:
+    nome: 
+    codigo: 720
+- model: distro.cnaef
+  pk: 50
+  fields:
+    nome: 
+    codigo: 721
+- model: distro.cnaef
+  pk: 51
+  fields:
+    nome: 
+    codigo: 723
+- model: distro.cnaef
+  pk: 52
+  fields:
+    nome: 
+    codigo: 726
+- model: distro.cnaef
+  pk: 53
+  fields:
+    nome: 
+    codigo: 729
+- model: distro.cnaef
+  pk: 54
+  fields:
+    nome: 
+    codigo: 762
+- model: distro.cnaef
+  pk: 55
+  fields:
+    nome: 
+    codigo: 811
+- model: distro.cnaef
+  pk: 56
+  fields:
+    nome: 
+    codigo: 812
+- model: distro.cnaef
+  pk: 57
+  fields:
+    nome: 
+    codigo: 813
+- model: distro.cnaef
+  pk: 58
+  fields:
+    nome: 
+    codigo: 850
+- model: distro.cnaef
+  pk: 59
+  fields:
+    nome: 
+    codigo: 851
+- model: distro.cnaef
+  pk: 60
+  fields:
+    nome: 
+    codigo: 852
+- model: distro.cnaef
+  pk: 61
+  fields:
+    nome: 
+    codigo: 853
+- model: distro.cnaef
+  pk: 62
+  fields:
+    nome: 
+    codigo: 859
+- model: distro.cnaef
+  pk: 63
+  fields:
+    nome: 
+    codigo: 861
+- model: distro.cnaef
+  pk: 64
+  fields:
+    nome: 
+    codigo: 862
+- model: distro.cnaef
+  pk: 65
+  fields:
+    nome: 
+    codigo: 143-144
+- model: distro.cnaef
+  pk: 66
+  fields:
+    nome: 
+    codigo: 143/144
+- model: distro.cnaef
+  pk: 67
+  fields:
+    nome: 
+    codigo: 312/443
+- model: distro.cnaef
+  pk: 68
+  fields:
+    nome: 
+    codigo: 441/442

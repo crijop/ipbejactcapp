@@ -7,7 +7,7 @@
 - model: distro.departamento
   pk: 2
   fields:
-    nome: Artes Humanidades e Desporto
+    nome: Artes H Desporto
     abreviatura: AHD
     sede: 3
 - model: distro.departamento
@@ -25,7 +25,7 @@
 - model: distro.departamento
   pk: 5
   fields:
-    nome: Educação e Ciências Sociais e do Comportamento
+    nome: Educação CSComportamento
     abreviatura: ECSC
     sede: 3
 - model: distro.departamento
@@ -43,6 +43,6 @@
 - model: distro.departamento
   pk: 8
   fields:
-    nome: Tecnologias e Ciências Aplicadas
+    nome: Tecnologias CAplicadas
     abreviatura: TCA
     sede: 4

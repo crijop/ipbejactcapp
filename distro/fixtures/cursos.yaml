@@ -7,13 +7,13 @@
 - model: distro.curso
   pk: 2
   fields:
-    nome: Agronomia (pós-laboral)
+    nome: Agronomia (PL)
     abreviatura: AGRPL
     tipo_curso: 1
 - model: distro.curso
   pk: 3
   fields:
-    nome: Animação Sócio-Cultural
+    nome: Animação Sociocultural
     abreviatura: ASC
     tipo_curso: 1
 - model: distro.curso
@@ -31,7 +31,7 @@
 - model: distro.curso
   pk: 6
   fields:
-    nome: CET-Escola Superior Agrária
+    nome: CET - ESA
     abreviatura: CET-ESA
     tipo_curso: 4
 - model: distro.curso
@@ -73,13 +73,13 @@
 - model: distro.curso
   pk: 13
   fields:
-    nome: Educação Especial- Especialização no Domínio Cognitivo e Motor
+    nome: Educação Especial - Especialização no Dominio Cognitivo e Motor
     abreviatura: EEEDCM
     tipo_curso: 2
 - model: distro.curso
   pk: 14
   fields:
-    nome: Educação Pré-Escolar e Ensino do 1. Ciclo do Ensino Básico
+    nome: Educação Pré-Escolar e Ensino do 1.º Ciclo do Ensino Básico
     abreviatura: EPEEPCEB
     tipo_curso: 2
 - model: distro.curso
@@ -91,7 +91,7 @@
 - model: distro.curso
   pk: 16
   fields: 
-    nome: Enfermagem (março)
+    nome: Enfermagem (Março)
     abreviatura: ENFM
     tipo_curso: 1
 - model: distro.curso
@@ -127,7 +127,7 @@
 - model: distro.curso
   pk: 22
   fields:
-    nome: Engenharia Civil (pós-laboral)
+    nome: Engenharia Civil (PL)
     abreviatura: ECPL
     tipo_curso: 1
 - model: distro.curso
@@ -151,7 +151,7 @@
 - model: distro.curso
   pk: 26
   fields:
-    nome: Engenharia Informática (pós-laboral)
+    nome: Engenharia Informática (PL)
     abreviatura: EIPL
     tipo_curso: 1
 - model: distro.curso
@@ -169,31 +169,31 @@
 - model: distro.curso
   pk: 29
   fields:
-    nome: Gestão de Empresas (pós-laboral)
+    nome: Gestão de Empresas (PL)
     abreviatura: GEPL
     tipo_curso: 1
 - model: distro.curso
   pk: 30
   fields:
-    nome: Mestrado Agronomia
+    nome: M_Agronomia
     abreviatura: MA
     tipo_curso: 2
 - model: distro.curso
   pk: 31
   fields:
-    nome: Mestrado Engenharia Alimentar
+    nome: M_Engenharia Alimentar
     abreviatura: MEA
     tipo_curso: 2
 - model: distro.curso
   pk: 32
   fields:
-    nome: Mestrado Engenharia do Ambiente
+    nome: M_Engenharia do Ambiente
     abreviatura: MEAA
     tipo_curso: 2
 - model: distro.curso
   pk: 33
   fields:
-    nome: Projeto e Instalação de Redes Locais de Computadores
+    nome: Projecto e Instalação de Redes Locais de Computadores
     abreviatura: PIRLC
     tipo_curso: 4
 - model: distro.curso
@@ -211,7 +211,7 @@
 - model: distro.curso
   pk: 36
   fields:
-    nome: Mestrado em Psicogerontologia Comunitária
+    nome: Psicogerontologia Comunitária
     abreviatura: MPSI
     tipo_curso: 2
 - model: distro.curso
@@ -241,7 +241,7 @@
 - model: distro.curso
   pk: 41
   fields:
-    nome: Serviço Social (pós-laboral)
+    nome: Serviço Social (PL)
     abreviatura: SSPL
     tipo_curso: 1
 - model: distro.curso
@@ -253,7 +253,7 @@
 - model: distro.curso
   pk: 43
   fields:
-    nome: Solicitadoria (ensino à distância)
+    nome: Solicitadoria (ED)
     abreviatura: SED
     tipo_curso: 1
 - model: distro.curso
@@ -265,7 +265,7 @@
 - model: distro.curso
   pk: 45
   fields:
-    nome: Terapia Ocupacional (março)
+    nome: Terapia Ocupacional (Março)
     abreviatura: TOM
     tipo_curso: 1
 - model: distro.curso
