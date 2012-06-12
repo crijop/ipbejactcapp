@@ -144,7 +144,8 @@ class Reducoes(models.Model):
     '''
     cargos e outros tipos de redução
     '''
-    nome = models.CharField(max_length=120)
+    nome        = models.CharField(max_length=120)
+    abreviatura = models.CharField(max_length=6, default='')
     data_modificacao = models.DateTimeField(auto_now=True)
 
     def __unicode__(self):
