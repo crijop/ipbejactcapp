@@ -31,7 +31,7 @@
 - model: distro.departamento
   pk: 6
   fields:
-    nome: Matemática e Ciências Físicas
+    nome: Matemática CFisicas
     abreviatura: MCF
     sede: 1
 - model: distro.departamento

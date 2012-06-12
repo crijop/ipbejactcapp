@@ -132,5 +132,24 @@ class UnidadeCurricular(models.Model):
 
     def __unicode__(self):
         return unicode(self.curso) + '- ' + unicode(self.nome)
-    pass
     
+    class Admin: 
+        list_display = ('nome', 'curso', 'departamento')
+        list_filter = ('curso', 'departamento')
+        pass
+    pass
+
+
+class Reducoes(models.Model):
+    '''
+    cargos e outros tipos de redução
+    '''
+    nome = models.CharField(max_length=120)
+    data_modificacao = models.DateTimeField(auto_now=True)
+
+    def __unicode__(self):
+        return unicode(self.nome)
+
+    class Admin:
+        pass
+    pass
