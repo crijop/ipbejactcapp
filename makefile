@@ -2,6 +2,8 @@ all:
 
 migration:
 	python manage.py schemamigration distro --auto
+
+migrate:
 	python manage.py migrate distro
 
 # carregamento de dados iniciais
@@ -14,6 +16,10 @@ initial:
 	python manage.py loaddata cnaef.yaml
 	python manage.py loaddata epocas.yaml
 	python manage.py loaddata unidadecurricular.yaml
+	python manage.py loaddata reducoes.yaml
+	python manage.py loaddata titulos.yaml
+	python manage.py loaddata tiposcontrato.yaml
+	python manage.py loaddata docentes.yaml
 
 clean:
 	rm ipbeja.sqlite3

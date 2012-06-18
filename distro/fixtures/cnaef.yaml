@@ -186,7 +186,7 @@
 - model: distro.cnaef
   pk: 38
   fields:
-    nome: 
+    nome: Ciências informáticas.
     codigo: 481
 - model: distro.cnaef
   pk: 39
@@ -206,7 +206,7 @@
 - model: distro.cnaef
   pk: 42
   fields:
-    nome: 
+    nome: Electrónica e automação.
     codigo: 523
 - model: distro.cnaef
   pk: 43

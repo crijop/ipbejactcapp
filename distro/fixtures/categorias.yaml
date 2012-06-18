@@ -22,6 +22,18 @@
   pk: 6
   fields:
     nome: assistente do segundo triénio
+- model: distro.categoria
+  pk: 7
+  fields:
+    nome: colaborador externo
+- model: distro.categoria
+  pk: 8
+  fields:
+    nome: preletor
+- model: distro.categoria
+  pk: 9
+  fields:
+    nome: professor coordenador com agregação
 
 
     
