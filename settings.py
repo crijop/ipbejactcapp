@@ -57,7 +57,7 @@ MEDIA_URL = ''
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
-STATIC_ROOT = ''
+STATIC_ROOT = '/home/jasnau/Codigo/Django/ipbejactcapp/static/'
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
@@ -66,7 +66,8 @@ STATIC_URL = '/static/'
 # URL prefix for admin static files -- CSS, JavaScript and images.
 # Make sure to use a trailing slash.
 # Examples: "http://foo.com/static/admin/", "/static/admin/".
-ADMIN_MEDIA_PREFIX = '/static/admin/'
+#ADMIN_MEDIA_PREFIX = '/static/admin/'
+#ADMIN_MEDIA_PREFIX = STATIC_URL + "grappelli/"
 
 # Additional locations of static files
 STATICFILES_DIRS = (
@@ -120,11 +121,14 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     'django.contrib.admindocs',
-    # aplicação de gestão de distribuições de serviço docente
-    'distro',
     # gestão de migrações nas bases de dados
     'south',
-)
+    # aplicação de gestão de distribuições de serviço docente
+    'distro',
+    )
+
+# interface para admin
+#'grappelli',
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to

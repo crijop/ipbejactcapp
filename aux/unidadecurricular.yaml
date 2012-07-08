@@ -10,7 +10,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 165
+    horas_lei_tp: 165.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -29,7 +29,7 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -48,7 +48,7 @@
     semestre: 3
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -67,7 +67,7 @@
     semestre: 6
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 75
+    horas_lei_tp: 75.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -86,7 +86,7 @@
     semestre: 4
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -105,7 +105,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -124,7 +124,7 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 90
+    horas_lei_tp: 90.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -143,7 +143,7 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -162,7 +162,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 30
+    horas_lei_tp: 30.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -185,7 +185,7 @@
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
-    horas_lei_e: 210
+    horas_lei_e: 210.00
     horas_lei_ot: 
     horas_lei_o: 
 - model: distro.unidadecurricular
@@ -204,7 +204,7 @@
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
-    horas_lei_e: 330
+    horas_lei_e: 330.00
     horas_lei_ot: 
     horas_lei_o: 
 - model: distro.unidadecurricular
@@ -223,7 +223,7 @@
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
-    horas_lei_e: 225
+    horas_lei_e: 225.00
     horas_lei_ot: 
     horas_lei_o: 
 - model: distro.unidadecurricular
@@ -238,7 +238,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 105
+    horas_lei_tp: 105.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -257,7 +257,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -276,7 +276,7 @@
     semestre: 4
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 75
+    horas_lei_tp: 75.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -295,7 +295,7 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 90
+    horas_lei_tp: 90.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -314,8 +314,8 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 30
-    horas_lei_pl: 30
+    horas_lei_tp: 30.00
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -333,8 +333,8 @@
     semestre: 4
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 15
-    horas_lei_pl: 30
+    horas_lei_tp: 15.00
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -352,8 +352,8 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 30
-    horas_lei_pl: 30
+    horas_lei_tp: 30.00
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -371,8 +371,8 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 30
-    horas_lei_pl: 60
+    horas_lei_tp: 30.00
+    horas_lei_pl: 60.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -392,7 +392,7 @@
     horas_lei_t: 
     horas_lei_tp: 
     horas_lei_pl: 
-    horas_lei_tc: 45
+    horas_lei_tc: 45.00
     horas_lei_s: 
     horas_lei_e: 
     horas_lei_ot: 
@@ -409,7 +409,7 @@
     semestre: 4
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -428,7 +428,7 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 120
+    horas_lei_tp: 120.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -447,7 +447,7 @@
     semestre: 3
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -466,12 +466,12 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 48
+    horas_lei_tp: 48.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
-    horas_lei_ot: 12
+    horas_lei_ot: 12.00
     horas_lei_o: 
 - model: distro.unidadecurricular
   pk: 26
@@ -485,7 +485,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -504,7 +504,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -523,7 +523,7 @@
     semestre: 4
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -542,7 +542,7 @@
     semestre: 6
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 32
+    horas_lei_tp: 32.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -561,12 +561,12 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 48
+    horas_lei_tp: 48.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
-    horas_lei_ot: 12
+    horas_lei_ot: 12.00
     horas_lei_o: 
 - model: distro.unidadecurricular
   pk: 31
@@ -580,7 +580,7 @@
     semestre: 3
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -599,7 +599,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -618,7 +618,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -637,7 +637,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -656,7 +656,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -675,7 +675,7 @@
     semestre: 3
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 120
+    horas_lei_tp: 120.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -694,7 +694,7 @@
     semestre: 4
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 105
+    horas_lei_tp: 105.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -713,7 +713,7 @@
     semestre: 3
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 240
+    horas_lei_tp: 240.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -732,12 +732,12 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 64
+    horas_lei_tp: 64.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
-    horas_lei_ot: 16
+    horas_lei_ot: 16.00
     horas_lei_o: 
 - model: distro.unidadecurricular
   pk: 40
@@ -754,7 +754,7 @@
     horas_lei_tp: 
     horas_lei_pl: 
     horas_lei_tc: 
-    horas_lei_s: 100
+    horas_lei_s: 100.00
     horas_lei_e: 
     horas_lei_ot: 
     horas_lei_o: 
@@ -773,7 +773,7 @@
     horas_lei_tp: 
     horas_lei_pl: 
     horas_lei_tc: 
-    horas_lei_s: 100
+    horas_lei_s: 100.00
     horas_lei_e: 
     horas_lei_ot: 
     horas_lei_o: 
@@ -789,7 +789,7 @@
     semestre: 3
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 90
+    horas_lei_tp: 90.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -808,7 +808,7 @@
     semestre: 4
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 75
+    horas_lei_tp: 75.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -827,7 +827,7 @@
     semestre: 3
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 75
+    horas_lei_tp: 75.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -846,8 +846,8 @@
     semestre: 3
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 30
-    horas_lei_pl: 60
+    horas_lei_tp: 30.00
+    horas_lei_pl: 60.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -865,8 +865,8 @@
     semestre: 3
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 30
-    horas_lei_pl: 60
+    horas_lei_tp: 30.00
+    horas_lei_pl: 60.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -884,7 +884,7 @@
     semestre: 6
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 75
+    horas_lei_tp: 75.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -903,7 +903,7 @@
     semestre: 6
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 75
+    horas_lei_tp: 75.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -922,7 +922,7 @@
     semestre: 6
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 75
+    horas_lei_tp: 75.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -941,7 +941,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 90
+    horas_lei_tp: 90.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -960,7 +960,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 90
+    horas_lei_tp: 90.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -979,7 +979,7 @@
     semestre: 3
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 90
+    horas_lei_tp: 90.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -998,7 +998,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -1017,7 +1017,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 34
+    horas_lei_tp: 34.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -1036,7 +1036,7 @@
     semestre: 4
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 105
+    horas_lei_tp: 105.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -1055,7 +1055,7 @@
     semestre: 3
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 90
+    horas_lei_tp: 90.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -1074,7 +1074,7 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 75
+    horas_lei_tp: 75.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -1093,8 +1093,8 @@
     semestre: 4
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 30
-    horas_lei_pl: 60
+    horas_lei_tp: 30.00
+    horas_lei_pl: 60.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -1112,7 +1112,7 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -1131,7 +1131,7 @@
     semestre: 4
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 90
+    horas_lei_tp: 90.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -1150,7 +1150,7 @@
     semestre: 
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -1169,7 +1169,7 @@
     semestre: 
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -1188,7 +1188,7 @@
     semestre: 
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -1207,7 +1207,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -1226,7 +1226,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 30
+    horas_lei_tp: 30.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -1245,7 +1245,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 30
+    horas_lei_tp: 30.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -1264,7 +1264,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 30
+    horas_lei_tp: 30.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -1283,7 +1283,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -1302,7 +1302,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -1321,7 +1321,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -1340,7 +1340,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 75
+    horas_lei_tp: 75.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -1359,7 +1359,7 @@
     semestre: 4
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -1378,7 +1378,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -1397,12 +1397,12 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 27
+    horas_lei_tp: 27.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
-    horas_lei_ot: 8
+    horas_lei_ot: 8.00
     horas_lei_o: 
 - model: distro.unidadecurricular
   pk: 75
@@ -1416,7 +1416,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 14
+    horas_lei_tp: 14.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -1435,7 +1435,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -1454,7 +1454,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -1473,7 +1473,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -1492,7 +1492,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -1511,12 +1511,12 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 48
+    horas_lei_tp: 48.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
-    horas_lei_ot: 12
+    horas_lei_ot: 12.00
     horas_lei_o: 
 - model: distro.unidadecurricular
   pk: 81
@@ -1529,8 +1529,8 @@
     ano: 3
     semestre: 6
     epoca: 2
-    horas_lei_t: 20
-    horas_lei_tp: 55
+    horas_lei_t: 20.00
+    horas_lei_tp: 55.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -1549,12 +1549,12 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 65
+    horas_lei_tp: 65.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
-    horas_lei_ot: 10
+    horas_lei_ot: 10.00
     horas_lei_o: 
 - model: distro.unidadecurricular
   pk: 83
@@ -1568,7 +1568,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -1587,7 +1587,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -1606,7 +1606,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -1625,7 +1625,7 @@
     semestre: 3
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -1644,7 +1644,7 @@
     semestre: 2
     epoca:
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -1663,7 +1663,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -1682,10 +1682,10 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 75
+    horas_lei_tp: 75.00
     horas_lei_pl: 
     horas_lei_tc: 
-    horas_lei_s: 8
+    horas_lei_s: 8.00
     horas_lei_e: 
     horas_lei_ot: 
     horas_lei_o: 
@@ -1701,10 +1701,10 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 75
+    horas_lei_tp: 75.00
     horas_lei_pl: 
     horas_lei_tc: 
-    horas_lei_s: 8
+    horas_lei_s: 8.00
     horas_lei_e: 
     horas_lei_ot: 
     horas_lei_o: 
@@ -1720,7 +1720,7 @@
     semestre: 4
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -1738,7 +1738,7 @@
     ano: 1
     semestre: 2
     epoca: 2
-    horas_lei_t: 60
+    horas_lei_t: 60.00
     horas_lei_tp: 
     horas_lei_pl: 
     horas_lei_tc: 
@@ -1758,7 +1758,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 15
+    horas_lei_tp: 15.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -1777,7 +1777,7 @@
     semestre: 3
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 15
+    horas_lei_tp: 15.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -1796,7 +1796,7 @@
     semestre: 5
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 15
+    horas_lei_tp: 15.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -1814,8 +1814,8 @@
     ano: 4
     semestre: 7
     epoca: 1
-    horas_lei_t: 10
-    horas_lei_tp: 15
+    horas_lei_t: 10.00
+    horas_lei_tp: 15.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -1833,8 +1833,8 @@
     ano: 2
     semestre: 3
     epoca: 1
-    horas_lei_t: 15
-    horas_lei_tp: 15
+    horas_lei_t: 15.00
+    horas_lei_tp: 15.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -1852,8 +1852,8 @@
     ano: 1
     semestre: 1
     epoca: 1
-    horas_lei_t: 16
-    horas_lei_tp: 12
+    horas_lei_t: 16.00
+    horas_lei_tp: 12.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -1871,8 +1871,8 @@
     ano: 1
     semestre: 1
     epoca: 1
-    horas_lei_t: 25
-    horas_lei_tp: 5
+    horas_lei_t: 25.00
+    horas_lei_tp: 5.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -1891,12 +1891,12 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 32
+    horas_lei_tp: 32.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
-    horas_lei_ot: 8
+    horas_lei_ot: 8.00
     horas_lei_o: 
 - model: distro.unidadecurricular
   pk: 101
@@ -1910,7 +1910,7 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 30
+    horas_lei_tp: 30.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -1929,7 +1929,7 @@
     semestre: 4
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -1948,12 +1948,12 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 32
+    horas_lei_tp: 32.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
-    horas_lei_ot: 8
+    horas_lei_ot: 8.00
     horas_lei_o: 
 - model: distro.unidadecurricular
   pk: 104
@@ -1967,7 +1967,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -1986,7 +1986,7 @@
     semestre: 3
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 75
+    horas_lei_tp: 75.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -2005,8 +2005,8 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 30
-    horas_lei_pl: 30
+    horas_lei_tp: 30.00
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -2024,7 +2024,7 @@
     semestre: 6
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 90
+    horas_lei_tp: 90.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -2043,7 +2043,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -2062,7 +2062,7 @@
     semestre: 6
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -2081,7 +2081,7 @@
     semestre: 3
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 75
+    horas_lei_tp: 75.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -2100,7 +2100,7 @@
     semestre: 4
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 75
+    horas_lei_tp: 75.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -2119,7 +2119,7 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 75
+    horas_lei_tp: 75.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -2138,7 +2138,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -2157,7 +2157,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -2176,7 +2176,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -2195,7 +2195,7 @@
     semestre: 3
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -2214,7 +2214,7 @@
     semestre: 4
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -2233,7 +2233,7 @@
     semestre: 6
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 32
+    horas_lei_tp: 32.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -2251,8 +2251,8 @@
     ano: 1
     semestre: 1
     epoca: 1
-    horas_lei_t: 15
-    horas_lei_tp: 15
+    horas_lei_t: 15.00
+    horas_lei_tp: 15.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -2271,7 +2271,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -2290,7 +2290,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -2309,7 +2309,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -2328,7 +2328,7 @@
     semestre: 3
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -2347,7 +2347,7 @@
     semestre: 4
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -2366,7 +2366,7 @@
     semestre: 6
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 32
+    horas_lei_tp: 32.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -2385,7 +2385,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -2404,7 +2404,7 @@
     semestre: 3
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -2423,7 +2423,7 @@
     semestre: 4
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 90
+    horas_lei_tp: 90.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -2442,7 +2442,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -2461,7 +2461,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -2480,12 +2480,12 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 68
+    horas_lei_tp: 68.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
-    horas_lei_ot: 7
+    horas_lei_ot: 7.00
     horas_lei_o: 
 - model: distro.unidadecurricular
   pk: 132
@@ -2499,7 +2499,7 @@
     semestre: 3
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -2518,7 +2518,7 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 120
+    horas_lei_tp: 120.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -2537,7 +2537,7 @@
     semestre: 6
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -2556,8 +2556,8 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 25
-    horas_lei_pl: 50
+    horas_lei_tp: 25.00
+    horas_lei_pl: 50.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -2575,8 +2575,8 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 30
-    horas_lei_pl: 75
+    horas_lei_tp: 30.00
+    horas_lei_pl: 75.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -2594,8 +2594,8 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 30
-    horas_lei_pl: 60
+    horas_lei_tp: 30.00
+    horas_lei_pl: 60.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -2613,8 +2613,8 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 30
-    horas_lei_pl: 60
+    horas_lei_tp: 30.00
+    horas_lei_pl: 60.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -2632,7 +2632,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 75
+    horas_lei_tp: 75.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -2651,7 +2651,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -2670,7 +2670,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 75
+    horas_lei_tp: 75.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -2689,7 +2689,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -2708,7 +2708,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 75
+    horas_lei_tp: 75.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -2727,7 +2727,7 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 75
+    horas_lei_tp: 75.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -2746,7 +2746,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -2765,8 +2765,8 @@
     semestre: 4
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 35
-    horas_lei_pl: 70
+    horas_lei_tp: 35.00
+    horas_lei_pl: 70.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -2784,7 +2784,7 @@
     semestre: 6
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -2803,7 +2803,7 @@
     semestre: 6
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -2822,7 +2822,7 @@
     semestre: 4
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -2841,7 +2841,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 54
+    horas_lei_tp: 54.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -2860,7 +2860,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 48
+    horas_lei_tp: 48.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -2878,9 +2878,9 @@
     ano: 2
     semestre: 3
     epoca: 1
-    horas_lei_t: 15
+    horas_lei_t: 15.00
     horas_lei_tp: 
-    horas_lei_pl: 45
+    horas_lei_pl: 45.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -2898,7 +2898,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -2917,7 +2917,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -2940,7 +2940,7 @@
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
-    horas_lei_e: 50
+    horas_lei_e: 50.00
     horas_lei_ot: 
     horas_lei_o: 
 - model: distro.unidadecurricular
@@ -2959,7 +2959,7 @@
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
-    horas_lei_e: 50
+    horas_lei_e: 50.00
     horas_lei_ot: 
     horas_lei_o: 
 - model: distro.unidadecurricular
@@ -2973,9 +2973,9 @@
     ano: 2
     semestre: 3
     epoca: 1
-    horas_lei_t: 30
+    horas_lei_t: 30.00
     horas_lei_tp: 
-    horas_lei_pl: 30
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -2993,7 +2993,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -3012,7 +3012,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 15
+    horas_lei_tp: 15.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -3031,7 +3031,7 @@
     semestre: 6
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -3050,7 +3050,7 @@
     semestre: 6
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -3068,9 +3068,9 @@
     ano: 1
     semestre: 2
     epoca: 2
-    horas_lei_t: 30
+    horas_lei_t: 30.00
     horas_lei_tp: 
-    horas_lei_pl: 30
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -3088,7 +3088,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 18
+    horas_lei_tp: 18.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -3107,7 +3107,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 48
+    horas_lei_tp: 48.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -3126,7 +3126,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 54
+    horas_lei_tp: 54.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -3145,7 +3145,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 54
+    horas_lei_tp: 54.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -3164,7 +3164,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 36
+    horas_lei_tp: 36.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -3182,9 +3182,9 @@
     ano: 1
     semestre: 1
     epoca: 1
-    horas_lei_t: 30
+    horas_lei_t: 30.00
     horas_lei_tp: 
-    horas_lei_pl: 30
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -3201,9 +3201,9 @@
     ano: 2
     semestre: 3
     epoca: 1
-    horas_lei_t: 40
+    horas_lei_t: 40.00
     horas_lei_tp: 
-    horas_lei_pl: 35
+    horas_lei_pl: 35.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -3220,9 +3220,9 @@
     ano: 3
     semestre: 5
     epoca: 1
-    horas_lei_t: 30
+    horas_lei_t: 30.00
     horas_lei_tp: 
-    horas_lei_pl: 30
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -3239,9 +3239,9 @@
     ano: 3
     semestre: 5
     epoca: 1
-    horas_lei_t: 30
+    horas_lei_t: 30.00
     horas_lei_tp: 
-    horas_lei_pl: 30
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -3259,7 +3259,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -3277,9 +3277,9 @@
     ano: 2
     semestre: 3
     epoca: 1
-    horas_lei_t: 30
+    horas_lei_t: 30.00
     horas_lei_tp: 
-    horas_lei_pl: 30
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -3296,9 +3296,9 @@
     ano: 1
     semestre: 2
     epoca: 2
-    horas_lei_t: 30
+    horas_lei_t: 30.00
     horas_lei_tp: 
-    horas_lei_pl: 30
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -3315,9 +3315,9 @@
     ano: 1
     semestre: 2
     epoca: 2
-    horas_lei_t: 30
+    horas_lei_t: 30.00
     horas_lei_tp: 
-    horas_lei_pl: 30
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -3335,7 +3335,7 @@
     semestre: 6
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -3373,12 +3373,12 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 12
+    horas_lei_tp: 12.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
-    horas_lei_ot: 30
+    horas_lei_ot: 30.00
     horas_lei_o: 
 - model: distro.unidadecurricular
   pk: 179
@@ -3392,7 +3392,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 32
+    horas_lei_tp: 32.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -3411,7 +3411,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 32
+    horas_lei_tp: 32.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -3430,7 +3430,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 32
+    horas_lei_tp: 32.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -3448,9 +3448,9 @@
     ano: 2
     semestre: 3
     epoca: 1
-    horas_lei_t: 30
+    horas_lei_t: 30.00
     horas_lei_tp: 
-    horas_lei_pl: 30
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -3467,9 +3467,9 @@
     ano: 2
     semestre: 4
     epoca: 2
-    horas_lei_t: 30
+    horas_lei_t: 30.00
     horas_lei_tp: 
-    horas_lei_pl: 30
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -3487,7 +3487,7 @@
     semestre: 3
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -3506,7 +3506,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 30
+    horas_lei_tp: 30.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -3525,7 +3525,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 30
+    horas_lei_tp: 30.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -3543,9 +3543,9 @@
     ano: 1
     semestre: 1
     epoca: 1
-    horas_lei_t: 30
+    horas_lei_t: 30.00
     horas_lei_tp: 
-    horas_lei_pl: 30
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -3562,9 +3562,9 @@
     ano: 2
     semestre: 4
     epoca: 2
-    horas_lei_t: 35
-    horas_lei_tp: 15
-    horas_lei_pl: 10
+    horas_lei_t: 35.00
+    horas_lei_tp: 15.00
+    horas_lei_pl: 10.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -3581,8 +3581,8 @@
     ano: 3
     semestre: 5
     epoca: 1
-    horas_lei_t: 13
-    horas_lei_tp: 13
+    horas_lei_t: 13.00
+    horas_lei_tp: 13.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -3600,9 +3600,9 @@
     ano: 3
     semestre: 5
     epoca: 1
-    horas_lei_t: 30
+    horas_lei_t: 30.00
     horas_lei_tp: 
-    horas_lei_pl: 30
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -3619,9 +3619,9 @@
     ano: 3
     semestre: 5
     epoca: 1
-    horas_lei_t: 30
+    horas_lei_t: 30.00
     horas_lei_tp: 
-    horas_lei_pl: 30
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -3639,7 +3639,7 @@
     semestre: 6
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -3658,7 +3658,7 @@
     semestre: 6
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -3676,9 +3676,9 @@
     ano: 3
     semestre: 5
     epoca: 1
-    horas_lei_t: 30
+    horas_lei_t: 30.00
     horas_lei_tp: 
-    horas_lei_pl: 30
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -3695,9 +3695,9 @@
     ano: 3
     semestre: 5
     epoca: 1
-    horas_lei_t: 30
+    horas_lei_t: 30.00
     horas_lei_tp: 
-    horas_lei_pl: 30
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -3715,7 +3715,7 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -3734,7 +3734,7 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -3753,7 +3753,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 48
+    horas_lei_tp: 48.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -3772,7 +3772,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 48
+    horas_lei_tp: 48.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -3791,7 +3791,7 @@
     semestre: 6
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -3810,7 +3810,7 @@
     semestre: 6
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -3829,7 +3829,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 48
+    horas_lei_tp: 48.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -3848,7 +3848,7 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -3867,7 +3867,7 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -3885,9 +3885,9 @@
     ano: 3
     semestre: 5
     epoca: 1
-    horas_lei_t: 30
+    horas_lei_t: 30.00
     horas_lei_tp: 
-    horas_lei_pl: 30
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -3905,7 +3905,7 @@
     semestre: 6
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -3924,7 +3924,7 @@
     semestre: 6
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -3943,7 +3943,7 @@
     semestre: 6
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -3962,7 +3962,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 32
+    horas_lei_tp: 32.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -3981,7 +3981,7 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -4000,7 +4000,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -4019,7 +4019,7 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -4037,8 +4037,8 @@
     ano: 1
     semestre: 2
     epoca: 2
-    horas_lei_t: 19
-    horas_lei_tp: 20
+    horas_lei_t: 19.00
+    horas_lei_tp: 20.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -4057,7 +4057,7 @@
     semestre: 6
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -4076,7 +4076,7 @@
     semestre: 6
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -4095,7 +4095,7 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -4114,7 +4114,7 @@
     semestre: 6
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -4133,7 +4133,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 32
+    horas_lei_tp: 32.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -4152,7 +4152,7 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -4171,7 +4171,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 42
+    horas_lei_tp: 42.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -4190,7 +4190,7 @@
     semestre: 4
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -4209,7 +4209,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 32
+    horas_lei_tp: 32.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -4228,7 +4228,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 32
+    horas_lei_tp: 32.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -4247,7 +4247,7 @@
     semestre: 4
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -4265,9 +4265,9 @@
     ano: 3
     semestre: 6
     epoca: 2
-    horas_lei_t: 30
+    horas_lei_t: 30.00
     horas_lei_tp: 
-    horas_lei_pl: 30
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -4285,7 +4285,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 34
+    horas_lei_tp: 34.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -4303,9 +4303,9 @@
     ano: 3
     semestre: 5
     epoca: 1
-    horas_lei_t: 30
+    horas_lei_t: 30.00
     horas_lei_tp: 
-    horas_lei_pl: 30
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -4323,7 +4323,7 @@
     semestre: 4
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -4341,8 +4341,8 @@
     ano: 1
     semestre: 2
     epoca: 2
-    horas_lei_t: 50
-    horas_lei_tp: 25
+    horas_lei_t: 50.00
+    horas_lei_tp: 25.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -4361,7 +4361,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 32
+    horas_lei_tp: 32.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -4380,7 +4380,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 32
+    horas_lei_tp: 32.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -4398,9 +4398,9 @@
     ano: 2
     semestre: 4
     epoca: 2
-    horas_lei_t: 15
+    horas_lei_t: 15.00
     horas_lei_tp: 
-    horas_lei_pl: 45
+    horas_lei_pl: 45.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -4418,7 +4418,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 32
+    horas_lei_tp: 32.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -4436,9 +4436,9 @@
     ano: 1
     semestre: 1
     epoca: 1
-    horas_lei_t: 45
+    horas_lei_t: 45.00
     horas_lei_tp: 
-    horas_lei_pl: 15
+    horas_lei_pl: 15.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -4455,9 +4455,9 @@
     ano: 1
     semestre: 2
     epoca: 2
-    horas_lei_t: 30
+    horas_lei_t: 30.00
     horas_lei_tp: 
-    horas_lei_pl: 30
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -4475,7 +4475,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 30
+    horas_lei_tp: 30.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -4494,7 +4494,7 @@
     semestre: 6
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 48
+    horas_lei_tp: 48.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -4532,7 +4532,7 @@
     semestre: 4
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 75
+    horas_lei_tp: 75.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -4551,7 +4551,7 @@
     semestre: 6
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 32
+    horas_lei_tp: 32.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -4570,7 +4570,7 @@
     semestre: 3
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -4589,7 +4589,7 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -4608,7 +4608,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -4627,7 +4627,7 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -4646,7 +4646,7 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -4664,9 +4664,9 @@
     ano: 3
     semestre: 6
     epoca: 2
-    horas_lei_t: 16
+    horas_lei_t: 16.00
     horas_lei_tp: 
-    horas_lei_pl: 40
+    horas_lei_pl: 40.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -4683,9 +4683,9 @@
     ano: 3
     semestre: 6
     epoca: 2
-    horas_lei_t: 16
+    horas_lei_t: 16.00
     horas_lei_tp: 
-    horas_lei_pl: 40
+    horas_lei_pl: 40.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -4703,7 +4703,7 @@
     semestre: 3
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 75
+    horas_lei_tp: 75.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -4722,7 +4722,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -4741,7 +4741,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 36
+    horas_lei_tp: 36.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -4760,7 +4760,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 14
+    horas_lei_tp: 14.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -4778,9 +4778,9 @@
     ano: 3
     semestre: 6
     epoca: 2
-    horas_lei_t: 20
+    horas_lei_t: 20.00
     horas_lei_tp: 
-    horas_lei_pl: 20
+    horas_lei_pl: 20.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -4797,9 +4797,9 @@
     ano: 3
     semestre: 6
     epoca: 2
-    horas_lei_t: 20
+    horas_lei_t: 20.00
     horas_lei_tp: 
-    horas_lei_pl: 20
+    horas_lei_pl: 20.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -4817,7 +4817,7 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -4836,7 +4836,7 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -4855,7 +4855,7 @@
     semestre: 3
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -4874,7 +4874,7 @@
     semestre: 3
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -4893,7 +4893,7 @@
     semestre: 4
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -4912,7 +4912,7 @@
     semestre: 4
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -4931,7 +4931,7 @@
     semestre: 1
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 14
+    horas_lei_tp: 14.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -4949,7 +4949,7 @@
     ano: 2
     semestre: 4
     epoca: 2
-    horas_lei_t: 45
+    horas_lei_t: 45.00
     horas_lei_tp: 
     horas_lei_pl: 
     horas_lei_tc: 
@@ -4969,7 +4969,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 10
+    horas_lei_tp: 10.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -4988,7 +4988,7 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 30
+    horas_lei_tp: 30.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -5007,7 +5007,7 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 30
+    horas_lei_tp: 30.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -5026,10 +5026,10 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
-    horas_lei_s: 0
+    horas_lei_s: 0.00
     horas_lei_e: 
     horas_lei_ot: 
     horas_lei_o: 
@@ -5045,10 +5045,10 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
-    horas_lei_s: 0
+    horas_lei_s: 0.00
     horas_lei_e: 
     horas_lei_ot: 
     horas_lei_o: 
@@ -5064,7 +5064,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -5083,7 +5083,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -5102,10 +5102,10 @@
     semestre: 6
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 30
+    horas_lei_tp: 30.00
     horas_lei_pl: 
     horas_lei_tc: 
-    horas_lei_s: 0
+    horas_lei_s: 0.00
     horas_lei_e: 
     horas_lei_ot: 
     horas_lei_o: 
@@ -5121,10 +5121,10 @@
     semestre: 6
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 30
+    horas_lei_tp: 30.00
     horas_lei_pl: 
     horas_lei_tc: 
-    horas_lei_s: 0
+    horas_lei_s: 0.00
     horas_lei_e: 
     horas_lei_ot: 
     horas_lei_o: 
@@ -5140,7 +5140,7 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -5159,7 +5159,7 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -5178,10 +5178,10 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
-    horas_lei_s: 0
+    horas_lei_s: 0.00
     horas_lei_e: 
     horas_lei_ot: 
     horas_lei_o: 
@@ -5197,10 +5197,10 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
-    horas_lei_s: 0
+    horas_lei_s: 0.00
     horas_lei_e: 
     horas_lei_ot: 
     horas_lei_o: 
@@ -5216,7 +5216,7 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 30
+    horas_lei_tp: 30.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -5235,7 +5235,7 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 30
+    horas_lei_tp: 30.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -5254,7 +5254,7 @@
     semestre: 4
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -5273,7 +5273,7 @@
     semestre: 4
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -5292,10 +5292,10 @@
     semestre: 6
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
-    horas_lei_s: 0
+    horas_lei_s: 0.00
     horas_lei_e: 
     horas_lei_ot: 
     horas_lei_o: 
@@ -5311,10 +5311,10 @@
     semestre: 6
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
-    horas_lei_s: 0
+    horas_lei_s: 0.00
     horas_lei_e: 
     horas_lei_ot: 
     horas_lei_o: 
@@ -5330,7 +5330,7 @@
     semestre: 3
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -5349,7 +5349,7 @@
     semestre: 3
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -5368,7 +5368,7 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -5387,7 +5387,7 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -5406,7 +5406,7 @@
     semestre: 6
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -5425,7 +5425,7 @@
     semestre: 6
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -5444,10 +5444,10 @@
     semestre: 6
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
-    horas_lei_s: 0
+    horas_lei_s: 0.00
     horas_lei_e: 
     horas_lei_ot: 
     horas_lei_o: 
@@ -5463,10 +5463,10 @@
     semestre: 6
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
-    horas_lei_s: 0
+    horas_lei_s: 0.00
     horas_lei_e: 
     horas_lei_ot: 
     horas_lei_o: 
@@ -5482,7 +5482,7 @@
     semestre: 6
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -5501,7 +5501,7 @@
     semestre: 6
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -5520,7 +5520,7 @@
     semestre: 6
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -5539,7 +5539,7 @@
     semestre: 6
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -5558,10 +5558,10 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 0
+    horas_lei_tp: 0.00
     horas_lei_pl: 
     horas_lei_tc: 
-    horas_lei_s: 8
+    horas_lei_s: 8.00
     horas_lei_e: 
     horas_lei_ot: 
     horas_lei_o: 
@@ -5577,10 +5577,10 @@
     semestre: 3
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 0
+    horas_lei_tp: 0.00
     horas_lei_pl: 
     horas_lei_tc: 
-    horas_lei_s: 8
+    horas_lei_s: 8.00
     horas_lei_e: 
     horas_lei_ot: 
     horas_lei_o: 
@@ -5596,10 +5596,10 @@
     semestre: 4
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 0
+    horas_lei_tp: 0.00
     horas_lei_pl: 
     horas_lei_tc: 
-    horas_lei_s: 8
+    horas_lei_s: 8.00
     horas_lei_e: 
     horas_lei_ot: 
     horas_lei_o: 
@@ -5615,10 +5615,10 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 0
+    horas_lei_tp: 0.00
     horas_lei_pl: 
     horas_lei_tc: 
-    horas_lei_s: 4
+    horas_lei_s: 4.00
     horas_lei_e: 
     horas_lei_ot: 
     horas_lei_o: 
@@ -5634,10 +5634,10 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 0
+    horas_lei_tp: 0.00
     horas_lei_pl: 
     horas_lei_tc: 
-    horas_lei_s: 8
+    horas_lei_s: 8.00
     horas_lei_e: 
     horas_lei_ot: 
     horas_lei_o: 
@@ -5652,8 +5652,8 @@
     ano: 4
     semestre: 7
     epoca: 1
-    horas_lei_t: 20
-    horas_lei_tp: 12
+    horas_lei_t: 20.00
+    horas_lei_tp: 12.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -5671,8 +5671,8 @@
     ano: 4
     semestre: 7
     epoca: 2
-    horas_lei_t: 20
-    horas_lei_tp: 12
+    horas_lei_t: 20.00
+    horas_lei_tp: 12.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -5695,7 +5695,7 @@
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
-    horas_lei_e: 225
+    horas_lei_e: 225.00
     horas_lei_ot: 
     horas_lei_o: 
 - model: distro.unidadecurricular
@@ -5710,7 +5710,7 @@
     semestre: 6
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 40
+    horas_lei_tp: 40.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -5729,7 +5729,7 @@
     semestre: 6
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 40
+    horas_lei_tp: 40.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -5748,7 +5748,7 @@
     semestre: 6
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 30
+    horas_lei_tp: 30.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -5767,7 +5767,7 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -5786,7 +5786,7 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -5805,7 +5805,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -5824,7 +5824,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -5842,9 +5842,9 @@
     ano: 3
     semestre: 5
     epoca: 1
-    horas_lei_t: 30
+    horas_lei_t: 30.00
     horas_lei_tp: 
-    horas_lei_pl: 30
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -5861,9 +5861,9 @@
     ano: 3
     semestre: 5
     epoca: 1
-    horas_lei_t: 30
+    horas_lei_t: 30.00
     horas_lei_tp: 
-    horas_lei_pl: 30
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -5881,7 +5881,7 @@
     semestre: 3
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 34
+    horas_lei_tp: 34.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -5900,7 +5900,7 @@
     semestre: 4
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 30
+    horas_lei_tp: 30.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -5923,7 +5923,7 @@
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
-    horas_lei_e: 225
+    horas_lei_e: 225.00
     horas_lei_ot: 
     horas_lei_o: 
 - model: distro.unidadecurricular
@@ -5938,7 +5938,7 @@
     semestre: 6
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -5957,7 +5957,7 @@
     semestre: 6
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -5975,9 +5975,9 @@
     ano: 2
     semestre: 4
     epoca: 2
-    horas_lei_t: 15
+    horas_lei_t: 15.00
     horas_lei_tp: 
-    horas_lei_pl: 30
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -5995,7 +5995,7 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 30
+    horas_lei_tp: 30.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -6013,9 +6013,9 @@
     ano: 2
     semestre: 4
     epoca: 2
-    horas_lei_t: 30
+    horas_lei_t: 30.00
     horas_lei_tp: 
-    horas_lei_pl: 30
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -6032,9 +6032,9 @@
     ano: 3
     semestre: 5
     epoca: 1
-    horas_lei_t: 30
+    horas_lei_t: 30.00
     horas_lei_tp: 
-    horas_lei_pl: 30
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -6052,7 +6052,7 @@
     semestre: 6
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -6071,7 +6071,7 @@
     semestre: 6
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -6090,7 +6090,7 @@
     semestre: 3
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -6109,7 +6109,7 @@
     semestre: 3
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -6128,7 +6128,7 @@
     semestre: 3
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 30
+    horas_lei_tp: 30.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -6147,10 +6147,10 @@
     semestre: 4
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
-    horas_lei_s: 0
+    horas_lei_s: 0.00
     horas_lei_e: 
     horas_lei_ot: 
     horas_lei_o: 
@@ -6166,7 +6166,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -6185,7 +6185,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 24
+    horas_lei_tp: 24.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -6204,7 +6204,7 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 30
+    horas_lei_tp: 30.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -6223,7 +6223,7 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 30
+    horas_lei_tp: 30.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -6242,7 +6242,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -6261,7 +6261,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -6280,7 +6280,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 30
+    horas_lei_tp: 30.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -6299,7 +6299,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 30
+    horas_lei_tp: 30.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -6318,7 +6318,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 30
+    horas_lei_tp: 30.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -6337,10 +6337,10 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 75
+    horas_lei_tp: 75.00
     horas_lei_pl: 
     horas_lei_tc: 
-    horas_lei_s: 0
+    horas_lei_s: 0.00
     horas_lei_e: 
     horas_lei_ot: 
     horas_lei_o: 
@@ -6356,7 +6356,7 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 30
+    horas_lei_tp: 30.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -6375,7 +6375,7 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -6393,9 +6393,9 @@
     ano: 3
     semestre: 5
     epoca: 1
-    horas_lei_t: 30
+    horas_lei_t: 30.00
     horas_lei_tp: 
-    horas_lei_pl: 30
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -6412,9 +6412,9 @@
     ano: 3
     semestre: 5
     epoca: 1
-    horas_lei_t: 30
+    horas_lei_t: 30.00
     horas_lei_tp: 
-    horas_lei_pl: 30
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -6431,9 +6431,9 @@
     ano: 2
     semestre: 4
     epoca: 2
-    horas_lei_t: 30
+    horas_lei_t: 30.00
     horas_lei_tp: 
-    horas_lei_pl: 30
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -6450,9 +6450,9 @@
     ano: 2
     semestre: 4
     epoca: 2
-    horas_lei_t: 30
+    horas_lei_t: 30.00
     horas_lei_tp: 
-    horas_lei_pl: 30
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -6469,9 +6469,9 @@
     ano: 1
     semestre: 1
     epoca: 1
-    horas_lei_t: 30
+    horas_lei_t: 30.00
     horas_lei_tp: 
-    horas_lei_pl: 45
+    horas_lei_pl: 45.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -6488,9 +6488,9 @@
     ano: 1
     semestre: 2
     epoca: 2
-    horas_lei_t: 30
+    horas_lei_t: 30.00
     horas_lei_tp: 
-    horas_lei_pl: 30
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -6507,9 +6507,9 @@
     ano: 2
     semestre: 4
     epoca: 2
-    horas_lei_t: 15
+    horas_lei_t: 15.00
     horas_lei_tp: 
-    horas_lei_pl: 30
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -6527,7 +6527,7 @@
     semestre: 6
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 30
+    horas_lei_tp: 30.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -6546,7 +6546,7 @@
     semestre: 4
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 30
+    horas_lei_tp: 30.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -6565,7 +6565,7 @@
     semestre: 4
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 30
+    horas_lei_tp: 30.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -6584,10 +6584,10 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
-    horas_lei_s: 0
+    horas_lei_s: 0.00
     horas_lei_e: 
     horas_lei_ot: 
     horas_lei_o: 
@@ -6603,7 +6603,7 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -6622,7 +6622,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 24
+    horas_lei_tp: 24.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -6640,8 +6640,8 @@
     ano: 3
     semestre: 6
     epoca: 2
-    horas_lei_t: 30
-    horas_lei_tp: 30
+    horas_lei_t: 30.00
+    horas_lei_tp: 30.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -6660,7 +6660,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 36
+    horas_lei_tp: 36.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -6679,7 +6679,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 30
+    horas_lei_tp: 30.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -6698,7 +6698,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 30
+    horas_lei_tp: 30.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -6716,8 +6716,8 @@
     ano: 3
     semestre: 6
     epoca: 2
-    horas_lei_t: 20
-    horas_lei_tp: 25
+    horas_lei_t: 20.00
+    horas_lei_tp: 25.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -6735,9 +6735,9 @@
     ano: 2
     semestre: 4
     epoca: 2
-    horas_lei_t: 15
+    horas_lei_t: 15.00
     horas_lei_tp: 
-    horas_lei_pl: 30
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -6754,9 +6754,9 @@
     ano: 2
     semestre: 4
     epoca: 2
-    horas_lei_t: 15
+    horas_lei_t: 15.00
     horas_lei_tp: 
-    horas_lei_pl: 30
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -6773,9 +6773,9 @@
     ano: 2
     semestre: 4
     epoca: 2
-    horas_lei_t: 15
+    horas_lei_t: 15.00
     horas_lei_tp: 
-    horas_lei_pl: 30
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -6792,9 +6792,9 @@
     ano: 2
     semestre: 3
     epoca: 1
-    horas_lei_t: 30
+    horas_lei_t: 30.00
     horas_lei_tp: 
-    horas_lei_pl: 30
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -6811,9 +6811,9 @@
     ano: 2
     semestre: 3
     epoca: 1
-    horas_lei_t: 30
+    horas_lei_t: 30.00
     horas_lei_tp: 
-    horas_lei_pl: 30
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -6830,9 +6830,9 @@
     ano: 3
     semestre: 5
     epoca: 1
-    horas_lei_t: 30
+    horas_lei_t: 30.00
     horas_lei_tp: 
-    horas_lei_pl: 30
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -6850,7 +6850,7 @@
     semestre: 4
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -6869,7 +6869,7 @@
     semestre: 4
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -6888,7 +6888,7 @@
     semestre: 4
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -6907,7 +6907,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -6926,7 +6926,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -6945,7 +6945,7 @@
     semestre: 3
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -6964,7 +6964,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -6983,7 +6983,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -7002,7 +7002,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 48
+    horas_lei_tp: 48.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -7021,7 +7021,7 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -7040,7 +7040,7 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -7059,7 +7059,7 @@
     semestre: 4
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -7078,7 +7078,7 @@
     semestre: 6
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 30
+    horas_lei_tp: 30.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -7097,7 +7097,7 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -7116,7 +7116,7 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -7135,7 +7135,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 32
+    horas_lei_tp: 32.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -7154,10 +7154,10 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
-    horas_lei_s: 0
+    horas_lei_s: 0.00
     horas_lei_e: 
     horas_lei_ot: 
     horas_lei_o: 
@@ -7173,7 +7173,7 @@
     semestre: 3
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -7192,7 +7192,7 @@
     semestre: 3
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -7211,7 +7211,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -7230,7 +7230,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -7248,9 +7248,9 @@
     ano: 2
     semestre: 4
     epoca: 2
-    horas_lei_t: 15
+    horas_lei_t: 15.00
     horas_lei_tp: 
-    horas_lei_pl: 30
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -7267,9 +7267,9 @@
     ano: 2
     semestre: 3
     epoca: 1
-    horas_lei_t: 30
+    horas_lei_t: 30.00
     horas_lei_tp: 
-    horas_lei_pl: 30
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -7286,9 +7286,9 @@
     ano: 2
     semestre: 3
     epoca: 1
-    horas_lei_t: 30
+    horas_lei_t: 30.00
     horas_lei_tp: 
-    horas_lei_pl: 30
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -7306,7 +7306,7 @@
     semestre: 4
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -7325,7 +7325,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 30
+    horas_lei_tp: 30.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -7344,7 +7344,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 30
+    horas_lei_tp: 30.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -7363,7 +7363,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -7382,10 +7382,10 @@
     semestre: 3
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
-    horas_lei_s: 0
+    horas_lei_s: 0.00
     horas_lei_e: 
     horas_lei_ot: 
     horas_lei_o: 
@@ -7401,7 +7401,7 @@
     semestre: 4
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -7420,7 +7420,7 @@
     semestre: 4
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -7439,7 +7439,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -7458,7 +7458,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -7477,7 +7477,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -7496,7 +7496,7 @@
     semestre: 8
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 20
+    horas_lei_tp: 20.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -7515,7 +7515,7 @@
     semestre: 8
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 20
+    horas_lei_tp: 20.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -7534,7 +7534,7 @@
     semestre: 6
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 30
+    horas_lei_tp: 30.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -7552,8 +7552,8 @@
     ano: 3
     semestre: 5
     epoca: 1
-    horas_lei_t: 13
-    horas_lei_tp: 13
+    horas_lei_t: 13.00
+    horas_lei_tp: 13.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -7572,7 +7572,7 @@
     semestre: 4
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -7591,7 +7591,7 @@
     semestre: 4
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -7610,7 +7610,7 @@
     semestre: 4
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 30
+    horas_lei_tp: 30.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -7629,7 +7629,7 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -7648,7 +7648,7 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -7667,7 +7667,7 @@
     semestre: 3
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 30
+    horas_lei_tp: 30.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -7686,7 +7686,7 @@
     semestre: 3
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 30
+    horas_lei_tp: 30.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -7705,7 +7705,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -7724,7 +7724,7 @@
     semestre: 3
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -7743,7 +7743,7 @@
     semestre: 3
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -7761,9 +7761,9 @@
     ano: 3
     semestre: 5
     epoca: 1
-    horas_lei_t: 15
+    horas_lei_t: 15.00
     horas_lei_tp: 
-    horas_lei_pl: 30
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -7780,9 +7780,9 @@
     ano: 3
     semestre: 5
     epoca: 1
-    horas_lei_t: 15
+    horas_lei_t: 15.00
     horas_lei_tp: 
-    horas_lei_pl: 30
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -7799,9 +7799,9 @@
     ano: 1
     semestre: 2
     epoca: 2
-    horas_lei_t: 30
+    horas_lei_t: 30.00
     horas_lei_tp: 
-    horas_lei_pl: 30
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -7819,7 +7819,7 @@
     semestre: 3
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -7838,7 +7838,7 @@
     semestre: 3
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -7857,7 +7857,7 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -7876,7 +7876,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -7895,7 +7895,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -7914,7 +7914,7 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -7933,7 +7933,7 @@
     semestre: 3
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -7951,9 +7951,9 @@
     ano: 1
     semestre: 1
     epoca: 1
-    horas_lei_t: 30
+    horas_lei_t: 30.00
     horas_lei_tp: 
-    horas_lei_pl: 45
+    horas_lei_pl: 45.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -7970,9 +7970,9 @@
     ano: 2
     semestre: 4
     epoca: 2
-    horas_lei_t: 30
+    horas_lei_t: 30.00
     horas_lei_tp: 
-    horas_lei_pl: 30
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -7990,7 +7990,7 @@
     semestre: 3
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -8009,7 +8009,7 @@
     semestre: 3
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -8028,7 +8028,7 @@
     semestre: 4
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -8047,7 +8047,7 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -8066,7 +8066,7 @@
     semestre: 3
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -8085,7 +8085,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 75
+    horas_lei_tp: 75.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -8104,7 +8104,7 @@
     semestre: 6
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 40
+    horas_lei_tp: 40.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -8123,7 +8123,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -8142,12 +8142,12 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 50
+    horas_lei_tp: 50.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
-    horas_lei_ot: 10
+    horas_lei_ot: 10.00
     horas_lei_o: 
 - model: distro.unidadecurricular
   pk: 430
@@ -8161,12 +8161,12 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 27
+    horas_lei_tp: 27.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
-    horas_lei_ot: 8
+    horas_lei_ot: 8.00
     horas_lei_o: 
 - model: distro.unidadecurricular
   pk: 431
@@ -8180,12 +8180,12 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 64
+    horas_lei_tp: 64.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
-    horas_lei_ot: 16
+    horas_lei_ot: 16.00
     horas_lei_o: 
 - model: distro.unidadecurricular
   pk: 432
@@ -8199,7 +8199,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 50
+    horas_lei_tp: 50.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -8218,7 +8218,7 @@
     semestre: 2
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 50
+    horas_lei_tp: 50.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -8236,8 +8236,8 @@
     ano: 1
     semestre: 1
     epoca: 1
-    horas_lei_t: 40
-    horas_lei_tp: 20
+    horas_lei_t: 40.00
+    horas_lei_tp: 20.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -8259,7 +8259,7 @@
     horas_lei_tp: 
     horas_lei_pl: 
     horas_lei_tc: 
-    horas_lei_s: 50
+    horas_lei_s: 50.00
     horas_lei_e: 
     horas_lei_ot: 
     horas_lei_o: 
@@ -8275,12 +8275,12 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 50
+    horas_lei_tp: 50.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
-    horas_lei_ot: 10
+    horas_lei_ot: 10.00
     horas_lei_o: 
 - model: distro.unidadecurricular
   pk: 437
@@ -8299,7 +8299,7 @@
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
-    horas_lei_ot: 70
+    horas_lei_ot: 70.00
     horas_lei_o: 
 - model: distro.unidadecurricular
   pk: 438
@@ -8317,7 +8317,7 @@
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
-    horas_lei_e: 150
+    horas_lei_e: 150.00
     horas_lei_ot: 
     horas_lei_o: 
 - model: distro.unidadecurricular
@@ -8336,7 +8336,7 @@
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
-    horas_lei_e: 200
+    horas_lei_e: 200.00
     horas_lei_ot: 
     horas_lei_o: 
 - model: distro.unidadecurricular
@@ -8351,7 +8351,7 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -8370,7 +8370,7 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -8389,7 +8389,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 75
+    horas_lei_tp: 75.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -8408,12 +8408,12 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 50
+    horas_lei_tp: 50.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
-    horas_lei_ot: 10
+    horas_lei_ot: 10.00
     horas_lei_o: 
 - model: distro.unidadecurricular
   pk: 444
@@ -8427,7 +8427,7 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -8446,7 +8446,7 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 22
+    horas_lei_tp: 22.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -8468,7 +8468,7 @@
     horas_lei_tp: 
     horas_lei_pl: 
     horas_lei_tc: 
-    horas_lei_s: 60
+    horas_lei_s: 60.00
     horas_lei_e: 
     horas_lei_ot: 
     horas_lei_o: 
@@ -8487,7 +8487,7 @@
     horas_lei_tp: 
     horas_lei_pl: 
     horas_lei_tc: 
-    horas_lei_s: 60
+    horas_lei_s: 60.00
     horas_lei_e: 
     horas_lei_ot: 
     horas_lei_o: 
@@ -8503,12 +8503,12 @@
     semestre: 4
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
-    horas_lei_ot: 15
+    horas_lei_ot: 15.00
     horas_lei_o: 
 - model: distro.unidadecurricular
   pk: 449
@@ -8522,7 +8522,7 @@
     semestre: 6
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -8541,7 +8541,7 @@
     semestre: 6
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -8560,11 +8560,11 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 10
+    horas_lei_tp: 10.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
-    horas_lei_e: 50
+    horas_lei_e: 50.00
     horas_lei_ot: 
     horas_lei_o: 
 - model: distro.unidadecurricular
@@ -8583,7 +8583,7 @@
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
-    horas_lei_e: 300
+    horas_lei_e: 300.00
     horas_lei_ot: 
     horas_lei_o: 
 - model: distro.unidadecurricular
@@ -8598,7 +8598,7 @@
     semestre: 1
     epoca:
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -8617,7 +8617,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 90
+    horas_lei_tp: 90.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -8636,7 +8636,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 90
+    horas_lei_tp: 90.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -8655,7 +8655,7 @@
     semestre: 4
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -8674,7 +8674,7 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -8693,7 +8693,7 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -8712,7 +8712,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -8731,7 +8731,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 50
+    horas_lei_tp: 50.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -8750,7 +8750,7 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -8768,7 +8768,7 @@
     ano: 1
     semestre: 2
     epoca: 1
-    horas_lei_t: 45
+    horas_lei_t: 45.00
     horas_lei_tp: 
     horas_lei_pl: 
     horas_lei_tc: 
@@ -8793,7 +8793,7 @@
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
-    horas_lei_ot: 70
+    horas_lei_ot: 70.00
     horas_lei_o: 
 - model: distro.unidadecurricular
   pk: 464
@@ -8811,7 +8811,7 @@
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
-    horas_lei_e: 150
+    horas_lei_e: 150.00
     horas_lei_ot: 
     horas_lei_o: 
 - model: distro.unidadecurricular
@@ -8830,7 +8830,7 @@
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
-    horas_lei_e: 200
+    horas_lei_e: 200.00
     horas_lei_ot: 
     horas_lei_o: 
 - model: distro.unidadecurricular
@@ -8845,7 +8845,7 @@
     semestre: 3
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -8864,7 +8864,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 140
+    horas_lei_tp: 140.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -8883,7 +8883,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -8902,7 +8902,7 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -8921,7 +8921,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 30
+    horas_lei_tp: 30.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -8940,12 +8940,12 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
-    horas_lei_ot: 20
+    horas_lei_ot: 20.00
     horas_lei_o: 
 - model: distro.unidadecurricular
   pk: 472
@@ -8959,7 +8959,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -8978,10 +8978,10 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 30
+    horas_lei_tp: 30.00
     horas_lei_pl: 
     horas_lei_tc: 
-    horas_lei_s: 4
+    horas_lei_s: 4.00
     horas_lei_e: 
     horas_lei_ot: 
     horas_lei_o: 
@@ -8997,7 +8997,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -9016,7 +9016,7 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -9035,7 +9035,7 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -9054,7 +9054,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 40
+    horas_lei_tp: 40.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -9073,7 +9073,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -9092,7 +9092,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 40
+    horas_lei_tp: 40.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -9110,8 +9110,8 @@
     ano: 3
     semestre: 5
     epoca: 2
-    horas_lei_t: 25
-    horas_lei_tp: 10
+    horas_lei_t: 25.00
+    horas_lei_tp: 10.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -9130,7 +9130,7 @@
     semestre: 4
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 30
+    horas_lei_tp: 30.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -9149,7 +9149,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 30
+    horas_lei_tp: 30.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -9168,7 +9168,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -9186,7 +9186,7 @@
     ano: 1
     semestre: 1
     epoca: 1
-    horas_lei_t: 45
+    horas_lei_t: 45.00
     horas_lei_tp: 
     horas_lei_pl: 
     horas_lei_tc: 
@@ -9209,7 +9209,7 @@
     horas_lei_tp: 
     horas_lei_pl: 
     horas_lei_tc: 
-    horas_lei_s: 30
+    horas_lei_s: 30.00
     horas_lei_e: 
     horas_lei_ot: 
     horas_lei_o: 
@@ -9225,7 +9225,7 @@
     semestre: 3
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -9244,12 +9244,12 @@
     semestre: 4
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 25
+    horas_lei_tp: 25.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
-    horas_lei_ot: 5
+    horas_lei_ot: 5.00
     horas_lei_o: 
 - model: distro.unidadecurricular
   pk: 488
@@ -9263,12 +9263,12 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 32
+    horas_lei_tp: 32.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
-    horas_lei_ot: 8
+    horas_lei_ot: 8.00
     horas_lei_o: 
 - model: distro.unidadecurricular
   pk: 489
@@ -9282,12 +9282,12 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 50
+    horas_lei_tp: 50.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
-    horas_lei_ot: 10
+    horas_lei_ot: 10.00
     horas_lei_o: 
 - model: distro.unidadecurricular
   pk: 490
@@ -9300,13 +9300,13 @@
     ano: 2
     semestre: 3
     epoca: 1
-    horas_lei_t: 40
-    horas_lei_tp: 15
+    horas_lei_t: 40.00
+    horas_lei_tp: 15.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
-    horas_lei_ot: 5
+    horas_lei_ot: 5.00
     horas_lei_o: 
 - model: distro.unidadecurricular
   pk: 491
@@ -9320,12 +9320,12 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 27
+    horas_lei_tp: 27.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
-    horas_lei_ot: 8
+    horas_lei_ot: 8.00
     horas_lei_o: 
 - model: distro.unidadecurricular
   pk: 492
@@ -9339,12 +9339,12 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 27
+    horas_lei_tp: 27.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
-    horas_lei_ot: 8
+    horas_lei_ot: 8.00
     horas_lei_o: 
 - model: distro.unidadecurricular
   pk: 493
@@ -9362,7 +9362,7 @@
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
-    horas_lei_e: 60
+    horas_lei_e: 60.00
     horas_lei_ot: 
     horas_lei_o: 
 - model: distro.unidadecurricular
@@ -9377,7 +9377,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -9399,7 +9399,7 @@
     horas_lei_tp: 
     horas_lei_pl: 
     horas_lei_tc: 
-    horas_lei_s: 45
+    horas_lei_s: 45.00
     horas_lei_e: 
     horas_lei_ot: 
     horas_lei_o: 
@@ -9415,7 +9415,7 @@
     semestre: 6
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -9434,7 +9434,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -9452,8 +9452,8 @@
     ano: 3
     semestre: 5
     epoca: 1
-    horas_lei_t: 5
-    horas_lei_tp: 25
+    horas_lei_t: 5.00
+    horas_lei_tp: 25.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -9472,12 +9472,12 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 25
+    horas_lei_tp: 25.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
-    horas_lei_ot: 5
+    horas_lei_ot: 5.00
     horas_lei_o: 
 - model: distro.unidadecurricular
   pk: 500
@@ -9491,7 +9491,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 30
+    horas_lei_tp: 30.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -9509,13 +9509,13 @@
     ano: 1
     semestre: 2
     epoca: 2
-    horas_lei_t: 20
-    horas_lei_tp: 35
+    horas_lei_t: 20.00
+    horas_lei_tp: 35.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
-    horas_lei_ot: 5
+    horas_lei_ot: 5.00
     horas_lei_o: 
 - model: distro.unidadecurricular
   pk: 502
@@ -9529,12 +9529,12 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 40
+    horas_lei_tp: 40.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
-    horas_lei_ot: 5
+    horas_lei_ot: 5.00
     horas_lei_o: 
 - model: distro.unidadecurricular
   pk: 503
@@ -9548,12 +9548,12 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 27
+    horas_lei_tp: 27.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
-    horas_lei_ot: 8
+    horas_lei_ot: 8.00
     horas_lei_o: 
 - model: distro.unidadecurricular
   pk: 504
@@ -9567,7 +9567,7 @@
     semestre: 2
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 240
+    horas_lei_tp: 240.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -9586,7 +9586,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 35
+    horas_lei_tp: 35.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -9604,8 +9604,8 @@
     ano: 2
     semestre: 4
     epoca: 2
-    horas_lei_t: 21
-    horas_lei_tp: 6
+    horas_lei_t: 21.00
+    horas_lei_tp: 6.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -9623,8 +9623,8 @@
     ano: 2
     semestre: 4
     epoca: 1
-    horas_lei_t: 21
-    horas_lei_tp: 6
+    horas_lei_t: 21.00
+    horas_lei_tp: 6.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -9643,12 +9643,12 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 27
+    horas_lei_tp: 27.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
-    horas_lei_ot: 8
+    horas_lei_ot: 8.00
     horas_lei_o: 
 - model: distro.unidadecurricular
   pk: 509
@@ -9661,8 +9661,8 @@
     ano: 1
     semestre: 1
     epoca: 1
-    horas_lei_t: 20
-    horas_lei_tp: 10
+    horas_lei_t: 20.00
+    horas_lei_tp: 10.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -9680,8 +9680,8 @@
     ano: 3
     semestre: 6
     epoca: 2
-    horas_lei_t: 20
-    horas_lei_tp: 25
+    horas_lei_t: 20.00
+    horas_lei_tp: 25.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -9699,8 +9699,8 @@
     ano: 1
     semestre: 2
     epoca: 1
-    horas_lei_t: 30
-    horas_lei_tp: 10
+    horas_lei_t: 30.00
+    horas_lei_tp: 10.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -9719,12 +9719,12 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 27
+    horas_lei_tp: 27.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
-    horas_lei_ot: 8
+    horas_lei_ot: 8.00
     horas_lei_o: 
 - model: distro.unidadecurricular
   pk: 513
@@ -9738,7 +9738,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -9757,10 +9757,10 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 30
+    horas_lei_tp: 30.00
     horas_lei_pl: 
     horas_lei_tc: 
-    horas_lei_s: 4
+    horas_lei_s: 4.00
     horas_lei_e: 
     horas_lei_ot: 
     horas_lei_o: 
@@ -9776,7 +9776,7 @@
     semestre: 2
     epoca:
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -9795,7 +9795,7 @@
     semestre: 3
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -9814,7 +9814,7 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -9833,7 +9833,7 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 75
+    horas_lei_tp: 75.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -9852,7 +9852,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 36
+    horas_lei_tp: 36.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -9871,12 +9871,12 @@
     semestre: 4
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
-    horas_lei_ot: 15
+    horas_lei_ot: 15.00
     horas_lei_o: 
 - model: distro.unidadecurricular
   pk: 521
@@ -9890,7 +9890,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -9909,12 +9909,12 @@
     semestre: 3
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 35
+    horas_lei_tp: 35.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
-    horas_lei_ot: 10
+    horas_lei_ot: 10.00
     horas_lei_o: 
 - model: distro.unidadecurricular
   pk: 523
@@ -9928,7 +9928,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 35
+    horas_lei_tp: 35.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -9947,12 +9947,12 @@
     semestre: 3
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 35
+    horas_lei_tp: 35.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
-    horas_lei_ot: 10
+    horas_lei_ot: 10.00
     horas_lei_o: 
 - model: distro.unidadecurricular
   pk: 525
@@ -9966,7 +9966,7 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -9984,7 +9984,7 @@
     ano: 2
     semestre: 3
     epoca: 1
-    horas_lei_t: 45
+    horas_lei_t: 45.00
     horas_lei_tp: 
     horas_lei_pl: 
     horas_lei_tc: 
@@ -10004,7 +10004,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 50
+    horas_lei_tp: 50.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -10023,12 +10023,12 @@
     semestre: 4
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 40
+    horas_lei_tp: 40.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
-    horas_lei_ot: 5
+    horas_lei_ot: 5.00
     horas_lei_o: 
 - model: distro.unidadecurricular
   pk: 529
@@ -10042,7 +10042,7 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 30
+    horas_lei_tp: 30.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -10061,7 +10061,7 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 30
+    horas_lei_tp: 30.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -10080,7 +10080,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -10099,12 +10099,12 @@
     semestre: 3
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 25
+    horas_lei_tp: 25.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
-    horas_lei_ot: 5
+    horas_lei_ot: 5.00
     horas_lei_o: 
 - model: distro.unidadecurricular
   pk: 533
@@ -10117,8 +10117,8 @@
     ano: 2
     semestre: 3
     epoca: 1
-    horas_lei_t: 15
-    horas_lei_tp: 15
+    horas_lei_t: 15.00
+    horas_lei_tp: 15.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -10142,7 +10142,7 @@
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
-    horas_lei_ot: 4
+    horas_lei_ot: 4.00
     horas_lei_o: 
 - model: distro.unidadecurricular
   pk: 535
@@ -10161,7 +10161,7 @@
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
-    horas_lei_ot: 4
+    horas_lei_ot: 4.00
     horas_lei_o: 
 - model: distro.unidadecurricular
   pk: 536
@@ -10175,7 +10175,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 30
+    horas_lei_tp: 30.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -10194,7 +10194,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 30
+    horas_lei_tp: 30.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -10213,7 +10213,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -10232,7 +10232,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 20
+    horas_lei_tp: 20.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -10251,7 +10251,7 @@
     semestre: 2
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 20
+    horas_lei_tp: 20.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -10270,7 +10270,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -10289,7 +10289,7 @@
     semestre: 3
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -10308,7 +10308,7 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -10327,7 +10327,7 @@
     semestre: 4
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 75
+    horas_lei_tp: 75.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -10346,7 +10346,7 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -10365,7 +10365,7 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 30
+    horas_lei_tp: 30.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -10383,7 +10383,7 @@
     ano: 1
     semestre: 1
     epoca: 2
-    horas_lei_t: 45
+    horas_lei_t: 45.00
     horas_lei_tp: 
     horas_lei_pl: 
     horas_lei_tc: 
@@ -10403,7 +10403,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 80
+    horas_lei_tp: 80.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -10422,12 +10422,12 @@
     semestre: 4
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 55
+    horas_lei_tp: 55.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
-    horas_lei_ot: 5
+    horas_lei_ot: 5.00
     horas_lei_o: 
 - model: distro.unidadecurricular
   pk: 550
@@ -10441,12 +10441,12 @@
     semestre: 6
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 25
+    horas_lei_tp: 25.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
-    horas_lei_ot: 5
+    horas_lei_ot: 5.00
     horas_lei_o: 
 - model: distro.unidadecurricular
   pk: 551
@@ -10460,7 +10460,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 15
+    horas_lei_tp: 15.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -10483,7 +10483,7 @@
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
-    horas_lei_e: 30
+    horas_lei_e: 30.00
     horas_lei_ot: 
     horas_lei_o: 
 - model: distro.unidadecurricular
@@ -10501,7 +10501,7 @@
     horas_lei_tp: 
     horas_lei_pl: 
     horas_lei_tc: 
-    horas_lei_s: 15
+    horas_lei_s: 15.00
     horas_lei_e: 
     horas_lei_ot: 
     horas_lei_o: 
@@ -10517,7 +10517,7 @@
     semestre: 1
     epoca:
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -10535,8 +10535,8 @@
     ano: 1
     semestre: 1
     epoca: 2
-    horas_lei_t: 15
-    horas_lei_tp: 15
+    horas_lei_t: 15.00
+    horas_lei_tp: 15.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -10555,7 +10555,7 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 75
+    horas_lei_tp: 75.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -10574,7 +10574,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -10593,7 +10593,7 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -10612,7 +10612,7 @@
     semestre: 3
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -10631,10 +10631,10 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 65
+    horas_lei_tp: 65.00
     horas_lei_pl: 
     horas_lei_tc: 
-    horas_lei_s: 10
+    horas_lei_s: 10.00
     horas_lei_e: 
     horas_lei_ot: 
     horas_lei_o: 
@@ -10650,7 +10650,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 34
+    horas_lei_tp: 34.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -10669,7 +10669,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 34
+    horas_lei_tp: 34.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -10688,7 +10688,7 @@
     semestre: 6
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -10707,8 +10707,8 @@
     semestre: 6
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 15
-    horas_lei_pl: 45
+    horas_lei_tp: 15.00
+    horas_lei_pl: 45.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -10726,8 +10726,8 @@
     semestre: 6
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 15
-    horas_lei_pl: 45
+    horas_lei_tp: 15.00
+    horas_lei_pl: 45.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -10745,7 +10745,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 27
+    horas_lei_tp: 27.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -10764,7 +10764,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 25
+    horas_lei_tp: 25.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -10783,8 +10783,8 @@
     semestre: 3
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 15
-    horas_lei_pl: 45
+    horas_lei_tp: 15.00
+    horas_lei_pl: 45.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -10802,8 +10802,8 @@
     semestre: 4
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 15
-    horas_lei_pl: 45
+    horas_lei_tp: 15.00
+    horas_lei_pl: 45.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -10821,7 +10821,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -10840,7 +10840,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 90
+    horas_lei_tp: 90.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -10860,7 +10860,7 @@
     epoca: 1
     horas_lei_t: 
     horas_lei_tp: 
-    horas_lei_pl: 45
+    horas_lei_pl: 45.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -10878,7 +10878,7 @@
     semestre: 3
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 75
+    horas_lei_tp: 75.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -10897,7 +10897,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 27
+    horas_lei_tp: 27.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -10916,7 +10916,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 90
+    horas_lei_tp: 90.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -10935,7 +10935,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 20
+    horas_lei_tp: 20.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -10954,7 +10954,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 90
+    horas_lei_tp: 90.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -10973,7 +10973,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 90
+    horas_lei_tp: 90.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -10992,7 +10992,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 105
+    horas_lei_tp: 105.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -11011,7 +11011,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 134
+    horas_lei_tp: 134.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -11030,7 +11030,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 90
+    horas_lei_tp: 90.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -11049,7 +11049,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -11068,7 +11068,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 120
+    horas_lei_tp: 120.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -11087,7 +11087,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 24
+    horas_lei_tp: 24.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -11106,7 +11106,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 21
+    horas_lei_tp: 21.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -11125,7 +11125,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 30
+    horas_lei_tp: 30.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -11144,8 +11144,8 @@
     semestre: 4
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 15
-    horas_lei_pl: 45
+    horas_lei_tp: 15.00
+    horas_lei_pl: 45.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -11163,7 +11163,7 @@
     semestre: 4
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 27
+    horas_lei_tp: 27.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -11182,7 +11182,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -11201,7 +11201,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -11220,7 +11220,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 40
+    horas_lei_tp: 40.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -11239,8 +11239,8 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 12
-    horas_lei_pl: 12
+    horas_lei_tp: 12.00
+    horas_lei_pl: 12.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -11257,8 +11257,8 @@
     ano: 3
     semestre: 6
     epoca: 2
-    horas_lei_t: 15
-    horas_lei_tp: 15
+    horas_lei_t: 15.00
+    horas_lei_tp: 15.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -11277,7 +11277,7 @@
     semestre: 3
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -11295,8 +11295,8 @@
     ano: 1
     semestre: 2
     epoca: 2
-    horas_lei_t: 26
-    horas_lei_tp: 26
+    horas_lei_t: 26.00
+    horas_lei_tp: 26.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -11314,8 +11314,8 @@
     ano: 2
     semestre: 3
     epoca: 1
-    horas_lei_t: 20
-    horas_lei_tp: 25
+    horas_lei_t: 20.00
+    horas_lei_tp: 25.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -11334,7 +11334,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 34
+    horas_lei_tp: 34.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -11353,9 +11353,9 @@
     semestre: 3
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 30
+    horas_lei_tp: 30.00
     horas_lei_pl: 
-    horas_lei_tc: 30
+    horas_lei_tc: 30.00
     horas_lei_s: 
     horas_lei_e: 
     horas_lei_ot: 
@@ -11372,7 +11372,7 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -11391,7 +11391,7 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -11410,7 +11410,7 @@
     semestre: 6
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 75
+    horas_lei_tp: 75.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -11429,7 +11429,7 @@
     semestre: 6
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 75
+    horas_lei_tp: 75.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -11448,7 +11448,7 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -11467,7 +11467,7 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -11486,8 +11486,8 @@
     semestre: 4
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 30
-    horas_lei_pl: 30
+    horas_lei_tp: 30.00
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -11505,8 +11505,8 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 18
-    horas_lei_pl: 18
+    horas_lei_tp: 18.00
+    horas_lei_pl: 18.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -11524,8 +11524,8 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 18
-    horas_lei_pl: 18
+    horas_lei_tp: 18.00
+    horas_lei_pl: 18.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -11562,8 +11562,8 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 30
-    horas_lei_pl: 45
+    horas_lei_tp: 30.00
+    horas_lei_pl: 45.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -11581,7 +11581,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 30
+    horas_lei_tp: 30.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -11600,8 +11600,8 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 30
-    horas_lei_pl: 30
+    horas_lei_tp: 30.00
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -11619,7 +11619,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 30
+    horas_lei_tp: 30.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -11638,7 +11638,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -11657,8 +11657,8 @@
     semestre: 4
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 55
-    horas_lei_pl: 5
+    horas_lei_tp: 55.00
+    horas_lei_pl: 5.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -11676,8 +11676,8 @@
     semestre: 3
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 55
-    horas_lei_pl: 5
+    horas_lei_tp: 55.00
+    horas_lei_pl: 5.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -11695,8 +11695,8 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 40
-    horas_lei_pl: 5
+    horas_lei_tp: 40.00
+    horas_lei_pl: 5.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -11714,8 +11714,8 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 40
-    horas_lei_pl: 5
+    horas_lei_tp: 40.00
+    horas_lei_pl: 5.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -11733,12 +11733,12 @@
     semestre: 6
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 25
-    horas_lei_pl: 70
+    horas_lei_tp: 25.00
+    horas_lei_pl: 70.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
-    horas_lei_ot: 10
+    horas_lei_ot: 10.00
     horas_lei_o: 
 - model: distro.unidadecurricular
   pk: 619
@@ -11752,8 +11752,8 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 12
-    horas_lei_pl: 12
+    horas_lei_tp: 12.00
+    horas_lei_pl: 12.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -11771,8 +11771,8 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 30
-    horas_lei_pl: 45
+    horas_lei_tp: 30.00
+    horas_lei_pl: 45.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -11790,8 +11790,8 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 12
-    horas_lei_pl: 12
+    horas_lei_tp: 12.00
+    horas_lei_pl: 12.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -11809,8 +11809,8 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 30
-    horas_lei_pl: 30
+    horas_lei_tp: 30.00
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -11828,8 +11828,8 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 30
-    horas_lei_pl: 30
+    horas_lei_tp: 30.00
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -11866,8 +11866,8 @@
     semestre: 3
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 30
-    horas_lei_pl: 30
+    horas_lei_tp: 30.00
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -11885,7 +11885,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 34
+    horas_lei_tp: 34.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -11904,8 +11904,8 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 18
-    horas_lei_pl: 18
+    horas_lei_tp: 18.00
+    horas_lei_pl: 18.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -11923,8 +11923,8 @@
     semestre: 4
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 30
-    horas_lei_pl: 30
+    horas_lei_tp: 30.00
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -11942,8 +11942,8 @@
     semestre: 3
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 30
-    horas_lei_pl: 30
+    horas_lei_tp: 30.00
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -11961,8 +11961,8 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 18
-    horas_lei_pl: 18
+    horas_lei_tp: 18.00
+    horas_lei_pl: 18.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -11980,7 +11980,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 190
+    horas_lei_tp: 190.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -11999,7 +11999,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 105
+    horas_lei_tp: 105.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -12018,7 +12018,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 90
+    horas_lei_tp: 90.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -12037,7 +12037,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 75
+    horas_lei_tp: 75.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -12056,7 +12056,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 90
+    horas_lei_tp: 90.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -12075,7 +12075,7 @@
     semestre: 3
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -12094,7 +12094,7 @@
     semestre: 4
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 90
+    horas_lei_tp: 90.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -12113,8 +12113,8 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 18
-    horas_lei_pl: 18
+    horas_lei_tp: 18.00
+    horas_lei_pl: 18.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -12132,8 +12132,8 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 30
-    horas_lei_pl: 30
+    horas_lei_tp: 30.00
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -12151,8 +12151,8 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 30
-    horas_lei_pl: 30
+    horas_lei_tp: 30.00
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -12170,8 +12170,8 @@
     semestre: 6
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 30
-    horas_lei_pl: 30
+    horas_lei_tp: 30.00
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -12189,8 +12189,8 @@
     semestre: 6
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 30
-    horas_lei_pl: 30
+    horas_lei_tp: 30.00
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -12208,8 +12208,8 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 12
-    horas_lei_pl: 12
+    horas_lei_tp: 12.00
+    horas_lei_pl: 12.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -12227,7 +12227,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -12246,7 +12246,7 @@
     semestre: 4
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 27
+    horas_lei_tp: 27.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -12265,8 +12265,8 @@
     semestre: 4
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 15
-    horas_lei_pl: 45
+    horas_lei_tp: 15.00
+    horas_lei_pl: 45.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -12284,7 +12284,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 30
+    horas_lei_tp: 30.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -12303,8 +12303,8 @@
     semestre: 3
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 30
-    horas_lei_pl: 30
+    horas_lei_tp: 30.00
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -12322,7 +12322,7 @@
     semestre: 6
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -12341,7 +12341,7 @@
     semestre: 4
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -12360,7 +12360,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -12379,7 +12379,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -12398,7 +12398,7 @@
     semestre: 3
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -12417,7 +12417,7 @@
     semestre: 3
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -12436,8 +12436,8 @@
     semestre: 3
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 55
-    horas_lei_pl: 5
+    horas_lei_tp: 55.00
+    horas_lei_pl: 5.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -12455,9 +12455,9 @@
     semestre: 4
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 40
+    horas_lei_tp: 40.00
     horas_lei_pl: 
-    horas_lei_tc: 5
+    horas_lei_tc: 5.00
     horas_lei_s: 
     horas_lei_e: 
     horas_lei_ot: 
@@ -12474,12 +12474,12 @@
     semestre: 6
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 25
-    horas_lei_pl: 70
+    horas_lei_tp: 25.00
+    horas_lei_pl: 70.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
-    horas_lei_ot: 10
+    horas_lei_ot: 10.00
     horas_lei_o: 
 - model: distro.unidadecurricular
   pk: 658
@@ -12493,7 +12493,7 @@
     semestre: 4
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 75
+    horas_lei_tp: 75.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -12512,10 +12512,10 @@
     semestre: 4
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 50
+    horas_lei_tp: 50.00
     horas_lei_pl: 
-    horas_lei_tc: 5
-    horas_lei_s: 5
+    horas_lei_tc: 5.00
+    horas_lei_s: 5.00
     horas_lei_e: 
     horas_lei_ot: 
     horas_lei_o: 
@@ -12531,7 +12531,7 @@
     semestre: 6
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -12550,10 +12550,10 @@
     semestre: 6
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 35
+    horas_lei_tp: 35.00
     horas_lei_pl: 
-    horas_lei_tc: 5
-    horas_lei_s: 5
+    horas_lei_tc: 5.00
+    horas_lei_s: 5.00
     horas_lei_e: 
     horas_lei_ot: 
     horas_lei_o: 
@@ -12569,10 +12569,10 @@
     semestre: 6
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 35
+    horas_lei_tp: 35.00
     horas_lei_pl: 
-    horas_lei_tc: 5
-    horas_lei_s: 5
+    horas_lei_tc: 5.00
+    horas_lei_s: 5.00
     horas_lei_e: 
     horas_lei_ot: 
     horas_lei_o: 
@@ -12588,7 +12588,7 @@
     semestre: 4
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -12607,7 +12607,7 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -12626,7 +12626,7 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -12645,7 +12645,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 75
+    horas_lei_tp: 75.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -12664,7 +12664,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 30
+    horas_lei_tp: 30.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -12683,8 +12683,8 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 40
-    horas_lei_pl: 35
+    horas_lei_tp: 40.00
+    horas_lei_pl: 35.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -12702,7 +12702,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 48
+    horas_lei_tp: 48.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -12721,7 +12721,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -12740,8 +12740,8 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 30
-    horas_lei_pl: 30
+    horas_lei_tp: 30.00
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -12759,8 +12759,8 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 18
-    horas_lei_pl: 18
+    horas_lei_tp: 18.00
+    horas_lei_pl: 18.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -12778,8 +12778,8 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 12
-    horas_lei_pl: 12
+    horas_lei_tp: 12.00
+    horas_lei_pl: 12.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -12797,7 +12797,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 30
+    horas_lei_tp: 30.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -12816,8 +12816,8 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 30
-    horas_lei_pl: 30
+    horas_lei_tp: 30.00
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -12835,8 +12835,8 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 30
-    horas_lei_pl: 30
+    horas_lei_tp: 30.00
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -12854,8 +12854,8 @@
     semestre: 6
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 52
-    horas_lei_pl: 8
+    horas_lei_tp: 52.00
+    horas_lei_pl: 8.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -12873,8 +12873,8 @@
     semestre: 6
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 52
-    horas_lei_pl: 8
+    horas_lei_tp: 52.00
+    horas_lei_pl: 8.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -12892,12 +12892,12 @@
     semestre: 4
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 36
-    horas_lei_pl: 10
-    horas_lei_tc: 8
+    horas_lei_tp: 36.00
+    horas_lei_pl: 10.00
+    horas_lei_tc: 8.00
     horas_lei_s: 
     horas_lei_e: 
-    horas_lei_ot: 6
+    horas_lei_ot: 6.00
     horas_lei_o: 
 - model: distro.unidadecurricular
   pk: 680
@@ -12911,8 +12911,8 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 40
-    horas_lei_pl: 35
+    horas_lei_tp: 40.00
+    horas_lei_pl: 35.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -12930,8 +12930,8 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 40
-    horas_lei_pl: 35
+    horas_lei_tp: 40.00
+    horas_lei_pl: 35.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -12948,13 +12948,13 @@
     ano: 3
     semestre: 6
     epoca: 2
-    horas_lei_t: 10
-    horas_lei_tp: 45
+    horas_lei_t: 10.00
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
-    horas_lei_ot: 5
+    horas_lei_ot: 5.00
     horas_lei_o: 
 - model: distro.unidadecurricular
   pk: 683
@@ -12967,13 +12967,13 @@
     ano: 1
     semestre: 1
     epoca: 1
-    horas_lei_t: 15
-    horas_lei_tp: 40
+    horas_lei_t: 15.00
+    horas_lei_tp: 40.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
-    horas_lei_ot: 5
+    horas_lei_ot: 5.00
     horas_lei_o: 
 - model: distro.unidadecurricular
   pk: 684
@@ -12986,13 +12986,13 @@
     ano: 1
     semestre: 2
     epoca: 2
-    horas_lei_t: 20
-    horas_lei_tp: 50
+    horas_lei_t: 20.00
+    horas_lei_tp: 50.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
-    horas_lei_ot: 5
+    horas_lei_ot: 5.00
     horas_lei_o: 
 - model: distro.unidadecurricular
   pk: 685
@@ -13005,8 +13005,8 @@
     ano: 3
     semestre: 5
     epoca: 1
-    horas_lei_t: 25
-    horas_lei_tp: 20
+    horas_lei_t: 25.00
+    horas_lei_tp: 20.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -13024,8 +13024,8 @@
     ano: 3
     semestre: 5
     epoca: 2
-    horas_lei_t: 25
-    horas_lei_tp: 20
+    horas_lei_t: 25.00
+    horas_lei_tp: 20.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -13043,9 +13043,9 @@
     ano: 1
     semestre: 1
     epoca: 1
-    horas_lei_t: 30
+    horas_lei_t: 30.00
     horas_lei_tp: 
-    horas_lei_pl: 45
+    horas_lei_pl: 45.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -13062,9 +13062,9 @@
     ano: 1
     semestre: 1
     epoca: 1
-    horas_lei_t: 30
+    horas_lei_t: 30.00
     horas_lei_tp: 
-    horas_lei_pl: 45
+    horas_lei_pl: 45.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -13081,9 +13081,9 @@
     ano: 1
     semestre: 1
     epoca: 1
-    horas_lei_t: 30
+    horas_lei_t: 30.00
     horas_lei_tp: 
-    horas_lei_pl: 45
+    horas_lei_pl: 45.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -13101,7 +13101,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -13119,8 +13119,8 @@
     ano: 1
     semestre: 1
     epoca: 1
-    horas_lei_t: 15
-    horas_lei_tp: 15
+    horas_lei_t: 15.00
+    horas_lei_tp: 15.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -13138,13 +13138,13 @@
     ano: 2
     semestre: 4
     epoca: 2
-    horas_lei_t: 10
-    horas_lei_tp: 55
+    horas_lei_t: 10.00
+    horas_lei_tp: 55.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
-    horas_lei_ot: 10
+    horas_lei_ot: 10.00
     horas_lei_o: 
 - model: distro.unidadecurricular
   pk: 693
@@ -13157,9 +13157,9 @@
     ano: 1
     semestre: 2
     epoca: 2
-    horas_lei_t: 30
+    horas_lei_t: 30.00
     horas_lei_tp: 
-    horas_lei_pl: 30
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -13177,7 +13177,7 @@
     semestre: 3
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -13196,7 +13196,7 @@
     semestre: 3
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -13214,8 +13214,8 @@
     ano: 1
     semestre: 2
     epoca: 2
-    horas_lei_t: 50
-    horas_lei_tp: 25
+    horas_lei_t: 50.00
+    horas_lei_tp: 25.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -13234,7 +13234,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -13253,12 +13253,12 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 40
+    horas_lei_tp: 40.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
-    horas_lei_ot: 5
+    horas_lei_ot: 5.00
     horas_lei_o: 
 - model: distro.unidadecurricular
   pk: 699
@@ -13271,8 +13271,8 @@
     ano: 2
     semestre: 4
     epoca: 2
-    horas_lei_t: 60
-    horas_lei_tp: 30
+    horas_lei_t: 60.00
+    horas_lei_tp: 30.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -13290,8 +13290,8 @@
     ano: 2
     semestre: 4
     epoca: 1
-    horas_lei_t: 60
-    horas_lei_tp: 30
+    horas_lei_t: 60.00
+    horas_lei_tp: 30.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -13310,7 +13310,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 23
+    horas_lei_tp: 23.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -13329,7 +13329,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 90
+    horas_lei_tp: 90.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -13347,9 +13347,9 @@
     ano: 1
     semestre: 1
     epoca: 1
-    horas_lei_t: 30
+    horas_lei_t: 30.00
     horas_lei_tp: 
-    horas_lei_pl: 30
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -13366,9 +13366,9 @@
     ano: 1
     semestre: 1
     epoca: 1
-    horas_lei_t: 30
+    horas_lei_t: 30.00
     horas_lei_tp: 
-    horas_lei_pl: 30
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -13385,9 +13385,9 @@
     ano: 1
     semestre: 1
     epoca: 1
-    horas_lei_t: 30
+    horas_lei_t: 30.00
     horas_lei_tp: 
-    horas_lei_pl: 30
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -13405,8 +13405,8 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 30
-    horas_lei_pl: 45
+    horas_lei_tp: 30.00
+    horas_lei_pl: 45.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -13423,8 +13423,8 @@
     ano: 1
     semestre: 2
     epoca: 2
-    horas_lei_t: 19
-    horas_lei_tp: 20
+    horas_lei_t: 19.00
+    horas_lei_tp: 20.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -13443,7 +13443,7 @@
     semestre: 3
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -13462,7 +13462,7 @@
     semestre: 3
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -13481,7 +13481,7 @@
     semestre: 3
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -13500,7 +13500,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -13519,8 +13519,8 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 30
-    horas_lei_pl: 30
+    horas_lei_tp: 30.00
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -13538,8 +13538,8 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 30
-    horas_lei_pl: 30
+    horas_lei_tp: 30.00
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -13557,7 +13557,7 @@
     semestre: 4
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -13576,8 +13576,8 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 30
-    horas_lei_pl: 30
+    horas_lei_tp: 30.00
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -13595,7 +13595,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -13613,13 +13613,13 @@
     ano: 2
     semestre: 3
     epoca: 1
-    horas_lei_t: 40
-    horas_lei_tp: 45
+    horas_lei_t: 40.00
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
-    horas_lei_ot: 5
+    horas_lei_ot: 5.00
     horas_lei_o: 
 - model: distro.unidadecurricular
   pk: 718
@@ -13633,8 +13633,8 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 30
-    horas_lei_pl: 30
+    horas_lei_tp: 30.00
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -13652,7 +13652,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 14
+    horas_lei_tp: 14.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -13670,13 +13670,13 @@
     ano: 3
     semestre: 5
     epoca: 1
-    horas_lei_t: 10
-    horas_lei_tp: 40
+    horas_lei_t: 10.00
+    horas_lei_tp: 40.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
-    horas_lei_ot: 10
+    horas_lei_ot: 10.00
     horas_lei_o: 
 - model: distro.unidadecurricular
   pk: 721
@@ -13690,7 +13690,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -13709,8 +13709,8 @@
     semestre: 4
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 30
-    horas_lei_pl: 30
+    horas_lei_tp: 30.00
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -13728,8 +13728,8 @@
     semestre: 4
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 30
-    horas_lei_pl: 30
+    horas_lei_tp: 30.00
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -13747,7 +13747,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -13766,7 +13766,7 @@
     semestre: 3
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -13785,8 +13785,8 @@
     semestre: 3
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 30
-    horas_lei_pl: 30
+    horas_lei_tp: 30.00
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -13803,8 +13803,8 @@
     ano: 1
     semestre: 1
     epoca: 1
-    horas_lei_t: 15
-    horas_lei_tp: 15
+    horas_lei_t: 15.00
+    horas_lei_tp: 15.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -13822,8 +13822,8 @@
     ano: 1
     semestre: 2
     epoca: 2
-    horas_lei_t: 26
-    horas_lei_tp: 26
+    horas_lei_t: 26.00
+    horas_lei_tp: 26.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -13842,8 +13842,8 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
-    horas_lei_pl: 15
+    horas_lei_tp: 60.00
+    horas_lei_pl: 15.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -13861,8 +13861,8 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
-    horas_lei_pl: 15
+    horas_lei_tp: 45.00
+    horas_lei_pl: 15.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -13879,9 +13879,9 @@
     ano: 1
     semestre: 2
     epoca: 2
-    horas_lei_t: 35
-    horas_lei_tp: 20
-    horas_lei_pl: 20
+    horas_lei_t: 35.00
+    horas_lei_tp: 20.00
+    horas_lei_pl: 20.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -13899,8 +13899,8 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 30
-    horas_lei_pl: 30
+    horas_lei_tp: 30.00
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -13918,7 +13918,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -13936,9 +13936,9 @@
     ano: 1
     semestre: 1
     epoca: 1
-    horas_lei_t: 30
+    horas_lei_t: 30.00
     horas_lei_tp: 
-    horas_lei_pl: 30
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -13955,9 +13955,9 @@
     ano: 1
     semestre: 1
     epoca: 1
-    horas_lei_t: 30
+    horas_lei_t: 30.00
     horas_lei_tp: 
-    horas_lei_pl: 30
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -13974,9 +13974,9 @@
     ano: 1
     semestre: 2
     epoca: 2
-    horas_lei_t: 30
+    horas_lei_t: 30.00
     horas_lei_tp: 
-    horas_lei_pl: 30
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -13993,8 +13993,8 @@
     ano: 1
     semestre: 1
     epoca: 1
-    horas_lei_t: 72
-    horas_lei_tp: 12
+    horas_lei_t: 72.00
+    horas_lei_tp: 12.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -14019,7 +14019,7 @@
     horas_lei_s: 
     horas_lei_e: 
     horas_lei_ot: 
-    horas_lei_o: 288
+    horas_lei_o: 288.00
 - model: distro.unidadecurricular
   pk: 739
   fields:
@@ -14038,7 +14038,7 @@
     horas_lei_s: 
     horas_lei_e: 
     horas_lei_ot: 
-    horas_lei_o: 288
+    horas_lei_o: 288.00
 - model: distro.unidadecurricular
   pk: 740
   fields:
@@ -14057,7 +14057,7 @@
     horas_lei_s: 
     horas_lei_e: 
     horas_lei_ot: 
-    horas_lei_o: 288
+    horas_lei_o: 288.00
 - model: distro.unidadecurricular
   pk: 741
   fields:
@@ -14076,7 +14076,7 @@
     horas_lei_s: 
     horas_lei_e: 
     horas_lei_ot: 
-    horas_lei_o: 128
+    horas_lei_o: 128.00
 - model: distro.unidadecurricular
   pk: 742
   fields:
@@ -14095,7 +14095,7 @@
     horas_lei_s: 
     horas_lei_e: 
     horas_lei_ot: 
-    horas_lei_o: 256
+    horas_lei_o: 256.00
 - model: distro.unidadecurricular
   pk: 743
   fields:
@@ -14114,7 +14114,7 @@
     horas_lei_s: 
     horas_lei_e: 
     horas_lei_ot: 
-    horas_lei_o: 288
+    horas_lei_o: 288.00
 - model: distro.unidadecurricular
   pk: 744
   fields:
@@ -14133,7 +14133,7 @@
     horas_lei_s: 
     horas_lei_e: 
     horas_lei_ot: 
-    horas_lei_o: 288
+    horas_lei_o: 288.00
 - model: distro.unidadecurricular
   pk: 745
   fields:
@@ -14152,7 +14152,7 @@
     horas_lei_s: 
     horas_lei_e: 
     horas_lei_ot: 
-    horas_lei_o: 160
+    horas_lei_o: 160.00
 - model: distro.unidadecurricular
   pk: 746
   fields:
@@ -14171,7 +14171,7 @@
     horas_lei_s: 
     horas_lei_e: 
     horas_lei_ot: 
-    horas_lei_o: 160
+    horas_lei_o: 160.00
 - model: distro.unidadecurricular
   pk: 747
   fields:
@@ -14183,9 +14183,9 @@
     ano: 3
     semestre: 6
     epoca: 2
-    horas_lei_t: 52
-    horas_lei_tp: 11
-    horas_lei_pl: 9
+    horas_lei_t: 52.00
+    horas_lei_tp: 11.00
+    horas_lei_pl: 9.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -14202,9 +14202,9 @@
     ano: 3
     semestre: 6
     epoca: 1
-    horas_lei_t: 52
-    horas_lei_tp: 11
-    horas_lei_pl: 9
+    horas_lei_t: 52.00
+    horas_lei_tp: 11.00
+    horas_lei_pl: 9.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -14226,7 +14226,7 @@
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
-    horas_lei_e: 435
+    horas_lei_e: 435.00
     horas_lei_ot: 
     horas_lei_o: 
 - model: distro.unidadecurricular
@@ -14241,12 +14241,12 @@
     semestre: 4
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 35
+    horas_lei_tp: 35.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
-    horas_lei_ot: 10
+    horas_lei_ot: 10.00
     horas_lei_o: 
 - model: distro.unidadecurricular
   pk: 751
@@ -14260,12 +14260,12 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 20
+    horas_lei_tp: 20.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
-    horas_lei_ot: 10
+    horas_lei_ot: 10.00
     horas_lei_o: 
 - model: distro.unidadecurricular
   pk: 752
@@ -14279,12 +14279,12 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 20
+    horas_lei_tp: 20.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
-    horas_lei_ot: 10
+    horas_lei_ot: 10.00
     horas_lei_o: 
 - model: distro.unidadecurricular
   pk: 753
@@ -14304,7 +14304,7 @@
     horas_lei_s: 
     horas_lei_e: 
     horas_lei_ot: 
-    horas_lei_o: 160
+    horas_lei_o: 160.00
 - model: distro.unidadecurricular
   pk: 754
   fields:
@@ -14323,7 +14323,7 @@
     horas_lei_s: 
     horas_lei_e: 
     horas_lei_ot: 
-    horas_lei_o: 160
+    horas_lei_o: 160.00
 - model: distro.unidadecurricular
   pk: 755
   fields:
@@ -14335,9 +14335,9 @@
     ano: 3
     semestre: 6
     epoca: 2
-    horas_lei_t: 40
-    horas_lei_tp: 8
-    horas_lei_pl: 8
+    horas_lei_t: 40.00
+    horas_lei_tp: 8.00
+    horas_lei_pl: 8.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -14354,9 +14354,9 @@
     ano: 3
     semestre: 6
     epoca: 1
-    horas_lei_t: 40
-    horas_lei_tp: 8
-    horas_lei_pl: 8
+    horas_lei_t: 40.00
+    horas_lei_tp: 8.00
+    horas_lei_pl: 8.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -14378,7 +14378,7 @@
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
-    horas_lei_e: 360
+    horas_lei_e: 360.00
     horas_lei_ot: 
     horas_lei_o: 
 - model: distro.unidadecurricular
@@ -14397,7 +14397,7 @@
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
-    horas_lei_e: 360
+    horas_lei_e: 360.00
     horas_lei_ot: 
     horas_lei_o: 
 - model: distro.unidadecurricular
@@ -14415,7 +14415,7 @@
     horas_lei_tp: 
     horas_lei_pl: 
     horas_lei_tc: 
-    horas_lei_s: 27
+    horas_lei_s: 27.00
     horas_lei_e: 
     horas_lei_ot: 
     horas_lei_o: 
@@ -14437,7 +14437,7 @@
     horas_lei_s: 
     horas_lei_e: 
     horas_lei_ot: 
-    horas_lei_o: 320
+    horas_lei_o: 320.00
 - model: distro.unidadecurricular
   pk: 761
   fields:
@@ -14456,7 +14456,7 @@
     horas_lei_s: 
     horas_lei_e: 
     horas_lei_ot: 
-    horas_lei_o: 320
+    horas_lei_o: 320.00
 - model: distro.unidadecurricular
   pk: 762
   fields:
@@ -14468,7 +14468,7 @@
     ano: 1
     semestre: 2
     epoca: 1
-    horas_lei_t: 50
+    horas_lei_t: 50.00
     horas_lei_tp: 
     horas_lei_pl: 
     horas_lei_tc: 
@@ -14487,9 +14487,9 @@
     ano: 4
     semestre: 7
     epoca: 1
-    horas_lei_t: 52
-    horas_lei_tp: 11
-    horas_lei_pl: 9
+    horas_lei_t: 52.00
+    horas_lei_tp: 11.00
+    horas_lei_pl: 9.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -14506,9 +14506,9 @@
     ano: 4
     semestre: 7
     epoca: 2
-    horas_lei_t: 52
-    horas_lei_tp: 11
-    horas_lei_pl: 9
+    horas_lei_t: 52.00
+    horas_lei_tp: 11.00
+    horas_lei_pl: 9.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -14525,7 +14525,7 @@
     ano: 1
     semestre: 2
     epoca: 2
-    horas_lei_t: 50
+    horas_lei_t: 50.00
     horas_lei_tp: 
     horas_lei_pl: 
     horas_lei_tc: 
@@ -14549,7 +14549,7 @@
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
-    horas_lei_e: 360
+    horas_lei_e: 360.00
     horas_lei_ot: 
     horas_lei_o: 
 - model: distro.unidadecurricular
@@ -14582,8 +14582,8 @@
     ano: 1
     semestre: 1
     epoca: 1
-    horas_lei_t: 20
-    horas_lei_tp: 8
+    horas_lei_t: 20.00
+    horas_lei_tp: 8.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -14602,12 +14602,12 @@
     semestre: 4
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 35
+    horas_lei_tp: 35.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
-    horas_lei_ot: 10
+    horas_lei_ot: 10.00
     horas_lei_o: 
 - model: distro.unidadecurricular
   pk: 770
@@ -14620,8 +14620,8 @@
     ano: 1
     semestre: 1
     epoca: 1
-    horas_lei_t: 20
-    horas_lei_tp: 10
+    horas_lei_t: 20.00
+    horas_lei_tp: 10.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -14639,8 +14639,8 @@
     ano: 4
     semestre: 7
     epoca: 1
-    horas_lei_t: 14
-    horas_lei_tp: 10
+    horas_lei_t: 14.00
+    horas_lei_tp: 10.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -14658,8 +14658,8 @@
     ano: 4
     semestre: 7
     epoca: 2
-    horas_lei_t: 14
-    horas_lei_tp: 10
+    horas_lei_t: 14.00
+    horas_lei_tp: 10.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -14677,8 +14677,8 @@
     ano: 1
     semestre: 1
     epoca: 1
-    horas_lei_t: 20
-    horas_lei_tp: 8
+    horas_lei_t: 20.00
+    horas_lei_tp: 8.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -14696,9 +14696,9 @@
     ano: 1
     semestre: 1
     epoca: 1
-    horas_lei_t: 44
-    horas_lei_tp: 6
-    horas_lei_pl: 34
+    horas_lei_t: 44.00
+    horas_lei_tp: 6.00
+    horas_lei_pl: 34.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -14720,7 +14720,7 @@
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
-    horas_lei_e: 435
+    horas_lei_e: 435.00
     horas_lei_ot: 
     horas_lei_o: 
 - model: distro.unidadecurricular
@@ -14734,8 +14734,8 @@
     ano: 3
     semestre: 5
     epoca: 1
-    horas_lei_t: 13
-    horas_lei_tp: 13
+    horas_lei_t: 13.00
+    horas_lei_tp: 13.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -14757,7 +14757,7 @@
     horas_lei_tp: 
     horas_lei_pl: 
     horas_lei_tc: 
-    horas_lei_s: 16
+    horas_lei_s: 16.00
     horas_lei_e: 
     horas_lei_ot: 
     horas_lei_o: 
@@ -14776,7 +14776,7 @@
     horas_lei_tp: 
     horas_lei_pl: 
     horas_lei_tc: 
-    horas_lei_s: 16
+    horas_lei_s: 16.00
     horas_lei_e: 
     horas_lei_ot: 
     horas_lei_o: 
@@ -14792,7 +14792,7 @@
     semestre: 7
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -14810,8 +14810,8 @@
     ano: 3
     semestre: 5
     epoca: 1
-    horas_lei_t: 14
-    horas_lei_tp: 13
+    horas_lei_t: 14.00
+    horas_lei_tp: 13.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -14829,8 +14829,8 @@
     ano: 3
     semestre: 5
     epoca: 2
-    horas_lei_t: 14
-    horas_lei_tp: 13
+    horas_lei_t: 14.00
+    horas_lei_tp: 13.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -14848,8 +14848,8 @@
     ano: 3
     semestre: 6
     epoca: 2
-    horas_lei_t: 12
-    horas_lei_tp: 12
+    horas_lei_t: 12.00
+    horas_lei_tp: 12.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -14867,8 +14867,8 @@
     ano: 3
     semestre: 6
     epoca: 1
-    horas_lei_t: 12
-    horas_lei_tp: 12
+    horas_lei_t: 12.00
+    horas_lei_tp: 12.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -14890,7 +14890,7 @@
     horas_lei_tp: 
     horas_lei_pl: 
     horas_lei_tc: 
-    horas_lei_s: 16
+    horas_lei_s: 16.00
     horas_lei_e: 
     horas_lei_ot: 
     horas_lei_o: 
@@ -14909,7 +14909,7 @@
     horas_lei_tp: 
     horas_lei_pl: 
     horas_lei_tc: 
-    horas_lei_s: 16
+    horas_lei_s: 16.00
     horas_lei_e: 
     horas_lei_ot: 
     horas_lei_o: 
@@ -14924,9 +14924,9 @@
     ano: 3
     semestre: 5
     epoca: 1
-    horas_lei_t: 25
-    horas_lei_tp: 25
-    horas_lei_pl: 28
+    horas_lei_t: 25.00
+    horas_lei_tp: 25.00
+    horas_lei_pl: 28.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -14943,7 +14943,7 @@
     ano: 3
     semestre: 5
     epoca: 1
-    horas_lei_t: 45
+    horas_lei_t: 45.00
     horas_lei_tp: 
     horas_lei_pl: 
     horas_lei_tc: 
@@ -14962,7 +14962,7 @@
     ano: 3
     semestre: 5
     epoca: 2
-    horas_lei_t: 45
+    horas_lei_t: 45.00
     horas_lei_tp: 
     horas_lei_pl: 
     horas_lei_tc: 
@@ -14981,7 +14981,7 @@
     ano: 2
     semestre: 3
     epoca: 1
-    horas_lei_t: 54
+    horas_lei_t: 54.00
     horas_lei_tp: 
     horas_lei_pl: 
     horas_lei_tc: 
@@ -15001,7 +15001,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 40
+    horas_lei_tp: 40.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -15020,7 +15020,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -15043,7 +15043,7 @@
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
-    horas_lei_e: 63
+    horas_lei_e: 63.00
     horas_lei_ot: 
     horas_lei_o: 
 - model: distro.unidadecurricular
@@ -15062,7 +15062,7 @@
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
-    horas_lei_e: 76
+    horas_lei_e: 76.00
     horas_lei_ot: 
     horas_lei_o: 
 - model: distro.unidadecurricular
@@ -15081,7 +15081,7 @@
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
-    horas_lei_e: 290
+    horas_lei_e: 290.00
     horas_lei_ot: 
     horas_lei_o: 
 - model: distro.unidadecurricular
@@ -15095,8 +15095,8 @@
     ano: 2
     semestre: 4
     epoca: 2
-    horas_lei_t: 40
-    horas_lei_tp: 20
+    horas_lei_t: 40.00
+    horas_lei_tp: 20.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -15114,8 +15114,8 @@
     ano: 3
     semestre: 5
     epoca: 1
-    horas_lei_t: 30
-    horas_lei_tp: 35
+    horas_lei_t: 30.00
+    horas_lei_tp: 35.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -15137,7 +15137,7 @@
     horas_lei_tp: 
     horas_lei_pl: 
     horas_lei_tc: 
-    horas_lei_s: 39
+    horas_lei_s: 39.00
     horas_lei_e: 
     horas_lei_ot: 
     horas_lei_o: 
@@ -15156,7 +15156,7 @@
     horas_lei_tp: 
     horas_lei_pl: 
     horas_lei_tc: 
-    horas_lei_s: 45
+    horas_lei_s: 45.00
     horas_lei_e: 
     horas_lei_ot: 
     horas_lei_o: 
@@ -15175,7 +15175,7 @@
     horas_lei_tp: 
     horas_lei_pl: 
     horas_lei_tc: 
-    horas_lei_s: 24
+    horas_lei_s: 24.00
     horas_lei_e: 
     horas_lei_ot: 
     horas_lei_o: 
@@ -15190,8 +15190,8 @@
     ano: 1
     semestre: 1
     epoca: 1
-    horas_lei_t: 50
-    horas_lei_tp: 25
+    horas_lei_t: 50.00
+    horas_lei_tp: 25.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -15209,8 +15209,8 @@
     ano: 1
     semestre: 1
     epoca: 1
-    horas_lei_t: 50
-    horas_lei_tp: 25
+    horas_lei_t: 50.00
+    horas_lei_tp: 25.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -15228,9 +15228,9 @@
     ano: 1
     semestre: 2
     epoca: 2
-    horas_lei_t: 40
-    horas_lei_tp: 12
-    horas_lei_pl: 8
+    horas_lei_t: 40.00
+    horas_lei_tp: 12.00
+    horas_lei_pl: 8.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -15252,7 +15252,7 @@
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
-    horas_lei_e: 140
+    horas_lei_e: 140.00
     horas_lei_ot: 
     horas_lei_o: 
 - model: distro.unidadecurricular
@@ -15271,7 +15271,7 @@
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
-    horas_lei_e: 350
+    horas_lei_e: 350.00
     horas_lei_ot: 
     horas_lei_o: 
 - model: distro.unidadecurricular
@@ -15285,9 +15285,9 @@
     ano: 2
     semestre: 3
     epoca: 1
-    horas_lei_t: 80
-    horas_lei_tp: 6
-    horas_lei_pl: 22
+    horas_lei_t: 80.00
+    horas_lei_tp: 6.00
+    horas_lei_pl: 22.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -15304,7 +15304,7 @@
     ano: 2
     semestre: 4
     epoca: 2
-    horas_lei_t: 89
+    horas_lei_t: 89.00
     horas_lei_tp: 
     horas_lei_pl: 
     horas_lei_tc: 
@@ -15323,7 +15323,7 @@
     ano: 2
     semestre: 4
     epoca: 1
-    horas_lei_t: 89
+    horas_lei_t: 89.00
     horas_lei_tp: 
     horas_lei_pl: 
     horas_lei_tc: 
@@ -15342,7 +15342,7 @@
     ano: 4
     semestre: 7
     epoca: 1
-    horas_lei_t: 22
+    horas_lei_t: 22.00
     horas_lei_tp: 
     horas_lei_pl: 
     horas_lei_tc: 
@@ -15361,7 +15361,7 @@
     ano: 4
     semestre: 7
     epoca: 2
-    horas_lei_t: 22
+    horas_lei_t: 22.00
     horas_lei_tp: 
     horas_lei_pl: 
     horas_lei_tc: 
@@ -15380,8 +15380,8 @@
     ano: 1
     semestre: 1
     epoca: 1
-    horas_lei_t: 40
-    horas_lei_tp: 20
+    horas_lei_t: 40.00
+    horas_lei_tp: 20.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -15399,8 +15399,8 @@
     ano: 2
     semestre: 3
     epoca: 1
-    horas_lei_t: 50
-    horas_lei_tp: 25
+    horas_lei_t: 50.00
+    horas_lei_tp: 25.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -15418,8 +15418,8 @@
     ano: 3
     semestre: 5
     epoca: 2
-    horas_lei_t: 55
-    horas_lei_tp: 20
+    horas_lei_t: 55.00
+    horas_lei_tp: 20.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -15442,7 +15442,7 @@
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
-    horas_lei_e: 140
+    horas_lei_e: 140.00
     horas_lei_ot: 
     horas_lei_o: 
 - model: distro.unidadecurricular
@@ -15456,8 +15456,8 @@
     ano: 2
     semestre: 4
     epoca: 2
-    horas_lei_t: 46
-    horas_lei_tp: 20
+    horas_lei_t: 46.00
+    horas_lei_tp: 20.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -15475,8 +15475,8 @@
     ano: 2
     semestre: 4
     epoca: 1
-    horas_lei_t: 46
-    horas_lei_tp: 20
+    horas_lei_t: 46.00
+    horas_lei_tp: 20.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -15494,8 +15494,8 @@
     ano: 2
     semestre: 4
     epoca: 2
-    horas_lei_t: 46
-    horas_lei_tp: 20
+    horas_lei_t: 46.00
+    horas_lei_tp: 20.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -15513,8 +15513,8 @@
     ano: 2
     semestre: 4
     epoca: 1
-    horas_lei_t: 46
-    horas_lei_tp: 20
+    horas_lei_t: 46.00
+    horas_lei_tp: 20.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -15532,8 +15532,8 @@
     ano: 1
     semestre: 2
     epoca: 2
-    horas_lei_t: 60
-    horas_lei_tp: 30
+    horas_lei_t: 60.00
+    horas_lei_tp: 30.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -15551,9 +15551,9 @@
     ano: 2
     semestre: 3
     epoca: 1
-    horas_lei_t: 50
-    horas_lei_tp: 13
-    horas_lei_pl: 12
+    horas_lei_t: 50.00
+    horas_lei_tp: 13.00
+    horas_lei_pl: 12.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -15570,9 +15570,9 @@
     ano: 2
     semestre: 3
     epoca: 1
-    horas_lei_t: 50
-    horas_lei_tp: 13
-    horas_lei_pl: 12
+    horas_lei_t: 50.00
+    horas_lei_tp: 13.00
+    horas_lei_pl: 12.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -15589,8 +15589,8 @@
     ano: 2
     semestre: 3
     epoca: 1
-    horas_lei_t: 50
-    horas_lei_tp: 25
+    horas_lei_t: 50.00
+    horas_lei_tp: 25.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -15609,8 +15609,8 @@
     semestre: 4
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 35
-    horas_lei_pl: 20
+    horas_lei_tp: 35.00
+    horas_lei_pl: 20.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -15628,8 +15628,8 @@
     semestre: 4
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 35
-    horas_lei_pl: 20
+    horas_lei_tp: 35.00
+    horas_lei_pl: 20.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -15646,8 +15646,8 @@
     ano: 1
     semestre: 2
     epoca: 2
-    horas_lei_t: 40
-    horas_lei_tp: 20
+    horas_lei_t: 40.00
+    horas_lei_tp: 20.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -15667,7 +15667,7 @@
     epoca: 1
     horas_lei_t: 
     horas_lei_tp: 
-    horas_lei_pl: 20
+    horas_lei_pl: 20.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -15684,8 +15684,8 @@
     ano: 1
     semestre: 1
     epoca: 1
-    horas_lei_t: 40
-    horas_lei_tp: 20
+    horas_lei_t: 40.00
+    horas_lei_tp: 20.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -15703,7 +15703,7 @@
     ano: 2
     semestre: 4
     epoca: 2
-    horas_lei_t: 36
+    horas_lei_t: 36.00
     horas_lei_tp: 
     horas_lei_pl: 
     horas_lei_tc: 
@@ -15722,7 +15722,7 @@
     ano: 2
     semestre: 4
     epoca: 1
-    horas_lei_t: 36
+    horas_lei_t: 36.00
     horas_lei_tp: 
     horas_lei_pl: 
     horas_lei_tc: 
@@ -15741,8 +15741,8 @@
     ano: 1
     semestre: 1
     epoca: 1
-    horas_lei_t: 20
-    horas_lei_tp: 25
+    horas_lei_t: 20.00
+    horas_lei_tp: 25.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -15760,8 +15760,8 @@
     ano: 3
     semestre: 6
     epoca: 2
-    horas_lei_t: 15
-    horas_lei_tp: 15
+    horas_lei_t: 15.00
+    horas_lei_tp: 15.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -15779,8 +15779,8 @@
     ano: 3
     semestre: 6
     epoca: 2
-    horas_lei_t: 15
-    horas_lei_tp: 15
+    horas_lei_t: 15.00
+    horas_lei_tp: 15.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -15798,8 +15798,8 @@
     ano: 1
     semestre: 2
     epoca: 2
-    horas_lei_t: 10
-    horas_lei_tp: 10
+    horas_lei_t: 10.00
+    horas_lei_tp: 10.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -15822,7 +15822,7 @@
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
-    horas_lei_e: 351
+    horas_lei_e: 351.00
     horas_lei_ot: 
     horas_lei_o: 
 - model: distro.unidadecurricular
@@ -15836,8 +15836,8 @@
     ano: 3
     semestre: 6
     epoca: 2
-    horas_lei_t: 30
-    horas_lei_tp: 30
+    horas_lei_t: 30.00
+    horas_lei_tp: 30.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -15855,8 +15855,8 @@
     ano: 3
     semestre: 5
     epoca: 1
-    horas_lei_t: 13
-    horas_lei_tp: 13
+    horas_lei_t: 13.00
+    horas_lei_tp: 13.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -15874,8 +15874,8 @@
     ano: 2
     semestre: 4
     epoca: 2
-    horas_lei_t: 30
-    horas_lei_tp: 30
+    horas_lei_t: 30.00
+    horas_lei_tp: 30.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -15893,8 +15893,8 @@
     ano: 3
     semestre: 6
     epoca: 2
-    horas_lei_t: 30
-    horas_lei_tp: 45
+    horas_lei_t: 30.00
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -15912,7 +15912,7 @@
     ano: 2
     semestre: 3
     epoca: 1
-    horas_lei_t: 36
+    horas_lei_t: 36.00
     horas_lei_tp: 
     horas_lei_pl: 
     horas_lei_tc: 
@@ -15931,9 +15931,9 @@
     ano: 1
     semestre: 2
     epoca: 2
-    horas_lei_t: 38
-    horas_lei_tp: 12
-    horas_lei_pl: 10
+    horas_lei_t: 38.00
+    horas_lei_tp: 12.00
+    horas_lei_pl: 10.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -15950,9 +15950,9 @@
     ano: 3
     semestre: 5
     epoca: 1
-    horas_lei_t: 53
-    horas_lei_tp: 12
-    horas_lei_pl: 16
+    horas_lei_t: 53.00
+    horas_lei_tp: 12.00
+    horas_lei_pl: 16.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -15969,9 +15969,9 @@
     ano: 3
     semestre: 5
     epoca: 2
-    horas_lei_t: 53
-    horas_lei_tp: 12
-    horas_lei_pl: 16
+    horas_lei_t: 53.00
+    horas_lei_tp: 12.00
+    horas_lei_pl: 16.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -15988,9 +15988,9 @@
     ano: 1
     semestre: 1
     epoca: 1
-    horas_lei_t: 14
-    horas_lei_tp: 6
-    horas_lei_pl: 8
+    horas_lei_t: 14.00
+    horas_lei_tp: 6.00
+    horas_lei_pl: 8.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -16007,9 +16007,9 @@
     ano: 1
     semestre: 2
     epoca: 2
-    horas_lei_t: 25
-    horas_lei_tp: 2
-    horas_lei_pl: 3
+    horas_lei_t: 25.00
+    horas_lei_tp: 2.00
+    horas_lei_pl: 3.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -16026,8 +16026,8 @@
     ano: 1
     semestre: 2
     epoca: 1
-    horas_lei_t: 15
-    horas_lei_tp: 10
+    horas_lei_t: 15.00
+    horas_lei_tp: 10.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -16046,7 +16046,7 @@
     semestre: 3
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 30
+    horas_lei_tp: 30.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -16068,7 +16068,7 @@
     horas_lei_tp: 
     horas_lei_pl: 
     horas_lei_tc: 
-    horas_lei_s: 15
+    horas_lei_s: 15.00
     horas_lei_e: 
     horas_lei_ot: 
     horas_lei_o: 
@@ -16083,8 +16083,8 @@
     ano: 1
     semestre: 2
     epoca: 1
-    horas_lei_t: 15
-    horas_lei_tp: 10
+    horas_lei_t: 15.00
+    horas_lei_tp: 10.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -16102,7 +16102,7 @@
     ano: 3
     semestre: 6
     epoca: 2
-    horas_lei_t: 24
+    horas_lei_t: 24.00
     horas_lei_tp: 
     horas_lei_pl: 
     horas_lei_tc: 
@@ -16121,7 +16121,7 @@
     ano: 3
     semestre: 6
     epoca: 1
-    horas_lei_t: 24
+    horas_lei_t: 24.00
     horas_lei_tp: 
     horas_lei_pl: 
     horas_lei_tc: 
@@ -16140,8 +16140,8 @@
     ano: 1
     semestre: 2
     epoca: 2
-    horas_lei_t: 41
-    horas_lei_tp: 50
+    horas_lei_t: 41.00
+    horas_lei_tp: 50.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -16159,8 +16159,8 @@
     ano: 2
     semestre: 4
     epoca: 2
-    horas_lei_t: 20
-    horas_lei_tp: 40
+    horas_lei_t: 20.00
+    horas_lei_tp: 40.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -16180,7 +16180,7 @@
     epoca: 1
     horas_lei_t: 
     horas_lei_tp: 
-    horas_lei_pl: 60
+    horas_lei_pl: 60.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -16197,8 +16197,8 @@
     ano: 1
     semestre: 1
     epoca: 1
-    horas_lei_t: 40
-    horas_lei_tp: 50
+    horas_lei_t: 40.00
+    horas_lei_tp: 50.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -16218,7 +16218,7 @@
     epoca: 2
     horas_lei_t: 
     horas_lei_tp: 
-    horas_lei_pl: 60
+    horas_lei_pl: 60.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -16237,7 +16237,7 @@
     epoca: 1
     horas_lei_t: 
     horas_lei_tp: 
-    horas_lei_pl: 65
+    horas_lei_pl: 65.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -16254,8 +16254,8 @@
     ano: 1
     semestre: 1
     epoca: 1
-    horas_lei_t: 40
-    horas_lei_tp: 50
+    horas_lei_t: 40.00
+    horas_lei_tp: 50.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -16273,8 +16273,8 @@
     ano: 2
     semestre: 3
     epoca: 1
-    horas_lei_t: 50
-    horas_lei_tp: 40
+    horas_lei_t: 50.00
+    horas_lei_tp: 40.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -16297,7 +16297,7 @@
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
-    horas_lei_e: 100
+    horas_lei_e: 100.00
     horas_lei_ot: 
     horas_lei_o: 
 - model: distro.unidadecurricular
@@ -16311,8 +16311,8 @@
     ano: 3
     semestre: 6
     epoca: 2
-    horas_lei_t: 30
-    horas_lei_tp: 30
+    horas_lei_t: 30.00
+    horas_lei_tp: 30.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -16331,7 +16331,7 @@
     semestre: 3
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -16350,7 +16350,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -16369,7 +16369,7 @@
     semestre: 2
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 80
+    horas_lei_tp: 80.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -16387,9 +16387,9 @@
     ano: 3
     semestre: 6
     epoca: 2
-    horas_lei_t: 15
+    horas_lei_t: 15.00
     horas_lei_tp: 
-    horas_lei_pl: 45
+    horas_lei_pl: 45.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -16407,7 +16407,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -16426,7 +16426,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 34
+    horas_lei_tp: 34.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -16445,7 +16445,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 30
+    horas_lei_tp: 30.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -16468,7 +16468,7 @@
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
-    horas_lei_e: 105
+    horas_lei_e: 105.00
     horas_lei_ot: 
     horas_lei_o: 
 - model: distro.unidadecurricular
@@ -16483,7 +16483,7 @@
     semestre: 6
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -16502,7 +16502,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 15
+    horas_lei_tp: 15.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -16520,9 +16520,9 @@
     ano: 3
     semestre: 5
     epoca: 1
-    horas_lei_t: 30
+    horas_lei_t: 30.00
     horas_lei_tp: 
-    horas_lei_pl: 45
+    horas_lei_pl: 45.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -16540,7 +16540,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 32
+    horas_lei_tp: 32.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -16559,7 +16559,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 34
+    horas_lei_tp: 34.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -16578,7 +16578,7 @@
     semestre: 3
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -16597,7 +16597,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 15
+    horas_lei_tp: 15.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -16615,9 +16615,9 @@
     ano: 1
     semestre: 2
     epoca: 2
-    horas_lei_t: 30
+    horas_lei_t: 30.00
     horas_lei_tp: 
-    horas_lei_pl: 30
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -16635,7 +16635,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 70
+    horas_lei_tp: 70.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -16653,9 +16653,9 @@
     ano: 2
     semestre: 3
     epoca: 1
-    horas_lei_t: 30
+    horas_lei_t: 30.00
     horas_lei_tp: 
-    horas_lei_pl: 45
+    horas_lei_pl: 45.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -16672,9 +16672,9 @@
     ano: 2
     semestre: 4
     epoca: 2
-    horas_lei_t: 30
+    horas_lei_t: 30.00
     horas_lei_tp: 
-    horas_lei_pl: 30
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -16692,7 +16692,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 102
+    horas_lei_tp: 102.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -16710,9 +16710,9 @@
     ano: 3
     semestre: 6
     epoca: 2
-    horas_lei_t: 30
+    horas_lei_t: 30.00
     horas_lei_tp: 
-    horas_lei_pl: 45
+    horas_lei_pl: 45.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -16730,7 +16730,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -16749,7 +16749,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 150
+    horas_lei_tp: 150.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -16767,9 +16767,9 @@
     ano: 1
     semestre: 2
     epoca: 2
-    horas_lei_t: 30
+    horas_lei_t: 30.00
     horas_lei_tp: 
-    horas_lei_pl: 30
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -16786,9 +16786,9 @@
     ano: 3
     semestre: 5
     epoca: 1
-    horas_lei_t: 30
+    horas_lei_t: 30.00
     horas_lei_tp: 
-    horas_lei_pl: 30
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -16806,7 +16806,7 @@
     semestre: 6
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -16825,7 +16825,7 @@
     semestre: 6
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -16843,9 +16843,9 @@
     ano: 1
     semestre: 2
     epoca: 2
-    horas_lei_t: 15
+    horas_lei_t: 15.00
     horas_lei_tp: 
-    horas_lei_pl: 30
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -16863,7 +16863,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 75
+    horas_lei_tp: 75.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -16882,7 +16882,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 46
+    horas_lei_tp: 46.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -16901,7 +16901,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 69
+    horas_lei_tp: 69.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -16920,7 +16920,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 80
+    horas_lei_tp: 80.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -16939,7 +16939,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 150
+    horas_lei_tp: 150.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -16958,7 +16958,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 100
+    horas_lei_tp: 100.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -16977,7 +16977,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 90
+    horas_lei_tp: 90.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -16996,7 +16996,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 102
+    horas_lei_tp: 102.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -17015,7 +17015,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 70
+    horas_lei_tp: 70.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -17034,7 +17034,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 100
+    horas_lei_tp: 100.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -17053,7 +17053,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 102
+    horas_lei_tp: 102.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -17072,7 +17072,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 69
+    horas_lei_tp: 69.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -17091,7 +17091,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 75
+    horas_lei_tp: 75.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -17115,7 +17115,7 @@
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
-    horas_lei_ot: 75
+    horas_lei_ot: 75.00
     horas_lei_o: 
 - model: distro.unidadecurricular
   pk: 902
@@ -17129,7 +17129,7 @@
     semestre: 3
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 21
+    horas_lei_tp: 21.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -17148,7 +17148,7 @@
     semestre: 6
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -17166,9 +17166,9 @@
     ano: 2
     semestre: 4
     epoca: 2
-    horas_lei_t: 15
+    horas_lei_t: 15.00
     horas_lei_tp: 
-    horas_lei_pl: 45
+    horas_lei_pl: 45.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -17185,8 +17185,8 @@
     ano: 1
     semestre: 1
     epoca: 1
-    horas_lei_t: 15
-    horas_lei_tp: 15
+    horas_lei_t: 15.00
+    horas_lei_tp: 15.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -17204,9 +17204,9 @@
     ano: 1
     semestre: 1
     epoca: 1
-    horas_lei_t: 30
+    horas_lei_t: 30.00
     horas_lei_tp: 
-    horas_lei_pl: 45
+    horas_lei_pl: 45.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -17224,7 +17224,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 34
+    horas_lei_tp: 34.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -17243,7 +17243,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 15
+    horas_lei_tp: 15.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -17262,7 +17262,7 @@
     semestre: 3
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 9
+    horas_lei_tp: 9.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -17281,7 +17281,7 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -17300,7 +17300,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 34
+    horas_lei_tp: 34.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -17318,9 +17318,9 @@
     ano: 2
     semestre: 4
     epoca: 2
-    horas_lei_t: 30
+    horas_lei_t: 30.00
     horas_lei_tp: 
-    horas_lei_pl: 30
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -17337,9 +17337,9 @@
     ano: 3
     semestre: 5
     epoca: 1
-    horas_lei_t: 30
+    horas_lei_t: 30.00
     horas_lei_tp: 
-    horas_lei_pl: 30
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -17357,7 +17357,7 @@
     semestre: 3
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -17375,9 +17375,9 @@
     ano: 2
     semestre: 3
     epoca: 1
-    horas_lei_t: 30
+    horas_lei_t: 30.00
     horas_lei_tp: 
-    horas_lei_pl: 30
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -17395,7 +17395,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 30
+    horas_lei_tp: 30.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -17414,7 +17414,7 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -17433,7 +17433,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 34
+    horas_lei_tp: 34.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -17451,9 +17451,9 @@
     ano: 1
     semestre: 1
     epoca: 1
-    horas_lei_t: 30
+    horas_lei_t: 30.00
     horas_lei_tp: 
-    horas_lei_pl: 45
+    horas_lei_pl: 45.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -17470,9 +17470,9 @@
     ano: 1
     semestre: 1
     epoca: 1
-    horas_lei_t: 30
+    horas_lei_t: 30.00
     horas_lei_tp: 
-    horas_lei_pl: 45
+    horas_lei_pl: 45.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -17490,7 +17490,7 @@
     semestre: 3
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -17509,7 +17509,7 @@
     semestre: 4
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -17528,7 +17528,7 @@
     semestre: 4
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -17546,9 +17546,9 @@
     ano: 3
     semestre: 5
     epoca: 1
-    horas_lei_t: 15
+    horas_lei_t: 15.00
     horas_lei_tp: 
-    horas_lei_pl: 45
+    horas_lei_pl: 45.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -17565,8 +17565,8 @@
     ano: 2
     semestre: 3
     epoca: 1
-    horas_lei_t: 30
-    horas_lei_tp: 30
+    horas_lei_t: 30.00
+    horas_lei_tp: 30.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -17584,8 +17584,8 @@
     ano: 2
     semestre: 4
     epoca: 2
-    horas_lei_t: 20
-    horas_lei_tp: 25
+    horas_lei_t: 20.00
+    horas_lei_tp: 25.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -17604,8 +17604,8 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 14
-    horas_lei_pl: 20
+    horas_lei_tp: 14.00
+    horas_lei_pl: 20.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -17622,9 +17622,9 @@
     ano: 2
     semestre: 3
     epoca: 1
-    horas_lei_t: 30
+    horas_lei_t: 30.00
     horas_lei_tp: 
-    horas_lei_pl: 45
+    horas_lei_pl: 45.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -17641,9 +17641,9 @@
     ano: 1
     semestre: 1
     epoca: 1
-    horas_lei_t: 15
+    horas_lei_t: 15.00
     horas_lei_tp: 
-    horas_lei_pl: 30
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -17660,9 +17660,9 @@
     ano: 1
     semestre: 2
     epoca: 2
-    horas_lei_t: 15
+    horas_lei_t: 15.00
     horas_lei_tp: 
-    horas_lei_pl: 15
+    horas_lei_pl: 15.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -17679,9 +17679,9 @@
     ano: 1
     semestre: 2
     epoca: 2
-    horas_lei_t: 30
+    horas_lei_t: 30.00
     horas_lei_tp: 
-    horas_lei_pl: 30
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -17698,9 +17698,9 @@
     ano: 3
     semestre: 5
     epoca: 1
-    horas_lei_t: 30
-    horas_lei_tp: 15
-    horas_lei_pl: 45
+    horas_lei_t: 30.00
+    horas_lei_tp: 15.00
+    horas_lei_pl: 45.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -17718,7 +17718,7 @@
     semestre: 4
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 60
+    horas_lei_tp: 60.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -17736,8 +17736,8 @@
     ano: 2
     semestre: 4
     epoca: 2
-    horas_lei_t: 20
-    horas_lei_tp: 25
+    horas_lei_t: 20.00
+    horas_lei_tp: 25.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -17755,8 +17755,8 @@
     ano: 3
     semestre: 5
     epoca: 1
-    horas_lei_t: 19
-    horas_lei_tp: 20
+    horas_lei_t: 19.00
+    horas_lei_tp: 20.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -17775,7 +17775,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 34
+    horas_lei_tp: 34.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -17794,7 +17794,7 @@
     semestre: 5
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -17813,7 +17813,7 @@
     semestre: 6
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -17832,7 +17832,7 @@
     semestre: 1
     epoca:
     horas_lei_t: 
-    horas_lei_tp: 34
+    horas_lei_tp: 34.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -17850,9 +17850,9 @@
     ano: 2
     semestre: 3
     epoca: 1
-    horas_lei_t: 15
+    horas_lei_t: 15.00
     horas_lei_tp: 
-    horas_lei_pl: 30
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -17870,7 +17870,7 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -17889,7 +17889,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 20
+    horas_lei_tp: 20.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -17907,9 +17907,9 @@
     ano: 1
     semestre: 2
     epoca: 2
-    horas_lei_t: 15
+    horas_lei_t: 15.00
     horas_lei_tp: 
-    horas_lei_pl: 15
+    horas_lei_pl: 15.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -17926,13 +17926,13 @@
     ano: 3
     semestre: 6
     epoca: 2
-    horas_lei_t: 15
+    horas_lei_t: 15.00
     horas_lei_tp: 
-    horas_lei_pl: 45
+    horas_lei_pl: 45.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
-    horas_lei_ot: 15
+    horas_lei_ot: 15.00
     horas_lei_o: 
 - model: distro.unidadecurricular
   pk: 945
@@ -17945,13 +17945,13 @@
     ano: 3
     semestre: 5
     epoca: 1
-    horas_lei_t: 30
+    horas_lei_t: 30.00
     horas_lei_tp: 
-    horas_lei_pl: 45
+    horas_lei_pl: 45.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
-    horas_lei_ot: 15
+    horas_lei_ot: 15.00
     horas_lei_o: 
 - model: distro.unidadecurricular
   pk: 946
@@ -17964,9 +17964,9 @@
     ano: 1
     semestre: 2
     epoca: 2
-    horas_lei_t: 30
+    horas_lei_t: 30.00
     horas_lei_tp: 
-    horas_lei_pl: 45
+    horas_lei_pl: 45.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -17983,9 +17983,9 @@
     ano: 1
     semestre: 2
     epoca: 2
-    horas_lei_t: 30
+    horas_lei_t: 30.00
     horas_lei_tp: 
-    horas_lei_pl: 45
+    horas_lei_pl: 45.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -18002,9 +18002,9 @@
     ano: 1
     semestre: 2
     epoca: 2
-    horas_lei_t: 30
+    horas_lei_t: 30.00
     horas_lei_tp: 
-    horas_lei_pl: 45
+    horas_lei_pl: 45.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -18021,9 +18021,9 @@
     ano: 1
     semestre: 2
     epoca: 2
-    horas_lei_t: 30
+    horas_lei_t: 30.00
     horas_lei_tp: 
-    horas_lei_pl: 45
+    horas_lei_pl: 45.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -18041,7 +18041,7 @@
     semestre: 3
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -18060,7 +18060,7 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 45
+    horas_lei_tp: 45.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 
@@ -18079,8 +18079,8 @@
     semestre: 2
     epoca: 2
     horas_lei_t: 
-    horas_lei_tp: 14
-    horas_lei_pl: 20
+    horas_lei_tp: 14.00
+    horas_lei_pl: 20.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -18097,9 +18097,9 @@
     ano: 1
     semestre: 2
     epoca: 2
-    horas_lei_t: 30
+    horas_lei_t: 30.00
     horas_lei_tp: 
-    horas_lei_pl: 45
+    horas_lei_pl: 45.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -18116,9 +18116,9 @@
     ano: 2
     semestre: 3
     epoca: 1
-    horas_lei_t: 15
+    horas_lei_t: 15.00
     horas_lei_tp: 
-    horas_lei_pl: 30
+    horas_lei_pl: 30.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -18135,9 +18135,9 @@
     ano: 2
     semestre: 3
     epoca: 1
-    horas_lei_t: 20
-    horas_lei_tp: 20
-    horas_lei_pl: 20
+    horas_lei_t: 20.00
+    horas_lei_tp: 20.00
+    horas_lei_pl: 20.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -18154,9 +18154,9 @@
     ano: 3
     semestre: 5
     epoca: 1
-    horas_lei_t: 15
+    horas_lei_t: 15.00
     horas_lei_tp: 
-    horas_lei_pl: 45
+    horas_lei_pl: 45.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -18174,8 +18174,8 @@
     semestre: 1
     epoca: 1
     horas_lei_t: 
-    horas_lei_tp: 14
-    horas_lei_pl: 20
+    horas_lei_tp: 14.00
+    horas_lei_pl: 20.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -18192,9 +18192,9 @@
     ano: 1
     semestre: 1
     epoca: 1
-    horas_lei_t: 30
+    horas_lei_t: 30.00
     horas_lei_tp: 
-    horas_lei_pl: 45
+    horas_lei_pl: 45.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -18211,9 +18211,9 @@
     ano: 2
     semestre: 4
     epoca: 2
-    horas_lei_t: 30
+    horas_lei_t: 30.00
     horas_lei_tp: 
-    horas_lei_pl: 45
+    horas_lei_pl: 45.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -18236,7 +18236,7 @@
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
-    horas_lei_ot: 5
+    horas_lei_ot: 5.00
     horas_lei_o: 
 - model: distro.unidadecurricular
   pk: 961
@@ -18249,9 +18249,9 @@
     ano: 2
     semestre: 4
     epoca: 2
-    horas_lei_t: 30
+    horas_lei_t: 30.00
     horas_lei_tp: 
-    horas_lei_pl: 45
+    horas_lei_pl: 45.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -18268,9 +18268,9 @@
     ano: 1
     semestre: 1
     epoca: 1
-    horas_lei_t: 20
-    horas_lei_tp: 20
-    horas_lei_pl: 20
+    horas_lei_t: 20.00
+    horas_lei_tp: 20.00
+    horas_lei_pl: 20.00
     horas_lei_tc: 
     horas_lei_s: 
     horas_lei_e: 
@@ -18287,8 +18287,8 @@
     ano: 1
     semestre: 1
     epoca: 1
-    horas_lei_t: 20
-    horas_lei_tp: 8
+    horas_lei_t: 20.00
+    horas_lei_tp: 8.00
     horas_lei_pl: 
     horas_lei_tc: 
     horas_lei_s: 

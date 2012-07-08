@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django.conf.urls.defaults import patterns, include, url
 
 # Uncomment the next two lines to enable the admin:
@@ -9,9 +10,16 @@ urlpatterns = patterns('',
     # url(r'^$', 'ipbejactcapp.views.home', name='home'),
     # url(r'^ipbejactcapp/', include('ipbejactcapp.foo.urls')),
 
+    url(r'^criarturmas/(?P<ano>\d+)/$', 'ipbejactcapp.distro.views.criar_turmas', name='criar_turmas'),
+    url(r'^apagarturmas/(?P<ano>\d+)/$', 'ipbejactcapp.distro.views.apagar_turmas', name='apagar_turmas'),
+    url(r'^criarservico/(?P<ano>\d+)/$', 'ipbejactcapp.distro.views.criar_servico', name='criar_servico'),
+    url(r'^apagarservico/(?P<ano>\d+)/$', 'ipbejactcapp.distro.views.apagar_servico', name='apagar_servico'),
+
+    # grapelli
+    #(r'^grappelli/', include('grappelli.urls')),
     # Uncomment the admin/doc line below to enable admin documentation:
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
-
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
+                     
 )

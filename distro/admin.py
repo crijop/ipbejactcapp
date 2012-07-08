@@ -15,6 +15,9 @@ from distro.models import Reducao
 from distro.models import Titulo
 from distro.models import Docente
 from distro.models import CursoDocente
+from distro.models import Turma
+from distro.models import ServicoDocente
+from distro.models import TipoAula
 
 admin.site.register(Categoria)
 admin.site.register(UnidadeOrganica)
@@ -32,7 +35,8 @@ admin.site.register(Epoca)
 
 class UnidadeCurricularAdmin(admin.ModelAdmin):
     list_display = ('nome', 'curso', 'departamento')
-    list_filter = ('curso', 'departamento')
+    list_filter = ('curso', 'departamento', 'semestre', 'regente')
+    search_fields = ['nome', 'regente__nome_completo']
 
     pass
 
@@ -46,8 +50,8 @@ class DocenteAdmin(admin.ModelAdmin):
     list_filter = ('departamento', 
                    'categoria', 
                    'tipo_contrato')
-
     pass
+
 admin.site.register(Docente, DocenteAdmin)
 
 class CursoDocenteAdmin(admin.ModelAdmin):
@@ -55,4 +59,38 @@ class CursoDocenteAdmin(admin.ModelAdmin):
     pass
 
 admin.site.register(CursoDocente, CursoDocenteAdmin)
+
+class TurmaAdmin(admin.ModelAdmin):
+    # def formfield_for_foreignkey(self, db_field, request, **kwargs):
+    #     if db_field.name == "curso":
+    #         kwargs["queryset"] = UnidadeCurricular.objects.filter(nome=request.curso)
+    #         return super(MyModelAdmin, self).formfield_for_foreignkey(db_field,request, **kwargs)
+    #     pass
+    list_display = ('unidade_curricular', 'turno', 'ano')
+    list_filter = ('ano', 
+                   'unidade_curricular__departamento',
+                   'unidade_curricular__curso',
+                   'tipo_aula', 
+                   'turno', 
+                   )
+    search_fields = ['unidade_curricular__nome']
+
+    raw_id_admin = ('unidadecurricular', )
+    pass
+
+admin.site.register(TipoAula)
+admin.site.register(Turma, TurmaAdmin)
+
+class ServicoDocenteAdmin(admin.ModelAdmin):
+    list_filter = ('turma__ano', 
+                   'turma__unidade_curricular__departamento',
+                   'turma__unidade_curricular__curso',
+                   'docente', 
+                   )
+    search_fields = ['docente__nome_completo', 
+                     'turma__unidade_curricular__nome']
+    raw_id_admin = ('turma', )
+    
+    pass
+admin.site.register(ServicoDocente,ServicoDocenteAdmin)
 

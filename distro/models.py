@@ -43,8 +43,14 @@ class UnidadeOrganica(models.Model):
     '''
     nome = models.CharField(max_length=80)
     abreviatura = models.CharField(max_length=4)
+
     def __unicode__(self):
         return self.abreviatura + '- ' + self.nome
+
+    class Meta:
+        verbose_name_plural = "unidades orgânicas"
+        pass
+
     pass
 
 class Departamento(models.Model):
@@ -79,6 +85,9 @@ class Curso(models.Model):
     abreviatura = models.CharField(max_length=4)
     tipo_curso = models.ForeignKey('TipoCurso')
 
+    # número de semestres letivos de um curso
+    semestre_letivos = models.IntegerField(default=2)
+
     def __unicode__(self):
         # return unicode(self.abreviatura) + '- ' + unicode(self.nome)
         return unicode(self.nome)
@@ -96,6 +105,8 @@ class Cnaef(models.Model):
                               unique=True)
     def __unicode__(self):
         return unicode(self.codigo) + '- ' + unicode(self.nome)
+    class Meta:
+        verbose_name_plural = "CNAEF"
     pass
     
 class GrauAcademico(models.Model):
@@ -105,7 +116,7 @@ class GrauAcademico(models.Model):
     titulo = models.CharField(max_length=20)
 
     def __unicode__(self):
-        return unicode(self.codigo) # + '- ' + unicode(self.nome)
+        return unicode(self.titulo) # + '- ' + unicode(self.nome)
     pass
     
 
@@ -121,6 +132,10 @@ class Epoca(models.Model):
 
     def __unicode__(self):
         return unicode(self.abreviatura) + '- ' + unicode(self.nome)
+
+    class Meta:
+        verbose_name_plural = "épocas"
+
     pass
     
     
@@ -134,24 +149,38 @@ class UnidadeCurricular(models.Model):
     departamento = models.ForeignKey('Departamento')
     cnaef        = models.ForeignKey('Cnaef', null=True)
     ects         = models.FloatField(default=0, null=True)
-    ano          = models.IntegerField(default=0, null=True)
-    semestre     = models.IntegerField(default=0, null=True)
-    epoca        = models.ForeignKey('Epoca')
+    ano          = models.IntegerField(default=1, null=True)
+    semestre     = models.IntegerField(default=1, null=True)
+    epoca        = models.ForeignKey('Epoca',
+                                     default=1,
+                                     null=True)
 
     # horas de uma unidade curricular
-    horas_lei_t  = models.FloatField(default=0, null=True)
-    horas_lei_tp = models.FloatField(default=0, null=True)
-    horas_lei_pl = models.FloatField(default=0, null=True)
-    horas_lei_tc = models.FloatField(default=0, null=True)
-    horas_lei_s  = models.FloatField(default=0, null=True)
-    horas_lei_e  = models.FloatField(default=0, null=True)
-    horas_lei_ot = models.FloatField(default=0, null=True)
-    horas_lei_o  = models.FloatField(default=0, null=True)
+    horas_lei_t  = models.IntegerField(default=0, null=True, blank=True)
+    horas_lei_tp = models.IntegerField(default=0, null=True, blank=True)
+    horas_lei_pl = models.IntegerField(default=0, null=True, blank=True)
+    horas_lei_tc = models.IntegerField(default=0, null=True, blank=True)
+    horas_lei_s  = models.IntegerField(default=0, null=True, blank=True)
+    horas_lei_e  = models.IntegerField(default=0, null=True, blank=True)
+    horas_lei_ot = models.IntegerField(default=0, null=True, blank=True)
+    horas_lei_o  = models.IntegerField(default=0, null=True, blank=True)
 
     data_modificacao = models.DateTimeField(auto_now=True)
 
+    # regente da unidade curricular
+    regente = models.ForeignKey('Docente',
+                                null=True,
+                                blank=True)
+
     def __unicode__(self):
-        return unicode(self.curso) + '- ' + unicode(self.nome)
+        return unicode(self.nome) + ' ' + \
+            '(' + unicode(self.curso) + ')'
+    #unicode(self.curso) + '- ' + 
+
+    class Meta:
+        verbose_name_plural = "unidades curriculares"
+        pass
+
     pass
 
 
@@ -166,35 +195,10 @@ class Reducao(models.Model):
 
     def __unicode__(self):
         return unicode(self.nome)
-    pass
 
-class Docente(models.Model):
-    '''
-    caraterização de docente
-    '''
-    nome_completo     = models.CharField(max_length=300)
-    departamento      = models.ForeignKey('Departamento')
-    categoria         = models.ForeignKey('Categoria')
-    percentagem       = models.IntegerField(default=100, 
-                                            blank=True,
-                                            null=True)
-    tipo_contrato     = models.ForeignKey('TipoContrato')
+    class Meta:
+        verbose_name_plural = "reduções"
 
-    data_inicio = models.DateField(null=True,
-                                   default=datetime.\
-                                       date(year=1980,
-                                            month=1,
-                                            day=1))
-    data_fim = models.DateField(null=True,
-                                default=datetime.\
-                                    date(year=2050,
-                                         month=1,
-                                         day=1))
-
-    data_modificacao = models.DateTimeField(auto_now=True)
-
-    def __unicode__(self):
-        return unicode(self.nome_completo)
     pass
 
 class Titulo(models.Model):
@@ -222,7 +226,6 @@ class Titulo(models.Model):
 
     pass
 
-
 class CursoDocente(models.Model):
     '''
     curso do docente
@@ -238,11 +241,166 @@ class CursoDocente(models.Model):
         return unicode(self.docente) + '- ' + \
             unicode(self.titulo) + ' ' + \
             unicode(self.curso)
+
+    class Meta:
+        verbose_name_plural = "formação dos docentes"
+
     pass
 
 
-#class Turma(models.Model):
+class Docente(models.Model):
+    '''
+    caraterização de docente
+    '''
+    nome_completo     = models.CharField(max_length=300)
+    departamento      = models.ForeignKey('Departamento')
+    categoria         = models.ForeignKey('Categoria')
+
+    # escalao de vencimento do docente
+    escalao           = models.IntegerField(default=100, 
+                                            blank=True,
+                                            null=True)
+
+    percentagem       = models.IntegerField(default=100, 
+                                            blank=True,
+                                            null=True)
+    tipo_contrato     = models.ForeignKey('TipoContrato')
+
+    data_inicio = models.DateField(null=True,
+                                   default=datetime.\
+                                       date(year=1980,
+                                            month=1,
+                                            day=1))
+    data_fim = models.DateField(null=True,
+                                default=datetime.\
+                                    date(year=2050,
+                                         month=1,
+                                         day=1))
+
+    data_modificacao = models.DateTimeField(auto_now=True)
+
+    def __unicode__(self):
+        return unicode(self.nome_completo)
+    pass
+
+class TipoAula(models.Model):
+    '''
+    tipos de leccionacao de aulas
+    '''
+    TIPOS_CHOICES = (
+        ('PL', u'Prática Laboratório'),
+        ('TP', u'Teórico Prática'),
+        ('T', u'Teórica'),
+        ('TC', u'Trabalho Campo'),
+        ('E', u'Estágio'),
+        ('OT', u'Orientação Tutória'),
+        ('S', u'Seminário'),
+        ('O', u'Orientação'),
+        )
+
+
+    tipo = models.CharField(max_length=30, choices=TIPOS_CHOICES)
     
+    def __unicode__(self):
+        return unicode(self.tipo)
+
+    pass
+
+class Turma(models.Model):
+    '''
+    Turma
+    representa os semestres ativos de um curso
+    num determinado ano letivo
+
+    apenas podem ser criadas turmas para os
+    cursos em atividade
+
+    uma turma corresponde a um curso ativo
+    e indica o número de alunos que frequentam a turma
+    '''
+    ANO_CHOICES = (
+        (2013, u'2013'),
+        (2014, u'2014'),
+        (2015, u'2015'),
+        (2016, u'2016'),
+        (2017, u'2017'),
+        (2018, u'2018'),
+        (2019, u'2019'),
+        (2020, u'2020'),
+        (2021, u'2021'),
+        (2022, u'2022'),
+        )
+
+    SEMESTRE_CHOICES = (
+        (1, u'1'),
+        (2, u'2'),
+        (3, u'3'),
+        (4, u'4'),
+        (5, u'5'),
+        (6, u'6'),
+        (7, u'7'),
+        (8, u'8'),
+        (9, u'9'),
+        (10, u'10'),
+        )
+    TURNO_CHOICES = (
+        ('A', u'A'),
+        ('B', u'B'),
+        ('C', u'C'),
+        ('D', u'D'),
+        ('E', u'E'),
+        ('F', u'F'),
+        ('G', u'G'),
+        ('H', u'H'),
+        ('I', u'I'),
+        )
+
+
+    ano   = models.IntegerField(choices=ANO_CHOICES)
+    turno = models.CharField(max_length=2,
+                             choices=TURNO_CHOICES)
+    numero_alunos = models.IntegerField(default=20,
+                                        null=True,
+                                        blank=True)
+    unidade_curricular = models.ForeignKey('UnidadeCurricular')
+    
+    # tipo de turma 
+    tipo_aula = models.ForeignKey('TipoAula')
+    
+    # número de horas leccionadas
+    horas     = models.IntegerField(default=0)
+
+    def __unicode__(self):
+        return unicode(self.unidade_curricular) + '- ' + \
+            unicode(self.turno) + ', ' + unicode(self.tipo_aula) + \
+            ' ' + unicode(self.ano)
+
+
+    pass
+
+class ServicoDocente(models.Model):
+    '''
+    ServicoDocente
+    representação da atribuição de um serviço docente a 
+    um determinado docente
+    
+    o serviço docente é referido apenas a serviço letivo
+    '''
+    turma   = models.ForeignKey('Turma')
+    docente = models.ForeignKey('Docente',
+                                null=True,
+                                blank=True)
+    horas   = models.IntegerField(default=0)
+
+    def __unicode__(self):
+        return unicode(self.turma) + ' ' + \
+            unicode(self.docente) + '= ' + unicode(self.horas) + 'h'
+
+    class Meta:
+        verbose_name_plural = "serviços docentes"
+        pass
+    pass
+
 # class Distribuicao(models.Model):
 #     '''
 #     representacao de uma distribuicao de serviço
