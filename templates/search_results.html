@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %} Uma Pesquisa de Teste {% endblock %}
+
+{% block content %} 
+  <button id="fadeOutButton">Fade block out</button>
+  <button id="fadeInButton">Fade block in</button>
+  <div id="fadeTarget" class="red-block" style="opacity: 1;"> A red block </div>
+
+  <p>You searched for: <strong>{{ query }}</strong></p>
+  {% if docentes %}
+  <p>Found {{ docentes|length }} docentes{{ docente|pluralize }}.</p>
+  <div id="content" class="flex">
+    <div id="changelist" class="module">
+      <div class="actions">
+	<div class="results">
+	  <table id="result_list" cellspacing="0">
+	    {% for docente in docentes %}
+	    <tr class="row1">
+	      <td>{{ docente.nome_completo }}</td>
+	      <td>{{ docente.departamento }}</td>
+	    </tr>
+	    {% endfor %}
+	  </table>
+	</div>
+      </div>
+    </div>
+  </div>
+  {% else %}
+  <p>No books matched your search criteria.</p>
+  {% endif %}
+
+{% endblock %}
