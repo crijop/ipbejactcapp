@@ -116,12 +116,11 @@ def cursos_unicos(items):
             app(item)
     return keep
 
-def leitura_csv():
+def leitura_csv(nome_ficheiro):
     '''
     leitura do ficheiro csv
     '''
     
-    nome_ficheiro = "DSD1213Proposta360Dep30Mai12.csv"
     ficheiro = open(nome_ficheiro, 'rb')
     leitor = csv.reader(ficheiro,delimiter=',')
     lista = []
@@ -147,7 +146,7 @@ def leitura_csv():
                            linha[ND],
                            linha[CAT],
                            linha[PER]))
-            # print linha
+            print linha
         pass
 
     ficheiro.close()
@@ -196,6 +195,16 @@ def pesquisa_categoria(categoria, cursor):
     t = (categoria,)
     cursor.execute('''SELECT id FROM distro_categoria WHERE
                       nome =?''', t)
+    res = cursor.fetchone()
+    if res:
+        return res[0]
+    else:
+        return None
+
+def pesquisa_docente(nome_docente, cursor):
+    t = (nome_docente,)
+    cursor.execute('''SELECT id FROM distro_docente WHERE
+                      nome_completo =?''', t)
     res = cursor.fetchone()
     if res:
         return res[0]
@@ -405,18 +414,21 @@ def nome_docente_predicate(nome_docente):
     else:
         return False
 
-def escrever_docente(ficheiro, unidades, cursor):
+def escrever_contrato(ficheiro, unidades, cursor):
     fich_yaml = open(ficheiro, "w")
 
     # ordenar docentes alfabeticamente
     unidades_ordenadas = sorted(unidades, key=itemgetter(IDX_ND))
     pk = 1
     for linha in unidades_ordenadas:
-        nome_docente = linha[IDX_ND]
+        nome_docente = unicode(linha[IDX_ND], 'utf-8')
 
-        departamento = unicode(linha[IDX_DEP], 'utf-8')
-        id_dep = pesquisa_departamento(departamento, 
-                                       cursor)
+        docente_id = pesquisa_docente(nome_docente, cursor)
+
+        if not docente_id:
+            print docente_id, nome_docente
+            continue
+
         categoria    = unicode(linha[IDX_CAT], 'utf-8')
         if categoria == ' - - - - -' or \
                 categoria == u'#N/D' or \
@@ -424,8 +436,7 @@ def escrever_docente(ficheiro, unidades, cursor):
             continue
         cat = categorias[categoria]
 
-        id_categoria = pesquisa_categoria(cat,
-                                          cursor)
+        id_categoria = pesquisa_categoria(cat, cursor)
 
         # percentagem de tempo
         percentagem = linha[IDX_PER]
@@ -445,6 +456,42 @@ def escrever_docente(ficheiro, unidades, cursor):
         else:
             contrato = 2
 
+        fich_yaml.write("- model: distro.contrato\n")
+        fich_yaml.write("  pk: {}\n".format(str(pk)))
+        fich_yaml.write("  fields:\n")
+        fich_yaml.write("    docente: {0}\n".\
+                            format(docente_id))
+        fich_yaml.write("    categoria: {0}\n".\
+                            format(id_categoria))
+        fich_yaml.write("    tipo_contrato: {0}\n".\
+                            format(contrato))
+
+        pk += 1
+        pass
+    fich_yaml.close()
+
+    pass
+
+def escrever_docente(ficheiro, unidades, cursor):
+    fich_yaml = open(ficheiro, "w")
+
+    # ordenar docentes alfabeticamente
+    unidades_ordenadas = sorted(unidades, key=itemgetter(IDX_ND))
+    pk = 1
+    for linha in unidades_ordenadas:
+        nome_docente = linha[IDX_ND]
+
+        departamento = unicode(linha[IDX_DEP], 'utf-8')
+        id_dep = pesquisa_departamento(departamento, 
+                                       cursor)
+
+        # percentagem de tempo
+        percentagem = linha[IDX_PER]
+
+        if nome_docente_predicate(nome_docente):
+            continue
+
+
         fich_yaml.write("- model: distro.docente\n")
         fich_yaml.write("  pk: {}\n".format(str(pk)))
         fich_yaml.write("  fields:\n")
@@ -452,10 +499,8 @@ def escrever_docente(ficheiro, unidades, cursor):
                             format(nome_docente))
         fich_yaml.write("    departamento: {0}\n".\
                             format(id_dep))
-        fich_yaml.write("    categoria: {0}\n".\
-                            format(id_categoria))
-        fich_yaml.write("    tipo_contrato: {0}\n".\
-                            format(contrato))
+        fich_yaml.write("    regime_exclusividade: {0}\n".\
+                            format(1))
 
         # print pk, " ", nome_docente, "-", \
         #     linha[IDX_DEP], linha[IDX_CAT], id_dep, percentagem
@@ -467,9 +512,11 @@ def escrever_docente(ficheiro, unidades, cursor):
     pass
 
 # leitura das unidades curriculares
-unidades = leitura_csv()
+nome_ficheiro = "DSD1213Proposta360Dep30Mai12.csv"
+unidades = leitura_csv(nome_ficheiro)
 
-conn = sqlite3.connect("../ipbeja.sqlite3")
+exit(0)
+conn = sqlite3.connect("../ipbeja25jul12.sqlite3")
 cursor = conn.cursor()
 
 unidades.pop(0)
@@ -487,14 +534,17 @@ print len(unidades)
 ficheiro_unidades_curriculares = "unidadecurricular.yaml"
 unidades_unicas = unidades_unique(unidades)
 print len(unidades_unicas)
-escrever_unidades_curriculares(ficheiro_unidades_curriculares, 
-                               unidades_unicas,
-                               cursor)
+# escrever_unidades_curriculares(ficheiro_unidades_curriculares, 
+#                                unidades_unicas,
+#                                cursor)
 
 ficheiro_reducoes = "reducoes.yaml"
-escrever_reducoes(ficheiro_reducoes, unidades)
+#escrever_reducoes(ficheiro_reducoes, unidades)
 
 ficheiro_docentes = "docentes.yaml"
-escrever_docente(ficheiro_docentes, docentes, cursor)
+#escrever_docente(ficheiro_docentes, docentes, cursor)
+
+ficheiro_contrato = "contratos.yaml"
+#escrever_contrato(ficheiro_contrato, docentes, cursor)
 
 cursor.close()

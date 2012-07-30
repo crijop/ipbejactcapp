@@ -21,6 +21,7 @@ initial:
 	python manage.py loaddata tiposcontrato.yaml
 	python manage.py loaddata docentes.yaml
 	python manage.py loaddata tipo_aulas.yaml
+	python manage.py loaddata contratos.yaml
 
 zero:
 	python manage.py schemamigration distro --initial

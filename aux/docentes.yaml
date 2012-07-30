@@ -3,1258 +3,1084 @@
   fields:
     nome_completo: Adelaide Espirito Santo
     departamento: 5
-    categoria: 1
-    tipo_contrato: 2
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 2
   fields:
     nome_completo: Adelaide Pires Malainho
     departamento: 5
-    categoria: 1
-    tipo_contrato: 2
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 3
   fields:
     nome_completo: Aldo Manuel Passarinho
     departamento: 2
-    categoria: 1
-    tipo_contrato: 2
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 4
   fields:
     nome_completo: Alexandra Margarida Moedas
     departamento: 2
-    categoria: 5
-    tipo_contrato: 3
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 5
   fields:
     nome_completo: Alexandra Trincalhetas Tomaz
     departamento: 3
-    categoria: 6
-    tipo_contrato: 3
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 6
   fields:
     nome_completo: Ana Clara Nunes
     departamento: 7
-    categoria: 1
-    tipo_contrato: 2
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 7
   fields:
     nome_completo: Ana Cristina Horta
     departamento: 5
-    categoria: 6
-    tipo_contrato: 3
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 8
   fields:
     nome_completo: Ana Cristina Martins
     departamento: 7
-    categoria: 1
-    tipo_contrato: 2
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 9
   fields:
     nome_completo: Ana Cristina Pardal
     departamento: 8
-    categoria: 6
-    tipo_contrato: 3
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 10
   fields:
     nome_completo: Ana Isabel Fernandes
     departamento: 5
-    categoria: 5
-    tipo_contrato: 3
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 11
   fields:
     nome_completo: Ana Isabel Rodrigues
     departamento: 4
-    categoria: 6
-    tipo_contrato: 3
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 12
   fields:
     nome_completo: Ana Maria Canhestro
     departamento: 4
-    categoria: 1
-    tipo_contrato: 2
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 13
   fields:
     nome_completo: Ana Maria Lebre
     departamento: 6
-    categoria: 1
-    tipo_contrato: 2
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 14
   fields:
     nome_completo: Ana Maria Pires
     departamento: 7
-    categoria: 1
-    tipo_contrato: 2
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 15
   fields:
     nome_completo: Ana Paula Figueira
     departamento: 4
-    categoria: 1
-    tipo_contrato: 2
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 16
   fields:
     nome_completo: Ana Paula Palma
     departamento: 7
-    categoria: 1
-    tipo_contrato: 2
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 17
   fields:
     nome_completo: Ana Pires Lavado
     departamento: 5
-    categoria: 1
-    tipo_contrato: 2
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 18
   fields:
     nome_completo: Ana Sofia Velhinho
     departamento: 2
-    categoria: 5
-    tipo_contrato: 3
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 19
   fields:
     nome_completo: Anabela Cândida Durão
     departamento: 1
-    categoria: 6
-    tipo_contrato: 3
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 20
   fields:
     nome_completo: Anabela Reis Amaral
     departamento: 8
-    categoria: 1
-    tipo_contrato: 2
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 21
   fields:
     nome_completo: Antonio Silvério Almodôvar
     departamento: 8
-    categoria: 6
-    tipo_contrato: 3
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 22
   fields:
     nome_completo: Antónia Nobre Macedo
     departamento: 8
-    categoria: 1
-    tipo_contrato: 2
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 23
   fields:
     nome_completo: António Carlos Carvalho
     departamento: 7
-    categoria: 2
-    tipo_contrato: 2
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 24
   fields:
     nome_completo: António Jorge Branco
     departamento: 7
-    categoria: 1
-    tipo_contrato: 3
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 25
   fields:
     nome_completo: António Mendes Inverno
     departamento: 2
-    categoria: 5
-    tipo_contrato: 3
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 26
   fields:
     nome_completo: António Nunes Ribeiro
     departamento: 3
-    categoria: 2
-    tipo_contrato: 2
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 27
   fields:
     nome_completo: António Rosário Oliveira
     departamento: 3
-    categoria: 1
-    tipo_contrato: 2
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 28
   fields:
     nome_completo: António Toucinho Silva
     departamento: 5
-    categoria: 1
-    tipo_contrato: 2
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 29
   fields:
     nome_completo: António Viegas Piteira
     departamento: 5
-    categoria: 5
-    tipo_contrato: 3
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 30
   fields:
     nome_completo: Armando de Jesus Ventura
     departamento: 1
-    categoria: 5
-    tipo_contrato: 3
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 31
   fields:
     nome_completo: Artur Jorge Lança
     departamento: 2
-    categoria: 5
-    tipo_contrato: 3
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 32
   fields:
     nome_completo: Bernado Loff Barreto
     departamento: 7
-    categoria: 1
-    tipo_contrato: 3
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 33
   fields:
     nome_completo: Carla Afonso Santos
     departamento: 6
-    categoria: 6
-    tipo_contrato: 3
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 34
   fields:
     nome_completo: Carlos Manuel Borralho
     departamento: 4
-    categoria: 1
-    tipo_contrato: 3
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 35
   fields:
     nome_completo: Carlos Marques Ribeiro
     departamento: 8
-    categoria: 1
-    tipo_contrato: 2
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 36
   fields:
     nome_completo: Celso Fialho Serra
     departamento: 4
-    categoria: 4
-    tipo_contrato: 3
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 37
   fields:
     nome_completo: Cesário Paulo Almeida
     departamento: 6
-    categoria: 1
-    tipo_contrato: 2
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 38
   fields:
     nome_completo: Cidália Martins Guia
     departamento: 7
-    categoria: 1
-    tipo_contrato: 2
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 39
   fields:
     nome_completo: Claúdia Regina Quaresma
     departamento: 7
-    categoria: 1
-    tipo_contrato: 3
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 40
   fields:
     nome_completo: Cristina Pires Santos
     departamento: 2
-    categoria: 5
-    tipo_contrato: 3
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 41
   fields:
-    nome_completo: Elsa Maria Barbosa
-    departamento: 4
-    categoria: 1
-    tipo_contrato: 2
+    nome_completo: ERASMUS – AHD
+    departamento: 2
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 42
   fields:
-    nome_completo: Elsa da Piedade Rodrigues
-    departamento: 1
-    categoria: 6
-    tipo_contrato: 3
+    nome_completo: Elsa Maria Barbosa
+    departamento: 4
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 43
   fields:
-    nome_completo: Emília de Jesus Duro
-    departamento: 7
-    categoria: 1
-    tipo_contrato: 3
+    nome_completo: Elsa da Piedade Rodrigues
+    departamento: 1
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 44
   fields:
-    nome_completo: Fernanda Maria Pereira
-    departamento: 4
-    categoria: 1
-    tipo_contrato: 2
+    nome_completo: Emília de Jesus Duro
+    departamento: 7
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 45
   fields:
-    nome_completo: Fernando José Teixeira
+    nome_completo: Fernanda Maria Pereira
     departamento: 4
-    categoria: 6
-    tipo_contrato: 3
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 46
   fields:
-    nome_completo: Fernando Santos Mota
-    departamento: 3
-    categoria: 1
-    tipo_contrato: 2
+    nome_completo: Fernando José Teixeira
+    departamento: 4
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 47
   fields:
-    nome_completo: Florbela Silva
-    departamento: 7
-    categoria: 4
-    tipo_contrato: 3
+    nome_completo: Fernando Santos Mota
+    departamento: 3
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 48
   fields:
-    nome_completo: Florêncio Serpa Moniz
-    departamento: 2
-    categoria: 1
-    tipo_contrato: 2
+    nome_completo: Florbela Silva
+    departamento: 7
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 49
   fields:
-    nome_completo: Francisco Luís
-    departamento: 1
-    categoria: 7
-    tipo_contrato: 3
+    nome_completo: Florêncio Serpa Moniz
+    departamento: 2
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 50
   fields:
-    nome_completo: Henrique José Oliveira
+    nome_completo: Francisco Luís
     departamento: 1
-    categoria: 1
-    tipo_contrato: 2
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 51
   fields:
-    nome_completo: Hugo Lança Silva
-    departamento: 4
-    categoria: 6
-    tipo_contrato: 3
+    nome_completo: Henrique José Oliveira
+    departamento: 1
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 52
   fields:
-    nome_completo: Hugo Miguel Leão
-    departamento: 1
-    categoria: 6
-    tipo_contrato: 2
+    nome_completo: Hugo Lança Silva
+    departamento: 4
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 53
   fields:
-    nome_completo: Humberto Tomás Chaves
-    departamento: 8
-    categoria: 1
-    tipo_contrato: 2
+    nome_completo: Hugo Miguel Leão
+    departamento: 1
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 54
   fields:
-    nome_completo: Inês Ennes Sayanda
-    departamento: 7
-    categoria: 1
-    tipo_contrato: 3
+    nome_completo: Humberto Tomás Chaves
+    departamento: 8
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 55
   fields:
-    nome_completo: Isabel Brito Guerreiro
-    departamento: 3
-    categoria: 1
-    tipo_contrato: 2
+    nome_completo: Inês Ennes Sayanda
+    departamento: 7
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 56
   fields:
-    nome_completo: Isabel Caldas Baer
-    departamento: 8
-    categoria: 6
-    tipo_contrato: 3
+    nome_completo: Isabel Brito Guerreiro
+    departamento: 3
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 57
   fields:
-    nome_completo: Isabel Sofia Brito
-    departamento: 1
-    categoria: 1
-    tipo_contrato: 2
+    nome_completo: Isabel Caldas Baer
+    departamento: 8
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 58
   fields:
-    nome_completo: Josefina Torrão
-    departamento: 7
-    categoria: 4
-    tipo_contrato: 3
+    nome_completo: Isabel Sofia Brito
+    departamento: 1
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 59
   fields:
-    nome_completo: José António Orta
-    departamento: 5
-    categoria: 2
-    tipo_contrato: 2
+    nome_completo: Josefina Torrão
+    departamento: 7
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 60
   fields:
-    nome_completo: José António Penacho
-    departamento: 3
-    categoria: 1
-    tipo_contrato: 2
+    nome_completo: José António Orta
+    departamento: 5
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 61
   fields:
-    nome_completo: José Costa Mira
+    nome_completo: José António Penacho
     departamento: 3
-    categoria: 1
-    tipo_contrato: 2
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 62
   fields:
-    nome_completo: José Eduardo Regato
+    nome_completo: José Costa Mira
     departamento: 3
-    categoria: 1
-    tipo_contrato: 3
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 63
   fields:
-    nome_completo: José Espírito Santo
-    departamento: 5
-    categoria: 1
-    tipo_contrato: 2
+    nome_completo: José Eduardo Regato
+    departamento: 3
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 64
   fields:
-    nome_completo: José Ferro Palma
-    departamento: 3
-    categoria: 1
-    tipo_contrato: 2
+    nome_completo: José Espírito Santo
+    departamento: 5
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 65
   fields:
-    nome_completo: José Francisco Xavier
-    departamento: 4
-    categoria: 1
-    tipo_contrato: 3
+    nome_completo: José Ferro Palma
+    departamento: 3
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 66
   fields:
-    nome_completo: José Jacinto Bilau
+    nome_completo: José Francisco Xavier
     departamento: 4
-    categoria: 1
-    tipo_contrato: 2
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 67
   fields:
-    nome_completo: José Jasnau Caeiro
-    departamento: 1
-    categoria: 1
-    tipo_contrato: 2
+    nome_completo: José Jacinto Bilau
+    departamento: 4
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 68
   fields:
-    nome_completo: José Luís Reis
+    nome_completo: José Jasnau Caeiro
     departamento: 1
-    categoria: 6
-    tipo_contrato: 2
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 69
   fields:
-    nome_completo: José Morais Antunes
-    departamento: 3
-    categoria: 2
-    tipo_contrato: 2
+    nome_completo: José Luís Reis
+    departamento: 1
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 70
   fields:
-    nome_completo: José Pedro Fernandes
-    departamento: 4
-    categoria: 1
-    tipo_contrato: 2
+    nome_completo: José Morais Antunes
+    departamento: 3
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 71
   fields:
-    nome_completo: José Pereirinha Ramalho
-    departamento: 5
-    categoria: 1
-    tipo_contrato: 2
+    nome_completo: José Pedro Fernandes
+    departamento: 4
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 72
   fields:
-    nome_completo: José Pires dos Reis
-    departamento: 4
-    categoria: 1
-    tipo_contrato: 2
+    nome_completo: José Pereirinha Ramalho
+    departamento: 5
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 73
   fields:
-    nome_completo: João Alberto Leal
-    departamento: 2
-    categoria: 1
-    tipo_contrato: 2
+    nome_completo: José Pires dos Reis
+    departamento: 4
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 74
   fields:
-    nome_completo: João Boavida Canada
-    departamento: 8
-    categoria: 2
-    tipo_contrato: 2
+    nome_completo: João Alberto Leal
+    departamento: 2
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 75
   fields:
-    nome_completo: João Carlos Martins
-    departamento: 1
-    categoria: 6
-    tipo_contrato: 3
+    nome_completo: João Boavida Canada
+    departamento: 8
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 76
   fields:
-    nome_completo: João Filipe Rodrigues
-    departamento: 2
-    categoria: 6
-    tipo_contrato: 2
+    nome_completo: João Carlos Martins
+    departamento: 1
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 77
   fields:
-    nome_completo: João Filipe Santos
-    departamento: 1
-    categoria: 6
-    tipo_contrato: 3
+    nome_completo: João Filipe Rodrigues
+    departamento: 2
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 78
   fields:
-    nome_completo: João Gonçalves Silva
-    departamento: 5
-    categoria: 1
-    tipo_contrato: 2
+    nome_completo: João Filipe Santos
+    departamento: 1
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 79
   fields:
-    nome_completo: João Manuel Rodeia
-    departamento: 7
-    categoria: 2
-    tipo_contrato: 2
+    nome_completo: João Gonçalves Silva
+    departamento: 5
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 80
   fields:
-    nome_completo: João Mestre Dias
-    departamento: 8
-    categoria: 6
-    tipo_contrato: 3
+    nome_completo: João Manuel Rodeia
+    departamento: 7
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 81
   fields:
-    nome_completo: João Paiva Santos
-    departamento: 6
-    categoria: 6
-    tipo_contrato: 3
+    nome_completo: João Mestre Dias
+    departamento: 8
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 82
   fields:
-    nome_completo: João Paulo Barros
-    departamento: 1
-    categoria: 1
-    tipo_contrato: 2
+    nome_completo: João Paiva Santos
+    departamento: 6
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 83
   fields:
-    nome_completo: João Paulo Trindade
+    nome_completo: João Paulo Barros
     departamento: 1
-    categoria: 1
-    tipo_contrato: 2
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 84
   fields:
-    nome_completo: João Portugal Fernandes
-    departamento: 3
-    categoria: 1
-    tipo_contrato: 2
+    nome_completo: João Paulo Trindade
+    departamento: 1
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 85
   fields:
-    nome_completo: Luis Peres Sousa
+    nome_completo: João Portugal Fernandes
     departamento: 3
-    categoria: 1
-    tipo_contrato: 2
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 86
   fields:
-    nome_completo: Luis Santa Maria
+    nome_completo: Luis Peres Sousa
     departamento: 3
-    categoria: 1
-    tipo_contrato: 3
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 87
   fields:
-    nome_completo: Luís André Rosário
-    departamento: 2
-    categoria: 6
-    tipo_contrato: 3
+    nome_completo: Luis Santa Maria
+    departamento: 3
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 88
   fields:
-    nome_completo: Luís Carlos Bruno
-    departamento: 1
-    categoria: 6
-    tipo_contrato: 3
+    nome_completo: Luís André Rosário
+    departamento: 2
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 89
   fields:
-    nome_completo: Luís Filipe Domingues
-    departamento: 6
-    categoria: 1
-    tipo_contrato: 2
+    nome_completo: Luís Carlos Bruno
+    departamento: 1
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 90
   fields:
-    nome_completo: Luís Filipe Garcia
-    departamento: 1
-    categoria: 1
-    tipo_contrato: 2
+    nome_completo: Luís Filipe Domingues
+    departamento: 6
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 91
   fields:
-    nome_completo: Luís Manuel Murta
-    departamento: 2
-    categoria: 1
-    tipo_contrato: 2
+    nome_completo: Luís Filipe Garcia
+    departamento: 1
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 92
   fields:
-    nome_completo: Luís Manuel Palma
-    departamento: 7
-    categoria: 8
-    tipo_contrato: 5
+    nome_completo: Luís Manuel Murta
+    departamento: 2
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 93
   fields:
-    nome_completo: Luís Mendonça de Carvalho
-    departamento: 3
-    categoria: 1
-    tipo_contrato: 2
+    nome_completo: Luís Manuel Palma
+    departamento: 7
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 94
   fields:
-    nome_completo: Luís Miguel da Luz
-    departamento: 1
-    categoria: 6
-    tipo_contrato: 3
+    nome_completo: Luís Mendonça de Carvalho
+    departamento: 3
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 95
   fields:
-    nome_completo: Manuel Caixeiro Albino
-    departamento: 7
-    categoria: 4
-    tipo_contrato: 3
+    nome_completo: Luís Miguel da Luz
+    departamento: 1
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 96
   fields:
-    nome_completo: Manuel David Masseno
-    departamento: 4
-    categoria: 1
-    tipo_contrato: 2
+    nome_completo: Manuel Caixeiro Albino
+    departamento: 7
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 97
   fields:
-    nome_completo: Manuel Marques Patanita
-    departamento: 3
-    categoria: 1
-    tipo_contrato: 2
+    nome_completo: Manuel David Masseno
+    departamento: 4
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 98
   fields:
-    nome_completo: Marco Filipe Silva
-    departamento: 2
-    categoria: 5
-    tipo_contrato: 3
+    nome_completo: Manuel Marques Patanita
+    departamento: 3
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 99
   fields:
-    nome_completo: Margarida Isabel dos Santos
-    departamento: 1
-    categoria: 6
-    tipo_contrato: 3
+    nome_completo: Marco Filipe Silva
+    departamento: 2
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 100
   fields:
-    nome_completo: Margarida Santos Silveira
-    departamento: 5
-    categoria: 1
-    tipo_contrato: 2
+    nome_completo: Margarida Isabel dos Santos
+    departamento: 1
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 101
   fields:
-    nome_completo: Maria Adelaide Almeida
-    departamento: 8
-    categoria: 1
-    tipo_contrato: 2
+    nome_completo: Margarida Santos Silveira
+    departamento: 5
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 102
   fields:
-    nome_completo: Maria Adelaide Tareco
-    departamento: 4
-    categoria: 1
-    tipo_contrato: 2
+    nome_completo: Maria Adelaide Almeida
+    departamento: 8
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 103
   fields:
-    nome_completo: Maria Albertina Raposo
-    departamento: 3
-    categoria: 1
-    tipo_contrato: 2
+    nome_completo: Maria Adelaide Tareco
+    departamento: 4
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 104
   fields:
-    nome_completo: Maria Antonieta Medeiros
-    departamento: 7
-    categoria: 1
-    tipo_contrato: 2
+    nome_completo: Maria Albertina Raposo
+    departamento: 3
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 105
   fields:
-    nome_completo: Maria Antónia da Costa
+    nome_completo: Maria Antonieta Medeiros
     departamento: 7
-    categoria: 1
-    tipo_contrato: 2
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 106
   fields:
-    nome_completo: Maria Clara Pires
-    departamento: 4
-    categoria: 1
-    tipo_contrato: 2
+    nome_completo: Maria Antónia da Costa
+    departamento: 7
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 107
   fields:
-    nome_completo: Maria Cristina Faria
-    departamento: 5
-    categoria: 1
-    tipo_contrato: 2
+    nome_completo: Maria Clara Pires
+    departamento: 4
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 108
   fields:
-    nome_completo: Maria Céu André
+    nome_completo: Maria Cristina Faria
     departamento: 5
-    categoria: 7
-    tipo_contrato: 1
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 109
   fields:
-    nome_completo: Maria Dulce Soares
-    departamento: 7
-    categoria: 1
-    tipo_contrato: 2
+    nome_completo: Maria Céu André
+    departamento: 5
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 110
   fields:
-    nome_completo: Maria Fátima Carvalho
-    departamento: 8
-    categoria: 1
-    tipo_contrato: 2
+    nome_completo: Maria Dulce Soares
+    departamento: 7
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 111
   fields:
-    nome_completo: Maria Gertrudes Ramalho
-    departamento: 4
-    categoria: 1
-    tipo_contrato: 2
+    nome_completo: Maria Fátima Carvalho
+    departamento: 8
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 112
   fields:
-    nome_completo: Maria Goreti Margalha
-    departamento: 1
-    categoria: 1
-    tipo_contrato: 3
+    nome_completo: Maria Gertrudes Ramalho
+    departamento: 4
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 113
   fields:
-    nome_completo: Maria Inês Faria
-    departamento: 5
-    categoria: 6
-    tipo_contrato: 3
+    nome_completo: Maria Goreti Margalha
+    departamento: 1
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 114
   fields:
-    nome_completo: Maria Isabel Colaço
-    departamento: 6
-    categoria: 6
-    tipo_contrato: 3
+    nome_completo: Maria Inês Faria
+    departamento: 5
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 115
   fields:
-    nome_completo: Maria Isabel Patanita
-    departamento: 3
-    categoria: 1
-    tipo_contrato: 2
+    nome_completo: Maria Isabel Colaço
+    departamento: 6
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 116
   fields:
-    nome_completo: Maria Isabel Valente
-    departamento: 4
-    categoria: 6
-    tipo_contrato: 3
+    nome_completo: Maria Isabel Patanita
+    departamento: 3
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 117
   fields:
-    nome_completo: Maria José Rosário
-    departamento: 5
-    categoria: 1
-    tipo_contrato: 2
+    nome_completo: Maria Isabel Valente
+    departamento: 4
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 118
   fields:
-    nome_completo: Maria João Carvalho
-    departamento: 8
-    categoria: 6
-    tipo_contrato: 3
+    nome_completo: Maria José Rosário
+    departamento: 5
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 119
   fields:
-    nome_completo: Maria João Cordeiro
-    departamento: 2
-    categoria: 1
-    tipo_contrato: 2
+    nome_completo: Maria João Carvalho
+    departamento: 8
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 120
   fields:
-    nome_completo: Maria João Lampreia
-    departamento: 7
-    categoria: 1
-    tipo_contrato: 2
+    nome_completo: Maria João Cordeiro
+    departamento: 2
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 121
   fields:
-    nome_completo: Maria João Ramos
-    departamento: 2
-    categoria: 1
-    tipo_contrato: 2
+    nome_completo: Maria João Lampreia
+    departamento: 7
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 122
   fields:
-    nome_completo: Maria Manuel Rodrigues
-    departamento: 4
-    categoria: 1
-    tipo_contrato: 2
+    nome_completo: Maria João Ramos
+    departamento: 2
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 123
   fields:
-    nome_completo: Maria Manuela Azevedo
-    departamento: 5
-    categoria: 1
-    tipo_contrato: 2
+    nome_completo: Maria Manuel Rodrigues
+    departamento: 4
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 124
   fields:
-    nome_completo: Maria Manuela Pereira
-    departamento: 7
-    categoria: 2
-    tipo_contrato: 2
+    nome_completo: Maria Manuela Azevedo
+    departamento: 5
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 125
   fields:
-    nome_completo: Maria Margarida Goes
+    nome_completo: Maria Manuela Pereira
     departamento: 7
-    categoria: 1
-    tipo_contrato: 2
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 126
   fields:
-    nome_completo: Maria Miquelina Pena
+    nome_completo: Maria Margarida Goes
     departamento: 7
-    categoria: 1
-    tipo_contrato: 2
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 127
   fields:
-    nome_completo: Maria Sacramento Basílio
-    departamento: 4
-    categoria: 1
-    tipo_contrato: 3
+    nome_completo: Maria Miquelina Pena
+    departamento: 7
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 128
   fields:
-    nome_completo: Maria Teresa Carvalhos
-    departamento: 8
-    categoria: 6
-    tipo_contrato: 3
+    nome_completo: Maria Sacramento Basílio
+    departamento: 4
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 129
   fields:
-    nome_completo: Maria Teresa Godinho
-    departamento: 6
-    categoria: 1
-    tipo_contrato: 2
+    nome_completo: Maria Teresa Carvalhos
+    departamento: 8
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 130
   fields:
-    nome_completo: Maria Teresa Santos
-    departamento: 5
-    categoria: 1
-    tipo_contrato: 2
+    nome_completo: Maria Teresa Godinho
+    departamento: 6
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 131
   fields:
-    nome_completo: Maria da Conceição Correia
-    departamento: 4
-    categoria: 1
-    tipo_contrato: 2
+    nome_completo: Maria Teresa Santos
+    departamento: 5
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 132
   fields:
-    nome_completo: Maria de Lurdes Rodeia
-    departamento: 7
-    categoria: 1
-    tipo_contrato: 2
+    nome_completo: Maria da Conceição Correia
+    departamento: 4
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 133
   fields:
-    nome_completo: Maria do Sameiro Pedro
-    departamento: 2
-    categoria: 1
-    tipo_contrato: 2
+    nome_completo: Maria de Lurdes Rodeia
+    departamento: 7
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 134
   fields:
-    nome_completo: Mariana Casadinho Regato
-    departamento: 3
-    categoria: 1
-    tipo_contrato: 2
+    nome_completo: Maria do Sameiro Pedro
+    departamento: 2
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 135
   fields:
-    nome_completo: Marinês Oliveira Xavier
-    departamento: 4
-    categoria: 1
-    tipo_contrato: 3
+    nome_completo: Mariana Casadinho Regato
+    departamento: 3
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 136
   fields:
-    nome_completo: Marlene Alexandra Mendes
+    nome_completo: Marinês Oliveira Xavier
     departamento: 4
-    categoria: 6
-    tipo_contrato: 3
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 137
   fields:
-    nome_completo: Marta Isabel Amaral
-    departamento: 5
-    categoria: 6
-    tipo_contrato: 3
+    nome_completo: Marlene Alexandra Mendes
+    departamento: 4
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 138
   fields:
-    nome_completo: Marta Pereira Casaca
-    departamento: 6
-    categoria: 6
-    tipo_contrato: 3
+    nome_completo: Marta Isabel Amaral
+    departamento: 5
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 139
   fields:
-    nome_completo: Maurílio Domingos Gaspar
-    departamento: 7
-    categoria: 1
-    tipo_contrato: 3
+    nome_completo: Marta Pereira Casaca
+    departamento: 6
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 140
   fields:
-    nome_completo: Miguel Conceição Bento
-    departamento: 5
-    categoria: 5
-    tipo_contrato: 3
+    nome_completo: Maurílio Domingos Gaspar
+    departamento: 7
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 141
   fields:
-    nome_completo: Nuno Bartolomeu Alvarenga
-    departamento: 8
-    categoria: 1
-    tipo_contrato: 2
+    nome_completo: Miguel Conceição Bento
+    departamento: 5
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 142
   fields:
-    nome_completo: Nuno Eduardo Loureiro
-    departamento: 2
-    categoria: 1
-    tipo_contrato: 2
+    nome_completo: Nuno Bartolomeu Alvarenga
+    departamento: 8
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 143
   fields:
-    nome_completo: Nuno Santos Beja
-    departamento: 3
-    categoria: 1
-    tipo_contrato: 3
+    nome_completo: Nuno Eduardo Loureiro
+    departamento: 2
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 144
   fields:
-    nome_completo: Olga Maria Amaral
-    departamento: 8
-    categoria: 1
-    tipo_contrato: 2
+    nome_completo: Nuno Santos Beja
+    departamento: 3
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 145
   fields:
-    nome_completo: Orlando Manuel Roque
-    departamento: 4
-    categoria: 6
-    tipo_contrato: 3
+    nome_completo: Olga Maria Amaral
+    departamento: 8
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 146
   fields:
-    nome_completo: Patrícia Alexandra Hermozilha
-    departamento: 5
-    categoria: 5
-    tipo_contrato: 3
+    nome_completo: Orlando Manuel Roque
+    departamento: 4
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 147
   fields:
-    nome_completo: Patrícia Alexandra Palma
-    departamento: 8
-    categoria: 1
-    tipo_contrato: 2
+    nome_completo: Patrícia Alexandra Hermozilha
+    departamento: 5
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 148
   fields:
-    nome_completo: Paula Maria Alvarenga
+    nome_completo: Patrícia Alexandra Palma
     departamento: 8
-    categoria: 1
-    tipo_contrato: 2
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 149
   fields:
-    nome_completo: Paulo Alexandre Silva
-    departamento: 6
-    categoria: 1
-    tipo_contrato: 3
+    nome_completo: Paula Maria Alvarenga
+    departamento: 8
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 150
   fields:
-    nome_completo: Paulo Daniel Cavaco
-    departamento: 4
-    categoria: 4
-    tipo_contrato: 3
+    nome_completo: Paulo Alexandre Silva
+    departamento: 6
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 151
   fields:
-    nome_completo: Paulo Valério Vilia
-    departamento: 7
-    categoria: 6
-    tipo_contrato: 3
+    nome_completo: Paulo Daniel Cavaco
+    departamento: 4
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 152
   fields:
-    nome_completo: Pedro Jorge Bento
-    departamento: 2
-    categoria: 5
-    tipo_contrato: 3
+    nome_completo: Paulo Valério Vilia
+    departamento: 7
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 153
   fields:
-    nome_completo: Pedro Manuel Cravo
-    departamento: 4
-    categoria: 6
-    tipo_contrato: 3
+    nome_completo: Pedro Jorge Bento
+    departamento: 2
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 154
   fields:
-    nome_completo: Pedro Oliveira e Silva
-    departamento: 3
-    categoria: 1
-    tipo_contrato: 2
+    nome_completo: Pedro Manuel Cravo
+    departamento: 4
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 155
   fields:
-    nome_completo: Raquel Rodrigues dos Santos
-    departamento: 7
-    categoria: 1
-    tipo_contrato: 2
+    nome_completo: Pedro Oliveira e Silva
+    departamento: 3
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 156
   fields:
-    nome_completo: Rogério Bravo
-    departamento: 1
-    categoria: 8
-    tipo_contrato: 5
+    nome_completo: Raquel Rodrigues dos Santos
+    departamento: 7
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 157
   fields:
-    nome_completo: Rogério Ferrinho Ferreira
-    departamento: 7
-    categoria: 1
-    tipo_contrato: 2
+    nome_completo: Rogério Bravo
+    departamento: 1
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 158
   fields:
-    nome_completo: Rogério Paulo Nunes
+    nome_completo: Rogério Ferrinho Ferreira
     departamento: 7
-    categoria: 1
-    tipo_contrato: 2
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 159
   fields:
-    nome_completo: Rui Alberto Isidoro
-    departamento: 1
-    categoria: 1
-    tipo_contrato: 2
+    nome_completo: Rogério Paulo Nunes
+    departamento: 7
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 160
   fields:
-    nome_completo: Rui Manuel Pais
+    nome_completo: Rui Alberto Isidoro
     departamento: 1
-    categoria: 6
-    tipo_contrato: 3
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 161
   fields:
-    nome_completo: Rui Miguel Silva
+    nome_completo: Rui Manuel Pais
     departamento: 1
-    categoria: 1
-    tipo_contrato: 2
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 162
   fields:
-    nome_completo: Rute Trigo
-    departamento: 7
-    categoria: 4
-    tipo_contrato: 3
+    nome_completo: Rui Miguel Silva
+    departamento: 1
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 163
   fields:
-    nome_completo: Sandra Cristina Lopes
-    departamento: 5
-    categoria: 6
-    tipo_contrato: 3
+    nome_completo: Rute Trigo
+    departamento: 7
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 164
   fields:
-    nome_completo: Sandra Isabel Bailoa
-    departamento: 4
-    categoria: 6
-    tipo_contrato: 3
+    nome_completo: Sandra Cristina Lopes
+    departamento: 5
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 165
   fields:
-    nome_completo: Sandra Isabel Saúde
-    departamento: 5
-    categoria: 1
-    tipo_contrato: 2
+    nome_completo: Sandra Isabel Bailoa
+    departamento: 4
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 166
   fields:
-    nome_completo: Sandra Palma Ferro
-    departamento: 8
-    categoria: 6
-    tipo_contrato: 3
+    nome_completo: Sandra Isabel Saúde
+    departamento: 5
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 167
   fields:
-    nome_completo: Sandra Xavier Silva
-    departamento: 7
-    categoria: 1
-    tipo_contrato: 2
+    nome_completo: Sandra Palma Ferro
+    departamento: 8
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 168
   fields:
-    nome_completo: Silvina Ferro Palma
-    departamento: 8
-    categoria: 1
-    tipo_contrato: 2
+    nome_completo: Sandra Xavier Silva
+    departamento: 7
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 169
   fields:
-    nome_completo: Sofia Assunção Ramôa
-    departamento: 3
-    categoria: 1
-    tipo_contrato: 2
+    nome_completo: Silvina Ferro Palma
+    departamento: 8
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 170
   fields:
-    nome_completo: Sofia Maria Soares
-    departamento: 1
-    categoria: 1
-    tipo_contrato: 2
+    nome_completo: Sofia Assunção Ramôa
+    departamento: 3
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 171
   fields:
-    nome_completo: Sérgio Barroso
-    departamento: 7
-    categoria: 8
-    tipo_contrato: 5
+    nome_completo: Sofia Maria Soares
+    departamento: 1
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 172
   fields:
-    nome_completo: Telo Fialho Faria
+    nome_completo: Sérgio Barroso
     departamento: 7
-    categoria: 8
-    tipo_contrato: 5
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 173
   fields:
-    nome_completo: Teresa Gonçalves Santos
-    departamento: 8
-    categoria: 1
-    tipo_contrato: 2
+    nome_completo: Telo Fialho Faria
+    departamento: 7
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 174
   fields:
-    nome_completo: Teresa Maria Monteiro
-    departamento: 6
-    categoria: 1
-    tipo_contrato: 2
+    nome_completo: Teresa Gonçalves Santos
+    departamento: 8
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 175
   fields:
-    nome_completo: Teresa de Guadalupe dos Santos
-    departamento: 7
-    categoria: 1
-    tipo_contrato: 2
+    nome_completo: Teresa Maria Monteiro
+    departamento: 6
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 176
   fields:
-    nome_completo: Tiago Caldas Nunes
-    departamento: 2
-    categoria: 5
-    tipo_contrato: 3
+    nome_completo: Teresa de Guadalupe dos Santos
+    departamento: 7
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 177
   fields:
-    nome_completo: Tiago Leote Cravo
-    departamento: 4
-    categoria: 4
-    tipo_contrato: 3
+    nome_completo: Tiago Caldas Nunes
+    departamento: 2
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 178
   fields:
-    nome_completo: Victor Manuel Figueira
+    nome_completo: Tiago Leote Cravo
     departamento: 4
-    categoria: 1
-    tipo_contrato: 2
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 179
   fields:
-    nome_completo: Viviane Soares Silva
-    departamento: 2
-    categoria: 5
-    tipo_contrato: 3
+    nome_completo: Victor Manuel Figueira
+    departamento: 4
+    regime_exclusividade: 1
 - model: distro.docente
   pk: 180
   fields:
+    nome_completo: Viviane Soares Silva
+    departamento: 2
+    regime_exclusividade: 1
+- model: distro.docente
+  pk: 181
+  fields:
     nome_completo: Vânia Brandão Loureiro
     departamento: 2
-    categoria: 6
-    tipo_contrato: 3
+    regime_exclusividade: 1

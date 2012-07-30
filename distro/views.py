@@ -2,6 +2,7 @@
 
 # Create your views here.
 from django.http import HttpResponse
+from django.shortcuts import render_to_response
 from django import forms
 
 from distro.models import Curso
@@ -9,6 +10,7 @@ from distro.models import Turma
 from distro.models import UnidadeCurricular
 from distro.models import TipoAula
 from distro.models import ServicoDocente
+from distro.models import Docente
 
 # vista para a criação automática de todas as distribuições
 # de serviço docente iniciais para um determinado ano lectivo
@@ -149,6 +151,37 @@ def apagar_servico(request, ano):
     ServicoDocente.objects.all().delete()
     return HttpResponse("Apagar {0}".format(ano))
 
+def display_meta(request):
+    values = request.META.items()
+    values.sort()
+    html = []
+    for k, v in values:
+        html.append('<tr><td>%s</td><td>%s</td></tr>' % (k, v))
+        pass
+    return HttpResponse('<table>%s</table>' % '\n'.join(html))
+
+# código experimental
+def search_form(request):
+    return render_to_response('search_form.html')
+
+def search(request):
+    error = False
+    if 'q' in request.GET: # and request.GET['q']:
+        q = request.GET['q']
+        if not q:
+            error = True
+        else:
+            docentes = Docente.objects.filter(nome_completo__icontains=q)
+            contagem = len(docentes)
+            return render_to_response('search_results.html',
+                                      {'docentes': docentes, 
+                                       'query': q,
+                                       'contagem': contagem})
+        pass
+
+    return render_to_response('search_form.html',
+                              {'error': error})
+
 # código para experimentar posteriormente
 class ContactForm(forms.Form):
     subject = forms.CharField(max_length=100)
@@ -170,3 +203,4 @@ def contact(request):
     return render_to_response('contact.html', {
                 'form': form,
                 })
+

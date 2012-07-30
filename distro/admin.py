@@ -18,11 +18,20 @@ from distro.models import CursoDocente
 from distro.models import Turma
 from distro.models import ServicoDocente
 from distro.models import TipoAula
+from distro.models import Contrato
+from distro.models import ReducaoServicoDocente
 
 admin.site.register(Categoria)
-admin.site.register(UnidadeOrganica)
+
+class UnidadeOrganicaAdmin(admin.ModelAdmin):
+    list_display = ('abreviatura', 'nome')
+    pass
+
+admin.site.register(UnidadeOrganica, UnidadeOrganicaAdmin)
+
 admin.site.register(Departamento)
 admin.site.register(TipoCurso)
+
 
 class CursoAdmin(admin.ModelAdmin):
     list_filter = ('tipo_curso', )
@@ -47,9 +56,9 @@ admin.site.register(Titulo)
 
 class DocenteAdmin(admin.ModelAdmin):
     list_display = ('nome_completo', 'departamento')
-    list_filter = ('departamento', 
-                   'categoria', 
-                   'tipo_contrato')
+    list_filter = ('departamento', )
+    search_fields = ['nome_completo']
+
     pass
 
 admin.site.register(Docente, DocenteAdmin)
@@ -60,13 +69,16 @@ class CursoDocenteAdmin(admin.ModelAdmin):
 
 admin.site.register(CursoDocente, CursoDocenteAdmin)
 
+admin.site.register(TipoAula)
+
 class TurmaAdmin(admin.ModelAdmin):
     # def formfield_for_foreignkey(self, db_field, request, **kwargs):
     #     if db_field.name == "curso":
     #         kwargs["queryset"] = UnidadeCurricular.objects.filter(nome=request.curso)
     #         return super(MyModelAdmin, self).formfield_for_foreignkey(db_field,request, **kwargs)
     #     pass
-    list_display = ('unidade_curricular', 'turno', 'ano')
+    list_display = ('unidade_curricular', 'tipo_aula', 'turno', 
+                    'ano',)
     list_filter = ('ano', 
                    'unidade_curricular__departamento',
                    'unidade_curricular__curso',
@@ -78,7 +90,7 @@ class TurmaAdmin(admin.ModelAdmin):
     raw_id_admin = ('unidadecurricular', )
     pass
 
-admin.site.register(TipoAula)
+
 admin.site.register(Turma, TurmaAdmin)
 
 class ServicoDocenteAdmin(admin.ModelAdmin):
@@ -92,5 +104,23 @@ class ServicoDocenteAdmin(admin.ModelAdmin):
     raw_id_admin = ('turma', )
     
     pass
+
 admin.site.register(ServicoDocente,ServicoDocenteAdmin)
 
+
+class ReducaoServicoDocenteAdmin(admin.ModelAdmin):
+    list_filter = ('reducao', )
+    search_fields = ['docente__nome_completo',]
+    list_display = ('docente', 'reducao',)
+    pass
+
+admin.site.register(ReducaoServicoDocente,ReducaoServicoDocenteAdmin)
+
+class ContratoAdmin(admin.ModelAdmin):
+    search_fields = ['docente__nome_completo', ]
+    list_display = ('docente', 'categoria')
+
+    list_filter = ('categoria', 'tipo_contrato',  )
+    pass
+
+admin.site.register(Contrato, ContratoAdmin)

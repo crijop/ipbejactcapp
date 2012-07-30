@@ -1,12 +1,12 @@
 - model: distro.cnaef
   pk: 1
   fields:
-    nome: 
+    nome: Desenvolvimento pessoal
     codigo: 90
 - model: distro.cnaef
   pk: 2
   fields:
-    nome: 
+    nome: Ciências da educação
     codigo: 142
 - model: distro.cnaef
   pk: 3
