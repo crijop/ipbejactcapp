@@ -6,6 +6,8 @@ TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
     ('José Jasnau Caeiro', 'j.caeiro@ipbeja.pt'),
+    ('Carlos Rijo Palma', '91195608@alunos.ipbeja.pt'),
+    ('António Urbano Baião', '91195604@alunos.ipbeja.pt'),
 )
 
 MANAGERS = ADMINS
