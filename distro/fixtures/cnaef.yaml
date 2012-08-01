@@ -11,77 +11,77 @@
 - model: distro.cnaef
   pk: 3
   fields:
-    nome: 
+    nome: Formação de educadores de infância
     codigo: 143
 - model: distro.cnaef
   pk: 4
   fields:
-    nome: 
+    nome: Formação de professores do ensino básico (1.º e 2.º ciclos)
     codigo: 144
 - model: distro.cnaef
   pk: 5
   fields:
-    nome: 
+    nome: Formação de professores e formadores de áreas tecnológicas
     codigo: 146
 - model: distro.cnaef
   pk: 6
   fields:
-    nome: 
+    nome: Artes (*)
     codigo: 210
 - model: distro.cnaef
   pk: 7
   fields:
-    nome: 
+    nome: Belas-artes
     codigo: 211
 - model: distro.cnaef
   pk: 8
   fields:
-    nome: 
+    nome: Línguas e literaturas estrangeiras
     codigo: 222
 - model: distro.cnaef
   pk: 9
   fields:
-    nome: 
+    nome: Língua e literatura materna
     codigo: 223
 - model: distro.cnaef
   pk: 10
   fields:
-    nome: 
+    nome: História e arqueologia
     codigo: 225
 - model: distro.cnaef
   pk: 11
   fields:
-    nome: 
+    nome: Filosofia e ética
     codigo: 226
 - model: distro.cnaef
   pk: 12
   fields:
-    nome: 
+    nome: Ciências sociais e do comportamento (*)
     codigo: 310
 - model: distro.cnaef
   pk: 13
   fields:
-    nome: 
+    nome: Psicologia
     codigo: 311
 - model: distro.cnaef
   pk: 14
   fields:
-    nome: 
+    nome: Sociologia e outros estudos
     codigo: 312
 - model: distro.cnaef
   pk: 15
   fields:
-    nome: 
+    nome: Economia
     codigo: 314
 - model: distro.cnaef
   pk: 16
   fields:
-    nome: 
+    nome: Ciências sociais e do comportamento—programas não classificados noutra área de formação
     codigo: 319
 - model: distro.cnaef
   pk: 17
   fields:
-    nome: 
+    nome: Jornalismo e reportagem
     codigo: 321
 - model: distro.cnaef
   pk: 18
@@ -96,92 +96,92 @@
 - model: distro.cnaef
   pk: 20
   fields:
-    nome: 
+    nome: Ciências empresariais (*)
     codigo: 340
 - model: distro.cnaef
   pk: 21
   fields:
-    nome: 
+    nome: Comércio
     codigo: 341
 - model: distro.cnaef
   pk: 22
   fields:
-    nome: 
+    nome: Marketing e publicidade
     codigo: 342
 - model: distro.cnaef
   pk: 23
   fields:
-    nome: 
+    nome: Finanças, banca e seguros
     codigo: 343
 - model: distro.cnaef
   pk: 24
   fields:
-    nome: 
+    nome: Contabilidade e fiscalidade
     codigo: 344
 - model: distro.cnaef
   pk: 25
   fields:
-    nome: 
+    nome: Gestão e administração
     codigo: 345
 - model: distro.cnaef
   pk: 26
   fields:
-    nome: 
+    nome: Enquadramento na organização/empresa
     codigo: 347
 - model: distro.cnaef
   pk: 27
   fields:
-    nome: 
+    nome: Direito
     codigo: 380
 - model: distro.cnaef
   pk: 28
   fields:
-    nome: 
+    nome: Biologia e bioquímica
     codigo: 421
 - model: distro.cnaef
   pk: 29
   fields:
-    nome: 
+    nome: Ciências do ambiente
     codigo: 422
 - model: distro.cnaef
   pk: 30
   fields:
-    nome: 
+    nome: Ciências físicas (*)
     codigo: 440
 - model: distro.cnaef
   pk: 31
   fields:
-    nome: 
+    nome: Física
     codigo: 441
 - model: distro.cnaef
   pk: 32
   fields:
-    nome: 
+    nome: Química
     codigo: 442
 - model: distro.cnaef
   pk: 33
   fields:
-    nome: 
+    nome: Ciências da terra
     codigo: 443
 - model: distro.cnaef
   pk: 34
   fields:
-    nome: 
+    nome: Matemática e estatística (*)
     codigo: 460
 - model: distro.cnaef
   pk: 35
   fields:
-    nome: 
+    nome: Matemática
     codigo: 461
 - model: distro.cnaef
   pk: 36
   fields:
-    nome: 
+    nome: Estatística
     codigo: 462
 - model: distro.cnaef
   pk: 37
   fields:
-    nome: 
+    nome: Matemática e estatística—programas não classificados noutra área de formação
     codigo: 469
 - model: distro.cnaef
   pk: 38
@@ -191,132 +191,132 @@
 - model: distro.cnaef
   pk: 39
   fields:
-    nome: 
+    nome: Informática na óptica do utilizador
     codigo: 482
 - model: distro.cnaef
   pk: 40
   fields:
-    nome: 
+    nome: Metalurgia e metalomecânica
     codigo: 521
 - model: distro.cnaef
   pk: 41
   fields:
-    nome: 
+    nome: Electricidade e energia
     codigo: 522
 - model: distro.cnaef
   pk: 42
   fields:
-    nome: Electrónica e automação.
+    nome: Electrónica e automação
     codigo: 523
 - model: distro.cnaef
   pk: 43
   fields:
-    nome: 
+    nome: Tecnologia dos processos químicos
     codigo: 524
 - model: distro.cnaef
   pk: 44
   fields:
-    nome: 
+    nome: Indústrias alimentares
     codigo: 541
 - model: distro.cnaef
   pk: 45
   fields:
-    nome: 
+    nome: Arquitectura e urbanismo
     codigo: 581
 - model: distro.cnaef
   pk: 46
   fields:
-    nome: 
+    nome: Construção civil e engenharia civil
     codigo: 582
 - model: distro.cnaef
   pk: 47
   fields:
-    nome: 
+    nome: Produção agrícola e animal
     codigo: 621
 - model: distro.cnaef
   pk: 48
   fields:
-    nome: 
+    nome: Ciências veterinárias
     codigo: 640
 - model: distro.cnaef
   pk: 49
   fields:
-    nome: 
+    nome: Saúde (*)
     codigo: 720
 - model: distro.cnaef
   pk: 50
   fields:
-    nome: 
+    nome: Medicina
     codigo: 721
 - model: distro.cnaef
   pk: 51
   fields:
-    nome: 
+    nome: Enfermagem
     codigo: 723
 - model: distro.cnaef
   pk: 52
   fields:
-    nome: 
+    nome: Terapia e reabilitação
     codigo: 726
 - model: distro.cnaef
   pk: 53
   fields:
-    nome: 
+    nome: Saúde—programas não classificados noutra área de formação
     codigo: 729
 - model: distro.cnaef
   pk: 54
   fields:
-    nome: 
+    nome: Trabalho social e orientação
     codigo: 762
 - model: distro.cnaef
   pk: 55
   fields:
-    nome: 
+    nome: Hotelaria e restauração
     codigo: 811
 - model: distro.cnaef
   pk: 56
   fields:
-    nome: 
+    nome: Turismo e lazer
     codigo: 812
 - model: distro.cnaef
   pk: 57
   fields:
-    nome: 
+    nome: Desporto
     codigo: 813
 - model: distro.cnaef
   pk: 58
   fields:
-    nome: 
+    nome: Protecção do ambiente (*)
     codigo: 850
 - model: distro.cnaef
   pk: 59
   fields:
-    nome: 
+    nome: Tecnologia de protecção do ambiente
     codigo: 851
 - model: distro.cnaef
   pk: 60
   fields:
-    nome: 
+    nome: Ambientes naturais e vida selvagem
     codigo: 852
 - model: distro.cnaef
   pk: 61
   fields:
-    nome: 
+    nome: Serviços de saúde pública
     codigo: 853
 - model: distro.cnaef
   pk: 62
   fields:
-    nome: 
+    nome: Protecção do ambiente—programas não classificados noutra área de formação
     codigo: 859
 - model: distro.cnaef
   pk: 63
   fields:
-    nome: 
+    nome: Protecção de pessoas e bens
     codigo: 861
 - model: distro.cnaef
   pk: 64
   fields:
-    nome: 
+    nome: Segurança e higiene no trabalho
     codigo: 862
 - model: distro.cnaef
   pk: 65
