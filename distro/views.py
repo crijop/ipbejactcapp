@@ -12,6 +12,10 @@ from distro.models import TipoAula
 from distro.models import ServicoDocente
 from distro.models import Docente
 
+#vista para criação de login
+def login(request):
+    return render_to_response("login.html")
+
 # vista para a criação automática de todas as distribuições
 # de serviço docente iniciais para um determinado ano lectivo
 def apagar_turmas(request, ano):

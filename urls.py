@@ -32,6 +32,11 @@ urlpatterns = patterns('',
     url(r'^search/$', 
         'ipbejactcapp.distro.views.search', 
         name='search'),
+                       
+    #teste António Baião  - Login
+    url(r'^$', 
+        'ipbejactcapp.distro.views.login', 
+        name='login'),
 
     # END TESTES
     # grapelli

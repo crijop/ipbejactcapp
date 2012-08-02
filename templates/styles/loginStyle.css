@@ -1,0 +1,49 @@
+h1
+{
+	
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:xx-large;
+}
+
+div#auth_form_div
+{
+	
+	text-align:center;
+	/*background:maroon;*/
+}
+
+div#imageDiv
+{
+	
+	text-align:center;
+	/*background:aqua;*/
+}
+
+div#titleDiv
+{
+	width:100%;
+	float:left;
+	/*background:fuchsia;*/
+	text-align:center;
+	
+}
+div#master
+{
+	width:50%;
+	/*background:black;*/
+	margin-left:auto;
+	margin-right:auto;
+
+	
+	
+}
+
+body
+{
+	
+	/*position:absolute;*/
+	margin: 0 auto;
+	/*margin-left:auto;
+	margin-right:auto;*/
+
+}
