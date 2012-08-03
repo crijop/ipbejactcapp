@@ -37,9 +37,6 @@ urlpatterns = patterns('',
     url(r'^$', 
         'ipbejactcapp.distro.views.login', 
         name='login'),
-                       
- (r'^(?P<path>.*)$', 'django.views.static.serve',
-{'document_root': 'templates'}),
 
 
     # END TESTES
