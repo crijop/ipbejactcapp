@@ -1,20 +1,18 @@
 # -*- coding: utf-8 -*-
 
 # Create your views here.
-from django.http import HttpResponse
-from django.shortcuts import render_to_response
+from distro.models import Curso, Docente, ServicoDocente, TipoAula, Turma, \
+    UnidadeCurricular
 from django import forms
+from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import render_to_response
 
-from distro.models import Curso
-from distro.models import Turma
-from distro.models import UnidadeCurricular
-from distro.models import TipoAula
-from distro.models import ServicoDocente
-from distro.models import Docente
 
-#vista para criação de login
-def login(request):
-    return render_to_response("login.html")
+
+#vista para a Página Home
+def Teste_home(request):
+    user = request.user
+    return render_to_response("Teste_home.html")
 
 # vista para a criação automática de todas as distribuições
 # de serviço docente iniciais para um determinado ano lectivo

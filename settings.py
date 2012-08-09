@@ -157,3 +157,6 @@ LOGGING = {
         },
     }
 }
+
+#Ao fazer o login redireciona para...
+LOGIN_REDIRECT_URL = '/Teste_home/'

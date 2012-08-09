@@ -33,12 +33,6 @@ urlpatterns = patterns('',
         'ipbejactcapp.distro.views.search', 
         name='search'),
                        
-    #teste António Baião  - Login
-    url(r'^$', 
-        'ipbejactcapp.distro.views.login', 
-        name='login'),
-
-
     # END TESTES
     # grapelli
     #(r'^grappelli/', include('grappelli.urls')),
@@ -46,5 +40,14 @@ urlpatterns = patterns('',
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
+    
+    
+    #URL LOGIN
+    (r'^$', 'django.contrib.auth.views.login',
+        {'template_name': 'login.html'}, 'entrar'),
+                       
+    url(r'^Teste_home/$', 
+        'ipbejactcapp.distro.views.Teste_home', 
+        name='home'),
                      
 )

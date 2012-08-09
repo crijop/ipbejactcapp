@@ -1,5 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+
+	{% load i18n %}
 	<head>
 		<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 		<link href="static/styles/loginStyle.css" rel="stylesheet" type="text/css" >
@@ -8,16 +10,20 @@
 	<body>
 		<div id="master">
 			<div id="titleDiv"><h1>Sistema de distribuição de serviço docente</h1></div>
-			<div id="imageDiv"><img alt="imagem ipbeja" src="static/images/ipbeja_log.JPG" title="logoIPBEJA"></div>
-			<div id="auth_form_div"><form action="" method="get">
-				<label for="username"><b>Nome Utilizador:</b></label>
-				<input type="text" name="username" >
-				<br>
-				<label for="password"><b>Palavra Chave:</b></label>
-				<input type="password" name="password" >
-				<br>
-				<input type="submit" name="submit" value="Entrar">
-			</form></div>
+			<div id="imageDiv"><img class='imagem' alt="imagem ipbeja" src="static/images/ipbeja_log.JPG" title="logoIPBEJA"></div>
+			<div id="auth_form_div">
+				<form method="post">
+					 <table class="form_table">
+						 {% csrf_token %}
+						  {{ form }}
+						
+						  <tr>
+						   	<th>&nbsp;</th>
+						   	<td><input type="submit" value="{% trans "Entrar" %}"/></td>
+						  </tr>
+					 </table>
+				</form>
+			</div>
 		</div>
 	</body>
 </html>
