@@ -8,7 +8,7 @@
     </head>
     <body>
         <h1>Pagina Home</h1>
-        {% firstof user.username %}
+        {% firstof user %}
         {% if user.is_active%}
         <div id="user-tools">
             {% trans 'Welcome,' %}

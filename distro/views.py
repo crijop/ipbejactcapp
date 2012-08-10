@@ -4,16 +4,20 @@
 from distro.models import Curso, Docente, ServicoDocente, TipoAula, Turma, \
     UnidadeCurricular
 from django import forms
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render_to_response
+from django.template.context import RequestContext
 
 
-
+@login_required
 #vista para a Página Home
 def Teste_home(request):
-    user = request.user
-    return render_to_response("Teste_home.html")
-
+    user = request.user.username
+    return render_to_response("Teste_home.html",
+        locals(),
+        context_instance=RequestContext(request),
+        )
 # vista para a criação automática de todas as distribuições
 # de serviço docente iniciais para um determinado ano lectivo
 def apagar_turmas(request, ano):
