@@ -13,7 +13,6 @@ from django.template.context import RequestContext
 @login_required
 #vista para a Página Home
 def Teste_home(request):
-    user = request.user.username
     return render_to_response("Teste_home.html",
         locals(),
         context_instance=RequestContext(request),

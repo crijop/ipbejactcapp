@@ -45,9 +45,13 @@ urlpatterns = patterns('',
     #URL LOGIN
     (r'^$', 'django.contrib.auth.views.login',
         {'template_name': 'login.html'}, 'entrar'),
+                    
                        
     url(r'^Teste_home/$', 
         'ipbejactcapp.distro.views.Teste_home', 
         name='home'),
+    
+    (r'^Teste_home/sair$', 'django.contrib.auth.views.logout',
+        {'template_name': 'sair.html'}, 'sair'),
                      
 )

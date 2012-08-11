@@ -8,7 +8,6 @@
     </head>
     <body>
         <h1>Pagina Home</h1>
-        {% firstof user %}
         {% if user.is_active%}
         <div id="user-tools">
             {% trans 'Welcome,' %}
@@ -16,13 +15,12 @@
             {% block userlinks %}
                 {% url 'django-admindocs-docroot' as docsroot %}
                 {% if docsroot %}
-                    <a href="{{ docsroot }}">{% trans 'Documentation' %}</a> /
+                    <!-- Nao faz nada porque senão tiver autenticado não pode entrar neste template
+                    	depois vai ser melhorado este id-->
                 {% endif %}
-                <a href="{% url 'admin:password_change' %}">{% trans 'Change password' %}</a> /
-                <a href="{% url 'admin:logout' %}">{% trans 'Log out' %}</a>
+                <a href="{% url sair %}">{% trans 'Log out' %}</a>
             {% endblock %}
         </div>
         {% endif %}
     </body>
 </html>
-
