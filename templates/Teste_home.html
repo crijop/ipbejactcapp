@@ -20,6 +20,13 @@
                 {% endif %}
                 <a href="{% url sair %}">{% trans 'Log out' %}</a>
             {% endblock %}
+            
+            <ul>
+				{% for t in user.get_all_permissions %}
+				    <li>{{ t }}</li>
+				{% endfor %}
+			</ul>
+            
         </div>
         {% endif %}
     </body>
