@@ -1,0 +1,57 @@
+body{
+	margin:0 auto;
+	height: 100%;
+	width: 100%;
+	text-align: left;
+}
+
+#window{
+	width: 80%;
+	height: auto;
+	margin:0 auto;
+	margin-top: 30px;
+}
+
+div#master{
+	width:100%;
+	height:auto;
+	float:left;
+	border:2px solid #000000;
+		
+}
+
+div#top{
+	text-align: center;
+	float: left;
+	width: 100%;
+	height: 120px;
+	background: blue;
+}
+
+div#leftBar{
+	float: left;
+	width: 20%;
+	left: 100%;
+	background: red;
+}
+
+div#rightBar{
+	float: right;
+	width: 80%;
+	background: #769DC0;
+}
+div#bradCrumb{
+	height: 30px;
+	background: #00FFFF;
+}
+
+div#content{
+	
+}
+
+div#footer{
+	width:100%;
+	height:auto;
+	float:left;
+	text-align: center;
+}

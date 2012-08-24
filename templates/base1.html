@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+	<link href="/static/styles/base.css" rel="stylesheet" type="text/css" >
+    <title>{% block title %}{% endblock %}</title>
+  </head>
+  <body>
+  	<div id="window">
+		
+	  
+	  	<div id="master">
+	  		<div id="top">
+				<div id="title">
+		    		<h1>Sistema de Gestão de Distribuições de Serviço Docente</h1>  
+		   		 </div>	
+			</div>
+			<div id="leftBar">
+			  <h1>Teste</h1>
+			</div>
+			<div id="rightBar">
+				<div id="bradCrumb">
+					sdsds
+				</div>
+				<div id="content">
+					{% block content %}
+					{% endblock %}
+				</div>
+			</div>
+	    	
+	    	
+		
+		</div>
+		<div id="footer">
+			    {% block footer %}
+			    
+			    {% endblock %}
+			</div>
+	</div>
+  </body>
+</html>
