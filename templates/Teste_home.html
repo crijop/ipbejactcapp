@@ -3,26 +3,13 @@
 {% block title %} Página Inícial {% endblock %}
 
 {% block content %}
-        
-        {% if user.is_active%}
-        <div id="user-tools">
-            {% trans 'Welcome,' %}
-            <strong>{% filter force_escape %}{% firstof user.username %}{% endfilter %}</strong>.
-            {% block userlinks %}
-                {% url 'django-admindocs-docroot' as docsroot %}
-                {% if docsroot %}
-                    <!-- Nao faz nada porque senão tiver autenticado não pode entrar neste template
-                    	depois vai ser melhorado este id-->
-                {% endif %}
-                <a href="{% url sair %}">{% trans 'Log out' %}</a>
-            {% endblock %}
-	            <ul>
-					{% for listaPermissoes in user.get_all_permissions %}
-					    <li>{{ listaPermissoes }}</li>
-					{% endfor %}
-				</ul>
-        </div>
-        {% endif %}
+	{% if user.is_active%}
+	    <ul>
+			{% for listaPermissoes in user.get_all_permissions %}
+			    <li>{{ listaPermissoes }}</li>
+			{% endfor %}
+		</ul>
+{% endif %}
 {% endblock %}
 {% block footer %}
 	
