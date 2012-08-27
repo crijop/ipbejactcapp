@@ -27,6 +27,15 @@ div#top{
 	height: 120px;
 }
 
+div#logo
+{
+width: 25%;
+height: 100%;
+text-align: left;
+background: red;
+	float: left;
+}
+
 div#title
 {
 	text-align: center;
