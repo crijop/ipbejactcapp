@@ -46,11 +46,12 @@ urlpatterns = patterns('',
     (r'^$', 'django.contrib.auth.views.login',
         {'template_name': 'login.html'}, 'entrar'),
                     
-                       
+    #URL para a pagina Home
     url(r'^Teste_home/$', 
         'ipbejactcapp.distro.views.Teste_home', 
         name='home'),
     
+    #URL para a pagina Sair
     (r'^Teste_home/sair$', 'django.contrib.auth.views.logout',
         {'template_name': 'sair.html'}, 'sair'),
                      

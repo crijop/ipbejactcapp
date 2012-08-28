@@ -17,6 +17,7 @@ def Teste_home(request):
         locals(),
         context_instance=RequestContext(request),
         )
+    
 # vista para a criação automática de todas as distribuições
 # de serviço docente iniciais para um determinado ano lectivo
 def apagar_turmas(request, ano):
