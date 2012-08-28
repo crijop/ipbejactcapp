@@ -14,7 +14,10 @@
 				<div id="logo" > <img src="/static/images/logo.png" width="100%" height="100%"  ></div>
 				<div id="title">
 		    		<h1>Sistema de Gestão de Distribuições de Serviço Docente</h1>
-		    		<div style="position:relative; top: 5px; left: 400px;">
+		    		
+					</div>
+					<div id="logoutInfo">
+						
 						{% if user.is_active%}
 				            {% trans 'Welcome,' %}
 				            <strong>{% filter force_escape %}{% firstof user.username %}{% endfilter %}</strong>.
@@ -29,7 +32,7 @@
 				        {% endif %}
 					</div>
 		   		 </div>	
-			</div>
+			
 			<div id="leftBar">
 				<div id='cssmenu'>
 					<ul>
