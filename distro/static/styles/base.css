@@ -1,30 +1,35 @@
 body{
 	margin:0 auto;
-	height: 100%;
-	width: 100%;
+	/*height: 100%;
+	width: 100%;*/
 	text-align: left;
+	
 }
 
-#window{
-	width: 80%;
-	height: auto;
+div#window{
 	margin:0 auto;
-	margin-top: 30px;
+	width: 80%;
+	height: 100%;
+
+	/*margin-top: 30px;*/
+	
 }
 
 div#master{
 	width:100%;
-	height:auto;
+	height:100%;
 	float:left;
 	border:2px solid #000000;
 		
 }
 
 div#top{
-	text-align: center;
+	
 	float: left;
 	width: 100%;
 	height: 120px;
+	background: black;
+	text-align: center;
 }
 
 div#logo
@@ -33,27 +38,41 @@ div#logo
 	height: 100%;
 	text-align: left;
 	float: left;
+	
+}
+
+img#logotipo
+{
+
+	float: left;
+	width: 100%;
+	height: 100%;
+
+
 }
 
 div#title
 {
-	font-size: 10pt;
-	float: left;
-	width: 75%;
+	position: relative;
+	float:right;
 	height: 70%;
-	background: black;
+	width: 75%;
+	
+	/*background: black;*/
 	text-align: center;
 	color: white;
 	font-family: Arial;
+
+	font-size: 10pt;
 }
 
 div#logoutInfo
 {
 	
-	float: left;
+	float: right;
 	width: 75%;
 	height: 30%;
-	background: black;
+
 	text-align: right;
 	color: white;
 	font-family: Arial;
@@ -70,6 +89,7 @@ div#leftBar{
 	float: left;
 	width: 20%;
 	/*left: 100%;*/
+	height: 80%;
 	background: red;
 	
 	
@@ -83,6 +103,8 @@ div#rightBar{
 div#bradCrumb{
 	height: 30px;
 	background: #00FFFF;
+	display: cell;
+	vertical-align: middle;
 }
 
 div#content{
@@ -146,7 +168,8 @@ div#footer{
 			font-weight: 300;			
 
 			/* Background & effects */
-			background: #282828;
+			/*background: #282828;*/
+			background: #000000;
 		}
 
 		/* Rounded corners for the first link of the menu/submenus */
