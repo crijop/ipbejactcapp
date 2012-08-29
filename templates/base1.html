@@ -9,19 +9,18 @@
   </head>
   <body>
   	<div id="window">
-		
-		
 	  	<div id="master">
 	  		<div id="top">
+	  			<!--Div do Logotipo-->
 				<div id="logo" > 
 					<img id="logotipo" src="/static/images/logo.png" >
 				</div>
+				<!--Div do titulo da Página-->
 				<div id="title">
 		    		<h1>Sistema de Gestão de Distribuições de Serviço Docente</h1>
-		    		
 				</div>
+				<!--Div de informação do estado do utilizador-->
 				<div id="logoutInfo">
-						
 						{% if user.is_active%}
 				            {% trans 'Welcome,' %}
 				            <strong>{% filter force_escape %}{% firstof user.username %}{% endfilter %}</strong>.
@@ -36,8 +35,8 @@
 				        {% endif %}
 				</div>
 		   	</div>	
-			
 			<div id="leftBar">
+				<!--Div dos Menus-->
 				<div id='cssmenu'>
 					<ul>
 					   <li class='active '><a href='/Teste_home'><span>Home</span></a></li>
@@ -63,23 +62,23 @@
 					</div>
 			</div>
 			<div id="rightBar">
+				<!--Div da Informação de onde o utilizado se encontra na página-->
 				<div id="bradCrumb">
 					home
 				</div>
+				<!--Div do Conteudo da Página-->		
 				<div id="content">
 					{% block content %}
 					{% endblock %}
 				</div>
 			</div>
-	    	
-	    	
-		
 		</div>
+		<!--Div do Rodapé-->
 		<div id="footer">
-			    {% block footer %}
-			    
-			    {% endblock %}
-			</div>
+		    {% block footer %}
+		    
+		    {% endblock %}
+		</div>
 	</div>
   </body>
 </html>

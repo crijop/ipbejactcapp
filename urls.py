@@ -45,6 +45,11 @@ urlpatterns = patterns('',
     #URL LOGIN
     (r'^$', 'django.contrib.auth.views.login',
         {'template_name': 'login.html'}, 'entrar'),
+                       
+    #URL para a pagina Sair, encaminhando para a pagina de login do sistema
+    #(r'^$', 'django.contrib.auth.views.logout',
+    #    {'template_name': 'login.html'}, 'sair'),
+
                     
     #URL para a pagina Home
     url(r'^Teste_home/$', 

@@ -9,9 +9,10 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render_to_response
 from django.template.context import RequestContext
 
-
-@login_required
+#login_required - só entra nesta vista se
+#o utilizador estiver autênticado
 #vista para a Página Home
+@login_required
 def Teste_home(request):
     return render_to_response("Teste_home.html",
         locals(),
