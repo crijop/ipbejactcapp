@@ -1,5 +1,4 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
-<!DOCTYPE html>
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 {% load i18n %}
   <head>
@@ -17,7 +16,7 @@
 				</div>
 				<!--Div do titulo da Página-->
 				<div id="title">
-		    		<h1>Sistema de Gestão de Distribuições de Serviço Docente</h1>
+		    		<h1>Sistema de Distribuições de Serviço Docente</h1>
 				</div>
 				<!--Div de informação do estado do utilizador-->
 				<div id="logoutInfo">
@@ -59,12 +58,15 @@
 					   <li><a href='#'><span>About</span></a></li>
 					   <li><a href='#'><span>Contact</span></a></li>
 					</ul>
-					</div>
+				</div>
 			</div>
 			<div id="rightBar">
 				<!--Div da Informação de onde o utilizado se encontra na página-->
 				<div id="bradCrumb">
-					home
+					<ul id="breadcrumb">
+						<!--<li><a href="{% url home %}" title="Home"><img src="../static/images/BreadCrumbs/home.gif" alt="Home" class="home" /></a></li>-->
+						<li><img src="../static/images/BreadCrumbs/home.gif" alt="Home" class="home" /></li>
+					</ul>
 				</div>
 				<!--Div do Conteudo da Página-->		
 				<div id="content">
@@ -76,7 +78,7 @@
 		<!--Div do Rodapé-->
 		<div id="footer">
 		    {% block footer %}
-		    
+		    	©2012 - Instituto Politécnico de Beja
 		    {% endblock %}
 		</div>
 	</div>
