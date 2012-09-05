@@ -5,8 +5,9 @@ from distro.models import Curso, Docente, ServicoDocente, TipoAula, Turma, \
     UnidadeCurricular
 from django import forms
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import Group
 from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response, redirect
 from django.template.context import RequestContext
 
 #login_required - só entra nesta vista se
@@ -14,11 +15,39 @@ from django.template.context import RequestContext
 #vista para a Página Home
 @login_required
 def Teste_home(request):
-    return render_to_response("Teste_home.html",
+    
+    name_group = Group.objects.get(name="Docente")
+    name_group1 = Group.objects.get(name="Departamento")
+    if name_group in request.user.groups.all():
+        '''return render_to_response("docentes/index.html",
+        locals(),
+        context_instance=RequestContext(request),
+        )'''
+        return redirect(indexDocente)
+    
+    elif name_group1 in request.user.groups.all():
+        return redirect(indexDepartamento)
+    
+    else:
+        return render_to_response("Teste_home.html",
+            locals(),
+            context_instance=RequestContext(request),
+            )
+    return False
+
+
+def indexDocente(request):
+    return render_to_response("docentes/index.html",
         locals(),
         context_instance=RequestContext(request),
         )
-    
+
+def indexDepartamento(request):
+    return render_to_response("departamento/index.html",
+        locals(),
+        context_instance=RequestContext(request),
+        )
+
 # vista para a criação automática de todas as distribuições
 # de serviço docente iniciais para um determinado ano lectivo
 def apagar_turmas(request, ano):

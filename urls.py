@@ -59,5 +59,14 @@ urlpatterns = patterns('',
     #URL para a pagina Sair
     (r'^Teste_home/sair$', 'django.contrib.auth.views.logout',
         {'template_name': 'sair.html'}, 'sair'),
-                     
+                       
+    #Url Home Docente
+    url(r'^Teste_home/docente', 
+        'ipbejactcapp.distro.views.indexDocente', 
+        name='home'),
+
+    #Url Home Departamento
+    url(r'^Teste_home/departamento', 
+        'ipbejactcapp.distro.views.indexDepartamento', 
+        name='home'),
 )
