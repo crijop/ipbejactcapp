@@ -25,6 +25,17 @@ div#top{
 	height: 120px;
 	background: black;
 	text-align: center;
+	background-image: url("/static/images/logoAA.png");
+	background-size:100% 100%;
+	background-repeat: no-repeat;
+
+}
+
+
+div#top h1{
+	
+	display: none;
+
 }
 
 div#logo
@@ -60,6 +71,7 @@ div#logoutInfo
 	width: 75%;
 	height: 30%;
 	text-align: right;
+	margin: 10px 0px 0px 0px;
 	color: white;
 	font-family: Arial;
 }
