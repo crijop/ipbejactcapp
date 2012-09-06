@@ -23,7 +23,18 @@ def Teste_home(request):
         locals(),
         context_instance=RequestContext(request),
         )'''
-        return redirect(indexDocente)
+        nome = "Rui Miguel Silva"
+        docentes = Docente.objects.all()
+        
+        for docente in docentes:
+            print docente.nome_completo
+            if docente.nome_completo == nome:
+                 
+                return redirect(indexDocente)
+            else:
+                pass
+            
+        return False
     
     elif name_group1 in request.user.groups.all():
         return redirect(indexDepartamento)
