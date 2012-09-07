@@ -20,6 +20,7 @@
 				</div>
 				<!--Div de informação do estado do utilizador-->
 				<div id="logoutInfo">
+					{% block Username %}
 						{% if user.is_active%}
 				            {% trans 'Welcome,' %}
 				            <strong>{% filter force_escape %}{% firstof user.username %}{% endfilter %}</strong>.
@@ -32,6 +33,8 @@
 				                <a href="{% url sair %}" tabindex="6">{% trans 'Log out' %}</a>
 				            {% endblock %}
 				        {% endif %}
+					{% endblock %}
+						
 				</div>
 		   	</div>	
 			<div id="leftBar">

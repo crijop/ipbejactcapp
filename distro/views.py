@@ -27,9 +27,8 @@ def Teste_home(request):
         docentes = Docente.objects.all()
         
         for docente in docentes:
-            print docente.nome_completo
             if docente.nome_completo == nome:
-                 
+                request.session['nomeDocente'] = docente.nome_completo
                 return redirect(indexDocente)
             else:
                 pass
@@ -48,6 +47,7 @@ def Teste_home(request):
 
 
 def indexDocente(request):
+    nomeDocente = request.session['nomeDocente']
     return render_to_response("docentes/index.html",
         locals(),
         context_instance=RequestContext(request),

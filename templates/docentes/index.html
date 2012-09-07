@@ -2,6 +2,25 @@
 {% load i18n %}
 {% block title %} Página Inícial Docente {% endblock %}
 
+
+{% block Username %}
+	{% if user.is_active%}
+	    {% trans 'Welcome,' %}
+	    <strong>{% filter force_escape %} {{nomeDocente}} {% endfilter %}</strong>.
+		{% block userlinks %}
+		    {% url 'django-admindocs-docroot' as docsroot %}
+		    {% if docsroot %}
+		        <!-- Nao faz nada porque senão tiver autenticado não pode entrar neste template
+		        	depois vai ser melhorado este id-->
+		    {% endif %}
+		    <a href="{% url sair %}" tabindex="6">{% trans 'Log out' %}</a>
+		{% endblock %}
+	{% endif %}
+
+
+
+{% endblock %}
+
 {% block Menus %}
 	<ul>
 	   <li class='active '><a href='/Teste_home'><span>Home</span></a></li>
@@ -34,7 +53,7 @@
 {% endblock %}
 
 {% block content %}
-{{nome}}
+{{nomeDocente}}
 	Docente<br />
 	{% if user.is_active%}
 	    <ul>
