@@ -473,7 +473,7 @@
     nome_completo: José Jasnau Caeiro
     departamento: 1
     regime_exclusividade: 1
-    abreviatura:  
+    abreviatura: jjc
 - model: distro.docente
   pk: 69
   fields:
@@ -1124,7 +1124,7 @@
     nome_completo: Rui Manuel Pais
     departamento: 1
     regime_exclusividade: 1
-    abreviatura:  
+    abreviatura:  rmp
 - model: distro.docente
   pk: 162
   fields:
@@ -1138,7 +1138,7 @@
     nome_completo: Rute Trigo
     departamento: 7
     regime_exclusividade: 1
-    abreviatura:  
+    abreviatura:  rt
 - model: distro.docente
   pk: 164
   fields:

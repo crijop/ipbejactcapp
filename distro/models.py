@@ -274,10 +274,11 @@ class Docente(models.Model):
 
     email = models.EmailField(blank=True, null=True, default='')
     
-    abreviatura       = models.CharField(max_length=20,
-										 blank=True,
-										 null=True,
-                                         unique=True)
+    abreviatura       = models.CharField(max_length=120,
+                                         unique=True, 
+                                         blank=True, 
+                                         null=True,
+                                         default=" ")
 
     # foto = models.ImageField(height_field=250, 
     #                          width_field=200,
