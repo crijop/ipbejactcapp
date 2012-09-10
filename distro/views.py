@@ -29,6 +29,7 @@ def Teste_home(request):
         for docente in docentes:
             if docente.nome_completo == nome:
                 request.session['nomeDocente'] = docente.nome_completo
+                request.session['nr_Docente'] = docente.id
                 return redirect(indexDocente)
             else:
                 pass
@@ -48,6 +49,17 @@ def Teste_home(request):
 
 def indexDocente(request):
     nomeDocente = request.session['nomeDocente']
+    nrDocente = request.session['nr_Docente']
+    servicoDocente = ServicoDocente.objects.all()
+    lista = []
+    for servDocente in servicoDocente:
+        if servDocente.docente_id ==  nrDocente:
+            lista.append((servDocente.docente_id, servDocente.turma_id,
+                           servDocente.horas))
+            print servDocente.docente_id, servDocente.turma_id
+            
+    
+    
     return render_to_response("docentes/index.html",
         locals(),
         context_instance=RequestContext(request),

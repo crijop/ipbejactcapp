@@ -53,6 +53,11 @@
 {% endblock %}
 
 {% block content %}
+	{% for d, t, h in lista%}
+				    <li>{{ d }} {{ t }} {{ h }}</li>
+	{% endfor %}
+
+<br>
 {{nomeDocente}}
 	Docente<br />
 	{% if user.is_active%}
