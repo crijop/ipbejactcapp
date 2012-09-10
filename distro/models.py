@@ -260,6 +260,8 @@ class Docente(models.Model):
     '''
     nome_completo     = models.CharField(max_length=300,
                                          unique=True)
+                                         
+    
     departamento      = models.ForeignKey('Departamento')
 
     # escalao de vencimento do docente
@@ -271,6 +273,11 @@ class Docente(models.Model):
     regime_exclusividade = models.BooleanField(default=True)
 
     email = models.EmailField(blank=True, null=True, default='')
+    
+    abreviatura       = models.CharField(max_length=20,
+										 blank=True,
+										 null=True,
+                                         unique=True)
 
     # foto = models.ImageField(height_field=250, 
     #                          width_field=200,
