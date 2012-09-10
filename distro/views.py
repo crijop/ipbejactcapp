@@ -23,11 +23,11 @@ def Teste_home(request):
         locals(),
         context_instance=RequestContext(request),
         )'''
-        nome = "Rui Miguel Silva"
         docentes = Docente.objects.all()
         
+        print "USERNAME ", request.user.username
         for docente in docentes:
-            if docente.nome_completo == nome:
+            if docente.abreviatura == request.user.username:
                 request.session['nomeDocente'] = docente.nome_completo
                 request.session['nr_Docente'] = docente.id
                 return redirect(indexDocente)
@@ -54,7 +54,9 @@ def indexDocente(request):
     lista = []
     for servDocente in servicoDocente:
         if servDocente.docente_id ==  nrDocente:
-            lista.append((servDocente.docente_id, servDocente.turma_id,
+            nomeUnidadeCurricular = UnidadeCurricular.objects.get(turma__id__exact=servDocente.turma_id).nome
+            print "ssxsxsxs ", nomeUnidadeCurricular
+            lista.append((servDocente.docente_id, nomeUnidadeCurricular,
                            servDocente.horas))
             print servDocente.docente_id, servDocente.turma_id
             
