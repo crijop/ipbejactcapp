@@ -46,7 +46,7 @@ def Teste_home(request):
             )
     return False
 
-
+#Página Inicial do utilizador Docente
 def indexDocente(request):
     nomeDocente = request.session['nomeDocente']
     nrDocente = request.session['nr_Docente']
@@ -54,18 +54,31 @@ def indexDocente(request):
     lista = []
     for servDocente in servicoDocente:
         if servDocente.docente_id ==  nrDocente:
+            #nome da unidade curricular que o docente vai dar aulas.
             nomeUnidadeCurricular = UnidadeCurricular.objects.get(turma__id__exact=servDocente.turma_id).nome
-            print "ssxsxsxs ", nomeUnidadeCurricular
             lista.append((servDocente.docente_id, nomeUnidadeCurricular,
                            servDocente.horas))
-            print servDocente.docente_id, servDocente.turma_id
-            
-    
-    
+        
     return render_to_response("docentes/index.html",
         locals(),
         context_instance=RequestContext(request),
         )
+
+    
+#Página de apresentação das turmas a que os Docentes pertencem
+def turmasDocentes(request):    
+    return render_to_response("docentes/turmaDocente.html",
+        locals(),
+        context_instance=RequestContext(request),
+        )    
+    
+#Página de apresentação das horas de serviço pertencente a cada Docente
+def horasServico(request):    
+    return render_to_response("docentes/horasServico.html",
+        locals(),
+        context_instance=RequestContext(request),
+        )
+    
 
 def indexDepartamento(request):
     return render_to_response("departamento/index.html",

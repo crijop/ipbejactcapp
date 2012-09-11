@@ -60,11 +60,27 @@ urlpatterns = patterns('',
     (r'^Teste_home/sair$', 'django.contrib.auth.views.logout',
         {'template_name': 'sair.html'}, 'sair'),
                        
+                       
+    #####
+    # Url's destinados aos templates dos docentes
+    ####                   
     #Url Home Docente
-    url(r'^Teste_home/docente', 
+    url(r'^Teste_home/docente/$', 
         'ipbejactcapp.distro.views.indexDocente', 
         name='home'),
-
+    
+    #Url Turmas a que os docentes pertence
+    url(r'^Teste_home/docente/turmas', 
+        'ipbejactcapp.distro.views.turmasDocentes', 
+        name='turmasDocentes'),
+                       
+    #Url horas de serviço distinada a cada docente
+    url(r'^Teste_home/docente/horasServico', 
+        'ipbejactcapp.distro.views.horasServico', 
+        name='horasServico'),
+    
+    
+    
     #Url Home Departamento
     url(r'^Teste_home/departamento', 
         'ipbejactcapp.distro.views.indexDepartamento', 
