@@ -67,7 +67,7 @@ urlpatterns = patterns('',
     #Url Home Docente
     url(r'^Teste_home/docente/$', 
         'ipbejactcapp.distro.views.indexDocente', 
-        name='home'),
+        name='homeDocente'),
     
     #Url Turmas a que os docentes pertence
     url(r'^Teste_home/docente/turmas', 
@@ -82,7 +82,7 @@ urlpatterns = patterns('',
     
     
     #Url Home Departamento
-    url(r'^Teste_home/departamento', 
+    url(r'^Teste_home/departamento/$', 
         'ipbejactcapp.distro.views.indexDepartamento', 
-        name='home'),
+        name='homeDepartamento'),
 )

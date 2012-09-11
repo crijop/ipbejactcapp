@@ -23,7 +23,7 @@
 
 {% block Menus %}
 	<ul>
-	   <li class='active '><a href='/Teste_home'><span>Home</span></a></li>
+	   <li class='active '><a href='/Teste_home'><span>{% trans 'Home' %}</span></a></li>
 	   <li class='has-sub '><a href='#'><span>Products</span></a>
 	  <ul>
 	     <li class='has-sub '><a href='#'><span>Product 1</span></a>
@@ -48,7 +48,7 @@
 {% block breadcrumb %}
 	<ul id="breadcrumb">
 		<!--<li><a href="{% url home %}" title="Home"><img src="../static/images/BreadCrumbs/home.gif" alt="Home" class="home" /></a></li>-->
-		<li><img src="/static/images/BreadCrumbs/home.gif" alt="Home" class="home" /></li>
+		<li><img src="/static/images/BreadCrumbs/home.gif" alt="{% trans 'Home' %}" class="home" /></li>
 	</ul>
 {% endblock %}
 

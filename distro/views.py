@@ -52,13 +52,17 @@ def indexDocente(request):
     nrDocente = request.session['nr_Docente']
     servicoDocente = ServicoDocente.objects.all()
     lista = []
+    #numero total de horas que o docente tem de serviço
+    numeroTotalHoras = 0
     for servDocente in servicoDocente:
         if servDocente.docente_id ==  nrDocente:
             #nome da unidade curricular que o docente vai dar aulas.
             nomeUnidadeCurricular = UnidadeCurricular.objects.get(turma__id__exact=servDocente.turma_id).nome
+            
+            numeroTotalHoras +=servDocente.horas
             lista.append((servDocente.docente_id, nomeUnidadeCurricular,
                            servDocente.horas))
-        
+    numeroTotalTurmas = len(lista)   
     return render_to_response("docentes/index.html",
         locals(),
         context_instance=RequestContext(request),
@@ -67,13 +71,17 @@ def indexDocente(request):
     
 #Página de apresentação das turmas a que os Docentes pertencem
 def turmasDocentes(request):    
+    nomeDocente = request.session['nomeDocente']
+    nrDocente = request.session['nr_Docente']
     return render_to_response("docentes/turmaDocente.html",
         locals(),
         context_instance=RequestContext(request),
         )    
     
 #Página de apresentação das horas de serviço pertencente a cada Docente
-def horasServico(request):    
+def horasServico(request):
+    nomeDocente = request.session['nomeDocente']
+    nrDocente = request.session['nr_Docente']  
     return render_to_response("docentes/horasServico.html",
         locals(),
         context_instance=RequestContext(request),
