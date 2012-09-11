@@ -115,6 +115,69 @@ div#footer{
 	text-align: center;
 }
 
+/*Docentes*/
+/*Pagna inicial*/
+#tabela_sumario
+{
+
+float: left;
+width: 100%;
+
+
+text-align: left;
+
+vertical-align: middle;
+
+
+margin: 3px 0 0 0;
+
+font-size: 15pt;
+font-family: Arial;
+
+
+
+
+
+
+}
+
+.cabecalho_sumario
+{
+background: rgb(241, 104,3);
+color: white;
+padding: 3px 0 3px 0;
+font-size: 15pt;
+background: -webkit-linear-gradient(bottom, rgb(255, 156,0), rgb(234, 126, 14));
+background: -ms-linear-gradient(bottom, rgb(255, 156,0), rgb(234, 126, 14)); 
+background: -moz-linear-gradient(bottom, rgb(255, 156,0), rgb(234, 126, 14));
+background: -o-linear-gradient(bottom, rgb(255, 156,0), rgb(234, 126, 14));
+text-shadow: 0 1px 1px #000;
+
+}
+
+#top_sumario
+{
+background: black;
+text-align: center;
+font-size: 25pt;
+}
+
+#tabela_sumario td
+{
+	padding: 0px 0px 0px 10px;
+}
+
+#tabela_sumario .horas_servico
+{
+	text-align: right;
+	padding: 0px 10px 0 0 ;
+	
+}
+
+#tabela_sumario th
+{
+	text-align: center;
+}
 /*
  * Menus
  */
