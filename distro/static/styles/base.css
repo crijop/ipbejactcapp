@@ -117,6 +117,7 @@ div#footer{
 
 /*Docentes*/
 /*Pagna inicial*/
+/*
 #tabela_sumario
 {
 
@@ -177,6 +178,116 @@ font-size: 25pt;
 #tabela_sumario th
 {
 	text-align: center;
+}*/
+table#tabela_sumario{
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1.4em;
+    font-style: normal;
+    border-collapse:separate;
+    width: 100%;
+}
+#tabela_sumario thead th{
+    padding:15px;
+    color:#fff;
+    text-shadow:1px 1px 1px black;
+    border:1px solid rgb(234, 126, 14);
+    border-bottom:3px solid rgb(252,133,1);
+    background-color: rgb(234, 126, 14);
+    background:-webkit-gradient(
+        linear,
+        left bottom,
+        left top,
+        color-stop(0.02, rgb(234, 126, 14)),
+        color-stop(0.51, rgb(252,133,1)),
+        color-stop(0.87, rgb(245,150,7))
+        );
+    background: -moz-linear-gradient(
+        center bottom,
+        rgb(234, 126, 14) 2%,
+        rgb(252,133,1) 51%,
+        rgb(245,150,7) 87%
+        );
+    -webkit-border-top-left-radius:5px;
+    -webkit-border-top-right-radius:5px;
+    -moz-border-radius:5px 5px 0px 0px;
+    border-top-left-radius:5px;
+    border-top-right-radius:5px;
+}
+#tabela_sumario thead th:empty{
+    background:transparent;
+    border:none;
+}
+
+#tabela_sumario #top_sumario
+{
+	 background:black;
+	  border:1px solid black;
+    border-bottom:3px solid black;
+    border-bottom:3px solid black;
+    text-shadow:1px 1px 1px black;
+}
+
+#tabela_sumario .sub_cabecalho
+{
+	background:rgb(255, 145, 70);
+	border:1px solid rgb(255, 145, 70);
+    border-bottom:3px solid rgb(255, 145, 70);
+    border-bottom:3px solid rgb(255, 145, 70);
+    /*text-shadow:1px 1px 1px black;*/
+}
+
+#tabela_sumario tbody th{
+    color:#fff;
+    text-shadow:1px 1px 1px rgb(219, 97, 15);
+    background-color:rgb(234, 126, 14);
+    border:1px solid rgb(252,133,1);
+    border-right:3px solid rgb(234, 126, 14);
+    padding:0px 10px;
+    background:-webkit-gradient(
+        linear,
+        left bottom,
+        right top,
+        color-stop(0.02, rgb(234, 126, 14)),
+        color-stop(0.51, rgb(252,133,1)),
+        color-stop(0.87, rgb(245,150,7))
+        );
+    background: -moz-linear-gradient(
+        left bottom,
+        rgb(234, 126, 14) 2%,
+        rgb(252,133,1) 51%,
+        rgb(245,150,7) 87%
+        );
+    -moz-border-radius:5px 0px 0px 5px;
+    -webkit-border-top-left-radius:5px;
+    -webkit-border-bottom-left-radius:5px;
+    border-top-left-radius:5px;
+    border-bottom-left-radius:5px;
+}
+#tabela_sumario tfoot td{
+    color: rgb(234, 126, 14);
+    font-size:32px;
+    text-align:center;
+    padding:10px 0px;
+    text-shadow:1px 1px 1px #444;
+}
+#tabela_sumario tfoot th{
+    color:#666;
+}
+#tabela_sumario tbody td{
+    padding:10px;
+    text-align:center;
+    background-color:rgb(251,210,149);
+    border: 2px solid #E7EFE0;
+    -moz-border-radius:2px;
+    -webkit-border-radius:2px;
+    border-radius:2px;
+    color:#666;
+    text-shadow:1px 1px 1px #fff;
+}
+#tabela_sumario tbody span.check::before{
+    content : url(../images/check0.png)
 }
 /*
  * Menus
@@ -252,10 +363,11 @@ font-size: 25pt;
 			color: #fff;
 			text-shadow: 0 1px 0 rgba(0, 0, 0, .3);
 			background: #72FF00;
-			background: -webkit-linear-gradient(bottom, #72FF00, #017601);
-			background: -ms-linear-gradient(bottom, #72FF00, #017601); 
-			background: -moz-linear-gradient(bottom, #72FF00, #017601);
-			background: -o-linear-gradient(bottom, #72FF00, #017601);
+			background: -webkit-linear-gradient(bottom, rgb(245,150,7), rgb(234, 126, 14));
+			background: -ms-linear-gradient(bottom, rgb(245,150,7), rgb(234, 126, 14)); 
+			background: -moz-linear-gradient(bottom, rgb(245,150,7), rgb(234, 126, 14));
+			background: -o-linear-gradient(bottom, rgb(245,150,7), rgb(234, 126, 14));
+			background: -o-linear-gradient(bottom, rgb(245,150,7), rgb(234, 126, 14));
 			border-color: transparent;
 		}
 

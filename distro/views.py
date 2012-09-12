@@ -99,8 +99,7 @@ def turmasDocentes(request):
             #nome da unidade curricular que o docente vai dar aulas.
             nomeUnidadeCurricular = UnidadeCurricular.objects.get(turma__id__exact=servDocente.turma_id).nome
             nomeCurso = UnidadeCurricular.objects.get(turma__id__exact=servDocente.turma_id).curso       
-            lista.append((servDocente.docente_id, nomeUnidadeCurricular,
-                           servDocente.horas, nomeCurso))
+            lista.append((servDocente.docente_id, nomeUnidadeCurricular, nomeCurso))
     return render_to_response("docentes/turmaDocente.html",
         locals(),
         context_instance=RequestContext(request),

@@ -2,26 +2,33 @@
 {% load i18n %}
 {% block title %} Página de apresentação das turmas do Docente {% endblock %}
 
-
 {% block breadcrumb %}
-	<ul id="breadcrumb">
-		<li><a href="{% url homeDocente %}" title="{% trans 'Home' %}">
-				<img src="/static/images/BreadCrumbs/home.gif" alt="{% trans 'Home' %}" class="home" />
-			</a>
-		</li>
-		<li>Turmas Docente</li>
-	</ul>
+<ul id="breadcrumb">
+	<li>
+		<a tabindex="2" href="{% url homeDocente %}" title="{% trans 'Home' %}"> <img src="/static/images/BreadCrumbs/home.gif" alt="{% trans 'Home' %}" class="home" /> </a>
+	</li>
+	<li>
+		Turmas Docente
+	</li>
+</ul>
 {% endblock %}
 
-
 {% block content %}
-	<table id="tabela_sumario">
-<tr><th id="top_sumario" class="cabecalho_sumario">Sumário</th></tr>
-<tr><th class="cabecalho_sumario">Estado</th></tr>
-<tr><td>Pendente</td></tr>
-<tr><th class="cabecalho_sumario">Turmas</th></tr>
-<tr><td><span>Número de Turmas - </span>{{  numeroTotalTurmas }}</td></tr>
-<tr><th class="cabecalho_sumario">Horas de Trabalho</th></tr>
-<tr><td><span>Horas Total - </span>{{  numeroTotalHoras }}</td></tr>
+<table id="tabela_sumario">
+	<tr>
+		<th colspan="2" id="top_sumario" class="cabecalho_sumario">Sumário</th>
+	</tr>
+	<tr>
+		<th>Curso</th>
+		<th>Turma</th>
+	</tr>
+	{%for id, turma, curso in lista%}
+	<tr>
+		<td>{{ curso }}</td>
+		<td>{{ turma }}</td>
+
+	</tr>
+	{%endfor%}
+	
 </table>
 {% endblock %}
