@@ -1,0 +1,25 @@
+{% extends "base1.html" %}
+{% load i18n %}
+{% block title %} Página Inícial Recursos Humanos {% endblock %}
+
+{% block breadcrumb %}
+	<ul id="breadcrumb">
+		<!--<li><a href="{% url home %}" title="Home"><img src="../static/images/BreadCrumbs/home.gif" alt="Home" class="home" /></a></li>-->
+		<li><img src="/static/images/BreadCrumbs/home.gif" alt="{% trans 'Home' %}" class="home" /></li>
+	</ul>
+{% endblock %}
+
+{% block content %}
+<table id="tabela_sumario">
+<tr><th id="top_sumario" class="cabecalho_sumario">Sumário</th></tr>
+<tr><th class="cabecalho_sumario">Estado</th></tr>
+<tr><td>Pendente</td></tr>
+<tr><th class="cabecalho_sumario">Turmas</th></tr>
+<tr><td><span>wwdd </span>wd</td></tr>
+<tr><th class="cabecalho_sumario">Horas de Trabalho</th></tr>
+<tr><td><span>dwdw</span></td></tr>
+</table>
+
+<br>
+{% endblock %}
+

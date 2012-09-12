@@ -73,16 +73,48 @@ urlpatterns = patterns('',
     url(r'^Teste_home/docente/turmas', 
         'ipbejactcapp.distro.views.turmasDocentes', 
         name='turmasDocentes'),
-                       
+                    
     #Url horas de serviço distinada a cada docente
     url(r'^Teste_home/docente/horasServico', 
         'ipbejactcapp.distro.views.horasServico', 
         name='horasServico'),
+    #####
+    #Fim dos Url's destinados aos templates dos docentes
+    ####
     
+    #####
+    # Url's destinados aos templates dos Recursos Humanos
+    ####
+    #Url Home Recursos Humanos
+    url(r'^Teste_home/recursosHumanos/$', 
+        'ipbejactcapp.distro.views.indexRecursosHumanos', 
+        name='homeRecursosHumanos'),
     
+    #####
+    #Fim dos Url's destinados aos templates dos Recursos Humanos
+    ####
     
+    #####
+    # Url's destinados aos templates dos Directores de Escola
+    ####
+    #Url Home Recursos Humanos
+    url(r'^Teste_home/recursosHumanos/$', 
+        'ipbejactcapp.distro.views.indexDirectoresEscola', 
+        name='homeDirectoresEscola'),
+    
+    #####
+    #Fim dos Url's destinados aos templates dos Directores de Escola
+    ####
+    
+    #####
+    # Url's destinados aos templates do departamento
+    #### 
     #Url Home Departamento
     url(r'^Teste_home/departamento/$', 
         'ipbejactcapp.distro.views.indexDepartamento', 
         name='homeDepartamento'),
+    
+    #####
+    #Fim Url's destinados aos templates do departamento
+    #### 
 )

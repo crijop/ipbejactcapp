@@ -15,38 +15,55 @@ from django.template.context import RequestContext
 #vista para a Página Home
 @login_required
 def Teste_home(request):
-    
     name_group = Group.objects.get(name="Docente")
     name_group1 = Group.objects.get(name="Departamento")
+    name_group2 = Group.objects.get(name = "RecusosHumanos")
+    name_group3 = Group.objects.get(name = "DirectoresEscola")
+    #verifica se o utlizador pertence ao grupo do Docente
     if name_group in request.user.groups.all():
         '''return render_to_response("docentes/index.html",
         locals(),
         context_instance=RequestContext(request),
         )'''
         docentes = Docente.objects.all()
-        
-        print "USERNAME ", request.user.username
         for docente in docentes:
             if docente.abreviatura == request.user.username:
                 request.session['nomeDocente'] = docente.nome_completo
                 request.session['nr_Docente'] = docente.id
                 return redirect(indexDocente)
+                pass
             else:
                 pass
             
         return False
-    
+    #verifica se o utlizador pertence ao grupo do Departamento
     elif name_group1 in request.user.groups.all():
         return redirect(indexDepartamento)
-    
+        pass
+    #verifica se o utlizador pertence ao grupo dos recursos Humanos
+    elif name_group2 in request.user.groups.all():
+        return redirect(indexRecursosHumanos)
+        pass
+    #verifica se o utlizador pertence ao grupo dos Directores de Escolas
+    elif name_group3 in request.user.groups.all():
+        return redirect(indexDirectoresEscola)
+        pass
+    #Se as condições anteriores não se verificarem, 
+    #é mostrado o conteudo da Página Teste_home.html
     else:
         return render_to_response("Teste_home.html",
             locals(),
             context_instance=RequestContext(request),
             )
+        pass
     return False
+    pass
 
+'''
+Inicio das vistas dos docentes
+''' 
 #Página Inicial do utilizador Docente
+@login_required(redirect_field_name='Teste_home')
 def indexDocente(request):
     nomeDocente = request.session['nomeDocente']
     nrDocente = request.session['nr_Docente']
@@ -70,15 +87,27 @@ def indexDocente(request):
 
     
 #Página de apresentação das turmas a que os Docentes pertencem
+@login_required(redirect_field_name='Teste_home')
 def turmasDocentes(request):    
     nomeDocente = request.session['nomeDocente']
     nrDocente = request.session['nr_Docente']
+    servicoDocente = ServicoDocente.objects.all()
+    unidadesCurriculares = UnidadeCurricular.objects.all()
+    lista = []
+    for servDocente in servicoDocente:
+        if servDocente.docente_id ==  nrDocente:
+            #nome da unidade curricular que o docente vai dar aulas.
+            nomeUnidadeCurricular = UnidadeCurricular.objects.get(turma__id__exact=servDocente.turma_id).nome
+            nomeCurso = UnidadeCurricular.objects.get(turma__id__exact=servDocente.turma_id).curso       
+            lista.append((servDocente.docente_id, nomeUnidadeCurricular,
+                           servDocente.horas, nomeCurso))
     return render_to_response("docentes/turmaDocente.html",
         locals(),
         context_instance=RequestContext(request),
         )    
     
 #Página de apresentação das horas de serviço pertencente a cada Docente
+@login_required(redirect_field_name='Teste_home')
 def horasServico(request):
     nomeDocente = request.session['nomeDocente']
     nrDocente = request.session['nr_Docente']  
@@ -92,25 +121,82 @@ def horasServico(request):
             #nome da unidade curricular que o docente vai dar aulas.
             nomeUnidadeCurricular = UnidadeCurricular.objects.get(turma__id__exact=servDocente.turma_id).nome
             nomeCurso = UnidadeCurricular.objects.get(turma__id__exact=servDocente.turma_id).curso
-            numeroTotalHoras +=servDocente.horas
-            
-            
+            numeroTotalHoras +=servDocente.horas       
             lista.append((servDocente.docente_id, nomeUnidadeCurricular,
                            servDocente.horas, nomeCurso))
               
-            
-    
     return render_to_response("docentes/horasServico.html",
         locals(),
         context_instance=RequestContext(request),
         )
     
+'''
+Fim das vistas dos docentes
+'''    
 
+
+
+'''
+Inicio das vistas dos Coordenadores de Curso
+''' 
+#Falta a tabela para definir os Coordenadores...............................
+@login_required(redirect_field_name='Teste_home')
+def indexCoordCursos(request):
+    return render_to_response("CoordCursos/index.html",
+        locals(),
+        context_instance=RequestContext(request),
+        )
+    pass
+
+'''
+Fim das vistas dos Coordenadores de Curso
+''' 
+
+'''
+Inicio das vistas dos Recursos Humanos
+''' 
+#Falta a tabela para definir os Coordenadores...............................
+@login_required(redirect_field_name='Teste_home')
+def indexRecursosHumanos(request):
+    return render_to_response("recursosHumanos/index.html",
+        locals(),
+        context_instance=RequestContext(request),
+        )
+    pass
+
+'''
+Fim das vistas dos Recursos Humanos
+'''
+
+'''
+Inicio das vistas dos Directores de Escola
+''' 
+@login_required(redirect_field_name='Teste_home')
+def indexDirectoresEscola(request):
+    return render_to_response("directoresEscola/index.html",
+        locals(),
+        context_instance=RequestContext(request),
+        )
+    pass
+
+'''
+Fim das vistas dos Directores de Escola
+''' 
+
+
+'''
+Inicio das vistas do Departamento
+''' 
+@login_required(redirect_field_name='Teste_home')
 def indexDepartamento(request):
     return render_to_response("departamento/index.html",
         locals(),
         context_instance=RequestContext(request),
         )
+
+'''
+Fim das vistas do Departamento
+''' 
 
 # vista para a criação automática de todas as distribuições
 # de serviço docente iniciais para um determinado ano lectivo
