@@ -11,7 +11,7 @@
     nome_completo: Adelaide Pires Malainho
     departamento: 5
     regime_exclusividade: 1
-    abreviatura: 
+    abreviatura: apm
 - model: distro.docente
   pk: 3
   fields:
@@ -578,7 +578,7 @@
     nome_completo: João Paulo Barros
     departamento: 1
     regime_exclusividade: 1
-    abreviatura:  
+    abreviatura: jpb
 - model: distro.docente
   pk: 84
   fields:

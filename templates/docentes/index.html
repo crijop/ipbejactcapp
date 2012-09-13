@@ -3,28 +3,26 @@
 {% block title %} Página Inícial Docente {% endblock %}
 
 {% block Username %}
-	{% if user.is_active%}
-        {% trans 'Welcome,' %}
-        <strong>{% filter force_escape %}{{ nomeDocente }}{% endfilter %}</strong>.
-        {% block userlinks %}
-            {% url 'django-admindocs-docroot' as docsroot %}
-            {% if docsroot %}
-                <!-- Nao faz nada porque senão tiver autenticado não pode entrar neste template
-                	depois vai ser melhorado este id-->
-            {% endif %}
-            <a href="{% url sair %}" tabindex="1">{% trans 'Log out' %}</a>
-        {% endblock %}
-    {% endif %}
+{% if user.is_active%}
+{% trans 'Welcome,' %}
+<strong>{% filter force_escape %}{{ nomeDocente }}{% endfilter %}</strong>.
+{% block userlinks %}
+{% url 'django-admindocs-docroot' as docsroot %}
+{% if docsroot %}
+<!-- Nao faz nada porque senão tiver autenticado não pode entrar neste template
+depois vai ser melhorado este id-->
+{% endif %}
+<a href="{% url sair %}" tabindex="1">{% trans 'Log out' %}</a>
+{% endblock %}
+{% endif %}
 
 {% endblock %}
-
-
 
 {% block Menus %}
 <ul>
 
 	<li class='active '>
-		<a tabindex="3" href='/Teste_home'><span>Home</span></a>
+		<a tabindex="3" href='/Teste_home'><span>{% trans "Home" %}</span></a>
 	</li>
 	<li>
 		<a tabindex="4" href='{%url turmasDocentes%}'><span>Turmas</span></a>
@@ -89,9 +87,16 @@
 		<th colspan="2" class="cabecalho_sumario">Horas de Trabalho</th>
 	</tr>
 	<tr>
+		<th class="sub_cabecalho" ><span>Horas de serviço</span></th>
+		<td>{{  horasServico }}</td>
+	</tr>
+	<tr>
+		<th class="sub_cabecalho" ><span>Horas de redução</span></th>
+		<td>{{  reducaoHoras }}</td>
+	</tr>
+	<tr>
 		<th class="sub_cabecalho" ><span>Horas Total</span></th>
 		<td>{{  numeroTotalHoras }}</td>
-		
 	</tr>
 </table>
 

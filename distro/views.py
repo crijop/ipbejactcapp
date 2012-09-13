@@ -2,7 +2,7 @@
 
 # Create your views here.
 from distro.models import Curso, Docente, ServicoDocente, TipoAula, Turma, \
-    UnidadeCurricular
+    UnidadeCurricular, ReducaoServicoDocente, Reducao
 from django import forms
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import Group
@@ -150,15 +150,29 @@ def indexDocente(request):
     lista = []
     #numero total de horas que o docente tem de serviço
     numeroTotalHoras = 0
+    horasServico = 0
+    reducaoHoras = 0
     for servDocente in servicoDocente:
         if servDocente.docente_id ==  nrDocente:
             #nome da unidade curricular que o docente vai dar aulas.
             nomeUnidadeCurricular = UnidadeCurricular.objects.get(turma__id__exact=servDocente.turma_id).nome
             
-            numeroTotalHoras +=servDocente.horas
+            reducao = ReducaoServicoDocente.objects.filter(docente_id__exact=nrDocente)
+            if len(reducao) == 0 :
+                pass
+            else:
+                reducaoId = ReducaoServicoDocente.objects.get(docente_id__exact=nrDocente).reducao_id
+                reducaoHoras = Reducao.objects.get(id__exact=reducaoId).horas
+                pass
+            
+            print "docente_n _ ", reducao
+          
+            horasServico = servDocente.horas
+            numeroTotalHoras = servDocente.horas + reducaoHoras
             lista.append((servDocente.docente_id, nomeUnidadeCurricular,
-                           servDocente.horas))
+                           servDocente.horas, reducaoHoras))
     numeroTotalTurmas = len(lista)   
+    print "dsfdf - ", reducaoHoras
     return render_to_response("docentes/index.html",
         locals(),
         context_instance=RequestContext(request),
