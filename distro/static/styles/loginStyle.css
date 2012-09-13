@@ -38,6 +38,21 @@ div#auth_form_div
 	margin-top: 20px;
 }
 
+.errorlist
+{
+	color: red;
+	font-size: 8pt;
+	font-family: Arial;
+}
+
+table.form_table  label
+{
+	font-family: Arial;
+	float:right;
+}
+
+
+
 div#footer{
 	background: white;
 	border-top: 1px solid #EFEFEF;
