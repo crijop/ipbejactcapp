@@ -60,7 +60,61 @@ urlpatterns = patterns('',
     (r'^Teste_home/sair$', 'django.contrib.auth.views.logout',
         {'template_name': 'sair.html'}, 'sair'),
                        
-                       
+    
+    #ACTORES DO SISTEMA                   
+    
+    #####
+    # Url's destinados aos templates do cientifico
+    ####
+    #Url Home Ciêntifico
+    url(r'^Teste_home/cientifico/$', 
+        'ipbejactcapp.distro.views.indexCientifico', 
+        name='homeDirectoresEscola'),
+    
+    #####
+    #Fim dos Url's destinados aos templates do cientifico
+    ####
+    
+    
+    #####
+    # Url's destinados aos templates do coordenadores de Cursos
+    ####
+    #Url Home coordenadores de Cursos
+    #url(r'^Teste_home/coordCursos/$', 
+    #    'ipbejactcapp.distro.views.indexCoordCursos', 
+    #    name='homeDirectoresEscola'),
+    
+    #####
+    #Fim dos Url's destinados aos templates do coordenadores de Cursos
+    ####
+    
+    
+    #####
+    # Url's destinados aos templates do departamento
+    #### 
+    #Url Home Departamento
+    url(r'^Teste_home/departamento/$', 
+        'ipbejactcapp.distro.views.indexDepartamento', 
+        name='homeDepartamento'),
+    
+    #####
+    #Fim Url's destinados aos templates do departamento
+    #### 
+    
+    
+    #####
+    # Url's destinados aos templates dos Directores de Escola
+    ####
+    #Url Home Directores de Escola
+    url(r'^Teste_home/directoresEscola/$', 
+        'ipbejactcapp.distro.views.indexDirectoresEscola', 
+        name='homeDirectoresEscola'),
+    
+    #####
+    #Fim dos Url's destinados aos templates dos Directores de Escola
+    ####
+    
+    
     #####
     # Url's destinados aos templates dos docentes
     ####                   
@@ -82,6 +136,7 @@ urlpatterns = patterns('',
     #Fim dos Url's destinados aos templates dos docentes
     ####
     
+    
     #####
     # Url's destinados aos templates dos Recursos Humanos
     ####
@@ -94,27 +149,17 @@ urlpatterns = patterns('',
     #Fim dos Url's destinados aos templates dos Recursos Humanos
     ####
     
+    
     #####
-    # Url's destinados aos templates dos Directores de Escola
+    # Url's destinados aos templates do serviço de Planeamento
     ####
-    #Url Home Recursos Humanos
-    url(r'^Teste_home/recursosHumanos/$', 
-        'ipbejactcapp.distro.views.indexDirectoresEscola', 
+    #Url Home do serviço de Planeamento
+    url(r'^Teste_home/servicoPlaneamento/$', 
+        'ipbejactcapp.distro.views.indexServicoPlaneamento', 
         name='homeDirectoresEscola'),
     
     #####
-    #Fim dos Url's destinados aos templates dos Directores de Escola
+    #Fim dos Url's destinados aos templates do serviço de Planeamento
     ####
     
-    #####
-    # Url's destinados aos templates do departamento
-    #### 
-    #Url Home Departamento
-    url(r'^Teste_home/departamento/$', 
-        'ipbejactcapp.distro.views.indexDepartamento', 
-        name='homeDepartamento'),
-    
-    #####
-    #Fim Url's destinados aos templates do departamento
-    #### 
 )

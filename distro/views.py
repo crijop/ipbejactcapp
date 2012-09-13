@@ -15,12 +15,33 @@ from django.template.context import RequestContext
 #vista para a Página Home
 @login_required
 def Teste_home(request):
-    name_group = Group.objects.get(name="Docente")
-    name_group1 = Group.objects.get(name="Departamento")
-    name_group2 = Group.objects.get(name = "RecusosHumanos")
+    
+    name_group = Group.objects.get(name="Cientifico")
+    name_group1 = Group.objects.get(name="CoordenadoresCursos")
+    name_group2 = Group.objects.get(name="Departamento")
     name_group3 = Group.objects.get(name = "DirectoresEscola")
-    #verifica se o utlizador pertence ao grupo do Docente
+    name_group4 = Group.objects.get(name="Docente")
+    name_group5 = Group.objects.get(name = "RecusosHumanos")
+    name_group6 = Group.objects.get(name = "servicosPlaneamento")
+    
+    #verifica se o utlizador pertence ao grupo do Cientifico
     if name_group in request.user.groups.all():
+        return redirect(indexCientifico)
+        pass
+    #verifica se o utlizador pertence ao grupo dos Coordenadores Cursos
+    if name_group1 in request.user.groups.all():
+        return redirect(indexCoordCursos)
+        pass
+    #verifica se o utlizador pertence ao grupo do Departamento
+    elif name_group2 in request.user.groups.all():
+        return redirect(indexDepartamento)
+        pass
+    #verifica se o utlizador pertence ao grupo dos Directores de Escolas
+    elif name_group3 in request.user.groups.all():
+        return redirect(indexDirectoresEscola)
+        pass
+    #verifica se o utlizador pertence ao grupo do Docente
+    elif name_group4 in request.user.groups.all():
         '''return render_to_response("docentes/index.html",
         locals(),
         context_instance=RequestContext(request),
@@ -36,18 +57,15 @@ def Teste_home(request):
                 pass
             
         return False
-    #verifica se o utlizador pertence ao grupo do Departamento
-    elif name_group1 in request.user.groups.all():
-        return redirect(indexDepartamento)
-        pass
     #verifica se o utlizador pertence ao grupo dos recursos Humanos
-    elif name_group2 in request.user.groups.all():
+    elif name_group5 in request.user.groups.all():
         return redirect(indexRecursosHumanos)
         pass
-    #verifica se o utlizador pertence ao grupo dos Directores de Escolas
-    elif name_group3 in request.user.groups.all():
-        return redirect(indexDirectoresEscola)
+    #verifica se o utlizador pertence ao grupo dos servicosPlaneamento
+    elif name_group6 in request.user.groups.all():
+        return redirect(indexServicoPlaneamento)
         pass
+    
     #Se as condições anteriores não se verificarem, 
     #é mostrado o conteudo da Página Teste_home.html
     else:
@@ -56,8 +74,69 @@ def Teste_home(request):
             context_instance=RequestContext(request),
             )
         pass
-    return False
     pass
+
+
+'''
+Inicio das vistas do Ciêntifico
+'''
+@login_required(redirect_field_name='Teste_home')
+def indexCientifico(request):
+    return render_to_response("cientifico/index.html",
+        locals(),
+        context_instance=RequestContext(request),
+        )
+    pass
+'''
+Fim das vistas do Ciêntifico
+'''
+
+'''
+Inicio das vistas dos Coordenadores Cursos
+'''
+#Falta a tabela para definir os Coordenadores...............................
+#Falta fazer o url's
+@login_required(redirect_field_name='Teste_home')
+def indexCoordCursos(request):
+    return render_to_response("CoordCursos/index.html",
+        locals(),
+        context_instance=RequestContext(request),
+        )
+    pass
+
+'''
+Fim das vistas dos Coordenadores Cursos
+'''
+
+'''
+Inicio das vistas do Departamento
+''' 
+@login_required(redirect_field_name='Teste_home')
+def indexDepartamento(request):
+    return render_to_response("departamento/index.html",
+        locals(),
+        context_instance=RequestContext(request),
+        )
+
+'''
+Fim das vistas do Departamento
+''' 
+    
+'''
+Inicio das vistas dos Directores de Escola
+''' 
+@login_required(redirect_field_name='Teste_home')
+def indexDirectoresEscola(request):
+    return render_to_response("directoresEscola/index.html",
+        locals(),
+        context_instance=RequestContext(request),
+        )
+    pass
+
+'''
+Fim das vistas dos Directores de Escola
+'''
+    
 
 '''
 Inicio das vistas dos docentes
@@ -134,27 +213,9 @@ Fim das vistas dos docentes
 '''    
 
 
-
-'''
-Inicio das vistas dos Coordenadores de Curso
-''' 
-#Falta a tabela para definir os Coordenadores...............................
-@login_required(redirect_field_name='Teste_home')
-def indexCoordCursos(request):
-    return render_to_response("CoordCursos/index.html",
-        locals(),
-        context_instance=RequestContext(request),
-        )
-    pass
-
-'''
-Fim das vistas dos Coordenadores de Curso
-''' 
-
 '''
 Inicio das vistas dos Recursos Humanos
 ''' 
-#Falta a tabela para definir os Coordenadores...............................
 @login_required(redirect_field_name='Teste_home')
 def indexRecursosHumanos(request):
     return render_to_response("recursosHumanos/index.html",
@@ -168,34 +229,20 @@ Fim das vistas dos Recursos Humanos
 '''
 
 '''
-Inicio das vistas dos Directores de Escola
+Inicio das vistas dos Serviços de Planeamento
 ''' 
 @login_required(redirect_field_name='Teste_home')
-def indexDirectoresEscola(request):
-    return render_to_response("directoresEscola/index.html",
+def indexServicoPlaneamento(request):
+    return render_to_response("servicosPlaneamento/index.html",
         locals(),
         context_instance=RequestContext(request),
         )
     pass
 
 '''
-Fim das vistas dos Directores de Escola
-''' 
-
-
+Fim das vistas dos Serviços de Planeamento
 '''
-Inicio das vistas do Departamento
-''' 
-@login_required(redirect_field_name='Teste_home')
-def indexDepartamento(request):
-    return render_to_response("departamento/index.html",
-        locals(),
-        context_instance=RequestContext(request),
-        )
 
-'''
-Fim das vistas do Departamento
-''' 
 
 # vista para a criação automática de todas as distribuições
 # de serviço docente iniciais para um determinado ano lectivo
