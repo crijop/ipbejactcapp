@@ -2,13 +2,14 @@
 
 # Create your views here.
 from distro.models import Curso, Docente, ServicoDocente, TipoAula, Turma, \
-    UnidadeCurricular, ReducaoServicoDocente, Reducao
+    UnidadeCurricular, ReducaoServicoDocente, Reducao, Departamento
 from django import forms
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import Group
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render_to_response, redirect
 from django.template.context import RequestContext
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 #login_required - só entra nesta vista se
 #o utilizador estiver autênticado
@@ -156,23 +157,28 @@ def indexDocente(request):
         if servDocente.docente_id ==  nrDocente:
             #nome da unidade curricular que o docente vai dar aulas.
             nomeUnidadeCurricular = UnidadeCurricular.objects.get(turma__id__exact=servDocente.turma_id).nome
-            
+            #todas a reduções de serviço referentes ao docente
             reducao = ReducaoServicoDocente.objects.filter(docente_id__exact=nrDocente)
+            #se o tamanho for 0 é porque nao existem reduções
             if len(reducao) == 0 :
+                #nao faz nada
                 pass
             else:
+                #obtem o ID da redução
                 reducaoId = ReducaoServicoDocente.objects.get(docente_id__exact=nrDocente).reducao_id
+                #print "reducao id - ", reducaoId
+                #obtem o numero de horas de redução
                 reducaoHoras = Reducao.objects.get(id__exact=reducaoId).horas
                 pass
             
-            print "docente_n _ ", reducao
-          
-            horasServico = servDocente.horas
-            numeroTotalHoras = servDocente.horas + reducaoHoras
+            #print "docente_n _ ", reducao
+            #incrementa as horas de serviço
+            horasServico += servDocente.horas
+            numeroTotalHoras = horasServico + reducaoHoras
             lista.append((servDocente.docente_id, nomeUnidadeCurricular,
                            servDocente.horas, reducaoHoras))
     numeroTotalTurmas = len(lista)   
-    print "dsfdf - ", reducaoHoras
+    #print "dsfdf - ", reducaoHoras
     return render_to_response("docentes/index.html",
         locals(),
         context_instance=RequestContext(request),
@@ -232,6 +238,31 @@ Inicio das vistas dos Recursos Humanos
 ''' 
 @login_required(redirect_field_name='Teste_home')
 def indexRecursosHumanos(request):
+    
+    allDocentes = Docente.objects.all()
+    listaDocentes = []
+ 
+    for docente in allDocentes:
+        departamento_id = docente.departamento_id
+        departamentoNome = Departamento.objects.get(id__exact=departamento_id).nome
+        listaDocentes.append([docente.nome_completo, departamentoNome])
+    
+    
+    paginator = Paginator(listaDocentes, 10)
+    drange = range( 1, paginator.num_pages + 1)
+    
+    page = request.GET.get('page')
+    
+     
+    try:
+        docentes = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        docentes = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        docentes = paginator.page(paginator.num_pages)
+        
     return render_to_response("recursosHumanos/index.html",
         locals(),
         context_instance=RequestContext(request),
