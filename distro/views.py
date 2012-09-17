@@ -245,14 +245,14 @@ def indexRecursosHumanos(request):
     for docente in allDocentes:
         departamento_id = docente.departamento_id
         departamentoNome = Departamento.objects.get(id__exact=departamento_id).nome
-        listaDocentes.append([docente.nome_completo, departamentoNome])
+        id_Docente = docente.id
+        listaDocentes.append([docente.nome_completo, departamentoNome, id_Docente])
     
     
     paginator = Paginator(listaDocentes, 10)
     drange = range( 1, paginator.num_pages + 1)
     
     page = request.GET.get('page')
-    
      
     try:
         docentes = paginator.page(page)
@@ -269,6 +269,18 @@ def indexRecursosHumanos(request):
         )
     pass
 
+
+
+@login_required(redirect_field_name='Teste_home')
+def indexRHInfoDocentes(request, id_docente):
+    docenteX = Docente.objects.get(id__exact=id_docente)
+    print "DOCENTE ---", docenteX
+    
+    return render_to_response("recursosHumanos/infoDocente.html",
+        locals(),
+        context_instance=RequestContext(request),
+        )
+    pass
 '''
 Fim das vistas dos Recursos Humanos
 '''

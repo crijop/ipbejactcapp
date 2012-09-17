@@ -10,6 +10,43 @@
 </ul>
 {% endblock %}
 
+
+{% block Menus %}
+<ul>
+
+	<li class='active '>
+		<a tabindex="3" href='/Teste_home'><span>{% trans "Home" %}</span></a>
+	</li>
+	<li>
+		<a tabindex="4" href='#'><span>Turmas</span></a>
+		<!--<ul>
+
+		<li class='active '><a href='/Teste_home'><span>{% trans 'Home' %}</span></a></li>
+		<li class='has-sub '><a href='#'><span>Products</span></a>
+		<ul>
+
+		<li class='has-sub '><a href='#'><span>Product 1</span></a>
+		<ul>
+		<li><a href='#'><span>Sub Item</span></a></li>
+		<li><a href='#'><span>Sub Item</span></a></li>
+		</ul>
+		</li>
+		<li class='has-sub '><a href='#'><span>Product 2</span></a>
+		<ul>
+		<li><a href='#'><span>Sub Item</span></a></li>
+		<li><a href='#'><span>Sub Item</span></a></li>
+		</ul>
+		</li>
+		</ul>-->
+	</li>
+	<li>
+		<a tabindex="5" href='#'><span>Horas Trabalho</span></a>
+	</li>
+	<!--<li><a href='#'><span>Contact</span></a></li>-->
+</ul>
+{% endblock %}
+
+
 {% block content %}
 <table id="tabela_sumario">
 	<tr>
@@ -19,9 +56,9 @@
 		<th class="cabecalho_sumario">Docente</th>
 		<th class="cabecalho_sumario">Departamento</th>
 	</tr>
-	{% for nome, departamento in docentes %}
+	{% for nome, departamento, id_Docente in docentes %}
 	<tr>
-		<td>{{nome}}</td>
+		<td><a href="{{ id_Docente}}">{{nome}}</a></td>
 		<td>{{departamento}}</td>
 	</tr>
 	{% endfor %}
