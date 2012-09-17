@@ -227,6 +227,7 @@ table#tabela_sumario{
     border-bottom:3px solid black;
     border-bottom:3px solid black;
     text-shadow:1px 1px 1px black;
+    text-align: left;
 }
 
 #tabela_sumario .sub_cabecalho
@@ -298,7 +299,7 @@ table#tabela_sumario{
 	
 	
 }
-#paginator a:link
+#paginator a
 {
 		
 	background-color:#000000;
@@ -326,7 +327,7 @@ table#tabela_sumario{
 	top:1px;
 }
 
-
+/*
 #paginator a:visited 
 {
 	color:black;
@@ -344,10 +345,41 @@ table#tabela_sumario{
 {
 	background-color:rgb(234, 126, 14);
 	color: white;
+}*/
+
+
+/*
+ * Search Field
+ */
+#submitSearch{
+		
+	background-color: #D8D8D8;
+	border:1px solid #D8D8D8;
+	display:inline-block;
+	color:#000000;
+	font-family:arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:3px 3px 3px 3px;
+	text-decoration:none;
+	text-align:center;
+	
 }
 
+#submitSearch:hover 
+{
+	background-color:rgb(234, 126, 14);
+	color: #FFFFFF;
+	border:1px solid rgb(234, 126, 14);
+}
 
-
+#submitSearch:active 
+{
+	color:black;
+	background-color:rgb(251,210,149);
+	position:relative;
+	top:1px;
+}
 /*
  * Menus
  */

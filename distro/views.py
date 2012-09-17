@@ -10,6 +10,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render_to_response, redirect
 from django.template.context import RequestContext
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+import unicodedata
 
 #login_required - só entra nesta vista se
 #o utilizador estiver autênticado
@@ -241,14 +242,38 @@ def indexRecursosHumanos(request):
     
     allDocentes = Docente.objects.all()
     listaDocentes = []
- 
-    for docente in allDocentes:
-        departamento_id = docente.departamento_id
-        departamentoNome = Departamento.objects.get(id__exact=departamento_id).nome
-        id_Docente = docente.id
-        listaDocentes.append([docente.nome_completo, departamentoNome, id_Docente])
+
+    keyword = request.GET.get("searchField") 
+    
+    if keyword == None:
+        keyword = ""
+    
+    if keyword == "":
+        for docente in allDocentes:
+        
+            departamento_id = docente.departamento_id
+            departamentoNome = Departamento.objects.get(id__exact=departamento_id).nome
+            id_Docente = docente.id
+            listaDocentes.append([docente.nome_completo, departamentoNome, id_Docente])
+    else:
+        finalkeyword = unicodedata.normalize('NFKD', keyword.lower()).encode('ASCII', 'ignore')
+      
+        for docente in allDocentes:
+            
+            nomeDocente = unicodedata.normalize('NFKD', docente.nome_completo.lower()).encode('ASCII', 'ignore')
+            if nomeDocente.find(finalkeyword) != -1:
+                
+                departamento_id = docente.departamento_id
+                departamentoNome = Departamento.objects.get(id__exact=departamento_id).nome
+                id_Docente = docente.id
+                listaDocentes.append([docente.nome_completo, departamentoNome, id_Docente])
+                
+            else:
+                pass 
+           
     
     
+   
     paginator = Paginator(listaDocentes, 10)
     drange = range( 1, paginator.num_pages + 1)
     
