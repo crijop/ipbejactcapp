@@ -1,7 +1,6 @@
 {% extends "base1.html" %}
 {% load i18n %}
 {% block title %} Página Inícial Recursos Humanos {% endblock %}
-
 {% block breadcrumb %}
 <ul id="breadcrumb">
 	<!--<li><a href="{% url home %}" title="Home"><img src="../static/images/BreadCrumbs/home.gif" alt="Home" class="home" /></a></li>-->
@@ -9,7 +8,6 @@
 	</li>
 </ul>
 {% endblock %}
-
 
 {% block Menus %}
 <ul>
@@ -44,21 +42,52 @@
 	</li>
 	<!--<li><a href='#'><span>Contact</span></a></li>-->
 </ul>
-{% endblock %}
 
+<ul>
+
+	<li class='title'>
+		<span>Filtros</span>
+	</li>
+	<li>
+		<a id="oa_button" tabindex="4" href='#'><span>Por Ordem Alfabética</span></a>
+
+	</li>
+	<div id="oa">
+
+	{% for letter in alfabeto %}
+		
+		<a href='?letra={{letter}}'><span>{{letter}}</span></a>
+
+		{% endfor %}
+
+	</div>
+
+	<li >
+		<a id="da_button" tabindex="4" href='#'><span>Por Departamento</span></a>
+		
+	</li>
+	<div id="dep">
+
+	{% for letter in alfabeto %}
+	<li>
+		<a tabindex="4" href='#'><span>{{letter}}</span></a>
+	</li>
+		{% endfor %}
+
+	</div>
+</ul>
+
+{% endblock %}
 
 {% block content %}
 <table id="tabela_sumario">
 	<tr>
-		<th colspan="2" id="top_sumario" class="cabecalho_sumario">
-		{% csrf_token %}
+		<th colspan="2" id="top_sumario" class="cabecalho_sumario"> {% csrf_token %}
 		<form action="" method="get" name="searchForm">
 			<img src="/static/images/selector-search.gif" title="search" alt="searchIcon" />
 			<input name="searchField" id="searchField" type="search" value="{{keyword}}" />
 			<input id="submitSearch" value={%trans 'Search'%} name="Submit" type="submit" />
-		</form>
-		
-		</th>
+		</form></th>
 	</tr>
 	<tr>
 		<th class="cabecalho_sumario">Docente</th>
@@ -95,8 +124,33 @@ Página {{ docentes.number }} de {{ docentes.paginator.num_pages }}.
 <div id="paginator">
 	<span class="current"> Página {{ docentes.number }} de {{ docentes.paginator.num_pages }}. </span>
 	<br>
-	<span class="step-links"> {% for page_num in drange %} <a href="?page={{ page_num}}">{{ page_num}}</a> {% endfor%} </span>
+	<span class="step-links"><a href="?show=all">Todos</a></span>
+	<span class="step-links"> {% for page_num in drange %} <a href="?page={{ page_num}}&{{actualState}}">{{ page_num}}</a> {% endfor%} </span>
 </div>
 <br>
-{% endblock %}
 <script type="text/javascript">document.getElementById("searchField").focus();</script>
+<script>
+	var out = 1;
+	require(["dojo/fx", "dojo/on", "dojo/dom", "dojo/domReady!"], function(fx, on, dom) {
+		var wipeOutButton = dom.byId("oa_button"), wipeInButton = dom.byId("oa_button"), wipeTarget = dom.byId("oa");
+		//esconder a div
+		wipeTarget.style.display = "none";
+		on(wipeInButton, "click", function(evt) {
+			if (out == 1) {
+
+				out = 0;
+				fx.wipeIn({
+					node : wipeTarget
+				}).play();
+			} else {
+				out = 1;
+				fx.wipeOut({
+					node : wipeTarget
+				}).play();
+			}
+		});
+
+	}); 
+</script>
+{% endblock %}
+

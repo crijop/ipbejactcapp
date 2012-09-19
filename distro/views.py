@@ -242,40 +242,81 @@ def indexRecursosHumanos(request):
     
     allDocentes = Docente.objects.all()
     listaDocentes = []
-
-    keyword = request.GET.get("searchField") 
+    actualState = ""
+    print "get - ", request.GET
     
-    if keyword == None:
-        keyword = ""
-    
-    if keyword == "":
-        for docente in allDocentes:
+    if "searchField" in request.GET or request.GET.get("actualState") == "searchField":
         
-            departamento_id = docente.departamento_id
-            departamentoNome = Departamento.objects.get(id__exact=departamento_id).nome
-            id_Docente = docente.id
-            listaDocentes.append([docente.nome_completo, departamentoNome, id_Docente])
-    else:
-        finalkeyword = unicodedata.normalize('NFKD', keyword.lower()).encode('ASCII', 'ignore')
-      
-        for docente in allDocentes:
+        keyword = request.GET.get("searchField")
+        actualState = "actualState=searchField&searchField="
+        actualState += str(keyword)
+        
+        if keyword == None:
+            keyword = ""
+        
+        if keyword == "":
+            for docente in allDocentes:
             
+                departamento_id = docente.departamento_id
+                departamentoNome = Departamento.objects.get(id__exact=departamento_id).nome
+                id_Docente = docente.id
+                listaDocentes.append([docente.nome_completo, departamentoNome, id_Docente])
+        else:
+            finalkeyword = unicodedata.normalize('NFKD', keyword.lower()).encode('ASCII', 'ignore')
+          
+            for docente in allDocentes:
+                
+                nomeDocente = unicodedata.normalize('NFKD', docente.nome_completo.lower()).encode('ASCII', 'ignore')
+                if nomeDocente.find(finalkeyword) != -1:
+                    
+                    departamento_id = docente.departamento_id
+                    departamentoNome = Departamento.objects.get(id__exact=departamento_id).nome
+                    id_Docente = docente.id
+                    listaDocentes.append([docente.nome_completo, departamentoNome, id_Docente])
+                    
+                else:
+                    pass 
+    elif "departamento" in request.GET:
+        
+        pass
+        
+        
+    elif "letra" in request.GET or request.GET.get("actualState") == "letra":
+        
+        keyword = request.GET.get("letra")
+        actualState = "actualState=letra&letra=" + keyword
+        letter = unicodedata.normalize('NFKD', keyword.lower()).encode('ASCII', 'ignore')
+       
+          
+        for docente in allDocentes:
+                
             nomeDocente = unicodedata.normalize('NFKD', docente.nome_completo.lower()).encode('ASCII', 'ignore')
-            if nomeDocente.find(finalkeyword) != -1:
+            if nomeDocente.startswith(letter):
+              
+                departamento_id = docente.departamento_id
+                departamentoNome = Departamento.objects.get(id__exact=departamento_id).nome
+                id_Docente = docente.id
+                listaDocentes.append([docente.nome_completo, departamentoNome, id_Docente])
+        
+        pass
+    elif 'show' in request.GET or request.GET == {} or request.GET.get("actualState") == "show":
+        actualState = "actualState=show"
+        for docente in allDocentes:
                 
                 departamento_id = docente.departamento_id
                 departamentoNome = Departamento.objects.get(id__exact=departamento_id).nome
                 id_Docente = docente.id
                 listaDocentes.append([docente.nome_completo, departamentoNome, id_Docente])
-                
-            else:
-                pass 
-           
+        pass
     
+        
+        
+        
+        
     
-   
     paginator = Paginator(listaDocentes, 10)
     drange = range( 1, paginator.num_pages + 1)
+    alfabeto = map(chr , range(65, 91))
     
     page = request.GET.get('page')
      

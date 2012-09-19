@@ -1,62 +1,56 @@
-body{
-	margin:0 auto;
+body {
+	margin: 0 auto;
 	text-align: left;
 	background: #EBEBEB;
 }
 
-div#window{
-	margin:0 auto;
+div#window {
+	margin: 0 auto;
 	width: 80%;
 	height: 100%;
 }
 
-div#master{
-	width:100%;
-	height:100%;
-	float:left;
-	background: white;	
+div#master {
+	width: 100%;
+	height: 100%;
+	float: left;
+	background: white;
 	margin-bottom: 10px;
 }
 
-div#top{
-	
+div#top {
+
 	float: left;
 	width: 100%;
 	height: 120px;
 	background: black;
 	text-align: center;
 	background-image: url("/static/images/logoAA.png");
-	background-size:100% 100%;
+	background-size: 100% 100%;
 	background-repeat: no-repeat;
-
 }
 
+div#top h1 {
 
-div#top h1{
-	
 	display: none;
-
 }
 
-div#logo
-{
+div#logo {
 	width: 25%;
 	height: 100%;
 	text-align: left;
 	float: left;
 }
 
-img#logotipo
-{
+img#logotipo {
 	float: left;
 	width: 100%;
 	height: 100%;
 }
 
-div#title
-{
+div#title {
 	position: relative;
-	float:right;
+	float: right;
 	height: 70%;
 	width: 75%;
 	text-align: center;
@@ -65,8 +59,7 @@ div#title
 	font-size: 10pt;
 }
 
-div#logoutInfo
-{
+div#logoutInfo {
 	float: right;
 	width: 75%;
 	height: 30%;
@@ -76,34 +69,33 @@ div#logoutInfo
 	font-family: Arial;
 }
 
-div#logoutInfo a
-{
+div#logoutInfo a {
 	color: yellow;
 	padding: 0px 20px 0px 0px;
 }
 
-div#leftBar{
+div#leftBar {
 	float: left;
 	width: 20%;
 	height: 80%;
 }
 
-div#rightBar{
+div#rightBar {
 	float: left;
 	width: 80%;
 }
 
-div#bradCrumb{
+div#bradCrumb {
 	height: 30px;
 	display: cell;
 	vertical-align: middle;
 }
 
-div#content{
-	
+div#content {
+
 }
 
-div#footer{
+div#footer {
 	background: white;
 	border-top: 1px solid #EFEFEF;
 	clear: left;
@@ -118,274 +110,268 @@ div#footer{
 /*Docentes*/
 /*Pagna inicial*/
 /*
-#tabela_sumario
-{
+ #tabela_sumario
+ {
 
-float: left;
-width: 100%;
+ float: left;
+ width: 100%;
 
+ text-align: left;
 
-text-align: left;
+ vertical-align: middle;
 
-vertical-align: middle;
+ margin: 3px 0 0 0;
 
+ font-size: 15pt;
+ font-family: Arial;
 
-margin: 3px 0 0 0;
+ }
 
-font-size: 15pt;
-font-family: Arial;
+ .cabecalho_sumario
+ {
+ background: rgb(241, 104,3);
+ color: white;
+ padding: 3px 0 3px 0;
+ font-size: 15pt;
+ background: -webkit-linear-gradient(bottom, rgb(255, 156,0), rgb(234, 126, 14));
+ background: -ms-linear-gradient(bottom, rgb(255, 156,0), rgb(234, 126, 14));
+ background: -moz-linear-gradient(bottom, rgb(255, 156,0), rgb(234, 126, 14));
+ background: -o-linear-gradient(bottom, rgb(255, 156,0), rgb(234, 126, 14));
+ text-shadow: 0 1px 1px #000;
 
+ }
 
+ #top_sumario
+ {
+ background: black;
+ text-align: center;
+ font-size: 25pt;
+ }
 
+ #tabela_sumario td
+ {
+ padding: 0px 0px 0px 10px;
+ }
 
+ #tabela_sumario .horas_servico
+ {
+ text-align: right;
+ padding: 0px 10px 0 0 ;
 
+ }
 
+ #tabela_sumario th
+ {
+ text-align: center;
+ }*/
+table#tabela_sumario {
+	font-family: "Trebuchet MS", sans-serif;
+	font-size: 16px;
+	font-weight: bold;
+	line-height: 1.4em;
+	font-style: normal;
+	border-collapse: separate;
+	width: 100%;
+}
+#tabela_sumario thead th {
+	padding: 15px;
+	color: #fff;
+	text-shadow: 1px 1px 1px black;
+	border: 1px solid rgb(234, 126, 14);
+	border-bottom: 3px solid rgb(252,133,1);
+	background-color: rgb(234, 126, 14);
+	background: -webkit-gradient(
+	linear,
+	left bottom,
+	left top,
+	color-stop(0.02, rgb(234, 126, 14)),
+	color-stop(0.51, rgb(252,133,1)),
+	color-stop(0.87, rgb(245,150,7))
+	);
+	background: -moz-linear-gradient(
+	center bottom,
+	rgb(234, 126, 14) 2%,
+	rgb(252,133,1) 51%,
+	rgb(245,150,7) 87%
+	);
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-top-right-radius: 5px;
+	-moz-border-radius: 5px 5px 0px 0px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+#tabela_sumario thead th:empty {
+	background: transparent;
+	border: none;
 }
 
-.cabecalho_sumario
-{
-background: rgb(241, 104,3);
-color: white;
-padding: 3px 0 3px 0;
-font-size: 15pt;
-background: -webkit-linear-gradient(bottom, rgb(255, 156,0), rgb(234, 126, 14));
-background: -ms-linear-gradient(bottom, rgb(255, 156,0), rgb(234, 126, 14)); 
-background: -moz-linear-gradient(bottom, rgb(255, 156,0), rgb(234, 126, 14));
-background: -o-linear-gradient(bottom, rgb(255, 156,0), rgb(234, 126, 14));
-text-shadow: 0 1px 1px #000;
-
+#tabela_sumario #top_sumario {
+	background: black;
+	border: 1px solid black;
+	border-bottom: 3px solid black;
+	border-bottom: 3px solid black;
+	text-shadow: 1px 1px 1px black;
+	text-align: left;
 }
 
-#top_sumario
-{
-background: black;
-text-align: center;
-font-size: 25pt;
+#tabela_sumario .sub_cabecalho {
+	background: rgb(255, 145, 70);
+	border: 1px solid rgb(255, 145, 70);
+	border-bottom: 3px solid rgb(255, 145, 70);
+	border-bottom: 3px solid rgb(255, 145, 70);
+	/*text-shadow:1px 1px 1px black;*/
 }
 
-#tabela_sumario td
-{
-	padding: 0px 0px 0px 10px;
+#tabela_sumario tbody th {
+	color: #fff;
+	text-shadow: 1px 1px 1px rgb(219, 97, 15);
+	background-color: rgb(234, 126, 14);
+	border: 1px solid rgb(252,133,1);
+	border-right: 3px solid rgb(234, 126, 14);
+	padding: 0px 10px;
+	background: -webkit-gradient(
+	linear,
+	left bottom,
+	right top,
+	color-stop(0.02, rgb(234, 126, 14)),
+	color-stop(0.51, rgb(252,133,1)),
+	color-stop(0.87, rgb(245,150,7))
+	);
+	background: -moz-linear-gradient(
+	left bottom,
+	rgb(234, 126, 14) 2%,
+	rgb(252,133,1) 51%,
+	rgb(245,150,7) 87%
+	);
+	-moz-border-radius: 5px 0px 0px 5px;
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
 }
-
-#tabela_sumario .horas_servico
-{
-	text-align: right;
-	padding: 0px 10px 0 0 ;
-	
-}
-
-#tabela_sumario th
-{
+#tabela_sumario tfoot td {
+	color: rgb(234, 126, 14);
+	font-size: 32px;
 	text-align: center;
-}*/
-table#tabela_sumario{
-    font-family: "Trebuchet MS", sans-serif;
-    font-size: 16px;
-    font-weight: bold;
-    line-height: 1.4em;
-    font-style: normal;
-    border-collapse:separate;
-    width: 100%;
+	padding: 10px 0px;
+	text-shadow: 1px 1px 1px #444;
 }
-#tabela_sumario thead th{
-    padding:15px;
-    color:#fff;
-    text-shadow:1px 1px 1px black;
-    border:1px solid rgb(234, 126, 14);
-    border-bottom:3px solid rgb(252,133,1);
-    background-color: rgb(234, 126, 14);
-    background:-webkit-gradient(
-        linear,
-        left bottom,
-        left top,
-        color-stop(0.02, rgb(234, 126, 14)),
-        color-stop(0.51, rgb(252,133,1)),
-        color-stop(0.87, rgb(245,150,7))
-        );
-    background: -moz-linear-gradient(
-        center bottom,
-        rgb(234, 126, 14) 2%,
-        rgb(252,133,1) 51%,
-        rgb(245,150,7) 87%
-        );
-    -webkit-border-top-left-radius:5px;
-    -webkit-border-top-right-radius:5px;
-    -moz-border-radius:5px 5px 0px 0px;
-    border-top-left-radius:5px;
-    border-top-right-radius:5px;
+#tabela_sumario tfoot th {
+	color: #666;
 }
-#tabela_sumario thead th:empty{
-    background:transparent;
-    border:none;
+#tabela_sumario tbody td {
+	padding: 10px;
+	text-align: center;
+	background-color: rgb(251,210,149);
+	border: 2px solid #E7EFE0;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+	color: #666;
+}
+#tabela_sumario tbody span.check::before {
+	content: url(../images/check0.png)
 }
 
-#tabela_sumario #top_sumario
-{
-	 background:black;
-	  border:1px solid black;
-    border-bottom:3px solid black;
-    border-bottom:3px solid black;
-    text-shadow:1px 1px 1px black;
-    text-align: left;
+#tabela_sumario a {
+	color: rgb(63, 72, 204);
+	text-decoration: none;
 }
 
-#tabela_sumario .sub_cabecalho
-{
-	background:rgb(255, 145, 70);
-	border:1px solid rgb(255, 145, 70);
-    border-bottom:3px solid rgb(255, 145, 70);
-    border-bottom:3px solid rgb(255, 145, 70);
-    /*text-shadow:1px 1px 1px black;*/
+#tabela_sumario a:hover {
+	color: rgb(0, 162, 232);
 }
 
-#tabela_sumario tbody th{
-    color:#fff;
-    text-shadow:1px 1px 1px rgb(219, 97, 15);
-    background-color:rgb(234, 126, 14);
-    border:1px solid rgb(252,133,1);
-    border-right:3px solid rgb(234, 126, 14);
-    padding:0px 10px;
-    background:-webkit-gradient(
-        linear,
-        left bottom,
-        right top,
-        color-stop(0.02, rgb(234, 126, 14)),
-        color-stop(0.51, rgb(252,133,1)),
-        color-stop(0.87, rgb(245,150,7))
-        );
-    background: -moz-linear-gradient(
-        left bottom,
-        rgb(234, 126, 14) 2%,
-        rgb(252,133,1) 51%,
-        rgb(245,150,7) 87%
-        );
-    -moz-border-radius:5px 0px 0px 5px;
-    -webkit-border-top-left-radius:5px;
-    -webkit-border-bottom-left-radius:5px;
-    border-top-left-radius:5px;
-    border-bottom-left-radius:5px;
+#tabela_sumario a:active {
+	color: rgb(157, 225, 252);
 }
-#tabela_sumario tfoot td{
-    color: rgb(234, 126, 14);
-    font-size:32px;
-    text-align:center;
-    padding:10px 0px;
-    text-shadow:1px 1px 1px #444;
-}
-#tabela_sumario tfoot th{
-    color:#666;
-}
-#tabela_sumario tbody td{
-    padding:10px;
-    text-align:center;
-    background-color:rgb(251,210,149);
-    border: 2px solid #E7EFE0;
-    -moz-border-radius:2px;
-    -webkit-border-radius:2px;
-    border-radius:2px;
-    color:#666;
- 
-}
-#tabela_sumario tbody span.check::before{
-    content : url(../images/check0.png)
-}
-#paginator
-{
+
+/****Paginação*****/
+#paginator {
 	margin-top: 5px;
 	width: 100%;
 	height: 20px;
 	font-family: Arial;
-	
-	
 }
-#paginator a
-{
-		
-	background-color:#000000;
+#paginator a {
+
+	background-color: #000000;
 	/*border:1px solid #000000;*/
-	display:inline-block;
-	color:#ffffff;
-	font-family:arial;
-	font-size:15px;
-	font-weight:bold;
-	padding:3px 3px 3px 3px;
-	text-decoration:none;
-	text-align:center;
-	
+	display: inline-block;
+	color: #ffffff;
+	font-family: arial;
+	font-size: 15px;
+	font-weight: bold;
+	padding: 3px 3px 3px 3px;
+	text-decoration: none;
+	text-align: center;
 }
 
-#paginator a:hover 
-{
-	background-color:rgb(234, 126, 14);
+#paginator a:hover {
+	background-color: rgb(234, 126, 14);
 }
-#paginator a:active 
-{
-	color:black;
-	background-color:rgb(251,210,149);
-	position:relative;
-	top:1px;
+#paginator a:active {
+	color: black;
+	background-color: rgb(251,210,149);
+	position: relative;
+	top: 1px;
 }
 
 /*
-#paginator a:visited 
-{
-	color:black;
-	background-color:rgb(251,210,149);
-	display:inline-block;
-	font-family:arial;
-	font-size:15px;
-	font-weight:bold;
-	padding:3px 3px 3px 3px;
-	text-decoration:none;
-	text-align:center;
-}
+ #paginator a:visited
+ {
+ color:black;
+ background-color:rgb(251,210,149);
+ display:inline-block;
+ font-family:arial;
+ font-size:15px;
+ font-weight:bold;
+ padding:3px 3px 3px 3px;
+ text-decoration:none;
+ text-align:center;
+ }
 
-#paginator a:hover:visited
-{
-	background-color:rgb(234, 126, 14);
-	color: white;
-}*/
-
+ #paginator a:hover:visited
+ {
+ background-color:rgb(234, 126, 14);
+ color: white;
+ }*/
 
 /*
  * Search Field
  */
-#submitSearch{
-		
+#submitSearch {
+
 	background-color: #D8D8D8;
-	border:1px solid #D8D8D8;
-	display:inline-block;
-	color:#000000;
-	font-family:arial;
-	font-size:15px;
-	font-weight:bold;
-	padding:3px 3px 3px 3px;
-	text-decoration:none;
-	text-align:center;
-	
+	border: 1px solid #D8D8D8;
+	display: inline-block;
+	color: #000000;
+	font-family: arial;
+	font-size: 15px;
+	font-weight: bold;
+	padding: 3px 3px 3px 3px;
+	text-decoration: none;
+	text-align: center;
 }
 
-#submitSearch:hover 
-{
-	background-color:rgb(234, 126, 14);
+#submitSearch:hover {
+	background-color: rgb(234, 126, 14);
 	color: #FFFFFF;
-	border:1px solid rgb(234, 126, 14);
+	border: 1px solid rgb(234, 126, 14);
 }
 
-#submitSearch:active 
-{
-	color:black;
-	background-color:rgb(251,210,149);
-	position:relative;
-	top:1px;
+#submitSearch:active {
+	color: black;
+	background-color: rgb(251,210,149);
+	position: relative;
+	top: 1px;
 }
 /*
  * Menus
  */
 
 /* Some stylesheet reset */
-#cssmenu  > ul {
+#cssmenu > ul {
 	list-style: none;
 	margin: 0;
 	padding: 0;
@@ -394,183 +380,227 @@ table#tabela_sumario{
 }
 
 /* The container */
-#cssmenu  > ul {
+#cssmenu > ul {
 	display: block;
 	position: relative;
 	width: 100%;
 }
 
-	/* The list elements which contain the links */
-	#cssmenu  > ul li {
-		display: block;
-		position: relative;
-		margin: 0;
-		padding: 0;
-		width: 100%;	
-	}
+/* The list elements which contain the links */
+#cssmenu > ul li {
+	display: block;
+	position: relative;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
 
-		/* General link styling */
-		#cssmenu  > ul li a {
-			/* Layout */
-			display: block;
-			position: relative;
-			margin: 0;
-			border-top: 1px dotted #3a3a3a;
-			border-bottom: 1px dotted #1b1b1b;
-			padding: 15px 32px;
-			/*width: 100%;
-*/
-			/* Typography */
-			font-family: Helvetica, Arial, sans-serif;
-			color: #d8d8d8;
-			text-decoration: none;
-			text-transform: uppercase;
-			text-shadow: 0 1px 1px #000;
-			font-size: 13px;
-			font-weight: 300;			
+/* General link styling */
+#cssmenu > ul li a {
+	/* Layout */
+	display: block;
+	position: relative;
+	margin: 0;
+	border-top: 1px dotted #3a3a3a;
+	border-bottom: 1px dotted #1b1b1b;
+	padding: 15px 32px;
+	/*width: 100%;
+	 */
+	/* Typography */
+	font-family: Helvetica, Arial, sans-serif;
+	color: #d8d8d8;
+	text-decoration: none;
+	text-transform: uppercase;
+	text-shadow: 0 1px 1px #000;
+	font-size: 13px;
+	font-weight: 300;
+	/* Background & effects */
+	/*background: #282828;*/
+	background: #000000;
+}
 
-			/* Background & effects */
-			/*background: #282828;*/
-			background: #000000;
-		}
+/* Rounded corners for the first link of the menu/submenus */
+/*#cssmenu  > ul li:first-child>a {
+ border-top-left-radius: 0px;
+ border-top-right-radius: 0px;
+ border-top: 0;
+ }*/
 
-		/* Rounded corners for the first link of the menu/submenus */
-		/*#cssmenu  > ul li:first-child>a {
-			border-top-left-radius: 0px;
-			border-top-right-radius: 0px;
-			border-top: 0;
-		}*/
+/* Rounded corners for the last link of the menu/submenus */
+/*#cssmenu  > ul li:last-child>a {
+ border-bottom-left-radius: 4px;
+ border-bottom-right-radius: 4px;
+ border-bottom: 0;
+ }*/
 
-		/* Rounded corners for the last link of the menu/submenus */
-		/*#cssmenu  > ul li:last-child>a {
-			border-bottom-left-radius: 4px;
-			border-bottom-right-radius: 4px;
-			border-bottom: 0;
-		}*/
+/* The hover state of the menu/submenu links */
+#cssmenu > ul li > a:hover, #cssmenu > ul li:hover > a {
+	color: #fff;
+	text-shadow: 0 1px 0 rgba(0, 0, 0, .3);
+	background: #72FF00;
+	background: -webkit-linear-gradient(bottom, rgb(245,150,7), rgb(234, 126, 14));
+	background: -ms-linear-gradient(bottom, rgb(245,150,7), rgb(234, 126, 14));
+	background: -moz-linear-gradient(bottom, rgb(245,150,7), rgb(234, 126, 14));
+	background: -o-linear-gradient(bottom, rgb(245,150,7), rgb(234, 126, 14));
+	background: -o-linear-gradient(bottom, rgb(245,150,7), rgb(234, 126, 14));
+	border-color: transparent;
+}
 
+/* The arrow indicating a submenu */
+#cssmenu > ul .has-sub > a::after {
+	content: '';
+	position: absolute;
+	top: 16px;
+	right: 10px;
+	width: 0px;
+	height: 0px;
+	/* Creating the arrow using borders */
+	border: 4px solid transparent;
+	border-left: 4px solid #d8d8d8;
+}
 
-		/* The hover state of the menu/submenu links */
-		#cssmenu  > ul li>a:hover, #cssmenu  > ul li:hover>a {
-			color: #fff;
-			text-shadow: 0 1px 0 rgba(0, 0, 0, .3);
-			background: #72FF00;
-			background: -webkit-linear-gradient(bottom, rgb(245,150,7), rgb(234, 126, 14));
-			background: -ms-linear-gradient(bottom, rgb(245,150,7), rgb(234, 126, 14)); 
-			background: -moz-linear-gradient(bottom, rgb(245,150,7), rgb(234, 126, 14));
-			background: -o-linear-gradient(bottom, rgb(245,150,7), rgb(234, 126, 14));
-			background: -o-linear-gradient(bottom, rgb(245,150,7), rgb(234, 126, 14));
-			border-color: transparent;
-		}
+/* The same arrow, but with a darker color, to create the shadow effect */
+#cssmenu > ul .has-sub > a::before {
+	content: '';
+	position: absolute;
+	top: 17px;
+	right: 10px;
+	width: 0px;
+	height: 0px;
+	/* Creating the arrow using borders */
+	border: 4px solid transparent;
+	border-left: 4px solid #000;
+}
 
-		/* The arrow indicating a submenu */
-		#cssmenu  > ul .has-sub>a::after {
-			content: '';
-			position: absolute;
-			top: 16px;
-			right: 10px;
-			width: 0px;
-			height: 0px;
+/* Changing the color of the arrow on hover */
+#cssmenu > ul li > a:hover::after, #cssmenu > ul li:hover > a::after {
+	border-left: 4px solid #fff;
+}
 
-			/* Creating the arrow using borders */
-			border: 4px solid transparent;
-			border-left: 4px solid #d8d8d8; 
-		}
+#cssmenu > ul li > a:hover::before, #cssmenu > ul li:hover > a::before {
+	border-left: 4px solid rgba(0, 0, 0, .3);
+}
 
-		/* The same arrow, but with a darker color, to create the shadow effect */
-		#cssmenu  > ul .has-sub>a::before {
-			content: '';
-			position: absolute;
-			top: 17px;
-			right: 10px;
-			width: 0px;
-			height: 0px;
+/* THE SUBMENUS */
+#cssmenu > ul ul {
+	position: absolute;
+	left: 98%;
+	top: -9999px;
+	padding-left: 5px;
+	opacity: 0;
+	/* The fade effect, created using an opacity transition */
+	-webkit-transition: opacity .3s ease-in;
+	-moz-transition: opacity .3s ease-in;
+	-o-transition: opacity .3s ease-in;
+	-ms-transition: opacity .3s ease-in;
+	width: 100%;
+}
 
-			/* Creating the arrow using borders */
-			border: 4px solid transparent;
-			border-left: 4px solid #000;
-		}
+/* Showing the submenu when the user is hovering the parent link */
+#cssmenu > ul li:hover > ul {
+	top: 0px;
+	opacity: 1;
+}
 
-		/* Changing the color of the arrow on hover */
-		#cssmenu  > ul li>a:hover::after, #cssmenu  > ul li:hover>a::after {
-			border-left: 4px solid #fff;
-		}
+#cssmenu .title {
 
-		#cssmenu  > ul li>a:hover::before, #cssmenu  > ul li:hover>a::before {
-			border-left: 4px solid rgba(0, 0, 0, .3);
-		}
+	width: 100%;
+	text-align: center;
+	border-top: 1px dotted #3a3a3a;
+	border-bottom: 1px dotted #1b1b1b;
+	padding: 15px 0px 15px 0px;
+	/*width: 100%;
+	 */
+	/* Typography */
+	font-family: Helvetica, Arial, sans-serif;
+	color: #d8d8d8;
+	text-decoration: none;
+	text-transform: uppercase;
+	text-shadow: 0 1px 1px #000;
+	font-size: 14pt;
+	font-weight: bolder;
+	/* Background & effects */
+	/*background: #282828;*/
+	background: rgb(234, 126, 14);
+}
 
-	
-		/* THE SUBMENUS */
-		#cssmenu  > ul ul {
-			position: absolute;
-			left: 98%;
-			top: -9999px;
-			padding-left: 5px;
-			opacity: 0;
-			/* The fade effect, created using an opacity transition */
-			-webkit-transition: opacity .3s ease-in;
-			-moz-transition: opacity .3s ease-in;
-			-o-transition: opacity .3s ease-in;
-			-ms-transition: opacity .3s ease-in;
-			width: 100%;
-		}
+#oa {
+	background: black;
+	width: 100%;
+	padding: 10px 0px 10px 0px;
+}
 
-		/* Showing the submenu when the user is hovering the parent link */
-		#cssmenu  > ul li:hover>ul {
-			top: 0px;
-			opacity: 1;
-		}
-	
+#oa > a {
+	background-color: #000000;
+	/*border:1px solid #000000;*/
+	display: inline-block;
+	color: #ffffff;
+	font-family: arial;
+	font-size: 15px;
+	font-weight: bold;
+	padding: 3px 3px 3px 3px;
+	text-decoration: none;
+	text-align: center;
+}
+
+#oa > a:hover {
+	background-color: rgb(234, 126, 14);
+}
+#oa > a:active {
+	color: black;
+	background-color: rgb(251,210,149);
+	position: relative;
+	top: 1px;
+}
 /*
  * Fim Menus
  */
-
 
 /*
  * BreadCrumbs
  */
 
 #breadcrumb {
-    font: 11px Arial, Helvetica, sans-serif;
-    background-image:url('../images/BreadCrumbs/bc_bg.gif'); 
-    background-repeat:repeat-x;
-	height:30px;
-    line-height:30px;
-    color:#888;
-    border-top:solid 1px #cacaca;
-    border-bottom:solid 1px #cacaca;
-    border-right:solid 1px #cacaca;
-    width:100%;
-    overflow:hidden;
-    margin:0px;
-    padding:0px;
+	font: 11px Arial, Helvetica, sans-serif;
+	background-image: url('../images/BreadCrumbs/bc_bg.gif');
+	background-repeat: repeat-x;
+	height: 30px;
+	line-height: 30px;
+	color: #888;
+	border-top: solid 1px #cacaca;
+	border-bottom: solid 1px #cacaca;
+	border-right: solid 1px #cacaca;
+	width: 100%;
+	overflow: hidden;
+	margin: 0px;
+	padding: 0px;
 }
 
 #breadcrumb li {
-    list-style-type:none;
-    padding-left:10px;
-	display:inline-block;
-	float:left;
+	list-style-type: none;
+	padding-left: 10px;
+	display: inline-block;
+	float: left;
 }
 
 #breadcrumb a {
-	display:inline-block;
-    background-image:url('../images/BreadCrumbs/bc_separator.gif'); 
-    background-repeat:no-repeat; 
-    background-position:right;
-    padding-right: 15px;
-    text-decoration: none;
-    color:#333333;
-	outline:none;
+	display: inline-block;
+	background-image: url('../images/BreadCrumbs/bc_separator.gif');
+	background-repeat: no-repeat;
+	background-position: right;
+	padding-right: 15px;
+	text-decoration: none;
+	color: #333333;
+	outline: none;
 }
 
 .home {
-    border:none;
-    margin: 7px 0px;
+	border: none;
+	margin: 7px 0px;
 }
 
 #breadcrumb a:hover {
-	color:#35acc5;
+	color: #35acc5;
 }
 
 /*
