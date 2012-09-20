@@ -356,12 +356,33 @@ def indexRHInfoDocentes(request, id_docente):
 
 @login_required(redirect_field_name='Teste_home')
 def addDocenteRH(request):
-    if request.method == 'POST': # If the form has been submitted...
-        form = AddDocenteForm(request.POST) # A form bound to the POST data
-        if form.is_valid(): # All validation rules pass
-            # Process the data in form.cleaned_data
-            # ...
-            return HttpResponseRedirect('/thanks/') # Redirect after POST
+    if request.method == 'POST':
+        form = AddDocenteForm(request.POST)
+        if form.is_valid():
+            #verifica se o campo do regime de exclusividade é
+            #verdadeiro ou Falso
+            #regime exclusividade igual a verdadeiro
+            if form.cleaned_data['regime_exclusividade']:
+                p = Docente(nome_completo = form.cleaned_data['nome_completo'],
+                            departamento = form.cleaned_data['departamento'],
+                            escalao = form.cleaned_data['escalao'],
+                            email = form.cleaned_data['email'],
+                            abreviatura = form.cleaned_data['abreviatura'],
+                            regime_exclusividade = form.cleaned_data['regime_exclusividade'])
+                pass
+            #regime exclusividade igual a falso
+            else:
+                regimeExclusividade = False
+                p = Docente(nome_completo = form.cleaned_data['nome_completo'],
+                            departamento = form.cleaned_data['departamento'],
+                            escalao = form.cleaned_data['escalao'],
+                            email = form.cleaned_data['email'],
+                            abreviatura = form.cleaned_data['abreviatura'],
+                            regime_exclusividade = regimeExclusividade)
+                pass
+            
+            p.save()   
+            #return HttpResponseRedirect('/thanks/') # Redirect after POST
     else:
         form = AddDocenteForm() # An unbound form
     
@@ -583,4 +604,7 @@ def contact(request):
     return render_to_response('contact.html', {
                 'form': form,
                 })
+    
+    
+
 
