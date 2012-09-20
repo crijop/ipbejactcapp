@@ -2,7 +2,7 @@
 
 # Create your views here.
 from distro.models import Curso, Docente, ServicoDocente, TipoAula, Turma, \
-    UnidadeCurricular, ReducaoServicoDocente, Reducao, Departamento
+    UnidadeCurricular, ReducaoServicoDocente, Reducao, Departamento, Contrato, Categoria
 from django import forms
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import Group
@@ -262,7 +262,7 @@ def listDocente_RecursosHumanos(request):
    
     listaDocentes = []
     actualState = ""
-    print "get - ", request.GET
+    #print "get - ", request.GET
     
     if "searchField" in request.GET or request.GET.get("actualState") == "searchField":
         
@@ -279,6 +279,9 @@ def listDocente_RecursosHumanos(request):
                 departamento_id = docente.departamento_id
                 departamentoNome = Departamento.objects.get(id__exact=departamento_id).nome
                 id_Docente = docente.id
+                
+                
+                
                 listaDocentes.append([docente.nome_completo, departamentoNome, id_Docente])
         else:
             finalkeyword = unicodedata.normalize('NFKD', keyword.lower()).encode('ASCII', 'ignore')
@@ -340,7 +343,14 @@ def listDocente_RecursosHumanos(request):
                 departamento_id = docente.departamento_id
                 departamentoNome = Departamento.objects.get(id__exact=departamento_id).nome
                 id_Docente = docente.id
-                listaDocentes.append([docente.nome_completo, departamentoNome, id_Docente])
+                
+                if(id_Docente != 41):
+                    contrato = Contrato.objects.get(docente__id=id_Docente)
+                    #print contrato.categoria.id
+                    nomeCategoria = Categoria.objects.get(id__exact = contrato.categoria.id)
+                
+                
+                listaDocentes.append([docente.nome_completo, departamentoNome, id_Docente, nomeCategoria])
         pass
     
         

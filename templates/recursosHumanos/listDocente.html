@@ -48,7 +48,7 @@
 {% block content %}
 <table id="tabela_sumario">
 	<tr>
-		<th colspan="2" id="top_sumario" class="cabecalho_sumario"> {% csrf_token %}
+		<th colspan="3" id="top_sumario" class="cabecalho_sumario"> {% csrf_token %}
 		<form action="" method="get" name="searchForm">
 			<img src="/static/images/selector-search.gif" title="search" alt="searchIcon" />
 			<input name="searchField" id="searchField" type="search" value="{{keyword}}" />
@@ -58,11 +58,13 @@
 	<tr>
 		<th class="cabecalho_sumario">Docente</th>
 		<th class="cabecalho_sumario">Departamento</th>
+		<th class="cabecalho_sumario">Categoria</th>
 	</tr>
-	{% for nome, departamento, id_Docente in docentes %}
+	{% for nome, departamento, id_Docente, nomeCategoria in docentes %}
 	<tr>
-		<td><a href="{{ id_Docente}}">{{nome}}</a></td>
+		<td><a href="{{id_Docente}}">{{nome}}</a></td>
 		<td>{{departamento}}</td>
+		<td>{{nomeCategoria}}</td>
 	</tr>
 	{% endfor %}
 
@@ -95,51 +97,5 @@ Página {{ docentes.number }} de {{ docentes.paginator.num_pages }}.
 </div>
 <br>
 <script type="text/javascript">document.getElementById("searchField").focus();</script>
-<script>
-	var out_1 = 1;
-	var out_2 = 1;
-	require(["dojo/fx", "dojo/on", "dojo/dom", "dojo/domReady!"], function(fx, on, dom) {
-		var wipeOutButton_1= dom.byId("oa_button"), wipeInButton_1 = dom.byId("oa_button"), wipeTarget_1 = dom.byId("oa");
-		//esconder a div
-		wipeTarget_1.style.display = "none";
-		on(wipeInButton_1, "click", function(evt) {
-			if (out_1 == 1) {
-
-				out_1 = 0;
-				fx.wipeIn({
-					node : wipeTarget_1
-				}).play();
-			} else {
-				out_1 = 1;
-				fx.wipeOut({
-					node : wipeTarget_1
-				}).play();
-			}
-		});
-		
-		var wipeOutButton_2= dom.byId("da_button"), wipeInButton_2 = dom.byId("da_button"), wipeTarget_2 = dom.byId("dep");
-		//esconder a div
-		wipeTarget_2.style.display = "none";
-		on(wipeInButton_2, "click", function(evt) {
-			if (out_2 == 1) {
-
-				out_2 = 0;
-				fx.wipeIn({
-					node : wipeTarget_2
-				}).play();
-			} else {
-				out_2 = 1;
-				fx.wipeOut({
-					node : wipeTarget_2
-				}).play();
-			}
-		});
-
-	}); 
-	
-
-	
-	
-</script>
 {% endblock %}
 

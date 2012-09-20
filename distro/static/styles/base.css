@@ -72,6 +72,7 @@ div#logoutInfo {
 div#logoutInfo a {
 	color: yellow;
 	padding: 0px 20px 0px 0px;
+	text-decoration: none;
 }
 
 div#leftBar {
@@ -577,7 +578,8 @@ table#tabela_sumario {
 	position: relative;
 	top: 1px;
 }
-	
+
+
 #cssmenu > ul li > .dep
 {
 

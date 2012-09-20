@@ -145,7 +145,7 @@ urlpatterns = patterns('',
         'ipbejactcapp.distro.views.indexRecursosHumanos', 
         name='homeRecursosHumanos'),
          
-    url(r'^Teste_home/recursosHumanos/(?P<id_docente>\d+)/$', 
+    url(r'^Teste_home/recursosHumanos/listDocente/(?P<id_docente>\d+)/$', 
         'ipbejactcapp.distro.views.indexRHInfoDocentes', 
         name='infoRHDocentes'),
                     
