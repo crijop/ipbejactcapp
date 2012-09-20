@@ -1,0 +1,22 @@
+{% extends "recursosHumanos/index.html" %}
+{% load i18n %}
+{% block title %} Página de adicionar docente {% endblock %}
+
+{% block breadcrumb %}
+<ul id="breadcrumb">
+	<li>
+		<a tabindex="2" href="{% url homeRecursosHumanos %}" title="{% trans 'Home' %}"> <img src="/static/images/BreadCrumbs/home.gif" alt="{% trans 'Home' %}" class="home" /> </a>
+	</li>
+	<li>
+		Adicionar Docente
+	</li>
+</ul>
+{% endblock %}
+
+{% block content %}
+	<form method="post">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<input type="submit" value="Adicionar Docente" />
+	</form>
+{% endblock %}

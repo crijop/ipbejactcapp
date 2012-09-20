@@ -10,7 +10,11 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render_to_response, redirect
 from django.template.context import RequestContext
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from distro.forms import AddDocenteForm
+
 import unicodedata
+
+
 
 #login_required - só entra nesta vista se
 #o utilizador estiver autênticado
@@ -347,6 +351,27 @@ def indexRHInfoDocentes(request, id_docente):
         context_instance=RequestContext(request),
         )
     pass
+
+
+
+@login_required(redirect_field_name='Teste_home')
+def addDocenteRH(request):
+    if request.method == 'POST': # If the form has been submitted...
+        form = AddDocenteForm(request.POST) # A form bound to the POST data
+        if form.is_valid(): # All validation rules pass
+            # Process the data in form.cleaned_data
+            # ...
+            return HttpResponseRedirect('/thanks/') # Redirect after POST
+    else:
+        form = AddDocenteForm() # An unbound form
+    
+    return render_to_response("recursosHumanos/addDocente.html",
+        locals(),
+        context_instance=RequestContext(request),
+        )
+    pass
+
+
 '''
 Fim das vistas dos Recursos Humanos
 '''
