@@ -151,7 +151,11 @@ urlpatterns = patterns('',
                     
     url(r'^Teste_home/recursosHumanos/addDocente/$', 
         'ipbejactcapp.distro.views.addDocenteRH', 
-        name='adicionarDocenteRH'),              
+        name='adicionarDocenteRH'),
+                       
+    url(r'^Teste_home/recursosHumanos/listDocente/$', 
+        'ipbejactcapp.distro.views.listDocente_RecursosHumanos', 
+        name='listDocente'),              
                        
     #####
     #Fim dos Url's destinados aos templates dos Recursos Humanos

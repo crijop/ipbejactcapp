@@ -240,11 +240,26 @@ Fim das vistas dos docentes
 
 '''
 Inicio das vistas dos Recursos Humanos
+
 ''' 
 @login_required(redirect_field_name='Teste_home')
 def indexRecursosHumanos(request):
     
+    return render_to_response("recursosHumanos/index.html",
+        locals(),
+        context_instance=RequestContext(request),
+        )
+    
+    pass
+
+@login_required(redirect_field_name='Teste_home')
+def listDocente_RecursosHumanos(request):
+    
     allDocentes = Docente.objects.all()
+    allDepartamentos = Departamento.objects.all()
+    
+    #nomesDepartamentos = {dep.nome for dep in allDepartamentos}
+   
     listaDocentes = []
     actualState = ""
     print "get - ", request.GET
@@ -280,8 +295,23 @@ def indexRecursosHumanos(request):
                     
                 else:
                     pass 
-    elif "departamento" in request.GET:
-        
+    elif "departamento" in request.GET or request.GET.get("actualState") == "departamento":
+        keyword = request.GET.get("departamento")
+        actualState = "actualState=departamento&departamento=" + keyword
+        letter = unicodedata.normalize('NFKD', keyword.lower()).encode('ASCII', 'ignore')
+       
+          
+        for docente in allDocentes:
+              
+            departamento_id = docente.departamento_id
+            departamentoNome = Departamento.objects.get(id__exact=departamento_id).nome
+            
+            departamentoNome_final = unicodedata.normalize('NFKD', departamentoNome.lower()).encode('ASCII', 'ignore')
+   
+            if departamentoNome_final == letter:
+                
+                id_Docente = docente.id
+                listaDocentes.append([docente.nome_completo, departamentoNome, id_Docente])
         pass
         
         
@@ -333,7 +363,7 @@ def indexRecursosHumanos(request):
         # If page is out of range (e.g. 9999), deliver last page of results.
         docentes = paginator.page(paginator.num_pages)
         
-    return render_to_response("recursosHumanos/index.html",
+    return render_to_response("recursosHumanos/listDocente.html",
         locals(),
         context_instance=RequestContext(request),
         )

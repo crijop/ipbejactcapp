@@ -1,0 +1,145 @@
+{% extends "recursosHumanos/index.html" %}
+{% load i18n %}
+{% block title %} Página Inícial Recursos Humanos {% endblock %}
+{% block breadcrumb %}
+<ul id="breadcrumb">
+	<!--<li><a href="{% url home %}" title="Home"><img src="../static/images/BreadCrumbs/home.gif" alt="Home" class="home" /></a></li>-->
+	<li><img src="/static/images/BreadCrumbs/home.gif" alt="{% trans 'Home' %}" class="home" />
+	</li>
+</ul>
+{% endblock %}
+{% block Filtros %}
+<ul>
+
+	<li class='title'>
+		<span>Filtros</span>
+	</li>
+	<li>
+		<a id="oa_button" tabindex="4" href='#'><span>Por Ordem Alfabética</span></a>
+
+	</li>
+	<div id="oa">
+
+	{% for letter in alfabeto %}
+		
+		<a href='?letra={{letter}}'><span>{{letter}}</span></a>
+
+		{% endfor %}
+
+	</div>
+
+	<li >
+		<a id="da_button" tabindex="4" href='#'><span>Por Departamento</span></a>
+		
+	</li>
+	<div id="dep">
+
+	{% for dep in allDepartamentos %}
+	<li>
+		<a class="dep" tabindex="4" href='?departamento={{dep}}'><span>{{dep}}</span></a>
+	</li>
+		{% endfor %}
+
+	</div>
+</ul>
+
+{% endblock %}
+
+{% block content %}
+<table id="tabela_sumario">
+	<tr>
+		<th colspan="2" id="top_sumario" class="cabecalho_sumario"> {% csrf_token %}
+		<form action="" method="get" name="searchForm">
+			<img src="/static/images/selector-search.gif" title="search" alt="searchIcon" />
+			<input name="searchField" id="searchField" type="search" value="{{keyword}}" />
+			<input id="submitSearch" value={%trans 'Search'%} name="Submit" type="submit" />
+		</form></th>
+	</tr>
+	<tr>
+		<th class="cabecalho_sumario">Docente</th>
+		<th class="cabecalho_sumario">Departamento</th>
+	</tr>
+	{% for nome, departamento, id_Docente in docentes %}
+	<tr>
+		<td><a href="{{ id_Docente}}">{{nome}}</a></td>
+		<td>{{departamento}}</td>
+	</tr>
+	{% endfor %}
+
+</table>
+<!--<div id="paginator">
+<a href="#">1</a>
+<a href="#">Mostrar Todos</a>
+</div>-->
+<!--<div id="paginator">
+<span class="step-links">
+{% if docentes.has_previous %}
+<a href="?page={{ docentes.previous_page_number }}">anterior</a>
+{% endif %}
+
+<span class="current">
+Página {{ docentes.number }} de {{ docentes.paginator.num_pages }}.
+</span>
+
+{% if docentes.has_next %}
+<a href="?page={{ docentes.next_page_number }}">seguinte</a>
+{% endif %}
+</span>
+</div>-->
+
+<div id="paginator">
+	<span class="current"> Página {{ docentes.number }} de {{ docentes.paginator.num_pages }}. </span>
+	<br>
+	<span class="step-links"><a href="?show=all">Todos</a></span>
+	<span class="step-links"> {% for page_num in drange %} <a href="?page={{ page_num}}&{{actualState}}">{{ page_num}}</a> {% endfor%} </span>
+</div>
+<br>
+<script type="text/javascript">document.getElementById("searchField").focus();</script>
+<script>
+	var out_1 = 1;
+	var out_2 = 1;
+	require(["dojo/fx", "dojo/on", "dojo/dom", "dojo/domReady!"], function(fx, on, dom) {
+		var wipeOutButton_1= dom.byId("oa_button"), wipeInButton_1 = dom.byId("oa_button"), wipeTarget_1 = dom.byId("oa");
+		//esconder a div
+		wipeTarget_1.style.display = "none";
+		on(wipeInButton_1, "click", function(evt) {
+			if (out_1 == 1) {
+
+				out_1 = 0;
+				fx.wipeIn({
+					node : wipeTarget_1
+				}).play();
+			} else {
+				out_1 = 1;
+				fx.wipeOut({
+					node : wipeTarget_1
+				}).play();
+			}
+		});
+		
+		var wipeOutButton_2= dom.byId("da_button"), wipeInButton_2 = dom.byId("da_button"), wipeTarget_2 = dom.byId("dep");
+		//esconder a div
+		wipeTarget_2.style.display = "none";
+		on(wipeInButton_2, "click", function(evt) {
+			if (out_2 == 1) {
+
+				out_2 = 0;
+				fx.wipeIn({
+					node : wipeTarget_2
+				}).play();
+			} else {
+				out_2 = 1;
+				fx.wipeOut({
+					node : wipeTarget_2
+				}).play();
+			}
+		});
+
+	}); 
+	
+
+	
+	
+</script>
+{% endblock %}
+
