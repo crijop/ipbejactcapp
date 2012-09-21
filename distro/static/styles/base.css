@@ -643,3 +643,43 @@ text-shadow: 0 0px 0px #000;
 /*
  * FIM BreadCrumbs
  */
+
+
+
+/*
+ * Butoes
+ */
+
+#submit-row {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	width: 100%;
+	font-family: Arial;
+	float: left;
+	text-align: right;
+}
+#submit-row a {
+
+	background-color: #000000;
+	/*border:0px solid #000000;*/
+	display: inline-block;
+	color: #ffffff;
+	font-family: arial;
+	font-size: 15px;
+	font-weight: bold;
+	padding: 3px 3px 3px 3px;
+	text-decoration: none;
+	text-align: center;
+}
+
+#submit-row a:hover {
+	background-color: rgb(234, 126, 14);
+}
+
+#submit-row a:active {
+	color: black;
+	background-color: rgb(251,210,149);
+	position: relative;
+	top: 1px;
+}
+

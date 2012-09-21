@@ -8,13 +8,36 @@
 		<a tabindex="2" href="{% url homeRecursosHumanos %}" title="{% trans 'Home' %}"> <img src="/static/images/BreadCrumbs/home.gif" alt="{% trans 'Home' %}" class="home" /> </a>
 	</li>
 	<li>
-		Informação do Docente {{ docenteX }}
+		<a href="{% url listDocente %}" title="Informação do Docente">Lista de Docentes</a>
+	</li>
+	<li>
+		Informação do Docente
 	</li>
 </ul>
 {% endblock %}
 
 {% block content %}
-
-	{{ docenteX }}
-
+	<table id="tabela_sumario">
+		<tr>
+			<th colspan="2" id="top_sumario" class="cabecalho_sumario">Informação Docente</th>
+		</tr>
+		<tr>
+			<th class="sub_cabecalho"><span>Nome Docente</span></th>
+			<td>{{ nomeDocente }}</td>
+		</tr>
+		<tr>
+			<th class="sub_cabecalho" ><span>Departamento</span></th>
+			<td>{{ nome_Departamento }}</td>
+		</tr>
+		<tr>
+			<th class="sub_cabecalho" ><span>Escalão</span></th>
+			<td>{{ escalao }}</td>
+		</tr>
+		<tr>
+			<th class="sub_cabecalho" ><span>Regime Exclusividade</span></th>
+			<td>{{ regimeExclusividade }}</td>
+		</tr>
+	</table>
+	<div id="submit-row"><a href="{% url RH_EditarDocente id_docente=id_docente%}">Editar Docente</a></div>
+	
 {% endblock %}
