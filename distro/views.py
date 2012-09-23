@@ -1,23 +1,19 @@
 # -*- coding: utf-8 -*-
 
 # Create your views here.
-from distro.forms import AddDocenteForm, EditarDocenteForm
 from distro.models import Curso, Docente, ServicoDocente, TipoAula, Turma, \
-    UnidadeCurricular, ReducaoServicoDocente, Reducao, Departamento, Contrato, \
-    Categoria
-from distro.view_cientifico import indexCientifico
+    UnidadeCurricular, ReducaoServicoDocente, Reducao, Departamento, Contrato, Categoria
 from django import forms
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import Group
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render_to_response, redirect
 from django.template.context import RequestContext
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from distro.forms import AddDocenteForm
+from django.core.exceptions import ObjectDoesNotExist
+
 import unicodedata
-
-    
-
-
 
 
 
@@ -91,12 +87,13 @@ def Teste_home(request):
 '''
 Inicio das vistas do Ciêntifico
 '''
-
-## esta no ficheiro view_cientifico
-
-
-
-
+@login_required(redirect_field_name='Teste_home')
+def indexCientifico(request):
+    return render_to_response("cientifico/index.html",
+        locals(),
+        context_instance=RequestContext(request),
+        )
+    pass
 '''
 Fim das vistas do Ciêntifico
 '''
@@ -246,6 +243,18 @@ Fim das vistas dos docentes
 Inicio das vistas dos Recursos Humanos
 
 ''' 
+
+def ajax(request):
+
+    if request.is_ajax():
+       
+        saida = "ola zé"
+        
+        return render_to_response("recursosHumanos/index.html",
+        locals(),
+        context_instance=RequestContext(request),
+        )
+
 @login_required(redirect_field_name='Teste_home')
 def indexRecursosHumanos(request):
     
@@ -284,9 +293,16 @@ def listDocente_RecursosHumanos(request):
                 departamentoNome = Departamento.objects.get(id__exact=departamento_id).nome
                 id_Docente = docente.id
                 
+                try:
+                    contrato = Contrato.objects.get(docente__id=id_Docente)
+                        #print contrato.categoria.id
+                    nomeCategoria = Categoria.objects.get(id__exact = contrato.categoria.id)
+                except ObjectDoesNotExist:
+                    nomeCategoria = "Sem Categoria"
+                
+                listaDocentes.append([docente.nome_completo, departamentoNome, id_Docente, nomeCategoria])
                 
                 
-                listaDocentes.append([docente.nome_completo, departamentoNome, id_Docente])
         else:
             finalkeyword = unicodedata.normalize('NFKD', keyword.lower()).encode('ASCII', 'ignore')
           
@@ -298,7 +314,14 @@ def listDocente_RecursosHumanos(request):
                     departamento_id = docente.departamento_id
                     departamentoNome = Departamento.objects.get(id__exact=departamento_id).nome
                     id_Docente = docente.id
-                    listaDocentes.append([docente.nome_completo, departamentoNome, id_Docente])
+                    try:
+                        contrato = Contrato.objects.get(docente__id=id_Docente)
+                        #print contrato.categoria.id
+                        nomeCategoria = Categoria.objects.get(id__exact = contrato.categoria.id)
+                    except ObjectDoesNotExist:
+                        nomeCategoria = "Sem Categoria"
+                
+                    listaDocentes.append([docente.nome_completo, departamentoNome, id_Docente, nomeCategoria])
                     
                 else:
                     pass 
@@ -318,7 +341,14 @@ def listDocente_RecursosHumanos(request):
             if departamentoNome_final == letter:
                 
                 id_Docente = docente.id
-                listaDocentes.append([docente.nome_completo, departamentoNome, id_Docente])
+                try:
+                    contrato = Contrato.objects.get(docente__id=id_Docente)
+                        #print contrato.categoria.id
+                    nomeCategoria = Categoria.objects.get(id__exact = contrato.categoria.id)
+                except ObjectDoesNotExist:
+                    nomeCategoria = "Sem Categoria"
+                
+                listaDocentes.append([docente.nome_completo, departamentoNome, id_Docente, nomeCategoria])
         pass
         
         
@@ -337,7 +367,14 @@ def listDocente_RecursosHumanos(request):
                 departamento_id = docente.departamento_id
                 departamentoNome = Departamento.objects.get(id__exact=departamento_id).nome
                 id_Docente = docente.id
-                listaDocentes.append([docente.nome_completo, departamentoNome, id_Docente])
+                try:
+                    contrato = Contrato.objects.get(docente__id=id_Docente)
+                        #print contrato.categoria.id
+                    nomeCategoria = Categoria.objects.get(id__exact = contrato.categoria.id)
+                except ObjectDoesNotExist:
+                    nomeCategoria = "Sem Categoria"
+                
+                listaDocentes.append([docente.nome_completo, departamentoNome, id_Docente, nomeCategoria])
         
         pass
     elif 'show' in request.GET or request.GET == {} or request.GET.get("actualState") == "show":
@@ -348,11 +385,12 @@ def listDocente_RecursosHumanos(request):
                 departamentoNome = Departamento.objects.get(id__exact=departamento_id).nome
                 id_Docente = docente.id
                 
-                if(id_Docente != 41):
+                try:
                     contrato = Contrato.objects.get(docente__id=id_Docente)
-                    #print contrato.categoria.id
+                        #print contrato.categoria.id
                     nomeCategoria = Categoria.objects.get(id__exact = contrato.categoria.id)
-                
+                except ObjectDoesNotExist:
+                    nomeCategoria = "Sem Categoria"
                 
                 listaDocentes.append([docente.nome_completo, departamentoNome, id_Docente, nomeCategoria])
         pass
@@ -387,66 +425,10 @@ def listDocente_RecursosHumanos(request):
 
 @login_required(redirect_field_name='Teste_home')
 def indexRHInfoDocentes(request, id_docente):
-    id_departamento = Docente.objects.get(id__exact=id_docente).departamento_id
-    nome_Departamento = Departamento.objects.get(id__exact=id_departamento)
-    nomeDocente = Docente.objects.get(id__exact=id_docente)
-    escalao = Docente.objects.get(id__exact=id_docente).escalao
-    regime_exclusividade = Docente.objects.get(id__exact=id_docente).regime_exclusividade
-    a = id_docente
-    #atribuir regime exclusividade consoante se é True/False
-    if regime_exclusividade == True:
-        regimeExclusividade = "Activo"
-        pass
-    else:
-        regimeExclusividade = "Inactivo"
-        pass
+    docenteX = Docente.objects.get(id__exact=id_docente)
+    print "DOCENTE ---", docenteX
     
     return render_to_response("recursosHumanos/infoDocente.html",
-        locals(),
-        context_instance=RequestContext(request),
-        )
-    pass
-
-
-
-@login_required(redirect_field_name='Teste_home')
-def indexRH_EditarDocente(request, id_docente):
-    if request.method == 'POST':
-        b = Docente.objects.get(id=id_docente)
-        form = EditarDocenteForm(request.POST, instance=b)
-        if form.is_valid():
-            #verifica se o campo do regime de exclusividade é
-            #verdadeiro ou Falso
-            #regime exclusividade igual a verdadeiro
-            if form.cleaned_data['regime_exclusividade']:
-                p = Docente(id = id_docente,
-                            nome_completo = form.cleaned_data['nome_completo'],
-                            departamento = form.cleaned_data['departamento'],
-                            escalao = form.cleaned_data['escalao'],
-                            email = form.cleaned_data['email'],
-                            abreviatura = form.cleaned_data['abreviatura'],
-                            regime_exclusividade = form.cleaned_data['regime_exclusividade'])
-                pass
-            #regime exclusividade igual a falso
-            else:
-                regimeExclusividade = False
-                p = Docente(id = id_docente,
-                            nome_completo = form.cleaned_data['nome_completo'],
-                            departamento = form.cleaned_data['departamento'],
-                            escalao = form.cleaned_data['escalao'],
-                            email = form.cleaned_data['email'],
-                            abreviatura = form.cleaned_data['abreviatura'],
-                            regime_exclusividade = regimeExclusividade)
-                pass
-            
-            p.save()   
-            #return HttpResponseRedirect('/thanks/') # Redirect after POST
-    else:
-        
-        b = Docente.objects.get(id=id_docente)
-        form = EditarDocenteForm(instance=b)
-    
-    return render_to_response("recursosHumanos/editDocente.html",
         locals(),
         context_instance=RequestContext(request),
         )
