@@ -493,10 +493,10 @@ def indexRHInfoDocentes(request, id_docente):
     a = id_docente
     #atribuir regime exclusividade consoante se é True/False
     if regime_exclusividade == True:
-        regimeExclusividade = "Activo"
+        regimeExclusividade = "Sim"
         pass
     else:
-        regimeExclusividade = "Inactivo"
+        regimeExclusividade = "Não"
         pass
     
     return render_to_response("recursosHumanos/infoDocente.html",
@@ -560,6 +560,7 @@ def indexRH_EditarDocente(request, id_docente):
 
 @login_required(redirect_field_name='Teste_home')
 def addDocenteRH(request):
+    a = 0
     if request.method == 'POST':
         form = AddDocenteForm(request.POST)
         if form.is_valid():

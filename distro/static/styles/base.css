@@ -696,3 +696,28 @@ text-shadow: 0 0px 0px #000;
 	top: 1px;
 }
 
+
+
+/*
+ * Formulário de adicionar docentes e editar 
+ */
+
+.row1 {
+	color: #fff;
+    background: rgb(234, 126, 14);
+    font-size: 16px;
+    font-family: Arial;
+    font-weight: 600;
+	padding: 10px 15px;
+	text-shadow: 1px 1px 1px #444;
+}
+
+.row2 {
+	color: #fff;
+    background: rgb(251,210,149);
+    font-size: 16px;
+    font-family: Arial;
+    font-weight: 600;
+	padding: 10px 15px;
+	text-shadow: 1px 1px 1px #444;
+}

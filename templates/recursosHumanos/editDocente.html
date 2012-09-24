@@ -20,16 +20,28 @@
 {% endblock %}
 
 {% block content %}
+	<table id="tabela_sumario">
+	    <tr>
+	            <th colspan="2" id="top_sumario" class="cabecalho_sumario">Editar Docente</th>
+	    </tr>
+    </table>
 	<form method="post">
 		{% csrf_token %}
 		{% for field in form %}
-        <div class="fieldWrapper">
-            {{ field.label_tag }}: {{ field }} * 
+        <div class ="{% cycle 'row1' 'row2' %}">
+            {{ field.label_tag }}: {{ field }}
+            {% if field.field.required %}
+	        	<span>(*)</span>
+	        {%endif%} 
             {% for error in field.errors %} 
             	{{error}} 
             {% endfor %}
         </div>
     {% endfor %}
+    <br />
+    <span>(*) - Campos de preenchimento obrigatório</span>
+	<br />
+	<br />
 		<input type="submit" value="Gravar" />
 	</form>
 	
