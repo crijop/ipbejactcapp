@@ -14,31 +14,23 @@
 	<li class='title'>
 		<span>Filtros</span>
 	</li>
-	<li>
-		<a id="oa_button" tabindex="4" href='#'><span>Por Ordem Alfabética</span></a>
+	<li class="has-sub" >
+		<a  id="oa_button" tabindex="4" href='#'><span>Por Ordem Alfabética</span></a>
 
 	</li>
 	<div id="oa">
 
-	{% for letter in alfabeto %}
-		
-		<a href='?letra={{letter}}'><span>{{letter}}</span></a>
-
-		{% endfor %}
+	
 
 	</div>
 
-	<li >
+	<li class="has-sub">
 		<a id="da_button" tabindex="4" href='#'><span>Por Departamento</span></a>
 		
 	</li>
 	<div id="dep">
 
-	{% for dep in allDepartamentos %}
-	<li>
-		<a class="dep" tabindex="4" href='?departamento={{dep}}'><span>{{dep}}</span></a>
-	</li>
-		{% endfor %}
+	
 
 	</div>
 </ul>

@@ -455,6 +455,8 @@ table#tabela_sumario {
 	right: 10px;
 	width: 0px;
 	height: 0px;
+	transform: rotate(90deg);
+	-o-transform: rotate(90deg);
 	/* Creating the arrow using borders */
 	border: 4px solid transparent;
 	border-left: 4px solid #d8d8d8;
@@ -468,6 +470,8 @@ table#tabela_sumario {
 	right: 10px;
 	width: 0px;
 	height: 0px;
+	transform: rotate(90deg);
+	-o-transform: rotate(90deg);
 	/* Creating the arrow using borders */
 	border: 4px solid transparent;
 	border-left: 4px solid #000;
@@ -526,6 +530,7 @@ table#tabela_sumario {
 }
 
 #oa {
+	display: none;
 	background: black;
 	width: 100%;
 	padding: 10px 0px 10px 0px;
@@ -555,6 +560,14 @@ table#tabela_sumario {
 }
 
 /**Departamento Filtro**/
+
+#dep {
+	display: none;
+	
+	background-color: #666666;
+	width: 100%;
+	padding: 10px 0px 10px 0px;
+}
 
 #dep > a {
 	background-color: #000000;

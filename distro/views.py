@@ -271,11 +271,33 @@ Inicio das vistas dos Recursos Humanos
 
 ''' 
 
+def filter_abc(request):
+
+    if request.is_ajax():
+       
+        alfabeto = map(chr , range(65, 91))
+        
+        return render_to_response("recursosHumanos/filter_abc.html",
+        locals(),
+        context_instance=RequestContext(request),
+        )
+        
+def filter_dep(request):
+
+    if request.is_ajax():
+       
+        allDepartamentos = Departamento.objects.all()
+        
+        return render_to_response("recursosHumanos/filter_dep.html",
+        locals(),
+        context_instance=RequestContext(request),
+        )
+
 def ajax(request):
 
     if request.is_ajax():
        
-        saida = "ola zé"
+        
         
         return render_to_response("recursosHumanos/index.html",
         locals(),
@@ -297,7 +319,7 @@ def indexRecursosHumanos(request):
 def listDocente_RecursosHumanos(request):
     
     allDocentes = Docente.objects.all()
-    allDepartamentos = Departamento.objects.all()
+    
     
     #nomesDepartamentos = {dep.nome for dep in allDepartamentos}
    
@@ -326,19 +348,17 @@ def listDocente_RecursosHumanos(request):
                 listaDocentes.append([docente.nome_completo, departamentoNome, id_Docente])
         else:
             finalkeyword = unicodedata.normalize('NFKD', keyword.lower()).encode('ASCII', 'ignore')
-          
-            for docente in allDocentes:
-                
-                nomeDocente = unicodedata.normalize('NFKD', docente.nome_completo.lower()).encode('ASCII', 'ignore')
-                if nomeDocente.find(finalkeyword) != -1:
+            listaTempoDocente = search_docente(finalkeyword,allDocentes)
+            listaTempoDep = search_depertamento(finalkeyword,allDocentes)
+            if len(listaTempoDocente) != 0:
+                #listaTemp = search_docente(finalkeyword,allDocentes, listaDocentes)
+                #listaDocentes.append(item for item in listaTemp)
+                listaDocentes += listaTempoDocente
+            elif len(listaTempoDep) != 0:
+                listaDocentes += listaTempoDep
+               
                     
-                    departamento_id = docente.departamento_id
-                    departamentoNome = Departamento.objects.get(id__exact=departamento_id).nome
-                    id_Docente = docente.id
-                    listaDocentes.append([docente.nome_completo, departamentoNome, id_Docente])
-                    
-                else:
-                    pass 
+       
     elif "departamento" in request.GET or request.GET.get("actualState") == "departamento":
         keyword = request.GET.get("departamento")
         actualState = "actualState=departamento&departamento=" + keyword
@@ -401,7 +421,7 @@ def listDocente_RecursosHumanos(request):
     
     paginator = Paginator(listaDocentes, 10)
     drange = range( 1, paginator.num_pages + 1)
-    alfabeto = map(chr , range(65, 91))
+    
     
     page = request.GET.get('page')
      
@@ -423,7 +443,45 @@ def listDocente_RecursosHumanos(request):
 
 
 
+def search_docente(search_word, allDocentes):
+    
+    lista = []
+    
+    for docente in allDocentes:
+                
+                nomeDocente = unicodedata.normalize('NFKD', docente.nome_completo.lower()).encode('ASCII', 'ignore')
+                if nomeDocente.find(search_word) != -1:
+                    
+                    departamento_id = docente.departamento_id
+                    departamentoNome = Departamento.objects.get(id__exact=departamento_id).nome
+                    id_Docente = docente.id
+                    lista.append([docente.nome_completo, departamentoNome, id_Docente])
+                    
+    
+    return lista                
+    pass
 
+def search_depertamento(search_word, allDocentes):
+    lista = []
+    
+    for docente in allDocentes:
+                
+                departamento_id = docente.departamento_id
+                departamentoNome = Departamento.objects.get(id__exact=departamento_id).nome
+                
+                departamentoNome = unicodedata.normalize('NFKD', departamentoNome.lower()).encode('ASCII', 'ignore')
+                if departamentoNome.find(search_word) != -1:
+                    
+                    
+                    id_Docente = docente.id
+                    lista.append([docente.nome_completo, departamentoNome, id_Docente])
+                    
+    return lista                 
+    pass
+
+
+    
+    
 
 @login_required(redirect_field_name='Teste_home')
 def indexRHInfoDocentes(request, id_docente):
