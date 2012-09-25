@@ -51,12 +51,18 @@
 		<th class="cabecalho_sumario">Docente</th>
 		<th class="cabecalho_sumario">Departamento</th>
 		<th class="cabecalho_sumario">Categoria</th>
+		<th class="cabecalho_sumario">Regime Exclusividade</th>
+		<th class="cabecalho_sumario">Termo Contrato</th>
 	</tr>
-	{% for nome, departamento, id_Docente, nomeCategoria in docentes %}
+	{% for nome, departamento, id_Docente, nomeCategoria, exclusividade, fim_contrato in docentes %}
 	<tr>
-		<td><a href="{{id_Docente}}">{{nome}}</a></td>
+		<td class="teacher_name_field"><a href="{{id_Docente}}">{{nome}}</a></td>
 		<td>{{departamento}}</td>
 		<td>{{nomeCategoria}}</td>
+		
+		<td>{{exclusividade}}</td>
+	
+		<td>{{fim_contrato}}</td>
 	</tr>
 	{% endfor %}
 

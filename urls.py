@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 from django.conf.urls.defaults import patterns, include, url
+from django.contrib import admin
 
 # Uncomment the next two lines to enable the admin:
-from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
@@ -146,27 +146,27 @@ urlpatterns = patterns('',
         name='homeRecursosHumanos'),
          
     url(r'^Teste_home/recursosHumanos/listDocente/(?P<id_docente>\d+)/$', 
-        'ipbejactcapp.distro.views.indexRHInfoDocentes', 
+        'ipbejactcapp.distro.view_recursos_humanos.indexRHInfoDocentes', 
         name='infoRHDocentes'),
                        
     url(r'^Teste_home/recursosHumanos/listDocente/edit/(?P<id_docente>\d+)/$', 
-        'ipbejactcapp.distro.views.indexRH_EditarDocente', 
+        'ipbejactcapp.distro.view_recursos_humanos.indexRH_EditarDocente', 
         name='RH_EditarDocente'),
                     
     url(r'^Teste_home/recursosHumanos/addDocente/$', 
-        'ipbejactcapp.distro.views.addDocenteRH', 
+        'ipbejactcapp.distro.view_recursos_humanos.addDocenteRH', 
         name='adicionarDocenteRH'),
                        
     url(r'^Teste_home/recursosHumanos/listDocente/$', 
-        'ipbejactcapp.distro.views.listDocente_RecursosHumanos', 
+        'ipbejactcapp.distro.view_recursos_humanos.listDocente_RecursosHumanos', 
         name='listDocente'),              
                        
                        
-    url(r'^Teste_home/recursosHumanos/ajax/$', 'ipbejactcapp.distro.views.ajax'),  
+    url(r'^Teste_home/recursosHumanos/ajax/$', 'ipbejactcapp.distro.view_recursos_humanos.ajax'),  
     
-    url(r'^Teste_home/recursosHumanos/listDocente/filter_abc/$', 'ipbejactcapp.distro.views.filter_abc'),       
+    url(r'^Teste_home/recursosHumanos/listDocente/filter_abc/$', 'ipbejactcapp.distro.view_recursos_humanos.filter_abc'),       
     
-    url(r'^Teste_home/recursosHumanos/listDocente/filter_dep/$', 'ipbejactcapp.distro.views.filter_dep'),          
+    url(r'^Teste_home/recursosHumanos/listDocente/filter_dep/$', 'ipbejactcapp.distro.view_recursos_humanos.filter_dep'),          
                                         
     #####
     #Fim dos Url's destinados aos templates dos Recursos Humanos

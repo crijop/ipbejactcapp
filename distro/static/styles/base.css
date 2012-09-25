@@ -215,6 +215,7 @@ table#tabela_sumario {
 	text-align: left;
 }
 
+
 #tabela_sumario .sub_cabecalho {
 	background: rgb(255, 145, 70);
 	border: 1px solid rgb(255, 145, 70);
@@ -286,6 +287,13 @@ table#tabela_sumario {
 #tabela_sumario a:active {
 	color: rgb(157, 225, 252);
 }
+
+#tabela_sumario .teacher_name_field
+{
+	width: 200%;
+	
+}
+
 
 /****Paginação*****/
 #paginator {
@@ -714,7 +722,7 @@ text-shadow: 0 0px 0px #000;
 
 .row2 {
 	color: #fff;
-    background: rgb(251,210,149);
+    background: rgb(255, 145, 70);
     font-size: 16px;
     font-family: Arial;
     font-weight: 600;
