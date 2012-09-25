@@ -610,6 +610,51 @@ font-weight: 600;
 text-shadow: 0 0px 0px #000;
 	
 }
+
+/**filtro categoria **/
+	/**Departamento Filtro**/
+
+#category {
+	display: none;
+	
+	background-color: #666666;
+	width: 100%;
+	padding: 10px 0px 10px 0px;
+}
+
+#category > a {
+	background-color: #000000;
+	/*border:1px solid #000000;*/
+	display: inline-block;
+	color: #ffffff;
+	font-family: arial;
+	font-size: 15px;
+	font-weight: bold;
+	padding: 3px 3px 3px 3px;
+	text-decoration: none;
+	text-align: center;
+}
+
+#category > a:hover {
+	background-color: rgb(234, 126, 14);
+}
+#category > a:active {
+	color: black;
+	background-color: rgb(251,210,149);
+	position: relative;
+	top: 1px;
+}
+
+
+#cssmenu > ul li > .dep
+{
+
+background-color: #666666;
+padding: 10px 0px 10px 0px;
+font-weight: 600; 
+text-shadow: 0 0px 0px #000;
+	
+}
 /*
  * Fim Menus
  */
