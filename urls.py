@@ -171,6 +171,7 @@ urlpatterns = patterns('',
                        
                        
     #(r'^Teste_home/recursosHumanos/teste$', DocenteModelFormPreview(AddDocenteForm)),            
+      
                        
                        
     url(r'^Teste_home/recursosHumanos/ajax/$', 'ipbejactcapp.distro.view_recursos_humanos.ajax'),  
