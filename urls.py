@@ -168,7 +168,10 @@ urlpatterns = patterns('',
     url(r'^Teste_home/recursosHumanos/listDocente/$', 
         'ipbejactcapp.distro.view_recursos_humanos.listDocente_RecursosHumanos', 
         name='listDocente'),
-                       
+        
+    url(r'^Teste_home/recursosHumanos/listContratos/$', 
+        'ipbejactcapp.distro.view_recursos_humanos.listContracts_RecursosHumanos', 
+        name='listContratos'),                   
                        
     #(r'^Teste_home/recursosHumanos/teste$', DocenteModelFormPreview(AddDocenteForm)),            
       
