@@ -8,8 +8,10 @@ Created on 25 de Set de 2012
 from distro.forms import EditarDocenteForm, AddDocenteForm
 from distro.models import Departamento, Docente, Contrato, Categoria
 from django.contrib.auth.decorators import login_required
+from django.contrib.formtools.preview import FormPreview
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
+from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response
 from django.template.context import RequestContext
 import unicodedata
@@ -339,43 +341,51 @@ def indexRH_EditarDocente(request, id_docente):
 
 @login_required(redirect_field_name='Teste_home')
 def addDocenteRH(request):
-    a = 0
-    if request.method == 'POST':
-        form = AddDocenteForm(request.POST)
-        if form.is_valid():
-            #verifica se o campo do regime de exclusividade é
-            #verdadeiro ou Falso
-            #regime exclusividade igual a verdadeiro
-            if form.cleaned_data['regime_exclusividade']:
-                p = Docente(nome_completo = form.cleaned_data['nome_completo'],
-                            departamento = form.cleaned_data['departamento'],
-                            escalao = form.cleaned_data['escalao'],
-                            email = form.cleaned_data['email'],
-                            abreviatura = form.cleaned_data['abreviatura'],
-                            regime_exclusividade = form.cleaned_data['regime_exclusividade'])
-                pass
-            #regime exclusividade igual a falso
-            else:
-                regimeExclusividade = False
-                p = Docente(nome_completo = form.cleaned_data['nome_completo'],
-                            departamento = form.cleaned_data['departamento'],
-                            escalao = form.cleaned_data['escalao'],
-                            email = form.cleaned_data['email'],
-                            abreviatura = form.cleaned_data['abreviatura'],
-                            regime_exclusividade = regimeExclusividade)
-                pass
-            
-            p.save()   
-            #return HttpResponseRedirect('/thanks/') # Redirect after POST
-    else:
-        form = AddDocenteForm() # An unbound form
-    
-    return render_to_response("recursosHumanos/addDocente.html",
-        locals(),
-        context_instance=RequestContext(request),
-        )
+    return DocenteModelFormPreview(AddDocenteForm)
     pass
 
+
+class DocenteModelFormPreview(FormPreview):
+    preview_template = 'recursosHumanos/addDocente_Form.html'
+    form_template = 'recursosHumanos/addDocente.html'
+    def done(self, request, cleaned_data):
+       
+        a = 0
+        if request.method == 'POST':
+            form = AddDocenteForm(request.POST)
+            if form.is_valid():
+                #verifica se o campo do regime de exclusividade é
+                #verdadeiro ou Falso
+                #regime exclusividade igual a verdadeiro
+                if form.cleaned_data['regime_exclusividade']:
+                    p = Docente(nome_completo = form.cleaned_data['nome_completo'],
+                                departamento = form.cleaned_data['departamento'],
+                                escalao = form.cleaned_data['escalao'],
+                                email = form.cleaned_data['email'],
+                                abreviatura = form.cleaned_data['abreviatura'],
+                                regime_exclusividade = form.cleaned_data['regime_exclusividade'])
+                    pass
+                #regime exclusividade igual a falso
+                else:
+                    regimeExclusividade = False
+                    p = Docente(nome_completo = form.cleaned_data['nome_completo'],
+                                departamento = form.cleaned_data['departamento'],
+                                escalao = form.cleaned_data['escalao'],
+                                email = form.cleaned_data['email'],
+                                abreviatura = form.cleaned_data['abreviatura'],
+                                regime_exclusividade = regimeExclusividade)
+                    pass
+                
+                p.save()   
+                #return HttpResponseRedirect('/thanks/') # Redirect after POST
+        else:
+            form = AddDocenteForm() # An unbound form
+        
+        return render_to_response("recursosHumanos/addDocente.html",
+            locals(),
+            context_instance=RequestContext(request),
+            )
+        
 
 
 

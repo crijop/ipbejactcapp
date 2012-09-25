@@ -20,7 +20,8 @@
 	            <th colspan="2" id="top_sumario" class="cabecalho_sumario">Adicionar Docente</th>
 	    </tr>
     </table>
-    <div id="contentForm">
+    
+   <div id="contentForm">
 		<form method="post">
 			{% csrf_token %}
 			{% for field in form %}
@@ -43,6 +44,8 @@
 		</div>
 		</form>
 	</div>
+    
+    
 	<!--<table>
 		{% for field in form %}
 	        <tr><th align="left">{{ field.label_tag }}:</th> <th align="left">{{ field }} *</th> 
