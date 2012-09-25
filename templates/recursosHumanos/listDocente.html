@@ -40,7 +40,7 @@
 {% block content %}
 <table id="tabela_sumario">
 	<tr>
-		<th colspan="3" id="top_sumario" class="cabecalho_sumario"> {% csrf_token %}
+		<th colspan="5" id="top_sumario" class="cabecalho_sumario"> {% csrf_token %}
 		<form action="" method="get" name="searchForm">
 			<img src="/static/images/selector-search.gif" title="search" alt="searchIcon" />
 			<input name="searchField" id="searchField" type="search" value="{{keyword}}" />

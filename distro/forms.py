@@ -38,5 +38,8 @@ class AddDocenteForm(forms.Form):
     
     
 class EditarDocenteForm(ModelForm):
+    nome_completo     = forms.CharField(max_length=300, label=u'Nome Completo')
+    email = forms.EmailField(required = False, label=u'Email Institucional')
+    abreviatura       = forms.CharField()
     class Meta:
         model = Docente

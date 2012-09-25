@@ -20,27 +20,29 @@
 	            <th colspan="2" id="top_sumario" class="cabecalho_sumario">Adicionar Docente</th>
 	    </tr>
     </table>
-	<form method="post">
-		{% csrf_token %}
-		{% for field in form %}
-	        <div class ="{% cycle 'row1' 'row2' %}">
-	      		{{ field.label_tag }}: {{ field }}
-	      		{% if field.field.required %}
-	        		<span>(*)</span>
-	        	{%endif%}
-	            {% for error in field.errors %} 
-	            	{{error}} 
-	            {% endfor %}
-	        </div>
-	        
-    {% endfor %}
-    <br />
-    <span>(*) - Campos de preenchimento obrigatório</span>
-	<br />
-	<br />
-	<input type="submit" value="Adicionar Docente" />
-	</form>
-	
+    <div id="contentForm">
+		<form method="post">
+			{% csrf_token %}
+			{% for field in form %}
+		        <div class ="{% cycle 'row1' 'row2' %}">
+		      		{{ field.label_tag }}: {{ field }}
+		      		{% if field.field.required %}
+		        		<span>(*)</span>
+		        	{%endif%}
+		            {% for error in field.errors %} 
+		            	{{error}} 
+		            {% endfor %}
+		        </div>
+	    	{% endfor %}
+	    <br />
+	   <span id="CamposObirgatorio">(*) - Campos de preenchimento obrigatório</span>
+		<br />
+		<br />
+		<div id="submit-row">
+			<input type="submit" value="Adicionar Docente" />
+		</div>
+		</form>
+	</div>
 	<!--<table>
 		{% for field in form %}
 	        <tr><th align="left">{{ field.label_tag }}:</th> <th align="left">{{ field }} *</th> 

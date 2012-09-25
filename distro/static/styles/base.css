@@ -693,6 +693,21 @@ text-shadow: 0 0px 0px #000;
 	text-align: center;
 }
 
+#submit-row input {
+	text-align: left;
+	background-color: #000000;
+	border:0px solid #000000;
+	display: inline-block;
+	color: #ffffff;
+	font-family: arial;
+	font-size: 15px;
+	font-weight: bold;
+	padding: 3px 3px 3px 3px;
+	text-decoration: none;
+	text-align: center;
+}
+
+
 #submit-row a:hover {
 	background-color: rgb(234, 126, 14);
 }
@@ -709,6 +724,20 @@ text-shadow: 0 0px 0px #000;
 /*
  * Formulário de adicionar docentes e editar 
  */
+
+#contentForm{
+	background: rgb(234, 126, 14);
+	
+}
+
+#CamposObirgatorio{
+	font-size: 16px;
+    font-family: Arial;
+    font-weight: 600;
+	padding: 10px 15px;
+    color: #fff;
+	text-shadow: 1px 1px 1px #444;
+}
 
 .row1 {
 	color: #fff;
