@@ -215,7 +215,6 @@ table#tabela_sumario {
 	text-align: left;
 }
 
-
 #tabela_sumario .sub_cabecalho {
 	background: rgb(255, 145, 70);
 	border: 1px solid rgb(255, 145, 70);
@@ -288,12 +287,9 @@ table#tabela_sumario {
 	color: rgb(157, 225, 252);
 }
 
-#tabela_sumario .teacher_name_field
-{
+#tabela_sumario .teacher_name_field {
 	width: 200%;
-	
 }
-
 
 /****Paginação*****/
 #paginator {
@@ -571,7 +567,6 @@ table#tabela_sumario {
 
 #dep {
 	display: none;
-	
 	background-color: #666666;
 	width: 100%;
 	padding: 10px 0px 10px 0px;
@@ -600,23 +595,18 @@ table#tabela_sumario {
 	top: 1px;
 }
 
+#cssmenu > ul li > .dep {
 
-#cssmenu > ul li > .dep
-{
-
-background-color: #666666;
-padding: 10px 0px 10px 0px;
-font-weight: 600; 
-text-shadow: 0 0px 0px #000;
-	
+	background-color: #666666;
+	padding: 10px 0px 10px 0px;
+	font-weight: 600;
+	text-shadow: 0 0px 0px #000;
 }
 
 /**filtro categoria **/
-	/**Departamento Filtro**/
 
 #category {
 	display: none;
-	
 	background-color: #666666;
 	width: 100%;
 	padding: 10px 0px 10px 0px;
@@ -645,16 +635,60 @@ text-shadow: 0 0px 0px #000;
 	top: 1px;
 }
 
+/*********************Contratos*****************/
+/*Por data*/
+#date {
+	display: none;
 
-#cssmenu > ul li > .dep
+	background-color: rgb(255, 145, 70);
+	width: 100%;
+	padding: 10px 0px 10px 0px;
+}
+#cssmenu > ul li > .date {
+	background-color: rgb(255, 145, 70);
+	padding: 10px 0px 10px 0px;
+	font-weight: 600;
+	color: black;
+	text-shadow: 0 0px 0px #000;
+}
+
+/**data inicio*/
+	
+#start_date
 {
+	display: none;
 
-background-color: #666666;
-padding: 10px 0px 10px 0px;
-font-weight: 600; 
-text-shadow: 0 0px 0px #000;
+	background-color: #666666;
+	width: 100%;
+	padding: 10px 0px 10px 0px;
+	color: white;
+	font-family: Arial;
+	font-weight: 600;
+	font-size: 15pt;
+
+}
+
+.testar div
+{
+	padding: 5px 0px 5px 0px;
+}
+
+#number_increment
+{
+	width: 25%;
+	
+	height: 20px;
+	
 	
 }
+
+#calendar_startDate
+{
+	width: 100%;
+
+	height: 30px;
+}
+
 /*
  * Fim Menus
  */
@@ -710,8 +744,6 @@ text-shadow: 0 0px 0px #000;
  * FIM BreadCrumbs
  */
 
-
-
 /*
  * Butoes
  */
@@ -741,7 +773,7 @@ text-shadow: 0 0px 0px #000;
 #submit-row input {
 	text-align: left;
 	background-color: #000000;
-	border:0px solid #000000;
+	border: 0px solid #000000;
 	display: inline-block;
 	color: #ffffff;
 	font-family: arial;
@@ -751,7 +783,6 @@ text-shadow: 0 0px 0px #000;
 	text-decoration: none;
 	text-align: center;
 }
-
 
 #submit-row a:hover {
 	background-color: rgb(234, 126, 14);
@@ -764,42 +795,39 @@ text-shadow: 0 0px 0px #000;
 	top: 1px;
 }
 
-
-
 /*
- * Formulário de adicionar docentes e editar 
+ * Formulário de adicionar docentes e editar
  */
 
-#contentForm{
+#contentForm {
 	background: rgb(234, 126, 14);
-	
 }
 
-#CamposObirgatorio{
+#CamposObirgatorio {
 	font-size: 16px;
-    font-family: Arial;
-    font-weight: 600;
+	font-family: Arial;
+	font-weight: 600;
 	padding: 10px 15px;
-    color: #fff;
+	color: #fff;
 	text-shadow: 1px 1px 1px #444;
 }
 
 .row1 {
 	color: #fff;
-    background: rgb(234, 126, 14);
-    font-size: 16px;
-    font-family: Arial;
-    font-weight: 600;
+	background: rgb(234, 126, 14);
+	font-size: 16px;
+	font-family: Arial;
+	font-weight: 600;
 	padding: 10px 15px;
 	text-shadow: 1px 1px 1px #444;
 }
 
 .row2 {
 	color: #fff;
-    background: rgb(255, 145, 70);
-    font-size: 16px;
-    font-family: Arial;
-    font-weight: 600;
+	background: rgb(255, 145, 70);
+	font-size: 16px;
+	font-family: Arial;
+	font-weight: 600;
 	padding: 10px 15px;
 	text-shadow: 1px 1px 1px #444;
 }

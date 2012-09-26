@@ -181,8 +181,13 @@ urlpatterns = patterns('',
     
     url(r'^Teste_home/recursosHumanos/listDocente/filter_abc/$', 'ipbejactcapp.distro.view_recursos_humanos.filter_abc'),       
     
-    url(r'^Teste_home/recursosHumanos/listDocente/filter_dep/$', 'ipbejactcapp.distro.view_recursos_humanos.filter_dep'),          
-                                        
+    url(r'^Teste_home/recursosHumanos/listDocente/filter_dep/$', 'ipbejactcapp.distro.view_recursos_humanos.filter_dep'),
+    
+    #por data
+    
+  
+
+    url(r'^Teste_home/recursosHumanos/listContratos/filter_date_start/$', 'ipbejactcapp.distro.view_recursos_humanos.filter_date_start'),
     #####
     #Fim dos Url's destinados aos templates dos Recursos Humanos
     ####

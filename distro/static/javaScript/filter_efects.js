@@ -30,6 +30,8 @@ function teste_2() {
 	var out_1 = 1;
 	var out_2 = 1;
 	var out_3 = 1;
+	var out_4 = 1;
+	var out_5 = 1;
 	require(["dojo/request", "dojo/fx", "dojo/on", "dojo/dom", "dojo/domReady!"], function(request, fx, on, dom) {
 
 		var wipeOutButton_1 = dom.byId("oa_button"), wipeInButton_1 = dom.byId("oa_button"), wipeTarget_1 = dom.byId("oa");
@@ -134,10 +136,96 @@ function teste_2() {
 				wipeTarget_3.style.display = "block";
 			}
 		});
+		
+		////////*Por data*////////
+		
+		var wipeOutButton_4 = dom.byId("date_button"), wipeInButton_4 = dom.byId("date_button"), wipeTarget_4 = dom.byId("date");
+		//esconder a div
 
+		on(wipeInButton_4, "click", function(evt) {
+			if (out_4 == 1) {
+
+				wipeTarget_4.style.display = "block";
+				out_4= 0;
+			
+
+				fx.wipeIn({
+					node : wipeTarget_4
+				}).play();
+				
+				
+
+			} else {
+
+				
+
+				out_4 = 1;
+				fx.wipeOut({
+					node : wipeTarget_4
+				}).play();
+				
+				wipeTarget_4.style.display = "block";
+			}
+			
+			date_function(); 
+		});
+		
 	});
 }
 
 /*************************/
+
+function date_function() {
+
+	
+
+	var out_5 = 1;
+	require(["dojo/request", "dojo/fx", "dojo/on", "dojo/dom", "dojo/domReady!"], function(request, fx, on, dom) {
+
+		
+		
+		//Data de inicio
+
+		var wipeOutButton_5 = dom.byId("start_date_button"), wipeInButton_5 = dom.byId("start_date_button"), wipeTarget_5 = dom.byId("start_date");
+		//esconder a div
+
+		
+	
+		on(wipeInButton_5, "click", function(evt) {
+			
+			if (out_5 == 1) {
+
+				wipeTarget_5.style.display = "block";
+				out_5= 0;
+				request.get("filter_date_start").then(function(response) {
+
+					wipeTarget_5.innerHTML = response;
+
+				}, function(error) {
+					// Display the error returned
+					alert(response + "errro");
+				});
+
+				fx.wipeIn({
+					node : wipeTarget_5
+				}).play();
+				
+				
+
+			} else {
+
+				wipeTarget_5.innerHTML = "";
+
+				out_5 = 1;
+				fx.wipeOut({
+					node : wipeTarget_5
+				}).play();
+				
+				wipeTarget_5.style.display = "block";
+			}
+		});
+		
+	});
+}
 
 /***************************/

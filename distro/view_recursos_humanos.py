@@ -55,6 +55,18 @@ def filter_cat(request):
         locals(),
         context_instance=RequestContext(request),
         )
+        
+
+def filter_date_start(request):
+
+    if request.is_ajax():
+       
+        
+        
+        return render_to_response("recursosHumanos/filter_date_start.html",
+        locals(),
+        context_instance=RequestContext(request),
+        )
 
 def ajax(request):
 
