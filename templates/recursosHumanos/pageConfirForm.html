@@ -1,0 +1,46 @@
+{% extends "recursosHumanos/index.html" %}
+{% load i18n %}
+{% block title %} Página de Confirmação de adicionar docente {% endblock %}
+
+{% block breadcrumb %}
+<ul id="breadcrumb">
+	<li>
+		<a tabindex="2" href="{% url homeRecursosHumanos %}" title="{% trans 'Home' %}"> <img src="/static/images/BreadCrumbs/home.gif" alt="{% trans 'Home' %}" class="home" /> </a>
+	</li>
+	<li>
+		<a tabindex="3" href="{% url adicionarDocenteRH %}" title="Adicionar Docente">Adicionar Docente</a>
+	</li>
+	<li>
+		Confirmação dados do Docente
+	</li>
+</ul>
+{% endblock %}
+
+{% block content %}
+	<table id="tabela_sumario">
+	    <tr>
+	    	<th colspan="2" id="top_sumario" class="cabecalho_sumario">Confirmação de dados do docente</th>
+	    </tr>
+	    {% for field in form %}
+	        <tr>
+	        	<th class="sub_cabecalho"><span>{{ field.label }}:</span></th>
+	        	<td>{{ field.data}}</td>
+	 		</tr>
+		{% endfor %}
+    </table>
+    <hr />
+    <form action="" method="post">{% csrf_token %}
+		{% for field in form %}
+			{{ field.as_hidden }}
+		{% endfor %}
+	   	<div id="contentForm">
+	   		<span id = "Confirmacao">Deseja submeter os Dados dos Formulário?</span>
+			<div id="buttonConfirm">
+				<input type="hidden" name="{{ stage_field }}" value="2" />
+				<input type="hidden" name="{{ hash_field }}" value="{{ hash_value }}" />
+				<input type="button" value="{% trans 'Não' %}" onClick="javascript:history.go(-1);">
+				<input type="submit" value="{% trans 'Sim' %}" />
+			</div>
+		</div>
+	</form>
+{% endblock %}
