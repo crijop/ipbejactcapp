@@ -801,6 +801,35 @@ table#tabela_sumario {
 
 #contentForm {
 	background: rgb(234, 126, 14);
+	padding: 10px 15px 20px 20px;
+}
+
+#Confirmacao{
+	font-size: 16px;
+    font-family: Arial;
+    font-weight: 600;
+	padding: 10px 15px;
+    color: #fff;
+	text-shadow: 1px 1px 1px #444;
+}
+
+#buttonConfirm
+{
+	float: right;
+}
+
+#buttonConfirm input{
+	text-align: left;
+	background-color: #000000;
+	border:0px solid #000000;
+	display: inline-block;
+	color: #ffffff;
+	font-family: arial;
+	font-size: 15px;
+	font-weight: bold;
+	padding: 3px 3px 3px 3px;
+	text-decoration: none;
+	text-align: center;
 }
 
 #CamposObirgatorio {

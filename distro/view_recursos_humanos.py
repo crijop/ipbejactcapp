@@ -524,7 +524,7 @@ def addDocenteRH(request):
 
 
 class DocenteModelFormPreview(FormPreview):
-    preview_template = 'recursosHumanos/addDocente_Form.html'
+    preview_template = 'recursosHumanos/pageConfirForm.html'
     form_template = 'recursosHumanos/addDocente.html'
     def done(self, request, cleaned_data):
        
