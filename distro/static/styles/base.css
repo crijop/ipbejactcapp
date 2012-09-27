@@ -804,6 +804,18 @@ table#tabela_sumario {
 	padding: 10px 15px 20px 20px;
 }
 
+#sucesso{
+	background: rgb(234, 126, 14);
+	padding: 10px 15px 20px 20px;
+	height: 145px;
+	font-size: 20px;
+    font-family: Arial;
+    font-weight: 600;
+	padding: 10px 15px;
+    color: #fff;
+	text-shadow: 1px 1px 1px #444;
+}
+
 #Confirmacao{
 	font-size: 16px;
     font-family: Arial;

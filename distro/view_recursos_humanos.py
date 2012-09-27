@@ -6,15 +6,16 @@ Created on 25 de Set de 2012
 @author: António
 '''
 from distro.forms import EditarDocenteForm, AddDocenteForm
-from distro.models import Departamento, Docente, Contrato, Categoria,\
+from distro.models import Departamento, Docente, Contrato, Categoria, \
     TipoContrato
 from django.contrib.auth.decorators import login_required
 from django.contrib.formtools.preview import FormPreview
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
-from django.http import HttpResponseRedirect
-from django.shortcuts import render_to_response
+from django.http import HttpResponseRedirect, Http404
+from django.shortcuts import render_to_response, get_object_or_404
 from django.template.context import RequestContext
+from pydoc import Doc
 import unicodedata
 
 '''
@@ -471,45 +472,7 @@ def indexRHInfoDocentes(request, id_docente):
 
 @login_required(redirect_field_name='Teste_home')
 def indexRH_EditarDocente(request, id_docente):
-    if request.method == 'POST':
-        b = Docente.objects.get(id=id_docente)
-        form = EditarDocenteForm(request.POST, instance=b)
-        if form.is_valid():
-            #verifica se o campo do regime de exclusividade é
-            #verdadeiro ou Falso
-            #regime exclusividade igual a verdadeiro
-            if form.cleaned_data['regime_exclusividade']:
-                p = Docente(id = id_docente,
-                            nome_completo = form.cleaned_data['nome_completo'],
-                            departamento = form.cleaned_data['departamento'],
-                            escalao = form.cleaned_data['escalao'],
-                            email = form.cleaned_data['email'],
-                            abreviatura = form.cleaned_data['abreviatura'],
-                            regime_exclusividade = form.cleaned_data['regime_exclusividade'])
-                pass
-            #regime exclusividade igual a falso
-            else:
-                regimeExclusividade = False
-                p = Docente(id = id_docente,
-                            nome_completo = form.cleaned_data['nome_completo'],
-                            departamento = form.cleaned_data['departamento'],
-                            escalao = form.cleaned_data['escalao'],
-                            email = form.cleaned_data['email'],
-                            abreviatura = form.cleaned_data['abreviatura'],
-                            regime_exclusividade = regimeExclusividade)
-                pass
-            
-            p.save()   
-            #return HttpResponseRedirect('/thanks/') # Redirect after POST
-    else:
-        
-        b = Docente.objects.get(id=id_docente)
-        form = EditarDocenteForm(instance=b)
-    
-    return render_to_response("recursosHumanos/editDocente.html",
-        locals(),
-        context_instance=RequestContext(request),
-        )
+    return EditDocenteModelFormPreview(EditarDocenteForm)
     pass
 
 
@@ -527,7 +490,6 @@ class DocenteModelFormPreview(FormPreview):
     preview_template = 'recursosHumanos/pageConfirForm.html'
     form_template = 'recursosHumanos/addDocente.html'
     def done(self, request, cleaned_data):
-       
         a = 0
         if request.method == 'POST':
             form = AddDocenteForm(request.POST)
@@ -559,11 +521,143 @@ class DocenteModelFormPreview(FormPreview):
         else:
             form = AddDocenteForm() # An unbound form
         
-        return render_to_response("recursosHumanos/addDocente.html",
+        return render_to_response("recursosHumanos/sucesso.html",
             locals(),
             context_instance=RequestContext(request),
             )
+        pass
+    pass
         
+
+
+
+class EditDocenteModelFormPreview(FormPreview):
+    
+    id_docente = 0
+    preview_template = 'recursosHumanos/pageConfirForm.html'
+    form_template = 'recursosHumanos/editDocente.html'
+
+
+    def get_context(self, request, form):
+        "Context for template rendering."
+        return {'form': form, 'stage_field': self.unused_name('stage'), 'id_docente': self.state['id_docente']}
+         
+    def preview_get(self, request):
+        "Displays the form"
+        
+        print "GETTTTTTTTTTTTTTTTTTTTTTTT"
+        id_docente = self.state['id_docente']
+        b = Docente.objects.get(id=id_docente)
+        form = EditarDocenteForm(instance=b)
+        return render_to_response(self.form_template,
+            locals(),
+            context_instance=RequestContext(request))
+    
+    '''    
+    def preview_post(self, request):
+        "Validates the POST data. If valid, displays the preview page. Else, redisplays form."
+        id_docente = self.id_docente
+        b = Docente.objects.get(id=id_docente)
+        form = EditarDocenteForm(instance=b)
+        #context = self.get_context(request, f)
+        return self.done(request, form)
+    '''
+    
+    '''
+    def preview_post(self, request):
+        "Validates the POST data. If valid, displays the preview page. Else, redisplays form."
+        id_docente = self.id_docente
+        b = Docente.objects.get(id=id_docente)
+        form = AddDocenteForm(request.POST)
+        context = self.get_context(request, form)
+        if form.is_valid():
+            self.process_preview(request, form, context)
+            context['hash_field'] = self.unused_name('hash')
+            context['hash_value'] = self.security_hash(request, form)
+            return render_to_response(self.preview_template, locals(), context_instance=RequestContext(request))
+        else:
+            return self.preview_post(request)
+    
+    
+    def post_post(self, request):
+        "Validates the POST data. If valid, calls done(). Else, redisplays form."
+        id_docente = self.id_docente
+        f = self.form(request.POST, auto_id=self.get_auto_id())
+        if f.is_valid():
+            if not self._check_security_hash(request.POST.get(self.unused_name('hash'), ''),
+                                             request, f):
+                return self.failed_hash(request) # Security hash failed.
+            return self.done(request, f.cleaned_data)
+        else:
+            return render_to_response(self.form_template,
+                locals(),
+                context_instance=RequestContext(request))
+           
+            
+    def parse_params(self, *args, **kwargs):
+        self.id_docente =  kwargs['id_docente']
+        pass
+    '''
+    
+    def parse_params(self, *args, **kwargs):
+        """Handle captured args/kwargs from the URLconf"""
+        # get the selected HI test
+        try:
+            self.state['id_docente'] = kwargs['id_docente']
+        except Docente.DoesNotExist:
+            raise Http404("Invalid HI test id: '%s'")
+    '''  
+    def done(self, request):
+        """save the results of the form and return an HttpResponseRedirect"""
+        self.state['ss_formset'].save(self.state['gene_form'])
+        return HttpResponseRedirect('recursosHumanos/sucesso.html')
+    '''
+    def done(self, request, cleaned_data):
+        print "DONEEEEEEEEEEEEEEEEEEEEEE"
+        id_docente = self.state['id_docente']
+        
+        p = get_object_or_404(Docente, pk=id_docente)
+        if request.method == 'POST':
+            b = Docente.objects.get(id=id_docente)
+            form = EditarDocenteForm(request.POST, instance=b)
+            if form.is_valid():
+                #verifica se o campo do regime de exclusividade é
+                #verdadeiro ou Falso
+                #regime exclusividade igual a verdadeiro
+                if form.cleaned_data['regime_exclusividade']:
+                    p.nome_completo = form.cleaned_data['nome_completo']
+                    p.departamento = form.cleaned_data['departamento']
+                    p.escalao = form.cleaned_data['escalao']
+                    p.email = form.cleaned_data['email']
+                    p.abreviatura = form.cleaned_data['abreviatura']
+                    p.regime_exclusividade = form.cleaned_data['regime_exclusividade']
+                    pass
+                #regime exclusividade igual a falso
+                else:
+                    regimeExclusividade = False
+                    p.nome_completo = form.cleaned_data['nome_completo']
+                    p.departamento = form.cleaned_data['departamento']
+                    p.escalao = form.cleaned_data['escalao']
+                    p.email = form.cleaned_data['email']
+                    p.abreviatura = form.cleaned_data['abreviatura']
+                    p.regime_exclusividade = regimeExclusividade
+                    pass
+                
+                p.save()   
+                #return HttpResponseRedirect('/thanks/') # Redirect after POST
+        else:
+            
+            b = Docente.objects.get(id=id_docente)
+            form = EditarDocenteForm(instance=b)
+        
+        return render_to_response("recursosHumanos/sucesso.html",
+            locals(),
+            context_instance=RequestContext(request),
+            )
+        pass
+
+        
+    
 
 
 

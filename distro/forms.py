@@ -48,3 +48,11 @@ class EditarDocenteForm(ModelForm):
     abreviatura       = forms.CharField()
     class Meta:
         model = Docente
+        
+        def save(self, commit=True):
+            docente = super(EditarDocenteForm, self).save(commit=False)    
+            if commit:
+                docente.save()
+    
+            return docente
+            
