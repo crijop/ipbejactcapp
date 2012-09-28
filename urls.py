@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
-from distro.forms import AddDocenteForm
-from distro.view_recursos_humanos import DocenteModelFormPreview
+from distro.forms import AddDocenteForm, EditarDocenteForm
+from distro.view_recursos_humanos import DocenteModelFormPreview, \
+    EditDocenteModelFormPreview
 from django.conf.urls.defaults import patterns, include, url
 from django.contrib import admin
 
@@ -151,9 +152,9 @@ urlpatterns = patterns('',
         'ipbejactcapp.distro.view_recursos_humanos.indexRHInfoDocentes', 
         name='infoRHDocentes'),
                        
-    url(r'^Teste_home/recursosHumanos/listDocente/edit/(?P<id_docente>\d+)/$', 
-        'ipbejactcapp.distro.view_recursos_humanos.indexRH_EditarDocente', 
-        name='RH_EditarDocente'),
+    #url(r'^Teste_home/recursosHumanos/listDocente/edit/(?P<id_docente>\d+)/$', 
+    #    'ipbejactcapp.distro.view_recursos_humanos.indexRH_EditarDocente', 
+    #    name='RH_EditarDocente'),
                     
     #url(r'^Teste_home/recursosHumanos/addDocente/$', 
     #    'ipbejactcapp.distro.view_recursos_humanos.addDocenteRH', 
@@ -161,8 +162,12 @@ urlpatterns = patterns('',
      
     
     url(r'^Teste_home/recursosHumanos/addDocente/$', 
-        DocenteModelFormPreview(AddDocenteForm), 
+        DocenteModelFormPreview(EditarDocenteForm), 
         name='adicionarDocenteRH'),
+                       
+    url(r'^Teste_home/recursosHumanos/listDocente/edit/(?P<id_docente>\d+)/$', 
+        EditDocenteModelFormPreview(EditarDocenteForm), 
+        name='RH_EditarDocente'),
     
                        
     url(r'^Teste_home/recursosHumanos/listDocente/$', 
