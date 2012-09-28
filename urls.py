@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
-from distro.forms import AddDocenteForm, EditarDocenteForm
-from distro.view_recursos_humanos import DocenteModelFormPreview, \
-    EditDocenteModelFormPreview
+from distro.forms import EditarDocenteForm, AdicionarDocenteForm
+from distro.view_recursos_humanos import EditDocenteModelFormPreview, AddDocenteModelFormPreview
 from django.conf.urls.defaults import patterns, include, url
 from django.contrib import admin
 
@@ -162,7 +161,7 @@ urlpatterns = patterns('',
      
     
     url(r'^Teste_home/recursosHumanos/addDocente/$', 
-        DocenteModelFormPreview(EditarDocenteForm), 
+        AddDocenteModelFormPreview(AdicionarDocenteForm), 
         name='adicionarDocenteRH'),
                        
     url(r'^Teste_home/recursosHumanos/listDocente/edit/(?P<id_docente>\d+)/$', 

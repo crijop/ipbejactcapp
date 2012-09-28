@@ -2,17 +2,27 @@
 {% load i18n %}
 {% block title %} Página de Confirmação de adicionar docente {% endblock %}
 
+
 {% block breadcrumb %}
 <ul id="breadcrumb">
 	<li>
 		<a tabindex="2" href="{% url homeRecursosHumanos %}" title="{% trans 'Home' %}"> <img src="/static/images/BreadCrumbs/home.gif" alt="{% trans 'Home' %}" class="home" /> </a>
 	</li>
-	<li>
-		<a tabindex="3" href="{% url adicionarDocenteRH %}" title="Adicionar Docente">Adicionar Docente</a>
-	</li>
-	<li>
-		Docente inserido com Sucesso
-	</li>
+	{% if teste = "add"%}	
+		<li>
+			<a tabindex="3" href="{% url adicionarDocenteRH %}" title="Adicionar Docente">Adicionar Docente</a>
+		</li>
+		<li>
+			Docente inserido com Sucesso
+		</li>
+	{% else %}
+		<li>
+			<a tabindex="3" href="{% url listDocente %}" title="Informação do Docente">Lista de Docentes</a>
+		</li>
+		<li>
+			Docente editado com Sucesso
+		</li>
+	{%endif%}
 </ul>
 {% endblock %}
 
@@ -23,7 +33,11 @@
 	    </tr>
     </table>
     <div id="sucesso">
-    	<span>O docente foi adicionado com Sucesso</span>
+    	{% if teste = "add"%}
+    		<span>O docente {{nome_completo}} foi adicionado com Sucesso</span>
+    	{% else %}
+    		<span>O docente {{nome_completo}} foi editado com Sucesso</span>
+    	{%endif%}
     </div>
 {% endblock %}
 

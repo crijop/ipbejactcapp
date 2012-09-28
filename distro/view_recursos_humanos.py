@@ -5,7 +5,7 @@ Created on 25 de Set de 2012
 
 @author: António
 '''
-from distro.forms import EditarDocenteForm, AddDocenteForm
+from distro.forms import EditarDocenteForm, AdicionarDocenteForm
 from distro.models import Departamento, Docente, Contrato, Categoria, \
     TipoContrato
 from django.contrib.auth.decorators import login_required
@@ -482,18 +482,22 @@ def indexRH_EditarDocente(request, id_docente):
 
 @login_required(redirect_field_name='Teste_home')
 def addDocenteRH(request):
-    return DocenteModelFormPreview(AddDocenteForm)
+    return AddDocenteModelFormPreview(AdicionarDocenteForm)
     pass
 
 
-class DocenteModelFormPreview(FormPreview):
+class AddDocenteModelFormPreview(FormPreview):
     preview_template = 'recursosHumanos/pageConfirForm.html'
     form_template = 'recursosHumanos/addDocente.html'
     def done(self, request, cleaned_data):
         a = 0
+        teste = "add"
+        
         if request.method == 'POST':
-            form = AddDocenteForm(request.POST)
+            form = AdicionarDocenteForm(request.POST)
             if form.is_valid():
+                #passar a variavel nome_completo para o template
+                nome_completo= form.cleaned_data['nome_completo']
                 #verifica se o campo do regime de exclusividade é
                 #verdadeiro ou Falso
                 #regime exclusividade igual a verdadeiro
@@ -519,7 +523,7 @@ class DocenteModelFormPreview(FormPreview):
                 p.save()   
                 #return HttpResponseRedirect('/thanks/') # Redirect after POST
         else:
-            form = AddDocenteForm() # An unbound form
+            form = AdicionarDocenteForm() # An unbound form
         
         return render_to_response("recursosHumanos/sucesso.html",
             locals(),
@@ -536,7 +540,6 @@ class EditDocenteModelFormPreview(FormPreview):
     id_docente = 0
     preview_template = 'recursosHumanos/pageConfirForm.html'
     form_template = 'recursosHumanos/editDocente.html'
-
 
     def get_context(self, request, form):
         "Context for template rendering."
@@ -605,15 +608,10 @@ class EditDocenteModelFormPreview(FormPreview):
         try:
             self.state['id_docente'] = kwargs['id_docente']
         except Docente.DoesNotExist:
-            raise Http404("Invalid HI test id: '%s'")
-    '''  
-    def done(self, request):
-        """save the results of the form and return an HttpResponseRedirect"""
-        self.state['ss_formset'].save(self.state['gene_form'])
-        return HttpResponseRedirect('recursosHumanos/sucesso.html')
-    '''
+            raise Http404("Invalid")
+        
     def done(self, request, cleaned_data):
-        print "DONEEEEEEEEEEEEEEEEEEEEEE"
+        teste = "eddit"
         id_docente = self.state['id_docente']
         
         p = get_object_or_404(Docente, pk=id_docente)
@@ -621,6 +619,8 @@ class EditDocenteModelFormPreview(FormPreview):
             b = Docente.objects.get(id=id_docente)
             form = EditarDocenteForm(request.POST, instance=b)
             if form.is_valid():
+                #passar a variavel nome_completo para o template
+                nome_completo= form.cleaned_data['nome_completo']
                 #verifica se o campo do regime de exclusividade é
                 #verdadeiro ou Falso
                 #regime exclusividade igual a verdadeiro
