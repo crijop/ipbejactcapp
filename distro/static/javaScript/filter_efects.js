@@ -62,7 +62,7 @@ function teste_2() {
 				fx.wipeOut({
 					node : wipeTarget_1
 				}).play();
-				
+
 				wipeTarget_1.style.display = "block";
 			}
 		});
@@ -96,13 +96,13 @@ function teste_2() {
 				fx.wipeOut({
 					node : wipeTarget_2
 				}).play();
-				
+
 				wipeTarget_2.style.display = "block";
 			}
 		});
-		
+
 		////////////////
-		
+
 		var wipeOutButton_3 = dom.byId("ca_button"), wipeInButton_3 = dom.byId("ca_button"), wipeTarget_3 = dom.byId("category");
 		//esconder a div
 
@@ -110,7 +110,7 @@ function teste_2() {
 			if (out_3 == 1) {
 
 				wipeTarget_3.style.display = "block";
-				out_3= 0;
+				out_3 = 0;
 				request.get("filter_cat").then(function(response) {
 
 					wipeTarget_3.innerHTML = response;
@@ -132,13 +132,13 @@ function teste_2() {
 				fx.wipeOut({
 					node : wipeTarget_3
 				}).play();
-				
+
 				wipeTarget_3.style.display = "block";
 			}
 		});
-		
+
 		////////*Por data*////////
-		
+
 		var wipeOutButton_4 = dom.byId("date_button"), wipeInButton_4 = dom.byId("date_button"), wipeTarget_4 = dom.byId("date");
 		//esconder a div
 
@@ -146,30 +146,25 @@ function teste_2() {
 			if (out_4 == 1) {
 
 				wipeTarget_4.style.display = "block";
-				out_4= 0;
-			
+				out_4 = 0;
 
 				fx.wipeIn({
 					node : wipeTarget_4
 				}).play();
-				
-				
 
 			} else {
-
-				
 
 				out_4 = 1;
 				fx.wipeOut({
 					node : wipeTarget_4
 				}).play();
-				
+
 				wipeTarget_4.style.display = "block";
 			}
-			
-			date_function(); 
+
+			date_function();
 		});
-		
+
 	});
 }
 
@@ -177,55 +172,67 @@ function teste_2() {
 
 function date_function() {
 
-	
-
 	var out_5 = 1;
-	require(["dojo/request", "dojo/fx", "dojo/on", "dojo/dom", "dojo/domReady!"], function(request, fx, on, dom) {
+	require(["dojo/fx", "dojo/on", "dojo/dom", "dojo/domReady!"], function(fx, on, dom) {
 
-		
-		
 		//Data de inicio
 
 		var wipeOutButton_5 = dom.byId("start_date_button"), wipeInButton_5 = dom.byId("start_date_button"), wipeTarget_5 = dom.byId("start_date");
 		//esconder a div
 
-		
-	
 		on(wipeInButton_5, "click", function(evt) {
-			
+
 			if (out_5 == 1) {
 
 				wipeTarget_5.style.display = "block";
-				out_5= 0;
-				request.get("filter_date_start").then(function(response) {
-
-					wipeTarget_5.innerHTML = response;
-
-				}, function(error) {
-					// Display the error returned
-					alert(response + "errro");
-				});
+				out_5 = 0;
 
 				fx.wipeIn({
 					node : wipeTarget_5
 				}).play();
-				
-				
 
 			} else {
-
-				wipeTarget_5.innerHTML = "";
 
 				out_5 = 1;
 				fx.wipeOut({
 					node : wipeTarget_5
 				}).play();
-				
+
 				wipeTarget_5.style.display = "block";
 			}
 		});
-		
+
 	});
 }
 
 /***************************/
+/*
+function start_date_filter() {
+
+	require(["dojo/on", "dojo/dom", "dojo/dom-form", "dojo/request", "dojo/domReady!"], function(on, dom, domForm, request) {
+
+		var sumbitDateStart = dom.byId("submitStartDate"), content = dom.byId("form_start_date");
+
+		on(sumbitDateStart, "click", function(evt) {
+
+			request.get("filter_date_start", {
+
+				data : {
+					color : "blue",
+					answer : 42
+				},
+				headers : {
+					ola : "A value"
+				},
+				//query: domForm.toObject("form_start_date")
+
+			}).then(function(response) {
+				alert("ola")
+
+			});
+
+		});
+
+	});
+
+}*/

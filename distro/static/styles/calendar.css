@@ -1,0 +1,101 @@
+
+
+
+
+
+
+
+.claro .dijitCalendarMonthLabel {
+	font-family: Arial;
+	
+
+	
+	
+}
+/****/
+.claro .dijitCalendar
+{
+	font-family: Arial;
+	background-color: rgb(255, 145, 70);
+	border: solid 1px rgb(255, 145, 70);
+	padding: 6px 0px 3px 0px;
+}
+
+.claro .dijitCalendar:hover
+{
+	background-color: rgb(234, 126, 14);
+}
+
+.claro .dijitCalendarPreviousMonth .dijitCalendarDateLabel, .claro .dijitCalendarNextMonth .dijitCalendarDateLabel
+{
+	background-color: rgb(234, 126, 14);
+	color: white;
+	border-color: rgb(234, 126, 14);
+}
+
+.claro .dijitCalendarHoveredDate .dijitCalendarDateLabel, .claro .dijitCalendarEnabledDate:hover .dijitCalendarDateLabel {
+  background-color: rgb(251,210,149);
+  border: solid 1px rgb(251,210,149);
+  color: #000000;
+  -webkit-transition-duration: 0.2s;
+  -moz-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+}
+.claro .dijitCalendarPreviousMonth, .claro .dijitCalendarNextMonth {
+  background-color: rgb(234, 126, 14);
+  background-image: none;
+  border-bottom: solid 1px #d3d3d3;
+  
+}
+
+.claro .dijitCalendarActiveDate .dijitCalendarDateLabel, .claro .dijitCalendarEnabledDate:active .dijitCalendarDateLabel {
+  background-color: rgb(255, 145, 70);
+  border: solid 1px rgb(255, 145, 70);
+  -webkit-transition-duration: 0.1s;
+  -moz-transition-duration: 0.1s;
+  transition-duration: 0.1s;
+}
+
+
+.claro .dijitCalendarSelectedDate .dijitCalendarDateLabel {
+  color: #000000;
+  background-color: rgb(234, 126, 14);
+  border-color: rgb(255, 90, 14);
+}
+
+
+
+.claro .dijitCalendar .dijitDropDownButton .dijitButtonNode {
+  /*padding: 0 3px 0 2px;*/
+  border: solid 1px rgb(234, 126, 14);
+  -webkit-box-shadow: 0 0 0 rgba(234, 126, 14, 0);
+  -moz-box-shadow: 0 0 0 rgba(234, 126, 14, 0);
+  box-shadow: 0 0 0 rgba(234, 126, 14, 0);
+  background-color: transparent;
+  background-image: none;
+}
+
+.claro .dijitCalendar .dijitDropDownButtonHover .dijitButtonNode, .claro .dijitCalendar .dijitDropDownButton:hover .dijitButtonNode {
+  background-color: rgb(234, 126, 14);
+  border: solid 1px #ffffff;
+}
+
+.claro .dijitCalendarMonthMenu {
+  border-color: rgb(234, 126, 14);
+  background-color: #ffffff;
+  text-align: center;
+  background-image: none;
+  font-family: Arial;
+}
+
+.claro .dijitCalendarMonthMenu .dijitCalendarMonthLabelHover, .claro .dijitCalendarMonthMenu .dijitCalendarMonthLabel:hover {
+  border-color: rgb(234, 126, 14);
+  border-width: 1px 0;
+  background-color: rgb(234, 126, 14);
+  background-image: -moz-linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+  background-image: -o-linear-gradient(rgba(234, 126, 14, 0.7), rgba(234, 126, 14, 0));
+  background-image: -ms-linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr= #ffffff , endColorstr= #abd6ff );
+}
+

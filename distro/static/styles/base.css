@@ -656,10 +656,11 @@ table#tabela_sumario {
 	
 #start_date
 {
-	display: none;
-
-	background-color: #666666;
 	width: 100%;
+	display: none;
+	text-align: center;
+	background-color: #666666;
+	
 	padding: 10px 0px 10px 0px;
 	color: white;
 	font-family: Arial;
@@ -668,6 +669,12 @@ table#tabela_sumario {
 
 }
 
+#start_date table
+{
+	
+	text-align: center;
+	width: 100%;
+}
 .testar div
 {
 	padding: 5px 0px 5px 0px;
@@ -685,9 +692,21 @@ table#tabela_sumario {
 #calendar_startDate
 {
 	width: 100%;
-
+	background-color: #666666;
+	border-bottom-style: inherit;
+	color: #FFFFFF;
+	font-weight: 600;
+	font-size: 15pt;
 	height: 30px;
+	
+
 }
+
+#calendar_startDate .submitDate
+{
+	
+}
+
 
 /*
  * Fim Menus

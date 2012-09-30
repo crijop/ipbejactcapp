@@ -20,50 +20,89 @@
 	</li>
 	<div id="oa">
 
-	
-
 	</div>
 
 	<li class="has-sub">
 		<a id="da_button" tabindex="4" href='#dep'><span>Por Departamento</span></a>
-		
+
 	</li>
 	<div id="dep">
-
-	
 
 	</div>
 	<li class="has-sub">
 		<a id="ca_button" tabindex="4" href='#category'><span>Por Categoria</span></a>
-		
+
 	</li>
 	<div id="category">
 
-	
-
 	</div>
-		<li class="has-sub">
+	<li class="has-sub">
 		<a id="date_button" tabindex="4" href='#date'><span>Por Data</span></a>
-		
+
 	</li>
 	<div id="date">
 
+		<li class="has-sub">
+			<a class="date" id="start_date_button" tabindex="4" href='#date'><span>Por Data Ínicio</span></a>
+
+		</li>
+		<!--Por data de inicio----------------------------->
+
+		<div  id="start_date">
+
+			<form id="form_start_date" accept-charset="utf-8">
+
+				<table>
+					<tr id="first-row">
+						<th></th>
+					</tr>
+					<tr>
+						<td colspan="4" id="cont"></td>
+					</tr>
+					<tr>
+						<td>
+						<input style="text-align: center" readonly="true" name="date" id="f_date" size="14" />
+						</td>
+
+					</tr>
+				</table>
+
+				<script type="text/javascript">
+					//<![CDATA[
+					// this handler is designed to work both for onSelect and onTimeChange
+					// events.  It updates the input fields according to what's selected in
+					// the calendar.
+					function updateFields(cal) {
+					var date=cal.selection.get();
+					if(date) {
+					date=Calendar.intToDate(date);
+					document.getElementById("f_date").value=Calendar.printDate(date,"%d-%m-%Y");
+					}
+					};
+					Calendar.setup({
+					cont:"cont",onSelect:updateFields
+					});
+					//]]>
+				</script>
 	
-<li class="has-sub">
-		<a class="date" id="start_date_button" tabindex="4" href='#date'><span>Por Data Ínicio</span></a>
+			<span>No raio de </span>
+			<input name="number_increment" id="number_increment" type="number" min="1" value="1" />
+			<span>dias </span>
 		
-	</li>
-	<div  id="start_date">
-		
+
+		<p>
+			<input name="data_inicio" id="submitStartDate" type="submit" value="Filtrar"/>
+		</p>
+		</form>
+
 	</div>
-	
+
 	<li class="has-sub">
 		<a class="date"  id="end_date_button" tabindex="4" href='#date'><span>Por Data Fim</span></a>
-		
+
 	</li>
 	<div id="end_date">
-		
-	
+
 	</div>
 
 	</div>
@@ -79,8 +118,7 @@
 			<img src="/static/images/selector-search.gif" title="search" alt="searchIcon" />
 			<input name="searchField" id="searchField" type="search" value="{{keyword}}" />
 			<input id="submitSearch" value={%trans 'Search'%} name="Submit" type="submit" />
-			<span> ou </span>
-			<input type="date" name="bdaytime">
+			
 		</form></th>
 	</tr>
 	<tr>
@@ -96,9 +134,9 @@
 		<td class="teacher_name_field"><a href="{{id_Docente}}">{{nome}}</a></td>
 		<td>{{nomeCategoria}}</td>
 		<td>{{contract_type}}</td>
-		
+
 		<td>{{percentagem}}</td>
-	
+
 		<td>{{start_contract}}</td>
 		<td>{{end_contract}}</td>
 	</tr>

@@ -17,6 +17,8 @@ from django.shortcuts import render_to_response, get_object_or_404
 from django.template.context import RequestContext
 from pydoc import Doc
 import unicodedata
+from datetime import timedelta, date
+from django.utils.datetime_safe import datetime
 
 '''
 Inicio das vistas dos Recursos Humanos
@@ -60,8 +62,15 @@ def filter_cat(request):
 
 def filter_date_start(request):
 
+  
     if request.is_ajax():
+        
+        if request.method == 'GET':
+            
+            print "oal" 
        
+            print request.GET
+         
         
         
         return render_to_response("recursosHumanos/filter_date_start.html",
@@ -394,7 +403,54 @@ def listContracts_RecursosHumanos(request):
     listaContracts = []
     actualState = ""
     
-    if 'show' in request.GET or request.GET == {} or request.GET.get("actualState") == "show":
+    if "data_inicio" in request.GET or request.GET.get("actualState") == "data_inicio":
+        start_date = request.GET.get("date")
+        radius = request.GET.get("number_increment")
+        actualState = "actualState=data_inicio&date=" + start_date + "&number_increment=" + radius
+       
+        convertedDate = datetime.strptime(start_date, "%d-%m-%Y")
+        
+        interval = timedelta(int(radius))
+      
+        date_down = convertedDate - interval
+        
+        date_up = convertedDate + interval
+        
+        
+        
+        
+        for docente in allDocentes:
+            
+            departamento_id = docente.departamento_id
+            departamentoNome = Departamento.objects.get(id__exact=departamento_id).nome
+            id_Docente = docente.id
+                
+                            
+                
+            try:
+                    
+                contrato = Contrato.objects.get(docente__id=id_Docente)
+                contract_start = contrato.data_inicio.strftime("%d-%m-%Y")
+                contract_end = contrato.data_fim.strftime("%d-%m-%Y")
+                contract_type = TipoContrato.objects.get(id__exact = contrato.tipo_contrato_id)
+                percent = contrato.percentagem 
+                #print contrato.categoria.id
+                nomeCategoria = Categoria.objects.get(id__exact = contrato.categoria.id)
+            except ObjectDoesNotExist:
+                nomeCategoria = u'Sem Categoria'
+                
+            date_contract_start = datetime.strptime(contract_start, "%d-%m-%Y")
+            
+            #print type(date_contract_start)
+            
+            if date_contract_start > date_down and date_contract_start < date_up:
+                        
+                listaContracts.append([docente.nome_completo, nomeCategoria, id_Docente, contract_type, percent, contract_start, contract_end])
+        pass
+            
+    
+        
+    elif 'show' in request.GET or request.GET == {} or request.GET.get("actualState") == "show":
         actualState = "actualState=show"
         for docente in allDocentes:
                 
@@ -407,8 +463,8 @@ def listContracts_RecursosHumanos(request):
                 try:
                     
                     contrato = Contrato.objects.get(docente__id=id_Docente)
-                    contract_start = contrato.data_inicio.strftime("%d/%m/%Y")
-                    contract_end = contrato.data_fim.strftime("%d/%m/%Y")
+                    contract_start = contrato.data_inicio.strftime("%d-%m-%Y")
+                    contract_end = contrato.data_fim.strftime("%d-%m-%Y")
                     contract_type = TipoContrato.objects.get(id__exact = contrato.tipo_contrato_id)
                     percent = contrato.percentagem 
                         #print contrato.categoria.id
