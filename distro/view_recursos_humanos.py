@@ -89,8 +89,57 @@ def ajax(request):
         context_instance=RequestContext(request),
         )
 
+
+
 @login_required(redirect_field_name='Teste_home')
 def indexRecursosHumanos(request):
+    allDocentes = Docente.objects.all()
+   
+    listaContracts = []
+    actualState = ""
+    nrDocentesEndContract = 0
+    
+    interval_dias = 60
+    interval_dias1 = 120
+    
+    dateActual = datetime.today()
+    dateActualFormatPrint = datetime.today().strftime("%d de %B de %Y")
+    
+    #convertedDate = datetime.strptime(dateActual, "%d-%m-%Y")
+    
+    interval = timedelta(interval_dias)
+  
+    #date_down = convertedDate - interval
+    
+    date_up = dateActual + interval
+    
+    
+    for docente in allDocentes:
+        departamento_id = docente.departamento_id
+        departamentoNome = Departamento.objects.get(id__exact=departamento_id).nome
+        id_Docente = docente.id
+                     
+        try:
+                
+            contrato = Contrato.objects.get(docente__id=id_Docente)
+            #contract_start = contrato.data_inicio.strftime("%d-%m-%Y")
+            contract_end = contrato.data_fim.strftime("%d-%m-%Y")
+            contract_type = TipoContrato.objects.get(id__exact = contrato.tipo_contrato_id)
+            #percent = contrato.percentagem 
+            #print contrato.categoria.id
+            nomeCategoria = Categoria.objects.get(id__exact = contrato.categoria.id)
+        except ObjectDoesNotExist:
+            nomeCategoria = u'Sem Categoria'
+            
+        date_contract_end = datetime.strptime(contract_end, "%d-%m-%Y")
+        
+        if date_contract_end < date_up and date_contract_end > dateActual:
+            nrDocentesEndContract += 1
+            pass
+    pass
+    
+    #converter dataActual em str
+    dateActualSTR = datetime.today().strftime("%d-%m-%Y")
     
     return render_to_response("recursosHumanos/index.html",
         locals(),

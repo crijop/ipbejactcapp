@@ -49,12 +49,26 @@
 </ul>
 {% endblock %}
 {% block content %}
-<div id="teste">
-
-
-
-
-</div>
-
-
+	<table id="tabela_sumario">
+	    <tr>
+	            <th colspan="2" id="top_sumario" class="cabecalho_sumario">Estatística</th>
+	    </tr>
+	    <tr>
+	    	<th colspan="2" align="left">{{dateActualFormatPrint}}</th>
+	    </tr>
+	    <tr>
+		<tr>
+			<th colspan="2" class="cabecalho_sumario">Contractos a Terminar</th>
+		</tr>
+		<tr>
+			<th class="sub_cabecalho"><span>Próximos Dois Meses (Contratos a Termo)</span></th>
+			<td><a href="#">0</a></td>
+		</tr>
+		<tr>
+			<th class="sub_cabecalho" ><span>Próximos Quatro Meses (Contratos Sem Termo)</span></th>
+			<td>
+				<a href='{% url listContratos %}?date={{dateActualSTR}}&number_increment={{interval_dias1}}&data_fim_especial=True'><span>{{nrDocentesEndContract}}</span></a>
+			</td>
+		</tr>
+    </table>
 {% endblock %}
