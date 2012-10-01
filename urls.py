@@ -187,6 +187,14 @@ urlpatterns = patterns('',
     
     url(r'^Teste_home/recursosHumanos/listDocente/filter_dep/$', 'ipbejactcapp.distro.view_recursos_humanos.filter_dep'),
     
+    url(r'^Teste_home/recursosHumanos/listDocente/filter_cat/$', 'ipbejactcapp.distro.view_recursos_humanos.filter_cat'),
+    
+    #lista de contractos
+    url(r'^Teste_home/recursosHumanos/listContratos/filter_abc/$', 'ipbejactcapp.distro.view_recursos_humanos.filter_abc'),       
+    
+    url(r'^Teste_home/recursosHumanos/listContratos/filter_dep/$', 'ipbejactcapp.distro.view_recursos_humanos.filter_dep'),
+    
+    url(r'^Teste_home/recursosHumanos/listContratos/filter_cat/$', 'ipbejactcapp.distro.view_recursos_humanos.filter_cat'),
     #por data
     
   

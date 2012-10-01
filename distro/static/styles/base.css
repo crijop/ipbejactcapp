@@ -675,6 +675,31 @@ table#tabela_sumario {
 	text-align: center;
 	width: 100%;
 }
+
+/**filtro por data de fim*/
+
+#end_date
+{
+	width: 100%;
+	display: none;
+	text-align: center;
+	background-color: #666666;
+	
+	padding: 10px 0px 10px 0px;
+	color: white;
+	font-family: Arial;
+	font-weight: 600;
+	font-size: 15pt;
+
+}
+
+
+#end_date table
+{
+	
+	text-align: center;
+	width: 100%;
+}
 .testar div
 {
 	padding: 5px 0px 5px 0px;
@@ -687,6 +712,44 @@ table#tabela_sumario {
 	height: 20px;
 	
 	
+}
+/**Caixa de armazenamento da data */
+
+.fieldData
+{
+	width: 70%;
+	border-style: solid;
+	border-color: rgb(234, 126, 14);
+}
+
+/**Estilo dos botões filtrar*/
+	
+.submitDate
+{
+	width: 70%;
+	text-align: left;
+	background-color: #000000;
+	border: 0px solid #000000;
+	display: inline-block;
+	color: #ffffff;
+	font-family: arial;
+	font-size: 15px;
+	font-weight: bold;
+	padding: 5px 5px 5px 5px;
+	text-decoration: none;
+	text-align: center;
+}
+
+.submitDate:hover 
+{
+	background-color: rgb(234, 126, 14);
+}
+
+.submitDate:active {
+	color: black;
+	background-color: rgb(251,210,149);
+	position: relative;
+	top: 1px;
 }
 
 #calendar_startDate
@@ -702,10 +765,6 @@ table#tabela_sumario {
 
 }
 
-#calendar_startDate .submitDate
-{
-	
-}
 
 
 /*

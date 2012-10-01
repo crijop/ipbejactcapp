@@ -10,7 +10,7 @@ function teste_1() {
 		// Attach the onclick event handler to the textButton
 		on(b, "click", function(evt) {
 
-			request.get("ajax").then(function(response) {
+			request.post("ajax").then(function(response) {
 				alert(response);
 
 			}, function(error) {
@@ -173,6 +173,7 @@ function teste_2() {
 function date_function() {
 
 	var out_5 = 1;
+	var out_6 = 1;
 	require(["dojo/fx", "dojo/on", "dojo/dom", "dojo/domReady!"], function(fx, on, dom) {
 
 		//Data de inicio
@@ -199,6 +200,33 @@ function date_function() {
 				}).play();
 
 				wipeTarget_5.style.display = "block";
+			}
+		});
+		
+		//Data de inicio
+
+		var wipeOutButton_6 = dom.byId("end_date_button"), wipeInButton_6 = dom.byId("end_date_button"), wipeTarget_6 = dom.byId("end_date");
+		//esconder a div
+
+		on(wipeInButton_6, "click", function(evt) {
+
+			if (out_6 == 1) {
+
+				wipeTarget_6.style.display = "block";
+				out_6 = 0;
+
+				fx.wipeIn({
+					node : wipeTarget_6
+				}).play();
+
+			} else {
+
+				out_6 = 1;
+				fx.wipeOut({
+					node : wipeTarget_6
+				}).play();
+
+				wipeTarget_6.style.display = "block";
 			}
 		});
 
