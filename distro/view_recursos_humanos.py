@@ -168,7 +168,7 @@ def listDocente_RecursosHumanos(request):
         
         keyword = request.GET.get("searchField")
         actualState = "actualState=searchField&searchField="
-        actualState += str(keyword)
+        actualState += str(keyword.encode('utf-8'))
         
         if keyword == None:
             keyword = ""
@@ -823,9 +823,16 @@ def indexRHInfoDocentes(request, id_docente):
     nomeDocente = Docente.objects.get(id__exact=id_docente)
     escalao = Docente.objects.get(id__exact=id_docente).escalao
     regime_exclusividade = Docente.objects.get(id__exact=id_docente).regime_exclusividade
-    a = id_docente
+    email_institucional = Docente.objects.get(id__exact=id_docente).email
+    abreviatura = Docente.objects.get(id__exact=id_docente).abreviatura
+    
+    print "wsdwd ", abreviatura
+    if abreviatura == None:
+        abreviatura = ' '
+        pass
+    
     #atribuir regime exclusividade consoante se é True/False
-    if regime_exclusividade == True:
+    if regime_exclusividade == True :
         regimeExclusividade = "Sim"
         pass
     else:

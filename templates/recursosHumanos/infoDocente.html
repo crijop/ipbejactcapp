@@ -24,7 +24,7 @@
                         <th colspan="2" id="top_sumario" class="cabecalho_sumario">Informação Docente</th>
                 </tr>
                 <tr>
-                        <th class="sub_cabecalho"><span>Nome Docente</span></th>
+                        <th class="sub_cabecalho"><span>Nome Completo</span></th>
                         <td>{{ nomeDocente }}</td>
                 </tr>
                 <tr>
@@ -38,6 +38,14 @@
                 <tr>
                         <th class="sub_cabecalho" ><span>Regime Exclusividade</span></th>
                         <td>{{ regimeExclusividade }}</td>
+                </tr>
+                <tr>
+                        <th class="sub_cabecalho" ><span>Email Institucional</span></th>
+                        <td>{{ email_institucional }}</td>
+                </tr>
+                <tr>
+                        <th class="sub_cabecalho" ><span>Abreviatura</span></th>
+                        <td>{{ abreviatura }}</td>
                 </tr>
         </table>
         <div id="submit-row"><a href="{% url RH_EditarDocente id_docente%}">Editar Docente</a></div>
