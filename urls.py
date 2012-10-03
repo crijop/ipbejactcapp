@@ -150,6 +150,11 @@ urlpatterns = patterns('',
     url(r'^Teste_home/recursosHumanos/listDocente/(?P<id_docente>\d+)/$', 
         'ipbejactcapp.distro.view_recursos_humanos.indexRHInfoDocentes', 
         name='infoRHDocentes'),
+    
+    
+    url(r'^Teste_home/recursosHumanos/listDocenteEdit/$', 
+        'ipbejactcapp.distro.view_recursos_humanos.listDocenteEdit_RecursosHumanos', 
+        name='listDocenteEdit'),
                        
     #url(r'^Teste_home/recursosHumanos/listDocente/edit/(?P<id_docente>\d+)/$', 
     #    'ipbejactcapp.distro.view_recursos_humanos.indexRH_EditarDocente', 
@@ -164,7 +169,7 @@ urlpatterns = patterns('',
         AddDocenteModelFormPreview(AdicionarDocenteForm), 
         name='adicionarDocenteRH'),
                        
-    url(r'^Teste_home/recursosHumanos/listDocente/edit/(?P<id_docente>\d+)/$', 
+    url(r'^Teste_home/recursosHumanos/listDocenteEdit/(?P<id_docente>\d+)/$', 
         EditDocenteModelFormPreview(EditarDocenteForm), 
         name='RH_EditarDocente'),
     

@@ -22,6 +22,7 @@ class AddDocenteForm(forms.Form):
 #Class que apresenta o formulário para
 #adicionar o docente
 class AdicionarDocenteForm(ModelForm):
+    #widget=forms.TextInput(attrs={ 'required': 'true' })
     nome_completo     = forms.CharField(max_length=300, label=u'Nome Completo')
     email = forms.EmailField(required = False, label=u'Email Institucional')
     abreviatura       = forms.CharField()

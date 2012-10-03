@@ -19,28 +19,45 @@
 {% block content %}
 	<table id="tabela_sumario">
 	    <tr>
-	    	<th colspan="2" id="top_sumario" class="cabecalho_sumario">Confirmação de dados do docente</th>
+	    	<th colspan="2" id="top_sumario" class="cabecalho_sumario">Confirmação de dados do docente {{contador}}
+	    		{{self.process_preview}}{{context}}</th>
 	    </tr>
+	</table>
+	<!--
 	    {% for field in form %}
 	        <tr>
 	        	<th class="sub_cabecalho"><span>{{ field.label }}:</span></th>
 	        	<td>{{ field.data}}</td>
 	 		</tr>
 		{% endfor %}
-    </table>
-    <hr />
-    <form action="" method="post">{% csrf_token %}
-		{% for field in form %}
-			{{ field.as_hidden }}
-		{% endfor %}
-	   	<div id="contentForm">
-	   		<span id = "Confirmacao">Deseja submeter os Dados dos Formulário?</span>
-			<div id="buttonConfirm">
-				<input type="hidden" name="{{ stage_field }}" value="2" />
-				<input type="hidden" name="{{ hash_field }}" value="{{ hash_value }}" />
-				<input type="button" value="{% trans 'Não' %}" onClick="javascript:history.go(-1);">
-				<input type="submit" value="{% trans 'Sim' %}" />
-			</div>
-		</div>
-	</form>
+ </table>-->
+    <div id="contentForm">
+		<form method="post">
+			{% csrf_token %}
+			{% for field in form %}
+		        <div class ="{% cycle 'row1' 'row2' %}">
+		            {{ field.label_tag }}: {{ field }}
+		            {% if field.field.required %}
+			        	<span>(*)</span>
+			        {%endif%} 
+		            {% for error in field.errors %} 
+		            	{{error}} 
+		            {% endfor %}
+		        </div>
+	    	{% endfor %}
+	   		<br />
+	    	<span id="CamposObirgatorio">(*) - Campos de preenchimento obrigatório</span>
+		
+			{{t}}
+	
+    		<hr />
+    			<span id = "Confirmacao">Deseja submeter os Dados dos Formulário?</span>
+				<div id="buttonConfirm">
+					<input type="hidden" name="{{ stage_field }}" value="2" />
+					<input type="hidden" name="{{ hash_field }}" value="{{ hash_value }}" />
+					<input type="button" value="{% trans 'Não' %}" onClick="javascript:history.go(-1);">
+					<input type="submit" value="{% trans 'Sim' %}" />
+				</div>
+		</form>
+	</div>
 {% endblock %}

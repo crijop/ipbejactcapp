@@ -399,6 +399,273 @@ def listDocente_RecursosHumanos(request):
         )
     pass
 
+    
+    
+    
+@login_required(redirect_field_name='Teste_home')
+def listDocenteEdit_RecursosHumanos(request):
+    
+    allDocentes = Docente.objects.all()
+    
+    
+    #nomesDepartamentos = {dep.nome for dep in allDepartamentos}
+   
+    listaDocentes = []
+    actualState = ""
+    #print "get - ", request.GET
+    
+    if "searchField" in request.GET or request.GET.get("actualState") == "searchField":
+        
+        keyword = request.GET.get("searchField")
+        actualState = "actualState=searchField&searchField="
+        actualState += str(keyword.encode('utf-8'))
+        
+        if keyword == None:
+            keyword = ""
+        
+        if keyword == "":
+            for docente in allDocentes:
+            
+                departamento_id = docente.departamento_id
+                departamentoNome = Departamento.objects.get(id__exact=departamento_id).nome
+                id_Docente = docente.id
+                
+                exlcusividade = ""
+                
+                if docente.regime_exclusividade is True:
+                    exlcusividade = "Sim"
+                    pass
+                else:
+                    exlcusividade = "Não"
+                    pass
+                
+                try:
+                    contrato = Contrato.objects.get(docente__id=id_Docente)
+                    contract_end = contrato.data_fim.strftime("%d/%m/%Y")
+                        #print contrato.categoria.id
+                    nomeCategoria = Categoria.objects.get(id__exact = contrato.categoria.id)
+                except ObjectDoesNotExist:
+                    nomeCategoria = "Sem Categoria"
+                
+                listaDocentes.append([docente.nome_completo, departamentoNome, id_Docente, nomeCategoria, regime_exlusividade(docente), contract_end])
+        else:
+            finalkeyword = unicodedata.normalize('NFKD', keyword.lower()).encode('ASCII', 'ignore')
+            listaTempoDocente = search_docente(finalkeyword,allDocentes, 0)
+            listaTempoDep = search_depertamento(finalkeyword,allDocentes, 0)
+            
+            tempList = listaTempoDocente + listaTempoDep
+            
+            tempList = removeDuplicatedElements(tempList)
+            
+            if len(listaTempoDocente) != 0:
+                #listaTemp = search_docente(finalkeyword,allDocentes, listaDocentes)
+                #listaDocentes.append(item for item in listaTemp)
+                listaDocentes += tempList
+      
+               
+                    
+       
+    elif "departamento" in request.GET or request.GET.get("actualState") == "departamento":
+        keyword = request.GET.get("departamento")
+        actualState = "actualState=departamento&departamento=" + keyword
+        letter = unicodedata.normalize('NFKD', keyword.lower()).encode('ASCII', 'ignore')
+       
+          
+        for docente in allDocentes:
+              
+            departamento_id = docente.departamento_id
+            departamentoNome = Departamento.objects.get(id__exact=departamento_id).nome
+            
+            departamentoNome_final = unicodedata.normalize('NFKD', departamentoNome.lower()).encode('ASCII', 'ignore')
+   
+            exlcusividade = ""
+                
+            if docente.regime_exclusividade is True:
+                exlcusividade = "Sim"
+                pass
+            else:
+                exlcusividade = "Não"
+                pass
+   
+            if departamentoNome_final == letter:
+                
+                id_Docente = docente.id
+                try:
+                    contrato = Contrato.objects.get(docente__id=id_Docente)
+                    contract_end = contrato.data_fim.strftime("%d/%m/%Y")
+                        #print contrato.categoria.id
+                    nomeCategoria = Categoria.objects.get(id__exact = contrato.categoria.id)
+                except ObjectDoesNotExist:
+                    nomeCategoria = "Sem Categoria"
+                    
+                listaDocentes.append([docente.nome_completo, departamentoNome, id_Docente, nomeCategoria,  regime_exlusividade(docente), contract_end])
+        pass
+    
+    elif "category" in request.GET or request.GET.get("actualState") == "category":
+        keyword = request.GET.get("category")
+        actualState = "actualState=category&category=" + keyword
+        letter = unicodedata.normalize('NFKD', keyword.lower()).encode('ASCII', 'ignore')
+       
+         
+        for docente in allDocentes:
+              
+            departamento_id = docente.departamento_id
+            departamentoNome = Departamento.objects.get(id__exact=departamento_id).nome
+            
+           
+            exlcusividade = ""
+                
+            if docente.regime_exclusividade is True:
+                exlcusividade = "Sim"
+                pass
+            else:
+                exlcusividade = "Não"
+                pass
+            
+                
+            id_Docente = docente.id
+            try:
+                contrato = Contrato.objects.get(docente__id=id_Docente)
+                contract_end = contrato.data_fim.strftime("%d/%m/%Y")
+                    #print contrato.categoria.id
+                nomeCategoria = Categoria.objects.get(id__exact = contrato.categoria.id).nome
+                
+            except ObjectDoesNotExist:
+                nomeCategoria = u'Sem Categoria'
+            
+            nomeCategoria_final = unicodedata.normalize('NFKD', nomeCategoria.lower()).encode('ASCII', 'ignore')
+                    
+            if nomeCategoria_final == letter:
+                    
+                listaDocentes.append([docente.nome_completo, departamentoNome, id_Docente, nomeCategoria,  regime_exlusividade(docente), contract_end])
+        pass
+        
+        
+    elif "letra" in request.GET or request.GET.get("actualState") == "letra":
+        
+        keyword = request.GET.get("letra")
+        actualState = "actualState=letra&letra=" + keyword
+        letter = unicodedata.normalize('NFKD', keyword.lower()).encode('ASCII', 'ignore')
+        
+          
+        for docente in allDocentes:
+                
+            nomeDocente = unicodedata.normalize('NFKD', docente.nome_completo.lower()).encode('ASCII', 'ignore')
+            if nomeDocente.startswith(letter):
+              
+                departamento_id = docente.departamento_id
+                departamentoNome = Departamento.objects.get(id__exact=departamento_id).nome
+                id_Docente = docente.id
+                
+                exlcusividade = ""
+                
+                if docente.regime_exclusividade is True:
+                    exlcusividade = "Sim"
+                    pass
+                else:
+                    exlcusividade = "Não"
+                    pass
+                
+                contrato = Contrato.objects.get(docente__id=id_Docente)
+                contract_end = contrato.data_fim.strftime("%d/%m/%Y")
+                
+                try:
+                    
+                        #print contrato.categoria.id
+                    nomeCategoria = Categoria.objects.get(id__exact = contrato.categoria.id)
+                except ObjectDoesNotExist:
+                    nomeCategoria = u'Sem Categoria'
+                    
+                listaDocentes.append([docente.nome_completo, departamentoNome, id_Docente, nomeCategoria,  regime_exlusividade(docente), contract_end])
+        
+        pass
+    elif 'show' in request.GET or request.GET == {} or request.GET.get("actualState") == "show":
+        actualState = "actualState=show"
+        for docente in allDocentes:
+                
+                departamento_id = docente.departamento_id
+                departamentoNome = Departamento.objects.get(id__exact=departamento_id).nome
+                id_Docente = docente.id
+                
+                exlcusividade = ""
+                
+                if docente.regime_exclusividade is True:
+                    exlcusividade = "Sim"
+                    pass
+                else:
+                    exlcusividade = "Não"
+                    pass
+                    
+                
+                
+                try:
+                    
+                    contrato = Contrato.objects.get(docente__id=id_Docente)
+                    contract_end = contrato.data_fim.strftime("%d/%m/%Y")
+                        #print contrato.categoria.id
+                    nomeCategoria = Categoria.objects.get(id__exact = contrato.categoria.id)
+                except ObjectDoesNotExist:
+                    nomeCategoria = u'Sem Categoria'
+                
+                
+                listaDocentes.append([docente.nome_completo, departamentoNome, id_Docente, nomeCategoria, regime_exlusividade(docente), contract_end])
+        pass
+    
+        
+        
+        
+        
+    
+    paginator = Paginator(listaDocentes, 10)
+    drange = range( 1, paginator.num_pages + 1)
+    
+    
+    page = request.GET.get('page')
+     
+    try:
+        docentes = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        docentes = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        docentes = paginator.page(paginator.num_pages)
+        
+    return render_to_response("recursosHumanos/listDocenteEdit.html",
+        locals(),
+        context_instance=RequestContext(request),
+        )
+    pass
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 def removeDuplicatedElements(dataList):
     
     templist = dataList
@@ -949,9 +1216,11 @@ class EditDocenteModelFormPreview(FormPreview):
     preview_template = 'recursosHumanos/pageConfirForm.html'
     form_template = 'recursosHumanos/editDocente.html'
 
+    contador = 0
     def get_context(self, request, form):
         "Context for template rendering."
-        return {'form': form, 'stage_field': self.unused_name('stage'), 'id_docente': self.state['id_docente']}
+        self.contador +=1
+        return {'form': form, 'stage_field': self.unused_name('stage'), 'id_docente': self.state['id_docente'], 'contador':self.contador}
          
     def preview_get(self, request):
         "Displays the form"
@@ -960,6 +1229,7 @@ class EditDocenteModelFormPreview(FormPreview):
         id_docente = self.state['id_docente']
         b = Docente.objects.get(id=id_docente)
         form = EditarDocenteForm(instance=b)
+        
         return render_to_response(self.form_template,
             locals(),
             context_instance=RequestContext(request))
@@ -1009,7 +1279,17 @@ class EditDocenteModelFormPreview(FormPreview):
         self.id_docente =  kwargs['id_docente']
         pass
     '''
-    
+    '''
+    def process_preview(self, request, form, context):
+        """
+        Given a validated form, performs any extra processing before displaying
+        the preview page, and saves any extra data in context.
+        """
+        
+        self.contador +=1
+        print "contador = ", self.contador
+        pass
+    '''
     def parse_params(self, *args, **kwargs):
         """Handle captured args/kwargs from the URLconf"""
         # get the selected HI test
@@ -1021,7 +1301,6 @@ class EditDocenteModelFormPreview(FormPreview):
     def done(self, request, cleaned_data):
         teste = "eddit"
         id_docente = self.state['id_docente']
-        
         p = get_object_or_404(Docente, pk=id_docente)
         if request.method == 'POST':
             b = Docente.objects.get(id=id_docente)
@@ -1051,7 +1330,8 @@ class EditDocenteModelFormPreview(FormPreview):
                     p.regime_exclusividade = regimeExclusividade
                     pass
                 
-                p.save()   
+                p.save()
+                self.contador = 0
                 #return HttpResponseRedirect('/thanks/') # Redirect after POST
         else:
             
