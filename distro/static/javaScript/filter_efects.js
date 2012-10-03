@@ -1,6 +1,23 @@
 /**
  * @author xama
  */
+var count = 0;
+
+function testeSearch() {
+
+	
+
+	if (count == 0) {
+		alert("mudei");
+		count = 1;
+
+	} else 
+	{
+		
+	}
+
+}
+
 function teste_1() {
 
 	require(["dojo/request", "dojo/on", "dojo/dom", "dojo/domReady!"], function(request, on, dom) {
@@ -10,7 +27,7 @@ function teste_1() {
 		// Attach the onclick event handler to the textButton
 		on(b, "click", function(evt) {
 
-			request.post("ajax").then(function(response) {
+			request.get("ajax").then(function(response) {
 				alert(response);
 
 			}, function(error) {
@@ -202,7 +219,7 @@ function date_function() {
 				wipeTarget_5.style.display = "block";
 			}
 		});
-		
+
 		//Data de inicio
 
 		var wipeInButton_6 = dom.byId("end_date_button"), wipeTarget_6 = dom.byId("end_date");
@@ -235,32 +252,32 @@ function date_function() {
 
 /***************************/
 /*
-function start_date_filter() {
+ function start_date_filter() {
 
-	require(["dojo/on", "dojo/dom", "dojo/dom-form", "dojo/request", "dojo/domReady!"], function(on, dom, domForm, request) {
+ require(["dojo/on", "dojo/dom", "dojo/dom-form", "dojo/request", "dojo/domReady!"], function(on, dom, domForm, request) {
 
-		var sumbitDateStart = dom.byId("submitStartDate"), content = dom.byId("form_start_date");
+ var sumbitDateStart = dom.byId("submitStartDate"), content = dom.byId("form_start_date");
 
-		on(sumbitDateStart, "click", function(evt) {
+ on(sumbitDateStart, "click", function(evt) {
 
-			request.get("filter_date_start", {
+ request.get("filter_date_start", {
 
-				data : {
-					color : "blue",
-					answer : 42
-				},
-				headers : {
-					ola : "A value"
-				},
-				//query: domForm.toObject("form_start_date")
+ data : {
+ color : "blue",
+ answer : 42
+ },
+ headers : {
+ ola : "A value"
+ },
+ //query: domForm.toObject("form_start_date")
 
-			}).then(function(response) {
-				alert("ola")
+ }).then(function(response) {
+ alert("ola")
 
-			});
+ });
 
-		});
+ });
 
-	});
+ });
 
-}*/
+ }*/

@@ -328,15 +328,17 @@ def listDocente_RecursosHumanos(request):
                     exlcusividade = "Não"
                     pass
                 
-                contrato = Contrato.objects.get(docente__id=id_Docente)
-                contract_end = contrato.data_fim.strftime("%d/%m/%Y")
+             
                 
                 try:
                     
+                    contrato = Contrato.objects.get(docente__id=id_Docente)
+                    contract_end = contrato.data_fim.strftime("%d/%m/%Y")
                         #print contrato.categoria.id
                     nomeCategoria = Categoria.objects.get(id__exact = contrato.categoria.id)
                 except ObjectDoesNotExist:
                     nomeCategoria = u'Sem Categoria'
+                    contract_end = u'---'
                     
                 listaDocentes.append([docente.nome_completo, departamentoNome, id_Docente, nomeCategoria,  regime_exlusividade(docente), contract_end])
         
@@ -566,15 +568,17 @@ def listDocenteEdit_RecursosHumanos(request):
                     exlcusividade = "Não"
                     pass
                 
-                contrato = Contrato.objects.get(docente__id=id_Docente)
-                contract_end = contrato.data_fim.strftime("%d/%m/%Y")
+                
                 
                 try:
+                    contrato = Contrato.objects.get(docente__id=id_Docente)
+                    contract_end = contrato.data_fim.strftime("%d/%m/%Y")
                     
                         #print contrato.categoria.id
                     nomeCategoria = Categoria.objects.get(id__exact = contrato.categoria.id)
                 except ObjectDoesNotExist:
                     nomeCategoria = u'Sem Categoria'
+                    contract_end = u'---'
                     
                 listaDocentes.append([docente.nome_completo, departamentoNome, id_Docente, nomeCategoria,  regime_exlusividade(docente), contract_end])
         
@@ -766,7 +770,46 @@ def search_depertamento(search_word, allDocentes, isListContracts):
     return lista                 
     pass
 
-
+def search_category(search_word, allDocentes, isListContracts):
+    
+    lista = []
+    id_Docente = 0
+    departamentoNome = ""
+    contract_end = None;
+    departamento_id = 0
+    
+    for docente in allDocentes:
+                
+                nomeDocente = unicodedata.normalize('NFKD', docente.nome_completo.lower()).encode('ASCII', 'ignore')
+                
+                departamento_id = docente.departamento_id
+                departamentoNome = Departamento.objects.get(id__exact=departamento_id).nome
+                id_Docente = docente.id
+                    
+                 
+                
+                try:
+                    contrato = Contrato.objects.get(docente__id=id_Docente)
+                    contract_start = contrato.data_inicio.strftime("%d-%m-%Y")
+                    contract_end = contrato.data_fim.strftime("%d-%m-%Y")
+                    contract_type = TipoContrato.objects.get(id__exact = contrato.tipo_contrato_id)
+                    percent = contrato.percentagem 
+                        #print contrato.categoria.id
+                    nomeCategoria = Categoria.objects.get(id__exact = contrato.categoria.id)
+                except ObjectDoesNotExist:
+                        nomeCategoria = "Sem Categoria"
+                        
+                if nomeDocente.find(search_word) != -1:
+                    
+                    
+                    if isListContracts == 0:
+                    
+                        lista.append([docente.nome_completo, departamentoNome, id_Docente,  nomeCategoria, regime_exlusividade(docente), contract_end])
+                    elif isListContracts == 1:
+                        lista.append([docente.nome_completo, nomeCategoria, id_Docente, contract_type, percent, contract_start, contract_end])
+    
+    return lista                
+    pass
     
 @login_required(redirect_field_name='Teste_home')
 def listContracts_RecursosHumanos(request):
