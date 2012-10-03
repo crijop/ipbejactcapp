@@ -25,7 +25,11 @@ Inicio das vistas dos Recursos Humanos
 
 
 ''' 
-
+'''
+Metodo reposavel por ratar o pediodo AJAX de aparecimento do filtro de ordenação por
+uma letra do alfabeto
+presente na lista de docentes e lista de contratos
+'''
 def filter_abc(request):
 
     if request.is_ajax():
@@ -37,6 +41,9 @@ def filter_abc(request):
         context_instance=RequestContext(request),
         )
         
+'''
+Responsavel por tratar o pedido ajax para o aparecimento da filtragem por departamentos
+'''        
 def filter_dep(request):
 
     if request.is_ajax():
@@ -47,7 +54,9 @@ def filter_dep(request):
         locals(),
         context_instance=RequestContext(request),
         )
-
+'''
+Responsavel por tratar o pedido ajax para o aparecimento da filtragem por categorias
+'''
 def filter_cat(request):
 
     if request.is_ajax():
@@ -93,7 +102,10 @@ def ajax(request):
         
 
 
-
+'''
+Tarta da pagina de index dos recursos humanos onde são apresentadas algumas estatisticas
+como por exemplo a numero de contratos a terminar nos proximos 60 ou 120 dias
+'''
 @login_required(redirect_field_name='Teste_home')
 def indexRecursosHumanos(request):
     allDocentes = Docente.objects.all()
@@ -204,9 +216,8 @@ def listDocente_RecursosHumanos(request):
             listaTempoDep = search_depertamento(finalkeyword,allDocentes, 0)
             
             tempList = listaTempoDocente + listaTempoDep
-            tempList.sort()
             
-            tempList = list(tempList)
+            tempList = removeDuplicatedElements(tempList)
             
             if len(listaTempoDocente) != 0:
                 #listaTemp = search_docente(finalkeyword,allDocentes, listaDocentes)
@@ -388,7 +399,24 @@ def listDocente_RecursosHumanos(request):
         )
     pass
 
-
+def removeDuplicatedElements(dataList):
+    
+    templist = dataList
+    
+    if len(templist) != 0:
+        
+        templist.sort()
+        last = templist[-1]
+        
+        for i in range(len(templist)-2, -1, -1):
+            if last == templist[i]:
+           
+                del templist[i]
+            else:
+                last = templist[i]
+    
+    return templist
+    
 def regime_exlusividade(docente):
     exlcusividade = ""
     if docente.regime_exclusividade is True:
@@ -447,8 +475,8 @@ def search_depertamento(search_word, allDocentes, isListContracts):
                 departamento_id = docente.departamento_id
                 departamentoNome = Departamento.objects.get(id__exact=departamento_id).nome
                 
-                departamentoNome = unicodedata.normalize('NFKD', departamentoNome.lower()).encode('ASCII', 'ignore')
-                if departamentoNome.find(search_word) != -1:
+                departamentoNomeFinal = unicodedata.normalize('NFKD', departamentoNome.lower()).encode('ASCII', 'ignore')
+                if departamentoNomeFinal.find(search_word) != -1:
                     
                     
                     id_Docente = docente.id

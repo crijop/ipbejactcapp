@@ -178,7 +178,7 @@ function date_function() {
 
 		//Data de inicio
 
-		var wipeOutButton_5 = dom.byId("start_date_button"), wipeInButton_5 = dom.byId("start_date_button"), wipeTarget_5 = dom.byId("start_date");
+		var wipeInButton_5 = dom.byId("start_date_button"), wipeTarget_5 = dom.byId("start_date");
 		//esconder a div
 
 		on(wipeInButton_5, "click", function(evt) {
@@ -205,7 +205,7 @@ function date_function() {
 		
 		//Data de inicio
 
-		var wipeOutButton_6 = dom.byId("end_date_button"), wipeInButton_6 = dom.byId("end_date_button"), wipeTarget_6 = dom.byId("end_date");
+		var wipeInButton_6 = dom.byId("end_date_button"), wipeTarget_6 = dom.byId("end_date");
 		//esconder a div
 
 		on(wipeInButton_6, "click", function(evt) {
