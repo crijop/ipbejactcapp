@@ -214,12 +214,14 @@ def listDocente_RecursosHumanos(request):
             finalkeyword = unicodedata.normalize('NFKD', keyword.lower()).encode('ASCII', 'ignore')
             listaTempoDocente = search_docente(finalkeyword,allDocentes, 0)
             listaTempoDep = search_depertamento(finalkeyword,allDocentes, 0)
+            listaTempoCat = search_category(finalkeyword, allDocentes, 0)
             
-            tempList = listaTempoDocente + listaTempoDep
+            tempList = listaTempoDocente + listaTempoDep + listaTempoCat
+        
             
             tempList = removeDuplicatedElements(tempList)
             
-            if len(listaTempoDocente) != 0:
+            if len(tempList) != 0:
                 #listaTemp = search_docente(finalkeyword,allDocentes, listaDocentes)
                 #listaDocentes.append(item for item in listaTemp)
                 listaDocentes += tempList
@@ -454,12 +456,13 @@ def listDocenteEdit_RecursosHumanos(request):
             finalkeyword = unicodedata.normalize('NFKD', keyword.lower()).encode('ASCII', 'ignore')
             listaTempoDocente = search_docente(finalkeyword,allDocentes, 0)
             listaTempoDep = search_depertamento(finalkeyword,allDocentes, 0)
+            listaTempoCat = search_category(finalkeyword, allDocentes, 0)
             
-            tempList = listaTempoDocente + listaTempoDep
+            tempList = listaTempoDocente + listaTempoDep + listaTempoCat
             
             tempList = removeDuplicatedElements(tempList)
             
-            if len(listaTempoDocente) != 0:
+            if len(tempList) != 0:
                 #listaTemp = search_docente(finalkeyword,allDocentes, listaDocentes)
                 #listaDocentes.append(item for item in listaTemp)
                 listaDocentes += tempList
@@ -682,10 +685,13 @@ def removeDuplicatedElements(dataList):
         for i in range(len(templist)-2, -1, -1):
             if last == templist[i]:
            
+                
                 del templist[i]
             else:
+                
                 last = templist[i]
     
+
     return templist
     
 def regime_exlusividade(docente):
@@ -780,7 +786,7 @@ def search_category(search_word, allDocentes, isListContracts):
     
     for docente in allDocentes:
                 
-                nomeDocente = unicodedata.normalize('NFKD', docente.nome_completo.lower()).encode('ASCII', 'ignore')
+               
                 
                 departamento_id = docente.departamento_id
                 departamentoNome = Departamento.objects.get(id__exact=departamento_id).nome
@@ -795,14 +801,21 @@ def search_category(search_word, allDocentes, isListContracts):
                     contract_type = TipoContrato.objects.get(id__exact = contrato.tipo_contrato_id)
                     percent = contrato.percentagem 
                         #print contrato.categoria.id
-                    nomeCategoria = Categoria.objects.get(id__exact = contrato.categoria.id)
+                    nomeCategoria = Categoria.objects.get(id__exact = contrato.categoria.id).nome
                 except ObjectDoesNotExist:
-                        nomeCategoria = "Sem Categoria"
+                        nomeCategoria = u"Sem Categoria"
+                
+                
+                nomeCategoriaFinal = unicodedata.normalize('NFKD', nomeCategoria.lower()).encode('ASCII', 'ignore')
+                
+                
                         
-                if nomeDocente.find(search_word) != -1:
+                if nomeCategoriaFinal.find(search_word) != -1:
+                    
                     
                     
                     if isListContracts == 0:
+                        
                     
                         lista.append([docente.nome_completo, departamentoNome, id_Docente,  nomeCategoria, regime_exlusividade(docente), contract_end])
                     elif isListContracts == 1:
@@ -852,13 +865,14 @@ def listContracts_RecursosHumanos(request):
             finalkeyword = unicodedata.normalize('NFKD', keyword.lower()).encode('ASCII', 'ignore')
             listaTempoDocente = search_docente(finalkeyword,allDocentes, 1)
             listaTempoDep = search_depertamento(finalkeyword,allDocentes, 1)
+            listaTempoCat = search_category(finalkeyword, allDocentes, 1)
             
-            tempList = listaTempoDocente + listaTempoDep
+            tempList = listaTempoDocente + listaTempoDep + listaTempoCat
             tempList.sort()
             
             tempList = list(tempList)
             
-            if len(listaTempoDocente) != 0:
+            if len(tempList) != 0:
                 #listaTemp = search_docente(finalkeyword,allDocentes, listaDocentes)
                 #listaDocentes.append(item for item in listaTemp)
                 listaContracts += tempList

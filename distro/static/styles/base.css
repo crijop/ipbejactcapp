@@ -279,13 +279,19 @@ table#tabela_sumario {
 	color: #666;
 }
 
-#tabela_sumario tbody span.view::before {
+span.view::before {
 	content: url("/static/images/icons/eye.png")
 }
 
-#tabela_sumario tbody span.edit::before {
+span.edit::before {
 	content: url("/static/images/icons/pencil.png")
 }
+
+span.exit_small::before {
+	content: url("/static/images/icons/SMALL/exit.png")
+}
+
+
 
 #tabela_sumario a {
 	color: rgb(63, 72, 204);
