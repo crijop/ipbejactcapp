@@ -1194,13 +1194,19 @@ def indexRH_EditarDocente(request, id_docente):
     pass
 
 
-
-
-
-
 @login_required(redirect_field_name='Teste_home')
 def addDocenteRH(request):
     return AddDocenteModelFormPreview(AdicionarDocenteForm)
+    pass
+
+#ajuda
+@login_required(redirect_field_name='Teste_home')
+def ajudaRH(request, nr_video):
+    
+    return render_to_response("recursosHumanos/ajuda.html",
+        locals(),
+        context_instance=RequestContext(request),
+        )
     pass
 
 
@@ -1209,7 +1215,7 @@ class AddDocenteModelFormPreview(FormPreview):
     form_template = 'recursosHumanos/addDocente.html'
     def done(self, request, cleaned_data):
         a = 0
-        teste = "add"
+        estado = "add"
         
         if request.method == 'POST':
             form = AdicionarDocenteForm(request.POST)
@@ -1258,12 +1264,20 @@ class EditDocenteModelFormPreview(FormPreview):
     id_docente = 0
     preview_template = 'recursosHumanos/pageConfirForm.html'
     form_template = 'recursosHumanos/editDocente.html'
-
+    #a variavel estado informa a page de confirmação 
+    #se está a editar os dados ou adicionar.
+    estado = "Editar"
     contador = 0
     def get_context(self, request, form):
         "Context for template rendering."
         self.contador +=1
-        return {'form': form, 'stage_field': self.unused_name('stage'), 'id_docente': self.state['id_docente'], 'contador':self.contador}
+        return {
+                'form': form,
+                'stage_field': self.unused_name('stage'),
+                'id_docente': self.state['id_docente'],
+                'contador': self.contador,
+                'estado' : self.estado
+                }
          
     def preview_get(self, request):
         "Displays the form"
@@ -1342,7 +1356,7 @@ class EditDocenteModelFormPreview(FormPreview):
             raise Http404("Invalid")
         
     def done(self, request, cleaned_data):
-        teste = "eddit"
+        estado = "eddit"
         id_docente = self.state['id_docente']
         p = get_object_or_404(Docente, pk=id_docente)
         if request.method == 'POST':

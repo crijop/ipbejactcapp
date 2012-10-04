@@ -3,8 +3,11 @@
 {% block title %} Recursos Humanos - Contratos {% endblock %}
 {% block breadcrumb %}
 <ul id="breadcrumb">
-	<!--<li><a href="{% url home %}" title="Home"><img src="../static/images/BreadCrumbs/home.gif" alt="Home" class="home" /></a></li>-->
-	<li><img src="/static/images/BreadCrumbs/home.gif" alt="{% trans 'Home' %}" class="home" />
+	<li>
+		<a tabindex="2" href="{% url homeRecursosHumanos %}" title="{% trans 'Home' %}"> <img src="/static/images/BreadCrumbs/home.gif" alt="{% trans 'Home' %}" class="home" /> </a>
+	</li>
+	<li>
+		Listar Contratos
 	</li>
 </ul>
 {% endblock %}
@@ -153,7 +156,10 @@
 {% block content %}
 <table id="tabela_sumario">
 	<tr>
-		<th colspan="6" id="top_sumario" class="cabecalho_sumario"> {% csrf_token %}
+		<th colspan="6" class="top_sumario" >Listar Contratos</th>
+	</tr>
+	<tr>
+		<th colspan="6" class="top_sumario"> {% csrf_token %}
 		<form action="" method="get" name="searchForm">
 			<img src="/static/images/selector-search.gif" title="search" alt="searchIcon" />
 			<input name="searchField" id="searchField" type="search" value="{{keyword}}" />

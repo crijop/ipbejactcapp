@@ -6,13 +6,13 @@
 {% block breadcrumb %}
 <ul id="breadcrumb">
         <li>
-                <a tabindex="2" href="{% url homeRecursosHumanos %}" title="{% trans 'Home' %}"> <img src="/static/images/BreadCrumbs/home.gif" alt="{% trans 'Home' %}" class="home" /> </a>
+        	<a tabindex="2" href="{% url homeRecursosHumanos %}" title="{% trans 'Home' %}"> <img src="/static/images/BreadCrumbs/home.gif" alt="{% trans 'Home' %}" class="home" /> </a>
         </li>
         <li>
-                <a href="{% url listDocente %}" title="Informação do Docente">Lista de Docentes</a>
+        	<a href="{% url listDocente %}" title="Informação do Docente">Listar Docentes</a>
         </li>
         <li>
-                Informação do Docente
+        	Informação do Docente
         </li>
 </ul>
 {% endblock %}
@@ -21,7 +21,7 @@
 {% block content %}
         <table id="tabela_sumario">
                 <tr>
-                        <th colspan="2" id="top_sumario" class="cabecalho_sumario">Informação Docente</th>
+                        <th colspan="2" class="top_sumario">Informação Docente</th>
                 </tr>
                 <tr>
                         <th class="sub_cabecalho"><span>Nome Completo</span></th>

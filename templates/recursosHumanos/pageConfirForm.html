@@ -7,19 +7,30 @@
 	<li>
 		<a tabindex="2" href="{% url homeRecursosHumanos %}" title="{% trans 'Home' %}"> <img src="/static/images/BreadCrumbs/home.gif" alt="{% trans 'Home' %}" class="home" /> </a>
 	</li>
-	<li>
-		<a tabindex="3" href="{% url adicionarDocenteRH %}" title="Adicionar Docente">Adicionar Docente</a>
-	</li>
+	{% if estado = "Editar" %}
+		<li>
+			<a tabindex="3" href="{% url listDocenteEdit %}" title="Lista Docentes a editar">Listar docentes a Editar</a>
+		</li>
+		<li>
+			<a tabindex="4" href="{% url RH_EditarDocente id_docente%}" title="Docente a editar">Docentes a Editar</a>
+		</li>
+	{% else %}
+		<li>
+			<a tabindex="3" href="{% url adicionarDocenteRH %}" title="Adicionar Docente">Adicionar Docente</a>
+		</li>
+	{%endif%}
 	<li>
 		Confirmação dados do Docente
 	</li>
 </ul>
+
+
 {% endblock %}
 
 {% block content %}
 	<table id="tabela_sumario">
 	    <tr>
-	    	<th colspan="2" id="top_sumario" class="cabecalho_sumario">Confirmação de dados do docente {{contador}}
+	    	<th colspan="2" class="top_sumario">Confirmação de dados do docente {{contador}}
 	    		{{self.process_preview}}{{context}}</th>
 	    </tr>
 	</table>
