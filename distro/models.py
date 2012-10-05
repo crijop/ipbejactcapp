@@ -289,6 +289,27 @@ class Docente(models.Model):
         return unicode(self.nome_completo)
     pass
 
+
+
+class DocenteLogs(models.Model):
+                                         
+    docente      = models.ForeignKey('Docente')
+
+    # escalao de vencimento do docente
+    id_user           = models.IntegerField(default=100, 
+                                            blank=True,
+                                            null=True,
+                                            help_text=u"identificação User")
+    
+    data_modificacao = models.DateTimeField(auto_now=True)
+
+
+    def __unicode__(self):
+        return unicode(self.docente)
+    pass
+
+
+
 class Contrato(models.Model):
     '''
     contrato realizado com um docente
