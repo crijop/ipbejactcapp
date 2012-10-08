@@ -1,0 +1,85 @@
+{% extends "base1.html" %}
+{% load i18n %}
+{% block title %} Página Inícial Recursos Humanos {% endblock %}
+{% block breadcrumb %}
+<ul id="breadcrumb">
+	<!--<li><a href="{% url home %}" title="Home"><img src="../static/images/BreadCrumbs/home.gif" alt="Home" class="home" /></a></li>-->
+	<li><img src="/static/images/BreadCrumbs/home.gif" alt="{% trans 'Home' %}" class="home" />
+	</li>
+</ul>
+{% endblock %}
+
+{% block Menus %}
+<ul>
+
+	<li class='active '>
+		<a tabindex="3" href='/Teste_home'><span>Informação</span></a>
+	</li>
+	<li>
+		<a tabindex="4" href='{%url adicionarDocenteRH%}'><span>Adicionar Docente</span></a>
+	
+	</li>
+	<li>
+		<a tabindex="5" href='{%url listDocenteEdit %}'><span>Editar Docentes</span></a>
+	</li>
+	<li>
+		<a tabindex="6" href='{%url listDocente %}'><span>Listar Docentes</span></a>
+	</li>
+	<li>
+		<a href='{%url listContratos %}' ><span>Listar Contratos</span></a>
+	</li>
+	
+	
+	<li class='has-sub_lateral'>
+		<a tabindex="5" href='#'><span>Ajuda</span></a>
+			<ul>
+				<li>
+					<a href='{% url ajudaRH 1 %}'><span>Como Adicionar Docente</span></a>
+				</li>
+				<li>
+					<a href='#'><span>Como Editar Docente</span></a>
+				</li>
+				<li>
+					<a href='#'><span>Como Adicionar Docente</span></a>
+				</li>
+				<li>
+					<a href='#'><span>Como Adicionar Docente</span></a>
+				</li>
+			</ul>
+	</li>
+</ul>
+{% endblock %}
+{% block content %}
+	<table id="tabela_sumario">
+	    <tr>
+	            <th colspan="2"  class="top_sumario">Estatística</th>
+	    </tr>
+	    <tr>
+	    	<th colspan="2" align="left">{{dateActualFormatPrint}}</th>
+	    </tr>
+	    <tr>
+		<tr>
+			<th colspan="2" class="cabecalho_sumario">Contratos a Terminar</th>
+		</tr>
+		<tr>
+			<th class="sub_cabecalho"><span>Próximos Dois Meses (Contratos a Termo Certo)</span></th>
+			<td>
+				<a href='{% url listContratos %}?date={{dateActualSTR}}&number_increment={{twoMonths}}&type=ct&data_fim_especial=True'>
+					<span>
+						{{nrDocentesEndContractTwoMonths}}
+					</span>
+				</a>
+			</td>
+		</tr>
+		<tr>
+			<th class="sub_cabecalho" ><span>Próximos Quatro Meses (Contratos Sem Termo)</span></th>
+			<td>
+				<a href='{% url listContratos %}?date={{dateActualSTR}}&number_increment={{fourMonths}}&type=st&data_fim_especial=True'>
+					<span>
+						{{nrDocentesEndContractFourMonths}}
+					</span>
+				</a>
+			</td>
+		</tr>
+    </table>
+{% endblock %}

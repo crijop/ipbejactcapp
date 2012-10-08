@@ -1,0 +1,57 @@
+{% extends "recursosHumanos/index.html" %}
+{% load i18n %}
+{% block title %} Página Inícial Recursos Humanos {% endblock %}
+
+{% block breadcrumb %}
+<ul id="breadcrumb">
+	<li>
+		<a tabindex="2" href="{% url homeRecursosHumanos %}" title="{% trans 'Home' %}"> <img src="/static/images/BreadCrumbs/home.gif" alt="{% trans 'Home' %}" class="home" /> </a>
+	</li>
+	<li>
+		<a href="{% url listDocenteEdit %}" title="Lista de docentes a Editar">Listar docentes a Editar</a>
+	</li>
+	<li>
+		Editar Docente
+	</li>
+</ul>
+{% endblock %}
+
+{% block content %}
+	<table id="tabela_sumario">
+	    <tr>
+	            <th colspan="2" class="top_sumario">Editar Docente</th>
+	    </tr>
+    </table>
+    <div id="contentForm">
+		<form method="post">
+			{% csrf_token %}
+			{% for field in form %}
+		        <div class ="{% cycle 'row1' 'row2' %}">
+		            {{ field.label_tag }}: {{ field }}
+		            {% if field.field.required %}
+			        	<span>(*)</span>
+			        {%endif%} 
+		           {% for error in field.errors %} 
+	            		<span class="errorField">{{error}}</span>
+		            {% endfor %}
+		            
+		            
+		        </div>
+	    	{% endfor %}
+	    <br />
+	    <div class="editionLog">
+	    {% if infoEdicao == 0 %}
+	    <span  >Ultima edição por {{userName}} a {{modificacao.data_modificacao}}</span>
+	   	{% else %}
+	   	<span  >O Docente ainda não foi alterado</span>
+	   	{% endif %}
+	   	</div>
+	    <br />
+	    <span id="CamposObirgatorio">(*) - Campos de preenchimento obrigatório</span>
+			<div id="buttonConfirm">
+				<input type="hidden" name="{{ stage_field }}" value="1" />
+				<input type="submit" value="Gravar" />
+			</div>
+		</form>
+	</div>
+{% endblock %}

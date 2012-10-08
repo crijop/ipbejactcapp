@@ -1,0 +1,25 @@
+- model: distro.tipocurso
+  pk: 1
+  fields:
+    nome: primeiro ciclo
+    abreviatura: 1C
+- model: distro.tipocurso
+  pk: 2
+  fields:
+    nome: segundo ciclo
+    abreviatura: 2C
+- model: distro.tipocurso
+  pk: 3
+  fields:
+    nome: pós-graduação
+    abreviatura: PG
+- model: distro.tipocurso
+  pk: 4
+  fields:
+    nome: cursos de extensão tecnológica
+    abreviatura: CET
+- model: distro.tipocurso
+  pk: 5
+  fields:
+    nome: Português Língua Estrangeira
+    abreviatura: PLE

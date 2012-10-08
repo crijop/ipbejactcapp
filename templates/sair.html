@@ -1,0 +1,8 @@
+{% extends "base1.html" %}
+{% load i18n %}
+{% block title %} Sair {% endblock %}
+
+{% block content %}
+	<h3>Obrigado pela visita</h3>
+    <p><a href="{% url entrar %}">{% trans 'Log in again' %}</a></p>
+{% endblock %}

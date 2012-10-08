@@ -1,0 +1,34 @@
+{% extends "docentes/index.html" %}
+{% load i18n %}
+{% block title %} Página Horas de Serviço do Docente {% endblock %}
+{% block breadcrumb %}
+<ul id="breadcrumb">
+	<li>
+		<a tabindex="2" href="{% url homeDocente %}" title="{% trans 'Home' %}"> <img src="/static/images/BreadCrumbs/home.gif" alt="{% trans 'Home' %}" class="home" /> </a>
+	</li>
+	<li>
+		Horas de serviço do Docente
+	</li>
+</ul>
+{% endblock %}
+
+{% block content %}
+<table id="tabela_sumario">
+	<tr>
+		<th colspan="3" id="top_sumario" class="cabecalho_sumario">Horas de Serviço</th>
+	</tr>
+	<tr>
+		<th class="cabecalho_sumario">Curso</th>
+		<th class="cabecalho_sumario">Turma</th>
+		<th class="cabecalho_sumario">Horas de Serviço</th>
+		
+	</tr>
+	{%for id, turma, horas, curso in lista%}
+	<tr>
+		<td>{{ curso }}</td>
+		<td>{{ turma }}</td>
+		<td class="horas_servico">{{ horas }}</td>
+	</tr>
+	{%endfor%}
+</table>
+{% endblock %}

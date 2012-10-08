@@ -1,0 +1,10 @@
+- model: distro.epoca
+  pk: 1
+  fields:
+    nome: Outono
+    abreviatura: O
+- model: distro.epoca
+  pk: 2
+  fields:
+    nome: Primavera
+    abreviatura: P

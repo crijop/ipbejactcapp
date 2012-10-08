@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="/static/admin/css/base.css" />
+    <!-- load Dojo -->
+    <script src="/static/dojo-release-1.7.3/dojo/dojo.js"
+            data-dojo-config="isDebug: true, async: true">
+    </script>
+        <script>
+      require(["dojo/_base/fx", "dojo/on", "dojo/dom", "dojo/domReady!"], 
+        function(fx, on, dom) {
+          var fadeOutButton = dom.byId("fadeOutButton"),
+              fadeInButton = dom.byId("fadeInButton"),
+              fadeTarget = dom.byId("fadeTarget");
+      
+           on(fadeOutButton, "click", function(evt){
+              fx.fadeOut({ node: fadeTarget }).play();
+           });
+           on(fadeInButton, "click", function(evt){
+              fx.fadeIn({ node: fadeTarget }).play();
+           });
+      });       
+    </script>
+
+    <style>
+      button {
+      -webkit-transition: background-color 0.2s linear;
+      border-radius:4px;
+      -moz-border-radius: 4px 4px 4px 4px;
+      -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+      background-color: #E4F2FF;
+      background-image: url("/static/dojo-release-1.7.3/dijit/themes/claro/form/images/button.png");
+      background-position: center top;
+      background-repeat: repeat-x;
+      border: 1px solid #769DC0;
+      padding: 2px 8px 4px;
+      font-size:1em;
+      }
+      button:hover {
+      background-color: #AFD9FF;
+      color: #000000;
+      }
+      .red-block {
+      width: 200px;
+      height: 300px;
+      background-color: red;
+      margin:2em;
+      text-align:center;
+      }
+      .wipe {
+      font-size: 28px;
+      height: auto;
+      width: auto;
+      }
+      .slide {
+      position: absolute;
+      left: 0px;
+      top: 100px;
+      }
+      .chain {
+      opacity: 0;
+      } 
+    </style>
+
+    <title>{% block title %}{% endblock %}</title>
+  </head>
+  <body>
+    <h1>Sistema de Gestão de Distribuições de Serviço Docente</h1>
+    {% block content %}{% endblock %}
+    {% block footer %}
+    <hr>
+    <p>Obrigado pela visita.</p>
+    {% endblock %}
+  </body>
+</html>

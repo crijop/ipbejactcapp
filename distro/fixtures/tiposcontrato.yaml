@@ -1,0 +1,21 @@
+- model: distro.tipocontrato
+  pk: 1
+  fields:
+    nome: Requisição
+- model: distro.tipocontrato
+  pk: 2
+  fields:
+    nome: Sem Termo
+- model: distro.tipocontrato
+  pk: 3
+  fields:
+    nome: Termo Certo
+- model: distro.tipocontrato
+  pk: 4
+  fields:
+    nome: Nomeação
+- model: distro.tipocontrato
+  pk: 5
+  fields:
+    nome: Preleção
+

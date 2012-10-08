@@ -1,0 +1,13 @@
+{% extends "base1.html" %}
+{% load i18n %}
+{% block title %} Página Inícial {% endblock %}
+
+{% block content %}
+	{% if user.is_active%}
+	    <ul>
+			{% for listaPermissoes in user.get_all_permissions %}
+			    <li>{{ listaPermissoes }}</li>
+			{% endfor %}
+		</ul>
+{% endif %}
+{% endblock %}

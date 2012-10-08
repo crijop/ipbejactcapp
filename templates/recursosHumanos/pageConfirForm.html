@@ -1,0 +1,74 @@
+{% extends "recursosHumanos/index.html" %}
+{% load i18n %}
+{% block title %} Página de Confirmação de adicionar docente {% endblock %}
+
+{% block breadcrumb %}
+<ul id="breadcrumb">
+	<li>
+		<a tabindex="2" href="{% url homeRecursosHumanos %}" title="{% trans 'Home' %}"> <img src="/static/images/BreadCrumbs/home.gif" alt="{% trans 'Home' %}" class="home" /> </a>
+	</li>
+	{% if estado = "Editar" %}
+		<li>
+			<a tabindex="3" href="{% url listDocenteEdit %}" title="Lista Docentes a editar">Listar docentes a Editar</a>
+		</li>
+		<li>
+			<a tabindex="4" href="{% url RH_EditarDocente id_docente%}" title="Docente a editar">Docentes a Editar</a>
+		</li>
+	{% else %}
+		<li>
+			<a tabindex="3" href="{% url adicionarDocenteRH %}" title="Adicionar Docente">Adicionar Docente</a>
+		</li>
+	{%endif%}
+	<li>
+		Confirmação dados do Docente
+	</li>
+</ul>
+
+
+{% endblock %}
+
+{% block content %}
+	<table id="tabela_sumario">
+	    <tr>
+	    	<th colspan="2" class="top_sumario">Confirmação de dados do docente {{contador}}
+	    		{{self.process_preview}}{{context}}</th>
+	    </tr>
+	</table>
+	<!--
+	    {% for field in form %}
+	        <tr>
+	        	<th class="sub_cabecalho"><span>{{ field.label }}:</span></th>
+	        	<td>{{ field.data}}</td>
+	 		</tr>
+		{% endfor %}
+ </table>-->
+    <div id="contentForm">
+		<form method="post">
+			{% csrf_token %}
+			{% for field in form %}
+		        <div class ="{% cycle 'row1' 'row2' %}">
+		            {{ field.label_tag }}: {{ field }}
+		            {% if field.field.required %}
+			        	<span>(*)</span>
+			        {%endif%} 
+		            {% for error in field.errors %} 
+		            	{{error}} 
+		            {% endfor %}
+		        </div>
+	    	{% endfor %}
+	   		<br />
+	    	<span id="CamposObirgatorio">(*) - Campos de preenchimento obrigatório</span>
+		
+			{{t}}
+	
+    		<hr />
+    			<span id = "Confirmacao">Deseja submeter os Dados dos Formulário?</span>
+				<div id="buttonConfirm">
+					<input type="hidden" name="{{ stage_field }}" value="2" />
+					<input type="hidden" name="{{ hash_field }}" value="{{ hash_value }}" />
+					<input type="button" value="{% trans 'Não' %}" onClick="javascript:history.go(-1);">
+					<input type="submit" value="{% trans 'Sim' %}" />
+				</div>
+		</form>
+	</div>
+{% endblock %}

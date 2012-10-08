@@ -1,0 +1,56 @@
+{% extends "recursosHumanos/index.html" %}
+{% load i18n %}
+{% block title %} Página de adicionar docente {% endblock %}
+
+{% block breadcrumb %}
+<ul id="breadcrumb">
+	<li>
+		<a tabindex="2" href="{% url homeRecursosHumanos %}" title="{% trans 'Home' %}"> <img src="/static/images/BreadCrumbs/home.gif" alt="{% trans 'Home' %}" class="home" /> </a>
+	</li>
+	<li>
+		Adicionar Docente
+	</li>
+</ul>
+{% endblock %}
+
+{% block content %}
+
+	<table id="tabela_sumario">
+	    <tr>
+	            <th colspan="2" class="top_sumario">Adicionar Docente</th>
+	    </tr>
+    </table>
+    
+   <div id="contentForm">
+		<form method="post">
+			{% csrf_token %}
+			{% for field in form %}
+		        <div class ="{% cycle 'row1' 'row2' %}">
+		      		{{ field.label_tag }}: {{ field }}
+		      		{% if field.field.required %}
+		        		<span>(*)</span>
+		        	{%endif%}
+		            {% for error in field.errors %} 
+		            	<span class="errorField">{{error}}</span> 
+		            {% endfor %}
+		        </div>
+	    	{% endfor %}
+	    <br />
+	   	<span id="CamposObirgatorio">(*) - Campos de preenchimento obrigatório</span>
+		<div id="buttonConfirm">
+			<input type="hidden" name="{{ stage_field }}" value="1" />
+			<input type="submit" value="Adicionar Docente" />
+		</div>
+		</form>
+	</div>
+    
+    
+	<!--<table>
+		{% for field in form %}
+	        <tr><th align="left">{{ field.label_tag }}:</th> <th align="left">{{ field }} *</th> 
+	        {% for error in field.errors %} 
+	        	<th align="left">{{error}}</th> 
+	        {% endfor %}</tr>	   
+		{% endfor %}
+    </table>-->
+{% endblock %}
