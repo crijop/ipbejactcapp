@@ -8,7 +8,7 @@ Created on 25 de Set de 2012
 from datetime import timedelta, date
 from distro.forms import EditarDocenteForm, AdicionarDocenteForm
 from distro.models import Departamento, Docente, Contrato, Categoria, \
-    TipoContrato
+    TipoContrato, DocenteLogs
 from django.contrib.auth.decorators import login_required
 from django.contrib.formtools.preview import FormPreview
 from django.core.exceptions import ObjectDoesNotExist
@@ -1296,10 +1296,15 @@ class EditDocenteModelFormPreview(FormPreview):
     def preview_get(self, request):
         "Displays the form"
         
-        print "GETTTTTTTTTTTTTTTTTTTTTTTT"
         id_docente = self.state['id_docente']
-        b = Docente.objects.get(id=id_docente)
-        form = EditarDocenteForm(instance=b)
+        docenteEdit = Docente.objects.get(id=id_docente)
+        form = EditarDocenteForm(instance=docenteEdit)
+        
+        try:
+            modificacao = DocenteLogs.objects.get(docente_id = id_docente).data_modificacao
+        except ObjectDoesNotExist:
+            modificacao = "O Docente ainda não foi alterado"
+            print modificacao
         
         return render_to_response(self.form_template,
             locals(),
@@ -1372,7 +1377,7 @@ class EditDocenteModelFormPreview(FormPreview):
     def done(self, request, cleaned_data):
         estado = "eddit"
         id_docente = self.state['id_docente']
-        p = get_object_or_404(Docente, pk=id_docente)
+        d = get_object_or_404(Docente, pk=id_docente)
         if request.method == 'POST':
             b = Docente.objects.get(id=id_docente)
             form = EditarDocenteForm(request.POST, instance=b)
@@ -1383,25 +1388,36 @@ class EditDocenteModelFormPreview(FormPreview):
                 #verdadeiro ou Falso
                 #regime exclusividade igual a verdadeiro
                 if form.cleaned_data['regime_exclusividade']:
-                    p.nome_completo = form.cleaned_data['nome_completo']
-                    p.departamento = form.cleaned_data['departamento']
-                    p.escalao = form.cleaned_data['escalao']
-                    p.email = form.cleaned_data['email']
-                    p.abreviatura = form.cleaned_data['abreviatura']
-                    p.regime_exclusividade = form.cleaned_data['regime_exclusividade']
+                    d.nome_completo = form.cleaned_data['nome_completo']
+                    d.departamento = form.cleaned_data['departamento']
+                    d.escalao = form.cleaned_data['escalao']
+                    d.email = form.cleaned_data['email']
+                    d.abreviatura = form.cleaned_data['abreviatura']
+                    d.regime_exclusividade = form.cleaned_data['regime_exclusividade']
                     pass
                 #regime exclusividade igual a falso
                 else:
                     regimeExclusividade = False
-                    p.nome_completo = form.cleaned_data['nome_completo']
-                    p.departamento = form.cleaned_data['departamento']
-                    p.escalao = form.cleaned_data['escalao']
-                    p.email = form.cleaned_data['email']
-                    p.abreviatura = form.cleaned_data['abreviatura']
-                    p.regime_exclusividade = regimeExclusividade
+                    d.nome_completo = form.cleaned_data['nome_completo']
+                    d.departamento = form.cleaned_data['departamento']
+                    d.escalao = form.cleaned_data['escalao']
+                    d.email = form.cleaned_data['email']
+                    d.abreviatura = form.cleaned_data['abreviatura']
+                    d.regime_exclusividade = regimeExclusividade
                     pass
                 
-                p.save()
+                '''
+                print "Id do Docente ", id_docente
+                print "DATA ", datetime.today()
+                print "Id do User ", request.user.id
+                
+                '''
+                docLogs = DocenteLogs(docente_id = id_docente,
+                                    data_modificacao = datetime.today(),
+                                    id_user = request.user.id
+                                    )
+                docLogs.save()
+                d.save()
                 self.contador = 0
                 #return HttpResponseRedirect('/thanks/') # Redirect after POST
         else:
