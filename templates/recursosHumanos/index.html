@@ -78,16 +78,26 @@
 	    </tr>
 	    <tr>
 		<tr>
-			<th colspan="2" class="cabecalho_sumario">Contractos a Terminar</th>
+			<th colspan="2" class="cabecalho_sumario">Contratos a Terminar</th>
 		</tr>
 		<tr>
-			<th class="sub_cabecalho"><span>Próximos Dois Meses (Contratos a Termo)</span></th>
-			<td><a href="#">0</a></td>
+			<th class="sub_cabecalho"><span>Próximos Dois Meses (Contratos a Termo Certo)</span></th>
+			<td>
+				<a href='{% url listContratos %}?date={{dateActualSTR}}&number_increment={{intervalTwoMonths}}&type=ct&data_fim_especial=True'>
+					<span>
+						{{nrDocentesEndContractTwoMonths}}
+					</span>
+				</a>
+			</td>
 		</tr>
 		<tr>
 			<th class="sub_cabecalho" ><span>Próximos Quatro Meses (Contratos Sem Termo)</span></th>
 			<td>
-				<a href='{% url listContratos %}?date={{dateActualSTR}}&number_increment={{interval_dias1}}&data_fim_especial=True'><span>{{nrDocentesEndContract}}</span></a>
+				<a href='{% url listContratos %}?date={{dateActualSTR}}&number_increment={{intervalFourMonths}}&type=st&data_fim_especial=True'>
+					<span>
+						{{nrDocentesEndContractFourMonths}}
+					</span>
+				</a>
 			</td>
 		</tr>
     </table>

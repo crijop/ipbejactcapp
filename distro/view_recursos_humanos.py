@@ -112,21 +112,24 @@ def indexRecursosHumanos(request):
    
     listaContracts = []
     actualState = ""
-    nrDocentesEndContract = 0
-    
-    interval_dias = 60
-    interval_dias1 = 120
+    nrDocentesEndContractTwoMonths = 0
+    nrDocentesEndContractFourMonths = 0
+    #dois meses
+    twoMonths = 60
+    #quatro meses
+    fourMonths = 120
     
     dateActual = datetime.today()
     dateActualFormatPrint = datetime.today().strftime("%d de %B de %Y")
     
     #convertedDate = datetime.strptime(dateActual, "%d-%m-%Y")
     
-    interval = timedelta(interval_dias)
-  
-    #date_down = convertedDate - interval
+    intervalFourMonths = timedelta(fourMonths)
+    intervalTwoMonths = timedelta(twoMonths) 
     
-    date_up = dateActual + interval
+    date_upTwoMonths = dateActual + intervalTwoMonths
+    
+    date_upFourMonths = dateActual + intervalFourMonths
     
     
     for docente in allDocentes:
@@ -147,10 +150,17 @@ def indexRecursosHumanos(request):
             nomeCategoria = u'Sem Categoria'
             
         date_contract_end = datetime.strptime(contract_end, "%d-%m-%Y")
-        
-        if date_contract_end < date_up and date_contract_end > dateActual:
-            nrDocentesEndContract += 1
+        if unicode(contract_type).startswith("Termo Certo") :
+            if date_contract_end < date_upTwoMonths and date_contract_end > dateActual:
+                nrDocentesEndContractTwoMonths += 1
+                pass
             pass
+        elif unicode(contract_type).startswith("Sem Termo"):
+            if date_contract_end < date_upFourMonths and date_contract_end > dateActual:
+                nrDocentesEndContractFourMonths +=1
+                pass
+            pass
+        
     pass
     
     #converter dataActual em str
