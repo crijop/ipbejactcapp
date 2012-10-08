@@ -19,6 +19,7 @@ from django.template.context import RequestContext
 from django.utils.datetime_safe import datetime
 from pydoc import Doc
 import unicodedata
+from django.contrib.auth import models
 
 '''
 Inicio das vistas dos Recursos Humanos
@@ -1086,6 +1087,7 @@ def listContracts_RecursosHumanos(request):
     if "data_fim_especial" in request.GET or request.GET.get("actualState") == "data_fim_especial":
         end_date = request.GET.get("date")
         radius = request.GET.get("number_increment")
+        contractType = request.GET.get("type")
         actualState = "actualState=data_fim_especial&date=" + end_date + "&number_increment=" + radius
        
         convertedDate = datetime.strptime(end_date, "%d-%m-%Y")
@@ -1123,8 +1125,15 @@ def listContracts_RecursosHumanos(request):
             #print type(date_contract_start)
             
             if date_contract_end > convertedDate and date_contract_end < date_up:
+                
+                    if unicode(contractType).startswith("st"):
+                        if unicode(contract_type).startswith("Sem Termo"):
                         
-                listaContracts.append([docente.nome_completo, nomeCategoria, id_Docente, contract_type, percent, contract_start, contract_end])
+                            listaContracts.append([docente.nome_completo, nomeCategoria, id_Docente, contract_type, percent, contract_start, contract_end])
+                    elif unicode(contractType).startswith("ct"):
+                        if unicode(contract_type).startswith("Termo Certo"):
+                            listaContracts.append([docente.nome_completo, nomeCategoria, id_Docente, contract_type, percent, contract_start, contract_end])
+                        
         pass
             
     
@@ -1310,11 +1319,24 @@ class EditDocenteModelFormPreview(FormPreview):
         docenteEdit = Docente.objects.get(id=id_docente)
         form = EditarDocenteForm(instance=docenteEdit)
         
+        
         try:
-            modificacao = DocenteLogs.objects.get(docente_id = id_docente).data_modificacao
+            modificacao = DocenteLogs.objects.filter(docente_id = id_docente)
+            
+            if(len(modificacao) != 0):
+                
+                modificacao = modificacao.reverse()[len(modificacao) - 1]
+                userName = models.User.objects.get(id__exact= modificacao.id_user).username
+                infoEdicao = 0         
+                
+            
         except ObjectDoesNotExist:
             modificacao = "O Docente ainda não foi alterado"
-            print modificacao
+            infoEdicao = 1
+    
+            
+         
+        
         
         return render_to_response(self.form_template,
             locals(),

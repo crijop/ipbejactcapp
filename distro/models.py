@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.db import models
+
 '''
 modelos das tabelas da aplicação
 '''
@@ -290,7 +291,6 @@ class Docente(models.Model):
     pass
 
 
-
 class DocenteLogs(models.Model):
                                          
     docente      = models.ForeignKey('Docente')
@@ -300,15 +300,15 @@ class DocenteLogs(models.Model):
                                             blank=True,
                                             null=True,
                                             help_text=u"identificação User")
+
     
     data_modificacao = models.DateTimeField(auto_now=True)
 
 
     def __unicode__(self):
-        return unicode(self.docente)
+        return unicode(self.id_user) + "" +unicode(self.data_modificacao)
+
     pass
-
-
 
 class Contrato(models.Model):
     '''

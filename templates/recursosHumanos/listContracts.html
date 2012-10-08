@@ -156,10 +156,10 @@
 {% block content %}
 <table id="tabela_sumario">
 	<tr>
-		<th colspan="6" class="top_sumario" >Listar Contratos</th>
+		<th colspan="7" class="top_sumario" >Listar Contratos</th>
 	</tr>
 	<tr>
-		<th colspan="6" class="top_sumario"> {% csrf_token %}
+		<th colspan="7" class="top_sumario"> {% csrf_token %}
 		<form action="" method="get" name="searchForm">
 			<img src="/static/images/selector-search.gif" title="search" alt="searchIcon" />
 			<input name="searchField" id="searchField" type="search" value="{{keyword}}" />
@@ -168,6 +168,7 @@
 		</form></th>
 	</tr>
 	<tr>
+		<th></th>
 		<th class="cabecalho_sumario">Docente</th>
 		<th class="cabecalho_sumario">Categoria</th>
 		<th class="cabecalho_sumario">Tipo Contrato</th>
@@ -177,6 +178,7 @@
 	</tr>
 	{% for nome, nomeCategoria, id_Docente, contract_type, percentagem, start_contract, end_contract in docentes %}
 	<tr>
+			<td ><a href="{{id_Docente}}"><span class="view"></span></a></td>
 		<td class="teacher_name_field"><a href="{{id_Docente}}">{{nome}}</a></td>
 		<td>{{nomeCategoria}}</td>
 		<td>{{contract_type}}</td>

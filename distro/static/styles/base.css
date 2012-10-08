@@ -929,12 +929,13 @@ span.exit_small::before {
 }
 
 #Confirmacao{
-	font-size: 16px;
+	font-size: 20px;
     font-family: Arial;
-    font-weight: 600;
+    font-weight: 700;
 	padding: 10px 15px;
-    color: #fff;
-	text-shadow: 1px 1px 1px #444;
+    color: green;
+    
+
 }
 
 #buttonConfirm
@@ -961,7 +962,7 @@ span.exit_small::before {
 	font-family: Arial;
 	font-weight: 600;
 	padding: 10px 15px;
-	color: #000000;
+	color: red;
 	
 }
 
@@ -983,4 +984,30 @@ span.exit_small::before {
 	font-weight: 600;
 	padding: 10px 15px;
 	text-shadow: 1px 1px 1px #444;
+}
+
+/***Edição de docente */
+.editionLog
+{
+	
+	padding: 10px 15px;
+	background: rgb(234, 126, 14);
+	font-family: Arial;
+	color: #0000FF;
+}
+
+#formtools_nome_completo
+{
+	width: 80%;
+}
+
+#id_nome_completo
+{
+	width: 80%;
+}
+
+.errorField
+{
+	color: #FF0000;
+	text-shadow: None;
 }

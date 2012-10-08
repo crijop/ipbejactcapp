@@ -210,6 +210,11 @@ urlpatterns = patterns('',
     url(r'^Teste_home/recursosHumanos/listContratos/filter_dep/$', 'ipbejactcapp.distro.view_recursos_humanos.filter_dep'),
     
     url(r'^Teste_home/recursosHumanos/listContratos/filter_cat/$', 'ipbejactcapp.distro.view_recursos_humanos.filter_cat'),
+    
+    url(r'^Teste_home/recursosHumanos/listContratos/(?P<id_docente>\d+)/$', 
+        'ipbejactcapp.distro.view_recursos_humanos.indexRHInfoDocentes', 
+        name='infoRHDocentes'),
+    
     #por data
     
   

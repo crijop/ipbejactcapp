@@ -31,13 +31,21 @@
 		            {% if field.field.required %}
 			        	<span>(*)</span>
 			        {%endif%} 
-		            {% for error in field.errors %} 
-		            	{{error}} 
+		           {% for error in field.errors %} 
+	            		<span class="errorField">{{error}}</span>
 		            {% endfor %}
+		            
+		            
 		        </div>
 	    	{% endfor %}
 	    <br />
-	    <span style="color:red">{{modificacao}}</span>
+	    <div class="editionLog">
+	    {% if infoEdicao == 0 %}
+	    <span  >Ultima edição por {{userName}} a {{modificacao.data_modificacao}}</span>
+	   	{% else %}
+	   	<span  >O Docente ainda não foi alterado</span>
+	   	{% endif %}
+	   	</div>
 	    <br />
 	    <span id="CamposObirgatorio">(*) - Campos de preenchimento obrigatório</span>
 			<div id="buttonConfirm">
