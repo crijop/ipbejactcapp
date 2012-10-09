@@ -8,6 +8,7 @@ Created on 20 de Set de 2012
 from distro.models import Departamento, Docente
 from django import forms
 from django.forms.models import ModelForm
+from django.forms.widgets import Widget
 
 
 

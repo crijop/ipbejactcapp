@@ -16,11 +16,11 @@
 {% block content %}
 <table id="tabela_sumario">
 	<tr>
-		<th colspan="2" id="top_sumario" class="cabecalho_sumario">Sumário</th>
+		<th colspan="2" class="top_sumario">Sumário</th>
 	</tr>
 	<tr>
-		<th>Curso</th>
-		<th>Turma</th>
+		<th class="cabecalho_sumario">Curso</th>
+		<th class="cabecalho_sumario">Turma</th>
 	</tr>
 	{%for id, turma, curso in lista%}
 	<tr>

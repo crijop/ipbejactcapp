@@ -3,21 +3,19 @@
 {% block title %} Página Inícial Recursos Humanos {% endblock %}
 {% block breadcrumb %}
 <ul id="breadcrumb">
-	<!--<li><a href="{% url home %}" title="Home"><img src="../static/images/BreadCrumbs/home.gif" alt="Home" class="home" /></a></li>-->
-	<li><img src="/static/images/BreadCrumbs/home.gif" alt="{% trans 'Home' %}" class="home" />
+	<li>
+		<img src="/static/images/BreadCrumbs/home.gif" alt="{% trans 'Home' %}" class="home" />
 	</li>
 </ul>
 {% endblock %}
 
 {% block Menus %}
 <ul>
-
 	<li class='active '>
 		<a tabindex="3" href='/Teste_home'><span>Informação</span></a>
 	</li>
 	<li>
 		<a tabindex="4" href='{%url adicionarDocenteRH%}'><span>Adicionar Docente</span></a>
-	
 	</li>
 	<li>
 		<a tabindex="5" href='{%url listDocenteEdit %}'><span>Editar Docentes</span></a>
@@ -27,9 +25,7 @@
 	</li>
 	<li>
 		<a href='{%url listContratos %}' ><span>Listar Contratos</span></a>
-	</li>
-	
-	
+	</li>	
 	<li class='has-sub_lateral'>
 		<a tabindex="5" href='#'><span>Ajuda</span></a>
 			<ul>
@@ -52,7 +48,7 @@
 {% block content %}
 	<table id="tabela_sumario">
 	    <tr>
-	            <th colspan="2"  class="top_sumario">Estatística</th>
+	    	<th colspan="2"  class="top_sumario">Estatística</th>
 	    </tr>
 	    <tr>
 	    	<th colspan="2" align="left">{{dateActualFormatPrint}}</th>
@@ -62,7 +58,11 @@
 			<th colspan="2" class="cabecalho_sumario">Contratos a Terminar</th>
 		</tr>
 		<tr>
-			<th class="sub_cabecalho"><span>Próximos Dois Meses (Contratos a Termo Certo)</span></th>
+			<th class="sub_cabecalho">
+				<a href='{% url listContratos %}?date={{dateActualSTR}}&number_increment={{twoMonths}}&type=ct&data_fim_especial=True'>
+					<span>Próximos Dois Meses (Contratos a Termo Certo)</span>
+				</a>
+			</th>
 			<td>
 				<a href='{% url listContratos %}?date={{dateActualSTR}}&number_increment={{twoMonths}}&type=ct&data_fim_especial=True'>
 					<span>
@@ -72,7 +72,11 @@
 			</td>
 		</tr>
 		<tr>
-			<th class="sub_cabecalho" ><span>Próximos Quatro Meses (Contratos Sem Termo)</span></th>
+			<th class="sub_cabecalho" >
+				<a href='{% url listContratos %}?date={{dateActualSTR}}&number_increment={{fourMonths}}&type=st&data_fim_especial=True'>
+					<span>Próximos Quatro Meses (Contratos Sem Termo)</span>
+				</a>
+			</th>
 			<td>
 				<a href='{% url listContratos %}?date={{dateActualSTR}}&number_increment={{fourMonths}}&type=st&data_fim_especial=True'>
 					<span>

@@ -104,7 +104,7 @@ def ajax(request):
 
 
 '''
-Tarta da pagina de index dos recursos humanos onde são apresentadas algumas estatisticas
+Trata da pagina de index dos recursos humanos onde são apresentadas algumas estatisticas
 como por exemplo a numero de contratos a terminar nos proximos 60 ou 120 dias
 '''
 @login_required(redirect_field_name='Teste_home')
@@ -148,20 +148,27 @@ def indexRecursosHumanos(request):
             #print contrato.categoria.id
             nomeCategoria = Categoria.objects.get(id__exact = contrato.categoria.id)
         except ObjectDoesNotExist:
-            nomeCategoria = u'Sem Categoria'
-            
-        date_contract_end = datetime.strptime(contract_end, "%d-%m-%Y")
-        if unicode(contract_type).startswith("Termo Certo") :
-            if date_contract_end < date_upTwoMonths and date_contract_end > dateActual:
-                nrDocentesEndContractTwoMonths += 1
-                pass
-            pass
-        elif unicode(contract_type).startswith("Sem Termo"):
-            if date_contract_end < date_upFourMonths and date_contract_end > dateActual:
-                nrDocentesEndContractFourMonths +=1
-                pass
-            pass
+            contract_start = "---"
+            contract_end = "---"
+            contract_type = "---"
+            percent = "---"
+            nomeCategoria = "Sem Categoria"
         
+        if not(contract_end.startswith("---")):
+        
+            date_contract_end = datetime.strptime(contract_end, "%d-%m-%Y")
+            
+            if unicode(contract_type).startswith("Termo Certo") :
+                if date_contract_end < date_upTwoMonths and date_contract_end > dateActual:
+                    nrDocentesEndContractTwoMonths += 1
+                    pass
+                pass
+            elif unicode(contract_type).startswith("Sem Termo"):
+                if date_contract_end < date_upFourMonths and date_contract_end > dateActual:
+                    nrDocentesEndContractFourMonths +=1
+                    pass
+                pass
+            pass
     pass
     
     #converter dataActual em str
@@ -657,33 +664,6 @@ def listDocenteEdit_RecursosHumanos(request):
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 def removeDuplicatedElements(dataList):
     
     templist = dataList
@@ -869,7 +849,12 @@ def listContracts_RecursosHumanos(request):
                         #print contrato.categoria.id
                     nomeCategoria = Categoria.objects.get(id__exact = contrato.categoria.id)
                 except ObjectDoesNotExist:
+                    contract_start = "---"
+                    contract_end = "---"
+                    contract_type = "---"
+                    percent = "---"
                     nomeCategoria = "Sem Categoria"
+                    
                 
                 listaContracts.append([docente.nome_completo, nomeCategoria, id_Docente, contract_type, percent, contract_start, contract_end])
         else:
@@ -917,6 +902,10 @@ def listContracts_RecursosHumanos(request):
                         #print contrato.categoria.id
                     nomeCategoria = Categoria.objects.get(id__exact = contrato.categoria.id)
                 except ObjectDoesNotExist:
+                    contract_start = "---"
+                    contract_end = "---"
+                    contract_type = "---"
+                    percent = "---"
                     nomeCategoria = "Sem Categoria"
                     
                 listaContracts.append([docente.nome_completo, nomeCategoria, id_Docente, contract_type, percent, contract_start, contract_end])
@@ -947,7 +936,11 @@ def listContracts_RecursosHumanos(request):
                 nomeCategoria = Categoria.objects.get(id__exact = contrato.categoria.id).nome
                 
             except ObjectDoesNotExist:
-                nomeCategoria = u'Sem Categoria'
+                contract_start = "---"
+                contract_end = "---"
+                contract_type = "---"
+                percent = "---"
+                nomeCategoria = "Sem Categoria"
             
             nomeCategoria_final = unicodedata.normalize('NFKD', nomeCategoria.lower()).encode('ASCII', 'ignore')
                     
@@ -984,11 +977,11 @@ def listContracts_RecursosHumanos(request):
                         #print contrato.categoria.id
                     nomeCategoria = Categoria.objects.get(id__exact = contrato.categoria.id)
                 except ObjectDoesNotExist:
-                    nomeCategoria = u'Sem Categoria'
-                    contract_type = u'Sem Contrato'
-                    contract_start = u'---'
-                    contract_end = u'---'
-                    percent = u'---'
+                    contract_start = "---"
+                    contract_end = "---"
+                    contract_type = "---"
+                    percent = "---"
+                    nomeCategoria = "Sem Categoria"
                     
                 listaContracts.append([docente.nome_completo, nomeCategoria, id_Docente, contract_type, percent, contract_start, contract_end])
         
@@ -1028,7 +1021,11 @@ def listContracts_RecursosHumanos(request):
                 #print contrato.categoria.id
                 nomeCategoria = Categoria.objects.get(id__exact = contrato.categoria.id)
             except ObjectDoesNotExist:
-                nomeCategoria = u'Sem Categoria'
+                contract_start = "---"
+                contract_end = "---"
+                contract_type = "---"
+                percent = "---"
+                nomeCategoria = "Sem Categoria"
                 
             date_contract_start = datetime.strptime(contract_start, "%d-%m-%Y")
             
@@ -1073,7 +1070,11 @@ def listContracts_RecursosHumanos(request):
                 #print contrato.categoria.id
                 nomeCategoria = Categoria.objects.get(id__exact = contrato.categoria.id)
             except ObjectDoesNotExist:
-                nomeCategoria = u'Sem Categoria'
+                contract_start = "---"
+                contract_end = "---"
+                contract_type = "---"
+                percent = "---"
+                nomeCategoria = "Sem Categoria"
                 
             date_contract_end = datetime.strptime(contract_end, "%d-%m-%Y")
             
@@ -1093,12 +1094,8 @@ def listContracts_RecursosHumanos(request):
         convertedDate = datetime.strptime(end_date, "%d-%m-%Y")
         
         interval = timedelta(int(radius))
-      
-               
+           
         date_up = convertedDate + interval
-        
-        
-        
         
         for docente in allDocentes:
             
@@ -1118,22 +1115,30 @@ def listContracts_RecursosHumanos(request):
                 #print contrato.categoria.id
                 nomeCategoria = Categoria.objects.get(id__exact = contrato.categoria.id)
             except ObjectDoesNotExist:
-                nomeCategoria = u'Sem Categoria'
-                
-            date_contract_end = datetime.strptime(contract_end, "%d-%m-%Y")
+                contract_start = "---"
+                contract_end = "---"
+                contract_type = "---"
+                percent = "---"
+                nomeCategoria = "Sem Categoria"
             
-            #print type(date_contract_start)
-            
-            if date_contract_end > convertedDate and date_contract_end < date_up:
+            if not(contract_end.startswith("---")):
+                date_contract_end = datetime.strptime(contract_end, "%d-%m-%Y")
                 
-                    if unicode(contractType).startswith("st"):
-                        if unicode(contract_type).startswith("Sem Termo"):
-                        
-                            listaContracts.append([docente.nome_completo, nomeCategoria, id_Docente, contract_type, percent, contract_start, contract_end])
-                    elif unicode(contractType).startswith("ct"):
-                        if unicode(contract_type).startswith("Termo Certo"):
-                            listaContracts.append([docente.nome_completo, nomeCategoria, id_Docente, contract_type, percent, contract_start, contract_end])
-                        
+                #print type(date_contract_start)
+                
+                if date_contract_end > convertedDate and date_contract_end < date_up:
+                        if unicode(contractType).startswith("st"):
+                            if unicode(contract_type).startswith("Sem Termo"):
+                                listaContracts.append([docente.nome_completo, nomeCategoria, id_Docente, contract_type, percent, contract_start, contract_end])
+                                pass
+                            pass
+                        elif unicode(contractType).startswith("ct"):
+                            if unicode(contract_type).startswith("Termo Certo"):
+                                listaContracts.append([docente.nome_completo, nomeCategoria, id_Docente, contract_type, percent, contract_start, contract_end])
+                                pass
+                            pass
+                        pass
+                pass          
         pass
             
     
@@ -1158,7 +1163,11 @@ def listContracts_RecursosHumanos(request):
                         #print contrato.categoria.id
                     nomeCategoria = Categoria.objects.get(id__exact = contrato.categoria.id)
                 except ObjectDoesNotExist:
-                    nomeCategoria = u'Sem Categoria'
+                    contract_start = "---"
+                    contract_end = "---"
+                    contract_type = "---"
+                    percent = "---"
+                    nomeCategoria = "Sem Categoria"
                 
                 
                 listaContracts.append([docente.nome_completo, nomeCategoria, id_Docente, contract_type, percent, contract_start, contract_end])
@@ -1216,7 +1225,45 @@ def indexRHInfoDocentes(request, id_docente):
         )
     pass
 
-
+@login_required(redirect_field_name='Teste_home')
+def indexRHInfoDocentesContratos(request, id_docente):
+    id_departamento = Docente.objects.get(id__exact=id_docente).departamento_id
+    nome_Departamento = Departamento.objects.get(id__exact=id_departamento)
+    nomeDocente = Docente.objects.get(id__exact=id_docente)
+    escalao = Docente.objects.get(id__exact=id_docente).escalao
+    regime_exclusividade = Docente.objects.get(id__exact=id_docente).regime_exclusividade
+    
+    try:
+        contrato = Contrato.objects.get(docente__id=id_docente)
+        categoria = Categoria.objects.get(id__exact = contrato.categoria.id)
+        tipoContrato = TipoContrato.objects.get(id__exact = contrato.tipo_contrato_id)
+        percentagem = Contrato.objects.get(docente_id__exact = id_docente).percentagem
+        
+        #para apresentar no template
+        percentagem = str(percentagem) + "%"
+        
+        dataInicio = Contrato.objects.get(docente_id__exact = id_docente).data_inicio
+        dataFim = Contrato.objects.get(docente_id__exact = id_docente).data_fim
+    except ObjectDoesNotExist:
+        categoria = "Sem Categoria"
+        tipoContrato = "---"
+        percentagem = "--- "
+        dataInicio = "---"
+        dataFim = "---"
+        
+    #atribuir regime exclusividade consoante se é True/False
+    if regime_exclusividade == True :
+        regimeExclusividade = "Sim"
+        pass
+    else:
+        regimeExclusividade = "Não"
+        pass
+    
+    return render_to_response("recursosHumanos/infoDocenteContrato.html",
+        locals(),
+        context_instance=RequestContext(request),
+        )
+    pass
 
 
 

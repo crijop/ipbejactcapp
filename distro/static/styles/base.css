@@ -165,6 +165,11 @@ div#footer {
  {
  text-align: center;
  }*/
+
+.cabecalho_sumario{
+	text-align: center;
+}
+
 table#tabela_sumario {
 	font-family: "Trebuchet MS", sans-serif;
 	font-size: 14px;
@@ -223,6 +228,11 @@ table#tabela_sumario {
 	border-bottom: 3px solid rgb(255, 145, 70);
 	border-bottom: 3px solid rgb(255, 145, 70);
 	/*text-shadow:1px 1px 1px black;*/
+	text-align: center;
+}
+
+#tabela_sumario .sub_cabecalho a {
+	color: #FFFFFF;
 }
 
 #tabela_sumario tbody th {
