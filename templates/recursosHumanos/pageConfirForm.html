@@ -30,7 +30,7 @@
 {% block content %}
 	<table id="tabela_sumario">
 	    <tr>
-	    	<th colspan="2" class="top_sumario">Confirmação de dados do docente {{contador}}
+	    	<th colspan="2" class="top_sumario">Confirmação de dados do docente
 	    		{{self.process_preview}}{{context}}</th>
 	    </tr>
 	</table>
@@ -42,8 +42,9 @@
 	 		</tr>
 		{% endfor %}
  </table>-->
+ 	
     <div id="contentForm">
-		<form method="post">
+		<form method="post" onkeypress="testeSearch();" >
 			{% csrf_token %}
 			{% for field in form %}
 		        <div class ="{% cycle 'row1' 'row2' %}">
@@ -63,12 +64,14 @@
 	
     		<hr />
     			<span id = "Confirmacao">Deseja submeter os Dados dos Formulário?</span>
+    		
 				<div id="buttonConfirm">
 					<input type="hidden" name="{{ stage_field }}" value="2" />
 					<input type="hidden" name="{{ hash_field }}" value="{{ hash_value }}" />
 					<input type="button" value="{% trans 'Não' %}" onClick="javascript:history.go(-1);">
 					<input type="submit" value="{% trans 'Sim' %}" />
 				</div>
+				<script>changeCountValue();</script>
 		</form>
 	</div>
 {% endblock %}

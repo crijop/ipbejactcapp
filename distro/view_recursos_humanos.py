@@ -1347,15 +1347,14 @@ class EditDocenteModelFormPreview(FormPreview):
     #a variavel estado informa a page de confirmação 
     #se está a editar os dados ou adicionar.
     estado = "Editar"
-    contador = 0
+   
     def get_context(self, request, form):
         "Context for template rendering."
-        self.contador +=1
+        
         return {
                 'form': form,
                 'stage_field': self.unused_name('stage'),
                 'id_docente': self.state['id_docente'],
-                'contador': self.contador,
                 'estado' : self.estado
                 }
          
@@ -1511,7 +1510,19 @@ class EditDocenteModelFormPreview(FormPreview):
         pass
 
         
+def showSaveButton(request, id_docente):
     
+    
+    
+    if request.is_ajax():
+       
+       
+        
+        return render_to_response("recursosHumanos/saveButton.html",
+        locals(),
+        context_instance=RequestContext(request),
+        )
+    pass    
 
 
 

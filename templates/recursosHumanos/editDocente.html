@@ -21,6 +21,7 @@
 	    <tr>
 	            <th colspan="2" class="top_sumario">Editar Docente</th>
 	    </tr>
+	   
     </table>
     <div id="contentForm">
 		<form method="post">
@@ -48,10 +49,14 @@
 	   	</div>
 	    <br />
 	    <span id="CamposObirgatorio">(*) - Campos de preenchimento obrigatório</span>
+	    <hr />
+    			<span id = "Confirmacao"></span>
 			<div id="buttonConfirm">
 				<input type="hidden" name="{{ stage_field }}" value="1" />
-				<input type="submit" value="Gravar" />
+				<input id="submitForm" type="submit" value="Gravar" />
+				<script>changeCountValue();</script>
 			</div>
+			
 		</form>
 	</div>
 {% endblock %}

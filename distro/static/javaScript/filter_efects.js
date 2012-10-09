@@ -1,44 +1,71 @@
 /**
  * @author xama
  */
-var count = 0;
+var count = 1;
+
+function changeCountValue() 
+{
+
+			
+			count = 0;
+			//alert("esta - " + count);
+			
+			
+
+
+	
+}
 
 function testeSearch() {
 
 	
-
-	if (count == 0) {
-		alert("mudei");
-		count = 1;
-
-	} else 
-	{
-		
-	}
-
-}
-
-function teste_1() {
-
 	require(["dojo/request", "dojo/on", "dojo/dom", "dojo/domReady!"], function(request, on, dom) {
+	//alert("ola - " + count);
+		
+		var divTarget = dom.byId("buttonConfirm"), divConfirmPhrase = dom.byId("Confirmacao");
+		
+		if (count == 0) {
 
-		var b = dom.byId("butao");
+			//alert("vou modficiar");
+			count = 1;
 
-		// Attach the onclick event handler to the textButton
-		on(b, "click", function(evt) {
-
-			request.get("ajax").then(function(response) {
-				alert(response);
+			request.get("addSaveButton").then(function(response) {
+				divTarget.innerHTML = response;
+				divConfirmPhrase.innerHTML = "";
 
 			}, function(error) {
 				// Display the error returned
 				alert(response);
 			});
 
-		});
-	});
+		} else {
 
+		}
+
+	});
 }
+
+/*function teste_1() {
+
+require(["dojo/request", "dojo/on", "dojo/dom", "dojo/domReady!"], function(request, on, dom) {
+
+var b = dom.byId("butao");
+
+// Attach the onclick event handler to the textButton
+on(b, "click", function(evt) {
+
+request.get("ajax").then(function(response) {
+alert(response);
+
+}, function(error) {
+// Display the error returned
+alert(response);
+});
+
+});
+});
+
+}*/
 
 /***********/
 
