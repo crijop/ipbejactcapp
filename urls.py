@@ -150,7 +150,7 @@ urlpatterns = patterns('',
     url(r'^Teste_home/recursosHumanos/listDocente/(?P<id_docente>\d+)/$', 
         'ipbejactcapp.distro.view_recursos_humanos.indexRHInfoDocentes', 
         name='infoRHDocentes'),
-    
+
     
     url(r'^Teste_home/recursosHumanos/listDocenteEdit/$', 
         'ipbejactcapp.distro.view_recursos_humanos.listDocenteEdit_RecursosHumanos', 
@@ -212,8 +212,9 @@ urlpatterns = patterns('',
     url(r'^Teste_home/recursosHumanos/listContratos/filter_cat/$', 'ipbejactcapp.distro.view_recursos_humanos.filter_cat'),
     
     url(r'^Teste_home/recursosHumanos/listContratos/(?P<id_docente>\d+)/$', 
-        'ipbejactcapp.distro.view_recursos_humanos.indexRHInfoDocentes', 
-        name='infoRHDocentes'),
+        'ipbejactcapp.distro.view_recursos_humanos.indexRHInfoDocentesContratos', 
+        name='infoRHDocentesContracto'),
+    
     
     #por data
     
