@@ -33,10 +33,22 @@ class AdicionarDocenteForm(ModelForm):
 #Class que apresenta o formulário para
 #editar o docente
 class EditarDocenteForm(ModelForm):
+    
     nome_completo     = forms.CharField(max_length=300, label=u'Nome Completo')
     email = forms.EmailField(required = False, label=u'Email Institucional')
     abreviatura       = forms.CharField()
+                                          
+
+    depart = Departamento.objects.all()
+   
+    #departamento = forms.CharField(widget=forms.Select(attrs={'onchange':"testeSearch();"},choices=((dep.id, dep.nome) for dep in depart)))
     
+    departamento = forms.Select() 
+    departamento.__init__(attrs={'onchange':"testeSearch();"})
+  
+    #regime_exclusividade = forms.CheckboxInput
+    
+  
     #Para evitar que o django faça a 
     #validação do formulario aos campos que são unicos
     #No formulário para editar o docente
