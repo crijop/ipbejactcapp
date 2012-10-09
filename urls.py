@@ -195,6 +195,8 @@ urlpatterns = patterns('',
     url(r'^Teste_home/recursosHumanos/listDocenteEdit/filter_dep/$', 'ipbejactcapp.distro.view_recursos_humanos.filter_dep'),
     
     url(r'^Teste_home/recursosHumanos/listDocenteEdit/filter_cat/$', 'ipbejactcapp.distro.view_recursos_humanos.filter_cat'),
+    
+    url(r'^Teste_home/recursosHumanos/listDocenteEdit/(?P<id_docente>\d+)/addSaveButton/$', 'ipbejactcapp.distro.view_recursos_humanos.showSaveButton'),
     #lista de docentes                   
     url(r'^Teste_home/recursosHumanos/ajax/$', 'ipbejactcapp.distro.view_recursos_humanos.ajax'),  
     
