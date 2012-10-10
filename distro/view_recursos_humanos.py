@@ -33,6 +33,8 @@ Metodo reposavel por ratar o pediodo AJAX de aparecimento do filtro de ordenaç�
 uma letra do alfabeto
 presente na lista de docentes e lista de contratos
 '''
+@login_required(redirect_field_name='login_redirectUsers')
+@user_passes_test(lambda u:u.groups.filter(name='RecusosHumanos').count())
 def filter_abc(request):
 
     if request.is_ajax():
@@ -46,7 +48,9 @@ def filter_abc(request):
         
 '''
 Responsavel por tratar o pedido ajax para o aparecimento da filtragem por departamentos
-'''        
+'''
+@login_required(redirect_field_name='login_redirectUsers')
+@user_passes_test(lambda u:u.groups.filter(name='RecusosHumanos').count())     
 def filter_dep(request):
 
     if request.is_ajax():
@@ -60,6 +64,8 @@ def filter_dep(request):
 '''
 Responsavel por tratar o pedido ajax para o aparecimento da filtragem por categorias
 '''
+@login_required(redirect_field_name='login_redirectUsers')
+@user_passes_test(lambda u:u.groups.filter(name='RecusosHumanos').count())
 def filter_cat(request):
 
     if request.is_ajax():
@@ -71,7 +77,8 @@ def filter_cat(request):
         context_instance=RequestContext(request),
         )
         
-
+@login_required(redirect_field_name='login_redirectUsers')
+@user_passes_test(lambda u:u.groups.filter(name='RecusosHumanos').count())
 def filter_date_start(request):
 
   
@@ -90,8 +97,9 @@ def filter_date_start(request):
         context_instance=RequestContext(request),
         )
 
+@login_required(redirect_field_name='login_redirectUsers')
+@user_passes_test(lambda u:u.groups.filter(name='RecusosHumanos').count())
 def ajax(request):
-    print "falhou"
     if request.is_ajax():
        
         
@@ -107,7 +115,7 @@ Trata da pagina de index dos recursos humanos onde são apresentadas algumas est
 como por exemplo a numero de contratos a terminar nos proximos 60 ou 120 dias
 '''
 
-@login_required(redirect_field_name='Teste_home')
+@login_required(redirect_field_name='login_redirectUsers')
 @user_passes_test(lambda u:u.groups.filter(name='RecusosHumanos').count())
 def indexRecursosHumanos(request):
     allDocentes = Docente.objects.all()
@@ -183,7 +191,8 @@ def indexRecursosHumanos(request):
     pass
 
 
-@login_required(redirect_field_name='Teste_home')
+@login_required(redirect_field_name='login_redirectUsers')
+@user_passes_test(lambda u:u.groups.filter(name='RecusosHumanos').count())
 def listDocente_RecursosHumanos(request):
     
     allDocentes = Docente.objects.all()
@@ -425,7 +434,8 @@ def listDocente_RecursosHumanos(request):
     
     
     
-@login_required(redirect_field_name='Teste_home')
+@login_required(redirect_field_name='login_redirectUsers')
+@user_passes_test(lambda u:u.groups.filter(name='RecusosHumanos').count())
 def listDocenteEdit_RecursosHumanos(request):
     
     allDocentes = Docente.objects.all()
@@ -816,7 +826,8 @@ def search_category(search_word, allDocentes, isListContracts):
     return lista                
     pass
     
-@login_required(redirect_field_name='Teste_home')
+@login_required(redirect_field_name='login_redirectUsers')
+@user_passes_test(lambda u:u.groups.filter(name='RecusosHumanos').count())
 def listContracts_RecursosHumanos(request):
     
     allDocentes = Docente.objects.all()
@@ -1199,7 +1210,8 @@ def listContracts_RecursosHumanos(request):
     
     pass    
 
-@login_required(redirect_field_name='Teste_home')
+@login_required(redirect_field_name='login_redirectUsers')
+@user_passes_test(lambda u:u.groups.filter(name='RecusosHumanos').count())
 def indexRHInfoDocentes(request, id_docente):
     id_departamento = Docente.objects.get(id__exact=id_docente).departamento_id
     nome_Departamento = Departamento.objects.get(id__exact=id_departamento)
@@ -1228,7 +1240,8 @@ def indexRHInfoDocentes(request, id_docente):
         )
     pass
 
-@login_required(redirect_field_name='Teste_home')
+@login_required(redirect_field_name='login_redirectUsers')
+@user_passes_test(lambda u:u.groups.filter(name='RecusosHumanos').count())
 def indexRHInfoDocentesContratos(request, id_docente):
     id_departamento = Docente.objects.get(id__exact=id_docente).departamento_id
     nome_Departamento = Departamento.objects.get(id__exact=id_departamento)
@@ -1271,19 +1284,22 @@ def indexRHInfoDocentesContratos(request, id_docente):
 
 
 
-@login_required(redirect_field_name='Teste_home')
+@login_required(redirect_field_name='login_redirectUsers')
+@user_passes_test(lambda u:u.groups.filter(name='RecusosHumanos').count())
 def indexRH_EditarDocente(request, id_docente):
     return EditDocenteModelFormPreview(EditarDocenteForm)
     pass
 
 
-@login_required(redirect_field_name='Teste_home')
+@login_required(redirect_field_name='login_redirectUsers')
+@user_passes_test(lambda u:u.groups.filter(name='RecusosHumanos').count())
 def addDocenteRH(request):
     return AddDocenteModelFormPreview(AdicionarDocenteForm)
     pass
 
 #ajuda
-@login_required(redirect_field_name='Teste_home')
+@login_required(redirect_field_name='login_redirectUsers')
+@user_passes_test(lambda u:u.groups.filter(name='RecusosHumanos').count())
 def ajudaRH(request, nr_video):
     
     return render_to_response("recursosHumanos/ajuda.html",
@@ -1296,6 +1312,9 @@ def ajudaRH(request, nr_video):
 class AddDocenteModelFormPreview(FormPreview):
     preview_template = 'recursosHumanos/pageConfirForm.html'
     form_template = 'recursosHumanos/addDocente.html'
+    
+    @login_required(redirect_field_name='login_redirectUsers')
+    @user_passes_test(lambda u:u.groups.filter(name='RecusosHumanos').count())
     def done(self, request, cleaned_data):
         a = 0
         estado = "add"
@@ -1350,7 +1369,9 @@ class EditDocenteModelFormPreview(FormPreview):
     #a variavel estado informa a page de confirmação 
     #se está a editar os dados ou adicionar.
     estado = "Editar"
-   
+    
+    @login_required(redirect_field_name='login_redirectUsers')
+    @user_passes_test(lambda u:u.groups.filter(name='RecusosHumanos').count())
     def get_context(self, request, form):
         "Context for template rendering."
         
@@ -1360,7 +1381,9 @@ class EditDocenteModelFormPreview(FormPreview):
                 'id_docente': self.state['id_docente'],
                 'estado' : self.estado
                 }
-         
+        
+    @login_required(redirect_field_name='login_redirectUsers')
+    @user_passes_test(lambda u:u.groups.filter(name='RecusosHumanos').count())     
     def preview_get(self, request):
         "Displays the form"
         
@@ -1447,6 +1470,9 @@ class EditDocenteModelFormPreview(FormPreview):
         print "contador = ", self.contador
         pass
     '''
+    
+    @login_required(redirect_field_name='login_redirectUsers')
+    @user_passes_test(lambda u:u.groups.filter(name='RecusosHumanos').count())
     def parse_params(self, *args, **kwargs):
         """Handle captured args/kwargs from the URLconf"""
         # get the selected HI test
@@ -1455,6 +1481,8 @@ class EditDocenteModelFormPreview(FormPreview):
         except Docente.DoesNotExist:
             raise Http404("Invalid")
         
+    @login_required(redirect_field_name='login_redirectUsers')
+    @user_passes_test(lambda u:u.groups.filter(name='RecusosHumanos').count())    
     def done(self, request, cleaned_data):
         estado = "eddit"
         id_docente = self.state['id_docente']

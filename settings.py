@@ -160,5 +160,5 @@ LOGGING = {
 }
 
 #Ao fazer o login redireciona para...
-LOGIN_REDIRECT_URL = '/Teste_home/'
+LOGIN_REDIRECT_URL = '/distro/'
 LOGIN_URL = '/'

@@ -54,12 +54,12 @@ urlpatterns = patterns('',
 
                     
     #URL para a pagina Home
-    url(r'^Teste_home/$', 
-        'ipbejactcapp.distro.views.Teste_home', 
+    url(r'^distro/$', 
+        'ipbejactcapp.distro.views.login_redirectUsers', 
         name='home'),
     
     #URL para a pagina Sair
-    (r'^Teste_home/sair$', 'django.contrib.auth.views.logout',
+    (r'^distro/sair$', 'django.contrib.auth.views.logout',
         {'template_name': 'sair.html'}, 'sair'),
                        
     
@@ -69,7 +69,7 @@ urlpatterns = patterns('',
     # Url's destinados aos templates do cientifico
     ####
     #Url Home Ciêntifico
-    url(r'^Teste_home/cientifico/$', 
+    url(r'^distro/cientifico/$', 
         'ipbejactcapp.distro.views.indexCientifico', 
         name='homeDirectoresEscola'),
     
@@ -82,7 +82,7 @@ urlpatterns = patterns('',
     # Url's destinados aos templates do coordenadores de Cursos
     ####
     #Url Home coordenadores de Cursos
-    #url(r'^Teste_home/coordCursos/$', 
+    #url(r'^distro/coordCursos/$', 
     #    'ipbejactcapp.distro.views.indexCoordCursos', 
     #    name='homeDirectoresEscola'),
     
@@ -95,7 +95,7 @@ urlpatterns = patterns('',
     # Url's destinados aos templates do departamento
     #### 
     #Url Home Departamento
-    url(r'^Teste_home/departamento/$', 
+    url(r'^distro/departamento/$', 
         'ipbejactcapp.distro.views.indexDepartamento', 
         name='homeDepartamento'),
     
@@ -108,7 +108,7 @@ urlpatterns = patterns('',
     # Url's destinados aos templates dos Directores de Escola
     ####
     #Url Home Directores de Escola
-    url(r'^Teste_home/directoresEscola/$', 
+    url(r'^distro/directoresEscola/$', 
         'ipbejactcapp.distro.views.indexDirectoresEscola', 
         name='homeDirectoresEscola'),
     
@@ -121,17 +121,17 @@ urlpatterns = patterns('',
     # Url's destinados aos templates dos docentes
     ####                   
     #Url Home Docente
-    url(r'^Teste_home/docente/$', 
+    url(r'^distro/docente/$', 
         'ipbejactcapp.distro.views.indexDocente', 
         name='homeDocente'),
     
     #Url Turmas a que os docentes pertence
-    url(r'^Teste_home/docente/turmas', 
+    url(r'^distro/docente/turmas', 
         'ipbejactcapp.distro.views.turmasDocentes', 
         name='turmasDocentes'),
                     
     #Url horas de serviço distinada a cada docente
-    url(r'^Teste_home/docente/horasServico', 
+    url(r'^distro/docente/horasServico', 
         'ipbejactcapp.distro.views.horasServico', 
         name='horasServico'),
     #####
@@ -143,79 +143,79 @@ urlpatterns = patterns('',
     # Url's destinados aos templates dos Recursos Humanos
     ####
     #Url Home Recursos Humanos
-    url(r'^Teste_home/recursosHumanos/$', 
+    url(r'^distro/recursosHumanos/$', 
         'ipbejactcapp.distro.views.indexRecursosHumanos', 
         name='homeRecursosHumanos'),
          
-    url(r'^Teste_home/recursosHumanos/listDocente/(?P<id_docente>\d+)/$', 
+    url(r'^distro/recursosHumanos/listDocente/(?P<id_docente>\d+)/$', 
         'ipbejactcapp.distro.view_recursos_humanos.indexRHInfoDocentes', 
         name='infoRHDocentes'),
 
     
-    url(r'^Teste_home/recursosHumanos/listDocenteEdit/$', 
+    url(r'^distro/recursosHumanos/listDocenteEdit/$', 
         'ipbejactcapp.distro.view_recursos_humanos.listDocenteEdit_RecursosHumanos', 
         name='listDocenteEdit'),
                        
-    #url(r'^Teste_home/recursosHumanos/listDocente/edit/(?P<id_docente>\d+)/$', 
+    #url(r'^distro/recursosHumanos/listDocente/edit/(?P<id_docente>\d+)/$', 
     #    'ipbejactcapp.distro.view_recursos_humanos.indexRH_EditarDocente', 
     #    name='RH_EditarDocente'),
                     
-    #url(r'^Teste_home/recursosHumanos/addDocente/$', 
+    #url(r'^distro/recursosHumanos/addDocente/$', 
     #    'ipbejactcapp.distro.view_recursos_humanos.addDocenteRH', 
     #    name='adicionarDocenteRH'),
      
     
-    url(r'^Teste_home/recursosHumanos/addDocente/$', 
+    url(r'^distro/recursosHumanos/addDocente/$', 
         AddDocenteModelFormPreview(AdicionarDocenteForm), 
         name='adicionarDocenteRH'),
     
-    url(r'^Teste_home/recursosHumanos/addDocente/addSaveButton/$', 'ipbejactcapp.distro.view_recursos_humanos.showSaveButton1'),
+    url(r'^distro/recursosHumanos/addDocente/addSaveButton/$', 'ipbejactcapp.distro.view_recursos_humanos.showSaveButton1'),
                        
-    url(r'^Teste_home/recursosHumanos/listDocenteEdit/(?P<id_docente>\d+)/$', 
+    url(r'^distro/recursosHumanos/listDocenteEdit/(?P<id_docente>\d+)/$', 
         EditDocenteModelFormPreview(EditarDocenteForm), 
         name='RH_EditarDocente'),
     
                        
-    url(r'^Teste_home/recursosHumanos/listDocente/$', 
+    url(r'^distro/recursosHumanos/listDocente/$', 
         'ipbejactcapp.distro.view_recursos_humanos.listDocente_RecursosHumanos', 
         name='listDocente'),
         
-    url(r'^Teste_home/recursosHumanos/listContratos/$', 
+    url(r'^distro/recursosHumanos/listContratos/$', 
         'ipbejactcapp.distro.view_recursos_humanos.listContracts_RecursosHumanos', 
         name='listContratos'),                   
     
-    url(r'^Teste_home/recursosHumanos/ajuda/(?P<nr_video>\d+)$', 
+    url(r'^distro/recursosHumanos/ajuda/(?P<nr_video>\d+)$', 
         'ipbejactcapp.distro.view_recursos_humanos.ajudaRH', 
         name='ajudaRH'),
                        
-    #(r'^Teste_home/recursosHumanos/teste$', DocenteModelFormPreview(AddDocenteForm)),            
+    #(r'^distro/recursosHumanos/teste$', DocenteModelFormPreview(AddDocenteForm)),            
       
                        
     # lista a editar
-    url(r'^Teste_home/recursosHumanos/listDocenteEdit/filter_abc/$', 'ipbejactcapp.distro.view_recursos_humanos.filter_abc'),       
+    url(r'^distro/recursosHumanos/listDocenteEdit/filter_abc/$', 'ipbejactcapp.distro.view_recursos_humanos.filter_abc'),       
     
-    url(r'^Teste_home/recursosHumanos/listDocenteEdit/filter_dep/$', 'ipbejactcapp.distro.view_recursos_humanos.filter_dep'),
+    url(r'^distro/recursosHumanos/listDocenteEdit/filter_dep/$', 'ipbejactcapp.distro.view_recursos_humanos.filter_dep'),
     
-    url(r'^Teste_home/recursosHumanos/listDocenteEdit/filter_cat/$', 'ipbejactcapp.distro.view_recursos_humanos.filter_cat'),
+    url(r'^distro/recursosHumanos/listDocenteEdit/filter_cat/$', 'ipbejactcapp.distro.view_recursos_humanos.filter_cat'),
     
-    url(r'^Teste_home/recursosHumanos/listDocenteEdit/(?P<id_docente>\d+)/addSaveButton/$', 'ipbejactcapp.distro.view_recursos_humanos.showSaveButton'),
+    url(r'^distro/recursosHumanos/listDocenteEdit/(?P<id_docente>\d+)/addSaveButton/$', 'ipbejactcapp.distro.view_recursos_humanos.showSaveButton'),
     #lista de docentes                   
-    url(r'^Teste_home/recursosHumanos/ajax/$', 'ipbejactcapp.distro.view_recursos_humanos.ajax'),  
+    url(r'^distro/recursosHumanos/ajax/$', 'ipbejactcapp.distro.view_recursos_humanos.ajax'),  
     
-    url(r'^Teste_home/recursosHumanos/listDocente/filter_abc/$', 'ipbejactcapp.distro.view_recursos_humanos.filter_abc'),       
+    url(r'^distro/recursosHumanos/listDocente/filter_abc/$', 'ipbejactcapp.distro.view_recursos_humanos.filter_abc'),       
     
-    url(r'^Teste_home/recursosHumanos/listDocente/filter_dep/$', 'ipbejactcapp.distro.view_recursos_humanos.filter_dep'),
+    url(r'^distro/recursosHumanos/listDocente/filter_dep/$', 'ipbejactcapp.distro.view_recursos_humanos.filter_dep'),
     
-    url(r'^Teste_home/recursosHumanos/listDocente/filter_cat/$', 'ipbejactcapp.distro.view_recursos_humanos.filter_cat'),
+    url(r'^distro/recursosHumanos/listDocente/filter_cat/$', 'ipbejactcapp.distro.view_recursos_humanos.filter_cat'),
     
     #lista de contractos
-    url(r'^Teste_home/recursosHumanos/listContratos/filter_abc/$', 'ipbejactcapp.distro.view_recursos_humanos.filter_abc'),       
+    url(r'^distro/recursosHumanos/listContratos/filter_abc/$', 'ipbejactcapp.distro.view_recursos_humanos.filter_abc'),       
     
-    url(r'^Teste_home/recursosHumanos/listContratos/filter_dep/$', 'ipbejactcapp.distro.view_recursos_humanos.filter_dep'),
+    url(r'^distro/recursosHumanos/listContratos/filter_dep/$', 'ipbejactcapp.distro.view_recursos_humanos.filter_dep'),
     
-    url(r'^Teste_home/recursosHumanos/listContratos/filter_cat/$', 'ipbejactcapp.distro.view_recursos_humanos.filter_cat'),
+    url(r'^distro/recursosHumanos/listContratos/filter_cat/$', 'ipbejactcapp.distro.view_recursos_humanos.filter_cat'),
     
-    url(r'^Teste_home/recursosHumanos/listContratos/(?P<id_docente>\d+)/$', 
+    url(r'^distro/recursosHumanos/listContratos/(?P<id_docente>\d+)/$', 
         'ipbejactcapp.distro.view_recursos_humanos.indexRHInfoDocentesContratos', 
         name='infoRHDocentesContracto'),
     
@@ -224,7 +224,7 @@ urlpatterns = patterns('',
     
   
 
-    url(r'^Teste_home/recursosHumanos/listContratos/filter_date_start/$', 'ipbejactcapp.distro.view_recursos_humanos.filter_date_start'),
+    url(r'^distro/recursosHumanos/listContratos/filter_date_start/$', 'ipbejactcapp.distro.view_recursos_humanos.filter_date_start'),
     #####
     #Fim dos Url's destinados aos templates dos Recursos Humanos
     ####
@@ -234,7 +234,7 @@ urlpatterns = patterns('',
     # Url's destinados aos templates do serviço de Planeamento
     ####
     #Url Home do serviço de Planeamento
-    url(r'^Teste_home/servicoPlaneamento/$', 
+    url(r'^distro/servicoPlaneamento/$', 
         'ipbejactcapp.distro.views.indexServicoPlaneamento', 
         name='homeDirectoresEscola'),
     
