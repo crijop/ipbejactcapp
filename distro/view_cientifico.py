@@ -13,7 +13,7 @@ from django.template.context import RequestContext
 Inicio das vistas do Ciêntifico
 '''
 
-@login_required(redirect_field_name='Teste_home')
+@login_required(redirect_field_name='login_redirectUsers')
 def indexCientifico(request):
     return render_to_response("cientifico/index.html",
         locals(),

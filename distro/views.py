@@ -25,7 +25,7 @@ import unicodedata
 #o utilizador estiver autênticado
 #vista para a Página Home
 @login_required
-def Teste_home(request):
+def login_redirectUsers(request):
     
     name_group = Group.objects.get(name="Cientifico")
     name_group1 = Group.objects.get(name="CoordenadoresCursos")
@@ -78,7 +78,7 @@ def Teste_home(request):
         pass
     
     #Se as condições anteriores não se verificarem, 
-    #é mostrado o conteudo da Página Teste_home.html
+    #é mostrado o conteudo da Página login_redirectUsers.html
     else:
         return render_to_response("Teste_home.html",
             locals(),
@@ -94,7 +94,7 @@ Inicio das vistas dos Coordenadores Cursos
 '''
 #Falta a tabela para definir os Coordenadores...............................
 #Falta fazer o url's
-@login_required(redirect_field_name='Teste_home')
+@login_required(redirect_field_name='login_redirectUsers')
 def indexCoordCursos(request):
     return render_to_response("CoordCursos/index.html",
         locals(),
@@ -112,7 +112,7 @@ Fim das vistas dos Coordenadores Cursos
 '''
 Inicio das vistas dos Directores de Escola
 ''' 
-@login_required(redirect_field_name='Teste_home')
+@login_required(redirect_field_name='login_redirectUsers')
 def indexDirectoresEscola(request):
     return render_to_response("directoresEscola/index.html",
         locals(),
@@ -130,8 +130,8 @@ Fim das vistas dos Directores de Escola
 Inicio das vistas dos docentes
 ''' 
 #Página Inicial do utilizador Docente
+@login_required(redirect_field_name='login_redirectUsers')
 @user_passes_test(lambda u:u.groups.filter(name='Docente').count())
-@login_required(redirect_field_name='Teste_home')
 def indexDocente(request):
     nomeDocente = request.session['nomeDocente']
     nrDocente = request.session['nr_Docente']
@@ -175,7 +175,8 @@ def indexDocente(request):
 
     
 #Página de apresentação das turmas a que os Docentes pertencem
-@login_required(redirect_field_name='Teste_home')
+@login_required(redirect_field_name='login_redirectUsers')
+@user_passes_test(lambda u:u.groups.filter(name='Docente').count())
 def turmasDocentes(request):    
     nomeDocente = request.session['nomeDocente']
     nrDocente = request.session['nr_Docente']
@@ -194,7 +195,8 @@ def turmasDocentes(request):
         )    
     
 #Página de apresentação das horas de serviço pertencente a cada Docente
-@login_required(redirect_field_name='Teste_home')
+@login_required(redirect_field_name='login_redirectUsers')
+@user_passes_test(lambda u:u.groups.filter(name='Docente').count())
 def horasServico(request):
     nomeDocente = request.session['nomeDocente']
     nrDocente = request.session['nr_Docente']  
@@ -230,7 +232,7 @@ Fim das vistas dos docentes
 '''
 Inicio das vistas dos Serviços de Planeamento
 ''' 
-@login_required(redirect_field_name='Teste_home')
+@login_required(redirect_field_name='login_redirectUsers')
 def indexServicoPlaneamento(request):
     return render_to_response("servicosPlaneamento/index.html",
         locals(),
