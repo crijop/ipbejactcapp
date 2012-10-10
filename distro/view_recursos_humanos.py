@@ -940,7 +940,7 @@ def listContracts_RecursosHumanos(request):
                 contract_end = "---"
                 contract_type = "---"
                 percent = "---"
-                nomeCategoria = "Sem Categoria"
+                nomeCategoria = u"Sem Categoria"
             
             nomeCategoria_final = unicodedata.normalize('NFKD', nomeCategoria.lower()).encode('ASCII', 'ignore')
                     
@@ -1076,13 +1076,14 @@ def listContracts_RecursosHumanos(request):
                 percent = "---"
                 nomeCategoria = "Sem Categoria"
                 
-            date_contract_end = datetime.strptime(contract_end, "%d-%m-%Y")
+            if not(contract_end.startswith("---")):  
+                date_contract_end = datetime.strptime(contract_end, "%d-%m-%Y")
             
-            #print type(date_contract_start)
-            
-            if date_contract_end > date_down and date_contract_end < date_up:
-                        
-                listaContracts.append([docente.nome_completo, nomeCategoria, id_Docente, contract_type, percent, contract_start, contract_end])
+                if date_contract_end > date_down and date_contract_end < date_up:    
+                    listaContracts.append([docente.nome_completo, nomeCategoria, id_Docente, contract_type, percent, contract_start, contract_end])
+                    pass
+                pass
+            pass
         pass
     
     if "data_fim_especial" in request.GET or request.GET.get("actualState") == "data_fim_especial":
