@@ -8,8 +8,6 @@ Created on 20 de Set de 2012
 from distro.models import Departamento, Docente
 from django import forms
 from django.forms.models import ModelForm
-from django.forms.widgets import Widget
-
 
 
 class AddDocenteForm(forms.Form):
@@ -28,28 +26,30 @@ class AdicionarDocenteForm(ModelForm):
     email = forms.EmailField(required = False, label=u'Email Institucional')
     abreviatura       = forms.CharField()
     
+    departamento = forms.ModelChoiceField(Departamento.objects.all(),
+                                          widget = forms.Select(attrs = {'onchange':'testeSearch();'}))
+
+    regime_exclusividade = forms.BooleanField(required=False, initial = True, 
+                                              widget=forms.CheckboxInput(attrs={'onchange':'testeSearch();'}))
+    
     class Meta:
         model = Docente
+        pass
+    pass
 
 #Class que apresenta o formulário para
 #editar o docente
 class EditarDocenteForm(ModelForm):
-    
     nome_completo     = forms.CharField(max_length=300, label=u'Nome Completo')
     email = forms.EmailField(required = False, label=u'Email Institucional')
     abreviatura       = forms.CharField()
-                                          
+                                           
+    departamento = forms.ModelChoiceField(Departamento.objects.all(),
+                                          widget = forms.Select(attrs = {'onchange':'testeSearch();'}))
 
-    depart = Departamento.objects.all()
-   
-    #departamento = forms.CharField(widget=forms.Select(attrs={'onchange':"testeSearch();"},choices=((dep.id, dep.nome) for dep in depart)))
-    
-    departamento = forms.Select() 
-    departamento.__init__(attrs={'onchange':"testeSearch();"})
-  
-    #regime_exclusividade = forms.CheckboxInput
-    
-  
+    regime_exclusividade = forms.BooleanField(required=False, initial = True, 
+                                        widget=forms.CheckboxInput(attrs={'onchange':'testeSearch();'}))
+                                              
     #Para evitar que o django faça a 
     #validação do formulario aos campos que são unicos
     #No formulário para editar o docente
