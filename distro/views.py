@@ -7,9 +7,10 @@ from distro.models import Curso, Docente, ServicoDocente, TipoAula, Turma, \
     UnidadeCurricular, ReducaoServicoDocente, Reducao, Departamento, Contrato, \
     Categoria
 from distro.view_cientifico import indexCientifico
+from distro.view_departamento import indexDepartamento
 from distro.view_recursos_humanos import indexRecursosHumanos
 from django import forms
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib.auth.models import Group
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
@@ -17,16 +18,6 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render_to_response, redirect
 from django.template.context import RequestContext
 import unicodedata
-
-
-    
-
-
-
-
-
-
-
 
 
 
@@ -98,26 +89,6 @@ def Teste_home(request):
 
 
 
-
-'''
-Inicio das vistas do Ciêntifico
-'''
-
-
-## esta no ficheiro view_cientifico
-
-
-
-
-
-
-
-
-'''
-Fim das vistas do Ciêntifico
-'''
-
-
 '''
 Inicio das vistas dos Coordenadores Cursos
 '''
@@ -137,20 +108,6 @@ Fim das vistas dos Coordenadores Cursos
 '''
 
 
-'''
-Inicio das vistas do Departamento
-''' 
-@login_required(redirect_field_name='Teste_home')
-def indexDepartamento(request):
-    return render_to_response("departamento/index.html",
-        locals(),
-        context_instance=RequestContext(request),
-        )
-
-
-'''
-Fim das vistas do Departamento
-''' 
     
 '''
 Inicio das vistas dos Directores de Escola
@@ -167,13 +124,13 @@ def indexDirectoresEscola(request):
 '''
 Fim das vistas dos Directores de Escola
 '''
-    
 
 
 '''
 Inicio das vistas dos docentes
 ''' 
 #Página Inicial do utilizador Docente
+@user_passes_test(lambda u:u.groups.filter(name='Docente').count())
 @login_required(redirect_field_name='Teste_home')
 def indexDocente(request):
     nomeDocente = request.session['nomeDocente']

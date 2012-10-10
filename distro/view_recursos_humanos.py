@@ -9,7 +9,10 @@ from datetime import timedelta, date
 from distro.forms import EditarDocenteForm, AdicionarDocenteForm
 from distro.models import Departamento, Docente, Contrato, Categoria, \
     TipoContrato, DocenteLogs
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth import models
+from django.contrib.auth.decorators import login_required, permission_required, \
+    user_passes_test
+from django.contrib.auth.models import Group
 from django.contrib.formtools.preview import FormPreview
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
@@ -19,7 +22,6 @@ from django.template.context import RequestContext
 from django.utils.datetime_safe import datetime
 from pydoc import Doc
 import unicodedata
-from django.contrib.auth import models
 
 '''
 Inicio das vistas dos Recursos Humanos
@@ -99,15 +101,14 @@ def ajax(request):
         context_instance=RequestContext(request),
         )
     
-        
-        
-
 
 '''
 Trata da pagina de index dos recursos humanos onde são apresentadas algumas estatisticas
 como por exemplo a numero de contratos a terminar nos proximos 60 ou 120 dias
 '''
+
 @login_required(redirect_field_name='Teste_home')
+@user_passes_test(lambda u:u.groups.filter(name='RecusosHumanos').count())
 def indexRecursosHumanos(request):
     allDocentes = Docente.objects.all()
    
