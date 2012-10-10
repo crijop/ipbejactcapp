@@ -943,7 +943,7 @@ def listContracts_RecursosHumanos(request):
                 nomeCategoria = u"Sem Categoria"
             
             nomeCategoria_final = unicodedata.normalize('NFKD', nomeCategoria.lower()).encode('ASCII', 'ignore')
-                    
+            
             if nomeCategoria_final == letter:
                     
                 listaContracts.append([docente.nome_completo, nomeCategoria, id_Docente, contract_type, percent, contract_start, contract_end])
@@ -1026,14 +1026,15 @@ def listContracts_RecursosHumanos(request):
                 contract_type = "---"
                 percent = "---"
                 nomeCategoria = "Sem Categoria"
+            if not(contract_end.startswith("---")):
                 
-            date_contract_start = datetime.strptime(contract_start, "%d-%m-%Y")
+                date_contract_start = datetime.strptime(contract_start, "%d-%m-%Y")
             
             #print type(date_contract_start)
             
-            if date_contract_start > date_down and date_contract_start < date_up:
+                if date_contract_start > date_down and date_contract_start < date_up:
                         
-                listaContracts.append([docente.nome_completo, nomeCategoria, id_Docente, contract_type, percent, contract_start, contract_end])
+                    listaContracts.append([docente.nome_completo, nomeCategoria, id_Docente, contract_type, percent, contract_start, contract_end])
         pass
     
     if "data_fim" in request.GET or request.GET.get("actualState") == "data_fim":
@@ -1207,7 +1208,7 @@ def indexRHInfoDocentes(request, id_docente):
     email_institucional = Docente.objects.get(id__exact=id_docente).email
     abreviatura = Docente.objects.get(id__exact=id_docente).abreviatura
     
-    print "wsdwd ", abreviatura
+    #print "wsdwd ", abreviatura
     if abreviatura == None:
         abreviatura = ' '
         pass
