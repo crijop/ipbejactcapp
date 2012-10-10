@@ -69,7 +69,7 @@ alert(response);
 
 /***********/
 
-function teste_2() {
+function filter_rh() {
 
 	var out_1 = 1;
 	var out_2 = 1;

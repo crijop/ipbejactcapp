@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 
+
 '''
 Created on 25 de Set de 2012
+
 
 @author: António
 '''
@@ -23,8 +25,11 @@ from django.utils.datetime_safe import datetime
 from pydoc import Doc
 import unicodedata
 
+
 '''
 Inicio das vistas dos Recursos Humanos
+
+
 
 
 ''' 
@@ -36,6 +41,7 @@ presente na lista de docentes e lista de contratos
 @login_required(redirect_field_name='login_redirectUsers')
 @user_passes_test(lambda u:u.groups.filter(name='RecusosHumanos').count())
 def filter_abc(request):
+
 
     if request.is_ajax():
        
@@ -53,6 +59,7 @@ Responsavel por tratar o pedido ajax para o aparecimento da filtragem por depart
 @user_passes_test(lambda u:u.groups.filter(name='RecusosHumanos').count())     
 def filter_dep(request):
 
+
     if request.is_ajax():
        
         allDepartamentos = Departamento.objects.all()
@@ -68,6 +75,7 @@ Responsavel por tratar o pedido ajax para o aparecimento da filtragem por catego
 @user_passes_test(lambda u:u.groups.filter(name='RecusosHumanos').count())
 def filter_cat(request):
 
+
     if request.is_ajax():
        
         allCategories = Categoria.objects.all()
@@ -77,9 +85,11 @@ def filter_cat(request):
         context_instance=RequestContext(request),
         )
         
+
 @login_required(redirect_field_name='login_redirectUsers')
 @user_passes_test(lambda u:u.groups.filter(name='RecusosHumanos').count())
 def filter_date_start(request):
+
 
   
     if request.is_ajax():
@@ -97,6 +107,7 @@ def filter_date_start(request):
         context_instance=RequestContext(request),
         )
 
+
 @login_required(redirect_field_name='login_redirectUsers')
 @user_passes_test(lambda u:u.groups.filter(name='RecusosHumanos').count())
 def ajax(request):
@@ -110,10 +121,12 @@ def ajax(request):
         )
     
 
+
 '''
 Trata da pagina de index dos recursos humanos onde são apresentadas algumas estatisticas
 como por exemplo a numero de contratos a terminar nos proximos 60 ou 120 dias
 '''
+
 
 @login_required(redirect_field_name='login_redirectUsers')
 @user_passes_test(lambda u:u.groups.filter(name='RecusosHumanos').count())
@@ -189,6 +202,7 @@ def indexRecursosHumanos(request):
         )
     
     pass
+
 
 
 @login_required(redirect_field_name='login_redirectUsers')
@@ -430,6 +444,7 @@ def listDocente_RecursosHumanos(request):
         context_instance=RequestContext(request),
         )
     pass
+
 
     
     
@@ -675,6 +690,9 @@ def listDocenteEdit_RecursosHumanos(request):
 
 
 
+
+
+
 def removeDuplicatedElements(dataList):
     
     templist = dataList
@@ -694,6 +712,7 @@ def removeDuplicatedElements(dataList):
                 last = templist[i]
     
 
+
     return templist
     
 def regime_exlusividade(docente):
@@ -707,6 +726,7 @@ def regime_exlusividade(docente):
         pass
     
     return exlcusividade
+
 
 def search_docente(search_word, allDocentes, isListContracts):
     
@@ -746,6 +766,7 @@ def search_docente(search_word, allDocentes, isListContracts):
     return lista                
     pass
 
+
 def search_depertamento(search_word, allDocentes, isListContracts):
     lista = []
     
@@ -777,6 +798,7 @@ def search_depertamento(search_word, allDocentes, isListContracts):
                     
     return lista                 
     pass
+
 
 def search_category(search_word, allDocentes, isListContracts):
     
@@ -1038,6 +1060,7 @@ def listContracts_RecursosHumanos(request):
                 contract_type = "---"
                 percent = "---"
                 nomeCategoria = "Sem Categoria"
+                
             if not(contract_end.startswith("---")):
                 
                 date_contract_start = datetime.strptime(contract_start, "%d-%m-%Y")
@@ -1210,6 +1233,7 @@ def listContracts_RecursosHumanos(request):
     
     pass    
 
+
 @login_required(redirect_field_name='login_redirectUsers')
 @user_passes_test(lambda u:u.groups.filter(name='RecusosHumanos').count())
 def indexRHInfoDocentes(request, id_docente):
@@ -1239,6 +1263,7 @@ def indexRHInfoDocentes(request, id_docente):
         context_instance=RequestContext(request),
         )
     pass
+
 
 @login_required(redirect_field_name='login_redirectUsers')
 @user_passes_test(lambda u:u.groups.filter(name='RecusosHumanos').count())
@@ -1284,11 +1309,14 @@ def indexRHInfoDocentesContratos(request, id_docente):
 
 
 
+
 @login_required(redirect_field_name='login_redirectUsers')
 @user_passes_test(lambda u:u.groups.filter(name='RecusosHumanos').count())
+
 def indexRH_EditarDocente(request, id_docente):
     return EditDocenteModelFormPreview(EditarDocenteForm)
     pass
+
 
 
 @login_required(redirect_field_name='login_redirectUsers')
@@ -1296,6 +1324,7 @@ def indexRH_EditarDocente(request, id_docente):
 def addDocenteRH(request):
     return AddDocenteModelFormPreview(AdicionarDocenteForm)
     pass
+
 
 #ajuda
 @login_required(redirect_field_name='login_redirectUsers')
@@ -1307,6 +1336,8 @@ def ajudaRH(request, nr_video):
         context_instance=RequestContext(request),
         )
     pass
+
+
 
 
 class AddDocenteModelFormPreview(FormPreview):
@@ -1358,6 +1389,9 @@ class AddDocenteModelFormPreview(FormPreview):
         pass
     pass
         
+
+
+
 
 
 
@@ -1540,6 +1574,7 @@ class EditDocenteModelFormPreview(FormPreview):
             )
         pass
 
+
         
 def showSaveButton(request, id_docente):
     if request.is_ajax():
@@ -1549,6 +1584,7 @@ def showSaveButton(request, id_docente):
         )
     pass    
 
+
 def showSaveButton1(request):
     if request.is_ajax():
         return render_to_response("recursosHumanos/saveButtonAddDoc.html",
@@ -1556,6 +1592,7 @@ def showSaveButton1(request):
         context_instance=RequestContext(request),
         )
     pass 
+
 
 '''
 Fim das vistas dos Recursos Humanos
