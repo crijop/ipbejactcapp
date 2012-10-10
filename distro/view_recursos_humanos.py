@@ -1511,20 +1511,20 @@ class EditDocenteModelFormPreview(FormPreview):
 
         
 def showSaveButton(request, id_docente):
-    
-    
-    
     if request.is_ajax():
-       
-       
-        
         return render_to_response("recursosHumanos/saveButton.html",
         locals(),
         context_instance=RequestContext(request),
         )
     pass    
 
-
+def showSaveButton1(request):
+    if request.is_ajax():
+        return render_to_response("recursosHumanos/saveButtonAddDoc.html",
+        locals(),
+        context_instance=RequestContext(request),
+        )
+    pass 
 
 '''
 Fim das vistas dos Recursos Humanos

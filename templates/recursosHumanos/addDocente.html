@@ -37,20 +37,13 @@
 	    	{% endfor %}
 	    <br />
 	   	<span id="CamposObirgatorio">(*) - Campos de preenchimento obrigatório</span>
+	   	<hr />
+	   	<span id = "Confirmacao"></span>
 		<div id="buttonConfirm">
 			<input type="hidden" name="{{ stage_field }}" value="1" />
 			<input type="submit" value="Adicionar Docente" />
+			<script>changeCountValue();</script>
 		</div>
 		</form>
 	</div>
-    
-    
-	<!--<table>
-		{% for field in form %}
-	        <tr><th align="left">{{ field.label_tag }}:</th> <th align="left">{{ field }} *</th> 
-	        {% for error in field.errors %} 
-	        	<th align="left">{{error}}</th> 
-	        {% endfor %}</tr>	   
-		{% endfor %}
-    </table>-->
 {% endblock %}
