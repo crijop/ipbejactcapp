@@ -34,13 +34,14 @@ def login_redirectUsers(request):
     name_group4 = Group.objects.get(name="Docente")
     name_group5 = Group.objects.get(name = "RecusosHumanos")
     name_group6 = Group.objects.get(name = "servicosPlaneamento")
+    name_group7 = Group.objects.get(name = "Eng")
     
     #verifica se o utlizador pertence ao grupo do Cientifico
     if name_group in request.user.groups.all():
         return redirect(indexCientifico)
         pass
     #verifica se o utlizador pertence ao grupo dos Coordenadores Cursos
-    if name_group1 in request.user.groups.all():
+    elif name_group1 in request.user.groups.all():
         return redirect(indexCoordCursos)
         pass
     #verifica se o utlizador pertence ao grupo do Departamento
@@ -75,6 +76,13 @@ def login_redirectUsers(request):
     #verifica se o utlizador pertence ao grupo dos servicosPlaneamento
     elif name_group6 in request.user.groups.all():
         return redirect(indexServicoPlaneamento)
+        pass
+    elif name_group7 in request.user.groups.all():
+        request.session['dep_id'] = Departamento.objects.get(abreviatura__exact = name_group7).id
+        
+        
+        
+        return redirect(indexDepartamento)
         pass
     
     #Se as condições anteriores não se verificarem, 
