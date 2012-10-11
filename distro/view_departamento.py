@@ -4,9 +4,11 @@ Created on 10 de Out de 2012
 
 @author: admin1
 '''
-from distro.models import Departamento, Turma, UnidadeCurricular, ServicoDocente
+from distro.models import Departamento, Turma, UnidadeCurricular, ServicoDocente, \
+    Docente
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
+from django.db.models.query_utils import Q
 from django.shortcuts import render_to_response
 from django.template.context import RequestContext
 
@@ -25,7 +27,7 @@ def indexDepartamento(request):
     '''
     1 = alterar por id_departamento
     '''
-    listaAnos = listarAnos(1)
+    listaAnos = listarAnos(request.session['dep_id'])
     
     return render_to_response("departamento/index.html",
         locals(),
@@ -43,9 +45,9 @@ def listarTurmasDepart(request, ano):
     listaAnos = listarAnos(1)
     listaTurmas = []
     anoReferente = ano
-    departamento = Departamento.objects.get(id__exact = 1).nome
+    departamento = Departamento.objects.get(id__exact = request.session['dep_id']).nome
     
-    unidadesCurriculares = UnidadeCurricular.objects.filter(departamento_id__exact = 1)
+    unidadesCurriculares = UnidadeCurricular.objects.filter(departamento_id__exact = request.session['dep_id'])
     
     for uC in unidadesCurriculares:
         turmas = Turma.objects.filter(unidade_curricular_id__exact = uC.id, ano__exact = ano)
