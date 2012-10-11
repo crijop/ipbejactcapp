@@ -1,0 +1,64 @@
+{% extends "departamento/index.html" %}
+{% load i18n %}
+{% block title %} Listar Turmas Departamento de {{departamento}} {% endblock %}
+{% block breadcrumb %}
+<ul id="breadcrumb">
+	<li>
+		<a tabindex="2" href="{% url homeDepartamento %}" title="{% trans 'Home' %}"> <img src="/static/images/BreadCrumbs/home.gif" alt="{% trans 'Home' %}" class="home" /> </a>
+	</li>
+	<li>
+		Listar Turmas Departamento {{departamento}}
+	</li>
+</ul>
+{% endblock %}
+
+
+{% block content %}
+	<table id="tabela_sumario">
+		<tr>
+			<th colspan="6" class="top_sumario" >Listar Turmas {{departamento}}</th>
+		</tr>
+		<tr>
+			<th colspan="6" class="top_sumario"> {% csrf_token %}
+			<form action="" onkeypress="testeSearch()" method="get" name="searchForm">
+				<img src="/static/images/selector-search.gif" title="search" alt="searchIcon" />
+				<input name="searchField"  id="searchField" required type="search" value="{{keyword}}" />
+				<input id="submitSearch" value={%trans 'Search'%} name="Submit" type="submit" />
+			</form></th>
+		</tr>
+		<tr>
+	    	<th colspan="6" align="left">{{anoReferente}}</th>
+	    </tr>
+		<tr>
+			<th></th>
+			<th class="cabecalho_sumario">Unidade Curricular</th>
+			<th class="cabecalho_sumario">Número de Horas</th>
+			<th class="cabecalho_sumario">Número de Alunos</th>
+			<th class="cabecalho_sumario">Tipo Aula</th>
+			<th class="cabecalho_sumario">Turno</th>
+		</tr>
+		{% for unidadeCurricular, horas, nrAlunos, tipoAula, turno in turmas %}
+		<tr>
+			<td ><a href="{{id_Docente}}"><span class="view"></span></a></td>
+			<td class="teacher_name_field"><a href="#">{{unidadeCurricular}}</a></td>
+			<td>{{horas}}</td>
+			<td>{{nrAlunos}}</td>
+			<td>{{tipoAula}}</td>
+			<td>{{turno}}</td>
+		</tr>
+		{% endfor %}
+	</table>
+	
+	
+	
+	<div id="paginator">
+		<span class="current"> Página {{ docentes.number }} de {{ docentes.paginator.num_pages }}. </span>
+		<br>
+		<span class="step-links"><a href="?show=all">Todos</a></span>
+		<span class="step-links"> {% for page_num in drange %} <a id="{{ page_num}}" href="?page={{ page_num}}&{{actualState}}">{{ page_num}}</a> {% endfor%} </span>
+	</div>
+	<br>
+	<script type="text/javascript">document.getElementById("searchField").focus();</script>
+{% endblock %}
+
+

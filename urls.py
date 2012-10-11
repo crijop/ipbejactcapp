@@ -99,10 +99,13 @@ urlpatterns = patterns('',
         'ipbejactcapp.distro.views.indexDepartamento', 
         name='homeDepartamento'),
                        
+    url(r'^distro/departamento/listarTurmas/(?P<ano>\d+)$', 
+        'ipbejactcapp.distro.view_departamento.listarTurmasDepart', 
+        name='listarTurmas'),                   
                        
     url(r'^distro/departamento/listDocentes/$', 'ipbejactcapp.distro.view_departamento.listDocentes',
-        name='listDocentesDep'),
-    
+        name='listDocentesDep'),    
+
     #####
     #Fim Url's destinados aos templates do departamento
     #### 

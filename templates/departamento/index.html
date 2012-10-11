@@ -15,8 +15,15 @@
 		<li class='active '>
 			<a tabindex="3" href='/distro'><span>Informação</span></a>
 		</li>
-		<li>
-			<a tabindex="4" href='{%url adicionarDocenteRH%}'><span>Listar Turmas</span></a>
+		<li class='has-sub_lateral'>
+			<a tabindex="4" href='#'><span>Listar Turmas</span></a>
+			<ul>
+				{%for ano in listaAnos%}
+				<li>
+					<a href='{%url listarTurmas ano%}'><span>{{ano}}</span></a>
+				</li>
+				{%endfor%}
+			</ul>
 		</li>
 		<li>
 			<a tabindex="5" href='{%url listDocentesDep %}'><span>Listar Docentes</span></a>
@@ -55,7 +62,7 @@
 	    	<th colspan="2"  class="top_sumario">Estatística</th>
 	    </tr>
 	    <tr>
-	    	<th colspan="2" align="left">{{dateActualFormatPrint}}</th>
+	    	<th colspan="2" align="left">ANO</th>
 	    </tr>
 	    <tr>
 		<tr>
