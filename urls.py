@@ -104,8 +104,13 @@ urlpatterns = patterns('',
         name='listarTurmas'),                   
                        
     url(r'^distro/departamento/listDocentes/$', 'ipbejactcapp.distro.view_departamento.listDocentes',
-        name='listDocentesDep'),    
+        name='listDocentesDep'),
+                       
+    url(r'^distro/departamento/listDocentes/(?P<id_docente>\d+)$', 'ipbejactcapp.distro.view_departamento.infoDocenteDep'),        
 
+    url(r'^distro/departamento/listServicoDocente/(?P<ano>\d+)$', 
+        'ipbejactcapp.distro.view_departamento.listServicoDocente', 
+        name='listarServicoDocente'), 
     #####
     #Fim Url's destinados aos templates do departamento
     #### 
