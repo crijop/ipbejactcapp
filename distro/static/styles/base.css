@@ -222,6 +222,16 @@ table#tabela_sumario {
 	text-align: left;
 }
 
+#tabela_sumario .top_sumario_extra
+{
+	background: black;
+	border: 1px solid black;
+	border-bottom: 3px solid black;
+	border-bottom: 3px solid black;
+	text-shadow: 1px 1px 1px black;
+	text-align: right;
+}
+
 #tabela_sumario .sub_cabecalho {
 	background: rgb(255, 145, 70);
 	border: 1px solid rgb(255, 145, 70);

@@ -5,7 +5,7 @@ Created on 10 de Out de 2012
 @author: admin1
 '''
 from distro.models import Departamento, Turma, UnidadeCurricular, ServicoDocente, \
-    Docente
+    Docente, TipoAula
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.db.models.query_utils import Q
@@ -145,6 +145,108 @@ def removeDuplicatedElements(dataList):
             else:
                 last = templist[i]
     return templist
+
+
+'''@login_required(redirect_field_name='login_redirectUsers')
+@DepUserTeste
+def infoDocenteDep(request, id_docente):
+    id_departamento = Docente.objects.get(id__exact=id_docente).departamento_id
+    nome_Departamento = Departamento.objects.get(id__exact=id_departamento)
+    nomeDocente = Docente.objects.get(id__exact=id_docente)
+    escalao = Docente.objects.get(id__exact=id_docente).escalao
+    regime_exclusividade = Docente.objects.get(id__exact=id_docente).regime_exclusividade
+    email_institucional = Docente.objects.get(id__exact=id_docente).email
+    abreviatura = Docente.objects.get(id__exact=id_docente).abreviatura
+    
+    #print "wsdwd ", abreviatura
+    if abreviatura == None:
+        abreviatura = ' '
+        pass
+    
+    #atribuir regime exclusividade consoante se é True/False
+    if regime_exclusividade == True :
+        regimeExclusividade = "Sim"
+        pass
+    else:
+        regimeExclusividade = "Não"
+        pass
+    
+    return render_to_response("departamento/infoDocente.html",
+        locals(),
+        context_instance=RequestContext(request),
+        )
+    pass'''
+
+@login_required(redirect_field_name='login_redirectUsers')
+@DepUserTeste
+def infoDocenteDep(request, id_docente):
+    
+    servicoDocente = ServicoDocente.objects.filter(docente_id__exact = id_docente)
+    unidadesCurriculares = UnidadeCurricular.objects.all()
+    
+    docente_name = Docente.objects.get(id__exact = id_docente).nome_completo
+    
+    lista = []
+    #numero total de horas que o docente tem de serviço
+    numeroTotalHoras = 0
+    for servDocente in servicoDocente:
+       
+        #nome da unidade curricular que o docente vai dar aulas.
+        nomeUnidadeCurricular = UnidadeCurricular.objects.get(turma__id__exact=servDocente.turma_id).nome
+        nomeCurso = UnidadeCurricular.objects.get(turma__id__exact=servDocente.turma_id).curso
+        numeroTotalHoras +=servDocente.horas       
+        lista.append((servDocente.docente_id, nomeUnidadeCurricular,
+                           servDocente.horas, nomeCurso))
+              
+    return render_to_response("departamento/horasServico.html",
+        locals(),
+        context_instance=RequestContext(request),
+        )
+    
+@login_required(redirect_field_name='login_redirectUsers')
+@DepUserTeste
+def  listServicoDocente(request, ano):
+    listaAnos = listarAnos(request.session['dep_id'])
+    
+    listaServicoDocente = ServicoDocente.objects.filter(turma__ano__exact = ano).exclude(docente_id__exact = None)
+    
+    print "valor - ", len(listaServicoDocente)
+    
+    listToSend = []
+    
+    for servico in listaServicoDocente:
+        turma = Turma.objects.get(id__exact = servico.turma_id)
+        
+        unidade = UnidadeCurricular.objects.get(id__exact = turma.unidade_curricular_id).nome
+    
+        docente = Docente.objects.get(id__exact = servico.docente_id).nome_completo
+        
+        tipo_aula = TipoAula.objects.get(id__exact = turma.tipo_aula_id).tipo
+        
+        listToSend.append([servico.id, docente, unidade, turma.turno, tipo_aula, servico.horas])
+        
+    paginator = Paginator(listToSend, 10)
+    drange = range( 1, paginator.num_pages + 1)
+    
+    
+    page = request.GET.get('page')
+     
+    try:
+        listInfo = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        listInfo = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        listInfo = paginator.page(paginator.num_pages)
+    
+    
+    return render_to_response("departamento/listarServicoDocente.html",
+        locals(),
+        context_instance=RequestContext(request),
+        )
+    
+    
 
 '''
 Fim das vistas do Departamento

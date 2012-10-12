@@ -28,8 +28,15 @@
 		<li>
 			<a tabindex="5" href='{%url listDocentesDep %}'><span>Listar Docentes</span></a>
 		</li>
-		<li>
+		<li class='has-sub_lateral'>
 			<a tabindex="6" href='{%url listDocente %}'><span>Listar Serviços Docentes</span></a>
+			<ul>
+				{%for ano in listaAnos%}
+				<li>
+					<a href='{%url listarServicoDocente ano%}'><span>{{ano}}</span></a>
+				</li>
+				{%endfor%}
+			</ul>
 		</li>
 		<li>
 			<a href='{%url listContratos %}' ><span>Listar Unidades Curriculares (depart X)</span></a>
