@@ -26,6 +26,7 @@ from pydoc import Doc
 import unicodedata
 
 
+
 '''
 Inicio das vistas dos Recursos Humanos
 
@@ -203,7 +204,16 @@ def indexRecursosHumanos(request):
     
     pass
 
-
+def splitSearchPhrase(keyword):
+    
+    listSplited = []
+    
+    keywordFinal = keyword.strip()
+    
+    listSplited = keywordFinal.split()
+    
+    return listSplited
+    
 
 @login_required(redirect_field_name='login_redirectUsers')
 @user_passes_test(lambda u:u.groups.filter(name='RecusosHumanos').count())
@@ -254,12 +264,21 @@ def listDocente_RecursosHumanos(request):
                 listaDocentes.append([docente.nome_completo, departamentoNome, id_Docente, nomeCategoria, regime_exlusividade(docente), contract_end])
         else:
             finalkeyword = unicodedata.normalize('NFKD', keyword.lower()).encode('ASCII', 'ignore')
-            listaTempoDocente = search_docente(finalkeyword,allDocentes, 0)
-            listaTempoDep = search_depertamento(finalkeyword,allDocentes, 0)
-            listaTempoCat = search_category(finalkeyword, allDocentes, 0)
+            
+            listSplited = splitSearchPhrase(finalkeyword)
+            
+            print listSplited
+            
+            listaTempoDocente = []
+            listaTempoDep = []
+            listaTempoCat = []
+            search_docente(listSplited,allDocentes, 0,listaTempoDocente)
+            search_depertamento(listSplited,allDocentes, 0, listaTempoDep)
+            search_category(listSplited, allDocentes, 0,listaTempoCat)
+            
             
             tempList = listaTempoDocente + listaTempoDep + listaTempoCat
-        
+            
             
             tempList = removeDuplicatedElements(tempList)
             
@@ -498,11 +517,20 @@ def listDocenteEdit_RecursosHumanos(request):
                 listaDocentes.append([docente.nome_completo, departamentoNome, id_Docente, nomeCategoria, regime_exlusividade(docente), contract_end])
         else:
             finalkeyword = unicodedata.normalize('NFKD', keyword.lower()).encode('ASCII', 'ignore')
-            listaTempoDocente = search_docente(finalkeyword,allDocentes, 0)
-            listaTempoDep = search_depertamento(finalkeyword,allDocentes, 0)
-            listaTempoCat = search_category(finalkeyword, allDocentes, 0)
+            listSplited = splitSearchPhrase(finalkeyword)
+            
+            print listSplited
+            
+            listaTempoDocente = []
+            listaTempoDep = []
+            listaTempoCat = []
+            search_docente(listSplited,allDocentes, 0,listaTempoDocente)
+            search_depertamento(listSplited,allDocentes, 0, listaTempoDep)
+            search_category(listSplited, allDocentes, 0,listaTempoCat)
+            
             
             tempList = listaTempoDocente + listaTempoDep + listaTempoCat
+            
             
             tempList = removeDuplicatedElements(tempList)
             
@@ -728,57 +756,104 @@ def regime_exlusividade(docente):
     return exlcusividade
 
 
-def search_docente(search_word, allDocentes, isListContracts):
+def search_docente(search_List, allDocentes, isListContracts, listateste, count = 0):
     
-    lista = []
-    id_Docente = 0
-    departamentoNome = ""
-    contract_end = None;
-    departamento_id = 0
     
-    for docente in allDocentes:
+    listDocentes = []
+    searchList = search_List
+    
+    countIncrements = count
+    #print count
+    if count < len(searchList):
+        #print "entrei no ninho"
+        for docente in allDocentes:
                 
                 nomeDocente = unicodedata.normalize('NFKD', docente.nome_completo.lower()).encode('ASCII', 'ignore')
-                if nomeDocente.find(search_word) != -1:
+                if nomeDocente.find(searchList[count]) != -1:
                     
-                    departamento_id = docente.departamento_id
-                    departamentoNome = Departamento.objects.get(id__exact=departamento_id).nome
-                    id_Docente = docente.id
+                    listDocentes.append(docente)
+        
+        countIncrements += 1
+        #print "vou chamar o metodo"
+        search_docente(searchList,listDocentes,isListContracts,listateste,countIncrements)
+                               
+    else: 
+        #lista = []
+        id_Docente = 0
+        departamentoNome = ""
+        contract_end = None;
+        departamento_id = 0
+        
+       #print "sai do ninho"
+        for docente in allDocentes:  
+                                                  
+            departamento_id = docente.departamento_id
+            departamentoNome = Departamento.objects.get(id__exact=departamento_id).nome
+            id_Docente = docente.id
+                        
+                     
                     
-                 
+            try:
+                contrato = Contrato.objects.get(docente__id=id_Docente)
+                contract_start = contrato.data_inicio.strftime("%d-%m-%Y")
+                contract_end = contrato.data_fim.strftime("%d-%m-%Y")
+                contract_type = TipoContrato.objects.get(id__exact = contrato.tipo_contrato_id)
+                percent = contrato.percentagem 
+                #print contrato.categoria.id
+                nomeCategoria = Categoria.objects.get(id__exact = contrato.categoria.id)
+            except ObjectDoesNotExist:
+                nomeCategoria = "Sem Categoria"
                 
-                    try:
-                        contrato = Contrato.objects.get(docente__id=id_Docente)
-                        contract_start = contrato.data_inicio.strftime("%d-%m-%Y")
-                        contract_end = contrato.data_fim.strftime("%d-%m-%Y")
-                        contract_type = TipoContrato.objects.get(id__exact = contrato.tipo_contrato_id)
-                        percent = contrato.percentagem 
-                        #print contrato.categoria.id
-                        nomeCategoria = Categoria.objects.get(id__exact = contrato.categoria.id)
-                    except ObjectDoesNotExist:
-                            nomeCategoria = "Sem Categoria"
-                    if isListContracts == 0:
-                    
-                        lista.append([docente.nome_completo, departamentoNome, id_Docente,  nomeCategoria, regime_exlusividade(docente), contract_end])
-                    elif isListContracts == 1:
-                        lista.append([docente.nome_completo, nomeCategoria, id_Docente, contract_type, percent, contract_start, contract_end])
+            if isListContracts == 0:
+                        
+                listateste.append([docente.nome_completo, departamentoNome, id_Docente,  nomeCategoria, regime_exlusividade(docente), contract_end])
+            elif isListContracts == 1:
+                        
+                listateste.append([docente.nome_completo, nomeCategoria, id_Docente, contract_type, percent, contract_start, contract_end])
+           
+            
+            #print "vou terminar o else"
+        pass
     
-    return lista                
     pass
+        
+   
 
 
-def search_depertamento(search_word, allDocentes, isListContracts):
-    lista = []
+   
     
-    for docente in allDocentes:
+    
+def search_depertamento(search_List, allDocentes, isListContracts, listDep, count = 0):
+    #lista = []
+    
+    listDocentes = []
+    searchList = search_List
+    
+    countIncrements = count
+    #print count
+    if count < len(searchList):
+        #print "entrei no ninho"
+        for docente in allDocentes:
                 
                 departamento_id = docente.departamento_id
                 departamentoNome = Departamento.objects.get(id__exact=departamento_id).nome
                 
                 departamentoNomeFinal = unicodedata.normalize('NFKD', departamentoNome.lower()).encode('ASCII', 'ignore')
-                if departamentoNomeFinal.find(search_word) != -1:
+                if departamentoNomeFinal.find(searchList[count]) != -1:
                     
+                    listDocentes.append(docente)
+        
+        countIncrements += 1
+        #print "vou chamar o metodo"
+        search_depertamento(searchList,listDocentes,isListContracts,listDep,countIncrements)
+                               
+    else:
+        lista = []
+        for docente in allDocentes:
                     
+                    departamento_id = docente.departamento_id
+                    departamentoNome = Departamento.objects.get(id__exact=departamento_id).nome
+                       
                     id_Docente = docente.id
                     try:
                         contrato = Contrato.objects.get(docente__id=id_Docente)
@@ -791,26 +866,29 @@ def search_depertamento(search_word, allDocentes, isListContracts):
                     except ObjectDoesNotExist:
                             nomeCategoria = "Sem Categoria"
                     if isListContracts == 0:
-                    
-                        lista.append([docente.nome_completo, departamentoNome, id_Docente,  nomeCategoria, regime_exlusividade(docente), contract_end])
+                        
+                        listDep.append([docente.nome_completo, departamentoNome, id_Docente,  nomeCategoria, regime_exlusividade(docente), contract_end])
                     elif isListContracts == 1:
-                        lista.append([docente.nome_completo, nomeCategoria, id_Docente, contract_type, percent, contract_start, contract_end])
+                        listDep.append([docente.nome_completo, nomeCategoria, id_Docente, contract_type, percent, contract_start, contract_end])
+      
                     
-    return lista                 
     pass
 
 
-def search_category(search_word, allDocentes, isListContracts):
+def search_category(search_List, allDocentes, isListContracts, listaCate, count = 0):
     
-    lista = []
+    listDocentes = []
+    searchList = search_List
     id_Docente = 0
     departamentoNome = ""
     contract_end = None;
     departamento_id = 0
     
-    for docente in allDocentes:
-                
-               
+    countIncrements = count
+    #print count
+    if count < len(searchList):
+        #print "entrei no ninho"
+        for docente in allDocentes:
                 
                 departamento_id = docente.departamento_id
                 departamentoNome = Departamento.objects.get(id__exact=departamento_id).nome
@@ -834,18 +912,42 @@ def search_category(search_word, allDocentes, isListContracts):
                 
                 
                         
-                if nomeCategoriaFinal.find(search_word) != -1:
+                if nomeCategoriaFinal.find(searchList[count]) != -1:
                     
+                    listDocentes.append(docente)
+        
+        countIncrements += 1
+        #print "vou chamar o metodo"
+        search_category(searchList,listDocentes,isListContracts,listaCate,countIncrements)
+                               
+    else:
+        for docente in allDocentes:
+                
+               
+                
+                departamento_id = docente.departamento_id
+                departamentoNome = Departamento.objects.get(id__exact=departamento_id).nome
+                id_Docente = docente.id
                     
-                    
-                    if isListContracts == 0:
-                        
-                    
-                        lista.append([docente.nome_completo, departamentoNome, id_Docente,  nomeCategoria, regime_exlusividade(docente), contract_end])
-                    elif isListContracts == 1:
-                        lista.append([docente.nome_completo, nomeCategoria, id_Docente, contract_type, percent, contract_start, contract_end])
+                 
+                
+                try:
+                    contrato = Contrato.objects.get(docente__id=id_Docente)
+                    contract_start = contrato.data_inicio.strftime("%d-%m-%Y")
+                    contract_end = contrato.data_fim.strftime("%d-%m-%Y")
+                    contract_type = TipoContrato.objects.get(id__exact = contrato.tipo_contrato_id)
+                    percent = contrato.percentagem 
+                        #print contrato.categoria.id
+                    nomeCategoria = Categoria.objects.get(id__exact = contrato.categoria.id).nome
+                except ObjectDoesNotExist:
+                        nomeCategoria = u"Sem Categoria"
+                
+                if isListContracts == 0:
+                    listaCate.append([docente.nome_completo, departamentoNome, id_Docente,  nomeCategoria, regime_exlusividade(docente), contract_end])
+                elif isListContracts == 1:
+                    listaCate.append([docente.nome_completo, nomeCategoria, id_Docente, contract_type, percent, contract_start, contract_end])
     
-    return lista                
+                
     pass
     
 @login_required(redirect_field_name='login_redirectUsers')
@@ -893,14 +995,22 @@ def listContracts_RecursosHumanos(request):
                 listaContracts.append([docente.nome_completo, nomeCategoria, id_Docente, contract_type, percent, contract_start, contract_end])
         else:
             finalkeyword = unicodedata.normalize('NFKD', keyword.lower()).encode('ASCII', 'ignore')
-            listaTempoDocente = search_docente(finalkeyword,allDocentes, 1)
-            listaTempoDep = search_depertamento(finalkeyword,allDocentes, 1)
-            listaTempoCat = search_category(finalkeyword, allDocentes, 1)
+            listSplited = splitSearchPhrase(finalkeyword)
+            
+            print listSplited
+            
+            listaTempoDocente = []
+            listaTempoDep = []
+            listaTempoCat = []
+            search_docente(listSplited,allDocentes, 1,listaTempoDocente)
+            search_depertamento(listSplited,allDocentes, 1, listaTempoDep)
+            search_category(listSplited, allDocentes, 1,listaTempoCat)
+            
             
             tempList = listaTempoDocente + listaTempoDep + listaTempoCat
-            tempList.sort()
             
-            tempList = list(tempList)
+            
+            tempList = removeDuplicatedElements(tempList)
             
             if len(tempList) != 0:
                 #listaTemp = search_docente(finalkeyword,allDocentes, listaDocentes)

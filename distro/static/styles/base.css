@@ -12,7 +12,7 @@ div#window {
 
 div#master {
 	width: 100%;
-	height: 100%;
+	height: auto;
 	float: left;
 	background: white;
 	margin-bottom: 10px;
@@ -84,6 +84,7 @@ div#leftBar {
 div#rightBar {
 	float: left;
 	width: 80%;
+	
 }
 
 div#bradCrumb {
@@ -93,8 +94,11 @@ div#bradCrumb {
 }
 
 div#content {
+ 
 
 }
+
+
 
 div#footer {
 	background: white;
@@ -107,6 +111,8 @@ div#footer {
 	padding: 7px;
 	text-align: center;
 }
+
+
 
 /*Docentes*/
 /*Pagna inicial*/
@@ -334,11 +340,12 @@ span.exit_small::before {
 #paginator {
 	margin-top: 5px;
 	width: 100%;
-	height: 20px;
+	height: auto;
 	font-family: Arial;
 }
 #paginator a {
 
+	margin-top: 2px;
 	background-color: #000000;
 	/*border:1px solid #000000;*/
 	display: inline-block;
@@ -1031,3 +1038,5 @@ span.exit_small::before {
 	color: #FF0000;
 	text-shadow: None;
 }
+
+
