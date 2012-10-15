@@ -24,9 +24,6 @@ Inicio das vistas do Departamento
 @login_required(redirect_field_name='login_redirectUsers')
 @DepUserTeste
 def indexDepartamento(request):
-    '''
-    1 = alterar por id_departamento
-    '''
     listaAnos = listarAnos(request.session['dep_id'])
     
     return render_to_response("departamento/index.html",
@@ -39,10 +36,7 @@ def indexDepartamento(request):
 @login_required(redirect_field_name='login_redirectUsers')
 @DepUserTeste
 def listarTurmasDepart(request, ano):
-    '''
-    1 = alterar por id_departamento
-    '''
-    listaAnos = listarAnos(1)
+    listaAnos = listarAnos(request.session['dep_id'])
     listaTurmas = []
     anoReferente = ano
     departamento = Departamento.objects.get(id__exact = request.session['dep_id']).nome
@@ -50,11 +44,13 @@ def listarTurmasDepart(request, ano):
     unidadesCurriculares = UnidadeCurricular.objects.filter(departamento_id__exact = request.session['dep_id'])
     
     for uC in unidadesCurriculares:
-        turmas = Turma.objects.filter(unidade_curricular_id__exact = uC.id, ano__exact = ano)
+        turmasFilter = Turma.objects.filter(unidade_curricular_id__exact = uC.id, ano__exact = ano)
         
-        for t in turmas:    
-            listaTurmas.append([t.unidade_curricular, t.horas, t.numero_alunos, t.tipo_aula, t.turno])
+        for t in turmasFilter:    
+            listaTurmas.append([t.unidade_curricular.nome, t.id, t.unidade_curricular.curso, t.horas, t.numero_alunos, t.tipo_aula, t.turno])
     
+    listaTurmas.sort()
+
     paginator = Paginator(listaTurmas, 10)
     drange = range( 1, paginator.num_pages + 1)
     
