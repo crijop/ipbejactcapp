@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 from distro.forms import EditarDocenteForm, AdicionarDocenteForm
-from distro.view_recursos_humanos import EditDocenteModelFormPreview, AddDocenteModelFormPreview
+from distro.forms_departamento import AdicionarServicoDocenteForm
+from distro.view_departamento import AtribuirServicoDocenteFormPreview
+from distro.view_recursos_humanos import EditDocenteModelFormPreview, \
+    AddDocenteModelFormPreview
 from django.conf.urls.defaults import patterns, include, url
 from django.contrib import admin
 
@@ -111,6 +114,15 @@ urlpatterns = patterns('',
     url(r'^distro/departamento/listServicoDocente/(?P<ano>\d+)$', 
         'ipbejactcapp.distro.view_departamento.listServicoDocente', 
         name='listarServicoDocente'), 
+     
+     url(r'^distro/departamento/turmaSemSevicoDocente/(?P<ano>\d+)$', 
+        'ipbejactcapp.distro.view_departamento.addServicoDocenteDepart', 
+        name='turmaSemServDocente'),
+                       
+    url(r'^distro/departamento/turmaSemSevicoDocente/addServicoDocente/(?P<id_servico>\d+)$', 
+        AtribuirServicoDocenteFormPreview(AdicionarServicoDocenteForm), 
+        name='addServicoDocentDepart'),
+                       
     #####
     #Fim Url's destinados aos templates do departamento
     #### 
