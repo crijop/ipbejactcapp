@@ -1,0 +1,50 @@
+{% extends "departamento/index.html" %}
+{% load i18n %}
+{% block title %} Página de adicionar Serviço de Docente {% endblock %}
+
+{% block breadcrumb %}
+<ul id="breadcrumb">
+	<li>
+		<a tabindex="2" href="{% url homeDepartamento %}" title="{% trans 'Home' %}"> <img src="/static/images/BreadCrumbs/home.gif" alt="{% trans 'Home' %}" class="home" /> </a>
+	</li>
+	<li>
+		Adicionar Serviço Docente
+	</li>
+</ul>
+{% endblock %}
+
+{% block content %}
+
+	<table id="tabela_sumario">
+	    <tr>
+	            <th colspan="2" class="top_sumario">Adicionar Serviço Docente</th>
+	    </tr>
+    </table>
+    
+   <div id="contentForm">
+		<form method="post">
+			{% csrf_token %}
+			{% for field in form %}
+		        <div class ="{% cycle 'row1' 'row2' %}">
+		      		{{ field.label_tag }}: {{ field }}
+		      		{% if field.field.required %}
+		        		<span>(*)</span>
+		        	{%endif%}
+		            {% for error in field.errors %} 
+		            	<span class="errorField">{{error}}</span> 
+		            {% endfor %}
+		        </div>
+	    	{% endfor %}
+	    <br />
+	   	<span id="CamposObirgatorio">(*) - Campos de preenchimento obrigatório</span>
+	   	<hr />
+	   	<span id = "Confirmacao"></span>
+		<div id="buttonConfirm">
+			<input type="hidden" name="{{ stage_field }}" value="1" />
+			<input type="submit" value="Adicionar Serviço Docente" />
+			<script>changeCountValue();</script>
+		</div>
+		</form>
+	</div>
+{% endblock %}
+
