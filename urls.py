@@ -119,7 +119,7 @@ urlpatterns = patterns('',
         'ipbejactcapp.distro.view_departamento.addServicoDocenteDepart', 
         name='turmaSemServDocente'),
                        
-    url(r'^distro/departamento/turmaSemSevicoDocente/addServicoDocente/(?P<id_servico>\d+)$', 
+    url(r'^distro/departamento/turmaSemSevicoDocente/addServicoDocente/(?P<id_servico>\d+)/(?P<id_Departamento>\d+)/(?P<ano>\d+)$', 
         AtribuirServicoDocenteFormPreview(AdicionarServicoDocenteForm), 
         name='addServicoDocentDepart'),
                        

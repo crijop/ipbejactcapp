@@ -4,25 +4,29 @@ Created on 15 de Out de 2012
 
 @author: admin1
 '''
+from distro.models import Turma, ServicoDocente, Docente, UnidadeCurricular
 from django import forms
-from distro.models import Departamento, ServicoDocente
+from django.core.context_processors import request
 from django.forms.models import ModelForm
 
 
 
 class AdicionarServicoDocenteForm(ModelForm):
-    #widget=forms.TextInput(attrs={ 'required': 'true' })
-    '''
-    nome_completo     = forms.CharField(max_length=300, label=u'Nome Completo')
-    email = forms.EmailField(required = False, label=u'Email Institucional')
-    abreviatura       = forms.CharField()
     
-    departamento = forms.ModelChoiceField(Departamento.objects.all(),
-                                          widget = forms.Select(attrs = {'onchange':'testeSearch();'}))
+    def __init__(self, *args, **kwargs):
+        id_Departamento = kwargs.pop('id_Departamento')
+        ano = kwargs.pop('ano')
+        super(AdicionarServicoDocenteForm, self).__init__(*args, **kwargs)
+        
+        
+        #self.fields['turma'] = forms.ModelChoiceField(
+        #                Turma.objects.filter(unidade_curricular__departamento_id__exact = id_Departamento).filter(ano = ano)
+        #                )
+        self.fields['docente'] = forms.ModelChoiceField(Docente.objects.filter(departamento_id__exact = id_Departamento))
+        self.fields['horas'] = forms.CharField(widget=forms.TextInput(attrs={ 'readonly': 'readonly' }))
+        
 
-    regime_exclusividade = forms.BooleanField(required=False, initial = True, 
-                                              widget=forms.CheckboxInput(attrs={'onchange':'testeSearch();'}))
-    '''
     class Meta:
         model = ServicoDocente
+        exclude = ('turma',)
     pass

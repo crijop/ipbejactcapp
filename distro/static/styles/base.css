@@ -1039,4 +1039,12 @@ span.exit_small::before {
 	text-shadow: None;
 }
 
+/*
+ * Departamento
+ *  */
+
+#unidadeCurricularTurma
+{
+	width: 80%
+}
 

@@ -251,7 +251,8 @@ def  listServicoDocente(request, ano):
 @login_required(redirect_field_name='login_redirectUsers')
 @DepUserTeste
 def addServicoDocenteDepart(request, ano):
-    listaAnos = listarAnos(request.session['dep_id'])
+    id_Departamento = request.session['dep_id']
+    listaAnos = listarAnos(id_Departamento)
     listToSend = []
     unidadesCurriculares = UnidadeCurricular.objects.filter(departamento_id__exact = request.session['dep_id'])
     
@@ -289,7 +290,7 @@ def addServicoDocenteDepart(request, ano):
     
     
 class AtribuirServicoDocenteFormPreview(FormPreview):
-    preview_template = 'recursosHumanos/pageConfirForm.html'
+    preview_template = 'departamento/pageConfirForm.html'
     form_template = 'departamento/addServicoDocente.html'
     
     estado = "Editar"
@@ -303,15 +304,15 @@ class AtribuirServicoDocenteFormPreview(FormPreview):
                 'id_servico': self.state['id_servico'],
                 'estado' : self.estado
                 }
-        
-        
+           
     def preview_get(self, request):
         "Displays the form"
-        
+        nomeTurma = ServicoDocente.objects.get(id__exact = self.state['id_servico']).turma.unidade_curricular.nome
         id_servico = self.state['id_servico']
-        print "xsxxxxxxxxxxxxxxxxxxxxxxxxxxxx ", id_servico
         b = ServicoDocente.objects.get(id=id_servico)
-        form = AdicionarServicoDocenteForm(request.POST, instance=b)
+        form = AdicionarServicoDocenteForm(instance=b, 
+										id_Departamento = self.state['id_Departamento'], 
+										ano = self.state['ano'])
             
         
         return render_to_response(self.form_template,
@@ -323,57 +324,27 @@ class AtribuirServicoDocenteFormPreview(FormPreview):
         # get the selected HI test
         try:
             self.state['id_servico'] = kwargs['id_servico']
+            self.state['id_Departamento'] = kwargs['id_Departamento']
+            self.state['ano'] = kwargs['ano']
         except Docente.DoesNotExist:
             raise Http404("Invalid")
         pass
        
     def done(self, request, cleaned_data):
         id_servico = self.state['id_servico']
+        nomeTurma = ServicoDocente.objects.filter(id__exact = self.state['id_servico'])
         d = get_object_or_404(ServicoDocente, pk=id_servico)
         if request.method == 'POST':
             b = ServicoDocente.objects.get(id=id_servico)
             form = AdicionarServicoDocenteForm(request.POST, instance=b)
             if form.is_valid():
-                '''
-                #passar a variavel nome_completo para o template
-                nome_completo= form.cleaned_data['nome_completo']
-                #verifica se o campo do regime de exclusividade é
-                #verdadeiro ou Falso
-                #regime exclusividade igual a verdadeiro
-                if form.cleaned_data['regime_exclusividade']:
-                    d.nome_completo = form.cleaned_data['nome_completo']
-                    d.departamento = form.cleaned_data['departamento']
-                    d.escalao = form.cleaned_data['escalao']
-                    d.email = form.cleaned_data['email']
-                    d.abreviatura = form.cleaned_data['abreviatura']
-                    d.regime_exclusividade = form.cleaned_data['regime_exclusividade']
-                    pass
-                #regime exclusividade igual a falso
-                else:
-                    regimeExclusividade = False
-                    d.nome_completo = form.cleaned_data['nome_completo']
-                    d.departamento = form.cleaned_data['departamento']
-                    d.escalao = form.cleaned_data['escalao']
-                    d.email = form.cleaned_data['email']
-                    d.abreviatura = form.cleaned_data['abreviatura']
-                    d.regime_exclusividade = regimeExclusividade
-                    pass
-                '''
-                '''
-                print "Id do Docente ", id_docente
-                print "DATA ", datetime.today()
-                print "Id do User ", request.user.id
+                d.turma_id = 722
+                d.docente_id = form.cleaned_data['docente']
+                d.horas = form.cleaned_data['horas']
                 
-                '''
-                '''
-                docLogs = DocenteLogs(docente_id = id_docente,
-                                    data_modificacao = datetime.today(),
-                                    id_user = request.user.id
-                                    )
-                docLogs.save()
+                
                 d.save()
-                self.contador = 0
-                '''
+                
                 #return HttpResponseRedirect('/thanks/') # Redirect after POST
         else:
             b = ServicoDocente.objects.get(id=id_servico)
