@@ -109,6 +109,10 @@ urlpatterns = patterns('',
     url(r'^distro/departamento/listDocentes/$', 'ipbejactcapp.distro.view_departamento.listDocentes',
         name='listDocentesDep'),
                        
+    url(r'^distro/departamento/listDocentes/filter_abc/$', 'ipbejactcapp.distro.view_departamento.filter_abc'),
+                       
+    url(r'^distro/departamento/listDocentes/filter_cat/$', 'ipbejactcapp.distro.view_departamento.filter_cat'),
+                       
     url(r'^distro/departamento/listDocentes/(?P<id_docente>\d+)$', 'ipbejactcapp.distro.view_departamento.infoDocenteDep'),        
 
     url(r'^distro/departamento/listServicoDocente/(?P<ano>\d+)$', 

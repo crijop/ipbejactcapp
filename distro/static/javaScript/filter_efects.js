@@ -69,18 +69,17 @@ alert(response);
 
 /***********/
 
-function filter_rh() {
+function filter_oa() {
 
 	var out_1 = 1;
-	var out_2 = 1;
-	var out_3 = 1;
-	var out_4 = 1;
-	var out_5 = 1;
+	
 	require(["dojo/request", "dojo/fx", "dojo/on", "dojo/dom", "dojo/domReady!"], function(request, fx, on, dom) {
 
 		var wipeOutButton_1 = dom.byId("oa_button"), wipeInButton_1 = dom.byId("oa_button"), wipeTarget_1 = dom.byId("oa");
 
 		on(wipeInButton_1, "click", function(evt) {
+			
+			
 			if (out_1 == 1) {
 
 				//esconder a div
@@ -110,7 +109,14 @@ function filter_rh() {
 				wipeTarget_1.style.display = "block";
 			}
 		});
-
+		
+	});
+}
+function filter_dep()
+{
+	var out_2 = 1;
+	
+	require(["dojo/request", "dojo/fx", "dojo/on", "dojo/dom", "dojo/domReady!"], function(request, fx, on, dom) {
 		var wipeOutButton_2 = dom.byId("da_button"), wipeInButton_2 = dom.byId("da_button"), wipeTarget_2 = dom.byId("dep");
 		//esconder a div
 
@@ -143,14 +149,22 @@ function filter_rh() {
 
 				wipeTarget_2.style.display = "block";
 			}
+		
 		});
+	});
+}
 
+function filter_cat()
+{
+	var out_3 = 1;
+	require(["dojo/request", "dojo/fx", "dojo/on", "dojo/dom", "dojo/domReady!"], function(request, fx, on, dom) {
 		////////////////
 
 		var wipeOutButton_3 = dom.byId("ca_button"), wipeInButton_3 = dom.byId("ca_button"), wipeTarget_3 = dom.byId("category");
 		//esconder a div
 
-		on(wipeInButton_3, "click", function(evt) {
+		on(wipeInButton_3, "click", function(evt) 
+		{ 
 			if (out_3 == 1) {
 
 				wipeTarget_3.style.display = "block";
@@ -180,7 +194,14 @@ function filter_rh() {
 				wipeTarget_3.style.display = "block";
 			}
 		});
+		
+	});
+}
 
+function filter_date()
+{
+	var out_4 = 1;
+		require(["dojo/request", "dojo/fx", "dojo/on", "dojo/dom", "dojo/domReady!"], function(request, fx, on, dom) {
 		////////*Por data*////////
 
 		var wipeOutButton_4 = dom.byId("date_button"), wipeInButton_4 = dom.byId("date_button"), wipeTarget_4 = dom.byId("date");
@@ -211,6 +232,7 @@ function filter_rh() {
 
 	});
 }
+
 
 /*************************/
 

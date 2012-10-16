@@ -27,6 +27,9 @@ import unicodedata
 @login_required
 def login_redirectUsers(request):
     
+    request.session.set_expiry(60 * 30)
+  
+    
     name_group = Group.objects.get(name="Cientifico")
     name_group1 = Group.objects.get(name="CoordenadoresCursos")
     name_group2 = Group.objects.get(name="Departamento")

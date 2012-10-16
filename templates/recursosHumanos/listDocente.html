@@ -111,6 +111,10 @@ Página {{ docentes.number }} de {{ docentes.paginator.num_pages }}.
 	<span class="step-links"> {% for page_num in drange %} <a id="{{ page_num}}" href="?page={{ page_num}}&{{actualState}}">{{ page_num}}</a> {% endfor%} </span>
 </div>
 <br>
-<script type="text/javascript">document.getElementById("searchField").focus();</script>
+<script type="text/javascript">document.getElementById("searchField").focus();
+	filter_oa();
+	filter_dep();
+	filter_cat();
+	</script>
 {% endblock %}
 
