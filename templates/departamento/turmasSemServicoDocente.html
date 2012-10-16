@@ -63,7 +63,7 @@
 	{% for unidadeCurricular, servico_id, turno, tipo, horas in listInfo %}
 	<tr>
 		<td ><a href="{{servico_id}}"><span class="view"></span></a></td>
-		<td><a href="addServicoDocente/{{servico_id}}">{{unidadeCurricular}}</a></td>
+		<td><a href="addServicoDocente/{{servico_id}}/{{id_Departamento}}/{{ano}}">{{unidadeCurricular}}</a></td>
 		
 		<td>{{turno}}</td>
 		<td>{{tipo}}</td>
