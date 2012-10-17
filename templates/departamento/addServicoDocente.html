@@ -25,7 +25,7 @@
 		<form method="post">
 			{% csrf_token %}
 			<div class="row1">
-				Turma: <input type="text" readonly="readonly" name="some_name" value="{{nomeTurma}}" id="unidadeCurricularTurma"/>
+				Turma: <input type="text" readonly="readonly" name="turma" value="{{nomeTurma}}" id="unidadeCurricularTurma"/>
 			</div>
 			{% for field in form %}
 		        <div class ="{% cycle 'row2' 'row1' %}">

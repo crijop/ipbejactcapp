@@ -9,7 +9,7 @@
 	</li>
 	
 	<li>
-		Confirmação dados do Docente
+		Confirmação dados Serviço Docente
 	</li>
 </ul>
 
@@ -23,20 +23,15 @@
 	    		{{self.process_preview}}{{context}}</th>
 	    </tr>
 	</table>
-	<!--
-	    {% for field in form %}
-	        <tr>
-	        	<th class="sub_cabecalho"><span>{{ field.label }}:</span></th>
-	        	<td>{{ field.data}}</td>
-	 		</tr>
-		{% endfor %}
- </table>-->
  	
     <div id="contentForm">
 		<form method="post" onkeypress="testeSearch();" >
 			{% csrf_token %}
+			<div class="row1">
+				Turma: <input type="text" readonly="readonly" name="turma" value="{{nomeTurma}}" id="unidadeCurricularTurma"/>
+			</div>
 			{% for field in form %}
-		        <div class ="{% cycle 'row1' 'row2' %}">
+		        <div class ="{% cycle 'row2' 'row1' %}">
 		            {{ field.label_tag }}: {{ field }}
 		            {% if field.field.required %}
 			        	<span>(*)</span>
@@ -49,7 +44,6 @@
 	   		<br />
 	    	<span id="CamposObirgatorio">(*) - Campos de preenchimento obrigatório</span>
 		
-			{{t}}
 	
     		<hr />
     			<span id = "Confirmacao">Deseja submeter os Dados dos Formulário?</span>

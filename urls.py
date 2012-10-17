@@ -113,20 +113,22 @@ urlpatterns = patterns('',
                        
     url(r'^distro/departamento/listDocentes/filter_cat/$', 'ipbejactcapp.distro.view_departamento.filter_cat'),
                        
-    url(r'^distro/departamento/listDocentes/(?P<id_docente>\d+)$', 'ipbejactcapp.distro.view_departamento.infoDocenteDep'),        
+    url(r'^distro/departamento/listDocentes/(?P<id_docente>\d+)/$', 'ipbejactcapp.distro.view_departamento.infoDocenteDep'),        
 
-    url(r'^distro/departamento/listServicoDocente/(?P<ano>\d+)$', 
+    url(r'^distro/departamento/listServicoDocente/(?P<ano>\d+)/$', 
         'ipbejactcapp.distro.view_departamento.listServicoDocente', 
         name='listarServicoDocente'), 
      
-     url(r'^distro/departamento/turmaSemSevicoDocente/(?P<ano>\d+)$', 
+     url(r'^distro/departamento/turmaSemSevicoDocente/(?P<ano>\d+)/$', 
         'ipbejactcapp.distro.view_departamento.addServicoDocenteDepart', 
         name='turmaSemServDocente'),
                        
-    url(r'^distro/departamento/turmaSemSevicoDocente/addServicoDocente/(?P<id_servico>\d+)/(?P<id_Departamento>\d+)/(?P<ano>\d+)$', 
+    url(r'^distro/departamento/turmaSemSevicoDocente/addServicoDocente/(?P<id_servico>\d+)/(?P<id_Departamento>\d+)/(?P<ano>\d+)/$', 
         AtribuirServicoDocenteFormPreview(AdicionarServicoDocenteForm), 
         name='addServicoDocentDepart'),
-                       
+    
+     url(r'^distro/departamento/turmaSemSevicoDocente/addServicoDocente/(?P<id_servico>\d+)/(?P<id_Departamento>\d+)/(?P<ano>\d+)/addSaveButton$',
+          'ipbejactcapp.distro.view_departamento.showSaveButton'),          
     #####
     #Fim Url's destinados aos templates do departamento
     #### 
