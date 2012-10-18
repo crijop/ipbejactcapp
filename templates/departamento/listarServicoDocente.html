@@ -63,9 +63,17 @@
 	</tr>
 	{% for servico_id, docente, unidadeCurricular, turno, tipo, horas, id_turma, id_docente in listInfo %}
 	<tr>
-		<td ><a href="{{servico_id}}"><span class="view"></span></a></td>
-		<td class="teacher_name_field"><a href="{% url infoModuloDocente id_docente ano %}">{{docente}}</a></td>
-		<td><a href="{% url infoModuloTurma id_turma ano %}">{{unidadeCurricular}}</a></td>
+
+		<td class="view"><ul>
+					<li>
+						<a class="float_link" href='{% url infoModuloDocente id_docente ano %}'><span>Ver Informação Docente</span></a>
+					</li>
+					<li>
+						<a class="float_link" href='{% url infoModuloTurma id_turma ano %}'><span>Ver Informação Turmas</span></a>
+					</li>
+				</ul></td>
+		<td class="teacher_name_field"><a class="tableLink" href="{% url infoModuloDocente id_docente ano %}">{{docente}}</a></td>
+		<td><a class="tableLink" href="{% url infoModuloTurma id_turma ano %}">{{unidadeCurricular}}</a></td>
 		<td>{{turno}}</td>
 		<td>{{tipo}}</td>
 		<td>{{horas}}</td>
