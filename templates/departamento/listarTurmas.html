@@ -1,6 +1,6 @@
 {% extends "departamento/index.html" %}
 {% load i18n %}
-{% block title %} Listar Turmas Departamento de {{departamento}} {% endblock %}
+{% block title %} Listar Turmas Departamento {% endblock %}
 {% block breadcrumb %}
 <ul id="breadcrumb">
 	<li>
@@ -50,8 +50,6 @@
 		</tr>
 		{% endfor %}
 	</table>
-	
-	
 	
 	<div id="paginator">
 		<span class="current"> Página {{ turmas.number }} de {{ turmas.paginator.num_pages }}. </span>
