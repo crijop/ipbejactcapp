@@ -4,6 +4,12 @@ Created on 10 de Out de 2012
 
 @author: admin1
 '''
+
+
+#Modulo de python com o nome view_departamento.py
+#Modulo que trata de todas as views dos departamentos
+
+
 from distro.forms_departamento import AdicionarServicoDocenteForm
 from distro.models import Departamento, Turma, UnidadeCurricular, ServicoDocente, \
         Docente, TipoAula, Contrato, Categoria
@@ -20,11 +26,10 @@ import unicodedata
 
 
 
-
 DepUserTeste = user_passes_test(lambda u:u.groups.filter(Q(name='Departamento') | Q(name='Eng')).count(), login_url='/')
 
 '''
-Metodo reposavel por ratar o pediodo AJAX de aparecimento do filtro de ordenação por
+Metodo responsavel por tratar o pediodo AJAX de aparecimento do filtro de ordenação por
 uma letra do alfabeto
 presente na lista de docentes e lista de contratos
 '''
@@ -43,7 +48,7 @@ def filter_abc(request):
         )
 
 '''
-Responsavel por tratar o pedido ajax para o aparecimento da filtragem por categorias
+Método responsavel por tratar o pedido ajax para o aparecimento da filtragem por categorias
 '''
 @login_required(redirect_field_name='login_redirectUsers')
 @DepUserTeste
@@ -428,40 +433,10 @@ def removeDuplicatedElements(dataList):
     return templist
 
 
-'''@login_required(redirect_field_name='login_redirectUsers')
-@DepUserTeste
-def infoDocenteDep(request, id_docente):
-    id_departamento = Docente.objects.get(id__exact=id_docente).departamento_id
-    nome_Departamento = Departamento.objects.get(id__exact=id_departamento)
-    nomeDocente = Docente.objects.get(id__exact=id_docente)
-    escalao = Docente.objects.get(id__exact=id_docente).escalao
-    regime_exclusividade = Docente.objects.get(id__exact=id_docente).regime_exclusividade
-    email_institucional = Docente.objects.get(id__exact=id_docente).email
-    abreviatura = Docente.objects.get(id__exact=id_docente).abreviatura
-
-    #print "wsdwd ", abreviatura
-    if abreviatura == None:
-        abreviatura = ' '
-        pass
-
-    #atribuir regime exclusividade consoante se é True/False
-    if regime_exclusividade == True :
-        regimeExclusividade = "Sim"
-        pass
-    else:
-        regimeExclusividade = "Não"
-        pass
-
-    return render_to_response("departamento/infoDocente.html",
-        locals(),
-        context_instance=RequestContext(request),
-        )
-    pass'''
-
 @login_required(redirect_field_name='login_redirectUsers')
 @DepUserTeste
 def infoDocenteDep(request, id_docente):
-
+    listaAnos = listarAnos(request.session['dep_id'])
     servicoDocente = ServicoDocente.objects.filter(docente_id__exact=id_docente)
     unidadesCurriculares = UnidadeCurricular.objects.all()
 
@@ -474,6 +449,8 @@ def infoDocenteDep(request, id_docente):
 
         #nome da unidade curricular que o docente vai dar aulas.
         nomeUnidadeCurricular = UnidadeCurricular.objects.get(turma__id__exact=servDocente.turma_id).nome
+        tipoAula = Turma.objects.get(id__exact=servDocente.turma_id).tipo_aula
+        turno = Turma.objects.get(id__exact=servDocente.turma_id).turno
         nomeCurso = UnidadeCurricular.objects.get(turma__id__exact=servDocente.turma_id).curso
         numeroTotalHoras += servDocente.horas
         lista.append((servDocente.docente_id, nomeUnidadeCurricular,
@@ -483,6 +460,7 @@ def infoDocenteDep(request, id_docente):
         locals(),
         context_instance=RequestContext(request),
         )
+
 '''
 Lista todas os serviços de docente já atribuidos
 recebendo para isso o ano
@@ -503,14 +481,19 @@ def  listServicoDocente(request, ano):
 
             for servico in listaServicoDocente:
                 turma = Turma.objects.get(id__exact=servico.turma_id)
+                
+                id_turma = servico.turma_id
 
                 unidade = UnidadeCurricular.objects.get(id__exact=turma.unidade_curricular_id).nome
 
                 docente = Docente.objects.get(id__exact=servico.docente_id).nome_completo
 
+                id_docente = servico.docente_id
+                
                 tipo_aula = TipoAula.objects.get(id__exact=turma.tipo_aula_id).tipo
-
-                listToSend.append([servico.id, docente, unidade, turma.turno, tipo_aula, servico.horas])
+                
+                
+                listToSend.append([servico.id, docente, unidade, turma.turno, tipo_aula, servico.horas, id_turma, id_docente])
 
     paginator = Paginator(listToSend, 10)
     drange = range(1, paginator.num_pages + 1)
@@ -532,6 +515,35 @@ def  listServicoDocente(request, ano):
         locals(),
         context_instance=RequestContext(request),
         )
+    
+'''
+Informação por Modulos pertencente ao Docente 
+já com serviço de Docente atribuido em cada ano
+'''    
+@login_required(redirect_field_name='login_redirectUsers')
+@DepUserTeste
+def infoModulosDocente(request, id_docente, ano):
+    nomeDocente = Docente.objects.get(id__exact = id_docente)
+    return render_to_response("departamento/infoModulosDocente.html",
+        locals(),
+        context_instance=RequestContext(request),
+        )
+    
+'''
+Informação por Modulos pertencente ao Docente 
+já com serviço de Docente atribuido em cada ano
+'''    
+@login_required(redirect_field_name='login_redirectUsers')
+@DepUserTeste
+def infoModulosTurma(request, id_turma, ano):
+    nomeTurma = Turma.objects.get(id__exact = id_turma).unidade_curricular.nome
+    tipoAula = Turma.objects.get(id__exact = id_turma).tipo_aula
+    turno = Turma.objects.get(id__exact = id_turma).turno
+    return render_to_response("departamento/infoModulosTurma.html",
+        locals(),
+        context_instance=RequestContext(request),
+        )      
+    
 
 @login_required(redirect_field_name='login_redirectUsers')
 @DepUserTeste
@@ -590,7 +602,6 @@ class AtribuirServicoDocenteFormPreview(FormPreview):
     form_template = 'departamento/addServicoDocente.html'
 
     estado = "Editar"
-
 
 
     def get_context(self, request, form, nomeTurma, listaAnos):

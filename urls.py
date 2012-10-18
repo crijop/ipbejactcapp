@@ -117,9 +117,17 @@ urlpatterns = patterns('',
 
     url(r'^distro/departamento/listServicoDocente/(?P<ano>\d+)/$', 
         'ipbejactcapp.distro.view_departamento.listServicoDocente', 
-        name='listarServicoDocente'), 
-     
-     url(r'^distro/departamento/turmaSemSevicoDocente/(?P<ano>\d+)/$', 
+        name='listarServicoDocente'),
+                       
+    url(r'^distro/departamento/listServicoDocente/infoModuloDocente/(?P<id_docente>\d+)/(?P<ano>\d+)/$', 
+        'ipbejactcapp.distro.view_departamento.infoModulosDocente', 
+        name='infoModuloDocente'),
+                       
+    url(r'^distro/departamento/listServicoDocente/infoModuloTurma/(?P<id_turma>\d+)/(?P<ano>\d+)/$', 
+        'ipbejactcapp.distro.view_departamento.infoModulosTurma', 
+        name='infoModuloTurma'),                   
+                        
+    url(r'^distro/departamento/turmaSemSevicoDocente/(?P<ano>\d+)/$', 
         'ipbejactcapp.distro.view_departamento.addServicoDocenteDepart', 
         name='turmaSemServDocente'),
                        

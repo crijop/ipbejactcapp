@@ -1,13 +1,13 @@
 {% extends "departamento/index.html" %}
 {% load i18n %}
-{% block title %} Listar serviço docente {% endblock %}
+{% block title %} Listar serviço docente atribuido (Departamento) {% endblock %}
 {% block breadcrumb %}
 <ul id="breadcrumb">
 	<li>
-		<a tabindex="2" href="{% url homeRecursosHumanos %}" title="{% trans 'Home' %}"> <img src="/static/images/BreadCrumbs/home.gif" alt="{% trans 'Home' %}" class="home" /> </a>
+		<a tabindex="2" href="{% url homeDepartamento %}" title="{% trans 'Home' %}"> <img src="/static/images/BreadCrumbs/home.gif" alt="{% trans 'Home' %}" class="home" /> </a>
 	</li>
 	<li>
-		Listar serviço docente
+		Listar serviço docente atribuido
 	</li>
 </ul>
 {% endblock %}
@@ -53,17 +53,19 @@
 		</form></th>
 	</tr>
 	<tr>
+    	<th colspan="7" align="left">{{ano}}</th>
+    </tr>
+	<tr>
 		<th></th>
 		<th class="cabecalho_sumario">Docente</th>
 		<th colspan="3" class="cabecalho_sumario">Turma</th>
 		<th class="cabecalho_sumario">Horas</th>
 	</tr>
-	{% for servico_id, docente, unidadeCurricular, turno, tipo, horas in listInfo %}
+	{% for servico_id, docente, unidadeCurricular, turno, tipo, horas, id_turma, id_docente in listInfo %}
 	<tr>
 		<td ><a href="{{servico_id}}"><span class="view"></span></a></td>
-		<td class="teacher_name_field">{{docente}}</td>
-		<td>{{unidadeCurricular}}</td>
-		
+		<td class="teacher_name_field"><a href="{% url infoModuloDocente id_docente ano %}">{{docente}}</a></td>
+		<td><a href="{% url infoModuloTurma id_turma ano %}">{{unidadeCurricular}}</a></td>
 		<td>{{turno}}</td>
 		<td>{{tipo}}</td>
 		<td>{{horas}}</td>
@@ -73,25 +75,6 @@
 	{% endfor %}
 
 </table>
-<!--<div id="paginator">
-<a href="#">1</a>
-<a href="#">Mostrar Todos</a>
-</div>-->
-<!--<div id="paginator">
-<span class="step-links">
-{% if docentes.has_previous %}
-<a href="?page={{ docentes.previous_page_number }}">anterior</a>
-{% endif %}
-
-<span class="current">
-Página {{ docentes.number }} de {{ docentes.paginator.num_pages }}.
-</span>
-
-{% if docentes.has_next %}
-<a href="?page={{ docentes.next_page_number }}">seguinte</a>
-{% endif %}
-</span>
-</div>-->
 
 <div id="paginator">
 	<span class="current"> Página {{ docentes.number }} de {{ docentes.paginator.num_pages }}. </span>

@@ -1,0 +1,41 @@
+{% extends "departamento/index.html" %}
+{% load i18n %}
+{% block title %} 
+	Página informação dos Modulos pertencente á Turma
+{% endblock %}
+{% block breadcrumb %}
+<ul id="breadcrumb">
+	<li>
+		<a tabindex="2" href="{% url homeDepartamento %}" title="{% trans 'Home' %}"> <img src="/static/images/BreadCrumbs/home.gif" alt="{% trans 'Home' %}" class="home" /> </a>
+	</li>
+	<li>
+		<a tabindex="3" href="{% url listarServicoDocente ano %}" title="Listar Serviço Docente Atribuido">Listar Serviço Docente Atribuido</a>
+	</li>
+	<li>
+		Informação dos Modulos pertencente á Turma - {{nomeTurma}}
+	</li>
+</ul>
+{% endblock %}
+
+{% block content %}
+<table id="tabela_sumario">
+	<tr>
+		<th colspan="6" class="top_sumario" >Informação dos Modulos pertencente á Turma: {{nomeTurma}}</th>
+	</tr>
+	<tr>
+    	<th colspan="7" align="left">Ano: {{ano}} | Tipo Aula: {{tipoAula}} | Turno: {{turno}}</th>
+    </tr>
+	<tr>
+		<th class="cabecalho_sumario">Docente</th>
+		<th class="cabecalho_sumario">Horas Atribuidas</th>
+	</tr>
+	
+	{% for id_Docente, nome, horas, turmas in listInfo %}
+	<tr>
+		<td>{{turmas}}</td>
+		<td>{{horas}}</td>
+	</tr>
+	{% endfor %}
+
+</table>
+{% endblock %}
