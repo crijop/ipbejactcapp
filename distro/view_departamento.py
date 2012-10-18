@@ -275,7 +275,7 @@ e o numero de turmas a que tão associados e o numero de horas que ja tem atribu
 @login_required(redirect_field_name='login_redirectUsers')
 @DepUserTeste
 def listDocentes(request):
-
+    listaAnos = listarAnos(request.session['dep_id'])
     actualState = ""
 
     listToSend = []
@@ -613,8 +613,8 @@ class AtribuirServicoDocenteFormPreview(FormPreview):
 
         b = ServicoDocente.objects.get(id=id_servico)
         form = AdicionarServicoDocenteForm(instance=b,
-                                                                                id_Departamento = self.state['id_Departamento'],
-                                                                                ano = self.state['ano'])
+                                    id_Departamento = self.state['id_Departamento'],
+                                    ano = self.state['ano'])
 
 
         return render_to_response(self.form_template,
@@ -640,8 +640,8 @@ class AtribuirServicoDocenteFormPreview(FormPreview):
         nomeTurma = ServicoDocente.objects.get(id__exact = id_servico).turma.unidade_curricular.nome
         b = ServicoDocente.objects.get(id=id_servico)
         f = AdicionarServicoDocenteForm(request.POST, instance=b,
-                                                                                id_Departamento = self.state['id_Departamento'],
-                                                                                ano = self.state['ano'])
+                            id_Departamento = self.state['id_Departamento'],
+                            ano = self.state['ano'])
         context = self.get_context(request, f, nomeTurma, listaAnos)
         if f.is_valid():
             self.process_preview(request, f, context)
@@ -658,8 +658,8 @@ class AtribuirServicoDocenteFormPreview(FormPreview):
         nomeTurma = ServicoDocente.objects.get(id__exact = id_servico).turma.unidade_curricular.nome
         b = ServicoDocente.objects.get(id=id_servico)
         f = AdicionarServicoDocenteForm(request.POST, instance=b,
-                                                                                id_Departamento = self.state['id_Departamento'],
-                                                                                ano = self.state['ano'])
+                            id_Departamento = self.state['id_Departamento'],
+                            ano = self.state['ano'])
         if f.is_valid():
             if not self._check_security_hash(request.POST.get(self.unused_name('hash'), ''),
                                              request, f):
