@@ -29,7 +29,7 @@
 			<a tabindex="5" href='{%url listDocentesDep %}'><span>Listar Docentes</span></a>
 		</li>
 		<li class='has-sub_lateral'>
-			<a tabindex="6" href='#'><span>Listar Serviços Docentes</span></a>
+			<a tabindex="6" href='#'><span>Listar Serviços Docentes Atribuidos</span></a>
 			<ul>
 				{%for ano in listaAnos%}
 				<li>
@@ -38,11 +38,8 @@
 				{%endfor%}
 			</ul>
 		</li>
-		<li>
-			<a href='{%url listContratos %}' ><span>Listar Unidades Curriculares</span></a>
-		</li>
 		<li class='has-sub_lateral'>
-			<a href='#' ><span>Criar Serviço Docente</span></a>
+			<a href='#' ><span>Atribuir Serviço Docente</span></a>
 			<ul>
 				{%for ano in listaAnos%}
 				<li>
