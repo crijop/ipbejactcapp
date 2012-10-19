@@ -786,7 +786,7 @@ def search_docente(search_List, allDocentes, isListContracts, listateste, count 
         contract_end = None;
         departamento_id = 0
         
-       #print "sai do ninho"
+        #print "sai do ninho"
         for docente in allDocentes:  
                                                   
             departamento_id = docente.departamento_id
@@ -1455,8 +1455,7 @@ class AddDocenteModelFormPreview(FormPreview):
     preview_template = 'recursosHumanos/pageConfirForm.html'
     form_template = 'recursosHumanos/addDocente.html'
     
-    @login_required(redirect_field_name='login_redirectUsers')
-    @rhUserTeste
+    
     def done(self, request, cleaned_data):
         a = 0
         estado = "add"
@@ -1514,12 +1513,12 @@ class EditDocenteModelFormPreview(FormPreview):
     #a variavel estado informa a page de confirmação 
     #se está a editar os dados ou adicionar.
     estado = "Editar"
+    print estado
     
-    @login_required(redirect_field_name='login_redirectUsers')
-    @rhUserTeste
+    
     def get_context(self, request, form):
         "Context for template rendering."
-        
+        print "get"
         return {
                 'form': form,
                 'stage_field': self.unused_name('stage'),
@@ -1527,12 +1526,12 @@ class EditDocenteModelFormPreview(FormPreview):
                 'estado' : self.estado
                 }
         
-    @login_required(redirect_field_name='login_redirectUsers')
-    @rhUserTeste  
+    
     def preview_get(self, request):
         "Displays the form"
         
         id_docente = self.state['id_docente']
+        print "dfdfdfdf"
         docenteEdit = Docente.objects.get(id=id_docente)
         form = EditarDocenteForm(instance=docenteEdit)
         
@@ -1616,18 +1615,17 @@ class EditDocenteModelFormPreview(FormPreview):
         pass
     '''
     
-    @login_required(redirect_field_name='login_redirectUsers')
-    @rhUserTeste
+    
     def parse_params(self, *args, **kwargs):
         """Handle captured args/kwargs from the URLconf"""
+        print "parse"
         # get the selected HI test
         try:
             self.state['id_docente'] = kwargs['id_docente']
         except Docente.DoesNotExist:
             raise Http404("Invalid")
         
-    @login_required(redirect_field_name='login_redirectUsers')
-    @rhUserTeste  
+        
     def done(self, request, cleaned_data):
         estado = "eddit"
         id_docente = self.state['id_docente']

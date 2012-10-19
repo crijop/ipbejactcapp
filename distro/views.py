@@ -2,22 +2,17 @@
 
 
 # Create your views here.
-from distro.forms import AddDocenteForm, EditarDocenteForm
-from distro.models import Curso, Docente, ServicoDocente, TipoAula, Turma, \
-    UnidadeCurricular, ReducaoServicoDocente, Reducao, Departamento, Contrato, \
-    Categoria
+from distro.models import Docente, ServicoDocente, TipoAula, Turma, \
+    UnidadeCurricular, ReducaoServicoDocente, Reducao, Departamento
 from distro.view_cientifico import indexCientifico
 from distro.view_departamento import indexDepartamento
 from distro.view_recursos_humanos import indexRecursosHumanos
 from django import forms
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib.auth.models import Group
-from django.core.exceptions import ObjectDoesNotExist
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render_to_response, redirect
 from django.template.context import RequestContext
-import unicodedata
 
 
 
