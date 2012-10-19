@@ -20,6 +20,7 @@ from distro.models import ServicoDocente
 from distro.models import TipoAula
 from distro.models import Contrato
 from distro.models import ReducaoServicoDocente
+from distro.models import Modulos
 
 admin.site.register(Categoria)
 
@@ -93,16 +94,23 @@ class TurmaAdmin(admin.ModelAdmin):
 
 admin.site.register(Turma, TurmaAdmin)
 
+'''
+Alteração do admin para adicionar modulos aos serviços doecente
+'''
+class ModulosInline(admin.TabularInline):
+    model = Modulos
+    
 class ServicoDocenteAdmin(admin.ModelAdmin):
     list_filter = ('turma__ano', 
                    'turma__unidade_curricular__departamento',
-                   'turma__unidade_curricular__curso',
-                   'docente', 
+                   'turma__unidade_curricular__curso' 
                    )
-    search_fields = ['docente__nome_completo', 
-                     'turma__unidade_curricular__nome']
+    search_fields = ['turma__unidade_curricular__nome']
     raw_id_admin = ('turma', )
     
+    inlines = [
+        ModulosInline,
+    ]
     pass
 
 admin.site.register(ServicoDocente,ServicoDocenteAdmin)

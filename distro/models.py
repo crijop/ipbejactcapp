@@ -435,7 +435,9 @@ class Turma(models.Model):
                                    default='',
                                    help_text=u'informação relevante')
     
-    #departamento = models.ForeignKey('Departamento')
+    departamento = models.ForeignKey('Departamento',
+                                    null=True,
+                                    blank=True)
 
     def __unicode__(self):
         return unicode(self.unidade_curricular) + '- ' + \
@@ -451,14 +453,16 @@ class Modulos(models.Model):
     Modulos das turmas
     '''
     
-    turma   = models.ForeignKey('Turma')
+    servico_docente   = models.ForeignKey('ServicoDocente',
+                                null=True,
+                                blank=True)
     horas   = models.IntegerField(default=0)
     docente = models.ForeignKey('Docente',
                                 null=True,
                                 blank=True)
     
     def __unicode__(self):
-        return unicode(self.turma) + " " + unicode(self.docente)
+        return unicode(self.servico_docente) + " " + unicode(self.docente) + " horas = " + unicode(self.horas)
         pass
     
     pass
@@ -472,15 +476,18 @@ class ServicoDocente(models.Model):
     o serviço docente é referido apenas a serviço letivo
     '''
     turma   = models.ForeignKey('Turma')
-    docente = models.ForeignKey('Docente',
-                                null=True,
-                                blank=True)
+    #docente = models.ForeignKey('Docente',
+    #                            null=True,
+    #                            blank=True)
     horas   = models.IntegerField(default=0)
-
+    
+    def __unicode__(self):
+        return unicode(self.turma) + ' ' + unicode(self.horas) + 'h'
+    '''
     def __unicode__(self):
         return unicode(self.turma) + ' ' + \
             unicode(self.docente) + '= ' + unicode(self.horas) + 'h'
-
+    '''
     class Meta:
         verbose_name_plural = "serviços docentes"
         pass
