@@ -12,7 +12,7 @@ Created on 10 de Out de 2012
 
 from distro.forms_departamento import AdicionarServicoDocenteForm
 from distro.models import Departamento, Turma, UnidadeCurricular, ServicoDocente, \
-        Docente, TipoAula, Contrato, Categoria
+    Docente, TipoAula, Contrato, Categoria, Modulos
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib.formtools.preview import FormPreview
 from django.core.exceptions import ObjectDoesNotExist
@@ -370,7 +370,7 @@ def listDocentes(request):
         actualState = "actualState=show"
 
         for docente in listDocentes:
-            listServicoTemp = ServicoDocente.objects.filter(docente_id__exact=docente.id)
+            listServicoTemp = Modulos.objects.filter(docente_id__exact=docente.id)
             numberHoras = 0
             for h in listServicoTemp:
                 numberHoras += h.horas
@@ -437,7 +437,7 @@ def removeDuplicatedElements(dataList):
 @DepUserTeste
 def infoDocenteDep(request, id_docente):
     listaAnos = listarAnos(request.session['dep_id'])
-    servicoDocente = ServicoDocente.objects.filter(docente_id__exact=id_docente)
+    servicoDocente = Modulos.objects.filter(docente_id__exact=id_docente)
     unidadesCurriculares = UnidadeCurricular.objects.all()
 
     docente_name = Docente.objects.get(id__exact=id_docente).nome_completo
@@ -477,8 +477,8 @@ def  listServicoDocente(request, ano):
         turmasFilter = Turma.objects.filter(unidade_curricular_id__exact=uC.id, ano__exact=ano)
 
         for t in turmasFilter:
-            listaServicoDocente = ServicoDocente.objects.filter(turma_id__exact=t.id).exclude(docente_id__exact=None)
-
+            #listaServicoDocente = ServicoDocente.objects.filter(turma_id__exact=t.id).exclude(docente_id__exact=None)
+            listaServicoDocente = Modulos.objects.filter(servico_docente_id__turma_id__exact = t.id).exclude(docente_id__exact=None)
             for servico in listaServicoDocente:
                 turma = Turma.objects.get(id__exact=servico.turma_id)
                 
@@ -556,13 +556,15 @@ def addServicoDocenteDepart(request, ano):
     for uC in unidadesCurriculares:
         turmasFilter = Turma.objects.filter(unidade_curricular_id__exact=uC.id, ano__exact=ano)
         for t in turmasFilter:
-            listaServicoDocente = ServicoDocente.objects.filter(turma_id__exact=t.id).filter(docente_id__exact=None)
+            #listaServicoDocente = ServicoDocente.objects.filter(turma_id__exact=t.id).filter(docente_id__exact=None)
+            listaServicoDocente = Modulos.objects.filter(servico_docente_id__turma_id__exact = t.id).filter(docente_id__exact=None)
             for servico in listaServicoDocente:
-                turma = Turma.objects.get(id__exact=servico.turma_id)
+                turma = Turma.objects.get(id__exact=servico.servico_docente_id)
                 unidade = UnidadeCurricular.objects.get(id__exact=turma.unidade_curricular_id).nome
                 tipo_aula = TipoAula.objects.get(id__exact=turma.tipo_aula_id).tipo
+                id_servico = servico.servico_docente_id
 
-                listToSend.append([unidade, servico.id, turma.turno, tipo_aula, servico.horas])
+                listToSend.append([unidade, id_servico, turma.turno, tipo_aula, servico.horas])
 
     listToSend.sort()
     paginator = Paginator(listToSend, 10)
