@@ -434,6 +434,8 @@ class Turma(models.Model):
                                    blank=True,
                                    default='',
                                    help_text=u'informação relevante')
+    
+    #departamento = models.ForeignKey('Departamento')
 
     def __unicode__(self):
         return unicode(self.unidade_curricular) + '- ' + \
@@ -441,6 +443,24 @@ class Turma(models.Model):
             ' ' + unicode(self.ano)
 
 
+    pass
+
+
+class Modulos(models.Model):
+    '''
+    Modulos das turmas
+    '''
+    
+    turma   = models.ForeignKey('Turma')
+    horas   = models.IntegerField(default=0)
+    docente = models.ForeignKey('Docente',
+                                null=True,
+                                blank=True)
+    
+    def __unicode__(self):
+        return unicode(self.turma) + " " + unicode(self.docente)
+        pass
+    
     pass
 
 class ServicoDocente(models.Model):
