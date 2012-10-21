@@ -601,7 +601,7 @@ def showSaveButton(request, id_servico, id_Departamento, ano):
 
 class AtribuirServicoDocenteFormPreview(FormPreview):
     preview_template = 'departamento/pageConfirForm.html'
-    form_template = 'departamento/addServicoDocente.html'
+    form_template = 'departamento/adicionarServicoDocente.html'
 
     estado = "Editar"
 
