@@ -383,6 +383,9 @@ color: #fff;
 	background: -o-linear-gradient(bottom, rgb(245,150,7), rgb(234, 126, 14));
 	border-color: transparent;
 }
+
+
+
 span.edit::before {
 	content: url("/static/images/icons/pencil.png")
 }

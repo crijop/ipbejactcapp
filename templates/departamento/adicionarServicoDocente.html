@@ -1,0 +1,77 @@
+{% extends "departamento/index.html" %}
+{% load i18n %}
+{% block title %} Página de adicionar Serviço de Docente {% endblock %}
+
+{% block breadcrumb %}
+<ul id="breadcrumb">
+	<li>
+		<a tabindex="2" href="{% url homeDepartamento %}" title="{% trans 'Home' %}"> <img src="/static/images/BreadCrumbs/home.gif" alt="{% trans 'Home' %}" class="home" /> </a>
+	</li>
+	<li>
+		Adicionar Serviço Docente
+	</li>
+</ul>
+{% endblock %}
+
+{% block content %}
+
+	<table id="tabela_sumario">
+	    <tr>
+	            <th colspan="2" class="top_sumario">Adicionar Serviço Docente</th>
+	    </tr>
+    </table>
+    
+   <div id="contentForm">
+		<form method="post">
+			{% csrf_token %}
+			
+			<div class="teachersDiv">
+				
+				<table id="tabela_sumario">
+					<tr>
+						<th class="idHide" ></th>
+						<th>Docente</th>
+						<th>Horas</th>
+					</tr>
+					
+					{%for id, docente, horas in listaDocentes %}
+					<tr>
+						<td class="idHide">{{id}}</td>
+						<td>{{docente}}</td>
+						<td>{{horas}}</td>
+					</tr>
+					{%endfor %}
+				</table>
+				
+			</div>
+			<div class="servicoControls"><input type="button" /></div>
+			<div class="modulsDiv">
+				{% for id in listaModuls %}
+				<table id="tabela_sumario">
+					<tr>
+						<th colspan="2"> Modulo</th>
+						
+					</tr>
+					
+					<tr>
+						<th class="idHide"></th>
+						<th>Docente</th>
+						<th>Horas</th>
+					</tr>
+				</table>
+				<hr />
+				{% endfor %}
+				
+			</div>
+			
+	   	<hr />
+	   	<span id = "Confirmacao"></span>
+		<div id="buttonConfirm">
+			<input type="hidden" name="{{ stage_field }}" value="1" />
+			<input type="submit" value="Adicionar Serviço Docente" />
+			
+		</div>
+		</form>
+	</div>
+{% endblock %}
+

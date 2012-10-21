@@ -1,0 +1,29 @@
+.teachersDiv
+{
+	width: 45%;
+	float: left;
+	
+
+	
+	}
+.idHide
+	{
+		display: none;
+		/*visibility: hidden;*/
+	}
+	
+	.servicoControls
+	{
+		width: 10%;
+	float: left;
+	
+	}
+	
+.modulsDiv
+{
+	width: 45%;
+	float: left;
+
+	
+	}
+
