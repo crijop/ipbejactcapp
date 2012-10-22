@@ -551,21 +551,19 @@ def addServicoDocenteDepart(request, ano):
     id_Departamento = request.session['dep_id']
     listaAnos = listarAnos(id_Departamento)
     listToSend = []
-    unidadesCurriculares = UnidadeCurricular.objects.filter(departamento_id__exact=request.session['dep_id'])
-
-    for uC in unidadesCurriculares:
-        turmasFilter = Turma.objects.filter(unidade_curricular_id__exact=uC.id, ano__exact=ano)
-        for t in turmasFilter:
-            #listaServicoDocente = ServicoDocente.objects.filter(turma_id__exact=t.id).filter(docente_id__exact=None)
-            listaServicoDocente = Modulos.objects.filter(servico_docente_id__turma_id__exact = t.id).filter(docente_id__exact=None)
-            for servico in listaServicoDocente:
-                turma = Turma.objects.get(id__exact=servico.servico_docente_id)
-                unidade = UnidadeCurricular.objects.get(id__exact=turma.unidade_curricular_id).nome
-                tipo_aula = TipoAula.objects.get(id__exact=turma.tipo_aula_id).tipo
-                id_servico = servico.servico_docente_id
-
-                listToSend.append([unidade, id_servico, turma.turno, tipo_aula, servico.horas])
-
+    
+    listaServicoDocente = ServicoDocente.objects.filter(turma__unidade_curricular__departamento_id__exact = id_Departamento)
+    
+    for servico in listaServicoDocente:
+        modulos = Modulos.objects.filter(servico_docente_id__exact = servico.id)
+        if(len(modulos) != 0):
+            modulos = modulos.reverse()[0]
+            turma = Turma.objects.get(id__exact=servico.turma_id)
+            unidade = UnidadeCurricular.objects.get(id__exact=turma.unidade_curricular_id).nome
+            tipo_aula = TipoAula.objects.get(id__exact=turma.tipo_aula_id).tipo
+            id_servico = servico.id
+            listToSend.append([unidade, id_servico, turma.turno, tipo_aula, servico.horas])
+    
     listToSend.sort()
     paginator = Paginator(listToSend, 10)
     drange = range(1, paginator.num_pages + 1)
@@ -606,7 +604,7 @@ class AtribuirServicoDocenteFormPreview(FormPreview):
     estado = "Editar"
 
 
-    def get_context(self, request, form, nomeTurma, listaAnos):
+    def get_context(self, request, form, nomeTurma, listaAnos, listaModuls):
 
         "Context for template rendering."
 
@@ -615,21 +613,28 @@ class AtribuirServicoDocenteFormPreview(FormPreview):
                 'stage_field': self.unused_name('stage'),
                 'id_servico': self.state['id_servico'],
                 'nomeTurma' : nomeTurma,
-                'listaAnos' : listaAnos
+                'listaAnos' : listaAnos,
+                'listaModuls': listaModuls
                 }
 
     def preview_get(self, request):
         "Displays the form"
-        listaAnos = listarAnos(request.session['dep_id'])
+        id_departamento = request.session['dep_id']
+        listaAnos = listarAnos(id_departamento)
         id_servico = self.state['id_servico']
         nomeTurma = ServicoDocente.objects.get(id__exact = id_servico).turma.unidade_curricular.nome
 
-        b = ServicoDocente.objects.get(id=id_servico)
-        form = AdicionarServicoDocenteForm(instance=b,
-                                    id_Departamento = self.state['id_Departamento'],
-                                    ano = self.state['ano'])
+        #=======================================================================
+        # b = ServicoDocente.objects.get(id=id_servico)
+        # form = AdicionarServicoDocenteForm(instance=b,
+        #                            id_Departamento = self.state['id_Departamento'],
+        #                            ano = self.state['ano'])
+        #=======================================================================
 
-
+        listaModuls = Modulos.objects.filter(servico_docente_id__exact = id_servico)
+        listaDocentes = Docente.objects.filter(departamento_id__exact = id_departamento)
+        
+        
         return render_to_response(self.form_template,
             locals(),
             context_instance=RequestContext(request))
@@ -651,11 +656,14 @@ class AtribuirServicoDocenteFormPreview(FormPreview):
         "Validates the POST data. If valid, displays the preview page. Else, redisplays form."
         id_servico = self.state['id_servico']
         nomeTurma = ServicoDocente.objects.get(id__exact = id_servico).turma.unidade_curricular.nome
+        
+        listaModuls = Modulos.objects.filter(servico_docente_id__exact = id_servico)
+        
         b = ServicoDocente.objects.get(id=id_servico)
         f = AdicionarServicoDocenteForm(request.POST, instance=b,
                             id_Departamento = self.state['id_Departamento'],
                             ano = self.state['ano'])
-        context = self.get_context(request, f, nomeTurma, listaAnos)
+        context = self.get_context(request, f, nomeTurma, listaAnos, listaModuls)
         if f.is_valid():
             self.process_preview(request, f, context)
             context['hash_field'] = self.unused_name('hash')
@@ -669,6 +677,9 @@ class AtribuirServicoDocenteFormPreview(FormPreview):
         listaAnos = listarAnos(request.session['dep_id'])
         id_servico = self.state['id_servico']
         nomeTurma = ServicoDocente.objects.get(id__exact = id_servico).turma.unidade_curricular.nome
+        
+        listaModuls = Modulos.objects.filter(servico_docente_id__exact = id_servico)
+        
         b = ServicoDocente.objects.get(id=id_servico)
         f = AdicionarServicoDocenteForm(request.POST, instance=b,
                             id_Departamento = self.state['id_Departamento'],
@@ -680,7 +691,7 @@ class AtribuirServicoDocenteFormPreview(FormPreview):
             return self.done(request, f.cleaned_data)
         else:
             return render_to_response(self.form_template,
-                self.get_context(request, f, nomeTurma, listaAnos),
+                self.get_context(request, f, nomeTurma, listaAnos, listaModuls),
                 context_instance=RequestContext(request))
 
 
@@ -690,6 +701,9 @@ class AtribuirServicoDocenteFormPreview(FormPreview):
         ano = self.state['ano']
         turma = ServicoDocente.objects.filter(id__exact = id_servico)
         d = get_object_or_404(ServicoDocente, pk=id_servico)
+        
+        listaModuls = Modulos.objects.filter(servico_docente_id__exact = id_servico)
+        
         if request.method == 'POST':
 
             b = ServicoDocente.objects.get(id=id_servico)

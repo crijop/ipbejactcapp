@@ -17,7 +17,7 @@
 
 	<table id="tabela_sumario">
 	    <tr>
-	            <th colspan="2" class="top_sumario">Adicionar Serviço Docente</th>
+	    	<th colspan="2" class="top_sumario">Adicionar Serviço Docente</th>
 	    </tr>
     </table>
     
@@ -34,11 +34,11 @@
 						<th>Horas</th>
 					</tr>
 					
-					{%for id, docente, horas in listaDocentes %}
+					{%for docente in listaDocentes %}
 					<tr>
-						<td class="idHide">{{id}}</td>
-						<td>{{docente}}</td>
-						<td>{{horas}}</td>
+						<td class="idHide">{{docente.id}}</td>
+						<td>{{docente.nome_completo}}</td>
+						<td>{{docente.horas}}</td>
 					</tr>
 					{%endfor %}
 				</table>
