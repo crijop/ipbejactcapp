@@ -26,6 +26,7 @@ class AdicionarServicoDocenteForm(ModelForm):
                                           widget = forms.Select(attrs = {'onchange':'testeSearch();'}))
         self.fields['horas'] = forms.CharField(widget=forms.TextInput(attrs={ 'readonly': 'readonly' }))
         
+        
 
     class Meta:
         model = ServicoDocente
