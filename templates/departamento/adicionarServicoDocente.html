@@ -46,10 +46,10 @@
 			</div>
 			<div class="servicoControls"><input id="addDocenteDepButton" type="button" onclick="addDocente_to_modul();" /></div>
 			<div class="modulsDiv">
-				{% for id in listaModuls %}
+				{% for id, horas, docente_id, servico_id, count in lModulos %}
 				<table class="tabela_sumario modulsTable" onclick="highlightModul(this);">
 					<tr >
-						<th  colspan="3">Modulo de {{id.horas}} horas</th>
+						<th  colspan="3">Modulo de {{horas}} horas</th>
 						
 					</tr>
 					
@@ -57,12 +57,22 @@
 						
 						<th>Docente</th>
 						<th>Horas</th>
-						<th><input type="hidden" value="{{id.id}}" name="modulID[]" /></th>
+						<th><input type="hidden" value="{{id}}" name="moduloID[]" /></th>
 					</tr>
+					{%if docentesID != None %}
+					<tr>
+						{{count}}
+						<td><input type='text' name='docenteID[]' value="{{docentesID.0}}" /></td>
+						<td>{{lista_docentesFinal}}</td>
+						<td>{{lista_docentesFinal}}</td>
+					</tr>
+					{%endif%}
+					
 				</table>
+				
 				<hr />
 				{% endfor %}
-				
+				<span class="errorField">{{erro}}</span>
 			</div>
 			
 	   

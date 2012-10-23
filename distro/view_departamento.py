@@ -18,10 +18,10 @@ from django.contrib.formtools.preview import FormPreview
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.db.models.query_utils import Q
-from django.http import Http404
+from django.http import Http404, QueryDict
 from django.shortcuts import render_to_response, get_object_or_404
 from django.template.context import RequestContext
-import unicodedata
+import unicodedata 
 
 
 
@@ -601,9 +601,6 @@ class AtribuirServicoDocenteFormPreview(FormPreview):
     preview_template = 'departamento/pageConfirForm.html'
     form_template = 'departamento/adicionarServicoDocente.html'
 
-    estado = "Editar"
-
-
     def get_context(self, request, form, nomeTurma, listaAnos, listaModuls):
 
         "Context for template rendering."
@@ -624,6 +621,9 @@ class AtribuirServicoDocenteFormPreview(FormPreview):
         id_servico = self.state['id_servico']
         nomeTurma = ServicoDocente.objects.get(id__exact = id_servico).turma.unidade_curricular.nome
 
+        modulosID  = None
+        docentesID = None
+        
         #=======================================================================
         # b = ServicoDocente.objects.get(id=id_servico)
         # form = AdicionarServicoDocenteForm(instance=b,
@@ -632,8 +632,16 @@ class AtribuirServicoDocenteFormPreview(FormPreview):
         #=======================================================================
 
         listaModuls = Modulos.objects.filter(servico_docente_id__exact = id_servico)
-        listaDocentes = Docente.objects.filter(departamento_id__exact = id_departamento)
+        cont = 0 
+        lModulos = []
+        for lm in listaModuls:
+            lModulos.append([lm.id, lm.horas, lm.docente_id, lm.servico_docente_id, cont])
+            cont +=1 
+            pass
         
+        
+        listaDocentes = Docente.objects.filter(departamento_id__exact = id_departamento)
+        lista_docentesFinal = None
         
         return render_to_response(self.form_template,
             locals(),
@@ -652,46 +660,80 @@ class AtribuirServicoDocenteFormPreview(FormPreview):
 
 
     def preview_post(self, request):
-        listaAnos = listarAnos(request.session['dep_id'])
+        id_departamento = request.session['dep_id']
+        listaAnos = listarAnos(id_departamento)
         "Validates the POST data. If valid, displays the preview page. Else, redisplays form."
         id_servico = self.state['id_servico']
+        
+        modulosID = dict(request.POST)[u'moduloID[]']
+        
+        if request.POST.get(u'docenteID[]'):
+            docentesID = dict(request.POST)[u'docenteID[]']
+            pass
+        else:
+            docentesID = None
+       
+        
         nomeTurma = ServicoDocente.objects.get(id__exact = id_servico).turma.unidade_curricular.nome
         
         listaModuls = Modulos.objects.filter(servico_docente_id__exact = id_servico)
+        cont = 0 
+        lModulos = []
+        for lm in listaModuls:
+            lModulos.append([lm.id, lm.horas, lm.docente_id, lm.servico_docente_id, cont])
+            cont +=1 
+            pass
+        
+        lista_docentesFinal = []
+        
+        for l in docentesID:
+            nome = Docente.objects.get(id__exact = l).nome_completo
+            horas = "";
+            lista_docentesFinal.append([nome, horas])
+            pass
+        
+        
+        listaDocentes = Docente.objects.filter(departamento_id__exact = id_departamento)
         
         b = ServicoDocente.objects.get(id=id_servico)
+        
         f = AdicionarServicoDocenteForm(request.POST, instance=b,
                             id_Departamento = self.state['id_Departamento'],
                             ano = self.state['ano'])
         context = self.get_context(request, f, nomeTurma, listaAnos, listaModuls)
-        if f.is_valid():
+        if f.is_valid(modulosID, docentesID):
+            print "F Valido"
             self.process_preview(request, f, context)
-            context['hash_field'] = self.unused_name('hash')
-            context['hash_value'] = self.security_hash(request, f)
-            return render_to_response(self.preview_template, context, context_instance=RequestContext(request))
+            #context['hash_field'] = self.unused_name('hash')
+            #context['hash_value'] = self.security_hash(request, f)
+            return render_to_response(self.preview_template, locals(), context_instance=RequestContext(request))
         else:
-            return render_to_response(self.form_template, context, context_instance=RequestContext(request))
+            erro = "Um ou mais Modulos não tem docente atribuido"
+            return render_to_response(self.form_template, locals(), context_instance=RequestContext(request))
 
     def post_post(self, request):
         "Validates the POST data. If valid, calls done(). Else, redisplays form."
-        listaAnos = listarAnos(request.session['dep_id'])
+        id_departamento = request.session['dep_id']
+        listaAnos = listarAnos(id_departamento)
         id_servico = self.state['id_servico']
         nomeTurma = ServicoDocente.objects.get(id__exact = id_servico).turma.unidade_curricular.nome
         
         listaModuls = Modulos.objects.filter(servico_docente_id__exact = id_servico)
+        listaDocentes = Docente.objects.filter(departamento_id__exact = id_departamento)
         
         b = ServicoDocente.objects.get(id=id_servico)
         f = AdicionarServicoDocenteForm(request.POST, instance=b,
                             id_Departamento = self.state['id_Departamento'],
                             ano = self.state['ano'])
         if f.is_valid():
+            print "F Valido POST_POST"
             if not self._check_security_hash(request.POST.get(self.unused_name('hash'), ''),
                                              request, f):
                 return self.failed_hash(request) # Security hash failed.
             return self.done(request, f.cleaned_data)
         else:
             return render_to_response(self.form_template,
-                self.get_context(request, f, nomeTurma, listaAnos, listaModuls),
+                locals(),
                 context_instance=RequestContext(request))
 
 

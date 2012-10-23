@@ -29,9 +29,32 @@ class AdicionarServicoDocenteForm(ModelForm):
         # self.fields['horas'] = forms.CharField(widget=forms.TextInput(attrs={ 'readonly': 'readonly' }))
         #=======================================================================
         
-        
+    def is_valid(self, listaModulos, listaDocentes):
+        """
+        Returns True if the form has no errors. Otherwise, False. If errors are
+        being ignored, returns False.
+        """
+        if listaDocentes != None:
+            
+            sizeModulos = len(listaModulos)
+            cont = 0
+            for docente in listaDocentes:
+                if docente != "":
+                    cont +=1
+                    pass
+                pass
+            
+            if sizeModulos == cont:
+                return True
+            else:
+                return False
+            pass
+        else:
+            return False
 
     class Meta:
         model = ServicoDocente
         exclude = ('turma',)
+        
+     
     pass
