@@ -15,7 +15,7 @@
 
 {% block content %}
 
-	<table id="tabela_sumario">
+	<table class="tabela_sumario">
 	    <tr>
 	    	<th colspan="2" class="top_sumario">Adicionar Serviço Docente</th>
 	    </tr>
@@ -27,7 +27,7 @@
 			
 			<div class="teachersDiv">
 				
-				<table id="tabela_sumario">
+				<table class="tabela_sumario">
 					<tr>
 						<th class="idHide" ></th>
 						<th>Docente</th>
@@ -35,26 +35,26 @@
 					</tr>
 					
 					{%for docente in listaDocentes %}
-					<tr>
+					<tr class="docenteRow" onclick="highlight(this);">
 						<td class="idHide">{{docente.id}}</td>
-						<td>{{docente.nome_completo}}</td>
+						<td >{{docente.nome_completo}}</td>
 						<td>{{docente.horas}}</td>
 					</tr>
 					{%endfor %}
 				</table>
 				
 			</div>
-			<div class="servicoControls"><input type="button" /></div>
+			<div class="servicoControls"><input id="addDocenteDepButton" type="button" onclick="addDocente_to_modul();" /></div>
 			<div class="modulsDiv">
 				{% for id in listaModuls %}
-				<table id="tabela_sumario">
-					<tr>
-						<th colspan="2"> Modulo</th>
+				<table class="tabela_sumario modulsTable" onclick="highlightModul(this);">
+					<tr >
+						<th  colspan="2"> Modulo</th>
 						
 					</tr>
 					
 					<tr>
-						<th class="idHide"></th>
+						<th class="idHide"><input type="text" value=""/></th>
 						<th>Docente</th>
 						<th>Horas</th>
 					</tr>
@@ -64,14 +64,17 @@
 				
 			</div>
 			
-	   	<hr />
-	   	<span id = "Confirmacao"></span>
+	   
+	   	
 		<div id="buttonConfirm">
+				<hr />
+				<span id = "Confirmacao"></span>
 			<input type="hidden" name="{{ stage_field }}" value="1" />
 			<input type="submit" value="Adicionar Serviço Docente" />
 			
 		</div>
 		</form>
+		
 	</div>
 {% endblock %}
 

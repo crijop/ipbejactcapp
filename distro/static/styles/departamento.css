@@ -1,29 +1,51 @@
-.teachersDiv
-{
+.teachersDiv {
 	width: 45%;
 	float: left;
-	
+	overflow: scroll;
+	height: 300px;
+}
+.idHide {
+	display: none;
+	/*visibility: hidden;*/
+}
 
-	
-	}
-.idHide
-	{
-		display: none;
-		/*visibility: hidden;*/
-	}
-	
-	.servicoControls
-	{
-		width: 10%;
+.servicoControls {
+	width: 10%;
 	float: left;
-	
-	}
-	
-.modulsDiv
-{
+}
+
+#addDocenteDepButton {
+	content: url("/static/images/icons/addDocente.png")
+}
+
+#addDocenteDepButton:hover {
+	content: url("/static/images/icons/addDocente_hover.png")
+}
+
+table.tabela_sumario tr:hover td {
+	cursor: pointer;
+	background-color: rgb(245,150,7);
+	color: #FFFFFF;
+}
+
+table.modulsTable:hover th {
+	cursor: pointer;
+	background-color: rgb(245,150,7);
+	color: #FFFFFF;
+}
+
+table.selectModulo th {
+	background-color: rgb(0, 162, 232);
+	color: #FFFFFF;
+}
+
+table.tabela_sumario .select {
+	background-color: rgb(0, 162, 232);
+	color: #FFFFFF;
+}
+
+.modulsDiv {
 	width: 45%;
 	float: left;
-
-	
-	}
+}
 
