@@ -3,7 +3,7 @@
 
 # Create your views here.
 from distro.models import Docente, ServicoDocente, TipoAula, Turma, \
-    UnidadeCurricular, ReducaoServicoDocente, Reducao, Departamento
+    UnidadeCurricular, ReducaoServicoDocente, Reducao, Departamento, Modulos
 from distro.view_cientifico import indexCientifico
 from distro.view_departamento import indexDepartamento
 from distro.view_recursos_humanos import indexRecursosHumanos
@@ -141,16 +141,16 @@ Inicio das vistas dos docentes
 def indexDocente(request):
     nomeDocente = request.session['nomeDocente']
     nrDocente = request.session['nr_Docente']
-    servicoDocente = ServicoDocente.objects.all()
+    modulos = Modulos.objects.all()
     lista = []
     #numero total de horas que o docente tem de serviço
     numeroTotalHoras = 0
     horasServico = 0
     reducaoHoras = 0
-    for servDocente in servicoDocente:
-        if servDocente.docente_id ==  nrDocente:
+    for modul in modulos:
+        if modul.docente_id ==  nrDocente:
             #nome da unidade curricular que o docente vai dar aulas.
-            nomeUnidadeCurricular = UnidadeCurricular.objects.get(turma__id__exact=servDocente.turma_id).nome
+            nomeUnidadeCurricular = UnidadeCurricular.objects.get(turma__id__exact=modul.servico_docente_id.turma_id).nome
             #todas a reduções de serviço referentes ao docente
             reducao = ReducaoServicoDocente.objects.filter(docente_id__exact=nrDocente)
             #se o tamanho for 0 é porque nao existem reduções
@@ -167,10 +167,10 @@ def indexDocente(request):
             
             #print "docente_n _ ", reducao
             #incrementa as horas de serviço
-            horasServico += servDocente.horas
+            horasServico += modul.horas
             numeroTotalHoras = horasServico + reducaoHoras
-            lista.append((servDocente.docente_id, nomeUnidadeCurricular,
-                           servDocente.horas, reducaoHoras))
+            lista.append((modul.docente_id, nomeUnidadeCurricular,
+                           modul.horas, reducaoHoras))
     numeroTotalTurmas = len(lista)   
     #print "dsfdf - ", reducaoHoras
     return render_to_response("docentes/index.html",
@@ -186,15 +186,15 @@ def indexDocente(request):
 def turmasDocentes(request):    
     nomeDocente = request.session['nomeDocente']
     nrDocente = request.session['nr_Docente']
-    servicoDocente = ServicoDocente.objects.all()
+    modulos = Modulos.objects.all()
     unidadesCurriculares = UnidadeCurricular.objects.all()
     lista = []
-    for servDocente in servicoDocente:
-        if servDocente.docente_id ==  nrDocente:
+    for modul in modulos:
+        if modul.docente_id ==  nrDocente:
             #nome da unidade curricular que o docente vai dar aulas.
-            nomeUnidadeCurricular = UnidadeCurricular.objects.get(turma__id__exact=servDocente.turma_id).nome
-            nomeCurso = UnidadeCurricular.objects.get(turma__id__exact=servDocente.turma_id).curso       
-            lista.append((servDocente.docente_id, nomeUnidadeCurricular, nomeCurso))
+            nomeUnidadeCurricular = UnidadeCurricular.objects.get(turma__id__exact=modul.servico_docente_id.turma_id).nome
+            nomeCurso = UnidadeCurricular.objects.get(turma__id__exact=modul.servico_docente_id.turma_id).curso       
+            lista.append((modul.docente_id, nomeUnidadeCurricular, nomeCurso))
     return render_to_response("docentes/turmaDocente.html",
         locals(),
         context_instance=RequestContext(request),
@@ -206,19 +206,19 @@ def turmasDocentes(request):
 def horasServico(request):
     nomeDocente = request.session['nomeDocente']
     nrDocente = request.session['nr_Docente']  
-    servicoDocente = ServicoDocente.objects.all()
+    modulos = Modulos.objects.all()
     unidadesCurriculares = UnidadeCurricular.objects.all()
     lista = []
     #numero total de horas que o docente tem de serviço
     numeroTotalHoras = 0
-    for servDocente in servicoDocente:
-        if servDocente.docente_id ==  nrDocente:
+    for modul in modulos:
+        if modul.docente_id ==  nrDocente:
             #nome da unidade curricular que o docente vai dar aulas.
-            nomeUnidadeCurricular = UnidadeCurricular.objects.get(turma__id__exact=servDocente.turma_id).nome
-            nomeCurso = UnidadeCurricular.objects.get(turma__id__exact=servDocente.turma_id).curso
-            numeroTotalHoras +=servDocente.horas       
-            lista.append((servDocente.docente_id, nomeUnidadeCurricular,
-                           servDocente.horas, nomeCurso))
+            nomeUnidadeCurricular = UnidadeCurricular.objects.get(turma__id__exact=modul.servico_docente_id.turma_id).nome
+            nomeCurso = UnidadeCurricular.objects.get(turma__id__exact=modul.servico_docente_id.turma_id).curso
+            numeroTotalHoras +=modul.horas       
+            lista.append((modul.docente_id, nomeUnidadeCurricular,
+                           modul.horas, nomeCurso))
               
     return render_to_response("docentes/horasServico.html",
         locals(),
