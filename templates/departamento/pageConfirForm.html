@@ -19,29 +19,53 @@
 {% block content %}
 	<table class="tabela_sumario">
 	    <tr>
-	    	<th colspan="2" class="top_sumario">Confirmação de dados do docente
-	    		{{self.process_preview}}{{context}}</th>
+	    	<th colspan="2" class="top_sumario">Adicionar Serviço Docente</th>
 	    </tr>
-	</table>
- 	
-    <div id="contentForm">
-		<form method="post" onkeypress="testeSearch();" >
+    </table>
+    
+   <div id="contentForm">
+		<form method="post">
 			{% csrf_token %}
-			<div class="row1">
-				Turma: <input type="text" readonly="readonly" name="turma" value="{{nomeTurma}}" id="unidadeCurricularTurma"/>
+			
+			<div class="teachersDiv">
+				
+				<table class="tabela_sumario teachersTable">
+					<tr>
+						<th class="idHide" ></th>
+						<th>Docente</th>
+						<th>Horas</th>
+					</tr>
+					
+					{%for docente in listaDocentes %}
+					<tr class="docenteRow" onclick="highlight(this);">
+						<td class="idHide">{{docente.id}}</td>
+						<td >{{docente.nome_completo}}</td>
+						<td>{{docente.horas}}</td>
+					</tr>
+					{%endfor %}
+				</table>
+				
 			</div>
-			{% for field in form %}
-		        <div class ="{% cycle 'row2' 'row1' %}">
-		            {{ field.label_tag }}: {{ field }}
-		            {% if field.field.required %}
-			        	<span>(*)</span>
-			        {%endif%} 
-		            {% for error in field.errors %} 
-		            	{{error}} 
-		            {% endfor %}
-		        </div>
-	    	{% endfor %}
-	   		<br />
+			<div class="servicoControls"><input id="addDocenteDepButton" type="button" onclick="addDocente_to_modul();" /></div>
+			<div class="modulsDiv">
+				{% for id in listaModuls %}
+				<table class="tabela_sumario modulsTable" onclick="highlightModul(this);">
+					<tr >
+						<th  colspan="3">Modulo de {{id.horas}} horas</th>
+						
+					</tr>
+					
+					<tr>
+						
+						<th>Docente</th>
+						<th>Horas</th>
+						<th><input type="hidden" value="{{id.id}}" name="modulID[]" /></th>
+					</tr>
+				</table>
+				<hr />
+				{% endfor %}
+				
+			</div>
 	    	<span id="CamposObirgatorio">(*) - Campos de preenchimento obrigatório</span>
 		
 	
