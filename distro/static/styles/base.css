@@ -117,7 +117,7 @@ div#footer {
 /*Docentes*/
 /*Pagna inicial*/
 /*
- #tabela_sumario
+ .tabela_sumario
  {
 
  float: left;
@@ -155,19 +155,19 @@ div#footer {
  font-size: 25pt;
  }
 
- #tabela_sumario td
+ .tabela_sumario td
  {
  padding: 0px 0px 0px 10px;
  }
 
- #tabela_sumario .horas_servico
+ .tabela_sumario .horas_servico
  {
  text-align: right;
  padding: 0px 10px 0 0 ;
 
  }
 
- #tabela_sumario th
+ .tabela_sumario th
  {
  text-align: center;
  }*/
@@ -176,7 +176,7 @@ div#footer {
 	text-align: center;
 }
 
-table#tabela_sumario {
+table.tabela_sumario {
 	font-family: "Trebuchet MS", sans-serif;
 	font-size: 14px;
 	/*font-weight: bold;*/
@@ -185,7 +185,7 @@ table#tabela_sumario {
 	border-collapse: separate;
 	width: 100%;
 }
-/*#tabela_sumario thead th {
+/*.tabela_sumario thead th {
 	padding: 15px;
 	color: #fff;
 	font-size: 18px;
@@ -214,12 +214,12 @@ table#tabela_sumario {
 	border-top-left-radius: 5px;
 	border-top-right-radius: 5px;
 }*/
-#tabela_sumario thead th:empty {
+.tabela_sumario thead th:empty {
 	background: transparent;
 	border: none;
 }
 
-#tabela_sumario .top_sumario {
+.tabela_sumario .top_sumario {
 	background: black;
 	border: 1px solid black;
 	border-bottom: 3px solid black;
@@ -228,7 +228,7 @@ table#tabela_sumario {
 	text-align: left;
 }
 
-#tabela_sumario .top_sumario_extra
+.tabela_sumario .top_sumario_extra
 {
 	background: black;
 	border: 1px solid black;
@@ -238,7 +238,7 @@ table#tabela_sumario {
 	text-align: right;
 }
 
-#tabela_sumario .sub_cabecalho {
+.tabela_sumario .sub_cabecalho {
 	background: rgb(255, 145, 70);
 	border: 1px solid rgb(255, 145, 70);
 	border-bottom: 3px solid rgb(255, 145, 70);
@@ -247,11 +247,11 @@ table#tabela_sumario {
 	text-align: center;
 }
 
-#tabela_sumario .sub_cabecalho a {
+.tabela_sumario .sub_cabecalho a {
 	color: #FFFFFF;
 }
 
-#tabela_sumario tbody th {
+.tabela_sumario tbody th {
 	color: #fff;
 	font-size: 15px;
 	font-weight: bold;
@@ -281,7 +281,7 @@ table#tabela_sumario {
 	border-bottom-left-radius: 5px;
 }
 /*
-#tabela_sumario tfoot td {
+.tabela_sumario tfoot td {
 	color: rgb(234, 126, 14);
 	font-size: 32px;
 	text-align: center;
@@ -289,12 +289,12 @@ table#tabela_sumario {
 	text-shadow: 1px 1px 1px #444;
 }*/
 /*
-#tabela_sumario tfoot th {
+.tabela_sumario tfoot th {
 	color: #666;
 	
 }
 */
-#tabela_sumario tbody td {
+.tabela_sumario tbody td {
 	padding: 5px;
 	text-align: center;
 	background-color: rgb(251,210,149);
@@ -324,7 +324,7 @@ table#tabela_sumario {
 	
 }
 
-#tabela_sumario .view:hover ul
+.tabela_sumario .view:hover ul
 {
 		
 		visibility: visible;
@@ -396,20 +396,20 @@ span.exit_small::before {
 
 
 
-#tabela_sumario a.tableLink {
+.tabela_sumario a.tableLink {
 	color: rgb(63, 72, 204);
 	/*text-decoration: none;*/
 }
 
-#tabela_sumario a.tableLink:hover {
+.tabela_sumario a.tableLink:hover {
 	color: rgb(0, 162, 232);
 }
 
-#tabela_sumario a.tableLink:active {
+.tabela_sumario a.tableLink:active {
 	color: rgb(157, 225, 252);
 }
 
-#tabela_sumario .teacher_name_field {
+.tabela_sumario .teacher_name_field {
 	width: 300px;
 }
 
@@ -1045,6 +1045,9 @@ span.exit_small::before {
 #buttonConfirm
 {
 	float: right;
+	text-align: right;
+	width: 100%;
+	margin-bottom: 5px;
 }
 
 #buttonConfirm input{
