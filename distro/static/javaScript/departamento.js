@@ -1,19 +1,18 @@
-var td1 = null;
-var td2 = null;
+var selectedTeacher = null;
 
 var modulTable = null;
 
+var added = new Array();
+
 function highlight(obj) {
-	if (td1 != null || td2 != null) {
-		td1.className = null;
-		td2.className = null;
+	if (selectedTeacher != null) {
+		selectedTeacher.className = "docenteRow";
 	}
 
-	obj.cells[1].className += "select";
-	obj.cells[2].className += "select";
+	obj.className += " select";
 	
-	td1 = obj.cells[1];
-	td2 = obj.cells[2];
+	
+	selectedTeacher = obj;
 	
 	
 }
@@ -35,27 +34,58 @@ function addDocente_to_modul() {
 		modulTable.className = "tabela_sumario modulsTable";
 	}
 	
-	if (td1 != null || td2 != null) {
-		td1.className = null;
-		td2.className = null;
+	if (selectedTeacher != null) {
+		selectedTeacher.className = "docenteRow";
+		
 	}
 
 	
 	
 	var nRows = modulTable.rows.length;
 
+	if(nRows < 3)
+	{
+
 	var numOfCols = modulTable.rows[nRows - 1].cells.length;
 
 
 	var newRow = modulTable.insertRow(nRows);
 
-	newCell1 = newRow.insertCell(0);
-	newCell1.innerHTML = td1.innerHTML;
-	newCell2 = newRow.insertCell(1);
-	newCell2.innerHTML = td2.innerHTML;
 	
-td1 = null;
-td2 = null;
+	newCell1 = newRow.insertCell(0);
+	newCell1.innerHTML = "<input type='text' name='docenteID[]' value=" + selectedTeacher.cells[0].innerHTML + " />";
+	newCell1.className += "idHide";
+	newCell2 = newRow.insertCell(1);
+	newCell2.innerHTML = selectedTeacher.cells[1].innerHTML;
+	newCell3 = newRow.insertCell(2);
+	newCell3.innerHTML = selectedTeacher.cells[2].innerHTML;
+	newCell4 = newRow.insertCell(3);
+	newCell4.innerHTML = "<a href='#' onclick='deleteRowTable(this.parentNode.parentNode.rowIndex, this.parentNode.parentNode.parentNode);'><span class='delButton'></span></a>";
 
-modulTable = null;
+		
+	var nPos = added.length;
+	
+	added[nPos] = selectedTeacher;	
+		
+	selectedTeacher.className += " added"	
+	selectedTeacher = null;
+
+	modulTable = null;
+	}
+}
+
+function deleteRowTable(index, obj) 
+{
+	var row = obj.rows[2];
+	var idValue_main = row.cells[0].childNodes[0].value;
+	
+	for(var i = 0; i < added.length; i++)
+	{
+		var idValeu = added[i].cells[0].innerHTML;
+		if(idValue_main == idValeu)
+		{
+			added[i].className = "";
+		}
+	}
+	obj.deleteRow(index);
 }

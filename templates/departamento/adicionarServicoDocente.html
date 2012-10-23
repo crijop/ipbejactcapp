@@ -27,7 +27,7 @@
 			
 			<div class="teachersDiv">
 				
-				<table class="tabela_sumario">
+				<table class="tabela_sumario teachersTable">
 					<tr>
 						<th class="idHide" ></th>
 						<th>Docente</th>
@@ -49,14 +49,15 @@
 				{% for id in listaModuls %}
 				<table class="tabela_sumario modulsTable" onclick="highlightModul(this);">
 					<tr >
-						<th  colspan="2"> Modulo</th>
+						<th  colspan="3">Modulo de {{id.horas}} horas</th>
 						
 					</tr>
 					
 					<tr>
-						<th class="idHide"><input type="text" value=""/></th>
+						
 						<th>Docente</th>
 						<th>Horas</th>
+						<th><input type="hidden" value="{{id.id}}" name="modulID[]" /></th>
 					</tr>
 				</table>
 				<hr />
