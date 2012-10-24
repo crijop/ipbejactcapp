@@ -21,7 +21,7 @@ from django.db.models.query_utils import Q
 from django.http import Http404, QueryDict
 from django.shortcuts import render_to_response, get_object_or_404
 from django.template.context import RequestContext
-import unicodedata 
+import unicodedata
 
 
 
@@ -634,9 +634,13 @@ def showSaveButton(request, id_servico, id_Departamento, ano):
 
 
 class AtribuirServicoDocenteFormPreview(FormPreview):
+    
+    ##DepUserTeste = user_passes_test(lambda u:u.groups.filter(Q(name='Departamento') | Q(name='Eng')).count(), login_url='/')
+    
     preview_template = 'departamento/pageConfirForm.html'
     form_template = 'departamento/adicionarServicoDocente.html'
-
+    #@login_required(redirect_field_name='login_redirectUsers')
+    #@DepUserTeste
     def get_context(self, request, form, docentesID, listaAnos, lModulos, listaDocentes, erro):
 
         "Context for template rendering."
@@ -651,7 +655,8 @@ class AtribuirServicoDocenteFormPreview(FormPreview):
                 'listaDocentes': listaDocentes,
                 'erro': erro
                 }
-
+    #@login_required(redirect_field_name='login_redirectUsers')
+    #@DepUserTeste
     def preview_get(self, request):
         "Displays the form"
         id_departamento = request.session['dep_id']
@@ -684,7 +689,8 @@ class AtribuirServicoDocenteFormPreview(FormPreview):
         return render_to_response(self.form_template,
             locals(),
             context_instance=RequestContext(request))
-
+    #@login_required(redirect_field_name='login_redirectUsers')
+    #@DepUserTeste
     def parse_params(self, *args, **kwargs):
         """Handle captured args/kwargs from the URLconf"""
         # get the selected HI test
@@ -696,7 +702,8 @@ class AtribuirServicoDocenteFormPreview(FormPreview):
             raise Http404("Invalid")
         pass
 
-
+    #@login_required(redirect_field_name='login_redirectUsers')
+    #@DepUserTeste
     def preview_post(self, request):
         id_departamento = request.session['dep_id']
         listaAnos = listarAnos(id_departamento)
@@ -757,7 +764,8 @@ class AtribuirServicoDocenteFormPreview(FormPreview):
             return render_to_response(self.preview_template, context, context_instance=RequestContext(request))
         else:
             return render_to_response(self.form_template, context, context_instance=RequestContext(request))
-    
+    #@login_required(redirect_field_name='login_redirectUsers')
+    #@DepUserTeste
     def post_post(self, request):
         "Validates the POST data. If valid, calls done(). Else, redisplays form."
         print "POST_POST"
@@ -821,7 +829,8 @@ class AtribuirServicoDocenteFormPreview(FormPreview):
                 locals(),
                 context_instance=RequestContext(request))
 
-    
+    #@login_required(redirect_field_name='login_redirectUsers')
+    #@DepUserTeste
     def done(self, request):
         listaAnos = listarAnos(request.session['dep_id'])
         id_servico = self.state['id_servico']

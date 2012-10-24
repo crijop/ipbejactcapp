@@ -104,6 +104,12 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
 )
 
+SESSION_COOKIE_AGE = 15
+
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+
+SESSION_SAVE_EVERY_REQUEST = False
+
 ROOT_URLCONF = 'ipbejactcapp.urls'
 
 TEMPLATE_DIRS = (

@@ -3,7 +3,11 @@
 	float: left;
 	overflow: scroll;
 	height: 300px;
+
+
+	
 }
+
 .idHide {
 	display: none;
 	/*visibility: hidden;*/
@@ -14,13 +18,14 @@
 	float: left;
 }
 
-#addDocenteDepButton {
-	content: url("/static/images/icons/addDocente.png")
+#addDocenteDepButton::before {
+	content: url("/static/images/icons/addDocente.png");
+	/*background: url("/static/images/icons/addDocente.png");*/
 }
 
-#addDocenteDepButton:hover {
+#addDocenteDepButton::before:hover {
 	cursor: pointer;
-	content: url("/static/images/icons/addDocente_hover.png")
+	content: url("/static/images/icons/addDocente_hover.png");
 }
 
 table.teachersTable tr:hover td {
@@ -126,14 +131,15 @@ table.selectModulo:hover th {
 	border-bottom-left-radius: 5px;
 }
 
-.delButton {
+.delButton::before {
 
-	content: url("/static/images/icons/delete.png")
+	content: url("/static/images/icons/delete.png");
 }
 
-.delButton:hover {
+.delButton::before:hover {
+	content: url("/static/images/icons/delete_hover.png");
 	cursor: pointer;
-	content: url("/static/images/icons/delete_hover.png")
+	
 }
 
 table.teachersTable tr.select td {
@@ -148,5 +154,12 @@ table.teachersTable .added {
 .modulsDiv {
 	width: 45%;
 	float: left;
+}
+
+.errorField{
+	
+	font-family: Arial;
+	font-weight: 600;
+	
 }
 

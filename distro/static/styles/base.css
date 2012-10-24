@@ -252,7 +252,7 @@ table.tabela_sumario {
 }
 
 .tabela_sumario tbody th {
-	color: #fff;
+	color: #ffffff;
 	font-size: 15px;
 	font-weight: bold;
 	text-shadow: 1px 1px 1px rgb(219, 97, 15);
@@ -302,11 +302,11 @@ table.tabela_sumario {
 	-moz-border-radius: 2px;
 	-webkit-border-radius: 2px;
 	border-radius: 2px;
-	color: #666;
+	color: #666666;
 }
 
 .view::before {
-	content: url("/static/images/icons/eye.png")
+	content: url("/static/images/icons/eye.png");
 }
 
 .view ul
@@ -373,7 +373,7 @@ table.tabela_sumario {
 
 .view:hover ul li a:hover
 {
-color: #fff;
+color: #ffffff;
 	text-shadow: 0 1px 0 rgba(0, 0, 0, .3);
 	background: #72FF00;
 	background: -webkit-linear-gradient(bottom, rgb(245,150,7), rgb(234, 126, 14));
@@ -387,11 +387,11 @@ color: #fff;
 
 
 span.edit::before {
-	content: url("/static/images/icons/pencil.png")
+	content: url("/static/images/icons/pencil.png");
 }
 
 span.exit_small::before {
-	content: url("/static/images/icons/SMALL/exit.png")
+	content: url("/static/images/icons/SMALL/exit.png");
 }
 
 
@@ -563,7 +563,7 @@ span.exit_small::before {
 
 /* The hover state of the menu/submenu links */
 #cssmenu > ul li > a:hover, #cssmenu > ul li:hover > a {
-	color: #fff;
+	color: #ffffff;
 	text-shadow: 0 1px 0 rgba(0, 0, 0, .3);
 	background: #72FF00;
 	background: -webkit-linear-gradient(bottom, rgb(245,150,7), rgb(234, 126, 14));
@@ -602,7 +602,7 @@ span.exit_small::before {
 	-o-transform: rotate(90deg);
 	/* Creating the arrow using borders */
 	border: 4px solid transparent;
-	border-left: 4px solid #000;
+	border-left: 4px solid #000000;
 }
 
 #cssmenu > ul .has-sub_lateral > a::after{
@@ -621,7 +621,7 @@ span.exit_small::before {
 
 /* Changing the color of the arrow on hover */
 #cssmenu > ul li > a:hover::after, #cssmenu > ul li:hover > a::after {
-	border-left: 4px solid #fff;
+	border-left: 4px solid #FFFFFF;
 }
 
 #cssmenu > ul li > a:hover::before, #cssmenu > ul li:hover > a::before {
@@ -663,7 +663,7 @@ span.exit_small::before {
 	color: #d8d8d8;
 	text-decoration: none;
 	text-transform: uppercase;
-	text-shadow: 0 1px 1px #000;
+	text-shadow: 0 1px 1px #000000;
 	font-size: 14pt;
 	font-weight: bolder;
 	/* Background & effects */
@@ -1125,6 +1125,6 @@ span.exit_small::before {
 
 #unidadeCurricularTurma
 {
-	width: 80%
+	width: 80%;
 }
 
