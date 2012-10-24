@@ -93,7 +93,7 @@ urlpatterns = patterns('',
     #Fim dos Url's destinados aos templates do coordenadores de Cursos
     ####
     
-    
+  
     #####
     # Url's destinados aos templates do departamento
     #### 
@@ -102,7 +102,7 @@ urlpatterns = patterns('',
         'ipbejactcapp.distro.views.indexDepartamento', 
         name='homeDepartamento'),
                        
-    url(r'^distro/departamento/listarTurmas/(?P<ano>\d+)$', 
+    url(r'^distro/departamento/listarTurmas/(?P<ano>\d+)/$', 
         'ipbejactcapp.distro.view_departamento.listarTurmasDepart', 
         name='listarTurmas'),                   
                        
@@ -136,10 +136,17 @@ urlpatterns = patterns('',
         name='addServicoDocentDepart'),
     
      url(r'^distro/departamento/turmaSemSevicoDocente/addServicoDocente/(?P<id_servico>\d+)/(?P<id_Departamento>\d+)/(?P<ano>\d+)/addSaveButton$',
-          'ipbejactcapp.distro.view_departamento.showSaveButton'),          
+          'ipbejactcapp.distro.view_departamento.showSaveButton'), 
+    
+    ##TURMAS#########################################################################################################
+     url(r'^distro/departamento/listarTurmas/(?P<ano>\d+)/filter_abc/$', 
+        'ipbejactcapp.distro.view_departamento.filter_abc'), 
+           
+    
     #####
     #Fim Url's destinados aos templates do departamento
     #### 
+  
     
     
     #####
