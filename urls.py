@@ -123,7 +123,7 @@ urlpatterns = patterns('',
         'ipbejactcapp.distro.view_departamento.infoModulosDocente', 
         name='infoModuloDocente'),
                        
-    url(r'^distro/departamento/listServicoDocente/infoModuloTurma/(?P<id_turma>\d+)/(?P<ano>\d+)/$', 
+    url(r'^distro/departamento/listServicoDocente/infoModuloTurma/(?P<id_servico>\d+)/(?P<ano>\d+)/$', 
         'ipbejactcapp.distro.view_departamento.infoModulosTurma', 
         name='infoModuloTurma'),                   
                         
