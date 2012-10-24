@@ -22,7 +22,7 @@ from django.template.context import RequestContext
 @login_required
 def login_redirectUsers(request):
     
-    request.session.set_expiry(1800)
+    #request.session.set_expiry(1800)
   
     
     name_group = Group.objects.get(name="Cientifico")

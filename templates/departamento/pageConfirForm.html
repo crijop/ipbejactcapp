@@ -51,7 +51,7 @@
 				{% for id, horas, docente_id, servico_id, docente, nome, horasDocente in lModulos %}
 				<table class="tabela_sumario modulsTable" onclick="highlightModul(this);">
 					<tr >
-						<th  colspan="3">Modulo de {{horas}} horas</th>
+						<th  colspan="3">Modulo de {{horas}} horas (*)</th>
 						
 					</tr>
 					
@@ -87,15 +87,16 @@
 				
 				<hr />
 				{% endfor %}
-				
+				<span id="CamposObirgatorio">(*) - Campos de preenchimento obrigatório</span>
 			</div>
-	    	<span id="CamposObirgatorio">(*) - Campos de preenchimento obrigatório</span>
+	    	
 		
 	
-    		<hr />
-    			<span id = "Confirmacao">Deseja submeter os Dados dos Formulário?</span>
+    		
     		
 				<div id="buttonConfirm">
+					<hr />
+    			<span id = "Confirmacao">Deseja submeter os Dados dos Formulário?</span>
 					<input type="hidden" name="{{ stage_field }}" value="2" />
 					<input type="hidden" name="{{ hash_field }}" value="{{ hash_value }}" />
 					<input type="button" value="{% trans 'Não' %}" onClick="javascript:history.go(-1);">
