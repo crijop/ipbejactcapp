@@ -46,6 +46,16 @@ def filter_abc(request, ano):
         context_instance=RequestContext(request),
         )
 
+def filter_abcd(request):
+
+
+    if request.is_ajax():
+
+        alfabeto = map(chr , range(65, 91))
+        return render_to_response("departamento/filter_abc.html",
+        locals(),
+        context_instance=RequestContext(request),
+        )
 '''
 Método responsavel por tratar o pedido ajax para o aparecimento da filtragem por categorias
 '''
