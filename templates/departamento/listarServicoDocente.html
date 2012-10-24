@@ -42,10 +42,10 @@
 {% block content %}
 <table class="tabela_sumario">
 	<tr>
-		<th colspan="6" class="top_sumario" >Listar Docentes</th>
+		<th colspan="5" class="top_sumario" >Listar Docentes</th>
 	</tr>
 	<tr>
-		<th colspan="6" class="top_sumario"> {% csrf_token %}
+		<th colspan="5" class="top_sumario"> {% csrf_token %}
 		<form action="" onkeypress="testeSearch()" method="get" name="searchForm">
 			<img src="/static/images/selector-search.gif" title="search" alt="searchIcon" />
 			<input name="searchField"  id="searchField" required type="search" value="{{keyword}}" />
@@ -53,32 +53,26 @@
 		</form></th>
 	</tr>
 	<tr>
-    	<th colspan="7" align="left">{{ano}}</th>
+    	<th colspan="5" align="left">{{ano}}</th>
     </tr>
 	<tr>
 		<th></th>
-		<th class="cabecalho_sumario">Docente</th>
 		<th colspan="3" class="cabecalho_sumario">Turma</th>
 		<th class="cabecalho_sumario">Horas</th>
 	</tr>
-	{% for servico_id, docente, unidadeCurricular, turno, tipo, horas, id_turma, id_docente in listInfo %}
+	{% for id_servico, unidadeCurricular, turno, tipo, horas, id_turma in listInfo %}
 	<tr>
-
-		<td class="view"><ul>
-					<li>
-						<a class="float_link" href='{% url infoModuloDocente id_docente ano %}'><span>Ver Informação Docente</span></a>
-					</li>
-					<li>
-						<a class="float_link" href='{% url infoModuloTurma id_turma ano %}'><span>Ver Informação Turmas</span></a>
-					</li>
-				</ul></td>
-		<td class="teacher_name_field"><a class="tableLink" href="{% url infoModuloDocente id_docente ano %}">{{docente}}</a></td>
-		<td><a class="tableLink" href="{% url infoModuloTurma id_turma ano %}">{{unidadeCurricular}}</a></td>
+		<td class="view">
+			<ul>
+				<li>
+					<a class="float_link" href='{% url infoModuloTurma id_turma ano %}'><span>Ver Informação Turmas</span></a>
+				</li>
+			</ul>
+		</td>
+		<td><a class="tableLink" href="{% url infoModuloTurma id_servico ano %}">{{unidadeCurricular}}</a></td>
 		<td>{{turno}}</td>
 		<td>{{tipo}}</td>
 		<td>{{horas}}</td>
-	
-		
 	</tr>
 	{% endfor %}
 

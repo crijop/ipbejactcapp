@@ -468,9 +468,29 @@ recebendo para isso o ano
 @login_required(redirect_field_name='login_redirectUsers')
 @DepUserTeste
 def  listServicoDocente(request, ano):
-    listaAnos = listarAnos(request.session['dep_id'])
+    id_Departamento = request.session['dep_id']
+    listaAnos = listarAnos(id_Departamento)
 
     listToSend = []
+    
+    listaServicoDocente = ServicoDocente.objects.filter(turma__unidade_curricular__departamento_id__exact = id_Departamento)
+    
+    for servico in listaServicoDocente:
+        modulos = Modulos.objects.filter(servico_docente_id__exact = servico.id).exclude(docente_id__exact = None)
+        if(len(modulos) != 0):
+            modulos = modulos.reverse()[0]
+            id_turma = servico.turma_id
+            turma = Turma.objects.get(id__exact=servico.turma_id)
+            unidade = UnidadeCurricular.objects.get(id__exact=turma.unidade_curricular_id).nome
+            
+            tipo_aula = TipoAula.objects.get(id__exact=turma.tipo_aula_id).tipo
+            
+
+            listToSend.append([servico.id, unidade, turma.turno, tipo_aula, servico.horas, id_turma])
+    
+    
+    
+    '''
     unidadesCurriculares = UnidadeCurricular.objects.filter(departamento_id__exact=request.session['dep_id'])
 
     for uC in unidadesCurriculares:
@@ -494,7 +514,7 @@ def  listServicoDocente(request, ano):
                 
                 
                 listToSend.append([servico.id, docente, unidade, turma.turno, tipo_aula, servico.horas, id_turma, id_docente])
-
+    '''
     paginator = Paginator(listToSend, 10)
     drange = range(1, paginator.num_pages + 1)
 
@@ -535,10 +555,26 @@ já com serviço de Docente atribuido em cada ano
 '''    
 @login_required(redirect_field_name='login_redirectUsers')
 @DepUserTeste
-def infoModulosTurma(request, id_turma, ano):
-    nomeTurma = Turma.objects.get(id__exact = id_turma).unidade_curricular.nome
-    tipoAula = Turma.objects.get(id__exact = id_turma).tipo_aula
-    turno = Turma.objects.get(id__exact = id_turma).turno
+def infoModulosTurma(request, id_servico, ano):
+    id_Departamento = request.session['dep_id']
+    listaAnos = listarAnos(id_Departamento)
+    
+    listInfo = []
+    
+    modulos = Modulos.objects.filter(servico_docente_id__exact = id_servico)
+    servico = ServicoDocente.objects.get(id__exact=id_servico)
+    
+    nomeTurma = servico.turma.unidade_curricular.nome
+    turno = servico.turma.turno
+    tipoAula = servico.turma.tipo_aula.tipo
+    
+    horasTotal = 0
+    for m in modulos:
+        horasTotal += m.horas
+        listInfo.append([1, m.docente.nome_completo, m.horas, "", ""])
+        pass
+    
+    
     return render_to_response("departamento/infoModulosTurma.html",
         locals(),
         context_instance=RequestContext(request),
@@ -555,7 +591,7 @@ def addServicoDocenteDepart(request, ano):
     listaServicoDocente = ServicoDocente.objects.filter(turma__unidade_curricular__departamento_id__exact = id_Departamento)
     
     for servico in listaServicoDocente:
-        modulos = Modulos.objects.filter(servico_docente_id__exact = servico.id)
+        modulos = Modulos.objects.filter(servico_docente_id__exact = servico.id).filter(docente_id__exact = None)
         if(len(modulos) != 0):
             modulos = modulos.reverse()[0]
             turma = Turma.objects.get(id__exact=servico.turma_id)

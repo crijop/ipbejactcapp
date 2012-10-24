@@ -20,22 +20,26 @@
 {% block content %}
 <table class="tabela_sumario">
 	<tr>
-		<th colspan="6" class="top_sumario" >Informação dos Modulos pertencente á Turma: {{nomeTurma}}</th>
+		<th colspan="2" class="top_sumario" >Informação dos Modulos pertencente á Turma: {{nomeTurma}}</th>
 	</tr>
 	<tr>
-    	<th colspan="7" align="left">Ano: {{ano}} | Tipo Aula: {{tipoAula}} | Turno: {{turno}}</th>
+    	<th colspan="2" align="left">Ano: {{ano}} | Tipo Aula: {{tipoAula}} | Turno: {{turno}}</th>
     </tr>
 	<tr>
 		<th class="cabecalho_sumario">Docente</th>
 		<th class="cabecalho_sumario">Horas Atribuidas</th>
 	</tr>
 	
-	{% for id_Docente, nome, horas, turmas in listInfo %}
+	{% for id_Docente, nome, horas, turmas, a in listInfo %}
 	<tr>
-		<td>{{turmas}}</td>
+		<td>{{nome}}</td>
 		<td>{{horas}}</td>
 	</tr>
 	{% endfor %}
+	<tr>
+    	<th class="sub_cabecalho">Horas Total</th>
+    	<th class="sub_cabecalho">{{horasTotal}}</th>
+    </tr>
 
 </table>
 {% endblock %}
