@@ -118,6 +118,10 @@ urlpatterns = patterns('',
     url(r'^distro/departamento/listServicoDocente/(?P<ano>\d+)/$', 
         'ipbejactcapp.distro.view_departamento.listServicoDocente', 
         name='listarServicoDocente'),
+    
+    #Filtro por ordem alfabetica                   
+    url(r'^distro/departamento/listServicoDocente/(?P<ano>\d+)/filter_abc/$', 'ipbejactcapp.distro.view_departamento.filter_abc'),                   
+                      
                        
     url(r'^distro/departamento/listServicoDocente/infoModuloDocente/(?P<id_docente>\d+)/(?P<ano>\d+)/$', 
         'ipbejactcapp.distro.view_departamento.infoModulosDocente', 
@@ -132,7 +136,7 @@ urlpatterns = patterns('',
         name='turmaSemServDocente'),
                        
     url(r'^distro/departamento/turmaSemSevicoDocente/addServicoDocente/(?P<id_servico>\d+)/(?P<id_Departamento>\d+)/(?P<ano>\d+)/$', 
-        AtribuirServicoDocenteFormPreview(AdicionarServicoDocenteForm), 
+        'ipbejactcapp.distro.view_departamento.viewFormClass', 
         name='addServicoDocentDepart'),
     
      url(r'^distro/departamento/turmaSemSevicoDocente/addServicoDocente/(?P<id_servico>\d+)/(?P<id_Departamento>\d+)/(?P<ano>\d+)/addSaveButton$',
@@ -210,14 +214,14 @@ urlpatterns = patterns('',
     #    name='adicionarDocenteRH'),
      
     
-    url(r'^distro/recursosHumanos/addDocente/$', 
-        AddDocenteModelFormPreview(AdicionarDocenteForm), 
+    url(r'^distro/recursosHumanos/addDocente/$',
+        'ipbejactcapp.distro.view_recursos_humanos.addDocenteFormClass',
         name='adicionarDocenteRH'),
     
     url(r'^distro/recursosHumanos/addDocente/addSaveButton/$', 'ipbejactcapp.distro.view_recursos_humanos.showSaveButton1'),
                        
-    url(r'^distro/recursosHumanos/listDocenteEdit/(?P<id_docente>\d+)/$', 
-        EditDocenteModelFormPreview(EditarDocenteForm), 
+    url(r'^distro/recursosHumanos/listDocenteEdit/(?P<id_docente>\d+)/$',
+        'ipbejactcapp.distro.view_recursos_humanos.editDocenteFormClass',
         name='RH_EditarDocente'),
     
                        

@@ -41,7 +41,6 @@ def filter_abc(request, ano):
     if request.is_ajax():
 
         alfabeto = map(chr , range(65, 91))
-
         return render_to_response("departamento/filter_abc.html",
         locals(),
         context_instance=RequestContext(request),
@@ -63,13 +62,16 @@ def filter_cat(request):
         locals(),
         context_instance=RequestContext(request),
         )
-
+        
 @login_required(redirect_field_name='login_redirectUsers')
 @DepUserTeste
 def filter_curso(request):
 
 
+
+
     if request.is_ajax():
+
 
         allCursos = []
         allUC = UnidadeCurricular.objects.filter(departamento_id__exact = request.session['dep_id'])
@@ -78,6 +80,7 @@ def filter_curso(request):
             Curso = Curso.objects.get(id__exact = UC.curso_id)
             allCursos.append(Curso)
             
+
 
         return render_to_response("departamento/filter_curso.html",
         locals(),
@@ -89,16 +92,19 @@ def filter_curso(request):
 def filter_uc(request):
 
 
+
+
     if request.is_ajax():
+
 
        
         allUC = UnidadeCurricular.objects.filter(departamento_id__exact = request.session['dep_id'])         
+
 
         return render_to_response("departamento/filter_uc.html",
         locals(),
         context_instance=RequestContext(request),
         )
-
 
 '''
 Inicio das vistas do Departamento
@@ -162,20 +168,26 @@ def listarTurmasDepart(request, ano):
 
     elif "letra" in request.GET or request.GET.get("actualState") == "letra":
 
+
         keyword = request.GET.get("letra")
         actualState = "actualState=letra&letra=" + keyword
         letter = unicodedata.normalize('NFKD', keyword.lower()).encode('ASCII', 'ignore')
 
 
+
+
         for t in listTurmas:
             tumar_uc = unicodedata.normalize('NFKD', t.unidade_curricular.nome.lower()).encode('ASCII', 'ignore')
+
 
             if tumar_uc.startswith(letter):
                 
                 listaTurmas.append([t.unidade_curricular.nome, t.id, t.unidade_curricular.curso, t.horas, t.numero_alunos, t.tipo_aula, t.turno])
                 pass
 
+
         pass    
+
 
     elif 'show' in request.GET or request.GET == {} or request.GET.get("actualState") == "show":
         actualState = "actualState=show"
@@ -247,7 +259,8 @@ def search_docente(search_List, allDocentes, listateste, count=0):
 
         for docente in allDocentes:
 
-            listServicoTemp = ServicoDocente.objects.filter(docente_id__exact=docente.id)
+            #listServicoTemp = ServicoDocente.objects.filter(docente_id__exact=docente.id)
+            listServicoTemp = Modulos.objects.filter(docente_id__exact = docente.id)
             numberHoras = 0
             for h in listServicoTemp:
                 numberHoras += h.horas
@@ -376,23 +389,25 @@ def listDocentes(request):
         letter = unicodedata.normalize('NFKD', keyword.lower()).encode('ASCII', 'ignore')
 
         for docente in listDocentes:
-            listServicoTemp = ServicoDocente.objects.filter(docente_id__exact=docente.id)
+            #listServicoTemp = ServicoDocente.objects.filter(docente_id__exact=docente.id)
+            listServicoTemp = Modulos.objects.filter(docente_id__exact=docente.id)
+        
             id_Docente = docente.id
             numberHoras = 0
             for h in listServicoTemp:
                 numberHoras += h.horas
                 pass
-                try:
-                    contrato = Contrato.objects.get(docente__id=id_Docente)
-                    contract_end = contrato.data_fim.strftime("%d/%m/%Y")
-                    nomeCategoria = Categoria.objects.get(id__exact=contrato.categoria.id).nome
-                except ObjectDoesNotExist:
-                    nomeCategoria = u'Sem Categoria'
+            try:
+                contrato = Contrato.objects.get(docente__id=id_Docente)
+                contract_end = contrato.data_fim.strftime("%d/%m/%Y")
+                nomeCategoria = Categoria.objects.get(id__exact=contrato.categoria.id).nome
+            except ObjectDoesNotExist:
+                nomeCategoria = u'Sem Categoria'
 
-                nomeCategoria_final = unicodedata.normalize('NFKD', nomeCategoria.lower()).encode('ASCII', 'ignore')
+            nomeCategoria_final = unicodedata.normalize('NFKD', nomeCategoria.lower()).encode('ASCII', 'ignore')
 
-                if nomeCategoria_final == letter:
-                    listToSend.append([docente.id, docente.nome_completo, len(listServicoTemp), numberHoras])
+            if nomeCategoria_final == letter:
+                listToSend.append([docente.id, docente.nome_completo, len(listServicoTemp), numberHoras])
         pass
 
 
@@ -407,8 +422,8 @@ def listDocentes(request):
             nomeDocente = unicodedata.normalize('NFKD', docente.nome_completo.lower()).encode('ASCII', 'ignore')
 
             if nomeDocente.startswith(letter):
-                print docente.id
-                listServicoTemp = ServicoDocente.objects.filter(docente_id__exact=docente.id)
+                #listServicoTemp = ServicoDocente.objects.filter(docente_id__exact=docente.id)
+                listServicoTemp = Modulos.objects.filter(docente_id__exact=docente.id)
                 numberHoras = 0
                 for h in listServicoTemp:
                     numberHoras += h.horas
@@ -526,46 +541,61 @@ def  listServicoDocente(request, ano):
     
     listaServicoDocente = ServicoDocente.objects.filter(turma__unidade_curricular__departamento_id__exact = id_Departamento)
     
-    for servico in listaServicoDocente:
-        modulos = Modulos.objects.filter(servico_docente_id__exact = servico.id).exclude(docente_id__exact = None)
-        if(len(modulos) != 0):
-            modulos = modulos.reverse()[0]
-            id_turma = servico.turma_id
-            turma = Turma.objects.get(id__exact=servico.turma_id)
-            unidade = UnidadeCurricular.objects.get(id__exact=turma.unidade_curricular_id).nome
+    if "letra" in request.GET or request.GET.get("actualState") == "letra":
+
+        keyword = request.GET.get("letra")
+        actualState = "actualState=letra&letra=" + keyword
+        letter = unicodedata.normalize('NFKD', keyword.lower()).encode('ASCII', 'ignore')
+        '''
+        for docente in listDocentes:
+            nomeDocente = unicodedata.normalize('NFKD', docente.nome_completo.lower()).encode('ASCII', 'ignore')
+
+            if nomeDocente.startswith(letter):
+                #listServicoTemp = ServicoDocente.objects.filter(docente_id__exact=docente.id)
+                listServicoTemp = Modulos.objects.filter(docente_id__exact=docente.id)
+                numberHoras = 0
+                for h in listServicoTemp:
+                    numberHoras += h.horas
+                pass
+                listToSend.append([docente.id, docente.nome_completo, len(listServicoTemp), numberHoras])
+                pass
+        
+        '''
+        for servico in listaServicoDocente:
+            modulos = Modulos.objects.filter(servico_docente_id__exact = servico.id).exclude(docente_id__exact = None)
+            #nomeUnidadeCurricular = servico.turma.unidade_curricular.nome
+            nomeUnidadeCurricular = unicodedata.normalize('NFKD', servico.turma.unidade_curricular.nome.lower()).encode('ASCII', 'ignore')
             
-            tipo_aula = TipoAula.objects.get(id__exact=turma.tipo_aula_id).tipo
+            if nomeUnidadeCurricular.startswith(letter):
+                if(len(modulos) != 0):
+                    modulos = modulos.reverse()[0]
+                    id_turma = servico.turma_id
+                    turma = Turma.objects.get(id__exact=servico.turma_id)
+                    unidade = UnidadeCurricular.objects.get(id__exact=turma.unidade_curricular_id).nome
+                    
+                    tipo_aula = TipoAula.objects.get(id__exact=turma.tipo_aula_id).tipo
+                    
+        
+                    listToSend.append([servico.id, unidade, turma.turno, tipo_aula, servico.horas, id_turma])
             
-
-            listToSend.append([servico.id, unidade, turma.turno, tipo_aula, servico.horas, id_turma])
     
-    
-    
-    '''
-    unidadesCurriculares = UnidadeCurricular.objects.filter(departamento_id__exact=request.session['dep_id'])
-
-    for uC in unidadesCurriculares:
-        turmasFilter = Turma.objects.filter(unidade_curricular_id__exact=uC.id, ano__exact=ano)
-
-        for t in turmasFilter:
-            #listaServicoDocente = ServicoDocente.objects.filter(turma_id__exact=t.id).exclude(docente_id__exact=None)
-            listaServicoDocente = Modulos.objects.filter(servico_docente_id__turma_id__exact = t.id).exclude(docente_id__exact=None)
-            for servico in listaServicoDocente:
-                turma = Turma.objects.get(id__exact=servico.turma_id)
-                
+    elif 'show' in request.GET or request.GET == {} or request.GET.get("actualState") == "show":
+        actualState = "actualState=show"
+        
+        for servico in listaServicoDocente:
+            modulos = Modulos.objects.filter(servico_docente_id__exact = servico.id).exclude(docente_id__exact = None)
+            if(len(modulos) != 0):
+                modulos = modulos.reverse()[0]
                 id_turma = servico.turma_id
-
+                turma = Turma.objects.get(id__exact=servico.turma_id)
                 unidade = UnidadeCurricular.objects.get(id__exact=turma.unidade_curricular_id).nome
-
-                docente = Docente.objects.get(id__exact=servico.docente_id).nome_completo
-
-                id_docente = servico.docente_id
                 
                 tipo_aula = TipoAula.objects.get(id__exact=turma.tipo_aula_id).tipo
                 
-                
-                listToSend.append([servico.id, docente, unidade, turma.turno, tipo_aula, servico.horas, id_turma, id_docente])
-    '''
+    
+                listToSend.append([servico.id, unidade, turma.turno, tipo_aula, servico.horas, id_turma])
+    
+    
     paginator = Paginator(listToSend, 10)
     drange = range(1, paginator.num_pages + 1)
 
@@ -682,16 +712,21 @@ def showSaveButton(request, id_servico, id_Departamento, ano):
         pass
     pass
 
+@login_required(redirect_field_name='login_redirectUsers')
+@DepUserTeste
+def viewFormClass(request, *args, **kwargs):
+    view = AtribuirServicoDocenteFormPreview(AdicionarServicoDocenteForm)
+    return view(request, *args, **kwargs)
+    pass
+
 
 
 class AtribuirServicoDocenteFormPreview(FormPreview):
     
-    ##DepUserTeste = user_passes_test(lambda u:u.groups.filter(Q(name='Departamento') | Q(name='Eng')).count(), login_url='/')
     
     preview_template = 'departamento/pageConfirForm.html'
     form_template = 'departamento/adicionarServicoDocente.html'
-    #@login_required(redirect_field_name='login_redirectUsers')
-    #@DepUserTeste
+  
     def get_context(self, request, form, docentesID, listaAnos, lModulos, listaDocentes, erro):
 
         "Context for template rendering."
@@ -706,8 +741,7 @@ class AtribuirServicoDocenteFormPreview(FormPreview):
                 'listaDocentes': listaDocentes,
                 'erro': erro
                 }
-    #@login_required(redirect_field_name='login_redirectUsers')
-    #@DepUserTeste
+
     def preview_get(self, request):
         "Displays the form"
         id_departamento = request.session['dep_id']
@@ -718,12 +752,6 @@ class AtribuirServicoDocenteFormPreview(FormPreview):
         modulosID  = None
         docentesID = None
         
-        #=======================================================================
-        # b = ServicoDocente.objects.get(id=id_servico)
-        # form = AdicionarServicoDocenteForm(instance=b,
-        #                            id_Departamento = self.state['id_Departamento'],
-        #                            ano = self.state['ano'])
-        #=======================================================================
 
         listaModuls = Modulos.objects.filter(servico_docente_id__exact = id_servico)
         cont = 0 
@@ -740,8 +768,7 @@ class AtribuirServicoDocenteFormPreview(FormPreview):
         return render_to_response(self.form_template,
             locals(),
             context_instance=RequestContext(request))
-    #@login_required(redirect_field_name='login_redirectUsers')
-    #@DepUserTeste
+   
     def parse_params(self, *args, **kwargs):
         """Handle captured args/kwargs from the URLconf"""
         # get the selected HI test
@@ -880,8 +907,7 @@ class AtribuirServicoDocenteFormPreview(FormPreview):
                 locals(),
                 context_instance=RequestContext(request))
 
-    #@login_required(redirect_field_name='login_redirectUsers')
-    #@DepUserTeste
+    
     def done(self, request):
         listaAnos = listarAnos(request.session['dep_id'])
         id_servico = self.state['id_servico']

@@ -1424,16 +1424,18 @@ def indexRHInfoDocentesContratos(request, id_docente):
 
 @login_required(redirect_field_name='login_redirectUsers')
 @rhUserTeste
-def indexRH_EditarDocente(request, id_docente):
-    return EditDocenteModelFormPreview(EditarDocenteForm)
+def editDocenteFormClass(request, *args, **kwargs):
+    view = EditDocenteModelFormPreview(EditarDocenteForm)
+    return view(request, *args, **kwargs)
     pass
 
 
 
 @login_required(redirect_field_name='login_redirectUsers')
 @rhUserTeste
-def addDocenteRH(request):
-    return AddDocenteModelFormPreview(AdicionarDocenteForm)
+def addDocenteFormClass(request, *args, **kwargs):
+    view = AddDocenteModelFormPreview(AdicionarDocenteForm)
+    return view(request, *args, **kwargs)
     pass
 
 
