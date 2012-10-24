@@ -664,34 +664,44 @@ class AtribuirServicoDocenteFormPreview(FormPreview):
         listaAnos = listarAnos(id_departamento)
         "Validates the POST data. If valid, displays the preview page. Else, redisplays form."
         id_servico = self.state['id_servico']
-        
+       
+       #Adiciona se os dois arrays vindos do POST 
         modulosID = dict(request.POST)[u'moduloID[]']
         
-        if request.POST.get(u'docenteID[]'):
-            docentesID = dict(request.POST)[u'docenteID[]']
-            pass
-        else:
-            docentesID = None
-       
+      
+        
+        docentesID = dict(request.POST)[u'docenteID[]']
+        
         
         nomeTurma = ServicoDocente.objects.get(id__exact = id_servico).turma.unidade_curricular.nome
+        #precorre se o array de ID de docente faz-se uma consulta pelo seu ID para se obter o Nome e 
+        #horas que o deocente realizou e depois guarda se na lista seguinte
+        lista_docentesFinal = []
+        if(docentesID != None):
         
+            for l in docentesID:
+                if(l != ''):
+                
+                    nome = Docente.objects.get(id__exact = l).nome_completo
+                    horas = "";
+                    lista_docentesFinal.append([nome, horas])
+                    pass
+                else:
+                    lista_docentesFinal.append(['', ''])
+                    pass
+        
+       #Aqui criamos uma lista que vai receber os dados a serem mostrados no template entre eles os dados do array criado em cima
         listaModuls = Modulos.objects.filter(servico_docente_id__exact = id_servico)
         cont = 0 
         lModulos = []
         for lm in listaModuls:
-            lModulos.append([lm.id, lm.horas, lm.docente_id, lm.servico_docente_id, cont])
+            
+            lModulos.append([lm.id, lm.horas, lm.docente_id, lm.servico_docente_id, docentesID[cont],lista_docentesFinal[cont][0], lista_docentesFinal[cont][1]])
             cont +=1 
             pass
+           
         
-        lista_docentesFinal = []
-        
-        for l in docentesID:
-            nome = Docente.objects.get(id__exact = l).nome_completo
-            horas = "";
-            lista_docentesFinal.append([nome, horas])
-            pass
-        
+      
         
         listaDocentes = Docente.objects.filter(departamento_id__exact = id_departamento)
         

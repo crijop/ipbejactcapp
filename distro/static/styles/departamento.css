@@ -94,6 +94,38 @@ table.selectModulo th {
 	border-bottom-left-radius: 5px;
 }
 
+table.selectModulo:hover th {
+
+	color: #fff;
+	text-shadow: none;
+	text-shadow: none;
+	font-size: 15px;
+	font-weight: bold;
+	background-color: rgb(63, 72, 204);
+	border: 1px solid rgb(63, 72, 204);
+	border-right: 3px solid rgb(63, 72, 204);
+	padding: 0px 10px;
+	background: -webkit-gradient(
+	linear,
+	left bottom,
+	right top,
+	color-stop(0.02, rgb(63, 72, 204)),
+	color-stop(0.51, rgb(63, 72, 204)),
+	color-stop(0.87, rgb(63, 72, 204))
+	);
+	background: -moz-linear-gradient(
+	left bottom,
+	rgb(63, 72, 204) 2%,
+	rgb(63, 72, 204) 51%,
+	rgb(63, 72, 204) 87%
+	);
+	-moz-border-radius: 5px 0px 0px 5px;
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+}
+
 .delButton {
 
 	content: url("/static/images/icons/delete.png")
