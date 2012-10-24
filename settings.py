@@ -104,7 +104,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
 )
 
-SESSION_COOKIE_AGE = 1800
+SESSION_COOKIE_AGE = 1800 
 
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
