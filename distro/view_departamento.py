@@ -601,7 +601,7 @@ class AtribuirServicoDocenteFormPreview(FormPreview):
     preview_template = 'departamento/pageConfirForm.html'
     form_template = 'departamento/adicionarServicoDocente.html'
 
-    def get_context(self, request, form, nomeTurma, listaAnos, listaModuls):
+    def get_context(self, request, form, docentesID, listaAnos, lModulos, listaDocentes, erro):
 
         "Context for template rendering."
 
@@ -609,9 +609,11 @@ class AtribuirServicoDocenteFormPreview(FormPreview):
                 'form': form,
                 'stage_field': self.unused_name('stage'),
                 'id_servico': self.state['id_servico'],
-                'nomeTurma' : nomeTurma,
+                'docentesID' : docentesID,
                 'listaAnos' : listaAnos,
-                'listaModuls': listaModuls
+                'lModulos': lModulos,
+                'listaDocentes': listaDocentes,
+                'erro': erro
                 }
 
     def preview_get(self, request):
@@ -620,7 +622,7 @@ class AtribuirServicoDocenteFormPreview(FormPreview):
         listaAnos = listarAnos(id_departamento)
         id_servico = self.state['id_servico']
         nomeTurma = ServicoDocente.objects.get(id__exact = id_servico).turma.unidade_curricular.nome
-
+        f = self.form(auto_id=self.get_auto_id(), initial=self.get_initial(request))
         modulosID  = None
         docentesID = None
         
@@ -664,8 +666,10 @@ class AtribuirServicoDocenteFormPreview(FormPreview):
         listaAnos = listarAnos(id_departamento)
         "Validates the POST data. If valid, displays the preview page. Else, redisplays form."
         id_servico = self.state['id_servico']
+        
+        erro = "Um ou mais Modulos não tem docente atribuido"
        
-       #Adiciona se os dois arrays vindos do POST 
+        #Adiciona se os dois arrays vindos do POST 
         modulosID = dict(request.POST)[u'moduloID[]']
         
       
@@ -690,7 +694,7 @@ class AtribuirServicoDocenteFormPreview(FormPreview):
                     lista_docentesFinal.append(['', ''])
                     pass
         
-       #Aqui criamos uma lista que vai receber os dados a serem mostrados no template entre eles os dados do array criado em cima
+        #Aqui criamos uma lista que vai receber os dados a serem mostrados no template entre eles os dados do array criado em cima
         listaModuls = Modulos.objects.filter(servico_docente_id__exact = id_servico)
         cont = 0 
         lModulos = []
@@ -707,70 +711,110 @@ class AtribuirServicoDocenteFormPreview(FormPreview):
         
         b = ServicoDocente.objects.get(id=id_servico)
         
-        f = AdicionarServicoDocenteForm(request.POST, instance=b,
-                            id_Departamento = self.state['id_Departamento'],
-                            ano = self.state['ano'])
-        context = self.get_context(request, f, nomeTurma, listaAnos, listaModuls)
+        f = AdicionarServicoDocenteForm(request.POST, instance=b)
+        context = self.get_context(request, f, docentesID, listaAnos, lModulos, listaDocentes, erro)
         if f.is_valid(modulosID, docentesID):
             print "F Valido"
             self.process_preview(request, f, context)
-            #context['hash_field'] = self.unused_name('hash')
-            #context['hash_value'] = self.security_hash(request, f)
-            return render_to_response(self.preview_template, locals(), context_instance=RequestContext(request))
+            context['hash_field'] = self.unused_name('hash')
+            context['hash_value'] = self.security_hash(request, f)
+            return render_to_response(self.preview_template, context, context_instance=RequestContext(request))
         else:
-            erro = "Um ou mais Modulos não tem docente atribuido"
-            return render_to_response(self.form_template, locals(), context_instance=RequestContext(request))
-
+            return render_to_response(self.form_template, context, context_instance=RequestContext(request))
+    
     def post_post(self, request):
         "Validates the POST data. If valid, calls done(). Else, redisplays form."
+        print "POST_POST"
         id_departamento = request.session['dep_id']
         listaAnos = listarAnos(id_departamento)
         id_servico = self.state['id_servico']
-        nomeTurma = ServicoDocente.objects.get(id__exact = id_servico).turma.unidade_curricular.nome
+        erro = "Um ou mais Modulos não tem docente atribuido"
+       
+        #Adiciona se os dois arrays vindos do POST 
+        modulosID = dict(request.POST)[u'moduloID[]']
         
+      
+        
+        docentesID = dict(request.POST)[u'docenteID[]']
+        
+        
+        nomeTurma = ServicoDocente.objects.get(id__exact = id_servico).turma.unidade_curricular.nome
+        #precorre se o array de ID de docente faz-se uma consulta pelo seu ID para se obter o Nome e 
+        #horas que o deocente realizou e depois guarda se na lista seguinte
+        lista_docentesFinal = []
+        if(docentesID != None):
+        
+            for l in docentesID:
+                if(l != ''):
+                
+                    nome = Docente.objects.get(id__exact = l).nome_completo
+                    horas = "";
+                    lista_docentesFinal.append([nome, horas])
+                    pass
+                else:
+                    lista_docentesFinal.append(['', ''])
+                    pass
+        
+        #Aqui criamos uma lista que vai receber os dados a serem mostrados no template entre eles os dados do array criado em cima
         listaModuls = Modulos.objects.filter(servico_docente_id__exact = id_servico)
+        cont = 0 
+        lModulos = []
+        for lm in listaModuls:
+            
+            lModulos.append([lm.id, lm.horas, lm.docente_id, lm.servico_docente_id, docentesID[cont],lista_docentesFinal[cont][0], lista_docentesFinal[cont][1]])
+            cont +=1 
+            pass
+           
+        
+      
+        
         listaDocentes = Docente.objects.filter(departamento_id__exact = id_departamento)
         
         b = ServicoDocente.objects.get(id=id_servico)
-        f = AdicionarServicoDocenteForm(request.POST, instance=b,
-                            id_Departamento = self.state['id_Departamento'],
-                            ano = self.state['ano'])
-        if f.is_valid():
+        
+        f = AdicionarServicoDocenteForm(request.POST, instance=b)
+        
+        if f.is_valid(modulosID, docentesID):
             print "F Valido POST_POST"
             if not self._check_security_hash(request.POST.get(self.unused_name('hash'), ''),
                                              request, f):
                 return self.failed_hash(request) # Security hash failed.
-            return self.done(request, f.cleaned_data)
+            return self.done(request)
         else:
             return render_to_response(self.form_template,
                 locals(),
                 context_instance=RequestContext(request))
 
-
-    def done(self, request, cleaned_data):
+    
+    def done(self, request):
         listaAnos = listarAnos(request.session['dep_id'])
         id_servico = self.state['id_servico']
         ano = self.state['ano']
         turma = ServicoDocente.objects.filter(id__exact = id_servico)
-        d = get_object_or_404(ServicoDocente, pk=id_servico)
         
+        #Adiciona se os dois arrays vindos do POST 
+        modulosID = dict(request.POST)[u'moduloID[]']
+        
+      
+        
+        docentesID = dict(request.POST)[u'docenteID[]']
         listaModuls = Modulos.objects.filter(servico_docente_id__exact = id_servico)
         
         if request.method == 'POST':
 
             b = ServicoDocente.objects.get(id=id_servico)
-            form = AdicionarServicoDocenteForm(request.POST, instance=b,
-                                                                            id_Departamento = self.state['id_Departamento'],
-                                                                            ano = ano)
-            if form.is_valid():
-                d.turma_id = id_servico
-                d.docente_id = form.cleaned_data['docente']
-                d.horas = form.cleaned_data['horas']
+            f = AdicionarServicoDocenteForm(request.POST, instance=b)
+            if f.is_valid(modulosID, docentesID):
+                
+                count = 0
+                for m in modulosID:
+                    p = Modulos(id = m,
+                                horas = Modulos.objects.get(id__exact = m).horas,
+                                servico_docente_id = id_servico,
+                                docente_id = docentesID[count])
+                    p.save()
+                    count += 1
 
-                d.save()
-
-
-                #return HttpResponseRedirect('/thanks/') # Redirect after POST
         else:
             b = ServicoDocente.objects.get(id=id_servico)
 

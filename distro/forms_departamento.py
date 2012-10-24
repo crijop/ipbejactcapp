@@ -12,12 +12,12 @@ from django.forms.models import ModelForm
 
 
 class AdicionarServicoDocenteForm(ModelForm):
-    
+    '''
     def __init__(self, *args, **kwargs):
         id_D = kwargs.pop('id_Departamento')
         ano = kwargs.pop('ano')
         super(AdicionarServicoDocenteForm, self).__init__(*args, **kwargs)
-        
+    '''    
         
         #self.fields['turma'] = forms.ModelChoiceField(
         #                Turma.objects.filter(unidade_curricular__departamento_id__exact = id_Departamento).filter(ano = ano)
@@ -54,7 +54,7 @@ class AdicionarServicoDocenteForm(ModelForm):
 
     class Meta:
         model = ServicoDocente
-        exclude = ('turma',)
+        exclude = ('turma', 'horas')
         
      
     pass
