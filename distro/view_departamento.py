@@ -12,7 +12,7 @@ Created on 10 de Out de 2012
 
 from distro.forms_departamento import AdicionarServicoDocenteForm
 from distro.models import Departamento, Turma, UnidadeCurricular, ServicoDocente, \
-    Docente, TipoAula, Contrato, Categoria, Modulos
+    Docente, TipoAula, Contrato, Categoria, Modulos, Curso
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib.formtools.preview import FormPreview
 from django.core.exceptions import ObjectDoesNotExist
@@ -35,14 +35,14 @@ presente na lista de docentes e lista de contratos
 '''
 @login_required(redirect_field_name='login_redirectUsers')
 @DepUserTeste
-def filter_abc(request):
+def filter_abc(request, ano):
 
 
     if request.is_ajax():
 
         alfabeto = map(chr , range(65, 91))
 
-        return render_to_response("recursosHumanos/filter_abc.html",
+        return render_to_response("departamento/filter_abc.html",
         locals(),
         context_instance=RequestContext(request),
         )
@@ -59,10 +59,46 @@ def filter_cat(request):
 
         allCategories = Categoria.objects.all()
 
-        return render_to_response("recursosHumanos/filter_cat.html",
+        return render_to_response("departamento/filter_cat.html",
         locals(),
         context_instance=RequestContext(request),
         )
+
+@login_required(redirect_field_name='login_redirectUsers')
+@DepUserTeste
+def filter_curso(request):
+
+
+    if request.is_ajax():
+
+        allCursos = []
+        allUC = UnidadeCurricular.objects.filter(departamento_id__exact = request.session['dep_id'])
+        for UC in allUC:
+            
+            Curso = Curso.objects.get(id__exact = UC.curso_id)
+            allCursos.append(Curso)
+            
+
+        return render_to_response("departamento/filter_curso.html",
+        locals(),
+        context_instance=RequestContext(request),
+        )
+        
+@login_required(redirect_field_name='login_redirectUsers')
+@DepUserTeste
+def filter_uc(request):
+
+
+    if request.is_ajax():
+
+       
+        allUC = UnidadeCurricular.objects.filter(departamento_id__exact = request.session['dep_id'])         
+
+        return render_to_response("departamento/filter_uc.html",
+        locals(),
+        context_instance=RequestContext(request),
+        )
+
 
 '''
 Inicio das vistas do Departamento
@@ -124,7 +160,22 @@ def listarTurmasDepart(request, ano):
 
             pass
 
+    elif "letra" in request.GET or request.GET.get("actualState") == "letra":
 
+        keyword = request.GET.get("letra")
+        actualState = "actualState=letra&letra=" + keyword
+        letter = unicodedata.normalize('NFKD', keyword.lower()).encode('ASCII', 'ignore')
+
+
+        for t in listTurmas:
+            tumar_uc = unicodedata.normalize('NFKD', t.unidade_curricular.nome.lower()).encode('ASCII', 'ignore')
+
+            if tumar_uc.startswith(letter):
+                
+                listaTurmas.append([t.unidade_curricular.nome, t.id, t.unidade_curricular.curso, t.horas, t.numero_alunos, t.tipo_aula, t.turno])
+                pass
+
+        pass    
 
     elif 'show' in request.GET or request.GET == {} or request.GET.get("actualState") == "show":
         actualState = "actualState=show"

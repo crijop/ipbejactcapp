@@ -11,6 +11,42 @@
 	</li>
 </ul>
 {% endblock %}
+{% block Filtros %}
+<ul>
+
+	<li class='title'>
+		<span>Filtros</span>
+	</li>
+	<li class="has-sub" >
+		<a  id="oa_button" tabindex="4" href='#oa'><span>Por Ordem Alfabética</span></a>
+
+	</li>
+	<div id="oa">
+
+	
+
+	</div>
+	<li class="has-sub">
+		<a id="uc_button" tabindex="4" href='#uc'><span>Por Unidade Curricular</span></a>
+		
+	</li>
+	<div id="uc">
+
+	
+
+	</div>
+	<li class="has-sub">
+		<a id="course_button" tabindex="4" href='#course'><span>Por Curso</span></a>
+		
+	</li>
+	<div id="course">
+
+	
+
+	</div>
+</ul>
+
+{% endblock %}
 
 
 {% block content %}
@@ -58,7 +94,8 @@
 		<span class="step-links"> {% for page_num in drange %} <a id="{{ page_num}}" href="?page={{ page_num}}&{{actualState}}">{{ page_num}}</a> {% endfor%} </span>
 	</div>
 	<br>
-	<script type="text/javascript">document.getElementById("searchField").focus();</script>
+	<script type="text/javascript">document.getElementById("searchField").focus();
+		filter_oa();</script>
 {% endblock %}
 
 

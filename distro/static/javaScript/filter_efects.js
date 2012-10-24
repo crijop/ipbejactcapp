@@ -82,10 +82,11 @@ function filter_oa() {
 			
 			if (out_1 == 1) {
 
+				
 				//esconder a div
 				wipeTarget_1.style.display = "block";
 				request.get("filter_abc").then(function(response) {
-
+					
 					wipeTarget_1.innerHTML = response;
 
 				}, function(error) {
