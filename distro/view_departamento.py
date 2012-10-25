@@ -541,10 +541,12 @@ def infoDocenteDep(request, id_docente):
     for servDocente in servicoDocente:
 
         #nome da unidade curricular que o docente vai dar aulas.
-        nomeUnidadeCurricular = UnidadeCurricular.objects.get(turma__id__exact=servDocente.turma_id).nome
-        tipoAula = Turma.objects.get(id__exact=servDocente.turma_id).tipo_aula
-        turno = Turma.objects.get(id__exact=servDocente.turma_id).turno
-        nomeCurso = UnidadeCurricular.objects.get(turma__id__exact=servDocente.turma_id).curso
+        nomeUnidadeCurricular = UnidadeCurricular.objects.get(id__exact=servDocente.servico_docente.turma.unidade_curricular_id).nome
+        turma = Turma.objects.get(id__exact=servDocente.servico_docente.turma_id)
+        tipoAula = TipoAula.objects.get(id__exact=turma.tipo_aula_id).tipo
+        turno = turma.turno
+        print "turno ", turno
+        nomeCurso = UnidadeCurricular.objects.get(turma__id__exact=servDocente.servico_docente.turma_id).curso
         numeroTotalHoras += servDocente.horas
         lista.append((servDocente.docente_id, nomeUnidadeCurricular,
                            servDocente.horas, nomeCurso))
@@ -758,8 +760,6 @@ def viewFormClass(request, *args, **kwargs):
 
 
 class AtribuirServicoDocenteFormPreview(FormPreview):
-    
-    
     preview_template = 'departamento/pageConfirForm.html'
     form_template = 'departamento/adicionarServicoDocente.html'
   
