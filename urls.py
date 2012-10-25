@@ -120,7 +120,10 @@ urlpatterns = patterns('',
         name='listarServicoDocente'),
     
     #Filtro por ordem alfabetica                   
-    url(r'^distro/departamento/listServicoDocente/(?P<ano>\d+)/filter_abc/$', 'ipbejactcapp.distro.view_departamento.filter_abc'),                   
+    url(r'^distro/departamento/listServicoDocente/(?P<ano>\d+)/filter_abc/$', 'ipbejactcapp.distro.view_departamento.filter_abc'),
+    
+    #Filtro por curso                  
+    url(r'^distro/departamento/listServicoDocente/(?P<ano>\d+)/filter_curso/$', 'ipbejactcapp.distro.view_departamento.filter_curso'),                   
                       
                        
     url(r'^distro/departamento/listServicoDocente/infoModuloDocente/(?P<id_docente>\d+)/(?P<ano>\d+)/$', 
