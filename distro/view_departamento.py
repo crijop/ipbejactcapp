@@ -5,7 +5,6 @@ Created on 10 de Out de 2012
 @author: admin1
 '''
 
-
 #Modulo de python com o nome view_departamento.py
 #Modulo que trata de todas as views dos departamentos
 
@@ -85,7 +84,7 @@ def filter_curso(request, ano):
             allCursos.append(t.unidade_curricular.curso)
             pass
         
-        allCursos1 = RemoveRepetidosLista(allCursos)
+        allCursos1 = removeRepetidosLista(allCursos)
         sorted(allCursos1)
         
         return render_to_response("departamento/filter_curso.html",
@@ -93,7 +92,7 @@ def filter_curso(request, ano):
         context_instance=RequestContext(request),
         )
         
-def RemoveRepetidosLista(l):
+def removeRepetidosLista(l):
     # cria um dicionario em branco
     dict = {}
     # para cada valor na lista l
@@ -106,24 +105,6 @@ def RemoveRepetidosLista(l):
     return l        
         
         
-@login_required(redirect_field_name='login_redirectUsers')
-@DepUserTeste
-def filter_uc(request):
-
-
-
-
-    if request.is_ajax():
-
-
-       
-        allUC = UnidadeCurricular.objects.filter(departamento_id__exact = request.session['dep_id'])         
-
-
-        return render_to_response("departamento/filter_uc.html",
-        locals(),
-        context_instance=RequestContext(request),
-        )
 
 '''
 Inicio das vistas do Departamento
@@ -179,6 +160,8 @@ def listarTurmasDepart(request, ano):
 
 
             tempList = removeDuplicatedElements(tempList)
+            
+            sizeList = len(tempList)
 
             if len(tempList) != 0:
                 listaTurmas += tempList
@@ -203,9 +186,32 @@ def listarTurmasDepart(request, ano):
                 
                 listaTurmas.append([t.unidade_curricular.nome, t.id, t.unidade_curricular.curso, t.horas, t.numero_alunos, t.tipo_aula, t.turno])
                 pass
+        
+        sizeList = len(listaTurmas)
 
 
-        pass    
+        pass
+    elif "curso" in request.GET or request.GET.get("actualState") == "curso":
+
+
+        keyword = request.GET.get("curso")
+        actualState = "actualState=curso&curso=" + keyword
+        courseName = unicodedata.normalize('NFKD', keyword.lower()).encode('ASCII', 'ignore')
+
+
+        for t in listTurmas:
+            tumar_course = unicodedata.normalize('NFKD', t.unidade_curricular.curso.nome.lower()).encode('ASCII', 'ignore')
+
+
+            if tumar_course == courseName:
+                
+                listaTurmas.append([t.unidade_curricular.nome, t.id, t.unidade_curricular.curso, t.horas, t.numero_alunos, t.tipo_aula, t.turno])
+                pass
+            
+        sizeList = len(listaTurmas)
+
+
+        pass      
 
 
     elif 'show' in request.GET or request.GET == {} or request.GET.get("actualState") == "show":
@@ -215,6 +221,7 @@ def listarTurmasDepart(request, ano):
             listaTurmas.append([t.unidade_curricular.nome, t.id, t.unidade_curricular.curso, t.horas, t.numero_alunos, t.tipo_aula, t.turno])
 
         listaTurmas.sort()
+        sizeList = len(listaTurmas)
 
     paginator = Paginator(listaTurmas, 10)
     drange = range(1, paginator.num_pages + 1)
@@ -864,7 +871,7 @@ class AtribuirServicoDocenteFormPreview(FormPreview):
         f = AdicionarServicoDocenteForm(request.POST, instance=b)
         context = self.get_context(request, f, docentesID, listaAnos, lModulos, listaDocentes, erro)
         if f.is_valid(modulosID, docentesID):
-            print "F Valido"
+             
             self.process_preview(request, f, context)
             context['hash_field'] = self.unused_name('hash')
             context['hash_value'] = self.security_hash(request, f)
@@ -875,7 +882,7 @@ class AtribuirServicoDocenteFormPreview(FormPreview):
     #@DepUserTeste
     def post_post(self, request):
         "Validates the POST data. If valid, calls done(). Else, redisplays form."
-        print "POST_POST"
+
         id_departamento = request.session['dep_id']
         listaAnos = listarAnos(id_departamento)
         id_servico = self.state['id_servico']
@@ -926,7 +933,7 @@ class AtribuirServicoDocenteFormPreview(FormPreview):
         f = AdicionarServicoDocenteForm(request.POST, instance=b)
         
         if f.is_valid(modulosID, docentesID):
-            print "F Valido POST_POST"
+
             if not self._check_security_hash(request.POST.get(self.unused_name('hash'), ''),
                                              request, f):
                 return self.failed_hash(request) # Security hash failed.

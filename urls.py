@@ -148,6 +148,8 @@ urlpatterns = patterns('',
     ##TURMAS#########################################################################################################
      url(r'^distro/departamento/listarTurmas/(?P<ano>\d+)/filter_abc/$', 
         'ipbejactcapp.distro.view_departamento.filter_abc'), 
+     url(r'^distro/departamento/listarTurmas/(?P<ano>\d+)/filter_curso/$', 
+        'ipbejactcapp.distro.view_departamento.filter_curso'),
            
     
     #####
@@ -295,3 +297,5 @@ urlpatterns = patterns('',
     ####
     
 )
+
+
