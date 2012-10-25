@@ -150,7 +150,7 @@ def indexDocente(request):
     for modul in modulos:
         if modul.docente_id ==  nrDocente:
             #nome da unidade curricular que o docente vai dar aulas.
-            nomeUnidadeCurricular = UnidadeCurricular.objects.get(turma__id__exact=modul.servico_docente_id.turma_id).nome
+            nomeUnidadeCurricular = UnidadeCurricular.objects.get(id__exact=modul.servico_docente.turma.unidade_curricular_id).nome
             #todas a reduções de serviço referentes ao docente
             reducao = ReducaoServicoDocente.objects.filter(docente_id__exact=nrDocente)
             #se o tamanho for 0 é porque nao existem reduções
@@ -192,8 +192,8 @@ def turmasDocentes(request):
     for modul in modulos:
         if modul.docente_id ==  nrDocente:
             #nome da unidade curricular que o docente vai dar aulas.
-            nomeUnidadeCurricular = UnidadeCurricular.objects.get(turma__id__exact=modul.servico_docente_id.turma_id).nome
-            nomeCurso = UnidadeCurricular.objects.get(turma__id__exact=modul.servico_docente_id.turma_id).curso       
+            nomeUnidadeCurricular = UnidadeCurricular.objects.get(id__exact=modul.servico_docente.turma.unidade_curricular_id).nome
+            nomeCurso = UnidadeCurricular.objects.get(id__exact=modul.servico_docente.turma.unidade_curricular_id).curso       
             lista.append((modul.docente_id, nomeUnidadeCurricular, nomeCurso))
     return render_to_response("docentes/turmaDocente.html",
         locals(),
@@ -214,8 +214,8 @@ def horasServico(request):
     for modul in modulos:
         if modul.docente_id ==  nrDocente:
             #nome da unidade curricular que o docente vai dar aulas.
-            nomeUnidadeCurricular = UnidadeCurricular.objects.get(turma__id__exact=modul.servico_docente_id.turma_id).nome
-            nomeCurso = UnidadeCurricular.objects.get(turma__id__exact=modul.servico_docente_id.turma_id).curso
+            nomeUnidadeCurricular = UnidadeCurricular.objects.get(id__exact=modul.servico_docente.turma.unidade_curricular_id).nome
+            nomeCurso = UnidadeCurricular.objects.get(id__exact=modul.servico_docente.turma.unidade_curricular_id).curso
             numeroTotalHoras +=modul.horas       
             lista.append((modul.docente_id, nomeUnidadeCurricular,
                            modul.horas, nomeCurso))

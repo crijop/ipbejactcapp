@@ -300,6 +300,60 @@ function date_function() {
 	});
 }
 
+
+
+
+/*
+ * filtrar por curso
+ */
+
+function filter_curso()
+{
+	
+	var out_7 = 1;
+	require(["dojo/request", "dojo/fx", "dojo/on", "dojo/dom", "dojo/domReady!"], function(request, fx, on, dom) {
+		////////////////
+
+		var wipeOutButton_7 = dom.byId("curso_button"), wipeInButton_7 = dom.byId("curso_button"), wipeTarget_7 = dom.byId("curso");
+		//esconder a div
+
+		on(wipeInButton_7, "click", function(evt) 
+		{   
+			if (out_7 == 1) {
+
+				wipeTarget_7.style.display = "block";
+				out_7 = 0;
+				request.get("filter_curso").then(function(response) {
+
+					wipeTarget_7.innerHTML = response;
+
+				}, function(error) {
+					// Display the error returned
+					alert(response + "errro");
+				});
+
+				fx.wipeIn({
+					node : wipeTarget_7
+				}).play();
+
+			} else {
+
+				wipeTarget_7.innerHTML = "";
+
+				out_7 = 1;
+				fx.wipeOut({
+					node : wipeTarget_7
+				}).play();
+
+				wipeTarget_7.style.display = "block";
+			}
+		});
+		
+	});
+}
+
+
+
 /***************************/
 /*
  function start_date_filter() {

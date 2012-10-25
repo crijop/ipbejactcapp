@@ -75,27 +75,36 @@ def filter_cat(request):
         
 @login_required(redirect_field_name='login_redirectUsers')
 @DepUserTeste
-def filter_curso(request):
-
-
-
+def filter_curso(request, ano):
 
     if request.is_ajax():
-
-
         allCursos = []
-        allUC = UnidadeCurricular.objects.filter(departamento_id__exact = request.session['dep_id'])
-        for UC in allUC:
-            
-            Curso = Curso.objects.get(id__exact = UC.curso_id)
-            allCursos.append(Curso)
-            
-
-
+        listTurmas = Turma.objects.filter(unidade_curricular__departamento_id__exact \
+                                          = request.session['dep_id'], ano__exact=ano)
+        for t in listTurmas:
+            allCursos.append(t.unidade_curricular.curso)
+            pass
+        
+        allCursos1 = RemoveRepetidosLista(allCursos)
+        sorted(allCursos1)
+        
         return render_to_response("departamento/filter_curso.html",
         locals(),
         context_instance=RequestContext(request),
         )
+        
+def RemoveRepetidosLista(l):
+    # cria um dicionario em branco
+    dict = {}
+    # para cada valor na lista l
+    for word in l:
+        # adiciona ao dicionario: valor:1
+        # note que se for repetido o valor somente sobrescreve ele :)
+        dict[word] = 1
+    # retorna uma copia das 'keys'
+    l[:] = dict.keys()
+    return l        
+        
         
 @login_required(redirect_field_name='login_redirectUsers')
 @DepUserTeste
@@ -393,6 +402,7 @@ def listDocentes(request):
                 listToSend += tempList
 
             pass
+        
     elif "category" in request.GET or request.GET.get("actualState") == "category":
         keyword = request.GET.get("category")
         actualState = "actualState=category&category=" + keyword
