@@ -18,12 +18,12 @@
 	float: left;
 }
 
-#addDocenteDepButton::before {
+#addDocenteDepButton {
 	content: url("/static/images/icons/addDocente.png");
 	/*background: url("/static/images/icons/addDocente.png");*/
 }
 
-#addDocenteDepButton::before:hover {
+#addDocenteDepButton:hover {
 	cursor: pointer;
 	content: url("/static/images/icons/addDocente_hover.png");
 }
@@ -36,7 +36,7 @@ table.teachersTable tr:hover td {
 
 table.modulsTable:hover th {
 	cursor: pointer;
-	color: #fff;
+	color: #ffffff;
 	font-size: 15px;
 	font-weight: bold;
 	text-shadow: none;
@@ -69,7 +69,7 @@ table.modulsTable:hover th {
 
 table.selectModulo th {
 
-	color: #fff;
+	color: #ffffff;
 	text-shadow: none;
 	text-shadow: none;
 	font-size: 15px;
@@ -101,7 +101,7 @@ table.selectModulo th {
 
 table.selectModulo:hover th {
 
-	color: #fff;
+	color: #ffffff;
 	text-shadow: none;
 	text-shadow: none;
 	font-size: 15px;
@@ -131,17 +131,30 @@ table.selectModulo:hover th {
 	border-bottom-left-radius: 5px;
 }
 
-.delButton::before {
+.delButton {
 
 	content: url("/static/images/icons/delete.png");
 }
 
-.delButton::before:hover {
+.delButton:hover {
 	content: url("/static/images/icons/delete_hover.png");
 	cursor: pointer;
 	
 }
 
+/*Barra de carregamento ajax*/
+.hideAjaxLoader
+{
+	display: none;
+	
+}
+
+.showAjaxLoader
+{
+	display: block;
+	content: url("/static/images/icons/ajax-loader.gif");
+	
+}
 table.teachersTable tr.select td {
 	background-color: rgb(0, 162, 232);
 	color: #FFFFFF;
