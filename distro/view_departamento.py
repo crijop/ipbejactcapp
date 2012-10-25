@@ -566,21 +566,7 @@ def  listServicoDocente(request, ano):
         keyword = request.GET.get("letra")
         actualState = "actualState=letra&letra=" + keyword
         letter = unicodedata.normalize('NFKD', keyword.lower()).encode('ASCII', 'ignore')
-        '''
-        for docente in listDocentes:
-            nomeDocente = unicodedata.normalize('NFKD', docente.nome_completo.lower()).encode('ASCII', 'ignore')
-
-            if nomeDocente.startswith(letter):
-                #listServicoTemp = ServicoDocente.objects.filter(docente_id__exact=docente.id)
-                listServicoTemp = Modulos.objects.filter(docente_id__exact=docente.id)
-                numberHoras = 0
-                for h in listServicoTemp:
-                    numberHoras += h.horas
-                pass
-                listToSend.append([docente.id, docente.nome_completo, len(listServicoTemp), numberHoras])
-                pass
-        
-        '''
+       
         for servico in listaServicoDocente:
             modulos = Modulos.objects.filter(servico_docente_id__exact = servico.id).exclude(docente_id__exact = None)
             #nomeUnidadeCurricular = servico.turma.unidade_curricular.nome
@@ -598,12 +584,35 @@ def  listServicoDocente(request, ano):
         
                     listToSend.append([servico.id, unidade, turma.turno, tipo_aula, servico.horas, id_turma])
             
-    
+    elif "curso" in request.GET or request.GET.get("actualState") == "curso":
+        keyword = request.GET.get("curso")
+        actualState = "actualState=curso&curso=" + keyword
+        cursos = unicodedata.normalize('NFKD', keyword.lower()).encode('ASCII', 'ignore')
+        for servico in listaServicoDocente:
+            modulos = Modulos.objects.filter(servico_docente_id__exact = servico.id).exclude(docente_id__exact = None)
+            if(len(modulos) != 0):
+                modulos = modulos.reverse()[0]
+                
+                nomeCurso = unicodedata.normalize('NFKD', modulos.servico_docente.turma.unidade_curricular.curso.nome.lower()).encode('ASCII', 'ignore')
+            
+                if nomeCurso == cursos:
+                    #modulos = modulos.reverse()[0]
+                    id_turma = servico.turma_id
+                    turma = Turma.objects.get(id__exact=servico.turma_id)
+                    unidade = UnidadeCurricular.objects.get(id__exact=turma.unidade_curricular_id).nome
+                    
+                    tipo_aula = TipoAula.objects.get(id__exact=turma.tipo_aula_id).tipo
+                    
+                    listToSend.append([servico.id, unidade, turma.turno, tipo_aula, servico.horas, id_turma])
+            
+        pass
+        
     elif 'show' in request.GET or request.GET == {} or request.GET.get("actualState") == "show":
         actualState = "actualState=show"
         
         for servico in listaServicoDocente:
             modulos = Modulos.objects.filter(servico_docente_id__exact = servico.id).exclude(docente_id__exact = None)
+            
             if(len(modulos) != 0):
                 modulos = modulos.reverse()[0]
                 id_turma = servico.turma_id
