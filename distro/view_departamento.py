@@ -405,6 +405,8 @@ def listDocentes(request):
 
             tempList = removeDuplicatedElements(tempList)
 
+            sizeList = len(tempList)
+            
             if len(tempList) != 0:
                 listToSend += tempList
 
@@ -435,6 +437,7 @@ def listDocentes(request):
 
             if nomeCategoria_final == letter:
                 listToSend.append([docente.id, docente.nome_completo, len(listServicoTemp), numberHoras])
+        sizeList = len(listToSend)
         pass
 
 
@@ -456,7 +459,8 @@ def listDocentes(request):
                     numberHoras += h.horas
                 pass
                 listToSend.append([docente.id, docente.nome_completo, len(listServicoTemp), numberHoras])
-                pass
+        sizeList = len(listToSend)
+            
 
         pass
     elif 'show' in request.GET or request.GET == {} or request.GET.get("actualState") == "show":
@@ -468,6 +472,7 @@ def listDocentes(request):
             for h in listServicoTemp:
                 numberHoras += h.horas
             listToSend.append([docente.id, docente.nome_completo, len(listServicoTemp), numberHoras])
+        sizeList = len(listToSend)
 
 
         pass
@@ -592,6 +597,7 @@ def  listServicoDocente(request, ano):
                     
         
                     listToSend.append([servico.id, unidade, turma.turno, tipo_aula, servico.horas, id_turma])
+        sizeList = len(listToSend)
             
     elif "curso" in request.GET or request.GET.get("actualState") == "curso":
         keyword = request.GET.get("curso")
@@ -613,6 +619,7 @@ def  listServicoDocente(request, ano):
                     tipo_aula = TipoAula.objects.get(id__exact=turma.tipo_aula_id).tipo
                     
                     listToSend.append([servico.id, unidade, turma.turno, tipo_aula, servico.horas, id_turma])
+            sizeList = len(listToSend)
             
         pass
         
@@ -632,6 +639,7 @@ def  listServicoDocente(request, ano):
                 
     
                 listToSend.append([servico.id, unidade, turma.turno, tipo_aula, servico.horas, id_turma])
+        sizeList = len(listToSend)
     
     
     paginator = Paginator(listToSend, 10)
@@ -718,6 +726,7 @@ def addServicoDocenteDepart(request, ano):
             tipo_aula = TipoAula.objects.get(id__exact=turma.tipo_aula_id).tipo
             id_servico = servico.id
             listToSend.append([unidade, id_servico, turma.turno, tipo_aula, servico.horas])
+    sizeList = len(listToSend)
     
     listToSend.sort()
     paginator = Paginator(listToSend, 10)

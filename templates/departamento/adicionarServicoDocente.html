@@ -15,95 +15,104 @@
 
 {% block content %}
 
-	<table class="tabela_sumario">
-	    <tr>
-	    	<th colspan="2" class="top_sumario">Adicionar Serviço Docente</th>
-	    </tr>
-    </table>
-    
-   <div id="contentForm">
-		<form method="post">
-			{% csrf_token %}
-			
-			<div class="teachersDiv">
-				
-				<table class="tabela_sumario teachersTable">
-					<tr>
-						<th class="idHide" ></th>
-						<th>Docente</th>
-						<th>Horas</th>
-					</tr>
-					
-					{%for docente in listaDocentes %}
-					<tr class="docenteRow" onclick="highlight(this);">
-						<td class="idHide">{{docente.id}}</td>
-						<td >{{docente.nome_completo}}</td>
-						<td>{{docente.horas}}</td>
-					</tr>
-					{%endfor %}
-				</table>
-				
-			</div>
-			<div class="servicoControls"><a id="addDocenteDepButton" href="#" onclick="addDocente_to_modul();"></a>
-				
-			</div>
-			<div class="modulsDiv">
-				{% for id, horas, docente_id, servico_id, docente, nome, horasDocente in lModulos %}
-				<table class="tabela_sumario modulsTable" onclick="highlightModul(this);">
-					<tr >
-						<th  colspan="3">Modulo de {{horas}} horas (*)</th>
-						
-					</tr>
-					
-					<tr>
-						
-						<th class="docenteRow" >Docente</th>
-						<th>Horas</th>
+<table class="tabela_sumario">
+	<tr>
+		<th colspan="2" class="top_sumario">Adicionar Serviço Docente</th>
+	</tr>
+</table>
 
-						<th><input type="hidden" value="{{id}}" name="moduloID[]" /></th>
+<div id="contentForm">
+	<form method="post">
+		{% csrf_token %}
 
-					</tr>
-					{%if docentesID != None and docente != "" %}
-					<tr>
-						
-						<td class="idHide"><input type='text' name='docenteID[]' value="{{docente}}" /></td>
-						<td>{{nome}}</td>
-						<td>{{horasDocente}}</td>
-						<td><a href='#' onclick='deleteRowTable(this.parentNode.parentNode.parentNode);'><span class='delButton'></span></a></td>
-					</tr>
-					{%else%}
-					
-					<tr>
-						
-						<td class="idHide"><input type='text' name='docenteID[]' value="" /></td>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
-					
-					{%endif%}
-					
-				</table>
+		<div class="teachersDiv">
+
+			<table class="tabela_sumario teachersTable">
+				<tr>
+					<th class="idHide" ></th>
+					<th>Docente</th>
+					<th>Horas</th>
+				</tr>
+
+				{%for docente in listaDocentes %}
+				<tr class="docenteRow" onclick="highlight(this);">
+					<td class="idHide">{{docente.id}}</td>
+					<td >{{docente.nome_completo}}</td>
+					<td>{{docente.horas}}</td>
+				</tr>
+				{%endfor %}
 				
-				<hr />
-				{% endfor %}
-				<span class="errorField">{{erro}}</span>
-					<br><br>
-					<span id="CamposObirgatorio">(*) - Campos de preenchimento obrigatório</span>
-	  
-	   	</div>
+			</table>
+
+		</div>
+		<div class="servicoControls">
+			<a id="addDocenteDepButton" href="#" onclick="addDocente_to_modul();"></a>
+
+		</div>
+		<div class="modulsDiv">
+			{% for id, horas, docente_id, servico_id, docente, nome, horasDocente in lModulos %}
+			<table class="tabela_sumario modulsTable" onclick="highlightModul(this);">
+				<tr >
+					<th  colspan="3">Modulo de {{horas}} horas (*)</th>
+
+				</tr>
+
+				<tr>
+
+					<th class="docenteRow" >Docente</th>
+					<th>Horas</th>
+
+					<th>
+					<input type="hidden" value="{{id}}" name="moduloID[]" />
+					</th>
+
+				</tr>
+				{%if docentesID != None and docente != "" %}
+				<tr>
+
+					<td class="idHide">
+					<input type='text' name='docenteID[]' value="{{docente}}" />
+					</td>
+					<td>{{nome}}</td>
+					<td>{{horasDocente}}</td>
+					<td><a href='#' onclick='deleteRowTable(this.parentNode.parentNode.parentNode);'><span class='delButton'></span></a></td>
+				</tr>
+				{%else%}
+
+				<tr>
+
+					<td class="idHide">
+					<input type='text' name='docenteID[]' value="" />
+					</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+
+				{%endif%}
+
+			</table>
+
+			<hr />
+			{% endfor %}
+			<span class="errorField">{{erro}}</span>
+			<br>
+			<br>
+			<span id="CamposObirgatorio">(*) - Campos de preenchimento obrigatório</span>
+
+		</div>
 		<div id="buttonConfirm">
-				<hr />
-				<span id = "Confirmacao"></span>
+			<hr />
+			<span id = "Confirmacao"></span>
 			<input type="hidden" name="{{ stage_field }}" value="1" />
 			<input type="submit" value="Adicionar Serviço Docente" />
-			
+
 		</div>
-		<script>initial();</script>
-		</form>
-		
-		
-		
-	</div>
+		<script>
+			initial();
+		</script>
+	</form>
+
+</div>
 {% endblock %}
 

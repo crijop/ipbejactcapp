@@ -3,27 +3,20 @@
  */
 var count = 1;
 
-function changeCountValue() 
-{
+function changeCountValue() {
 
-			
-			count = 0;
-			//alert("esta - " + count);
-			
-			
+	count = 0;
+	//alert("esta - " + count);
 
-
-	
 }
 
 function testeSearch() {
 
-	
 	require(["dojo/request", "dojo/on", "dojo/dom", "dojo/domReady!"], function(request, on, dom) {
-	//alert("ola - " + count);
-		
+		//alert("ola - " + count);
+
 		var divTarget = dom.byId("buttonConfirm"), divConfirmPhrase = dom.byId("Confirmacao");
-		
+
 		if (count == 0) {
 
 			//alert("vou modficiar");
@@ -72,21 +65,19 @@ alert(response);
 function filter_oa() {
 
 	var out_1 = 1;
-	
+
 	require(["dojo/request", "dojo/fx", "dojo/on", "dojo/dom", "dojo/domReady!"], function(request, fx, on, dom) {
 
 		var wipeOutButton_1 = dom.byId("oa_button"), wipeInButton_1 = dom.byId("oa_button"), wipeTarget_1 = dom.byId("oa");
 
 		on(wipeInButton_1, "click", function(evt) {
-			
-			
+
 			if (out_1 == 1) {
 
-				
 				//esconder a div
 				wipeTarget_1.style.display = "block";
 				request.get("filter_abc").then(function(response) {
-					
+
 					wipeTarget_1.innerHTML = response;
 
 				}, function(error) {
@@ -110,13 +101,13 @@ function filter_oa() {
 				wipeTarget_1.style.display = "block";
 			}
 		});
-		
+
 	});
 }
-function filter_dep()
-{
+
+function filter_dep() {
 	var out_2 = 1;
-	
+
 	require(["dojo/request", "dojo/fx", "dojo/on", "dojo/dom", "dojo/domReady!"], function(request, fx, on, dom) {
 		var wipeOutButton_2 = dom.byId("da_button"), wipeInButton_2 = dom.byId("da_button"), wipeTarget_2 = dom.byId("dep");
 		//esconder a div
@@ -150,13 +141,12 @@ function filter_dep()
 
 				wipeTarget_2.style.display = "block";
 			}
-		
+
 		});
 	});
 }
 
-function filter_cat()
-{
+function filter_cat() {
 	var out_3 = 1;
 	require(["dojo/request", "dojo/fx", "dojo/on", "dojo/dom", "dojo/domReady!"], function(request, fx, on, dom) {
 		////////////////
@@ -164,8 +154,7 @@ function filter_cat()
 		var wipeOutButton_3 = dom.byId("ca_button"), wipeInButton_3 = dom.byId("ca_button"), wipeTarget_3 = dom.byId("category");
 		//esconder a div
 
-		on(wipeInButton_3, "click", function(evt) 
-		{ 
+		on(wipeInButton_3, "click", function(evt) {
 			if (out_3 == 1) {
 
 				wipeTarget_3.style.display = "block";
@@ -195,14 +184,13 @@ function filter_cat()
 				wipeTarget_3.style.display = "block";
 			}
 		});
-		
+
 	});
 }
 
-function filter_date()
-{
+function filter_date() {
 	var out_4 = 1;
-		require(["dojo/request", "dojo/fx", "dojo/on", "dojo/dom", "dojo/domReady!"], function(request, fx, on, dom) {
+	require(["dojo/request", "dojo/fx", "dojo/on", "dojo/dom", "dojo/domReady!"], function(request, fx, on, dom) {
 		////////*Por data*////////
 
 		var wipeOutButton_4 = dom.byId("date_button"), wipeInButton_4 = dom.byId("date_button"), wipeTarget_4 = dom.byId("date");
@@ -233,7 +221,6 @@ function filter_date()
 
 	});
 }
-
 
 /*************************/
 
@@ -300,29 +287,35 @@ function date_function() {
 	});
 }
 
-
-
-
 /*
  * filtrar por curso
  */
 
-function filter_curso()
-{
-	
+function filter_curso() {
+
 	var out_7 = 1;
-	require(["dojo/request", "dojo/fx", "dojo/on", "dojo/dom", "dojo/domReady!"], function(request, fx, on, dom) {
+	require(["dojo/request", "dojo/request/notify", "dojo/fx", "dojo/on", "dojo/dom", "dojo/domReady!"], function(request, notify, fx, on, dom) {
 		////////////////
 
 		var wipeOutButton_7 = dom.byId("curso_button"), wipeInButton_7 = dom.byId("curso_button"), wipeTarget_7 = dom.byId("curso");
+		var ajaxLoader = dom.byId("ajaxLoader");
 		//esconder a div
 
-		on(wipeInButton_7, "click", function(evt) 
-		{   
+		on(wipeInButton_7, "click", function(evt) {
 			if (out_7 == 1) {
 
 				wipeTarget_7.style.display = "block";
+
 				out_7 = 0;
+
+				notify("start", function() {
+					ajaxLoader.className = "showAjaxLoader";
+				});
+				notify("done", function(data) {
+					
+					ajaxLoader.className = "hideAjaxLoader";
+					
+				});
 				request.get("filter_curso").then(function(response) {
 
 					wipeTarget_7.innerHTML = response;
@@ -348,11 +341,9 @@ function filter_curso()
 				wipeTarget_7.style.display = "block";
 			}
 		});
-		
+
 	});
 }
-
-
 
 /***************************/
 /*
