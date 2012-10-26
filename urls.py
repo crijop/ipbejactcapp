@@ -115,7 +115,26 @@ urlpatterns = patterns('',
                        
     url(r'^distro/departamento/listDocentes/(?P<id_docente>\d+)/$', 'ipbejactcapp.distro.view_departamento.infoDocenteDep'),        
 
-    url(r'^distro/departamento/listServicoDocente/(?P<ano>\d+)/$', 
+   
+    url(r'^distro/departamento/turmaSemSevicoDocente/(?P<ano>\d+)/$', 
+        'ipbejactcapp.distro.view_departamento.addServicoDocenteDepart', 
+        name='turmaSemServDocente'),
+                       
+    url(r'^distro/departamento/turmaSemSevicoDocente/addServicoDocente/(?P<id_servico>\d+)/(?P<id_Departamento>\d+)/(?P<ano>\d+)/$', 
+        'ipbejactcapp.distro.view_departamento.viewFormClass', 
+        name='addServicoDocentDepart'),
+    
+     url(r'^distro/departamento/turmaSemSevicoDocente/addServicoDocente/(?P<id_servico>\d+)/(?P<id_Departamento>\d+)/(?P<ano>\d+)/addSaveButton$',
+          'ipbejactcapp.distro.view_departamento.showSaveButton'), 
+    
+    ##TURMAS#########################################################################################################
+     url(r'^distro/departamento/listarTurmas/(?P<ano>\d+)/filter_abc/$', 
+        'ipbejactcapp.distro.view_departamento.filter_abc'), 
+     url(r'^distro/departamento/listarTurmas/(?P<ano>\d+)/filter_curso/$', 
+        'ipbejactcapp.distro.view_departamento.filter_curso'),
+                       
+     ##Lista serviços Docente#########################################################################################################
+      url(r'^distro/departamento/listServicoDocente/(?P<ano>\d+)/$', 
         'ipbejactcapp.distro.view_departamento.listServicoDocente', 
         name='listarServicoDocente'),
     
@@ -134,22 +153,7 @@ urlpatterns = patterns('',
         'ipbejactcapp.distro.view_departamento.infoModulosTurma', 
         name='infoModuloTurma'),                   
                         
-    url(r'^distro/departamento/turmaSemSevicoDocente/(?P<ano>\d+)/$', 
-        'ipbejactcapp.distro.view_departamento.addServicoDocenteDepart', 
-        name='turmaSemServDocente'),
-                       
-    url(r'^distro/departamento/turmaSemSevicoDocente/addServicoDocente/(?P<id_servico>\d+)/(?P<id_Departamento>\d+)/(?P<ano>\d+)/$', 
-        'ipbejactcapp.distro.view_departamento.viewFormClass', 
-        name='addServicoDocentDepart'),
-    
-     url(r'^distro/departamento/turmaSemSevicoDocente/addServicoDocente/(?P<id_servico>\d+)/(?P<id_Departamento>\d+)/(?P<ano>\d+)/addSaveButton$',
-          'ipbejactcapp.distro.view_departamento.showSaveButton'), 
-    
-    ##TURMAS#########################################################################################################
-     url(r'^distro/departamento/listarTurmas/(?P<ano>\d+)/filter_abc/$', 
-        'ipbejactcapp.distro.view_departamento.filter_abc'), 
-     url(r'^distro/departamento/listarTurmas/(?P<ano>\d+)/filter_curso/$', 
-        'ipbejactcapp.distro.view_departamento.filter_curso'),
+
            
     
     #####
