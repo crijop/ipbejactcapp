@@ -304,6 +304,7 @@ function filter_curso() {
 		on(wipeInButton_7, "click", function(evt) {
 			if (out_7 == 1) {
 
+				
 				wipeTarget_7.style.display = "block";
 
 				out_7 = 0;

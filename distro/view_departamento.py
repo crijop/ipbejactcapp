@@ -359,7 +359,9 @@ def search_curso(search_List, allTurmas, lista, ano,count=0):
 
         for turmas in allTurmas:
             lista.append([turmas.unidade_curricular.nome, turmas.id, turmas.unidade_curricular.curso, turmas.horas, turmas.numero_alunos, turmas.tipo_aula, turmas.turno])
-
+            
+            
+            
         lista.sort()
         pass
 
@@ -561,6 +563,102 @@ def infoDocenteDep(request, id_docente):
         context_instance=RequestContext(request),
         )
 
+
+'''
+Metodo responsavel por fazer as pesquisas por curso do campo de procura na area do serviço docente
+'''
+def search_curso_sd(search_List, allServicos, lista, count=0):
+
+
+    listServicos = []
+    searchList = search_List
+
+    countIncrements = count
+    #print count
+    if count < len(searchList):
+        #print "entrei no ninho"
+        for servico in allServicos:
+            modulos = Modulos.objects.filter(servico_docente_id__exact = servico.id).exclude(docente_id__exact = None)
+            if(len(modulos) != 0):
+                modulos = modulos.reverse()[0]
+                
+                nomeCurso = unicodedata.normalize('NFKD', modulos.servico_docente.turma.unidade_curricular.curso.nome.lower()).encode('ASCII', 'ignore')
+                
+                if nomeCurso.find(searchList[count]) != -1:
+                    
+                    listServicos.append(servico)
+         
+        countIncrements += 1
+        #print "vou chamar o metodo"
+    
+        search_curso_sd(searchList, listServicos, lista, countIncrements)
+
+    else:
+        
+        for servico in allServicos:
+            modulos = Modulos.objects.filter(servico_docente_id__exact = servico.id).exclude(docente_id__exact = None)
+            if(len(modulos) != 0):
+                modulos = modulos.reverse()[0]
+                id_turma = servico.turma_id
+                turma = Turma.objects.get(id__exact=servico.turma_id)
+                unidade = UnidadeCurricular.objects.get(id__exact=turma.unidade_curricular_id).nome
+                    
+                tipo_aula = TipoAula.objects.get(id__exact=turma.tipo_aula_id).tipo
+                             
+                lista.append([servico.id, unidade, turma.turno, tipo_aula, servico.horas, id_turma])
+                
+            
+            
+        lista.sort()
+        pass
+
+'''
+Metodo responsavel por fazer as pesquisas por curso do campo de procura na area do serviço docente sem atribuição
+'''
+def search_curso_nsd(search_List, allServicos, lista, count=0):
+
+
+    listServicos = []
+    searchList = search_List
+
+    countIncrements = count
+    #print count
+    if count < len(searchList):
+        #print "entrei no ninho"
+        for servico in allServicos:
+            modulos = Modulos.objects.filter(servico_docente_id__exact = servico.id).filter(docente_id__exact = None)
+            if(len(modulos) != 0):
+                modulos = modulos.reverse()[0]
+                
+                nomeCurso = unicodedata.normalize('NFKD', modulos.servico_docente.turma.unidade_curricular.curso.nome.lower()).encode('ASCII', 'ignore')
+                
+                if nomeCurso.find(searchList[count]) != -1:
+                    
+                    listServicos.append(servico)
+         
+        countIncrements += 1
+        #print "vou chamar o metodo"
+    
+        search_curso_sd(searchList, listServicos, lista, countIncrements)
+
+    else:
+        
+        for servico in allServicos:
+           
+            id_turma = servico.turma_id
+            turma = Turma.objects.get(id__exact=servico.turma_id)
+            unidade = UnidadeCurricular.objects.get(id__exact=turma.unidade_curricular_id).nome
+                    
+            tipo_aula = TipoAula.objects.get(id__exact=turma.tipo_aula_id).tipo
+                             
+            lista.append([servico.id, unidade, turma.turno, tipo_aula, servico.horas, id_turma])
+                
+            
+            
+        lista.sort()
+        pass
+
+
 '''
 Lista todas os serviços de docente já atribuidos
 recebendo para isso o ano
@@ -573,9 +671,53 @@ def  listServicoDocente(request, ano):
 
     listToSend = []
     
-    listaServicoDocente = ServicoDocente.objects.filter(turma__unidade_curricular__departamento_id__exact = id_Departamento)
+    listaServicoDocente = ServicoDocente.objects.filter(turma__unidade_curricular__departamento_id__exact = id_Departamento, turma__ano__exact = ano )
     
-    if "letra" in request.GET or request.GET.get("actualState") == "letra":
+    if "searchField" in request.GET or request.GET.get("actualState") == "searchField":
+        keyword = request.GET.get("searchField")
+        actualState = "actualState=searchField&searchField="
+        actualState += str(keyword.encode('utf-8'))
+
+        if keyword == None:
+            keyword = ""
+
+        if keyword == "":
+            for servico in listaServicoDocente:
+                modulos = Modulos.objects.filter(servico_docente_id__exact = servico.id).exclude(docente_id__exact = None)
+            
+                if(len(modulos) != 0):
+                    modulos = modulos.reverse()[0]
+                    id_turma = servico.turma_id
+                    turma = Turma.objects.get(id__exact=servico.turma_id)
+                    unidade = UnidadeCurricular.objects.get(id__exact=turma.unidade_curricular_id).nome
+                    
+                    tipo_aula = TipoAula.objects.get(id__exact=turma.tipo_aula_id).tipo
+                    
+        
+                    listToSend.append([servico.id, unidade, turma.turno, tipo_aula, servico.horas, id_turma])
+        else:
+            finalkeyword = unicodedata.normalize('NFKD', keyword.lower()).encode('ASCII', 'ignore')
+            listSplited = splitSearchPhrase(finalkeyword)
+            print listSplited
+
+            listaTempoCurso = []
+            search_curso_sd(listSplited, listaServicoDocente, listaTempoCurso)
+            
+            tempList = listaTempoCurso
+
+
+            tempList = removeDuplicatedElements(tempList)
+            
+            
+            sizeList = len(tempList)
+            
+            if len(tempList) != 0:
+                listToSend += tempList
+
+            pass
+        
+    
+    elif "letra" in request.GET or request.GET.get("actualState") == "letra":
 
         keyword = request.GET.get("letra")
         actualState = "actualState=letra&letra=" + keyword
@@ -715,20 +857,114 @@ def addServicoDocenteDepart(request, ano):
     listaAnos = listarAnos(id_Departamento)
     listToSend = []
     
-    listaServicoDocente = ServicoDocente.objects.filter(turma__unidade_curricular__departamento_id__exact = id_Departamento)
+    listaServicoDocente = ServicoDocente.objects.filter(turma__unidade_curricular__departamento_id__exact = id_Departamento, turma__ano__exact = ano)
     
-    for servico in listaServicoDocente:
-        modulos = Modulos.objects.filter(servico_docente_id__exact = servico.id).filter(docente_id__exact = None)
-        if(len(modulos) != 0):
-            modulos = modulos.reverse()[0]
-            turma = Turma.objects.get(id__exact=servico.turma_id)
-            unidade = UnidadeCurricular.objects.get(id__exact=turma.unidade_curricular_id).nome
-            tipo_aula = TipoAula.objects.get(id__exact=turma.tipo_aula_id).tipo
-            id_servico = servico.id
-            listToSend.append([unidade, id_servico, turma.turno, tipo_aula, servico.horas])
-    sizeList = len(listToSend)
+    if "searchField" in request.GET or request.GET.get("actualState") == "searchField":
+        keyword = request.GET.get("searchField")
+        actualState = "actualState=searchField&searchField="
+        actualState += str(keyword.encode('utf-8'))
+
+        if keyword == None:
+            keyword = ""
+
+        if keyword == "":
+            for servico in listaServicoDocente:
+                modulos = Modulos.objects.filter(servico_docente_id__exact = servico.id).filter(docente_id__exact = None)
+            
+                if(len(modulos) != 0):
+                    modulos = modulos.reverse()[0]
+                    id_turma = servico.turma_id
+                    turma = Turma.objects.get(id__exact=servico.turma_id)
+                    unidade = UnidadeCurricular.objects.get(id__exact=turma.unidade_curricular_id).nome
+                    
+                    tipo_aula = TipoAula.objects.get(id__exact=turma.tipo_aula_id).tipo
+                    
+        
+                    listToSend.append([servico.id, unidade, turma.turno, tipo_aula, servico.horas, id_turma])
+        else:
+            finalkeyword = unicodedata.normalize('NFKD', keyword.lower()).encode('ASCII', 'ignore')
+            listSplited = splitSearchPhrase(finalkeyword)
+            print listSplited
+
+            listaTempoCurso = []
+            search_curso_nsd(listSplited, listaServicoDocente, listaTempoCurso)
+            
+            tempList = listaTempoCurso
+
+
+            tempList = removeDuplicatedElements(tempList)
+            
+            
+            sizeList = len(tempList)
+            
+            if len(tempList) != 0:
+                listToSend += tempList
+
+            pass
+        
     
-    listToSend.sort()
+    elif "letra" in request.GET or request.GET.get("actualState") == "letra":
+
+        keyword = request.GET.get("letra")
+        actualState = "actualState=letra&letra=" + keyword
+        letter = unicodedata.normalize('NFKD', keyword.lower()).encode('ASCII', 'ignore')
+       
+        for servico in listaServicoDocente:
+            modulos = Modulos.objects.filter(servico_docente_id__exact = servico.id).filter(docente_id__exact = None)
+            #nomeUnidadeCurricular = servico.turma.unidade_curricular.nome
+            nomeUnidadeCurricular = unicodedata.normalize('NFKD', servico.turma.unidade_curricular.nome.lower()).encode('ASCII', 'ignore')
+            
+            if nomeUnidadeCurricular.startswith(letter):
+                if(len(modulos) != 0):
+                    modulos = modulos.reverse()[0]
+                    id_turma = servico.turma_id
+                    turma = Turma.objects.get(id__exact=servico.turma_id)
+                    unidade = UnidadeCurricular.objects.get(id__exact=turma.unidade_curricular_id).nome
+                    
+                    tipo_aula = TipoAula.objects.get(id__exact=turma.tipo_aula_id).tipo
+                    
+        
+                    listToSend.append([servico.id, unidade, turma.turno, tipo_aula, servico.horas, id_turma])
+        sizeList = len(listToSend)
+            
+    elif "curso" in request.GET or request.GET.get("actualState") == "curso":
+        keyword = request.GET.get("curso")
+        actualState = "actualState=curso&curso=" + keyword
+        cursos = unicodedata.normalize('NFKD', keyword.lower()).encode('ASCII', 'ignore')
+        for servico in listaServicoDocente:
+            modulos = Modulos.objects.filter(servico_docente_id__exact = servico.id).filter(docente_id__exact = None)
+            if(len(modulos) != 0):
+                modulos = modulos.reverse()[0]
+                
+                nomeCurso = unicodedata.normalize('NFKD', modulos.servico_docente.turma.unidade_curricular.curso.nome.lower()).encode('ASCII', 'ignore')
+            
+                if nomeCurso == cursos:
+                    #modulos = modulos.reverse()[0]
+                    id_turma = servico.turma_id
+                    turma = Turma.objects.get(id__exact=servico.turma_id)
+                    unidade = UnidadeCurricular.objects.get(id__exact=turma.unidade_curricular_id).nome
+                    
+                    tipo_aula = TipoAula.objects.get(id__exact=turma.tipo_aula_id).tipo
+                    
+                    listToSend.append([servico.id, unidade, turma.turno, tipo_aula, servico.horas, id_turma])
+            sizeList = len(listToSend)
+            
+        pass
+    elif 'show' in request.GET or request.GET == {} or request.GET.get("actualState") == "show":
+        actualState = "actualState=show"
+    
+        for servico in listaServicoDocente:
+            modulos = Modulos.objects.filter(servico_docente_id__exact = servico.id).filter(docente_id__exact = None)
+            if(len(modulos) != 0):
+                modulos = modulos.reverse()[0]
+                turma = Turma.objects.get(id__exact=servico.turma_id)
+                unidade = UnidadeCurricular.objects.get(id__exact=turma.unidade_curricular_id).nome
+                tipo_aula = TipoAula.objects.get(id__exact=turma.tipo_aula_id).tipo
+                id_servico = servico.id
+                listToSend.append([unidade, id_servico, turma.turno, tipo_aula, servico.horas])
+        sizeList = len(listToSend)
+    
+        listToSend.sort()
     paginator = Paginator(listToSend, 10)
     drange = range(1, paginator.num_pages + 1)
 
