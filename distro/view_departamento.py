@@ -20,6 +20,7 @@ from django.db.models.query_utils import Q
 from django.http import Http404, QueryDict
 from django.shortcuts import render_to_response, get_object_or_404
 from django.template.context import RequestContext
+from django.utils.datetime_safe import datetime
 import unicodedata
 
 
@@ -112,8 +113,42 @@ Inicio das vistas do Departamento
 @login_required(redirect_field_name='login_redirectUsers')
 @DepUserTeste
 def indexDepartamento(request):
-    listaAnos = listarAnos(request.session['dep_id'])
-
+    
+    id_Departamento = request.session['dep_id']
+    listaAnos = listarAnos(id_Departamento)
+    listToSendSDoc = []
+    listToSendCDoc = []
+    dateActual = datetime.today()
+    ano = datetime.today().strftime("%Y")
+    
+    listaServicoDocente = ServicoDocente.objects.filter(turma__unidade_curricular__departamento_id__exact = id_Departamento, turma__ano__exact=ano)
+    
+    for servico in listaServicoDocente:
+        #Lista de Serviços sem docentes atribuidos
+        modulos = Modulos.objects.filter(servico_docente_id__exact = servico.id).filter(docente_id__exact = None)
+        if(len(modulos) != 0):
+            modulos = modulos.reverse()[0]
+            turma = Turma.objects.get(id__exact=servico.turma_id)
+            unidade = UnidadeCurricular.objects.get(id__exact=turma.unidade_curricular_id).nome
+            tipo_aula = TipoAula.objects.get(id__exact=turma.tipo_aula_id).tipo
+            id_servico = servico.id
+            listToSendSDoc.append([unidade, id_servico, turma.turno, tipo_aula, servico.horas])
+            pass
+        
+        #Lista de Serviços com docentes atribuidos
+        modulos = Modulos.objects.filter(servico_docente_id__exact = servico.id).exclude(docente_id__exact = None)            
+        if(len(modulos) != 0):
+            modulos = modulos.reverse()[0]
+            id_turma = servico.turma_id
+            turma = Turma.objects.get(id__exact=servico.turma_id)
+            unidade = UnidadeCurricular.objects.get(id__exact=turma.unidade_curricular_id).nome
+            
+            tipo_aula = TipoAula.objects.get(id__exact=turma.tipo_aula_id).tipo
+            listToSendCDoc.append([servico.id, unidade, turma.turno, tipo_aula, servico.horas, id_turma])
+    
+    sizeListSDoc = len(listToSendSDoc)        
+    sizeListCDoc = len(listToSendCDoc)
+    
     return render_to_response("departamento/index.html",
         locals(),
         context_instance=RequestContext(request),

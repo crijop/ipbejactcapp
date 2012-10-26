@@ -73,40 +73,73 @@
 	    	<th colspan="2"  class="top_sumario">Estatística</th>
 	    </tr>
 	    <tr>
-	    	<th colspan="2" align="left">ANO</th>
+	    	<th colspan="2" align="left">ANO: {{ano}}</th>
 	    </tr>
 	    <tr>
 		<tr>
-			<th colspan="2" class="cabecalho_sumario">Contratos a Terminar</th>
+			<th colspan="2" class="cabecalho_sumario">Serviços Docentes</th>
 		</tr>
 		<tr>
 			<th class="sub_cabecalho">
-				<a href='{%url turmaSemServDocente 2013%}'>
-					<span>Serviços Sem docentes atribuidos no Ano 2013</span>
+				<a href='{%url turmaSemServDocente ano%}'>
+					<span>Serviços sem docentes atribuidos no Ano {{ano}}</span>
 				</a>
 			</th>
 			<td>
 				<a href='{% url listContratos %}?date={{dateActualSTR}}&number_increment={{twoMonths}}&type=ct&data_fim_especial=True'>
 					<span>
-						{{nrDocentesEndContractTwoMonths}}
+						{{sizeListSDoc}}
 					</span>
 				</a>
 			</td>
 		</tr>
 		<tr>
 			<th class="sub_cabecalho" >
-				<a href='{% url listContratos %}?date={{dateActualSTR}}&number_increment={{fourMonths}}&type=st&data_fim_especial=True'>
-					<span>Próximos Quatro Meses (Contratos Sem Termo)</span>
+				<a href='{%url listarServicoDocente ano %}'>
+					<span>Serviços com docentes atribuidos no Ano {{ano}}</span>
 				</a>
 			</th>
 			<td>
 				<a href='{% url listContratos %}?date={{dateActualSTR}}&number_increment={{fourMonths}}&type=st&data_fim_especial=True'>
 					<span>
-						{{nrDocentesEndContractFourMonths}}
+						{{sizeListCDoc}}
 					</span>
 				</a>
 			</td>
 		</tr>
+		
+		<tr>
+			<th colspan="2" class="cabecalho_sumario">Docentes/horas</th>
+		</tr>
+		<tr>
+			<th class="sub_cabecalho">
+				<a href='#'>
+					<span>Docentes a exceder o número de horas</span>
+				</a>
+			</th>
+			<td>
+				<a href='#'>
+					<span>
+						nr
+					</span>
+				</a>
+			</td>
+		</tr>
+		<tr>
+			<th class="sub_cabecalho" >
+				<a href='#'>
+					<span>Docentes com nenhuma hora atribuida</span>
+				</a>
+			</th>
+			<td>
+				<a href='"{% url listContratos %}?date={{dateActualSTR}}&number_increment={{fourMonths}}&type=st&data_fim_especial=True"'>
+					<span>
+						nr
+					</span>
+				</a>
+			</td>
+		</tr>
+		
     </table>
 {% endblock %}
 
