@@ -578,8 +578,8 @@ def infoDocenteDep(request, id_docente):
     docente_name = Docente.objects.get(id__exact=id_docente).nome_completo
 
     lista = []
-    #numero total de horas que o docente tem de serviço
-    numeroTotalHoras = 0
+   
+    horasTotal = 0
     for servDocente in servicoDocente:
 
         #nome da unidade curricular que o docente vai dar aulas.
@@ -589,10 +589,10 @@ def infoDocenteDep(request, id_docente):
         turno = turma.turno
         print "turno ", turno
         nomeCurso = UnidadeCurricular.objects.get(turma__id__exact=servDocente.servico_docente.turma_id).curso
-        numeroTotalHoras += servDocente.horas
+        horasTotal += servDocente.horas
         lista.append((servDocente.docente_id, nomeUnidadeCurricular,
                            servDocente.horas, nomeCurso))
-
+    print "asss", lista
     return render_to_response("departamento/horasServico.html",
         locals(),
         context_instance=RequestContext(request),
