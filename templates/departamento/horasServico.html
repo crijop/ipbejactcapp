@@ -35,5 +35,15 @@
 		<td class="horas_servico">{{ horas }}</td>
 	</tr>
 	{%endfor%}
+	{%if lista %}
+		<tr>
+			<th colspan="4" class="sub_cabecalho">Horas Total</th>
+			<th class="sub_cabecalho">{{horasTotal}}</th>
+		</tr>
+    {%else%}
+		<tr>
+			<td colspan="5">O Docente não tem Turmas (modulos) atribuidos</td>
+		</tr>    
+    {%endif%}
 </table>
 {% endblock %}
