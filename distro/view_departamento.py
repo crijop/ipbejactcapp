@@ -35,8 +35,7 @@ presente na lista de docentes e lista de contratos
 '''
 @login_required(redirect_field_name='login_redirectUsers')
 @DepUserTeste
-def filter_abc(request, ano):
-
+def filter_abc(request, *args, **kwargs):
 
     if request.is_ajax():
 
@@ -592,7 +591,7 @@ def infoDocenteDep(request, id_docente):
         horasTotal += servDocente.horas
         lista.append((servDocente.docente_id, nomeUnidadeCurricular,
                            servDocente.horas, nomeCurso))
-    print "asss", lista
+    
     return render_to_response("departamento/horasServico.html",
         locals(),
         context_instance=RequestContext(request),
@@ -894,6 +893,13 @@ def addServicoDocenteDepart(request, ano):
     
     listaServicoDocente = ServicoDocente.objects.filter(turma__unidade_curricular__departamento_id__exact = id_Departamento, turma__ano__exact = ano)
     
+    
+    '''
+    ISTO NAO ESTá A TRABALHAERRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR
+    ISTO NAO ESTá A TRABALHAERRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR
+    ISTO NAO ESTá A TRABALHAERRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR
+    ISTO NAO ESTá A TRABALHAERRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR    
+    '''
     if "searchField" in request.GET or request.GET.get("actualState") == "searchField":
         keyword = request.GET.get("searchField")
         actualState = "actualState=searchField&searchField="
@@ -914,7 +920,7 @@ def addServicoDocenteDepart(request, ano):
                     
                     tipo_aula = TipoAula.objects.get(id__exact=turma.tipo_aula_id).tipo
                     
-        
+                    
                     listToSend.append([servico.id, unidade, turma.turno, tipo_aula, servico.horas, id_turma])
         else:
             finalkeyword = unicodedata.normalize('NFKD', keyword.lower()).encode('ASCII', 'ignore')
@@ -939,7 +945,6 @@ def addServicoDocenteDepart(request, ano):
         
     
     elif "letra" in request.GET or request.GET.get("actualState") == "letra":
-
         keyword = request.GET.get("letra")
         actualState = "actualState=letra&letra=" + keyword
         letter = unicodedata.normalize('NFKD', keyword.lower()).encode('ASCII', 'ignore')
@@ -952,38 +957,32 @@ def addServicoDocenteDepart(request, ano):
             if nomeUnidadeCurricular.startswith(letter):
                 if(len(modulos) != 0):
                     modulos = modulos.reverse()[0]
-                    id_turma = servico.turma_id
                     turma = Turma.objects.get(id__exact=servico.turma_id)
                     unidade = UnidadeCurricular.objects.get(id__exact=turma.unidade_curricular_id).nome
-                    
                     tipo_aula = TipoAula.objects.get(id__exact=turma.tipo_aula_id).tipo
-                    
-        
-                    listToSend.append([servico.id, unidade, turma.turno, tipo_aula, servico.horas, id_turma])
+                    id_servico = servico.id
+                    listToSend.append([unidade, id_servico, turma.turno, tipo_aula, servico.horas])
         sizeList = len(listToSend)
             
     elif "curso" in request.GET or request.GET.get("actualState") == "curso":
         keyword = request.GET.get("curso")
         actualState = "actualState=curso&curso=" + keyword
         cursos = unicodedata.normalize('NFKD', keyword.lower()).encode('ASCII', 'ignore')
+        
         for servico in listaServicoDocente:
             modulos = Modulos.objects.filter(servico_docente_id__exact = servico.id).filter(docente_id__exact = None)
             if(len(modulos) != 0):
                 modulos = modulos.reverse()[0]
                 
                 nomeCurso = unicodedata.normalize('NFKD', modulos.servico_docente.turma.unidade_curricular.curso.nome.lower()).encode('ASCII', 'ignore')
-            
-                if nomeCurso == cursos:
-                    #modulos = modulos.reverse()[0]
-                    id_turma = servico.turma_id
+                if nomeCurso == cursos:      
                     turma = Turma.objects.get(id__exact=servico.turma_id)
                     unidade = UnidadeCurricular.objects.get(id__exact=turma.unidade_curricular_id).nome
-                    
                     tipo_aula = TipoAula.objects.get(id__exact=turma.tipo_aula_id).tipo
-                    
-                    listToSend.append([servico.id, unidade, turma.turno, tipo_aula, servico.horas, id_turma])
-            sizeList = len(listToSend)
-            
+                    id_servico = servico.id
+                    listToSend.append([unidade, id_servico, turma.turno, tipo_aula, servico.horas])
+        sizeList = len(listToSend)
+        
         pass
     elif 'show' in request.GET or request.GET == {} or request.GET.get("actualState") == "show":
         actualState = "actualState=show"
@@ -999,7 +998,7 @@ def addServicoDocenteDepart(request, ano):
                 listToSend.append([unidade, id_servico, turma.turno, tipo_aula, servico.horas])
         sizeList = len(listToSend)
     
-        listToSend.sort()
+    listToSend.sort()
     paginator = Paginator(listToSend, 10)
     drange = range(1, paginator.num_pages + 1)
 

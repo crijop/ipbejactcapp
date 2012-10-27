@@ -1,9 +1,5 @@
 # -*- coding: utf-8 -*-
-from distro.forms import EditarDocenteForm, AdicionarDocenteForm
-from distro.forms_departamento import AdicionarServicoDocenteForm
-from distro.view_departamento import AtribuirServicoDocenteFormPreview
-from distro.view_recursos_humanos import EditDocenteModelFormPreview, \
-    AddDocenteModelFormPreview
+
 from django.conf.urls.defaults import patterns, include, url
 from django.contrib import admin
 
@@ -115,17 +111,28 @@ urlpatterns = patterns('',
                        
     url(r'^distro/departamento/listDocentes/(?P<id_docente>\d+)/$', 'ipbejactcapp.distro.view_departamento.infoDocenteDep'),        
 
-   
+    #turmas sem serviço docente atribuido
+    #template de adicionar docente ao serviço docente
     url(r'^distro/departamento/turmaSemSevicoDocente/(?P<ano>\d+)/$', 
         'ipbejactcapp.distro.view_departamento.addServicoDocenteDepart', 
         name='turmaSemServDocente'),
-                       
+    
+    #Url adicionar o docente ao serviço docente
+    #mais propriamente para aparecer o formulario.                    
     url(r'^distro/departamento/turmaSemSevicoDocente/addServicoDocente/(?P<id_servico>\d+)/(?P<id_Departamento>\d+)/(?P<ano>\d+)/$', 
         'ipbejactcapp.distro.view_departamento.viewFormClass', 
         name='addServicoDocentDepart'),
     
-     url(r'^distro/departamento/turmaSemSevicoDocente/addServicoDocente/(?P<id_servico>\d+)/(?P<id_Departamento>\d+)/(?P<ano>\d+)/addSaveButton$',
+    #Aparece o butão para salvar o formulario quando
+    #existe alguma alteração.
+    url(r'^distro/departamento/turmaSemSevicoDocente/addServicoDocente/(?P<id_servico>\d+)/(?P<id_Departamento>\d+)/(?P<ano>\d+)/addSaveButton$',
           'ipbejactcapp.distro.view_departamento.showSaveButton'), 
+                       
+    #Filtro por ordem alfabetica                   
+    url(r'^distro/departamento/turmaSemSevicoDocente/(?P<ano>\d+)/filter_abc/$', 'ipbejactcapp.distro.view_departamento.filter_abc'),
+    
+    #Filtro por curso                  
+    url(r'^distro/departamento/turmaSemSevicoDocente/(?P<ano>\d+)/filter_curso/$', 'ipbejactcapp.distro.view_departamento.filter_curso'),
     
     ##TURMAS#########################################################################################################
      url(r'^distro/departamento/listarTurmas/(?P<ano>\d+)/filter_abc/$', 
