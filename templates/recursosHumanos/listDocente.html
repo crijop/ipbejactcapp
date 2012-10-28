@@ -60,6 +60,10 @@
 			<img src="/static/images/selector-search.gif" title="search" alt="searchIcon" />
 			<input name="searchField"  id="searchField" required type="search" value="{{keyword}}" />
 			<input id="submitSearch" value={%trans 'Search'%} name="Submit" type="submit" />
+			{% if keyword != None%}
+					<span>- Pesquisa por "{{keyword}}"</span>
+					{% endif %}
+					<span>- {{sizeList}} resultados encontrados</span>
 		</form></th>
 	</tr>
 	<tr>
@@ -82,6 +86,13 @@
 		<td>{{fim_contrato}}</td>
 	</tr>
 	{% endfor %}
+	{%if sizeList == 0 %}
+			
+			<tr>
+				<td colspan="6">Não existem resultados para esta pesquisa</td>
+			</tr>
+			
+		{% endif %}
 
 </table>
 <!--<div id="paginator">
