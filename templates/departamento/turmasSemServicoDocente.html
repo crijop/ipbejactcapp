@@ -63,9 +63,9 @@
 			<th colspan="3" class="cabecalho_sumario">Turma</th>
 			<th class="cabecalho_sumario">Horas</th>
 		</tr>
-		{% for unidadeCurricular, servico_id, turno, tipo, horas in listInfo %}
+		{% for servico_id, unidadeCurricular,  turno, tipo, horas, idTurma in listInfo %}
 		<tr>
-			<td ><a href="{{servico_id}}"><span class="view"></span></a></td>
+			<td ><a href="{% url addServicoDocentDepart servico_id id_Departamento ano%}"><span class="view"></span></a></td>
 			<td><a href="{% url addServicoDocentDepart servico_id id_Departamento ano%}">{{unidadeCurricular}}</a></td>
 			
 			<td>{{turno}}</td>

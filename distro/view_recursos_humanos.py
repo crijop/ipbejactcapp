@@ -264,6 +264,7 @@ def listDocente_RecursosHumanos(request):
                     nomeCategoria = "Sem Categoria"
                 
                 listaDocentes.append([docente.nome_completo, departamentoNome, id_Docente, nomeCategoria, regime_exlusividade(docente), contract_end])
+                sizeList = len(listaDocentes)
         else:
             finalkeyword = unicodedata.normalize('NFKD', keyword.lower()).encode('ASCII', 'ignore')
             
@@ -289,7 +290,7 @@ def listDocente_RecursosHumanos(request):
                 #listaDocentes.append(item for item in listaTemp)
                 listaDocentes += tempList
       
-               
+            sizeList = len(listaDocentes)  
                     
        
     elif "departamento" in request.GET or request.GET.get("actualState") == "departamento":
@@ -326,6 +327,7 @@ def listDocente_RecursosHumanos(request):
                     nomeCategoria = "Sem Categoria"
                     
                 listaDocentes.append([docente.nome_completo, departamentoNome, id_Docente, nomeCategoria,  regime_exlusividade(docente), contract_end])
+                sizeList = len(listaDocentes)
         pass
     
     elif "category" in request.GET or request.GET.get("actualState") == "category":
@@ -365,6 +367,8 @@ def listDocente_RecursosHumanos(request):
             if nomeCategoria_final == letter:
                     
                 listaDocentes.append([docente.nome_completo, departamentoNome, id_Docente, nomeCategoria,  regime_exlusividade(docente), contract_end])
+            
+            sizeList = len(listaDocentes)
         pass
         
         
@@ -407,6 +411,8 @@ def listDocente_RecursosHumanos(request):
                     
                 listaDocentes.append([docente.nome_completo, departamentoNome, id_Docente, nomeCategoria,  regime_exlusividade(docente), contract_end])
         
+        sizeList = len(listaDocentes)
+       
         pass
     elif 'show' in request.GET or request.GET == {} or request.GET.get("actualState") == "show":
         actualState = "actualState=show"
@@ -438,6 +444,7 @@ def listDocente_RecursosHumanos(request):
                 
                 
                 listaDocentes.append([docente.nome_completo, departamentoNome, id_Docente, nomeCategoria, regime_exlusividade(docente), contract_end])
+        sizeList = len(listaDocentes)
         pass
     
         
@@ -517,6 +524,9 @@ def listDocenteEdit_RecursosHumanos(request):
                     nomeCategoria = "Sem Categoria"
                 
                 listaDocentes.append([docente.nome_completo, departamentoNome, id_Docente, nomeCategoria, regime_exlusividade(docente), contract_end])
+            
+            sizeList = len(listaDocentes)
+        
         else:
             finalkeyword = unicodedata.normalize('NFKD', keyword.lower()).encode('ASCII', 'ignore')
             listSplited = splitSearchPhrase(finalkeyword)
@@ -540,6 +550,8 @@ def listDocenteEdit_RecursosHumanos(request):
                 #listaTemp = search_docente(finalkeyword,allDocentes, listaDocentes)
                 #listaDocentes.append(item for item in listaTemp)
                 listaDocentes += tempList
+                
+            sizeList = len(listaDocentes)
       
                
                     
@@ -578,6 +590,8 @@ def listDocenteEdit_RecursosHumanos(request):
                     nomeCategoria = "Sem Categoria"
                     
                 listaDocentes.append([docente.nome_completo, departamentoNome, id_Docente, nomeCategoria,  regime_exlusividade(docente), contract_end])
+            
+            sizeList = len(listaDocentes)
         pass
     
     elif "category" in request.GET or request.GET.get("actualState") == "category":
@@ -617,6 +631,8 @@ def listDocenteEdit_RecursosHumanos(request):
             if nomeCategoria_final == letter:
                     
                 listaDocentes.append([docente.nome_completo, departamentoNome, id_Docente, nomeCategoria,  regime_exlusividade(docente), contract_end])
+        
+            sizeList = len(listaDocentes)
         pass
         
         
@@ -659,6 +675,7 @@ def listDocenteEdit_RecursosHumanos(request):
                     
                 listaDocentes.append([docente.nome_completo, departamentoNome, id_Docente, nomeCategoria,  regime_exlusividade(docente), contract_end])
         
+            sizeList = len(listaDocentes)
         pass
     elif 'show' in request.GET or request.GET == {} or request.GET.get("actualState") == "show":
         actualState = "actualState=show"
@@ -690,7 +707,9 @@ def listDocenteEdit_RecursosHumanos(request):
                 
                 
                 listaDocentes.append([docente.nome_completo, departamentoNome, id_Docente, nomeCategoria, regime_exlusividade(docente), contract_end])
-        pass
+        
+        sizeList = len(listaDocentes)
+    pass
     
         
         
@@ -995,6 +1014,7 @@ def listContracts_RecursosHumanos(request):
                     
                 
                 listaContracts.append([docente.nome_completo, nomeCategoria, id_Docente, contract_type, percent, contract_start, contract_end])
+            sizeList = len(listaContracts)
         else:
             finalkeyword = unicodedata.normalize('NFKD', keyword.lower()).encode('ASCII', 'ignore')
             listSplited = splitSearchPhrase(finalkeyword)
@@ -1018,6 +1038,8 @@ def listContracts_RecursosHumanos(request):
                 #listaTemp = search_docente(finalkeyword,allDocentes, listaDocentes)
                 #listaDocentes.append(item for item in listaTemp)
                 listaContracts += tempList
+                
+            sizeList = len(listaContracts)
                
                     
        
@@ -1055,6 +1077,8 @@ def listContracts_RecursosHumanos(request):
                     nomeCategoria = "Sem Categoria"
                     
                 listaContracts.append([docente.nome_completo, nomeCategoria, id_Docente, contract_type, percent, contract_start, contract_end])
+            
+            sizeList = len(listaContracts)
         pass
     
     elif "category" in request.GET or request.GET.get("actualState") == "category":
@@ -1093,6 +1117,8 @@ def listContracts_RecursosHumanos(request):
             if nomeCategoria_final == letter:
                     
                 listaContracts.append([docente.nome_completo, nomeCategoria, id_Docente, contract_type, percent, contract_start, contract_end])
+            
+            sizeList = len(listaContracts)
         pass
         
         
@@ -1131,6 +1157,7 @@ def listContracts_RecursosHumanos(request):
                     
                 listaContracts.append([docente.nome_completo, nomeCategoria, id_Docente, contract_type, percent, contract_start, contract_end])
         
+            sizeList = len(listaContracts)
         pass
     
     elif "data_inicio" in request.GET or request.GET.get("actualState") == "data_inicio":
@@ -1182,6 +1209,9 @@ def listContracts_RecursosHumanos(request):
                 if date_contract_start > date_down and date_contract_start < date_up:
                         
                     listaContracts.append([docente.nome_completo, nomeCategoria, id_Docente, contract_type, percent, contract_start, contract_end])
+            
+            sizeList = len(listaContracts)
+        
         pass
     
     if "data_fim" in request.GET or request.GET.get("actualState") == "data_fim":
@@ -1231,6 +1261,7 @@ def listContracts_RecursosHumanos(request):
                     listaContracts.append([docente.nome_completo, nomeCategoria, id_Docente, contract_type, percent, contract_start, contract_end])
                     pass
                 pass
+            sizeList = len(listaContracts)
             pass
         pass
     
@@ -1287,6 +1318,7 @@ def listContracts_RecursosHumanos(request):
                                 pass
                             pass
                         pass
+                sizeList = len(listaContracts)
                 pass          
         pass
             
@@ -1320,7 +1352,9 @@ def listContracts_RecursosHumanos(request):
                 
                 
                 listaContracts.append([docente.nome_completo, nomeCategoria, id_Docente, contract_type, percent, contract_start, contract_end])
-        pass
+            
+        sizeList = len(listaContracts)
+        
     
     paginator = Paginator(listaContracts, 10)
     drange = range( 1, paginator.num_pages + 1)
