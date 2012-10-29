@@ -157,10 +157,16 @@ def indexDepartamento(request):
     
     horasTemp = 0 
     nrDocExcedHoras = 0
+    
     nrDocSemHoras = 0
     for l in listaDocentesDepartamento:
         horasTemp = 0
-        moduloTemp = Modulos.objects.filter(docente_id__exact = l.id)
+        '''
+        Retirar o ano 2013 e meter ano
+        '''
+        moduloTemp = Modulos.objects.filter(servico_docente__turma__unidade_curricular__departamento_id__exact\
+                                             = id_Departamento, servico_docente__turma__ano__exact= 2013)\
+                                             .filter(docente_id__exact = l.id)
         for m in moduloTemp:
             horasTemp += m.horas
             pass
@@ -171,7 +177,6 @@ def indexDepartamento(request):
             nrDocSemHoras +=1
             pass
             
-        
         
         
     
