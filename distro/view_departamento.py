@@ -114,6 +114,10 @@ Inicio das vistas do Departamento
 def indexDepartamento(request):
     
     id_Departamento = request.session['dep_id']
+    
+    MAXIMO_HORAS = 360
+    MINIMO_HORAS = 180
+    
     listaAnos = listarAnos(id_Departamento)
     listToSendSDoc = []
     listToSendCDoc = []
@@ -147,6 +151,55 @@ def indexDepartamento(request):
     
     sizeListSDoc = len(listToSendSDoc)        
     sizeListCDoc = len(listToSendCDoc)
+    
+    
+    listaDocentesDepartamento = Docente.objects.filter(departamento_id__exact = id_Departamento)
+    
+    horasTemp = 0 
+    nrDocExcedHoras = 0
+    nrDocSemHoras = 0
+    for l in listaDocentesDepartamento:
+        horasTemp = 0
+        moduloTemp = Modulos.objects.filter(docente_id__exact = l.id)
+        for m in moduloTemp:
+            horasTemp += m.horas
+            pass
+        if horasTemp > MAXIMO_HORAS: 
+            nrDocExcedHoras +=1
+            pass
+        elif horasTemp == 0:
+            nrDocSemHoras +=1
+            pass
+            
+        
+        
+        
+    
+    '''
+    servicoDocente = Modulos.objects.filter(docente_id__exact=id_docente)
+    unidadesCurriculares = UnidadeCurricular.objects.all()
+
+    docente_name = Docente.objects.get(id__exact=id_docente).nome_completo
+
+    lista = []
+   
+    horasTotal = 0
+    for servDocente in servicoDocente:
+
+        #nome da unidade curricular que o docente vai dar aulas.
+        nomeUnidadeCurricular = UnidadeCurricular.objects.get(id__exact=servDocente.servico_docente.turma.unidade_curricular_id).nome
+        turma = Turma.objects.get(id__exact=servDocente.servico_docente.turma_id)
+        tipoAula = TipoAula.objects.get(id__exact=turma.tipo_aula_id).tipo
+        turno = turma.turno
+        nomeCurso = UnidadeCurricular.objects.get(turma__id__exact=servDocente.servico_docente.turma_id).curso
+        horasTotal += servDocente.horas
+        lista.append((servDocente.docente_id, nomeUnidadeCurricular,
+                           servDocente.horas, nomeCurso))
+    
+    '''
+    
+    
+    
     
     return render_to_response("departamento/index.html",
         locals(),
@@ -586,7 +639,6 @@ def infoDocenteDep(request, id_docente):
         turma = Turma.objects.get(id__exact=servDocente.servico_docente.turma_id)
         tipoAula = TipoAula.objects.get(id__exact=turma.tipo_aula_id).tipo
         turno = turma.turno
-        print "turno ", turno
         nomeCurso = UnidadeCurricular.objects.get(turma__id__exact=servDocente.servico_docente.turma_id).curso
         horasTotal += servDocente.horas
         lista.append((servDocente.docente_id, nomeUnidadeCurricular,
