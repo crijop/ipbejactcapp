@@ -176,3 +176,13 @@ table.teachersTable .added {
 	
 }
 
+/* Coloca a vermelho o texto na informaçaão
+ * do docentes atribuidos aos modulos
+ * caso nao exista docente nesse modulo
+ */
+table.tabela_sumario tr.WithoutTeacher td
+{
+	color: red;
+	font-weight: 600;
+}
+

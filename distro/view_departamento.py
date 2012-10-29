@@ -880,8 +880,12 @@ def infoModulosTurma(request, id_servico, ano):
     
     horasTotal = 0
     for m in modulos:
-        horasTotal += m.horas
-        listInfo.append([1, m.docente.nome_completo, m.horas, "", ""])
+        if m.docente != None:
+            horasTotal += m.horas
+            listInfo.append([m.docente.id, m.docente.nome_completo, m.horas, "", ""])
+        else:
+            horasTotal += m.horas
+            listInfo.append(["", "Sem Docente Atribuido", m.horas, "", ""])
         pass
     
     
@@ -1082,13 +1086,20 @@ class AtribuirServicoDocenteFormPreview(FormPreview):
         
 
         listaModuls = Modulos.objects.filter(servico_docente_id__exact = id_servico)
-        cont = 0 
+        #cont = 0 
         lModulos = []
         for lm in listaModuls:
-            lModulos.append([lm.id, lm.horas, lm.docente_id, lm.servico_docente_id, cont])
-            cont +=1 
+            if(lm.docente_id != None):
+                nomeDocente = Docente.objects.get(id__exact = lm.docente_id).nome_completo
+                
+                lModulos.append([lm.id, lm.horas, lm.docente_id, lm.servico_docente_id, nomeDocente, "", ""])
+                #cont +=1 
+            else:
+                lModulos.append([lm.id, lm.horas, lm.docente_id, lm.servico_docente_id, "", "", ""])
+                #cont +=1
             pass
         
+        print lModulos
         
         listaDocentes = Docente.objects.filter(departamento_id__exact = id_departamento)
         lista_docentesFinal = None
@@ -1149,7 +1160,7 @@ class AtribuirServicoDocenteFormPreview(FormPreview):
         lModulos = []
         for lm in listaModuls:
             
-            lModulos.append([lm.id, lm.horas, lm.docente_id, lm.servico_docente_id, docentesID[cont],lista_docentesFinal[cont][0], lista_docentesFinal[cont][1]])
+            lModulos.append([lm.id, lm.horas, docentesID[cont], lm.servico_docente_id, lista_docentesFinal[cont][0], lista_docentesFinal[cont][1]])
             cont +=1 
             pass
            
