@@ -557,6 +557,24 @@ def listDocentes(request):
             
 
         pass
+    elif "docExcedHours" in request.GET or request.GET.get("actualState") == "docExcedHours":
+        keyword = request.GET.get("docExcedHours")
+        actualState = "actualState=docExcedHours&docExcedHours=" + keyword
+        
+        if keyword == "True":
+            
+            pass
+            
+        elif keyword == "False":
+            
+            pass
+            
+        
+        
+        
+        
+        
+        pass
     elif 'show' in request.GET or request.GET == {} or request.GET.get("actualState") == "show":
         actualState = "actualState=show"
 
@@ -750,7 +768,106 @@ def search_curso_nsd(search_List, allServicos, lista, count=0):
             
         lista.sort()
         pass
+'''
+Metodo responsavel por fazer as pesquisas por unidade curricular do campo de procura 
+na lista de serviços docente já atribuidos
+'''
+def search_unidadeCurricurlar_sd(search_List, allServicos, lista, count=0):
+    
+    
 
+    listServicos = []
+    searchList = search_List
+
+    countIncrements = count
+    #print count
+    if count < len(searchList):
+        #print "entrei no ninho"
+        for servico in allServicos:
+            modulos = Modulos.objects.filter(servico_docente_id__exact = servico.id).exclude(docente_id__exact = None)
+            
+            if(len(modulos) != 0):
+                modulos = modulos.reverse()[0]
+                
+                nomeUC = unicodedata.normalize('NFKD', modulos.servico_docente.turma.unidade_curricular.nome.lower()).encode('ASCII', 'ignore')
+                
+                if nomeUC.find(searchList[count]) != -1:
+                   
+                    listServicos.append(servico)
+         
+        countIncrements += 1
+        #print "vou chamar o metodo"
+        
+       
+        search_unidadeCurricurlar_nsd(searchList, listServicos, lista, countIncrements)
+
+    else:
+        
+        for servico in allServicos:
+           
+            id_turma = servico.turma_id
+            turma = Turma.objects.get(id__exact=servico.turma_id)
+            unidade = UnidadeCurricular.objects.get(id__exact=turma.unidade_curricular_id).nome
+                    
+            tipo_aula = TipoAula.objects.get(id__exact=turma.tipo_aula_id).tipo
+                             
+            lista.append([servico.id, unidade, turma.turno, tipo_aula, servico.horas, id_turma])
+            print lista
+                
+            
+            
+        lista.sort()
+        pass
+'''
+Metodo responsavel por fazer as pesquisas por unidade curricular do campo de 
+procura na lista de serviços docente por atribuir
+'''
+def search_unidadeCurricurlar_nsd(search_List, allServicos, lista, count=0):
+    
+    
+
+    listServicos = []
+    searchList = search_List
+
+    countIncrements = count
+    #print count
+    if count < len(searchList):
+        #print "entrei no ninho"
+        for servico in allServicos:
+            modulos = Modulos.objects.filter(servico_docente_id__exact = servico.id).filter(docente_id__exact = None)
+            
+            if(len(modulos) != 0):
+                modulos = modulos.reverse()[0]
+                
+                nomeUC = unicodedata.normalize('NFKD', modulos.servico_docente.turma.unidade_curricular.nome.lower()).encode('ASCII', 'ignore')
+                
+                if nomeUC.find(searchList[count]) != -1:
+                   
+                    listServicos.append(servico)
+         
+        countIncrements += 1
+        #print "vou chamar o metodo"
+        
+       
+        search_unidadeCurricurlar_nsd(searchList, listServicos, lista, countIncrements)
+
+    else:
+        
+        for servico in allServicos:
+           
+            id_turma = servico.turma_id
+            turma = Turma.objects.get(id__exact=servico.turma_id)
+            unidade = UnidadeCurricular.objects.get(id__exact=turma.unidade_curricular_id).nome
+                    
+            tipo_aula = TipoAula.objects.get(id__exact=turma.tipo_aula_id).tipo
+                             
+            lista.append([servico.id, unidade, turma.turno, tipo_aula, servico.horas, id_turma])
+            print lista
+                
+            
+            
+        lista.sort()
+        pass
 
 '''
 Lista todas os serviços de docente já atribuidos
@@ -795,8 +912,11 @@ def  listServicoDocente(request, ano):
 
             listaTempoCurso = []
             search_curso_sd(listSplited, listaServicoDocente, listaTempoCurso)
+            listaTempoUC = []
+            search_unidadeCurricurlar_sd(listSplited, listaServicoDocente, listaTempoUC)
+           
             
-            tempList = listaTempoCurso
+            tempList = listaTempoCurso + listaTempoUC
 
 
             tempList = removeDuplicatedElements(tempList)
@@ -949,7 +1069,8 @@ def infoModulosTurma(request, id_servico, ano):
     return render_to_response("departamento/infoModulosTurma.html",
         locals(),
         context_instance=RequestContext(request),
-        )      
+        )
+     
     
 '''
 Método responsavel por listar todos os serviços docente que ainda nao tem todos os docentes atribuidos
@@ -996,8 +1117,10 @@ def addServicoDocenteDepart(request, ano):
 
             listaTempoCurso = []
             search_curso_nsd(listSplited, listaServicoDocente, listaTempoCurso)
-            
-            tempList = listaTempoCurso
+            listaTempoUC = []
+            search_unidadeCurricurlar_nsd(listSplited, listaServicoDocente, listaTempoUC)
+           
+            tempList = listaTempoCurso + listaTempoUC
 
 
             tempList = removeDuplicatedElements(tempList)
