@@ -41,7 +41,7 @@
 					<td>{{docente.horas}}</td>
 				</tr>
 				{%endfor %}
-				
+
 			</table>
 
 		</div>
@@ -50,10 +50,10 @@
 
 		</div>
 		<div class="modulsDiv">
-			{% for id, horas, docente_id, servico_id, docente, nome, horasDocente in lModulos %}
+			{% for id, horas, docente_id, servico_id, nome, horasDocente in lModulos %}
 			<table class="tabela_sumario modulsTable" onclick="highlightModul(this);">
 				<tr >
-					<th  colspan="3">Modulo de {{horas}} horas (*)</th>
+					<th  colspan="3">Modulo de {{horas}} horas</th>
 
 				</tr>
 
@@ -67,15 +67,29 @@
 					</th>
 
 				</tr>
-				{%if docentesID != None and docente != "" %}
+				{%if docentesID != None and nome != "" %}
 				<tr>
 
 					<td class="idHide">
-					<input type='text' name='docenteID[]' value="{{docente}}" />
+					<input type='text' name='docenteID[]' value="{{docente_id}}" />
 					</td>
 					<td>{{nome}}</td>
 					<td>{{horasDocente}}</td>
 					<td><a href='#' onclick='deleteRowTable(this.parentNode.parentNode.parentNode);'><span class='delButton'></span></a></td>
+				</tr>
+				{%else%}
+
+				{% if docente_id != None %}
+
+				<tr>
+
+					<td class="idHide">
+					<input type='text' name='docenteID[]' value="{{docente_id}}" />
+					</td>
+					<td>{{nome}}</td>
+					<td>{{horasDocente}}</td>
+					<td><a href='#' onclick='deleteRowTable(this.parentNode.parentNode.parentNode);'><span class='delButton'></span></a></td>
+
 				</tr>
 				{%else%}
 
@@ -87,8 +101,10 @@
 					<td></td>
 					<td></td>
 					<td></td>
+
 				</tr>
 
+				{%endif%}
 				{%endif%}
 
 			</table>
@@ -98,7 +114,7 @@
 			<span class="errorField">{{erro}}</span>
 			<br>
 			<br>
-			<span id="CamposObirgatorio">(*) - Campos de preenchimento obrigatório</span>
+			
 
 		</div>
 		<div id="buttonConfirm">
@@ -108,11 +124,12 @@
 			<input type="submit" value="Adicionar Serviço Docente" />
 
 		</div>
-		<script>
-			initial();
-		</script>
+
 	</form>
 
+	<script>
+		initial();
+	</script>
 </div>
 {% endblock %}
 

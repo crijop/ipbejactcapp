@@ -31,7 +31,10 @@
 	</tr>
 	
 	{% for id_Docente, nome, horas, turmas, a in listInfo %}
-	<tr>
+	
+	<tr {%if id_Docente == "" %}
+	
+	class="WithoutTeacher" {% endif %}>
 		<td>{{nome}}</td>
 		<td>{{horas}}</td>
 	</tr>
