@@ -38,7 +38,14 @@
 	{%if lista %}
 		<tr>
 			<th colspan="4" class="sub_cabecalho">Horas Total</th>
-			<th class="sub_cabecalho">{{horasTotal}}</th>
+			<th  {% if horasTotal < 180  %} 
+		class="sub_cabecalho hoursDownLimit"
+		title="Inferior ao limite (< 180)"
+		{% elif horasTotal > 360 %}
+		class="sub_cabecalho hoursUpLimit"
+		title="A exceder o limite (> 360)"
+		{% endif %}
+		>{{horasTotal}}</th>
 		</tr>
     {%else%}
 		<tr>

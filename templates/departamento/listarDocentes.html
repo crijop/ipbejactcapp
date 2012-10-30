@@ -62,13 +62,23 @@
 		<th class="cabecalho_sumario">Horas Distribuidas</th>
 		<th class="cabecalho_sumario">Turmas</th>
 	</tr>
-	{% for id_Docente, nome, horas, turmas in listInfo %}
+	{% for id_Docente, nome, turmas, horas  in listInfo %}
 	<tr>
 		<td ><a href="{{id_Docente}}"><span class="view"></span></a></td>
 		<td class="teacher_name_field"><a href="{{id_Docente}}">{{nome}}</a></td>
+		
+		<td {% if horas < 180  %} 
+		class="hoursDownLimit"
+		title="Inferior ao limite (< 180)"
+		{% elif horas > 360 %}
+		class="hoursUpLimit"
+		title="A exceder o limite (> 360)"
+		{% endif %}
+		>{{horas}}</td>
+		
 		<td>{{turmas}}</td>
 		
-		<td>{{horas}}</td>
+	
 	</tr>
 	{% endfor %}
 		{%if sizeList == 0 %}

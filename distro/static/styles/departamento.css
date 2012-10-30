@@ -186,3 +186,22 @@ table.tabela_sumario tr.WithoutTeacher td
 	font-weight: 600;
 }
 
+/*
+ * Coloca a vermelho se for ultrpassado no template listar docente e informação dos modulos do docente
+ * caso as horas de serviço seja superiores a 360
+ */
+table.tabela_sumario .hoursUpLimit
+{
+	color: red;
+	font-weight: 600;
+}
+/*
+ * Coloca a vermelho mais claro se  no template listar docente e informação dos modulos do docente
+ * caso as horas de serviço seja inferiores a 180
+ */
+table.tabela_sumario .hoursDownLimit
+{
+	color: #CE5050;
+	font-weight: 600;
+}
+
