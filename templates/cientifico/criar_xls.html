@@ -1,0 +1,34 @@
+{% extends "cientifico/index.html" %}
+{% load i18n %}
+{% block title %} Criar XLS (Cientifico) {% endblock %}
+{% block breadcrumb %}
+<ul id="breadcrumb">
+	<li>
+		<a tabindex="2" href="{% url HomeCientifico %}" title="{% trans 'Home' %}"> <img src="/static/images/BreadCrumbs/home.gif" alt="{% trans 'Home' %}" class="home" /> </a>
+	</li>
+	<li>
+		Listar Docentes
+	</li>
+</ul>
+{% endblock %}
+
+{% block content %}
+<table class="tabela_sumario">
+	<tr>
+		<th colspan="6" class="top_sumario" >Criar XLS</th>
+	</tr>
+	<tr>
+		<th colspan="6" class="top_sumario"> {% csrf_token %}
+		<form action="" onkeypress="testeSearch()" method="get" name="searchForm">
+			<img src="/static/images/selector-search.gif" title="search" alt="searchIcon" />
+			<input name="searchField"  id="searchField" required type="search" value="{{keyword}}" />
+			<input id="submitSearch" value={%trans 'Search'%} name="Submit" type="submit" />
+			{% if keyword != None%}
+				<span>- Pesquisa por "{{keyword}}"</span>
+				{% endif %}
+				<span>- {{sizeList}} resultados encontrados</span>
+		</form></th>
+	</tr>
+</table>
+
+{% endblock %}

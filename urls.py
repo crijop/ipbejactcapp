@@ -70,7 +70,12 @@ urlpatterns = patterns('',
     #Url Home Ciêntifico
     url(r'^distro/cientifico/$', 
         'ipbejactcapp.distro.views.indexCientifico', 
-        name='homeDirectoresEscola'),
+        name='HomeCientifico'),
+    
+    #Url Criar XLS                   
+    url(r'^distro/cientifico/criarXLS$', 
+        'ipbejactcapp.distro.view_cientifico.criarXLS', 
+        name='criarXLS'),
     
     #####
     #Fim dos Url's destinados aos templates do cientifico
