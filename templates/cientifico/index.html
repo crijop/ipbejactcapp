@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %} Página Inícial da Presidencia {% endblock %}
+
+{% block breadcrumb %}
+	<ul id="breadcrumb">
+		<li>
+			<img src="/static/images/BreadCrumbs/home.gif" alt="{% trans 'Home' %}" class="home" />
+		</li>
+	</ul>
+{% endblock %}
+
+{% block Menus %}
+	<ul>
+		<li class='active '>
+			<a tabindex="3" href='/distro'><span>Informação</span></a>
+		</li>
+		<li>
+			<a tabindex="5" href='{%url criarXLS %}'><span>Cria XLS</span></a>
+		</li>		
+		<li class='has-sub_lateral'>
+			<a tabindex="5" href='#'><span>Ajuda</span></a>
+				<ul>
+					<li>
+						<a href='#'><span>Como Gerar XLS</span></a>
+					</li>
+					<li>
+						<a href='#'><span>---</span></a>
+					</li>
+					<li>
+						<a href='#'><span>---</span></a>
+					</li>
+					<li>
+						<a href='#'><span>---</span></a>
+					</li>
+				</ul>
+		</li>
+	</ul>
+{% endblock %}
+{% block content %}
+	<table class="tabela_sumario">
+	    <tr>
+	    	<th colspan="2"  class="top_sumario">Estatística</th>
+	    </tr>
+	    <tr>
+	    	<th colspan="2" align="left">ANO: {{ano}}</th>
+	    </tr>
+	    <tr>
+		<tr>
+			<th colspan="2" class="cabecalho_sumario">Serviços Docentes</th>
+		</tr>
+		<tr>
+			<th class="sub_cabecalho">
+				<a href='#'>
+					<span>---</span>
+				</a>
+			</th>
+			<td>
+				<a href='#'>
+					<span>
+						nr
+					</span>
+				</a>
+			</td>
+		</tr>
+		<tr>
+			<th class="sub_cabecalho" >
+				<a href='#'>
+					<span>---</span>
+				</a>
+			</th>
+			<td>
+				<a href='#'>
+					<span>
+						nr
+					</span>
+				</a>
+			</td>
+		</tr>
+		
+		<tr>
+			<th colspan="2" class="cabecalho_sumario">Docentes/horas</th>
+		</tr>
+		<tr>
+			<th class="sub_cabecalho">
+				<a href='#'>
+					<span>---</span>
+				</a>
+			</th>
+			<td>
+				<a href='#'>
+					<span>
+						nr
+					</span>
+				</a>
+			</td>
+		</tr>
+		<tr>
+			<th class="sub_cabecalho" >
+				<a href='#'>
+					<span>---</span>
+				</a>
+			</th>
+			<td>
+				<a href='#'>
+					<span>
+						nr
+					</span>
+				</a>
+			</td>
+		</tr>
+		
+    </table>
+{% endblock %}
+
+
+

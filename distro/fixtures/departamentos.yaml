@@ -1,0 +1,48 @@
+- model: distro.departamento
+  pk: 1
+  fields:
+    nome: Engenharia
+    abreviatura: Eng
+    sede: 1
+- model: distro.departamento
+  pk: 2
+  fields:
+    nome: Artes H Desporto
+    abreviatura: AHD
+    sede: 3
+- model: distro.departamento
+  pk: 3
+  fields:
+    nome: Biociências 
+    abreviatura: B
+    sede: 4
+- model: distro.departamento
+  pk: 4
+  fields:
+    nome: Ciências Empresariais
+    abreviatura: CE
+    sede: 1
+- model: distro.departamento
+  pk: 5
+  fields:
+    nome: Educação CSComportamento
+    abreviatura: ECSC
+    sede: 3
+- model: distro.departamento
+  pk: 6
+  fields:
+    nome: Matemática CFisicas
+    abreviatura: MCF
+    sede: 1
+- model: distro.departamento
+  pk: 7
+  fields:
+    nome: Saúde
+    abreviatura: S
+    sede: 2
+- model: distro.departamento
+  pk: 8
+  fields:
+    nome: Tecnologias CAplicadas
+    abreviatura: TCA
+    sede: 4

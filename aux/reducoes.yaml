@@ -1,0 +1,175 @@
+- model: distro.reducao
+  pk: 1
+  fields:
+    nome: Pró-Presidente
+    horas: 300
+- model: distro.reducao
+  pk: 2
+  fields:
+    nome: Presidente do Conselho para Avaliação e Qualidade
+    horas: 300
+- model: distro.reducao
+  pk: 3
+  fields:
+    nome: Coordenador de Curso
+    horas: 60
+- model: distro.reducao
+  pk: 4
+  fields:
+    nome: Coordenador de Curso
+    horas: 60
+- model: distro.reducao
+  pk: 5
+  fields:
+    nome: Coordenação do Centro de Línguas e Culturas
+    horas: 60
+- model: distro.reducao
+  pk: 6
+  fields:
+    nome: Coordenador de Curso
+    horas: 60
+- model: distro.reducao
+  pk: 7
+  fields:
+    nome: Baixa médica
+    horas: 360
+- model: distro.reducao
+  pk: 8
+  fields:
+    nome: Diretor do Museu Botânico
+    horas: 300
+- model: distro.reducao
+  pk: 9
+  fields:
+    nome: Sub-Diretor de Escola
+    horas: 180
+- model: distro.reducao
+  pk: 10
+  fields:
+    nome: Diretor de Departamento
+    horas: 60
+- model: distro.reducao
+  pk: 11
+  fields:
+    nome: Coordenador de Curso
+    horas: 60
+- model: distro.reducao
+  pk: 12
+  fields:
+    nome: Coordenador GAI
+    horas: 60
+- model: distro.reducao
+  pk: 13
+  fields:
+    nome: Diretor de Departamento
+    horas: 60
+- model: distro.reducao
+  pk: 14
+  fields:
+    nome: Coordenador de Curso
+    horas: 60
+- model: distro.reducao
+  pk: 15
+  fields:
+    nome: Coordenador de Curso
+    horas: 60
+- model: distro.reducao
+  pk: 16
+  fields:
+    nome: Coordenador de Curso
+    horas: 60
+- model: distro.reducao
+  pk: 17
+  fields:
+    nome: Director de Departamento
+    horas: 60
+- model: distro.reducao
+  pk: 18
+  fields:
+    nome: Coordenadora IPBeja casa
+    horas: 40
+- model: distro.reducao
+  pk: 19
+  fields:
+    nome: SPDE
+    horas: 180
+- model: distro.reducao
+  pk: 20
+  fields:
+    nome: Pró-Presidente
+    horas: 300
+- model: distro.reducao
+  pk: 21
+  fields:
+    nome: Coordenador de Curso
+    horas: 60
+- model: distro.reducao
+  pk: 22
+  fields:
+    nome: Sub-Diretor de Escola
+    horas: 180
+- model: distro.reducao
+  pk: 23
+  fields:
+    nome: Pró-Presidente
+    horas: 300
+- model: distro.reducao
+  pk: 24
+  fields:
+    nome: Diretor de Departamento
+    horas: 60
+- model: distro.reducao
+  pk: 25
+  fields:
+    nome: Coordenador de Curso
+    horas: 60
+- model: distro.reducao
+  pk: 26
+  fields:
+    nome: Coordenador de Curso
+    horas: 60
+- model: distro.reducao
+  pk: 27
+  fields:
+    nome: Sub-Diretor de Escola
+    horas: 180
+- model: distro.reducao
+  pk: 28
+  fields:
+    nome: Diretor de Departamento
+    horas: 60
+- model: distro.reducao
+  pk: 29
+  fields:
+    nome: Sub-Diretor de Escola
+    horas: 180
+- model: distro.reducao
+  pk: 30
+  fields:
+    nome: Coordenador de Curso
+    horas: 60
+- model: distro.reducao
+  pk: 31
+  fields:
+    nome: Coordenador de Curso
+    horas: 60
+- model: distro.reducao
+  pk: 32
+  fields:
+    nome: Diretor de Departamento
+    horas: 60
+- model: distro.reducao
+  pk: 33
+  fields:
+    nome: Diretor de Departamento
+    horas: 60
+- model: distro.reducao
+  pk: 34
+  fields:
+    nome: Coordenador de Curso
+    horas: 60
+- model: distro.reducao
+  pk: 35
+  fields:
+    nome: Coordenador de Curso
+    horas: 60

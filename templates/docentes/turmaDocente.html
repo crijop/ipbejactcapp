@@ -1,0 +1,34 @@
+{% extends "docentes/index.html" %}
+{% load i18n %}
+{% block title %} Página de apresentação das turmas do Docente {% endblock %}
+
+{% block breadcrumb %}
+<ul id="breadcrumb">
+	<li>
+		<a tabindex="2" href="{% url homeDocente %}" title="{% trans 'Home' %}"> <img src="/static/images/BreadCrumbs/home.gif" alt="{% trans 'Home' %}" class="home" /> </a>
+	</li>
+	<li>
+		Turmas Docente
+	</li>
+</ul>
+{% endblock %}
+
+{% block content %}
+<table class="tabela_sumario">
+	<tr>
+		<th colspan="2" class="top_sumario">Sumário</th>
+	</tr>
+	<tr>
+		<th class="cabecalho_sumario">Curso</th>
+		<th class="cabecalho_sumario">Turma</th>
+	</tr>
+	{%for id, turma, curso in lista%}
+	<tr>
+		<td>{{ curso }}</td>
+		<td>{{ turma }}</td>
+
+	</tr>
+	{%endfor%}
+	
+</table>
+{% endblock %}

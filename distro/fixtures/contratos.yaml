@@ -1,0 +1,1080 @@
+- model: distro.contrato
+  pk: 1
+  fields:
+    docente: 1
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 2
+  fields:
+    docente: 2
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 3
+  fields:
+    docente: 3
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 4
+  fields:
+    docente: 4
+    categoria: 5
+    tipo_contrato: 3
+- model: distro.contrato
+  pk: 5
+  fields:
+    docente: 5
+    categoria: 6
+    tipo_contrato: 3
+- model: distro.contrato
+  pk: 6
+  fields:
+    docente: 6
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 7
+  fields:
+    docente: 7
+    categoria: 6
+    tipo_contrato: 3
+- model: distro.contrato
+  pk: 8
+  fields:
+    docente: 8
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 9
+  fields:
+    docente: 9
+    categoria: 6
+    tipo_contrato: 3
+- model: distro.contrato
+  pk: 10
+  fields:
+    docente: 10
+    categoria: 5
+    tipo_contrato: 3
+- model: distro.contrato
+  pk: 11
+  fields:
+    docente: 11
+    categoria: 6
+    tipo_contrato: 3
+- model: distro.contrato
+  pk: 12
+  fields:
+    docente: 12
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 13
+  fields:
+    docente: 13
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 14
+  fields:
+    docente: 14
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 15
+  fields:
+    docente: 15
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 16
+  fields:
+    docente: 16
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 17
+  fields:
+    docente: 17
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 18
+  fields:
+    docente: 18
+    categoria: 5
+    tipo_contrato: 3
+- model: distro.contrato
+  pk: 19
+  fields:
+    docente: 19
+    categoria: 6
+    tipo_contrato: 3
+- model: distro.contrato
+  pk: 20
+  fields:
+    docente: 20
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 21
+  fields:
+    docente: 21
+    categoria: 6
+    tipo_contrato: 3
+- model: distro.contrato
+  pk: 22
+  fields:
+    docente: 22
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 23
+  fields:
+    docente: 23
+    categoria: 2
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 24
+  fields:
+    docente: 24
+    categoria: 1
+    tipo_contrato: 3
+- model: distro.contrato
+  pk: 25
+  fields:
+    docente: 25
+    categoria: 5
+    tipo_contrato: 3
+- model: distro.contrato
+  pk: 26
+  fields:
+    docente: 26
+    categoria: 2
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 27
+  fields:
+    docente: 27
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 28
+  fields:
+    docente: 28
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 29
+  fields:
+    docente: 29
+    categoria: 5
+    tipo_contrato: 3
+- model: distro.contrato
+  pk: 30
+  fields:
+    docente: 30
+    categoria: 5
+    tipo_contrato: 3
+- model: distro.contrato
+  pk: 31
+  fields:
+    docente: 31
+    categoria: 5
+    tipo_contrato: 3
+- model: distro.contrato
+  pk: 32
+  fields:
+    docente: 32
+    categoria: 1
+    tipo_contrato: 3
+- model: distro.contrato
+  pk: 33
+  fields:
+    docente: 33
+    categoria: 6
+    tipo_contrato: 3
+- model: distro.contrato
+  pk: 34
+  fields:
+    docente: 34
+    categoria: 1
+    tipo_contrato: 3
+- model: distro.contrato
+  pk: 35
+  fields:
+    docente: 35
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 36
+  fields:
+    docente: 36
+    categoria: 4
+    tipo_contrato: 3
+- model: distro.contrato
+  pk: 37
+  fields:
+    docente: 37
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 38
+  fields:
+    docente: 38
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 39
+  fields:
+    docente: 39
+    categoria: 1
+    tipo_contrato: 3
+- model: distro.contrato
+  pk: 40
+  fields:
+    docente: 40
+    categoria: 5
+    tipo_contrato: 3
+- model: distro.contrato
+  pk: 41
+  fields:
+    docente: 42
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 42
+  fields:
+    docente: 43
+    categoria: 6
+    tipo_contrato: 3
+- model: distro.contrato
+  pk: 43
+  fields:
+    docente: 44
+    categoria: 1
+    tipo_contrato: 3
+- model: distro.contrato
+  pk: 44
+  fields:
+    docente: 45
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 45
+  fields:
+    docente: 46
+    categoria: 6
+    tipo_contrato: 3
+- model: distro.contrato
+  pk: 46
+  fields:
+    docente: 47
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 47
+  fields:
+    docente: 48
+    categoria: 4
+    tipo_contrato: 3
+- model: distro.contrato
+  pk: 48
+  fields:
+    docente: 49
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 49
+  fields:
+    docente: 50
+    categoria: 7
+    tipo_contrato: 3
+- model: distro.contrato
+  pk: 50
+  fields:
+    docente: 51
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 51
+  fields:
+    docente: 52
+    categoria: 6
+    tipo_contrato: 3
+- model: distro.contrato
+  pk: 52
+  fields:
+    docente: 53
+    categoria: 6
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 53
+  fields:
+    docente: 54
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 54
+  fields:
+    docente: 55
+    categoria: 1
+    tipo_contrato: 3
+- model: distro.contrato
+  pk: 55
+  fields:
+    docente: 56
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 56
+  fields:
+    docente: 57
+    categoria: 6
+    tipo_contrato: 3
+- model: distro.contrato
+  pk: 57
+  fields:
+    docente: 58
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 58
+  fields:
+    docente: 59
+    categoria: 4
+    tipo_contrato: 3
+- model: distro.contrato
+  pk: 59
+  fields:
+    docente: 60
+    categoria: 2
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 60
+  fields:
+    docente: 61
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 61
+  fields:
+    docente: 62
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 62
+  fields:
+    docente: 63
+    categoria: 1
+    tipo_contrato: 3
+- model: distro.contrato
+  pk: 63
+  fields:
+    docente: 64
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 64
+  fields:
+    docente: 65
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 65
+  fields:
+    docente: 66
+    categoria: 1
+    tipo_contrato: 3
+- model: distro.contrato
+  pk: 66
+  fields:
+    docente: 67
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 67
+  fields:
+    docente: 68
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 68
+  fields:
+    docente: 69
+    categoria: 6
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 69
+  fields:
+    docente: 70
+    categoria: 2
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 70
+  fields:
+    docente: 71
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 71
+  fields:
+    docente: 72
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 72
+  fields:
+    docente: 73
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 73
+  fields:
+    docente: 74
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 74
+  fields:
+    docente: 75
+    categoria: 2
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 75
+  fields:
+    docente: 76
+    categoria: 6
+    tipo_contrato: 3
+- model: distro.contrato
+  pk: 76
+  fields:
+    docente: 77
+    categoria: 6
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 77
+  fields:
+    docente: 78
+    categoria: 6
+    tipo_contrato: 3
+- model: distro.contrato
+  pk: 78
+  fields:
+    docente: 79
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 79
+  fields:
+    docente: 80
+    categoria: 2
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 80
+  fields:
+    docente: 81
+    categoria: 6
+    tipo_contrato: 3
+- model: distro.contrato
+  pk: 81
+  fields:
+    docente: 82
+    categoria: 6
+    tipo_contrato: 3
+- model: distro.contrato
+  pk: 82
+  fields:
+    docente: 83
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 83
+  fields:
+    docente: 84
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 84
+  fields:
+    docente: 85
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 85
+  fields:
+    docente: 86
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 86
+  fields:
+    docente: 87
+    categoria: 1
+    tipo_contrato: 3
+- model: distro.contrato
+  pk: 87
+  fields:
+    docente: 88
+    categoria: 6
+    tipo_contrato: 3
+- model: distro.contrato
+  pk: 88
+  fields:
+    docente: 89
+    categoria: 6
+    tipo_contrato: 3
+- model: distro.contrato
+  pk: 89
+  fields:
+    docente: 90
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 90
+  fields:
+    docente: 91
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 91
+  fields:
+    docente: 92
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 92
+  fields:
+    docente: 93
+    categoria: 8
+    tipo_contrato: 5
+- model: distro.contrato
+  pk: 93
+  fields:
+    docente: 94
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 94
+  fields:
+    docente: 95
+    categoria: 6
+    tipo_contrato: 3
+- model: distro.contrato
+  pk: 95
+  fields:
+    docente: 96
+    categoria: 4
+    tipo_contrato: 3
+- model: distro.contrato
+  pk: 96
+  fields:
+    docente: 97
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 97
+  fields:
+    docente: 98
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 98
+  fields:
+    docente: 99
+    categoria: 5
+    tipo_contrato: 3
+- model: distro.contrato
+  pk: 99
+  fields:
+    docente: 100
+    categoria: 6
+    tipo_contrato: 3
+- model: distro.contrato
+  pk: 100
+  fields:
+    docente: 101
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 101
+  fields:
+    docente: 102
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 102
+  fields:
+    docente: 103
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 103
+  fields:
+    docente: 104
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 104
+  fields:
+    docente: 105
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 105
+  fields:
+    docente: 106
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 106
+  fields:
+    docente: 107
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 107
+  fields:
+    docente: 108
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 108
+  fields:
+    docente: 109
+    categoria: 7
+    tipo_contrato: 1
+- model: distro.contrato
+  pk: 109
+  fields:
+    docente: 110
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 110
+  fields:
+    docente: 111
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 111
+  fields:
+    docente: 112
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 112
+  fields:
+    docente: 113
+    categoria: 1
+    tipo_contrato: 3
+- model: distro.contrato
+  pk: 113
+  fields:
+    docente: 114
+    categoria: 6
+    tipo_contrato: 3
+- model: distro.contrato
+  pk: 114
+  fields:
+    docente: 115
+    categoria: 6
+    tipo_contrato: 3
+- model: distro.contrato
+  pk: 115
+  fields:
+    docente: 116
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 116
+  fields:
+    docente: 117
+    categoria: 6
+    tipo_contrato: 3
+- model: distro.contrato
+  pk: 117
+  fields:
+    docente: 118
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 118
+  fields:
+    docente: 119
+    categoria: 6
+    tipo_contrato: 3
+- model: distro.contrato
+  pk: 119
+  fields:
+    docente: 120
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 120
+  fields:
+    docente: 121
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 121
+  fields:
+    docente: 122
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 122
+  fields:
+    docente: 123
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 123
+  fields:
+    docente: 124
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 124
+  fields:
+    docente: 125
+    categoria: 2
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 125
+  fields:
+    docente: 126
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 126
+  fields:
+    docente: 127
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 127
+  fields:
+    docente: 128
+    categoria: 1
+    tipo_contrato: 3
+- model: distro.contrato
+  pk: 128
+  fields:
+    docente: 129
+    categoria: 6
+    tipo_contrato: 3
+- model: distro.contrato
+  pk: 129
+  fields:
+    docente: 130
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 130
+  fields:
+    docente: 131
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 131
+  fields:
+    docente: 132
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 132
+  fields:
+    docente: 133
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 133
+  fields:
+    docente: 134
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 134
+  fields:
+    docente: 135
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 135
+  fields:
+    docente: 136
+    categoria: 1
+    tipo_contrato: 3
+- model: distro.contrato
+  pk: 136
+  fields:
+    docente: 137
+    categoria: 6
+    tipo_contrato: 3
+- model: distro.contrato
+  pk: 137
+  fields:
+    docente: 138
+    categoria: 6
+    tipo_contrato: 3
+- model: distro.contrato
+  pk: 138
+  fields:
+    docente: 139
+    categoria: 6
+    tipo_contrato: 3
+- model: distro.contrato
+  pk: 139
+  fields:
+    docente: 140
+    categoria: 1
+    tipo_contrato: 3
+- model: distro.contrato
+  pk: 140
+  fields:
+    docente: 141
+    categoria: 5
+    tipo_contrato: 3
+- model: distro.contrato
+  pk: 141
+  fields:
+    docente: 142
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 142
+  fields:
+    docente: 143
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 143
+  fields:
+    docente: 144
+    categoria: 1
+    tipo_contrato: 3
+- model: distro.contrato
+  pk: 144
+  fields:
+    docente: 145
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 145
+  fields:
+    docente: 146
+    categoria: 6
+    tipo_contrato: 3
+- model: distro.contrato
+  pk: 146
+  fields:
+    docente: 147
+    categoria: 5
+    tipo_contrato: 3
+- model: distro.contrato
+  pk: 147
+  fields:
+    docente: 148
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 148
+  fields:
+    docente: 149
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 149
+  fields:
+    docente: 150
+    categoria: 1
+    tipo_contrato: 3
+- model: distro.contrato
+  pk: 150
+  fields:
+    docente: 151
+    categoria: 4
+    tipo_contrato: 3
+- model: distro.contrato
+  pk: 151
+  fields:
+    docente: 152
+    categoria: 6
+    tipo_contrato: 3
+- model: distro.contrato
+  pk: 152
+  fields:
+    docente: 153
+    categoria: 5
+    tipo_contrato: 3
+- model: distro.contrato
+  pk: 153
+  fields:
+    docente: 154
+    categoria: 6
+    tipo_contrato: 3
+- model: distro.contrato
+  pk: 154
+  fields:
+    docente: 155
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 155
+  fields:
+    docente: 156
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 156
+  fields:
+    docente: 157
+    categoria: 8
+    tipo_contrato: 5
+- model: distro.contrato
+  pk: 157
+  fields:
+    docente: 158
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 158
+  fields:
+    docente: 159
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 159
+  fields:
+    docente: 160
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 160
+  fields:
+    docente: 161
+    categoria: 6
+    tipo_contrato: 3
+- model: distro.contrato
+  pk: 161
+  fields:
+    docente: 162
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 162
+  fields:
+    docente: 163
+    categoria: 4
+    tipo_contrato: 3
+- model: distro.contrato
+  pk: 163
+  fields:
+    docente: 164
+    categoria: 6
+    tipo_contrato: 3
+- model: distro.contrato
+  pk: 164
+  fields:
+    docente: 165
+    categoria: 6
+    tipo_contrato: 3
+- model: distro.contrato
+  pk: 165
+  fields:
+    docente: 166
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 166
+  fields:
+    docente: 167
+    categoria: 6
+    tipo_contrato: 3
+- model: distro.contrato
+  pk: 167
+  fields:
+    docente: 168
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 168
+  fields:
+    docente: 169
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 169
+  fields:
+    docente: 170
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 170
+  fields:
+    docente: 171
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 171
+  fields:
+    docente: 172
+    categoria: 8
+    tipo_contrato: 5
+- model: distro.contrato
+  pk: 172
+  fields:
+    docente: 173
+    categoria: 8
+    tipo_contrato: 5
+- model: distro.contrato
+  pk: 173
+  fields:
+    docente: 174
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 174
+  fields:
+    docente: 175
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 175
+  fields:
+    docente: 176
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 176
+  fields:
+    docente: 177
+    categoria: 5
+    tipo_contrato: 3
+- model: distro.contrato
+  pk: 177
+  fields:
+    docente: 178
+    categoria: 4
+    tipo_contrato: 3
+- model: distro.contrato
+  pk: 178
+  fields:
+    docente: 179
+    categoria: 1
+    tipo_contrato: 2
+- model: distro.contrato
+  pk: 179
+  fields:
+    docente: 180
+    categoria: 5
+    tipo_contrato: 3
+- model: distro.contrato
+  pk: 180
+  fields:
+    docente: 181
+    categoria: 6
+    tipo_contrato: 3

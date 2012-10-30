@@ -1,0 +1,32 @@
+- model: distro.tipoaula
+  pk: 1
+  fields:
+    tipo: PL
+- model: distro.tipoaula
+  pk: 2
+  fields:
+    tipo: TP
+- model: distro.tipoaula
+  pk: 3
+  fields:
+    tipo: T
+- model: distro.tipoaula
+  pk: 4
+  fields:
+    tipo: E
+- model: distro.tipoaula
+  pk: 5
+  fields:
+    tipo: OT
+- model: distro.tipoaula
+  pk: 6
+  fields:
+    tipo: S
+- model: distro.tipoaula
+  pk: 7
+  fields:
+    tipo: O
+- model: distro.tipoaula
+  pk: 8
+  fields:
+    tipo: TC

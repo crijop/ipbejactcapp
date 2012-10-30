@@ -1,0 +1,56 @@
+1. Introdução
+
+   Este ficheiro contém alguma da documentação do projeto.
+Não fica visível na Internet.
+
+2. Base de Dados
+
+2.1 Bases de Dados de Produção e Teste
+
+    A base de dados de produção será PostgresSQL.
+As bases de dados de teste podem ser sqlite3.
+
+2.2 Migrações
+    Encontra-se adotado o sistema de migrações de bases de dados
+South. Todo o projeto deve ter isto em consideração.
+
+3. Automatização
+   A automatização de tarefas de desenvolvimento será centrada no
+ficheiro makefile.
+
+4. Procedimento de Controlo de Versões
+   Antes de iniciar o trabalho cada membro do grupo de desenvolvimento
+deverá executar o seguinte comando:
+> hg pull
+
+seguido de 
+> hg update
+
+em realizará possivelmente um comando de
+> hg merge
+
+para resolver conflitos de alterações realizadas por outros membros
+do projeto
+
+depois de realizar as mudanças deverá executar o comando:
+> hg commit
+
+no final das mudanças, quando o código já se encontrar estável 
+e disponível para os restantes membros do projeto deverá executar
+o comando:
+> hg push
+
+e resolver quaisquer conflitos de edição de modo a colocar tudo
+coerente e a executar sem erros.
+
+5. Diretorias
+
+docs - diretoria com documentação e relatórios
+docs/reports - relatórios
+docs/reports/AntonioBaiao - relatório de estágio de António Baião
+docs/reports/CarlosPalma  - relatório de estágio de Carlos Palma
+
+aux - diretoria com código auxiliar 
+
+
+6. TAREFAS

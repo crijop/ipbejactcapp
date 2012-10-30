@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %} Página Inícial Docente {% endblock %}
+
+{% block Menus %}
+<ul>
+
+	<li class='active '>
+		<a tabindex="3" href='/distro'><span>{% trans "Home" %}</span></a>
+	</li>
+	<li>
+		<a tabindex="4" href='{%url turmasDocentes%}'><span>Turmas</span></a>
+	</li>
+	<li>
+		<a tabindex="5" href='{%url horasServico%}'><span>Horas Trabalho</span></a>
+	</li>
+</ul>
+{% endblock %}
+
+{% block breadcrumb %}
+<ul id="breadcrumb">
+	<li><img src="/static/images/BreadCrumbs/home.gif" alt="{% trans 'Home' %}" class="home" />
+	</li>
+</ul>
+{% endblock %}
+
+{% block content %}
+
+<table class="tabela_sumario">
+	<tr>
+		<th colspan="2" class="top_sumario">Sumário</th>
+	</tr>
+	<tr>
+		<th colspan="2" class="cabecalho_sumario">Estado</th>
+	</tr>
+	<tr>
+		<td colspan="2" >Pendente</td>
+	</tr>
+	<tr>
+		<th colspan="2" class="cabecalho_sumario">Turmas</th>
+	</tr>
+	<tr>
+		<th class="sub_cabecalho"><span>Número de Turmas</span></th>
+		<td>{{  numeroTotalTurmas }}</td>
+	</tr>
+	<tr>
+		<th colspan="2" class="cabecalho_sumario">Horas de Trabalho</th>
+	</tr>
+	<tr>
+		<th class="sub_cabecalho" ><span>Horas de serviço</span></th>
+		<td>{{  horasServico }}</td>
+	</tr>
+	<tr>
+		<th class="sub_cabecalho" ><span>Horas de redução</span></th>
+		<td>{{  reducaoHoras }}</td>
+	</tr>
+	<tr>
+		<th class="sub_cabecalho" ><span>Horas Total</span></th>
+		<td>{{  numeroTotalHoras }}</td>
+	</tr>
+</table>
+
+<br>
+{% endblock %}
+

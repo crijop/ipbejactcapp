@@ -1,0 +1,145 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %} Página Inícial Departamento {% endblock %}
+
+{% block breadcrumb %}
+	<ul id="breadcrumb">
+		<li>
+			<img src="/static/images/BreadCrumbs/home.gif" alt="{% trans 'Home' %}" class="home" />
+		</li>
+	</ul>
+{% endblock %}
+
+{% block Menus %}
+	<ul>
+		<li class='active '>
+			<a tabindex="3" href='/distro'><span>Informação</span></a>
+		</li>
+		<li class='has-sub_lateral'>
+			<a tabindex="4" href='#'><span>Listar Turmas</span></a>
+			<ul>
+				{%for ano in listaAnos%}
+				<li>
+					<a href='{%url listarTurmas ano%}'><span>{{ano}}</span></a>
+				</li>
+				{%endfor%}
+			</ul>
+		</li>
+		<li>
+			<a tabindex="5" href='{%url listDocentesDep %}'><span>Listar Docentes</span></a>
+		</li>
+		<li class='has-sub_lateral'>
+			<a tabindex="6" href='#'><span>Listar Serviços Docentes Atribuidos</span></a>
+			<ul>
+				{%for ano in listaAnos%}
+				<li>
+					<a href='{%url listarServicoDocente ano%}'><span>{{ano}}</span></a>
+				</li>
+				{%endfor%}
+			</ul>
+		</li>
+		<li class='has-sub_lateral'>
+			<a href='#' ><span>Atribuir Serviço Docente</span></a>
+			<ul>
+				{%for ano in listaAnos%}
+				<li>
+					<a href='{%url turmaSemServDocente ano%}'><span>{{ano}}</span></a>
+				</li>
+				{%endfor%}
+			</ul>
+		</li>		
+		<li class='has-sub_lateral'>
+			<a tabindex="5" href='#'><span>Ajuda</span></a>
+				<ul>
+					<li>
+						<a href='{% url ajudaRH 1 %}'><span>Como Listar Turmas</span></a>
+					</li>
+					<li>
+						<a href='#'><span>Como Listar Docentes</span></a>
+					</li>
+					<li>
+						<a href='#'><span>Como Atribuir Serviço Docente</span></a>
+					</li>
+					<li>
+						<a href='#'><span>Como Listar Serviço Docente</span></a>
+					</li>
+				</ul>
+		</li>
+	</ul>
+{% endblock %}
+{% block content %}
+	<table class="tabela_sumario">
+	    <tr>
+	    	<th colspan="2"  class="top_sumario">Estatística</th>
+	    </tr>
+	    <tr>
+	    	<th colspan="2" align="left">ANO: {{ano}}</th>
+	    </tr>
+	    <tr>
+		<tr>
+			<th colspan="2" class="cabecalho_sumario">Serviços Docentes</th>
+		</tr>
+		<tr>
+			<th class="sub_cabecalho">
+				<a href='{%url turmaSemServDocente ano%}'>
+					<span>Serviços sem docentes atribuidos no Ano {{ano}}</span>
+				</a>
+			</th>
+			<td>
+				<a href='{%url turmaSemServDocente ano%}'>
+					<span>
+						{{sizeListSDoc}}
+					</span>
+				</a>
+			</td>
+		</tr>
+		<tr>
+			<th class="sub_cabecalho" >
+				<a href='{%url listarServicoDocente ano %}'>
+					<span>Serviços com docentes atribuidos no Ano {{ano}}</span>
+				</a>
+			</th>
+			<td>
+				<a href='{%url listarServicoDocente ano %}'>
+					<span>
+						{{sizeListCDoc}}
+					</span>
+				</a>
+			</td>
+		</tr>
+		
+		<tr>
+			<th colspan="2" class="cabecalho_sumario">Docentes/horas</th>
+		</tr>
+		<tr>
+			<th class="sub_cabecalho">
+				<a href='{% url listDocentesDep%}?docExcedHours=False&ano={{ano}}'>
+					<span>Docentes a exceder o número de horas</span>
+				</a>
+			</th>
+			<td>
+				<a href='{% url listDocentesDep%}?docExcedHours=False&ano={{ano}}'>
+					<span>
+						{{nrDocExcedHoras}}
+					</span>
+				</a>
+			</td>
+		</tr>
+		<tr>
+			<th class="sub_cabecalho" >
+				<a href='{% url listDocentesDep%}?docExcedHours=True&ano={{ano}}'>
+					<span>Docentes com nenhuma hora atribuida</span>
+				</a>
+			</th>
+			<td>
+				<a href='{% url listDocentesDep%}?docExcedHours=True&ano={{ano}}'>
+					<span>
+						{{nrDocSemHoras}}
+					</span>
+				</a>
+			</td>
+		</tr>
+		
+    </table>
+{% endblock %}
+
