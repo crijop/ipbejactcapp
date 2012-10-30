@@ -103,7 +103,19 @@ def removeRepetidosLista(l):
     # retorna uma copia das 'keys'
     l[:] = dict.keys()
     return l        
-        
+    pass
+
+#Método para definir o ano
+#Se o mês actual for igual ou superior ao mẽs de Agosto
+#vai devolver o ano seguinte ao da data actual.
+def calcularAno():
+    dateActual = datetime.today()
+    mesActual = dateActual.month
+    ano = dateActual.year
+    if mesActual >= 8:
+        ano += 1
+        pass 
+    return ano
         
 
 '''
@@ -112,6 +124,8 @@ Inicio das vistas do Departamento
 @login_required(redirect_field_name='login_redirectUsers')
 @DepUserTeste
 def indexDepartamento(request):
+
+    ano = calcularAno()
     
     id_Departamento = request.session['dep_id']
     
@@ -121,10 +135,9 @@ def indexDepartamento(request):
     listaAnos = listarAnos(id_Departamento)
     listToSendSDoc = []
     listToSendCDoc = []
-    dateActual = datetime.today()
-    ano = datetime.today().strftime("%Y")
     
-    listaServicoDocente = ServicoDocente.objects.filter(turma__unidade_curricular__departamento_id__exact = id_Departamento, turma__ano__exact=ano)
+    listaServicoDocente = ServicoDocente.objects.filter(turma__unidade_curricular__departamento_id__exact = id_Departamento,\
+                                                         turma__ano__exact = ano)
     
     for servico in listaServicoDocente:
         #Lista de Serviços sem docentes atribuidos
@@ -161,11 +174,9 @@ def indexDepartamento(request):
     nrDocSemHoras = 0
     for l in listaDocentesDepartamento:
         horasTemp = 0
-        '''
-        Retirar o ano 2013 e meter ano
-        '''
+            
         moduloTemp = Modulos.objects.filter(servico_docente__turma__unidade_curricular__departamento_id__exact\
-                                             = id_Departamento, servico_docente__turma__ano__exact= 2013)\
+                                             = id_Departamento, servico_docente__turma__ano__exact = ano)\
                                              .filter(docente_id__exact = l.id)
         for m in moduloTemp:
             horasTemp += m.horas
@@ -176,36 +187,8 @@ def indexDepartamento(request):
         elif horasTemp == 0:
             nrDocSemHoras +=1
             pass
+        pass
             
-        
-        
-    
-    '''
-    servicoDocente = Modulos.objects.filter(docente_id__exact=id_docente)
-    unidadesCurriculares = UnidadeCurricular.objects.all()
-
-    docente_name = Docente.objects.get(id__exact=id_docente).nome_completo
-
-    lista = []
-   
-    horasTotal = 0
-    for servDocente in servicoDocente:
-
-        #nome da unidade curricular que o docente vai dar aulas.
-        nomeUnidadeCurricular = UnidadeCurricular.objects.get(id__exact=servDocente.servico_docente.turma.unidade_curricular_id).nome
-        turma = Turma.objects.get(id__exact=servDocente.servico_docente.turma_id)
-        tipoAula = TipoAula.objects.get(id__exact=turma.tipo_aula_id).tipo
-        turno = turma.turno
-        nomeCurso = UnidadeCurricular.objects.get(turma__id__exact=servDocente.servico_docente.turma_id).curso
-        horasTotal += servDocente.horas
-        lista.append((servDocente.docente_id, nomeUnidadeCurricular,
-                           servDocente.horas, nomeCurso))
-    
-    '''
-    
-    
-    
-    
     return render_to_response("departamento/index.html",
         locals(),
         context_instance=RequestContext(request),
@@ -220,8 +203,6 @@ def listarTurmasDepart(request, ano):
     listaTurmas = []
     anoReferente = ano
     departamento = Departamento.objects.get(id__exact=request.session['dep_id']).nome
-
-    #unidadesCurriculares = UnidadeCurricular.objects.filter(departamento_id__exact=request.session['dep_id'])
 
     listTurmas = Turma.objects.filter(unidade_curricular__departamento_id__exact = request.session['dep_id'], ano__exact=ano)
 
@@ -464,7 +445,8 @@ e o numero de turmas a que tão associados e o numero de horas que ja tem atribu
 @login_required(redirect_field_name='login_redirectUsers')
 @DepUserTeste
 def listDocentes(request):
-    listaAnos = listarAnos(request.session['dep_id'])
+    id_Departamento = request.session['dep_id']
+    listaAnos = listarAnos(id_Departamento)
     actualState = ""
 
     listToSend = []
@@ -557,24 +539,49 @@ def listDocentes(request):
             
 
         pass
+    
     elif "docExcedHours" in request.GET or request.GET.get("actualState") == "docExcedHours":
-        keyword = request.GET.get("docExcedHours")
-        actualState = "actualState=docExcedHours&docExcedHours=" + keyword
+        chave = request.GET.get("docExcedHours")
+        ano = request.GET.get("ano")
+        actualState = "actualState=docExcedHours&docExcedHours=" + chave + "&ano=" + ano
+        MAXIMO_HORAS = 360 
+        listaDocentesDepartamento = Docente.objects.filter(departamento_id__exact = id_Departamento)
+        horasTemp       = 0 
+        nrDocExcedHoras = 0
+        nrDocSemHoras   = 0
         
-        if keyword == "True":
-            
+        if chave == "True":
+            for l in listaDocentesDepartamento:
+                horasTemp = 0
+                listServicoTemp = Modulos.objects.filter(servico_docente__turma__unidade_curricular__departamento_id__exact\
+                                                     = id_Departamento, servico_docente__turma__ano__exact = ano)\
+                                                     .filter(docente_id__exact = l.id)
+                for m in listServicoTemp:
+                    horasTemp += m.horas
+                    pass
+                if horasTemp == 0:
+                    listToSend.append([l.id, l.nome_completo, len(listServicoTemp), horasTemp])
+                    nrDocSemHoras +=1
+                    pass
             pass
             
-        elif keyword == "False":
-            
+        elif chave == "False":
+            for l in listaDocentesDepartamento:
+                horasTemp = 0
+                listServicoTemp = Modulos.objects.filter(servico_docente__turma__unidade_curricular__departamento_id__exact\
+                                                     = id_Departamento, servico_docente__turma__ano__exact= ano)\
+                                                     .filter(docente_id__exact = l.id)
+                for m in listServicoTemp:
+                    horasTemp += m.horas
+                    pass
+                if horasTemp > MAXIMO_HORAS: 
+                    listToSend.append([l.id, l.nome_completo, len(listServicoTemp), horasTemp])
+                    nrDocExcedHoras +=1
+                    pass
             pass
-            
-        
-        
-        
-        
-        
+        sizeList = len(listToSend)
         pass
+    
     elif 'show' in request.GET or request.GET == {} or request.GET.get("actualState") == "show":
         actualState = "actualState=show"
 
@@ -588,8 +595,6 @@ def listDocentes(request):
 
 
         pass
-
-
 
     paginator = Paginator(listToSend, 10)
     drange = range(1, paginator.num_pages + 1)
