@@ -113,12 +113,12 @@
 		</tr>
 		<tr>
 			<th class="sub_cabecalho">
-				<a href='{% url listDocentesDep%}?docExcedHours=False'>
+				<a href='{% url listDocentesDep%}?docExcedHours=False&ano={{ano}}'>
 					<span>Docentes a exceder o número de horas</span>
 				</a>
 			</th>
 			<td>
-				<a href='{% url listDocentesDep%}?docExcedHours=False'>
+				<a href='{% url listDocentesDep%}?docExcedHours=False&ano={{ano}}'>
 					<span>
 						{{nrDocExcedHoras}}
 					</span>
@@ -127,12 +127,12 @@
 		</tr>
 		<tr>
 			<th class="sub_cabecalho" >
-				<a href='{% url listDocentesDep%}?docExcedHours=True'>
+				<a href='{% url listDocentesDep%}?docExcedHours=True&ano={{ano}}'>
 					<span>Docentes com nenhuma hora atribuida</span>
 				</a>
 			</th>
 			<td>
-				<a href='{% url listDocentesDep%}?docExcedHours=True'>
+				<a href='{% url listDocentesDep%}?docExcedHours=True&ano={{ano}}'>
 					<span>
 						{{nrDocSemHoras}}
 					</span>
