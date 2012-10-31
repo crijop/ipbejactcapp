@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from distro.models import Docente, Contrato, Docente, UnidadeCurricular, Turma
+from distro.models import Docente, Contrato, Docente, UnidadeCurricular, Turma, \
+    Modulos
 from django.contrib.auth.decorators import login_required, user_passes_test, \
     login_required, user_passes_test
 from django.core.exceptions import ObjectDoesNotExist
@@ -11,9 +12,10 @@ from twisted.python.reflect import ObjectNotFound
 from types import NoneType
 from xlwt import Cell
 from xlwt.Formatting import Font, Borders, Pattern
-from xlwt.Style import XFStyle
+from xlwt.Style import XFStyle, easyxf
 from xlwt.Workbook import Workbook
 import time
+import xlwt
 
 
 
@@ -49,9 +51,10 @@ def indexCientifico(request):
 def criarXLS(request):
 
     wb = Workbook()
-    createXLS_sheet1(wb)
-    folhaDocentes1011()
-    
+    #createXLS_sheet1(wb)
+    #folhaDocentes1011(wb)
+    createXLS_sheet0(wb)
+    #wb.save('wwdw.xls')
 
     return render_to_response("cientifico/criar_xls.html",
         locals(),
@@ -60,28 +63,30 @@ def criarXLS(request):
     pass
 
 
+def createXLS_sheet0(wb):
+    #Nome Folha
+    ws0 = wb.add_sheet('Matriz_SD')
 
-
-
-def folhaDocentes1011():
-    style = XFStyle()
-
-
-
-    wb = Workbook()
-    ws0 = wb.add_sheet('0')
-
+    #Estilos
+    style = xlwt.easyxf('pattern: pattern solid, fore_colour green')
+    borders = Borders()
+    borders.left    = 5
+    borders.right   = 5
+    borders.top     = 5
+    borders.bottom  = 5
+    style.borders = borders
     
-
     lista = []
-    lisDocentes = Docente.objects.filter()
-
-    listaCAB = ["DEP DOCENTE",
+    
+    listaCAB = ["UO do Curso",
+                "DEP DOCENTE",
                 "NOME DOCENTE",
+                "Convidado ou C. Externo",
                 "CATEGORIA",
                 "%",
                 u"CURSO, ou indicação de CARGO ou FIM DOUT",
                 "Tipo CURSO",
+                "Regime/Turma CURSO",
                 u"UNIDADE de FORMAÇÃO ou UNIDADE CURRICULAR, CARGO ou FIM DOUT",
                 "DEP UF ou UC",
                 "ID CNAEF",
@@ -135,32 +140,84 @@ def folhaDocentes1011():
     
     #Cabeçalhos do XLS
     col = 0
+    row = 0
     for lCab in listaCAB:
-        ws0.write(0, col, lCab)
+        ws0.write(row, col, lCab, style)
         col += 1
-    print col
+    
+    listaModulos = Modulos.objects.all()
+    
+    for modulos in listaModulos: 
+        lista.append([modulos.servico_docente.turma.unidade_curricular.departamento.sede.abreviatura,\
+                      modulos.docente.departamento.nome,\
+                      modulos.docente.nome_completo,\
+                      0,\
+                      Contrato.objects.get(docente_id__exact = modulos.docente_id).categoria.nome,\
+                      modulos.docente.escalao,\
+                      modulos.servico_docente.turma.unidade_curricular.curso.nome,\
+                      modulos.servico_docente.turma.unidade_curricular.curso.tipo_curso.abreviatura,\
+                      "", modulos.servico_docente.turma.unidade_curricular.nome,\
+                      modulos.servico_docente.turma.unidade_curricular.departamento.nome
+                      ])
+    lista.sort()
+    row = 1
+    col = 0
+    for linha in lista:
+        for l in linha:
+            ws0.write(row, col, l)
+            col += 1
+        col = 0
+        row += 1
+    wb.save('decdcd.xls')
+
+def folhaDocentes1011(wb):
+    #Nome Folha
+    ws0 = wb.add_sheet('Docentes1011')
+    
+    #Estilos
+    style = xlwt.easyxf('pattern: pattern solid, fore_colour green')
+    borders = Borders()
+    borders.left    = 5
+    borders.right   = 5
+    borders.top     = 5
+    borders.bottom  = 5
+    style.borders = borders
+    
+
+    lista = []
+    lisDocentes = Docente.objects.filter()
+    
+    listaCAB = ["DEP DOCENTE",
+                "NOME DOCENTE",
+                "CATEGORIA",
+                "%"
+                ]
+   
+    #Cabeçalhos do XLS
+    col = 0
+    row = 0
+    for lCab in listaCAB:
+        ws0.write(row, col, lCab, style)
+        col += 1
     
     for docente in lisDocentes: 
         contratos = Contrato.objects.filter(docente_id__exact = docente.id)
         for c in contratos:
-            lista.append([unicode(docente.departamento.nome), unicode(docente.nome_completo), unicode(c.categoria.nome), unicode(docente.escalao)])
-
+            lista.append([unicode(docente.departamento.nome),\
+                          unicode(docente.nome_completo), \
+                          unicode(c.categoria.nome), \
+                          unicode(docente.escalao)]\
+                         )
     lista.sort()
     row = 1
     col = 0
-    i = 0 
-    print lista
-    for l in lista:
-        print col, " -> ", i
-        ws0.write(row, 0, l[0])
-        ws0.write(row, 1, l[1])
-        ws0.write(row, 2, l[2])
-        ws0.write(row, 3, l[3])
-        
+    for linha in lista:
+        for l in linha:
+            ws0.write(row, col, l)
+            col += 1
+        col = 0
         row += 1
-        col += 1
-        i   += 1
-    wb.save('docentes1011.xls')
+    #wb.save('docentes1011.xls')
     pass
 
 
@@ -247,7 +304,7 @@ def createXLS_sheet1(wb):
     
    
     print "Storing..."
-    wb.save('big-16Mb.xls')
+    #wb.save('big-16Mb.xls')
     
     #t2 = time() - t0
     print "Finished ... "
@@ -256,3 +313,4 @@ def createXLS_sheet1(wb):
 '''
 Fim das vistas do Ciêntifico
 '''
+
