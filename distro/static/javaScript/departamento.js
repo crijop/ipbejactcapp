@@ -2,6 +2,8 @@ var selectedTeacher = null;
 
 var modulTable = null;
 
+
+
 var added = new Array();
 
 function highlight(obj) {
@@ -17,12 +19,26 @@ function highlight(obj) {
 
 function highlightModul(obj) {
 	if (modulTable != null) {
+		
 		modulTable.className = "tabela_sumario modulsTable";
+		modulTable.deleteRow(3);
+		
 	}
 
 	obj.className = "tabela_sumario selectModulo";
 
 	modulTable = obj;
+	
+	var nRows = modulTable.rows.length;
+	
+	var newRow = modulTable.insertRow(3);
+	newCell1 = newRow.insertCell(0);
+	newCell1.colSpan = "2";
+	newCell1.innerHTML = '<a href="#" >Delgar a outro departamento</a>';
+	newCell2 = newRow.insertCell(1);
+	newCell2.innerHTML = '<a href="#" ><img src="/static/images/icons/changeDep.png" /></a>';
+	
+	
 }
 
 function addDocente_to_modul() {
@@ -35,9 +51,10 @@ function addDocente_to_modul() {
 
 	}
 
+	
 	var nRows = modulTable.rows.length;
 
-	if (modulTable != null && selectedTeacher != null) {
+	if (modulTable != null && selectedTeacher != null && modulTable.rows[2].cells[1].innerHTML == "") {
 
 		var numOfCols = modulTable.rows[nRows - 1].cells.length;
 
@@ -63,15 +80,42 @@ function addDocente_to_modul() {
 	}
 }
 
+/*function contains(arr, findValue) {
+    var i = arr.length;
+     
+    while (i--) {
+        if (arr[i] === findValue) return true;
+    }
+    return false;
+}*/
+
 function deleteRowTable(obj) {
 
 	var row = obj.rows[2];
-
-	var idValue_main = row.cells[0].childNodes[0].value;
-
+	
+	
+	
+	if(row.cells[0].childNodes[1] != null)
+	{
+		alert("true");
+		var idValue_main = row.cells[0].childNodes[1].value;
+		
+	}
+	else if (row.cells[0].childNodes[0] != null)
+	{
+		alert("false");
+		var idValue_main = row.cells[0].childNodes[0].value;
+		
+	}
+	
+	
+	
+	
+	alert(idValue_main);
+	
 	for (var i = 0; i < added.length; i++) {
 		var idValeu = added[i].cells[0].innerHTML;
-
+		
 		if (idValue_main == idValeu) {
 
 			added[i].className = "";
@@ -92,17 +136,20 @@ function initial() {
 
 	var table = document.getElementsByClassName("modulsTable");
 
+	
 	for (var i = 0; i < table.length; i++) {
 
 		if (table[i].rows[2].cells[0].childNodes[0].value != null && table[i].rows[2].cells[0].childNodes[0].value != "") 
 		{
 			teachersId[i] = table[i].rows[2].cells[0].childNodes[0].value;
 			
+			
 		} else if (table[i].rows[2].cells[0].childNodes[1].value != null && table[i].rows[2].cells[0].childNodes[1].value != "") 
 		{
 			
 
 			teachersId[i] = table[i].rows[2].cells[0].childNodes[1].value;
+			
 			
 
 		}
@@ -118,9 +165,14 @@ function initial() {
 		for (var k = 0; k < teachersId.length; k++) {
 			if (row.cells[0].innerHTML == teachersId[k]) {
 				added[added.length] = row;
+				
 				row.className += " added";
 			}
 		}
 	}
+	
+	
+	
+	
 
 }

@@ -57,10 +57,10 @@
 			</form></th>
 		</tr>
 		<tr>
-	    	<th colspan="7" align="left">{{anoReferente}}</th>
+	    	<th colspan="6" align="left">{{anoReferente}}</th>
 	    </tr>
 		<tr>
-			<th></th>
+			
 			<th class="cabecalho_sumario">Unidade Curricular</th>
 			<th class="cabecalho_sumario">Curso</th>
 			<th class="cabecalho_sumario">Número de Horas</th>
@@ -70,8 +70,7 @@
 		</tr>
 		{% for unidadeCurricular, idTurma, curso, horas, nrAlunos, tipoAula, turno in turmas %}
 		<tr>
-			<td ><a href="{{id_Docente}}"><span class="view"></span></a></td>
-			<td class="teacher_name_field"><a href="#">{{unidadeCurricular}}</a></td>
+			<td class="teacher_name_field">{{unidadeCurricular}}</td>
 			<td>{{curso}}</td>
 			<td>{{horas}}</td>
 			<td>{{nrAlunos}}</td>
@@ -83,7 +82,7 @@
 		{%if sizeList == 0 %}
 		
 		<tr>
-			<td colspan="7">Não existem resultados para esta pesquisa</td>
+			<td colspan="6">Não existem resultados para esta pesquisa</td>
 		</tr>
 		
 		{% endif %}
