@@ -434,6 +434,24 @@ class Turma(models.Model):
                                    blank=True,
                                    default='',
                                    help_text=u'informação relevante')
+    
+    observacoesDirEscola = models.TextField(max_length=500,
+                                   null=True,
+                                   blank=True,
+                                   default='',
+                                   help_text=u'Fundamentação Turmas (Director de Escola)')
+    
+    observacoesDirDepartamento = models.TextField(max_length=500,
+                                   null=True,
+                                   blank=True,
+                                   default='',
+                                   help_text=u'OBSERVAÇÕES Director de Departamento')
+    
+    observacoesPresidencia = models.TextField(max_length=500,
+                                   null=True,
+                                   blank=True,
+                                   default='',
+                                   help_text=u'OBSERVAÇÕES Presidência')
 
 
     def __unicode__(self):
@@ -449,7 +467,7 @@ class Modulos(models.Model):
     '''
     Modulos das turmas
     '''
-    
+
     servico_docente   = models.ForeignKey('ServicoDocente',
                                 null=True,
                                 blank=True)
@@ -461,6 +479,11 @@ class Modulos(models.Model):
     departamento = models.ForeignKey('Departamento',
                                     null=True,
                                     blank=True)
+    
+    aprovacao = models.IntegerField(default=0, 
+                                      blank=True,
+                                      null=True,
+                                      help_text=u'Aprovar se o modulo pode ser atribuido a outro departamento')
     
     def __unicode__(self):
         return unicode(self.servico_docente) + " " + unicode(self.docente) + " horas = " + unicode(self.horas)
