@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from distro.models import Docente, Contrato, Docente, UnidadeCurricular, Turma, \
-    Modulos
+    Modulos, TipoAula
 from django.contrib.auth.decorators import login_required, user_passes_test, \
     login_required, user_passes_test
 from django.core.exceptions import ObjectDoesNotExist
@@ -61,6 +61,7 @@ def criarXLS(request):
         context_instance=RequestContext(request),
         )
     pass
+
 
 
 def createXLS_sheet0(wb):
@@ -146,8 +147,10 @@ def createXLS_sheet0(wb):
         col += 1
     
     listaModulos = Modulos.objects.all()
-    
-    for modulos in listaModulos: 
+    nrHorasDocente = 0
+    for modulos in listaModulos:
+        #Calcular as horas dos docentes anual...
+        
         lista.append([modulos.servico_docente.turma.unidade_curricular.departamento.sede.abreviatura,\
                       modulos.docente.departamento.nome,\
                       modulos.docente.nome_completo,\
@@ -157,8 +160,30 @@ def createXLS_sheet0(wb):
                       modulos.servico_docente.turma.unidade_curricular.curso.nome,\
                       modulos.servico_docente.turma.unidade_curricular.curso.tipo_curso.abreviatura,\
                       "", modulos.servico_docente.turma.unidade_curricular.nome,\
-                      modulos.servico_docente.turma.unidade_curricular.departamento.nome
+                      modulos.servico_docente.turma.unidade_curricular.departamento.nome,
+                      modulos.servico_docente.turma.unidade_curricular.cnaef.codigo,
+                      modulos.servico_docente.turma.unidade_curricular.ects,
+                      modulos.servico_docente.turma.unidade_curricular.ano,
+                      modulos.servico_docente.turma.unidade_curricular.semestre,
+                      modulos.servico_docente.turma.unidade_curricular.epoca.abreviatura,
+                      modulos.servico_docente.turma.numero_alunos, "", "", "", "", "", "", "", "", "",
+                      modulos.servico_docente.turma.unidade_curricular.horas_lei_t,
+                      modulos.servico_docente.turma.unidade_curricular.horas_lei_tp,
+                      modulos.servico_docente.turma.unidade_curricular.horas_lei_pl,
+                      modulos.servico_docente.turma.unidade_curricular.horas_lei_tc,
+                      modulos.servico_docente.turma.unidade_curricular.horas_lei_s,
+                      modulos.servico_docente.turma.unidade_curricular.horas_lei_e,
+                      "", "",
+                      modulos.servico_docente.turma.unidade_curricular.horas_lei_ot,
+                      modulos.servico_docente.turma.unidade_curricular.horas_lei_o,
+                      "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", 
+                      "-", 
+                      modulos.servico_docente.turma.observacoesDirDepartamento, 
+                      modulos.servico_docente.turma.observacoesDirEscola,
+                      modulos.servico_docente.turma.observacoesPresidencia, "", ""
                       ])
+           
+           
     lista.sort()
     row = 1
     col = 0
@@ -169,7 +194,7 @@ def createXLS_sheet0(wb):
         col = 0
         row += 1
     wb.save('decdcd.xls')
-
+    
 def folhaDocentes1011(wb):
     #Nome Folha
     ws0 = wb.add_sheet('Docentes1011')
