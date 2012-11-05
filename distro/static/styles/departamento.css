@@ -207,4 +207,38 @@ table.tabela_sumario .hoursDownLimit
 }
 
 
+/***********************************************************************************/
+/*
+ * Oculpa o campo de delegação de departamento nos modulos
+ * 
+ */
+
+tr.hideDelegate
+{
+	display: none;
+}
+
+/*
+ * Mostra o campo de deleagção de departamento nos modulos
+ * 
+ */
+tr.showDelegate
+{
+	display: table-row;
+	
+}
+/**
+ * 	Coloca a tabela a cinza se tiver delegado
+ */
+table.haveDelegate th
+{
+	background: #494949;
+}
+
+table.haveDelegate td
+{
+	background: #AAAAAA;
+}
+
+
 
