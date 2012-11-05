@@ -115,7 +115,7 @@ urlpatterns = patterns('',
     url(r'^distro/departamento/listDocentes/filter_cat/$', 'ipbejactcapp.distro.view_departamento.filter_cat'),
                        
     url(r'^distro/departamento/listDocentes/(?P<id_docente>\d+)/$', 'ipbejactcapp.distro.view_departamento.infoDocenteDep'),        
-
+    #####################################################################################################################
     #turmas sem serviço docente atribuido
     #template de adicionar docente ao serviço docente
     url(r'^distro/departamento/turmaSemSevicoDocente/(?P<ano>\d+)/$', 
@@ -138,6 +138,9 @@ urlpatterns = patterns('',
     
     #Filtro por curso                  
     url(r'^distro/departamento/turmaSemSevicoDocente/(?P<ano>\d+)/filter_curso/$', 'ipbejactcapp.distro.view_departamento.filter_curso'),
+    
+    #Mostra a combo de escolha dos departamentos                 
+    url(r'^distro/departamento/turmaSemSevicoDocente/addServicoDocente/(?P<id_servico>\d+)/(?P<id_Departamento>\d+)/(?P<ano>\d+)/combotodelegate$', 'ipbejactcapp.distro.view_departamento.addComboToDelegate'),
     
     ##TURMAS#########################################################################################################
      url(r'^distro/departamento/listarTurmas/(?P<ano>\d+)/filter_abc/$', 

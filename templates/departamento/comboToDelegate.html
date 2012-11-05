@@ -1,0 +1,6 @@
+<td colspan="2"><select name="delegateDep[]">
+	{% for dep in depList %}
+	<option value="{{dep.id}}">{{dep.nome}}</option>
+	{% endfor %}
+</select></td>
+<td><a href="#" onclick="rolebackDelegate(this.parentNode.parentNode);" ><span class='delButton'></span></a></td>

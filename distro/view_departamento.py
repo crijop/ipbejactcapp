@@ -29,6 +29,26 @@ import unicodedata
 DepUserTeste = user_passes_test(lambda u:u.groups.filter(Q(name='Departamento') | Q(name='Eng')).count(), login_url='/')
 
 '''
+Método responsavel por
+colocar a combo box para o 
+utilizaodr escolher um departamento
+para delegar o modulo
+'''
+@login_required(redirect_field_name='login_redirectUsers')
+@DepUserTeste
+def addComboToDelegate(request, *args, **kwargs):
+
+    if request.is_ajax():
+
+        depList = Departamento.objects.exclude(id__exact = request.session['dep_id'])
+        
+        
+        return render_to_response("departamento/comboToDelegate.html",
+        locals(),
+        context_instance=RequestContext(request),
+        )
+
+'''
 Metodo responsavel por tratar o pediodo AJAX de aparecimento do filtro de ordenação por
 uma letra do alfabeto
 presente na lista de docentes e lista de contratos
@@ -1277,10 +1297,10 @@ class AtribuirServicoDocenteFormPreview(FormPreview):
             if(lm.docente_id != None):
                 nomeDocente = Docente.objects.get(id__exact = lm.docente_id).nome_completo
                 
-                lModulos.append([lm.id, lm.horas, lm.docente_id, lm.servico_docente_id, nomeDocente, "", ""])
+                lModulos.append([lm.id, lm.horas, lm.docente_id, lm.servico_docente_id, nomeDocente, "", lm.departamento])
                 #cont +=1 
             else:
-                lModulos.append([lm.id, lm.horas, lm.docente_id, lm.servico_docente_id, "", "", ""])
+                lModulos.append([lm.id, lm.horas, lm.docente_id, lm.servico_docente_id, "", "", lm.departamento])
                 #cont +=1
             pass
         
@@ -1320,6 +1340,8 @@ class AtribuirServicoDocenteFormPreview(FormPreview):
       
         
         docentesID = dict(request.POST)[u'docenteID[]']
+        
+        depDelegated = dict(request.POST)[u'delegateDep[]']
         
         
         nomeTurma = ServicoDocente.objects.get(id__exact = id_servico).turma.unidade_curricular.nome
