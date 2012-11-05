@@ -64,7 +64,13 @@ def filter_abc(request, *args, **kwargs):
         locals(),
         context_instance=RequestContext(request),
         )
-
+        
+'''
+Metodo responsavel por tratar o pediodo AJAX de aparecimento do filtro de ordenação por
+uma letra do alfabeto
+presente na lista de docentes e lista de contratos.
+Neste caso sem receber parametros do Url, a não ser o request
+'''
 def filter_abcd(request):
 
 
@@ -75,6 +81,7 @@ def filter_abcd(request):
         locals(),
         context_instance=RequestContext(request),
         )
+        
 '''
 Método responsavel por tratar o pedido ajax para o aparecimento da filtragem por categorias
 '''
@@ -92,6 +99,9 @@ def filter_cat(request):
         context_instance=RequestContext(request),
         )
         
+'''
+Método responsavel por tratar o pedido ajax para o aparecimento da filtragem por cursos
+'''
 @login_required(redirect_field_name='login_redirectUsers')
 @DepUserTeste
 def filter_curso(request, ano):
@@ -112,6 +122,8 @@ def filter_curso(request, ano):
         context_instance=RequestContext(request),
         )
         
+#Método responsável por remover elementos
+#repetidos numa lista
 def removeRepetidosLista(l):
     # cria um dicionario em branco
     dict = {}
@@ -141,6 +153,9 @@ def calcularAno():
 '''
 Inicio das vistas do Departamento
 '''
+#View da página index do departamento.
+#só vai entrar nesta view se o utilizador estiver autenticado
+#e se pertencer ao grupo de Departamento.
 @login_required(redirect_field_name='login_redirectUsers')
 @DepUserTeste
 def indexDepartamento(request):
@@ -185,6 +200,8 @@ def indexDepartamento(request):
     sizeListSDoc = len(listToSendSDoc)        
     sizeListCDoc = len(listToSendCDoc)
     
+    #Responsavel por ver os Docentes com excesso de horas
+    #atribuidas e os docentes com nenhuma hora atribuida.
     
     listaDocentesDepartamento = Docente.objects.filter(departamento_id__exact = id_Departamento)
     
@@ -216,6 +233,10 @@ def indexDepartamento(request):
     pass
 
 
+#view responsavel por filtrar as Turmas pertencentes ao
+#Departamento que estiver autenticado.
+#só vai entrar nesta view se o utilizador estiver autenticado
+#e se pertencer ao grupo de Departamento.
 @login_required(redirect_field_name='login_redirectUsers')
 @DepUserTeste
 def listarTurmasDepart(request, ano):
@@ -390,6 +411,7 @@ def search_docente(search_List, allDocentes, listateste, count=0):
         pass
 
     pass
+
 '''
 Metodo responsavel por fazer as pesquisas por unidade curricular do campo de procura
 '''
@@ -652,6 +674,7 @@ def listarAnos(id_departamento):
     listaAnos = removeDuplicatedElements(listaAnos)
     return listaAnos
     pass
+
 '''
 Responsavel por remover elementos duplicados na lista final da pesquisa
 '''
@@ -667,7 +690,10 @@ def removeDuplicatedElements(dataList):
                 last = templist[i]
     return templist
 
-
+#View responsavel por representar a informação de um 
+#determinado docente. o metodo recebe o id_docente em questão
+#só vai entrar nesta view se o utilizador estiver autenticado
+#e se pertencer ao grupo de Departamento.
 @login_required(redirect_field_name='login_redirectUsers')
 @DepUserTeste
 def infoDocenteDep(request, id_docente):
@@ -793,14 +819,13 @@ def search_curso_nsd(search_List, allServicos, lista, count=0):
             
         lista.sort()
         pass
+
 '''
 Metodo responsavel por fazer as pesquisas por unidade curricular do campo de procura 
 na lista de serviços docente já atribuidos
 '''
 def search_unidadeCurricurlar_sd(search_List, allServicos, lista, count=0):
     
-    
-
     listServicos = []
     searchList = search_List
 
@@ -843,6 +868,7 @@ def search_unidadeCurricurlar_sd(search_List, allServicos, lista, count=0):
             
         lista.sort()
         pass
+
 '''
 Metodo responsavel por fazer as pesquisas por unidade curricular do campo de 
 procura na lista de serviços docente por atribuir
@@ -1050,7 +1076,6 @@ def  listServicoDocente(request, ano):
     
 '''
 Informação por Modulos pertencente ao Docente 
-já com serviço de Docente atribuido em cada ano
 '''    
 @login_required(redirect_field_name='login_redirectUsers')
 @DepUserTeste
@@ -1062,7 +1087,7 @@ def infoModulosDocente(request, id_docente, ano):
         )
     
 '''
-Informação por Modulos pertencente ao Docente 
+Informação por Modulos pertencente a cada turma 
 já com serviço de Docente atribuido em cada ano
 '''    
 @login_required(redirect_field_name='login_redirectUsers')
@@ -1242,6 +1267,8 @@ def addServicoDocenteDepart(request, ano):
     pass
 
 
+#Metodo responsavel por tratar o pediodo AJAX do aparecimento
+#do Butão para adicionar o Serviço Docente.
 def showSaveButton(request, id_servico, id_Departamento, ano):
     if request.is_ajax():
 
@@ -1251,6 +1278,11 @@ def showSaveButton(request, id_servico, id_Departamento, ano):
         pass
     pass
 
+
+#View responsavél por atribuir o serviço docente
+#Responsavel por apresentar o formulario ao utilizador.
+#só vai entrar nesta view se o utilizador estiver autenticado
+#e se pertencer ao grupo de Departamento.
 @login_required(redirect_field_name='login_redirectUsers')
 @DepUserTeste
 def viewFormClass(request, *args, **kwargs):
@@ -1259,7 +1291,10 @@ def viewFormClass(request, *args, **kwargs):
     pass
 
 
-
+#Class Criada para tratar do formulario
+#atribuir o serviço docente.
+#mais propriamente para fazer a confirmação dos dados do
+#formulário a enviar.
 class AtribuirServicoDocenteFormPreview(FormPreview):
     preview_template = 'departamento/pageConfirForm.html'
     form_template = 'departamento/adicionarServicoDocente.html'
@@ -1324,8 +1359,7 @@ class AtribuirServicoDocenteFormPreview(FormPreview):
             raise Http404("Invalid")
         pass
 
-    #@login_required(redirect_field_name='login_redirectUsers')
-    #@DepUserTeste
+    
     def preview_post(self, request):
         id_departamento = request.session['dep_id']
         listaAnos = listarAnos(id_departamento)
@@ -1388,8 +1422,8 @@ class AtribuirServicoDocenteFormPreview(FormPreview):
             return render_to_response(self.preview_template, context, context_instance=RequestContext(request))
         else:
             return render_to_response(self.form_template, context, context_instance=RequestContext(request))
-    #@login_required(redirect_field_name='login_redirectUsers')
-    #@DepUserTeste
+    
+    
     def post_post(self, request):
         "Validates the POST data. If valid, calls done(). Else, redisplays form."
 
