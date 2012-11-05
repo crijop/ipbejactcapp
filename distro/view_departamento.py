@@ -1299,7 +1299,7 @@ class AtribuirServicoDocenteFormPreview(FormPreview):
     preview_template = 'departamento/pageConfirForm.html'
     form_template = 'departamento/adicionarServicoDocente.html'
   
-    def get_context(self, request, form, docentesID, listaAnos, lModulos, listaDocentes, erro):
+    def get_context(self, request, form, docentesID, listaAnos, lModulos, listaDocentes, erro, depList):
 
         "Context for template rendering."
 
@@ -1311,7 +1311,8 @@ class AtribuirServicoDocenteFormPreview(FormPreview):
                 'listaAnos' : listaAnos,
                 'lModulos': lModulos,
                 'listaDocentes': listaDocentes,
-                'erro': erro
+                'erro': erro,
+                'depList': depList
                 }
 
     def preview_get(self, request):
@@ -1377,6 +1378,7 @@ class AtribuirServicoDocenteFormPreview(FormPreview):
         
         depDelegated = dict(request.POST)[u'delegateDep[]']
         
+        print depDelegated
         
         nomeTurma = ServicoDocente.objects.get(id__exact = id_servico).turma.unidade_curricular.nome
         #precorre se o array de ID de docente faz-se uma consulta pelo seu ID para se obter o Nome e 
@@ -1400,11 +1402,16 @@ class AtribuirServicoDocenteFormPreview(FormPreview):
         cont = 0 
         lModulos = []
         for lm in listaModuls:
-            
-            lModulos.append([lm.id, lm.horas, docentesID[cont], lm.servico_docente_id, lista_docentesFinal[cont][0], lista_docentesFinal[cont][1]])
+            if depDelegated[cont] == 0:
+                lModulos.append([lm.id, lm.horas, docentesID[cont], lm.servico_docente_id, lista_docentesFinal[cont][0], lista_docentesFinal[cont][1], lm.departamento, 0])
+            else:
+                lModulos.append([lm.id, lm.horas, docentesID[cont], lm.servico_docente_id, lista_docentesFinal[cont][0], lista_docentesFinal[cont][1], lm.departamento, depDelegated[cont]])
             cont +=1 
             pass
            
+        
+        depList = Departamento.objects.exclude(id__exact = id_departamento)
+        
         
       
         
@@ -1413,7 +1420,7 @@ class AtribuirServicoDocenteFormPreview(FormPreview):
         b = ServicoDocente.objects.get(id=id_servico)
         
         f = AdicionarServicoDocenteForm(request.POST, instance=b)
-        context = self.get_context(request, f, docentesID, listaAnos, lModulos, listaDocentes, erro)
+        context = self.get_context(request, f, docentesID, listaAnos, lModulos, listaDocentes, erro, depList)
         if f.is_valid(modulosID, docentesID):
              
             self.process_preview(request, f, context)
