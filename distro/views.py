@@ -18,7 +18,8 @@ from django.template.context import RequestContext
 
 #login_required - só entra nesta vista se
 #o utilizador estiver autênticado
-#vista para a Página Home
+#vista para a Página Home de cada utilizador
+#autenticado.
 @login_required
 def login_redirectUsers(request):
     
@@ -98,7 +99,7 @@ def login_redirectUsers(request):
 '''
 Inicio das vistas dos Coordenadores Cursos
 '''
-#Falta a tabela para definir os Coordenadores...............................
+#Falta a tabela para definir os Coordenadores...........
 #Falta fazer o url's
 @login_required(redirect_field_name='login_redirectUsers')
 def indexCoordCursos(request):
@@ -136,6 +137,8 @@ Fim das vistas dos Directores de Escola
 Inicio das vistas dos docentes
 ''' 
 #Página Inicial do utilizador Docente
+#Só entra nesta view se o utilizador estiver autentitcado
+#e se o utilizador pertencer ao Grupo Docente.
 @login_required(redirect_field_name='login_redirectUsers')
 @user_passes_test(lambda u:u.groups.filter(name='Docente').count())
 def indexDocente(request):
@@ -181,6 +184,8 @@ def indexDocente(request):
 
     
 #Página de apresentação das turmas a que os Docentes pertencem
+#Só entra nesta view se o utilizador estiver autentitcado
+#e se o utilizador pertencer ao Grupo Docente.
 @login_required(redirect_field_name='login_redirectUsers')
 @user_passes_test(lambda u:u.groups.filter(name='Docente').count())
 def turmasDocentes(request):    
@@ -201,6 +206,8 @@ def turmasDocentes(request):
         )    
     
 #Página de apresentação das horas de serviço pertencente a cada Docente
+#Só entra nesta view se o utilizador estiver autentitcado
+#e se o utilizador pertencer ao Grupo Docente.
 @login_required(redirect_field_name='login_redirectUsers')
 @user_passes_test(lambda u:u.groups.filter(name='Docente').count())
 def horasServico(request):
