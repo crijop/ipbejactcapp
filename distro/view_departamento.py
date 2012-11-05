@@ -26,7 +26,7 @@ import unicodedata
 
 
 
-DepUserTeste = user_passes_test(lambda u:u.groups.filter(Q(name='Departamento') | Q(name='Eng')).count(), login_url='/')
+DepUserTeste = user_passes_test(lambda u:u.groups.filter(Q(name='Departamento') | Q(name='Eng') | Q(name='B')).count(), login_url='/')
 
 '''
 Método responsavel por
@@ -1135,7 +1135,9 @@ def addServicoDocenteDepart(request, ano):
     listToSend = []
     
     listaServicoDocente = ServicoDocente.objects.filter(turma__unidade_curricular__departamento_id__exact = id_Departamento, turma__ano__exact = ano)
+    listModulosDelegados = Modulos.objects.filter(servico_docente__turma__ano__exact = ano, departamento_id__exact = id_Departamento).filter(docente_id__exact = None)
    
+    
     '''
     Lista pela pesquisa efectuada
     '''    
@@ -1161,6 +1163,11 @@ def addServicoDocenteDepart(request, ano):
                     
                     
                     listToSend.append([servico.id, unidade, turma.turno, tipo_aula, servico.horas, id_turma])
+           
+            for lm in listModulosDelegados:
+               
+                listToSend.append([lm.servico_docente.id, lm.servico_docente.turma.unidade_curricular.nome, lm.servico_docente.turma.turno, lm.servico_docente.turma.tipo_aula.tipo, lm.servico_docente.horas, lm.servico_docente.turma.id])
+                
         else:
             finalkeyword = unicodedata.normalize('NFKD', keyword.lower()).encode('ASCII', 'ignore')
             listSplited = splitSearchPhrase(finalkeyword)
@@ -1235,7 +1242,7 @@ def addServicoDocenteDepart(request, ano):
         actualState = "actualState=show"
     
         for servico in listaServicoDocente:
-            modulos = Modulos.objects.filter(servico_docente_id__exact = servico.id).filter(docente_id__exact = None)
+            modulos = Modulos.objects.filter(servico_docente_id__exact = servico.id).filter(docente_id__exact = None).filter(departamento_id__exact = None)
             if(len(modulos) != 0):
                 modulos = modulos.reverse()[0]
                 turma = Turma.objects.get(id__exact=servico.turma_id)
@@ -1244,6 +1251,11 @@ def addServicoDocenteDepart(request, ano):
                 id_servico = servico.id
                 
                 listToSend.append([id_servico, unidade, turma.turno, tipo_aula, servico.horas])
+        
+        for lm in listModulosDelegados:
+               
+                listToSend.append([lm.servico_docente.id, lm.servico_docente.turma.unidade_curricular.nome, lm.servico_docente.turma.turno, lm.servico_docente.turma.tipo_aula.tipo, lm.servico_docente.horas, lm.servico_docente.turma.id])
+                
         sizeList = len(listToSend)
     
     listToSend.sort()
@@ -1300,7 +1312,7 @@ class AtribuirServicoDocenteFormPreview(FormPreview):
     preview_template = 'departamento/pageConfirForm.html'
     form_template = 'departamento/adicionarServicoDocente.html'
   
-    def get_context(self, request, form, docentesID, listaAnos, lModulos, listaDocentes, erro, depList):
+    def get_context(self, request, form, docentesID, listaAnos, lModulos, listaDocentes, erro, depList, id_departamento):
 
         "Context for template rendering."
 
@@ -1313,7 +1325,8 @@ class AtribuirServicoDocenteFormPreview(FormPreview):
                 'lModulos': lModulos,
                 'listaDocentes': listaDocentes,
                 'erro': erro,
-                'depList': depList
+                'depList': depList,
+                'id_departamento': id_departamento
                 }
 
     def preview_get(self, request):
@@ -1326,25 +1339,57 @@ class AtribuirServicoDocenteFormPreview(FormPreview):
         modulosID  = None
         docentesID = None
         
-
-        listaModuls = Modulos.objects.filter(servico_docente_id__exact = id_servico)
-        #cont = 0 
-        lModulos = []
-        for lm in listaModuls:
-            if(lm.docente_id != None):
-                nomeDocente = Docente.objects.get(id__exact = lm.docente_id).nome_completo
+        depEspecial = ServicoDocente.objects.get(id__exact = id_servico)
+        if(depEspecial.turma.unidade_curricular.departamento.id == id_departamento):
+            listaModuls = Modulos.objects.filter(servico_docente_id__exact = id_servico)
+            #cont = 0 
+            lModulos = []
+            for lm in listaModuls:
                 
-                lModulos.append([lm.id, lm.horas, lm.docente_id, lm.servico_docente_id, nomeDocente, "", lm.departamento])
-                #cont +=1 
-            else:
-                lModulos.append([lm.id, lm.horas, lm.docente_id, lm.servico_docente_id, "", "", lm.departamento])
-                #cont +=1
-            pass
-        
-        print lModulos
-        
-        listaDocentes = Docente.objects.filter(departamento_id__exact = id_departamento)
-        lista_docentesFinal = None
+                if(lm.docente_id != None):
+                    nomeDocente = Docente.objects.get(id__exact = lm.docente_id).nome_completo
+                    
+                    lModulos.append([lm.id, lm.horas, lm.docente_id, lm.servico_docente_id, nomeDocente, "", lm.departamento])
+                    #cont +=1 
+                else:
+                    try:
+                        lModulos.append([lm.id, lm.horas, lm.docente_id, lm.servico_docente_id, "", "", lm.departamento])
+                    except Departamento.DoesNotExist:
+                        lModulos.append([lm.id, lm.horas, lm.docente_id, lm.servico_docente_id, "", "", None])
+                        
+                    #cont +=1
+                pass
+            
+            print lModulos
+            
+            listaDocentes = Docente.objects.filter(departamento_id__exact = id_departamento)
+            lista_docentesFinal = None
+        else:
+            listaModuls = Modulos.objects.filter(servico_docente_id__exact = id_servico, departamento_id__exact = id_departamento, aprovacao__exact = 1)
+            
+            print "fsdfdf ",listaModuls
+            #cont = 0 
+            lModulos = []
+            for lm in listaModuls:
+                
+                if(lm.docente_id != None):
+                    nomeDocente = Docente.objects.get(id__exact = lm.docente_id).nome_completo
+                    
+                    lModulos.append([lm.id, lm.horas, lm.docente_id, lm.servico_docente_id, nomeDocente, "", lm.departamento])
+                    #cont +=1 
+                else:
+                    try:
+                        lModulos.append([lm.id, lm.horas, lm.docente_id, lm.servico_docente_id, "", "", lm.departamento])
+                    except Departamento.DoesNotExist:
+                        lModulos.append([lm.id, lm.horas, lm.docente_id, lm.servico_docente_id, "", "", None])
+                        
+                    #cont +=1
+                pass
+            
+            print lModulos
+            
+            listaDocentes = Docente.objects.filter(departamento_id__exact = id_departamento)
+            lista_docentesFinal = None
         
         return render_to_response(self.form_template,
             locals(),
@@ -1379,7 +1424,7 @@ class AtribuirServicoDocenteFormPreview(FormPreview):
         
         depDelegated = dict(request.POST)[u'delegateDep[]']
         
-        print depDelegated
+        print "delegação - ",depDelegated
         
         nomeTurma = ServicoDocente.objects.get(id__exact = id_servico).turma.unidade_curricular.nome
         #precorre se o array de ID de docente faz-se uma consulta pelo seu ID para se obter o Nome e 
@@ -1397,19 +1442,39 @@ class AtribuirServicoDocenteFormPreview(FormPreview):
                 else:
                     lista_docentesFinal.append(['', ''])
                     pass
-        
-        #Aqui criamos uma lista que vai receber os dados a serem mostrados no template entre eles os dados do array criado em cima
-        listaModuls = Modulos.objects.filter(servico_docente_id__exact = id_servico)
-        cont = 0 
-        lModulos = []
-        for lm in listaModuls:
-            if depDelegated[cont] == 0:
-                lModulos.append([lm.id, lm.horas, docentesID[cont], lm.servico_docente_id, lista_docentesFinal[cont][0], lista_docentesFinal[cont][1], lm.departamento, 0])
-            else:
-                lModulos.append([lm.id, lm.horas, docentesID[cont], lm.servico_docente_id, lista_docentesFinal[cont][0], lista_docentesFinal[cont][1], lm.departamento, int(depDelegated[cont])])
-            cont +=1 
-            pass
-           
+        depEspecial = ServicoDocente.objects.get(id__exact = id_servico)
+        if(depEspecial.turma.unidade_curricular.departamento.id == id_departamento):
+            #Aqui criamos uma lista que vai receber os dados a serem mostrados no template entre eles os dados do array criado em cima
+            listaModuls = Modulos.objects.filter(servico_docente_id__exact = id_servico)
+            cont = 0 
+            print "posição - ", depDelegated[cont]
+            lModulos = []
+            for lm in listaModuls:
+                if depDelegated[cont] == 0:
+                    lModulos.append([lm.id, lm.horas, docentesID[cont], lm.servico_docente_id, lista_docentesFinal[cont][0], lista_docentesFinal[cont][1], lm.departamento, 0])
+                else:
+                    try:
+                        lModulos.append([lm.id, lm.horas, docentesID[cont], lm.servico_docente_id, lista_docentesFinal[cont][0], lista_docentesFinal[cont][1], lm.departamento, int(depDelegated[cont])])
+                    except Departamento.DoesNotExist:
+                        lModulos.append([lm.id, lm.horas, docentesID[cont], lm.servico_docente_id, lista_docentesFinal[cont][0], lista_docentesFinal[cont][1], None, int(depDelegated[cont])])
+                    
+                cont +=1 
+                pass
+        else:
+            listaModuls = Modulos.objects.filter(servico_docente_id__exact = id_servico, departamento_id__exact = id_departamento, aprovacao__exact = 1)
+            cont = 0 
+            print "posição - ", depDelegated[cont]
+            lModulos = []
+            for lm in listaModuls:
+                if depDelegated[cont] == 0:
+                    lModulos.append([lm.id, lm.horas, docentesID[cont], lm.servico_docente_id, lista_docentesFinal[cont][0], lista_docentesFinal[cont][1], lm.departamento, 0])
+                else:
+                    try:
+                        lModulos.append([lm.id, lm.horas, docentesID[cont], lm.servico_docente_id, lista_docentesFinal[cont][0], lista_docentesFinal[cont][1], lm.departamento, int(depDelegated[cont])])
+                    except Departamento.DoesNotExist:
+                        lModulos.append([lm.id, lm.horas, docentesID[cont], lm.servico_docente_id, lista_docentesFinal[cont][0], lista_docentesFinal[cont][1], None, int(depDelegated[cont])])
+                cont +=1 
+                pass
         
         depList = Departamento.objects.exclude(id__exact = id_departamento)
         
@@ -1421,7 +1486,7 @@ class AtribuirServicoDocenteFormPreview(FormPreview):
         b = ServicoDocente.objects.get(id=id_servico)
         
         f = AdicionarServicoDocenteForm(request.POST, instance=b)
-        context = self.get_context(request, f, docentesID, listaAnos, lModulos, listaDocentes, erro, depList)
+        context = self.get_context(request, f, docentesID, listaAnos, lModulos, listaDocentes, erro, depList, id_departamento)
         if f.is_valid(modulosID, docentesID):
              
             self.process_preview(request, f, context)
@@ -1467,18 +1532,38 @@ class AtribuirServicoDocenteFormPreview(FormPreview):
                     lista_docentesFinal.append(['', ''])
                     pass
         
-        #Aqui criamos uma lista que vai receber os dados a serem mostrados no template entre eles os dados do array criado em cima
-        listaModuls = Modulos.objects.filter(servico_docente_id__exact = id_servico)
-        cont = 0 
-        lModulos = []
-        for lm in listaModuls:
-            
-            if depDelegated[cont] == 0:
-                lModulos.append([lm.id, lm.horas, docentesID[cont], lm.servico_docente_id, lista_docentesFinal[cont][0], lista_docentesFinal[cont][1], lm.departamento, 0])
-            else:
-                lModulos.append([lm.id, lm.horas, docentesID[cont], lm.servico_docente_id, lista_docentesFinal[cont][0], lista_docentesFinal[cont][1], lm.departamento, int(depDelegated[cont])])
-            cont +=1  
-            pass
+        depEspecial = ServicoDocente.objects.get(id__exact = id_servico)
+        if(depEspecial.turma.unidade_curricular.departamento.id == id_departamento):
+            #Aqui criamos uma lista que vai receber os dados a serem mostrados no template entre eles os dados do array criado em cima
+            listaModuls = Modulos.objects.filter(servico_docente_id__exact = id_servico)
+            cont = 0 
+            lModulos = []
+            for lm in listaModuls:
+                
+                if depDelegated[cont] == 0:
+                    lModulos.append([lm.id, lm.horas, docentesID[cont], lm.servico_docente_id, lista_docentesFinal[cont][0], lista_docentesFinal[cont][1], lm.departamento, 0])
+                else:
+                    try:
+                        lModulos.append([lm.id, lm.horas, docentesID[cont], lm.servico_docente_id, lista_docentesFinal[cont][0], lista_docentesFinal[cont][1], lm.departamento, int(depDelegated[cont])])
+                    except Departamento.DoesNotExist:
+                        lModulos.append([lm.id, lm.horas, docentesID[cont], lm.servico_docente_id, lista_docentesFinal[cont][0], lista_docentesFinal[cont][1], None, int(depDelegated[cont])])
+                cont +=1  
+                pass
+        else:
+            listaModuls = Modulos.objects.filter(servico_docente_id__exact = id_servico, departamento_id__exact = id_departamento, aprovacao__exact = 1)
+            cont = 0 
+            lModulos = []
+            for lm in listaModuls:
+                
+                if depDelegated[cont] == 0:
+                    lModulos.append([lm.id, lm.horas, docentesID[cont], lm.servico_docente_id, lista_docentesFinal[cont][0], lista_docentesFinal[cont][1], lm.departamento, 0])
+                else:
+                    try:
+                        lModulos.append([lm.id, lm.horas, docentesID[cont], lm.servico_docente_id, lista_docentesFinal[cont][0], lista_docentesFinal[cont][1], lm.departamento, int(depDelegated[cont])])
+                    except Departamento.DoesNotExist:
+                        lModulos.append([lm.id, lm.horas, docentesID[cont], lm.servico_docente_id, lista_docentesFinal[cont][0], lista_docentesFinal[cont][1], None, int(depDelegated[cont])])
+                cont +=1  
+                pass
            
         
       

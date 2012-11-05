@@ -40,9 +40,14 @@ function highlightModul(obj) {
 		//alert(count + " - Cima");
 
 		if (count == 0) {
-			//alert("pstt");
-
+			
+			if(modulTable.rows[3].className != "showDelegate blockDelegate")
+		{
 			modulTable.rows[3].className = "hideDelegate";
+		}else
+		{
+			
+		}
 
 		}
 
@@ -62,8 +67,12 @@ function highlightModul(obj) {
 	 {
 	 	//obj.className != "tabela_sumario modulsTable haveDelegate" && obj.rows[3].cells[0].childNodes[0].value == null
 		//alert("aqui");
-		
 		modulTable.className = "tabela_sumario selectModulo";
+		
+		if(modulTable.rows[3].className != "showDelegate blockDelegate")
+		{
+		
+		
 
 		
 
@@ -93,7 +102,12 @@ function highlightModul(obj) {
 
 			newCell2 = nRows.cells[2];
 			newCell2.innerHTML = '<a onclick="addComboToDelegate(this.parentNode.parentNode);" href="#" ><img src="/static/images/icons/changeDep.png" /></a>';
-
+	
+		}else
+		{
+			
+			
+		}
 		
 	}else
 	{
@@ -158,7 +172,10 @@ function addDocente_to_modul() {
  }*/
 
 function deleteRowTable(obj) {
-
+	
+	
+	if(obj.parentNode.className != "tabela_sumario modulsTable haveDelegate")
+	{
 	//Detecta modificação na pagina de confirmação e volta a colcoar o botão de adicionar
 	testeSearch();
 	
@@ -192,6 +209,7 @@ function deleteRowTable(obj) {
 	row.cells[3].innerHTML = "";
 
 	obj.row[3].className = "hideDelegate";
+	}
 	
 	
 	

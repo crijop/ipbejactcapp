@@ -50,7 +50,7 @@
 		</div>
 		<div class="modulsDiv">
 			{% for id, horas, docente_id, servico_id, nome, horasDocente, departament, depChoice in lModulos %}
-			<table class="tabela_sumario modulsTable {% if departament != None %}haveDelegate{% endif %}" onclick="highlightModul(this);">
+			<table class="tabela_sumario modulsTable {% if departament != None and departament.id != id_departamento %}haveDelegate{% endif %}" onclick="highlightModul(this);">
 				<tr >
 					<th  colspan="3">Modulo de {{horas}} horas</th>
 
@@ -132,7 +132,7 @@
 				
 				{% else %}
 				
-					<tr class="showDelegate">
+					<tr class="showDelegate blockDelegate">
 
 					<td class="idHide" >
 					<input type='text"' name='delegateDep[]' value="{{departament.id}}" />
