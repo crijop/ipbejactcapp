@@ -1135,6 +1135,7 @@ def addServicoDocenteDepart(request, ano):
     listToSend = []
     
     listaServicoDocente = ServicoDocente.objects.filter(turma__unidade_curricular__departamento_id__exact = id_Departamento, turma__ano__exact = ano)
+   
     '''
     Lista pela pesquisa efectuada
     '''    
@@ -1405,7 +1406,7 @@ class AtribuirServicoDocenteFormPreview(FormPreview):
             if depDelegated[cont] == 0:
                 lModulos.append([lm.id, lm.horas, docentesID[cont], lm.servico_docente_id, lista_docentesFinal[cont][0], lista_docentesFinal[cont][1], lm.departamento, 0])
             else:
-                lModulos.append([lm.id, lm.horas, docentesID[cont], lm.servico_docente_id, lista_docentesFinal[cont][0], lista_docentesFinal[cont][1], lm.departamento, depDelegated[cont]])
+                lModulos.append([lm.id, lm.horas, docentesID[cont], lm.servico_docente_id, lista_docentesFinal[cont][0], lista_docentesFinal[cont][1], lm.departamento, int(depDelegated[cont])])
             cont +=1 
             pass
            
@@ -1446,6 +1447,8 @@ class AtribuirServicoDocenteFormPreview(FormPreview):
         
         docentesID = dict(request.POST)[u'docenteID[]']
         
+        depDelegated = dict(request.POST)[u'delegateDep[]']
+        
         
         nomeTurma = ServicoDocente.objects.get(id__exact = id_servico).turma.unidade_curricular.nome
         #precorre se o array de ID de docente faz-se uma consulta pelo seu ID para se obter o Nome e 
@@ -1470,8 +1473,11 @@ class AtribuirServicoDocenteFormPreview(FormPreview):
         lModulos = []
         for lm in listaModuls:
             
-            lModulos.append([lm.id, lm.horas, lm.docente_id, lm.servico_docente_id, docentesID[cont],lista_docentesFinal[cont][0], lista_docentesFinal[cont][1]])
-            cont +=1 
+            if depDelegated[cont] == 0:
+                lModulos.append([lm.id, lm.horas, docentesID[cont], lm.servico_docente_id, lista_docentesFinal[cont][0], lista_docentesFinal[cont][1], lm.departamento, 0])
+            else:
+                lModulos.append([lm.id, lm.horas, docentesID[cont], lm.servico_docente_id, lista_docentesFinal[cont][0], lista_docentesFinal[cont][1], lm.departamento, int(depDelegated[cont])])
+            cont +=1  
             pass
            
         
@@ -1507,6 +1513,8 @@ class AtribuirServicoDocenteFormPreview(FormPreview):
       
         
         docentesID = dict(request.POST)[u'docenteID[]']
+        
+        depDelegated = dict(request.POST)[u'delegateDep[]']
         listaModuls = Modulos.objects.filter(servico_docente_id__exact = id_servico)
         
         if request.method == 'POST':
@@ -1520,7 +1528,8 @@ class AtribuirServicoDocenteFormPreview(FormPreview):
                     p = Modulos(id = m,
                                 horas = Modulos.objects.get(id__exact = m).horas,
                                 servico_docente_id = id_servico,
-                                docente_id = docentesID[count])
+                                docente_id = docentesID[count],
+                                departamento_id = depDelegated[count])
                     p.save()
                     count += 1
 

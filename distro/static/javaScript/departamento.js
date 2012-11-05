@@ -5,6 +5,8 @@ var modulTable = null;
 var added = new Array();
 var addedDep = new Array();
 
+
+
 function highlight(obj) {
 	if (selectedTeacher != null) {
 
@@ -45,13 +47,25 @@ function highlightModul(obj) {
 		}
 
 	}
-	if (obj.className != "tabela_sumario modulsTable haveDelegate")
+	//Verificação se o modulos tem escolha de departamento
+	modulTable = obj;
+	count = 0;
+	for (var j = 0; j < addedDep.length; j++) {
+			if (addedDep[j] == modulTable) {
+				count += 1;
+			}
+		}
+	
+
+	
+	if (count == 0)
 	 {
+	 	//obj.className != "tabela_sumario modulsTable haveDelegate" && obj.rows[3].cells[0].childNodes[0].value == null
 		//alert("aqui");
 		
-		obj.className = "tabela_sumario selectModulo";
+		modulTable.className = "tabela_sumario selectModulo";
 
-		modulTable = obj;
+		
 
 		/*var nRows = modulTable.rows.length;
 
@@ -62,16 +76,12 @@ function highlightModul(obj) {
 		 newCell2 = newRow.insertCell(1);
 		 newCell2.innerHTML = '<a href="#" ><img src="/static/images/icons/changeDep.png" /></a>';*/
 
-		count = 0;
+		
 
-		for (var j = 0; j < addedDep.length; j++) {
-			if (addedDep[j] == modulTable) {
-				count += 1;
-			}
-		}
+		
 
 		//alert(count + " - baixo");
-		if (count == 0) {
+		
 
 			var nRows = modulTable.rows[3];
 
@@ -84,7 +94,7 @@ function highlightModul(obj) {
 			newCell2 = nRows.cells[2];
 			newCell2.innerHTML = '<a onclick="addComboToDelegate(this.parentNode.parentNode);" href="#" ><img src="/static/images/icons/changeDep.png" /></a>';
 
-		}
+		
 	}else
 	{
 		modulTable = null;
@@ -94,6 +104,9 @@ function highlightModul(obj) {
 }
 
 function addDocente_to_modul() {
+	//Detecta modificação na pagina de confirmação e volta a colcoar o botão de adicionar
+	testeSearch();
+	
 	if (modulTable != null) {
 		modulTable.className = "tabela_sumario modulsTable";
 	}
@@ -128,6 +141,10 @@ function addDocente_to_modul() {
 		selectedTeacher = null;
 
 		modulTable = null;
+		
+		
+		
+		
 	}
 }
 
@@ -142,19 +159,22 @@ function addDocente_to_modul() {
 
 function deleteRowTable(obj) {
 
+	//Detecta modificação na pagina de confirmação e volta a colcoar o botão de adicionar
+	testeSearch();
+	
 	var row = obj.rows[2];
 
 	if (row.cells[0].childNodes[1] != null) {
-		alert("true");
+		//alert("true");
 		var idValue_main = row.cells[0].childNodes[1].value;
 
 	} else if (row.cells[0].childNodes[0] != null) {
-		alert("false");
+		//alert("false");
 		var idValue_main = row.cells[0].childNodes[0].value;
 
 	}
 
-	alert(idValue_main);
+	//alert(idValue_main);
 
 	for (var i = 0; i < added.length; i++) {
 		var idValeu = added[i].cells[0].innerHTML;
@@ -172,6 +192,12 @@ function deleteRowTable(obj) {
 	row.cells[3].innerHTML = "";
 
 	obj.row[3].className = "hideDelegate";
+	
+	
+	
+	
+	
+	
 }
 
 function initial() {
@@ -209,15 +235,23 @@ function initial() {
 	}
 
 	for (var l = 0; l < table.length; l++) {
-		if (table[l].className == "tabela_sumario modulsTable haveDelegate") {
+		
+		
+		
+		
+		if (table[l].className == "tabela_sumario modulsTable haveDelegate" || table[l].rows[3].cells[0].childNodes[0].value != null) {
 
+	
 			addedDep[l] = table[l];
 
 		} else {
 			addedDep[l] = 0;
 		}
+		
 
 	}
+	
+	//alert(addedDep);
 
 }
 
@@ -226,8 +260,15 @@ function addComboToDelegate(obj) {
 	require(["dojo/request", "dojo/on", "dojo/dom", "dojo/domReady!"], function(request, on, dom) {
 
 		request.get("combotodelegate").then(function(response) {
+			modulTable.className = "tabela_sumario modulsTable";
+			modulTable = null;
+			
 			obj.innerHTML = response;
 			addedDep[addedDep.length] = obj.parentNode.parentNode;
+			
+			deleteRowTable(obj.parentNode.parentNode);
+			
+			
 			//alert(addedDep);
 
 		}, function(error) {
@@ -237,15 +278,25 @@ function addComboToDelegate(obj) {
 
 	});
 }
-
+/*
+ * Volta a colocar o texto para delegação do departamento
+ * 
+ */
 function rolebackDelegate(obj) {
 
-	for (var i = 0; i < addedDep.length; i++) {
+	//Detecta modificação na pagina de confirmação e volta a colcoar o botão de adicionar
+	testeSearch();
+	
+	for (var i = 0; i < addedDep.length; i++) 
+	{
 		if (obj.parentNode.parentNode == addedDep[i]) {
 			addedDep.splice(i, 1);
 		}
 	}
 
-	obj.innerHTML = '<td class="idHide" ><input type="hidden" name="delegateDep[]" value="" /></td><td colspan="2"></td><td></td>';
-
+	obj.innerHTML = '<td class="idHide" ><input type="hidden" name="delegateDep[]" value="0" /></td><td colspan="2"></td><td></td>';
+	
+	
+	
+		
 }

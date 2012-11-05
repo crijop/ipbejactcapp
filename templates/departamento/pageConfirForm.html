@@ -95,13 +95,13 @@
 
 				{%endif%}
 				{% if departament == None%}
-				aquiiiii
-					{% if depChoice == '0' %}
-						no 0
+				
+					{% if depChoice == 0 %}
+						
 					<tr class="hideDelegate">
 
 						<td class="idHide" >
-						<input type='hidden"' name='delegateDep[]' value="" />
+						<input type='text"' name='delegateDep[]' value="0" />
 						</td>
 					
 						<td colspan="2"></td>
@@ -112,7 +112,7 @@
 			
 					<tr class="showDelegate">
 
-					<td colspan="2"><select name="delegateDep[]"> 
+					<td colspan="2"><select onchange="testeSearch();" name="delegateDep[]"> 
 				{% for dep in depList %}
 					
 					{% if dep.id == depChoice %}
@@ -135,7 +135,7 @@
 					<tr class="showDelegate">
 
 					<td class="idHide" >
-					<input type='hidden"' name='delegateDep[]' value="{{departament.id}}" />
+					<input type='text"' name='delegateDep[]' value="{{departament.id}}" />
 					</td>
 					
 					<td colspan="3">{{departament.nome}}</td>
@@ -166,6 +166,7 @@
 	</form>
 	<script>
 		initial();
+		changeCountValue();
 	</script>
 </div>
 {% endblock %}
