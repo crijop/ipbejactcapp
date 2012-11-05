@@ -1,4 +1,4 @@
-<td colspan="2"><select name="delegateDep[]">
+<td colspan="2"><select onchange="testeSearch();" name="delegateDep[]">
 	{% for dep in depList %}
 	<option value="{{dep.id}}">{{dep.nome}}</option>
 	{% endfor %}

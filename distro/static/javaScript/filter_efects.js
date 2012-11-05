@@ -11,7 +11,7 @@ function changeCountValue() {
 }
 
 function testeSearch() {
-
+	
 	require(["dojo/request", "dojo/on", "dojo/dom", "dojo/domReady!"], function(request, on, dom) {
 		//alert("ola - " + count);
 
@@ -25,6 +25,7 @@ function testeSearch() {
 			request.get("addSaveButton").then(function(response) {
 				divTarget.innerHTML = response;
 				divConfirmPhrase.innerHTML = "";
+				
 
 			}, function(error) {
 				// Display the error returned
