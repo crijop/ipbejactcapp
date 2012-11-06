@@ -1549,8 +1549,7 @@ class EditDocenteModelFormPreview(FormPreview):
     #a variavel estado informa a page de confirmação 
     #se está a editar os dados ou adicionar.
     estado = "Editar"
-    print estado
-    
+     
     
     def get_context(self, request, form):
         "Context for template rendering."
