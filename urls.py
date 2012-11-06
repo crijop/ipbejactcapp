@@ -64,7 +64,7 @@ urlpatterns = patterns('',
     
     #ACTORES DO SISTEMA                   
     
-    #####
+    #######################################################################################
     # Url's destinados aos templates do cientifico
     ####
     #Url Home Ciêntifico
@@ -79,10 +79,10 @@ urlpatterns = patterns('',
     
     #####
     #Fim dos Url's destinados aos templates do cientifico
-    ####
+    ########################################################################################
     
     
-    #####
+    ########################################################################################
     # Url's destinados aos templates do coordenadores de Cursos
     ####
     #Url Home coordenadores de Cursos
@@ -92,30 +92,43 @@ urlpatterns = patterns('',
     
     #####
     #Fim dos Url's destinados aos templates do coordenadores de Cursos
-    ####
+    ########################################################################################
     
   
-    #####
+    ########################################################################################
     # Url's destinados aos templates do departamento
     #### 
     #Url Home Departamento
     url(r'^distro/departamento/$', 
         'ipbejactcapp.distro.views.indexDepartamento', 
         name='homeDepartamento'),
-                       
+    
+    #Url para listar turmas
     url(r'^distro/departamento/listarTurmas/(?P<ano>\d+)/$', 
         'ipbejactcapp.distro.view_departamento.listarTurmasDepart', 
-        name='listarTurmas'),                   
-                       
+        name='listarTurmas'),
+    
+    #Url destinados aos filtros na página da listar turmas
+    #(Filtra por ordem alfabetica e por curso)
+     url(r'^distro/departamento/listarTurmas/(?P<ano>\d+)/filter_abc/$', 
+        'ipbejactcapp.distro.view_departamento.filter_abc'), 
+     
+     url(r'^distro/departamento/listarTurmas/(?P<ano>\d+)/filter_curso/$', 
+        'ipbejactcapp.distro.view_departamento.filter_curso'),             
+    
+    #Url para listar os docentes
     url(r'^distro/departamento/listDocentes/$', 'ipbejactcapp.distro.view_departamento.listDocentes',
         name='listDocentesDep'),
                        
-    url(r'^distro/departamento/listDocentes/filter_abc/$', 'ipbejactcapp.distro.view_departamento.filter_abcd'),
-                       
+    #Url destinados aos filtros na página da lista de docentes
+    #(Filtra por ordem alfabetica e por categoria)
+    url(r'^distro/departamento/listDocentes/filter_abc/$', 'ipbejactcapp.distro.view_departamento.filter_abcd'),                   
     url(r'^distro/departamento/listDocentes/filter_cat/$', 'ipbejactcapp.distro.view_departamento.filter_cat'),
-                       
+    
+    #Url para mostrar a informação de um determinado docente                   
     url(r'^distro/departamento/listDocentes/(?P<id_docente>\d+)/$', 'ipbejactcapp.distro.view_departamento.infoDocenteDep'),        
-    #####################################################################################################################
+    
+    
     #turmas sem serviço docente atribuido
     #template de adicionar docente ao serviço docente
     url(r'^distro/departamento/turmaSemSevicoDocente/(?P<ano>\d+)/$', 
@@ -142,13 +155,9 @@ urlpatterns = patterns('',
     #Mostra a combo de escolha dos departamentos                 
     url(r'^distro/departamento/turmaSemSevicoDocente/addServicoDocente/(?P<id_servico>\d+)/(?P<id_Departamento>\d+)/(?P<ano>\d+)/combotodelegate$', 'ipbejactcapp.distro.view_departamento.addComboToDelegate'),
     
-    ##TURMAS#########################################################################################################
-     url(r'^distro/departamento/listarTurmas/(?P<ano>\d+)/filter_abc/$', 
-        'ipbejactcapp.distro.view_departamento.filter_abc'), 
-     url(r'^distro/departamento/listarTurmas/(?P<ano>\d+)/filter_curso/$', 
-        'ipbejactcapp.distro.view_departamento.filter_curso'),
+    
                        
-     ##Lista serviços Docente#########################################################################################################
+     ##Lista serviços Docente
       url(r'^distro/departamento/listServicoDocente/(?P<ano>\d+)/$', 
         'ipbejactcapp.distro.view_departamento.listServicoDocente', 
         name='listarServicoDocente'),
@@ -159,25 +168,24 @@ urlpatterns = patterns('',
     #Filtro por curso                  
     url(r'^distro/departamento/listServicoDocente/(?P<ano>\d+)/filter_curso/$', 'ipbejactcapp.distro.view_departamento.filter_curso'),                   
                       
-                       
+    #Url para mostrar a informação do docente na parte dos modulos...                  
     url(r'^distro/departamento/listServicoDocente/infoModuloDocente/(?P<id_docente>\d+)/(?P<ano>\d+)/$', 
         'ipbejactcapp.distro.view_departamento.infoModulosDocente', 
         name='infoModuloDocente'),
-                       
+    
+    #Url para mostrar a informação da turma já com os docentes atribuidos a cada modulo
+    #nos serviços docentes.                   
     url(r'^distro/departamento/listServicoDocente/infoModuloTurma/(?P<id_servico>\d+)/(?P<ano>\d+)/$', 
         'ipbejactcapp.distro.view_departamento.infoModulosTurma', 
         name='infoModuloTurma'),                   
                         
-
-           
-    
     #####
     #Fim Url's destinados aos templates do departamento
-    #### 
+    ########################################################################################
   
     
     
-    #####
+    ########################################################################################
     # Url's destinados aos templates dos Directores de Escola
     ####
     #Url Home Directores de Escola
@@ -187,10 +195,10 @@ urlpatterns = patterns('',
     
     #####
     #Fim dos Url's destinados aos templates dos Directores de Escola
-    ####
+    ########################################################################################
     
     
-    #####
+    ########################################################################################
     # Url's destinados aos templates dos docentes
     ####                   
     #Url Home Docente
@@ -209,22 +217,23 @@ urlpatterns = patterns('',
         name='horasServico'),
     #####
     #Fim dos Url's destinados aos templates dos docentes
-    ####
+    ########################################################################################
     
     
-    #####
+    ########################################################################################
     # Url's destinados aos templates dos Recursos Humanos
     ####
     #Url Home Recursos Humanos
     url(r'^distro/recursosHumanos/$', 
         'ipbejactcapp.distro.views.indexRecursosHumanos', 
         name='homeRecursosHumanos'),
-         
+    
+    #Url para apresentar a informação de um determinado docente
     url(r'^distro/recursosHumanos/listDocente/(?P<id_docente>\d+)/$', 
         'ipbejactcapp.distro.view_recursos_humanos.indexRHInfoDocentes', 
         name='infoRHDocentes'),
 
-    
+    #Url para apresentar a lista de docentes para possivelmente serem editados
     url(r'^distro/recursosHumanos/listDocenteEdit/$', 
         'ipbejactcapp.distro.view_recursos_humanos.listDocenteEdit_RecursosHumanos', 
         name='listDocenteEdit'),
@@ -237,26 +246,32 @@ urlpatterns = patterns('',
     #    'ipbejactcapp.distro.view_recursos_humanos.addDocenteRH', 
     #    name='adicionarDocenteRH'),
      
-    
+    #url para apresentar o formulario de adição de docentes.
     url(r'^distro/recursosHumanos/addDocente/$',
         'ipbejactcapp.distro.view_recursos_humanos.addDocenteFormClass',
         name='adicionarDocenteRH'),
-    
+
+    #Aparece o butão para salvar o formulario quando
+    #existe alguma alteração.
     url(r'^distro/recursosHumanos/addDocente/addSaveButton/$', 'ipbejactcapp.distro.view_recursos_humanos.showSaveButton1'),
-                       
+    
+    #Url destinado a apresentar o formulario para editar um determinado docente.                  
     url(r'^distro/recursosHumanos/listDocenteEdit/(?P<id_docente>\d+)/$',
         'ipbejactcapp.distro.view_recursos_humanos.editDocenteFormClass',
         name='RH_EditarDocente'),
     
-                       
+    #Url para apresentar a lista dos docentes               
     url(r'^distro/recursosHumanos/listDocente/$', 
         'ipbejactcapp.distro.view_recursos_humanos.listDocente_RecursosHumanos', 
         name='listDocente'),
-        
+    
+    #Url para apresentar a lista dos docentes apresentando a informação dos seus contractos
     url(r'^distro/recursosHumanos/listContratos/$', 
         'ipbejactcapp.distro.view_recursos_humanos.listContracts_RecursosHumanos', 
         name='listContratos'),                   
     
+    #Url destinado ajuda dos sistema..
+    #FALTA IMPLEMENTAR
     url(r'^distro/recursosHumanos/ajuda/(?P<nr_video>\d+)$', 
         'ipbejactcapp.distro.view_recursos_humanos.ajudaRH', 
         name='ajudaRH'),
@@ -272,6 +287,7 @@ urlpatterns = patterns('',
     url(r'^distro/recursosHumanos/listDocenteEdit/filter_cat/$', 'ipbejactcapp.distro.view_recursos_humanos.filter_cat'),
     
     url(r'^distro/recursosHumanos/listDocenteEdit/(?P<id_docente>\d+)/addSaveButton/$', 'ipbejactcapp.distro.view_recursos_humanos.showSaveButton'),
+    
     #lista de docentes                   
     url(r'^distro/recursosHumanos/ajax/$', 'ipbejactcapp.distro.view_recursos_humanos.ajax'),  
     
@@ -294,16 +310,14 @@ urlpatterns = patterns('',
     
     
     #por data
-    
-  
-
     url(r'^distro/recursosHumanos/listContratos/filter_date_start/$', 'ipbejactcapp.distro.view_recursos_humanos.filter_date_start'),
+    
     #####
     #Fim dos Url's destinados aos templates dos Recursos Humanos
-    ####
+    ########################################################################################
     
     
-    #####
+    ########################################################################################
     # Url's destinados aos templates do serviço de Planeamento
     ####
     #Url Home do serviço de Planeamento
@@ -313,7 +327,7 @@ urlpatterns = patterns('',
     
     #####
     #Fim dos Url's destinados aos templates do serviço de Planeamento
-    ####
+    ########################################################################################
     
 )
 
