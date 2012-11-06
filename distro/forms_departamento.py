@@ -10,7 +10,8 @@ from django.core.context_processors import request
 from django.forms.models import ModelForm
 
 
-
+#Class de para tratar da validação do formulario
+#no formulário de adicionar o Serviço docente
 class AdicionarServicoDocenteForm(ModelForm):
     '''
     def __init__(self, *args, **kwargs):
@@ -28,7 +29,10 @@ class AdicionarServicoDocenteForm(ModelForm):
         #                                  widget = forms.Select(attrs = {'onchange':'testeSearch();'}))
         # self.fields['horas'] = forms.CharField(widget=forms.TextInput(attrs={ 'readonly': 'readonly' }))
         #=======================================================================
-        
+    
+    #metodo de validação do formulario
+    #foram testadas várias validações por isso
+    #estão algumas em comentário
     def is_valid(self, listaModulos, listaDocentes):
         """
         Returns True if the form has no errors. Otherwise, False. If errors are
@@ -57,5 +61,4 @@ class AdicionarServicoDocenteForm(ModelForm):
         model = ServicoDocente
         exclude = ('turma', 'horas')
         
-     
     pass

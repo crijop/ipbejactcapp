@@ -121,6 +121,8 @@ Fim das vistas dos Coordenadores Cursos
 '''
 Inicio das vistas dos Directores de Escola
 ''' 
+#View da index dos directores de escola
+#de referir que ainda falta implementar....
 @login_required(redirect_field_name='login_redirectUsers')
 def indexDirectoresEscola(request):
     return render_to_response("directoresEscola/index.html",
@@ -246,7 +248,9 @@ Fim das vistas dos docentes
 
 '''
 Inicio das vistas dos Serviços de Planeamento
-''' 
+'''
+#View da index dos Serviços de Planeamento
+#de referir que ainda falta implementar....
 @login_required(redirect_field_name='login_redirectUsers')
 def indexServicoPlaneamento(request):
     return render_to_response("servicosPlaneamento/index.html",

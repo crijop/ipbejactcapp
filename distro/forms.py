@@ -10,6 +10,7 @@ from django import forms
 from django.forms.models import ModelForm
 
 
+#Class de Teste para adicionar docentes.
 class AddDocenteForm(forms.Form):
     nome_completo     = forms.CharField(max_length=300, label=u'Nome Completo')
     departamento      = forms.ModelChoiceField(queryset=Departamento.objects.all())

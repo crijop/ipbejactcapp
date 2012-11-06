@@ -19,24 +19,17 @@ import xlwt
 
 
 
-
-'''
-Created on 21 de Set de 2012
-
-@author: admin1
-'''
-
-
-
-
-
-
 '''
 Inicio das vistas do Ciêntifico
 '''
+
 cientificoUserTeste = user_passes_test(lambda u:u.groups.filter(name='Cientifico').count(), login_url='')
 
 
+#View para apresentar o index do cientifico (presidencia do 
+#concelho cientifico)
+#só vai entrar nesta view se o utilizador estiver autenticado
+#e se pertencer ao grupo do cientifico.
 @login_required(redirect_field_name='login_redirectUsers')
 @cientificoUserTeste
 def indexCientifico(request):
@@ -46,6 +39,10 @@ def indexCientifico(request):
         )
     pass
 
+#View para criar os XLS da Base dados
+#ao entrar nesta vista os XLS são logo criados.
+#só vai entrar nesta view se o utilizador estiver autenticado
+#e se pertencer ao grupo do cientifico.
 @login_required(redirect_field_name='login_redirectUsers')
 @cientificoUserTeste
 def criarXLS(request):
@@ -63,7 +60,7 @@ def criarXLS(request):
     pass
 
 
-
+#Metdodo de Criação da folha Matriz_SD do XLS
 def createXLS_sheet0(wb):
     #Nome Folha
     ws0 = wb.add_sheet('Matriz_SD')
@@ -194,7 +191,8 @@ def createXLS_sheet0(wb):
         col = 0
         row += 1
     wb.save('decdcd.xls')
-    
+
+#Metdodo de Criação da folha Docentes1011 do XLS
 def folhaDocentes1011(wb):
     #Nome Folha
     ws0 = wb.add_sheet('Docentes1011')
@@ -245,7 +243,7 @@ def folhaDocentes1011(wb):
     #wb.save('docentes1011.xls')
     pass
 
-
+#Metdodo de Criação da folha PCurricularNTurmaFix do XLS
 def createXLS_sheet1(wb):
   
     font0 = Font()
