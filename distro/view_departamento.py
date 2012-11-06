@@ -212,9 +212,9 @@ def indexDepartamento(request):
     for l in listaDocentesDepartamento:
         horasTemp = 0
             
-        moduloTemp = Modulos.objects.filter(servico_docente__turma__unidade_curricular__departamento_id__exact\
-                                             = id_Departamento, servico_docente__turma__ano__exact = ano)\
+        moduloTemp = Modulos.objects.filter(servico_docente__turma__ano__exact = ano)\
                                              .filter(docente_id__exact = l.id)
+        print moduloTemp
         for m in moduloTemp:
             horasTemp += m.horas
             pass
@@ -595,8 +595,7 @@ def listDocentes(request):
         if chave == "True":
             for l in listaDocentesDepartamento:
                 horasTemp = 0
-                listServicoTemp = Modulos.objects.filter(servico_docente__turma__unidade_curricular__departamento_id__exact\
-                                                     = id_Departamento, servico_docente__turma__ano__exact = ano)\
+                listServicoTemp = Modulos.objects.filter(servico_docente__turma__ano__exact = ano)\
                                                      .filter(docente_id__exact = l.id)
                 for m in listServicoTemp:
                     horasTemp += m.horas
