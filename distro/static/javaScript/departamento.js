@@ -1,12 +1,23 @@
+//Variavel que guarda o docente selecionado
 var selectedTeacher = null;
 
+//Variavel que guarda o modulo selecionado
 var modulTable = null;
 
+//Array que guarda os modulos que tem docente adicionado
 var added = new Array();
+//Array que gaurda os modulos cujo o departamento foi delegado
 var addedDep = new Array();
 
 
-
+/**
+ * Resposnavel por marcar um docente como selecionado
+ * quando clicamos nele na lista de docentes
+ * presente na area de atribuição de
+ * modulos
+ * 
+ * @param {Object} obj - Docente
+ */
 function highlight(obj) {
 	if (selectedTeacher != null) {
 
@@ -18,7 +29,12 @@ function highlight(obj) {
 	selectedTeacher = obj;
 
 }
-
+/**
+ * Resposavel por marcar como selecionado
+ * o modulo quando clicado nele
+ * 
+ * @param {Object} obj - Modulo
+ */
 function highlightModul(obj) {
 
 	if (modulTable != null) {
@@ -117,6 +133,11 @@ function highlightModul(obj) {
 
 }
 
+/**
+ * Quando se verifica que existe um modulo selecionado
+ * e um docente selecionado
+ * é permitido a adição de um docente ao modulo
+ */
 function addDocente_to_modul() {
 	//Detecta modificação na pagina de confirmação e volta a colcoar o botão de adicionar
 	testeSearch();
@@ -171,6 +192,12 @@ function addDocente_to_modul() {
  return false;
  }*/
 
+/**
+ * Elimina o docente introduzido num
+ * modulo quando clicado no botão eliminar
+ * 
+ * @param {Object} obj - Modulo do botão
+ */
 function deleteRowTable(obj) {
 	
 	
@@ -218,6 +245,14 @@ function deleteRowTable(obj) {
 	
 }
 
+/**
+ * Função carregada inicialmente 
+ * que verifica o HTML e verifica 
+ * quais os docentes ja com modulos
+ * os modulos
+ * delegados
+ * Inicializando assim as variaveis
+ */
 function initial() {
 
 	var teachersId = new Array();
@@ -273,6 +308,14 @@ function initial() {
 
 }
 
+/**
+ * Quando selecionado um modulo
+ * e clicamos no botão de delegação de
+ * departamento
+ * é feita uma chamada de AJAX
+ * que nos permite obter a lista de departamentos
+ * os quais sao permitidos delegar
+ */
 function addComboToDelegate(obj) {
 
 	require(["dojo/request", "dojo/on", "dojo/dom", "dojo/domReady!"], function(request, on, dom) {
@@ -296,9 +339,11 @@ function addComboToDelegate(obj) {
 
 	});
 }
-/*
- * Volta a colocar o texto para delegação do departamento
- * 
+/**
+ * Quando eliminamos a delegação 
+ * voltamos a ter novamente o botao de
+ * delegação
+ * @param {Object} obj - Linha do botão na tabela do modulo
  */
 function rolebackDelegate(obj) {
 

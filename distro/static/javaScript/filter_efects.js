@@ -62,7 +62,12 @@ alert(response);
 }*/
 
 /***********/
-
+/**
+ * Função AJAX com biblioteca Dojo
+ * resposavel por obter todas as letras do alfabeto
+ * e a mostrar no template para que o utilizador faça 
+ * a sua escolha
+ */
 function filter_oa() {
 
 	var out_1 = 1;
@@ -105,7 +110,10 @@ function filter_oa() {
 
 	});
 }
-
+/**
+ * Função Ajax que obtem todos os departamentos
+ * existentes e os mostra no template
+ */
 function filter_dep() {
 	var out_2 = 1;
 
@@ -146,7 +154,10 @@ function filter_dep() {
 		});
 	});
 }
-
+/**
+ * Função Ajax que obtem todos as categorias disponiveis
+ * existentes e os mostra no template
+ */
 function filter_cat() {
 	var out_3 = 1;
 	require(["dojo/request", "dojo/fx", "dojo/on", "dojo/dom", "dojo/domReady!"], function(request, fx, on, dom) {
@@ -188,7 +199,11 @@ function filter_cat() {
 
 	});
 }
-
+/**
+ * Mostra os botões de data inicio e data fim
+ * quando clicado no botão
+ * respectivo no template
+ */
 function filter_date() {
 	var out_4 = 1;
 	require(["dojo/request", "dojo/fx", "dojo/on", "dojo/dom", "dojo/domReady!"], function(request, fx, on, dom) {
@@ -225,6 +240,11 @@ function filter_date() {
 
 /*************************/
 
+/**
+ * Mostra os calendarios 
+ * respectivos
+ * consoante o botão que se for clicado
+ */
 function date_function() {
 
 	var out_5 = 1;
@@ -291,7 +311,10 @@ function date_function() {
 /*
  * filtrar por curso
  */
-
+/**
+ * Mostra todos os cursos
+ * disponiveis para um determinado departamento
+ */
 function filter_curso() {
 
 	var out_7 = 1;
