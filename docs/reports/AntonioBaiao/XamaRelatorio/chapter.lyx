@@ -13,6 +13,8 @@
 %  Save your time and enjoy it             %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%                                  
 \date{text}
+\usepackage{listings}
+\usepackage{color}
  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %  Here the page setup based on 
 %  the university of Durham regulation 
@@ -32,14 +34,7 @@
 \setlength{\textheight}{23.8cm}
 \setlength{\footskip}{18pt}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%Colocação do nome do capitulo  ao lado do titlo
-%E Retirada do nome "Capitulo"
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\usepackage{titlesec}
-\titleformat{\chapter}[hang] 
-{\normalfont\huge\bfseries}{ \thechapter}{1em}{} 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %  Redefine \tableofcontents in report.cls
@@ -246,7 +241,7 @@
 \bibtex_command default
 \index_command default
 \paperfontsize 12
-\spacing single
+\spacing other 1.1499999999999999
 \use_hyperref false
 \papersize a4paper
 \use_geometry false
@@ -2401,6 +2396,10 @@ A linguagem de templates do Django está desenhada para atingir o balanço
  aprendizagem.
 \end_layout
 
+\begin_layout Subsubsection*
+South - Google Code - Mercurial
+\end_layout
+
 \begin_layout Section
 SQLite 3
 \end_layout
@@ -2562,15 +2561,374 @@ Sumário
 \end_layout
 
 \begin_layout Standard
-dfsfsfsdfsdf
+Um Sistema de Gestão de Distribuição de Serviço Docente é algo importante
+ em todos os estabelelicmentos de ensino, pois facilita atribuição de horas
+ de serviço e a escolha dos docentes para determinadas turmas estando a
+ informação centralizada em apenas um local.
+ Evintando assim problemas de redundancia e incoerencia de informação.
+ Actualmente no institututo politecnico de Beja, a distribuição do serviço
+ docente é realizada de forma bastante rudimentar, recorrendo a folhas de
+ calculo como suporte para a informação.
+ Sendo actualmente o processo muito moroso, confuso e de dificil execução,
+ levando por vezes ao atraso na elaboração dos horarios e na atribuição
+ dos docentes as respectivas turmas.
+ Com vista a melhorar essa situação foi proposto a criação de um sistema
+ de gestão de destribuição de serviço doncente com vista a acelerar os processos
+ de atribuição das horas de serviço, clarificar a informação, facilitar
+ o processo e centralizar a informação.
+ 
+\end_layout
+
+\begin_layout Standard
+Este sistema esta previsto ser utilizado pelo departamento de recursos humanos,
+ os departamentos de ensino das instituições, os conselhos científicos e
+ a gestão das instituições.
+ Neste relatorio serão abordados especificamente o departamento de recursos
+ humanos, os docentes e a vice-presidencia.
+ Em todas as estas abordagens será clarificado o funcionamento de cada utilizado
+r do sistema, bem como as suas principais tarefas e a forma como as tecnologias
+ de desenvolvimnto dos templates (JavaScript, HTML, CSS) foram usadas para
+ geração do resultado final.
+\begin_inset Newline linebreak
+\end_inset
+
+Durante este relatorio quando for referido por exemplo area dos recursos
+ humanos, está se a refeirir a toda a informação que apenas pode ser acedida
+ e tratada pelos utilizadores dos recursos humanos.
+\end_layout
+
+\begin_layout Section
+Estrutura Base
+\end_layout
+
+\begin_layout Standard
+Neste relatorio será falado ensencialmente dos templates e respetivos componente
+s que os constituem, visto isto é importante clarificar como foi construido
+ o template base que serviu de guia para todos os outros templates das respectiv
+as areas.
+\begin_inset Newline linebreak
+\end_inset
+
+Para a construção dos templates é usada a linguagem de templates da framework
+ django.
+ Para acelerear o processo de criação das paginas web e reduzir a repetição
+ desnecessaria de codigo html esta linguagem permite-nos incluir trechos
+ de codigo html, existentes em outros ficheiros de extensao html a fim de
+ formar a pagina final a ser mostrada ao utilizador.
+\begin_inset Newline linebreak
+\end_inset
+
+Em sintese a primeira coisa a fazer, é a criação de uma pagina HTML que
+ será a base de todo o site.
+ Para tal deppis de criada a estrutura do site com todas as tag DIV necessarias,
+ utilizamosum elemento BLOCK facultado pela linguagem de template do django
+ que nos permite criar blocos onde depois podem ser preenchidos em outras
+ paginas do site.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/base.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Esquema de Construção do template base
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Tal como é possivel visualizar na figura 3.1, temos um exemplo da cosntrução
+ de um template base.
+ Supondo que todos retangulos que possuem blocos sao formados por tags DIV,
+ que por sua vez vão possuir blocos que podem ser modificados ou não em
+ qualquer pagina do site que use como base este template.
+ Esses blocos são formados pela seguinte sintax 
+\begin_inset Quotes eld
+\end_inset
+
+{% block nome_bloco %}
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/exemplo.png
+	scale 50
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Esquema da construção de template que irá extender do base
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+No exemplo da figura 3.2 temos presente uma pagina html que extende do template
+ base.
+ Significa isto que esta pagina html bastava extender do template base para
+ funcionar.
+ Mas neste exemplo vai-se mais longe.
+ Ao extender-se do template base todos os blocos la criados ficam disponiveis
+ nesta nova pagina.
+ A grande vantagem do uso de blocos é que pudemos escolher alteralos ou
+ mantelos inalterados.
+ No exemplo acima foi decidido alterar o 
+\begin_inset Quotes eld
+\end_inset
+
+bloco menus
+\begin_inset Quotes erd
+\end_inset
+
+ e o 
+\begin_inset Quotes eld
+\end_inset
+
+bloco conteudo
+\begin_inset Quotes erd
+\end_inset
+
+ mantendo o 
+\begin_inset Quotes eld
+\end_inset
+
+bloco cabeçalho
+\begin_inset Quotes erd
+\end_inset
+
+ inalterado.
+ Para isso bastou nesta nova pagina, fazer uma chamada aos blocos criados
+ no template base - 
+\begin_inset Quotes eld
+\end_inset
+
+{% block menus %} ###Conteudo do bloco### {% endblock %}
+\begin_inset Quotes erd
+\end_inset
+
+ - o outros blocos cujo conteudo foi alterado, o processo utilizado foi
+ o mesmo.
+ Assim sendo quando a pagina for requerida pelo utilzdor, tudo será igual
+ ao que esta no template base a excepção do 
+\begin_inset Quotes eld
+\end_inset
+
+bloco menus
+\begin_inset Quotes erd
+\end_inset
+
+ e do 
+\begin_inset Quotes eld
+\end_inset
+
+bloco conteudo
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/exemplo_final.png
+	scale 50
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Esquema da visualização do exemplo no browser
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Na figura 3.3 é apresentado o esquema de visualização final, aquele que será
+ visualizado pelo utilizador no browser.
+ Neste caso o utilizador veria o template base com os seus menus e conteudo
+ alterados mandento a pagina a sua estrutura base.
+\begin_inset Newline linebreak
+\end_inset
+
+Para alem dos blocos existem outras tags especiais nesta linguagem de template
+ do django, tais como:
+\end_layout
+
+\begin_layout Itemize
+{% for a in lista %} ### Conteudo do ciclo #### {% endfor %}
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Que nos permite construi um cliclo for tal como se faz em python.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+{% if exemplo %} ### Conteudo do if #### {% endif %}
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Que permite construir uma condição if tal como se faz em python.
+\begin_inset Newline linebreak
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+É permitido tambem usar variaveis declaradas em codigo python na linguagem
+ de template bastando para isso clocando entre {{nome_variavel}}.
+ Nome esse que tem que ser rigorosamente igual ao que esta definido no codigo
+ python.
+\end_layout
+
+\begin_layout Standard
+Essas variaveis são passadas quando o metodo de python na view devolve a
+ resposta ao pedido do URL.
+\begin_inset Newline linebreak
+\end_inset
+
+Visto isto ficou claro que o uso da linguagem de templates do django facilita
+ a construção de sites em que todas as paginas mantem a mesma estrutura.
+ A linguagem de template do django é mais complexa do que aqui foi tratado,
+ contudo foi o suficiente para a cosntrução desta aplicação.
+\end_layout
+
+\begin_layout Standard
+Resumidamente a estrutura base desta aplicação, trata-se do qeu foi abordado
+ nestes exemplos.
+ Uma barra lateral de menus, uma area de conteudos e um cabeçalho onde consta
+ o logotipo da aplicação.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/base_altafidelidade.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Exemplo da estrutura da aplicação - Pagina inicial dos Recursos Humanos
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
 Recursos Humanos
-\end_layout
-
-\begin_layout Standard
-sfsdfsdf
 \end_layout
 
 \begin_layout Subsection
@@ -2699,26 +3057,6 @@ HTML
 
 \begin_layout Subsubsection*
 CSS
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand include
-filename "acronyms.lyx"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand include
-filename "ref.lyx"
-
-\end_inset
-
-
 \end_layout
 
 \end_body
