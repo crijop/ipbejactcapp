@@ -2931,12 +2931,19 @@ Exemplo da estrutura da aplicação - Pagina inicial dos Recursos Humanos
 Recursos Humanos
 \end_layout
 
-\begin_layout Subsection
-Síntese de funcionamento
-\end_layout
-
 \begin_layout Standard
-sfsdfsd
+O departamento de Recursos Humanos de uma instituição é parte fundamental,
+ para o bom funcionamento da mesma.
+ Sendo o Institituto Politécnico de Beja uma instituição, não poderia deixar
+ de ter uma departamento que trate a informação dos seus colaboradores.
+ Como é visivel a partida a distribuição don serviço docente está intinsecamente
+ ligada e dependente do departamento dos recursos humanos.
+ Pois é nos recursos humanos que existe a possibilidade de ver os contratos
+ dos docentes, bem como alterar informação de docentes ja a laborar na instituiç
+ão.
+ Visto isto não poderia deixar de existir uma area na aplicação que trata-se
+ desse tipo de informação.
+ Ficando assim a informação centralizada e livre de redundacias e incoerencias.
 \end_layout
 
 \begin_layout Subsection
@@ -2944,7 +2951,294 @@ Tarfas Implementadas
 \end_layout
 
 \begin_layout Standard
-sfsdfs
+Na área dos recusros humanos foram implementadas as tarefas concideradas
+ necessarias para uma correcta manutenção e gestão do corpo docente existente
+ na instituição.
+\end_layout
+
+\begin_layout Subsubsection*
+Tarefas
+\end_layout
+
+\begin_layout Itemize
+Adicionar Docente:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Nesta tarefa o utilizador tem possibilidade de crirar um novo docente, introduzi
+ndo para issso alguns dos seus dados pessoais requeridos para este procedimento.
+ Este docente criado ficará sem contrato ate que lhe seja feito um.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Editar Docente:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Existe a possibilidade de editiar um docente que ja exista na base de dados
+ do sistema.
+ Para isso o utilizador tem de encontrar o docente a editar uma lista de
+ docentes e posteriormente edita-lo.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Listar Docentes:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Ao listar os docentes o utilizador pode ver todos os docentes existente
+ na instituição e inclusive ver informação detalhada sobre os mesmos.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Listar Contratos:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Na listagem de contratos existe a posibilidade do utilizador ver todos os
+ docentes e verificar a sua situação em termos contratuais.
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Síntese de funcionamento
+\end_layout
+
+\begin_layout Standard
+Tendo por base os conhecimentos nas cadeiras de Interação Pessoa-Computador
+ e Hipermedia e Acessibilidade, tentou-se cirar uma interface grafica que
+ facilita-se e simplifica-se a interacção do utilizador com a aplicação.
+ Permitindo que o mesmo obtove-se informação que precisa rapidamente.
+\end_layout
+
+\begin_layout Standard
+Será abordada a forma de funcionamento de todas as tarefas acima referenciadas.
+\end_layout
+
+\begin_layout Subsubsection*
+Adicionar Docente
+\end_layout
+
+\begin_layout Standard
+Tal como descrito na lista de tarefas, adicionar um docente é uma tarefa
+ que tem como finalidade base a adição de um novo docente a base de dados
+ da aplicação para que fique disponivel para no futuro para interagir com
+ a distribuição do serviço docente.
+\end_layout
+
+\begin_layout Subsubsection*
+1º passo
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/base_altafidelidade.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Pagina Inicial dos Recursos Humanos
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Considerando que o utilizador ja realizou a autenticação na aplicação, e
+ estando na pagina inicial (Figura 3.5), do lado esquerdo encontrará um menu.
+ Nesse menu o utilizador vai clicar em 
+\begin_inset Quotes eld
+\end_inset
+
+Adicionar Docente
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+2º passo
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/adicionar_docente_recursos_humanos_inicial.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Pagina Adicionar Docente dos Recursos Humanos
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Depois de clicar em 
+\begin_inset Quotes eld
+\end_inset
+
+Adicionar Docente
+\begin_inset Quotes erd
+\end_inset
+
+ o utilizador é encaminhado para outra pagina onde estará disponivel um
+ formulário (figura 3.6) que permite introduzir a infrmação do docente a
+ criar.
+ Os campos marcados com 
+\begin_inset Quotes eld
+\end_inset
+
+(*)
+\begin_inset Quotes erd
+\end_inset
+
+ são de caracter obrigatorio e indispensaveis para a correcta validação
+ do formulário.
+ Quando correctamente preenchido e estando o utilizador satisfeito com a
+ informação introduzida, deverá clicar no botão 
+\begin_inset Quotes eld
+\end_inset
+
+Adicionar Docente
+\begin_inset Quotes erd
+\end_inset
+
+ existente no fundo do formulário.
+\end_layout
+
+\begin_layout Subsubsection*
+3º Passo
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/adicionar_docente_recursos_humanos_confirmacao.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Pagina Adicionar Docente dos Recursos Humanos - Confirmação
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Depois do formulário preenchido correctamente e depois de ter sido clicado
+ no botão 
+\begin_inset Quotes eld
+\end_inset
+
+Adicionar Docente".
+ O utilizador é encaminhado para uma pagina de confirmação (Figura 3.7).
+ Pagina esta que apesar de ser de confirmação continua a permitir ao utilizador
+ fazer alterações dos dado introduzidos no formulário.
+ No fundo o utlizador tem um uma mensagem a questionar a confirmação dos
+ dados.
+ Caso tudo esteja conforme a vontade do utilizador o utilizador clicará
+ no botão 
+\begin_inset Quotes eld
+\end_inset
+
+Sim
+\begin_inset Quotes erd
+\end_inset
+
+, existente no fim do formulário para submeter os dados.
+ Caso contrario clica no botão 
+\begin_inset Quotes eld
+\end_inset
+
+Não
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Sempre que exista alterações nesta etapa em algum dos campos do formulário,
+ o mesmo retorna ao 2º passo.
 \end_layout
 
 \begin_layout Subsection
