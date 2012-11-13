@@ -3,6 +3,16 @@
 \begin_document
 \begin_header
 \textclass report
+\begin_preamble
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Colocação do nome do capitulo  ao lado do titlo
+%E Retirada do nome "Capitulo"
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{titlesec}
+\titleformat{\chapter}[hang] 
+{\normalfont\huge\bfseries}{ \thechapter}{1em}{} 
+\end_preamble
 \use_default_options true
 \maintain_unincluded_children false
 \language english
@@ -28,7 +38,7 @@
 \spacing single
 \use_hyperref false
 \papersize default
-\use_geometry false
+\use_geometry true
 \use_amsmath 1
 \use_esint 1
 \use_mhchem 1
@@ -43,6 +53,11 @@
 \shortcut idx
 \color #008000
 \end_index
+\leftmargin 3.5cm
+\topmargin 2.5cm
+\rightmargin 2.5cm
+\bottommargin 2.5cm
+\headsep 2.5cm
 \secnumdepth 3
 \tocdepth 3
 \paragraph_separation indent
@@ -122,7 +137,7 @@ setcounter{page}{1}
 
 \lang portuguese
 \begin_inset CommandInset include
-LatexCommand input
+LatexCommand include
 filename "chapter.lyx"
 
 \end_inset
@@ -134,7 +149,31 @@ filename "chapter.lyx"
 
 \lang portuguese
 \begin_inset CommandInset include
-LatexCommand input
+LatexCommand include
+filename "acronyms.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang portuguese
+\begin_inset CommandInset include
+LatexCommand include
+filename "ref.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang portuguese
+\begin_inset CommandInset include
+LatexCommand include
 filename "append.lyx"
 
 \end_inset
