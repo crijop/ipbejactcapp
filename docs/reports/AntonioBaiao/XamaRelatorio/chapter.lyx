@@ -3241,12 +3241,72 @@ Não
  o mesmo retorna ao 2º passo.
 \end_layout
 
+\begin_layout Subsubsection*
+4º passo
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/adicionar_docente_recursos_humanos_sucesso.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Pagina Adicionar Docente dos Recursos Humanos - Sucesso
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Por fim quando o utiliador clica no botão de 
+\begin_inset Quotes eld
+\end_inset
+
+Sim
+\begin_inset Quotes erd
+\end_inset
+
+ para confirmar a sua intensão de submeter os dados, é apresentadauma noava
+ janela (Figura 3.8), com uma mensagem de confirmação do sucesso da operação.
+\end_layout
+
 \begin_layout Subsection
 Aplicação das Tecnologias
 \end_layout
 
 \begin_layout Standard
-sfsdfsd
+Tal como em todas as areas abordadas neste relatorio, usam as tecnologias
+ elementares de criação de paginas web.
+ Dende da criatividade de quem as usapara tirar o melhor partido das mesmas.
+ As principais tecnolgias usadas nesta tarefa foram o JavaScript-DOJO, o
+ HTML e o CSS.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -3254,7 +3314,104 @@ JavaScript - DOJO/DOM
 \end_layout
 
 \begin_layout Standard
-sdfsdfsd
+Nesta tarefa foi usado um pequeno segemento de javaScript usando como suporte
+ a biblioteca DOJO.
+ Foi ncessario criar uma função que detecta-se quando o formulário fosse
+ alterado na pagina de confirmação, quer pela introdução de novo texto quer
+ pela selecção da comboBox ou da checkBox.
+ Para que depois se procedesse á remoção da mensagem de confirmação e dos
+ botões 
+\begin_inset Quotes eld
+\end_inset
+
+Sim
+\begin_inset Quotes erd
+\end_inset
+
+ e 
+\begin_inset Quotes eld
+\end_inset
+
+Não
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Pois apenas fazem sentido estes ultimos elementos aparecerem quando o formulári
+o esta valido, o que não é possivel garantir caso exista um aleração do
+ mesmo na pagina de confirmação.
+\end_layout
+
+\begin_layout Standard
+Para conseguir isto bastou recorrer ao uso da tecnologia AJAX.
+ Para facilitar as coisas usamos a biblioteca DOJO, que possui funções que
+ nos facilitam a implementação do AJAX.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/esquema_AJAX_DJANGO_DOJO.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Esquema de Funcionamento do AJAX usando DOJO no Django
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+O uso da biblioteca javaScript DOJO é bastante simples, basta para tal primeiram
+ente descarregara biblioteca para a directoria do projecto.
+ Depois é so fazer referencia a biblioteca no template base da aplicação
+ e ja é possivel usar a mesma em qualquer ficheiro javaScript que integre
+ a aplicação.
+ O funcionamento é bastante simples de entender (Figura 3.9) Consiste no
+ envio por parte da função DOJO 
+\begin_inset Quotes eld
+\end_inset
+
+request
+\begin_inset Quotes erd
+\end_inset
+
+, de um pedido ao URL dispatcher que por sua vez ira pedir a view escolhida
+ que resolva o pedido e o retorne novamente para a mesma função DOJO a qual
+ colocará o resultado no codigo HTML onde é visivel ao utlizador.
+\end_layout
+
+\begin_layout Standard
+Conhecendo agora o esquema é facil de preceber o que acontece.
+ Ao haver alteração no formulario a função AJAX construida sob DOJO, pede
+ ao URL que envie um pedido a um metodo da VIEW que por sua vez vai enviar
+ um outro template para a função, template este que será a resposta.
+ E o DOJO terá a resposabilidade de colcar esse pequeno trecho de HTML no
+ local apropriado.
 \end_layout
 
 \begin_layout Subsubsection*
