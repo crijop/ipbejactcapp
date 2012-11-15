@@ -1151,7 +1151,7 @@ Síntese de funcionamento
 Tendo por base os conhecimentos nas cadeiras de Interação Pessoa-Computador
  e Hipermedia e Acessibilidade, tentou-se cirar uma interface grafica que
  facilita-se e simplifica-se a interacção do utilizador com a aplicação.
- Permitindo que o mesmo obtove-se informação que precisa rapidamente.
+ Permitindo que o mesmo obtive-se informação que precisa rapidamente.
 \end_layout
 
 \begin_layout Standard
@@ -3511,15 +3511,271 @@ Tarfas Implementadas
 \end_layout
 
 \begin_layout Standard
-sfsdfsdf
+Na área dos docentes foram implementadas as tarefas concideradas necessarias
+ para uma correcta manutenção e gestão da informação relacionada com cada
+ docente.
 \end_layout
 
+\begin_layout Subsubsection*
+Tarefas
+\end_layout
+
+\begin_layout Itemize
+Tarefa 1 - Ver resumo informativo:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Nesta tarefa o utilizador tem oportunidade de ver um resumo da informação
+ sobre si.
+ Tal como o total de horas de serviço, o numero de turmas qu leciona entre
+ outros.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Tarefa 2 - Ver turmas:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+A tarefa ver turmas, disponibiliza ao utilizador uma visualização de todas
+ as turmas que leciona.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Tarefa 3 - Ver horas e trabalho:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Esta tarefa mostra ao utilizador, para alem da turma que leciona o numero
+ de horas de serviço relacionados com essa turma
+\end_layout
+
+\end_deeper
 \begin_layout Subsection
 Síntese de funcionamento 
 \end_layout
 
 \begin_layout Standard
-sfsdf
+O funcionamento da area do docente é muito simples e sintetica, para todas
+ as suas tarefas.
+ Em seguida é apresentado em sintse o funcinamento d cada tarefa.
+\end_layout
+
+\begin_layout Subsection*
+Tarefa 1 - Ver resumo informativo
+\end_layout
+
+\begin_layout Standard
+No resumo informativo o utilizador pode ver o estado da sua situação em
+ relação as horas atribuidas, bem como o total de horas atribuidas, as horas
+ de redução bem como as horas total.
+\end_layout
+
+\begin_layout Subsubsection*
+1º passo
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/informacao_docente.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Informação - Docente
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Considerando que o utilizador ja realizou a autenticação na aplicação.
+ A pagina de informação é lhe mostrada de inicio.
+\end_layout
+
+\begin_layout Subsection*
+Tarefa 2 - Ver turmas
+\end_layout
+
+\begin_layout Standard
+Nesta tarefa o utilizador tem a possibilidade de ver todas as turmas que
+ leciona bem como o curso a que a turma pertence.
+\end_layout
+
+\begin_layout Subsubsection*
+1º passo
+\end_layout
+
+\begin_layout Standard
+Considerando que o utilizador ja realizou a autenticação na aplicação.
+ Na pagina de informação inicial (ver figura 3.24 tarefa 1) clica em 
+\begin_inset Quotes eld
+\end_inset
+
+Turmas
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+2º passo
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/turmas_docente.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Informação - Docente
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Depois de clicado em 
+\begin_inset Quotes eld
+\end_inset
+
+Turmas
+\begin_inset Quotes erd
+\end_inset
+
+ o utilizador é encaminhado para outra pagina onde é mostrado em forma de
+ tabelas as turmas e respectivos cursos a que pertencem, associadas ao uilizador
+ (Figura 3.25).
+\end_layout
+
+\begin_layout Subsection*
+Tarefa 3 - Ver horas de trabalho
+\end_layout
+
+\begin_layout Standard
+Nesta tarefa o utilizador tem a possibilidade de ver todas as turmas que
+ leciona bem como o curso a que a turma pertence e as horas que terá que
+ lecionar em cada uma dessas turmas.
+\end_layout
+
+\begin_layout Subsubsection*
+1º passo
+\end_layout
+
+\begin_layout Standard
+Considerando que o utilizador ja realizou a autenticação na aplicação.
+ Na pagina de informação inicial (ver figura 3.24 - tarefa 1) clica em 
+\begin_inset Quotes eld
+\end_inset
+
+Horas Trabalho
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+2º passo
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/horas_trabalho_docente.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Informação - Docente
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Depois de clicado em 
+\begin_inset Quotes eld
+\end_inset
+
+Horas Trabalho
+\begin_inset Quotes erd
+\end_inset
+
+ o utilizador é encaminhado para outra pagina onde é mostrado em forma de
+ tabela as turmas e respectivos cursos a que pertencem, associadas ao uilizador
+ bem como as horas que tera que lecionar (Figura 3.25).
 \end_layout
 
 \begin_layout Subsection
@@ -3527,7 +3783,10 @@ Aplicação das Tecnologias
 \end_layout
 
 \begin_layout Standard
-sfsdfdsf
+Esta area da aplicação é que menos recursos tecnologicos usa para a sua
+ construção.
+ Nas Tarefas aqui bordadas, as principais tecnologis usadas são o HTML e
+ o CSS.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -3535,7 +3794,8 @@ JavaScript - DOJO/DOM
 \end_layout
 
 \begin_layout Standard
-sdfsf
+Nenhum das tarefas apresentadas na area do docente usa javascript na sua
+ construção.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -3543,7 +3803,21 @@ HTML
 \end_layout
 
 \begin_layout Standard
-sfsdfsdf
+As tarefas 1, 2 e 3, mostram o seu conteudo em forma de tabela html por
+ forma a ser mais simples e limba a organização da informação.
+ Tal como na area dos recursos humanos as tabelas usadas usam todas o mesmo
+ template.
+ As tabelas são construidas igualmente como as tabelas de listagens existentes
+ na area dos recursos humanos.
+ Recorrendo ao uso de ciclos 
+\begin_inset Quotes eld
+\end_inset
+
+for
+\begin_inset Quotes erd
+\end_inset
+
+ existentes la linguagem de templates do django.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -3551,19 +3825,53 @@ CSS
 \end_layout
 
 \begin_layout Standard
-sfsdfsd
+As tarefas 1, 2 e 3 são estilizadas de forma igual.
+ Tal como na area dos recursos humanos todas as tabelas aqui construidas
+ usam o template de CSS, que foi posterioremente aletrado e estilizado por
+ forma a suprir as necessidades desta area.
 \end_layout
 
 \begin_layout Section
 Vice-Presidência
 \end_layout
 
-\begin_layout Subsection
-Síntese de funcionamento
+\begin_layout Standard
+A vice-presidencia em sem duvida o orgão com mais poder dentro da aplicação,
+ pois é daqui que parte a decisão final sobre todas as tarefas realizadas
+ na aplicação.
+ Sendo o orgão mais complexo foi aquele que foi deixado para o fim e por
+ infelicidade foi impossiel de concluir a implementação de todas as terafas
+ desejaveis.
 \end_layout
 
 \begin_layout Subsection
 Tarefas Implementadas
+\end_layout
+
+\begin_layout Standard
+Atualemente toda a informação relacionada com o serviço de destribuição
+ do serviço docente é tratada de forma rudimentar por meio da manipulação
+ de um ficheiro excel que torna todo o processo demasiado moroso e complexo
+ de realizar levando a que possam ocorrer ambiguidades e redundancia de
+ informação.
+\end_layout
+
+\begin_layout Itemize
+Tarefa 1 - Gerar xls
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Com vista a suavizar a mudança de para a nova aplicação foi dada a possibilidade
+ de gerar um ficheiro excel semelhante ao que existe atualemente com dados
+ lidos da base de dados.
+ Assim o utilizador consegue adpatar-se melhor e visualizar os dados da
+ forma que esta habituado antes de dar o salto final para a nova aplicação.
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Síntese de funcionamento
 \end_layout
 
 \begin_layout Subsection
