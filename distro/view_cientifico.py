@@ -48,10 +48,11 @@ def indexCientifico(request):
 def criarXLS(request):
 
     wb = Workbook()
-    #createXLS_sheet1(wb)
-    #folhaDocentes1011(wb)
     createXLS_sheet0(wb)
-    #wb.save('wwdw.xls')
+    createXLS_sheet1(wb)
+    folhaDocentes1011(wb)
+    
+    wb.save('saida.xls')
 
     return render_to_response("cientifico/criar_xls.html",
         locals(),
@@ -147,13 +148,31 @@ def createXLS_sheet0(wb):
     nrHorasDocente = 0
     for modulos in listaModulos:
         #Calcular as horas dos docentes anual...
-        
+        nome_departamento = ""
+        nome_docente = ""
+        nome_categoria = ""
+        nome_escalao = ""
+        try:
+            nome_departamento = modulos.docente.departamento.nome
+            nome_docente = modulos.docente.nome_completo
+            nome_categoria = Contrato.objects.get(docente_id__exact = modulos.docente_id).categoria.nome
+            nome_escalao = modulos.docente.escalao
+        except AttributeError:
+            nome_departamento = ""
+            nome_docente = ""
+            nome_categoria = ""
+            nome_escalao = ""
+            pass
+        '''modulos.docente.departamento.nome'''
+        #modulos.docente.nome_completo 
+        #Contrato.objects.get(docente_id__exact = modulos.docente_id).categoria.nome   
+        #modulos.docente.escalao
         lista.append([modulos.servico_docente.turma.unidade_curricular.departamento.sede.abreviatura,\
-                      modulos.docente.departamento.nome,\
-                      modulos.docente.nome_completo,\
+                      nome_departamento,\
+                      nome_docente,\
                       0,\
-                      Contrato.objects.get(docente_id__exact = modulos.docente_id).categoria.nome,\
-                      modulos.docente.escalao,\
+                      nome_categoria,\
+                      nome_escalao,\
                       modulos.servico_docente.turma.unidade_curricular.curso.nome,\
                       modulos.servico_docente.turma.unidade_curricular.curso.tipo_curso.abreviatura,\
                       "", modulos.servico_docente.turma.unidade_curricular.nome,\
@@ -190,7 +209,7 @@ def createXLS_sheet0(wb):
             col += 1
         col = 0
         row += 1
-    wb.save('decdcd.xls')
+    #wb.save('decdcd.xls')
 
 #Metdodo de Criação da folha Docentes1011 do XLS
 def folhaDocentes1011(wb):
