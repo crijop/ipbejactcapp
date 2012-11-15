@@ -1073,7 +1073,7 @@ O departamento de Recursos Humanos de uma instituição é parte fundamental,
  para o bom funcionamento da mesma.
  Sendo o Institituto Politécnico de Beja uma instituição, não poderia deixar
  de ter uma departamento que trate a informação dos seus colaboradores.
- Como é visivel a partida a distribuição don serviço docente está intinsecamente
+ Como é visivel á partida a distribuição do serviço docente está intrinsecamente
  ligada e dependente do departamento dos recursos humanos.
  Pois é nos recursos humanos que existe a possibilidade de ver os contratos
  dos docentes, bem como alterar informação de docentes ja a laborar na instituiç
@@ -2695,7 +2695,7 @@ Filtro
 \begin_inset Quotes eld
 \end_inset
 
-Por Categoria
+Por Departamento
 \begin_inset Quotes erd
 \end_inset
 
@@ -2757,7 +2757,7 @@ Filtro
 \begin_inset Quotes eld
 \end_inset
 
-Por Departamento
+Por Categoria
 \begin_inset Quotes erd
 \end_inset
 
@@ -2781,7 +2781,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename images/Filtro_OrdemAlfabetica.png
+	filename images/Filtro_Categoria.png
 	scale 50
 
 \end_inset
@@ -2797,11 +2797,274 @@ Filtro -
 \begin_inset Quotes eld
 \end_inset
 
-Por Ca
+Por Categoria
 \begin_inset Quotes erd
 \end_inset
 
 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Tarefa 4 - Listar Contratos
+\end_layout
+
+\begin_layout Standard
+Nesta tarefa de listar contratos, existem varios filtros que nos permitem
+ filtrar a informação da tabela sob varios parametros.
+ Entre esses filtros contam-se o filtro 
+\begin_inset Quotes eld
+\end_inset
+
+Por Ordem Alfabetica
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+Por Categoria
+\begin_inset Quotes erd
+\end_inset
+
+ e 
+\begin_inset Quotes eld
+\end_inset
+
+Por Departamento
+\begin_inset Quotes erd
+\end_inset
+
+ e 
+\begin_inset Quotes eld
+\end_inset
+
+Por Data
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Todos os primeiros tres filtros referidos ja foram tratadosna Tarefa 3,
+ sendo que a novidade aqui é mesmo o filtro 
+\begin_inset Quotes eld
+\end_inset
+
+Por Data
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Este filtro 
+\begin_inset Quotes eld
+\end_inset
+
+Por Data
+\begin_inset Quotes erd
+\end_inset
+
+, subdivide-se em outros dois filtros 
+\begin_inset Quotes eld
+\end_inset
+
+Por data inicio
+\begin_inset Quotes erd
+\end_inset
+
+ e 
+\begin_inset Quotes eld
+\end_inset
+
+Por data de fim
+\begin_inset Quotes erd
+\end_inset
+
+ (Figura 3.22).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/Filtro_PorData.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Filtro- 
+\begin_inset Quotes eld
+\end_inset
+
+Por Data
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Ambos os sub-filtros, possuem um calendário construido em javascript por
+ 
+\begin_inset Quotes eld
+\end_inset
+
+dynarch.com
+\begin_inset Quotes erd
+\end_inset
+
+ de nome 
+\begin_inset Quotes eld
+\end_inset
+
+JSCal2-1.9
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Calendário esse que permite navegar entre os meses , anos e obter a data
+ actual.
+ Essa data é colocada numa caixa de texto 
+\begin_inset Quotes eld
+\end_inset
+
+<input type=
+\begin_inset Quotes erd
+\end_inset
+
+text
+\begin_inset Quotes erd
+\end_inset
+
+ />
+\begin_inset Quotes erd
+\end_inset
+
+ atravez de um metodo javascript acente em DOM .
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset listings
+lstparams "language=Java,numbers=left"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+var textbox = document.getElementById("text_box");
+\end_layout
+
+\begin_layout Plain Layout
+
+textbox.value = "10/9/2012";
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Exemplo do preenchimenro de uma tag html - Input
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+No (Algoritmo 3.4), é mostrado um exemplo de como é elaborada a operação
+ acima referida em DOM.
+ O calendário (Figura 3.23) em questão é adicionado á aplicação da mesma
+ forma que a biblioteca do DOJO.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/Filtro_PorDataInicio.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Filtro- 
+\begin_inset Quotes eld
+\end_inset
+
+Por Data Inicio
+\begin_inset Quotes erd
+\end_inset
+
+ 
 \end_layout
 
 \end_inset
@@ -3001,16 +3264,201 @@ if
 Tarefa 2 - Editar Docente
 \end_layout
 
+\begin_layout Standard
+A tarefa Editar Docentes envolve a criação de uma prévia listagem dos docentes
+ existentes.
+ Listagem essa elaborada atravez de uma tabela html, elemento que nos permite
+ ter uma visualização muito mais agradavel da informação.
+ A construção da tabela esta muito facilitada graças a linguagem de template
+ do django.
+ Pois atravez do uso do ciclo 
+\begin_inset Quotes eld
+\end_inset
+
+for
+\begin_inset Quotes erd
+\end_inset
+
+, é mais rapido e facil precorrer a informação, obtida da View (Algoritmo
+ 3.6).
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset listings
+lstparams "language=HTML,numbers=left"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+<table>
+\end_layout
+
+\begin_layout Plain Layout
+
+	<tr> 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		<th>cabeçalho1</th>
+\end_layout
+
+\begin_layout Plain Layout
+
+		<th>cabeçalho2</th>
+\end_layout
+
+\begin_layout Plain Layout
+
+	</tr> 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	{% for item1, item2 in lista %}
+\end_layout
+
+\begin_layout Plain Layout
+
+	<tr> 			
+\end_layout
+
+\begin_layout Plain Layout
+
+		<td>{{item1}}</td>
+\end_layout
+
+\begin_layout Plain Layout
+
+		<td>{{item2}}</td>
+\end_layout
+
+\begin_layout Plain Layout
+
+	</tr> 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	{% endfor %}
+\end_layout
+
+\begin_layout Plain Layout
+
+</table>
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Exemplo criação tabela de listagem - Linguagem de Template
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ Como seria de esperar a listagem dos docentes iria devolver uma tabela
+ muito estensa no que se refer ao seu numero de linhas.
+ Para colmatar este problema recorreu-se a um sistema de paginação do django
+ que permite a divisão de uma lista de elementos em varias sub-listas.
+ Essa metodo é utilizado na View que tratará de enviar os elementos a colocar
+ na tabela html.
+ 
+\end_layout
+
+\begin_layout Standard
+A parte da edição em si é igual a referida na Tarefa 1 - Adicionar Docente,
+ coma difenreça do formulário vir préviamente preenchido.
+\end_layout
+
 \begin_layout Subsubsection*
 Tarefa 3 - Listar Docentes
+\end_layout
+
+\begin_layout Standard
+A estrutura html, listagem de docentes é igual ao referido na Tarefa 2 -
+ Editar Docente.
+ Ate nesmo a vista detalhada do docente segue o mesmo, paradigma da mostragem
+ da informação em forma de tabela.
+ O que propurciona uma melhor visualização e clareza nos dados apresentados.
+\end_layout
+
+\begin_layout Subsubsection*
+Tarefa 4 - Listar Contratos
+\end_layout
+
+\begin_layout Standard
+A estrutura desta tarefa em termos de listagem e vista detalhada de informação
+ do docente é igual á referida na Tarefa 3 - Listar Docentes.
+ Contudo existe uma alteração no que diz respeito á existencia da filtragem
+ 
+\begin_inset Quotes eld
+\end_inset
+
+Por Data
+\begin_inset Quotes erd
+\end_inset
+
+ pois em ambas as sub-filtragens 
+\begin_inset Quotes eld
+\end_inset
+
+Por Data Ínicio
+\begin_inset Quotes erd
+\end_inset
+
+ e 
+\begin_inset Quotes eld
+\end_inset
+
+Por Data Fim
+\begin_inset Quotes erd
+\end_inset
+
+ para alem do calendário, tem um incrementador que nos permite definir um
+ raio de dias em torno da data escolhida no calendário para a filtrage.
+ Esse incremento é feito usando o elemento html <input type=
+\begin_inset Quotes erd
+\end_inset
+
+number
+\begin_inset Quotes erd
+\end_inset
+
+/>.
 \end_layout
 
 \begin_layout Subsection*
 CSS
 \end_layout
 
+\begin_layout Standard
+A Barra de menus presente em todasas paginas desta aplicação foi estilizada
+ com base em um template de CSS3, que posterioremente foi alterado e ajustado
+ para suprir as necessidades da aplicação
+\end_layout
+
 \begin_layout Subsubsection*
-Tarefa - Adicionar Docente
+Tarefa 1- Adicionar Docente
 \end_layout
 
 \begin_layout Standard
@@ -3022,12 +3470,44 @@ Os CSSs que dão o estilo e design da aplicação são bastante simples.
  
 \end_layout
 
+\begin_layout Subsubsection*
+Tarefa 2 - Editar Docente
+\end_layout
+
+\begin_layout Standard
+Os CSS que dão vida a tabela de listagem de docentes passiveis de edição,
+ foram baseados num template CSS3 e postriormente alterado consoante as
+ necessidades de visualização da aplicação.
+ Esse template apesar de CSS3, trata-se de um hibrido entre CSS e CSS3.
+ Os formulários de edição do docente estão estilizados de forma igual ao
+ que acontece na tarefa 1 - Adicionar Docente
+\end_layout
+
+\begin_layout Subsubsection*
+Tarefa 3 - Listar Docentes e Tarefa 4 - Listar Contratos
+\end_layout
+
+\begin_layout Standard
+Tanto a listagem de docentes como a listagem de contratos usam a estilização
+ referida na tarefa 2 - Editar Docente.
+ Pois basicamente a sua estrutura quer na forma listagem quer na forma detalhada
+, é construida com base a tabelas html.
+\end_layout
+
 \begin_layout Section
 Docentes
 \end_layout
 
+\begin_layout Standard
+Sendo os docentes parte fundamental para o funcionamento de uma instutuição
+ de ensino é mais que normal que exista uma area reservada aos mesmos.
+ Nesta area os docentes tem acesso a toda a informação disponivel sobre
+ si proprios , de forma clara e sintetica sem burocracias nem redundnacias
+ pois os dandos estanto centralizados são obtidos do mesmo local.
+\end_layout
+
 \begin_layout Subsection
-Síntese de funcionamento
+Tarfas Implementadas
 \end_layout
 
 \begin_layout Standard
@@ -3035,7 +3515,7 @@ sfsdfsdf
 \end_layout
 
 \begin_layout Subsection
-Tarfas Implementadas
+Síntese de funcionamento 
 \end_layout
 
 \begin_layout Standard
