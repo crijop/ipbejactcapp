@@ -3840,7 +3840,7 @@ A vice-presidencia em sem duvida o orgão com mais poder dentro da aplicação,
  pois é daqui que parte a decisão final sobre todas as tarefas realizadas
  na aplicação.
  Sendo o orgão mais complexo foi aquele que foi deixado para o fim e por
- infelicidade impossiel de concluir a implementação de todas as terafas
+ infelicidade foi impossiel de concluir a implementação de todas as terafas
  desejaveis.
 \end_layout
 
@@ -3874,20 +3874,165 @@ Com vista a suavizar a mudança de para a nova aplicação foi dada a possibilid
 Síntese de funcionamento
 \end_layout
 
+\begin_layout Subsection*
+Tarefa 1 - Gerar xls
+\end_layout
+
+\begin_layout Standard
+Esta tarefa foi pensada para aquelas pessoas que tem dificuldades em começar
+ a usar um novo software.
+ Para evitar que o choque seja grande demais, existe a possibilidade de
+ converter o conteudo da base de dados da aplicação para uma folha de calculo
+ (Metodo atualmente usado).
+\end_layout
+
+\begin_layout Subsubsection*
+1º Passo
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/cientifico_inicio.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Informação - Docente
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Considerando que o utilizador ja realizou a autenticação na aplicação.
+ Na pagina inicial da vice-presidencia(ver figura 3.27) clica em 
+\begin_inset Quotes eld
+\end_inset
+
+Criar XLS
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+2º passo
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/gerar_xls_cientifico.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Informação - Docente
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Após esperar alguns instantes que a os metos da View, responsaveis pela
+ criação da folha de calculo terminem a sua criação, o utilizador é encaminhado
+ para uma outra pagina onde lhe indica o sucesso da operação (Figura 3.28).
+\end_layout
+
 \begin_layout Subsection
 Aplicação das Tecnologias
+\end_layout
+
+\begin_layout Standard
+Como em todas as areas desta aplicação, é indepensavel o recurso as tecnologias
+ de construção de paginas web.
+ Esta area estando ainda na sua fase de construção inicial, da pouco uso
+ as tecnologias web.
 \end_layout
 
 \begin_layout Subsubsection*
 JavaScript - DOJO/DOM
 \end_layout
 
+\begin_layout Standard
+Não possui qualquer tipo de codigo javascript
+\end_layout
+
 \begin_layout Subsubsection*
 HTML
 \end_layout
 
+\begin_layout Standard
+O html aqui apresentado é o que é gerado essencialmente pelo template base
+ com a diferença apenas da barra de menus.
+\end_layout
+
 \begin_layout Subsubsection*
 CSS
+\end_layout
+
+\begin_layout Standard
+Os CSS são basicamente os mesmo que usados no template base e nas restantes
+ areas.
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Esta area que se refere a vice-presidencia encontra-se numa fase de construção
+ incial.
+ Pelo que é visivel que se encontra disprovida das funcionalidades que este
+ orgão exerce actualmente na distribuição do serviço docente.
+ Assim sendo a tarefa mais importante de momento foi a implementada.
+ De futuro preve-se a conclusão desta e das outras areas, que são parte
+ constituinte desta aplicação.
 \end_layout
 
 \end_body
