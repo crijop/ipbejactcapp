@@ -302,15 +302,35 @@ Acrónimos e Abreviaturas
 \end_layout
 
 \begin_layout Description
-TCP Transport Control Protocol
+MVC Model View Controler
 \end_layout
 
 \begin_layout Description
-FTP File Transport Protocol
+MTV Model Template View
 \end_layout
 
 \begin_layout Description
-RADIUS Remote Authentication Dial-In User Service
+HTML HyperText Markup Language
+\end_layout
+
+\begin_layout Description
+URL Uniform Resource Locator
+\end_layout
+
+\begin_layout Description
+DOM Document Object Model
+\end_layout
+
+\begin_layout Description
+AJAX Asynchronous Javascript and XML
+\end_layout
+
+\begin_layout Description
+XML eXtensible Markup Language
+\end_layout
+
+\begin_layout Description
+CSS Cascading Style Sheets
 \end_layout
 
 \begin_layout Standard
