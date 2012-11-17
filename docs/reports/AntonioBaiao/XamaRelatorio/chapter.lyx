@@ -312,11 +312,44 @@ Introdução
 \end_layout
 
 \begin_layout Standard
-Neste capítulo, xxxxxxxxxxxxxxxxxxxxxxxx e 
-\shape italic
-open source
-\shape default
-.
+Este relatório vai incidir essencialmente na parte I do sistema de gestão
+ de serviço docente.
+ Sistema esse que foi proposto como estágio curricular.
+ Esse sistema visa colmatar os problemas que existem hoje dentro do Instituto
+ Politécnico de Beja no que diz respeito a distribuição do serviço docente.
+ Atualmente a distribuição é realizada de forma rudimentar com recurso a
+ uma folha de cálculo.
+ O excesso de informação na folha de cálculo torna a tarefa de recolha e
+ gestão dos dados, morosa e de difícil execução.
+ 
+\end_layout
+
+\begin_layout Standard
+Com vista a resolver esse problema foi criada uma aplicação web, que tem
+ como propósito centralizar toda informação e eliminar os problemas de incoerênc
+ia e redundância existentes ate agora.
+ O Sistema foi construído sob a framework Django que utiliza como base a
+ linguagem de alto nível Python.
+\end_layout
+
+\begin_layout Standard
+Neste relatório será falado essencialmente do desenvolvimento da interface
+ gráfica da aplicação.
+ O relatório será dividido em três capítulos um dos quais este da introdução.
+ O capítulo dois refere-se as ferramentas e tecnologias que foram usadas
+ no decurso da construção desta aplicação.
+ Nesse capítulo será explicado de forma sucinta as várias tecnologias aqui
+ usadas.
+\end_layout
+
+\begin_layout Standard
+No capítulo três, aquele que apresenta maior relevância, é onde será feita
+ a abordagem de algumas das áreas que foram desenvolvidas nesta aplicação,
+ como os Recursos Humanos, o Docente e a Vice-presidência.
+ Nestas três áreas será elaborado um esquema de funcionamento para cada
+ uma das tarefas implementadas bem como qual o uso das tecnologias mencionadas
+ no capítulo dois, para a criação da interface gráfica do sistema.
+ 
 \end_layout
 
 \begin_layout Chapter
@@ -324,22 +357,22 @@ Tecnologias Usadas
 \end_layout
 
 \begin_layout Section
-Sumário
+Sinopse
 \end_layout
 
 \begin_layout Standard
 Para o desenvolvimento desta aplicação web são usadas varias ferramentas
  conhecidas e de licença de utilização gratuita.
  Entre as tecnologias base encontram se a linguagem de programação para
- base de dados SQL para a qual é usada a ferramenta SQLite 3, as liguangens
- de programação Python e JavaScript bem como a linguagem para construção
- de paginas web HTML incluido CSS para estilização e design da aplicação.
+ base de dados SQL para a qual é usada a ferramenta SQLite 3, as linguagens
+ de programação Python e Javascript bem como a linguagem para construção
+ de páginas web HTML incluído CSS para estilização e design da aplicação.
  Como ferramenta base, é utilizada a framework Django, baseada em python
  a qual nos permite a criação de aplicações web.
- Para uma melhor performance é utilizado no JavaScript uma bioblioteca de
- funções, DOJO, que permite realizar algumas tarefas de JavaScript de forma
- mais facil.
- A junção de todas estas tecnlogias, dão poder necessario a aplicação para
+ Para uma melhor performance é utilizado no Javascript uma biblioteca de
+ funções, DOJO, que permite realizar algumas tarefas de Javascript de forma
+ mais fácil.
+ A junção de todas estas tecnologias, dão poder necessário a aplicação para
  que possa ser robusta, rápida e fiável, sem esquecer sempre os benefícios
  na usabilidade por parte dos utilizadores do sistema.
 \end_layout
@@ -350,7 +383,7 @@ Django
 
 \begin_layout Standard
 O Django é uma Framework construída em Python seguindo como padrão o modelo
- MVC transcrito como MVT (Model, View, Template)
+ MVC transcrito como MTV (Model, Template, View)
 \end_layout
 
 \begin_layout Subsubsection*
@@ -360,12 +393,11 @@ O que é uma Framework?
 \begin_layout Standard
 Uma framework, é constituída por varias ferramentas controlados pela framework,
  que nos permitem o desenvolvimento de software de forma mais rápida e limpa,
- pois a um nivel de asbtração maior do que quando utilizamos um conjunto
+ pois a um nível de abstração maior do que quando utilizamos um conjunto
  de linguagens de programação ou outras ferramentas separadamente.
- A framework pode ainda ser configurada e perssonalizada pelo utilizador
- a fim de produzir um software com caracteristicas especificas que vão ao
+ A framework pode ainda ser configurada e personalizada pelo utilizador
+ a fim de produzir um software com características especificas que vão ao
  encontro das necessidades do utilizador da ferramenta.
- 
 \end_layout
 
 \begin_layout Subsubsection*
@@ -383,15 +415,15 @@ MVC ou MTV?
 \end_layout
 
 \begin_layout Standard
-O padrão de desenvolvimento MVC conciste em três niveis que separão a estrutra
+O padrão de desenvolvimento MVC consiste em três níveis que separam a estrutura
  da aplicação, em modelo, controlador e vista, constituindo assim partes
  distintas por forma a garantir uma melhor manutenção e construção da mesma,
- pois permite o desenvolvimento, edição e a realização de testes a aplicaçã
+ pois permite o desenvolvimento, edição e a realização de testes a aplicação
  de forma separada para cada parte.
- É um padrão baseado na tecnologia de orientação a objectos.
+ É um padrão baseado na tecnologia de orientação a objetos.
  E no Django apesar de seguir este mesmo padrão é nomeado de outra forma
- sendo chamado de Modelo, Vista e Template, sendo que aqui a vista corresponde
- ao controlador e o template a vista.
+ sendo chamado de Modelo, Vista e Template, sendo que aqui a Vista corresponde
+ ao Controlador e o Template á Vista.
 \end_layout
 
 \begin_layout Standard
@@ -399,11 +431,11 @@ Visto desta forma temos:
 \end_layout
 
 \begin_layout Itemize
-Modelo - Regras de negocio
+Modelo - Regras de negócio
 \end_layout
 
 \begin_layout Itemize
-Vista - Ponte de comunicação entre o template e o modelo
+Vista - Ponte de comunicação entre o Template e o Modelo
 \end_layout
 
 \begin_layout Itemize
@@ -413,8 +445,8 @@ Template - Parte visual pela qual o utilizador interage com o sistema
 \begin_layout Paragraph
 
 \series medium
-Com o django temos total controlo da criação de aplicações web.
- Permite a utilzação de bases de dados, codigo html bem como todo o tipo
+Com o Django temos total controlo da criação de aplicações web.
+ Permite a utilização de bases de dados, código HTML bem como todo o tipo
  de script ou linguagem de construção web.
 \end_layout
 
@@ -463,20 +495,18 @@ O que é o URL Dispatcher?
 \begin_layout Standard
 Um URL limpo e elegante é um detalhe importante para a alta qualidade de
  aplicações WEB.
- O Django permite criar URL's perssonalizados sem limitações da framework.
-\begin_inset Newline linebreak
-\end_inset
-
-Para criar URLs para uma aplicação, é apenas necessario um modulo de Python.
+ O Django permite criar URLs personalizados sem limitações da framework.
+ Para criar URLs para uma aplicação, é apenas necessário um módulo de Python.
  Este modulo será escrito em puro Python e é um simples mapeamento entre
- o URL padrão baseado em expressoes regulares e funções escritas em, Python
- presentes na VISTA.
+ o URL padrão baseado em expressões regulares e funções escritas em, Python
+ presentes na Vista.
 \end_layout
 
 \begin_layout Standard
 Este mapeamento pode ser curto ou longo consoante a necessidade do mesmo.
- Pode ainda referenciar outros mapeamentos e como os URLs sao escritos em
- Python puro, podem ainda ser construidos dinamicamente.
+ Pode ainda referenciar outros mapeamentos e como os URLs são escritos em
+ Python puro, podem ainda ser construídos dinamicamente.
+ 
 \end_layout
 
 \begin_layout Subsubsection*
@@ -486,9 +516,9 @@ O que é a Vista?
 \begin_layout Standard
 A vista quando valamos em Django refere-se ao controlador no MVC padrão.
  Como de costume aqui a vistas sendo controladores vão fazer de ponte entre
- o modelo e o template.
+ o modelo e o Template.
  É aqui na vista que serão resolvidos os pedidos do URL Dispacher bem como
- enviada a resposta para o template.
+ enviada a resposta para o Template.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -496,18 +526,19 @@ O que é o Modelo?
 \end_layout
 
 \begin_layout Standard
-O Modelo como habitualmente é onde desenhamos as classes que vao receber
+O Modelo como habitualmente é onde desenhamos as classes que vão receber
  as consultas a base de dados bem como a forma de obter esses mesmos dados.
- Sendo o Django uma framework de alto nivel, não necessitamos escrever nada
+ Sendo o Django uma framework de alto nível, não necessitamos escrever nada
  em SQL para aceder a base de dados a não ser que seja realmente preciso.
  Pois o Django possui o sistema ORM – Mapeamento de Objetos Relacionais
- que nos permite um manipulamento das tabelas presentes na base dados.
+ que nos permite uma manipulação das tabelas presentes na base dados.
 \end_layout
 
 \begin_layout Standard
-O ORM do Django possui uma elevada compatibilidade sendo compativel com
- a maioria dos sistesmas de gestão de base de dados (MySQL, PostgreSQL,
- SQLite, ...).
+O ORM do Django possui uma elevada compatibilidade sendo compatível com
+ a maioria dos sistemas de gestão de base de dados (MySQL, PostgreSQL, SQLite,
+ ...).
+ 
 \end_layout
 
 \begin_layout Subsubsection*
@@ -515,22 +546,199 @@ O que é o Template?
 \end_layout
 
 \begin_layout Standard
-O sistema de templates do Django é uma das suas mais notórias funcionalidades.
- Com ele podemos criar heranças, ou seja, um template base contendo a estrutura
- básica da aplicação web e templates específicos que herdam as características
- deste template base e atribuem/criam suas próprias características.
+O sistema de Templates do Django é uma das suas mais notórias funcionalidades.
+ Com ele podemos criar heranças, ou seja, um Template base contendo a estrutura
+ básica da aplicação web e Templates específicos que herdam as características
+ deste Template base e atribuem/criam suas próprias características.
  
 \end_layout
 
 \begin_layout Standard
-A linguagem de templates do Django está desenhada para atingir o balanço
+A linguagem de Templates do Django está desenhada para atingir o balanço
  entre o poder e a simplicidade.
  Foi desenvolvido para quem usa a linguagem se sinta a vontade para trabalhar
  com HTML.
- A linguagem de template do dajango é muito semelhante ao SMARTI, e de facil
+ A linguagem de Template do Django é muito semelhante ao SMARTI, e de fácil
  aprendizagem.
+ 
 \end_layout
 
+\begin_layout Subsubsection*
+A estrutura das diretorias.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/EsquemaDjango.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Estrutura de diretorias do Django
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+O Django tal como muitas outras frameworks web, tem uma estrutura, que ajuda
+ o utilizador desta ferramenta a navegar nas suas diretorias.
+ Em cima (figura 2.2) é apresentado um esquema da estrutura de diretorias
+ do Django.
+ OS retângulos vermelhos são módulos de Python, os retângulos verdes são
+ pastas, o retângulo laranja é a base de dados e o retângulo roxo são Templates
+ HTML.
+\end_layout
+
+\begin_layout Itemize
+urls.py
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Módulo de Python onde vão ser construídos os URLs responsáveis por resolver
+ e encaminha os pedidos do utilizador para as respetiva View.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+settings.py
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Módulo de Python onde é possível configurar e personalizar o modo de funcionamen
+to da framework
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+manage.py
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Módulo de Python que é chamado na linha de comandos, para criar uma nova
+ aplicação ou até inicializar o servidor de testes.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+base-dados.db
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Ficheiro onde esta armazenado o conteúdo da base de dados.
+ Ficheiro esse que é posteriormente interpretado pelo gestor de base de
+ dados, que a framework usa para fazer o acesso aos dados.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Templates
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Pasta onde serão armazenadas todas as páginas HTML
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Aplicação
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+É aqui que será construído toda a estrutura em Python da aplicação.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Static
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Nesta pasta serão armazenados todos o componentes estáticos da aplicação,
+ como scripts, estilos CSS, bem como imagens.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+models.py
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Módulo de Python responsável por criar os modelos da base de dados bem como
+ algumas funções chave para a regras de funcionamento da aplicação.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+views.py
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Módulo de Python responsável pelo controlo de toda aplicação.
+ É aqui que os pedidos URL são resolvidos e é feita a ponte ente os dados
+ do modelo e os Templates.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+forms.py
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Módulo responsável pela criação das estruturas dos formulários a serem usados
+ na aplicação.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+admin.py
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Módulo responsável pela parte administrativa da aplicação.
+ Local esse onde é possível ter uma vista total de todos os componentes
+ passiveis de serem usados na aplicação.
+\end_layout
+
+\end_deeper
+\end_deeper
+\end_deeper
 \begin_layout Subsubsection*
 South - Google Code - Mercurial
 \end_layout
@@ -546,16 +754,16 @@ O que é o SQLite?
 \begin_layout Standard
 O SQLite é um sistema de gestão de base dados contido numa pequena biblioteca
  de programação em C, habitualmente utilizado como base de dados embebida
- para o aramazenamento em aplicações tais como aplicações web.
+ para o armazenamento em aplicações tais como aplicações web.
 \end_layout
 
 \begin_layout Paragraph*
 
 \series medium
-O SQLite 3 foi o gestor de base de dados adoptado para gerir a base de dados
+O SQLite 3 foi o gestor de base de dados adotado para gerir a base de dados
  na framework Django.
  Sendo pequeno e simples este gestor torna se a escolha ideal para uma gestão
- suave e leve de bases de dedados que requerem o acesso rapido a informação.
+ suave e leve de bases de dados que requerem o acesso rápido a informação.
 \end_layout
 
 \begin_layout Section
@@ -563,8 +771,8 @@ JavaScript
 \end_layout
 
 \begin_layout Standard
-JavaScript é uma linguagem de script baseada em ECMAScript padronizada pela
- Ecma international e é actualmente a principal linguagem para programação
+Javascript é uma linguagem de script baseada em ECMAScript padronizada pela
+ Ecma international e é atualmente a principal linguagem para programação
  do lado do cliente em browsers.
 \end_layout
 
@@ -573,13 +781,13 @@ O que é o DOJO?
 \end_layout
 
 \begin_layout Standard
-O Dojo consiste numa biblioteca de JavaScript que permite poupar tempo e
+O Dojo consiste numa biblioteca de Javascript que permite poupar tempo e
  esforço utilizando sempre os standards web.
  Esta ferramenta é virada para a construção de aplicações web de alta qualidade.
  Dispõe de muitas funções que nos permitem gerar efeitos animações ou ate
- tarefas que seriam mais exigentes de desenvolver em JavaScript puro de
- forma mais rápida e facil.
- O DOJO vai actualmente na sua versão 1.8 a qual foi usada nesta aplicação.
+ tarefas que seriam mais exigentes de desenvolver em Javascript puro de
+ forma mais rápida e fácil.
+ O DOJO vai atualmente na sua versão 1.8 a qual foi usada nesta aplicação.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -587,21 +795,17 @@ O que é o DOM?
 \end_layout
 
 \begin_layout Standard
-O JavaScript como linguagem de programação que é vai permitir manipular
+O Javascript como linguagem de programação que é vai permitir manipular
  objetos DOM.
- O DOM disbonibiliza métodos e propriedades que permitem obter, modificar,
- atualizar e remover partes do documento html.
+ O DOM disponibiliza métodos e propriedades que permitem obter, modificar,
+ atualizar e remover partes do documento HTML.
  
 \end_layout
 
 \begin_layout Standard
-Por exemplo, é possivel recuperar o valor uma tag de input (type:TEXT) HTML
+Por exemplo, é possível recuperar o valor uma tag de input (type:TEXT) HTML
  como uma string utilizando o DOM.
- 
-\begin_inset Newline linebreak
-\end_inset
-
-Apesar de tudo o DOM não é exclusivo do JavaScript pudendo ser utilizado
+ Apesar de tudo o DOM não é exclusivo do Javascript pudendo ser utilizado
  em muitas outras linguagens.
 \end_layout
 
@@ -610,19 +814,11 @@ O que é o AJAX?
 \end_layout
 
 \begin_layout Standard
-O AJAX (do inglês 
-\begin_inset Quotes eld
-\end_inset
-
-Asynchronous Javascript and XML
-\begin_inset Quotes erd
-\end_inset
-
-) "Javascript e XML Assíncronos" é o uso metodológico de tecnologias como
- Javascript e XML, disponibilizadas pelos browsers, para tornar páginas
- Web mais dinamicas, utilizando para isso chamadas assíncronas de informação
- ao servidor.
- Com o AJAX é possivel o rerfrescamento de elementos HTML sem ser necessario
+O AJAX (do inglês “Asynchronous Javascript and XML”) "Javascript e XML Assíncron
+os" é o uso metodológico de tecnologias como Javascript e XML, disponibilizadas
+ pelos browsers, para tornar páginas Web mais dinâmicas, utilizando para
+ isso chamadas assíncronas de informação ao servidor.
+ Com o AJAX é possível o refrescamento de elementos HTML sem ser necessário
  refrescar toda a pagina, fazendo para ta pedidos de informação ao servidor.
 \end_layout
 
@@ -631,28 +827,18 @@ CSS
 \end_layout
 
 \begin_layout Standard
-O CSS (ingles 
-\begin_inset Quotes erd
-\end_inset
-
-Cascading Style Sheets
-\begin_inset Quotes erd
-\end_inset
-
-) é uma linguagem de estilo utilizada para definir o estilo e design de
- documentos escritos em HTML ou XML.
+O CSS (ingles ”Cascading Style Sheets”) é uma linguagem de estilo utilizada
+ para definir o estilo e design de documentos escritos em HTML ou XML.
  
 \end_layout
 
 \begin_layout Standard
-Utilizando CSS é possivel separar o conteudo da pagina html do seu estilo
- tornando assim mais simples a cosntrução e manutenção da mesma.
-\begin_inset Newline linebreak
-\end_inset
-
-Atualmente o CSS vai na sua versão três, esta versão ja nos permite fazer
+Utilizando CSS é possível separar o conteúdo da página HTML do seu estilo
+ tornando assim mais simples a construção e manutenção da mesma.
+ Atualmente o CSS vai na sua versão três, esta versão já nos permite fazer
  certas animações e posicionamentos de elementos HTML que ate agora apenas
- se conseguia fazer atravez de JavaScript.
+ se conseguia fazer através de Javascript.
+ 
 \end_layout
 
 \begin_layout Section
@@ -668,68 +854,69 @@ O HTML (do inglês HyperText Markup Language, que significa Linguagem de
 \end_layout
 
 \begin_layout Standard
-Actualmente vai na sua versão cinco sendo conhecido por HTML 5.
+Atualmente vai na sua versão cinco sendo conhecido por HTML 5.
  Nesta versão foram introduzidas novas ferramentas de acessibilidade, bem
  como novas funcionalidades que ate agora só era conseguidas por meio do
- uso de outras ferramentas, como o JavaScript.
+ uso de outras ferramentas, como o Javascript.
  Esta versão ainda se encontra em desenvolvimento.
-\begin_inset Newline linebreak
-\end_inset
-
-No Django é usado um gestor de templates semelhante á biblioteca SMARTI,
+ No Django é usado um gestor de Templates semelhante á biblioteca SMARTI,
  que nos permite inserir variáveis ou listas de elementos de forma automática
  e simples.
  Gerando por fim ficheiros HTML capazes de ser interpretados pelo browser.
-\begin_inset Newline linebreak
-\end_inset
+ 
+\end_layout
 
-Na construção desta aplicação foi usada uma mistura e codigo HTML 4.1 Transaction
+\begin_layout Standard
+Na construção desta aplicação foi usada uma mistura e código HTML 4.1 Transaction
 al com alguns elementos de HTML 5.
+ 
 \end_layout
 
 \begin_layout Chapter
-Sistema de Gestão de Destribuição de Serviço Docente
+Sistema de Gestão de Distribuição de Serviço Docente
 \end_layout
 
 \begin_layout Section
-Sumário
+Sinopse
 \end_layout
 
 \begin_layout Standard
 Um Sistema de Gestão de Distribuição de Serviço Docente é algo importante
- em todos os estabelelicmentos de ensino, pois facilita atribuição de horas
+ em todos os estabelecimentos de ensino, pois facilita atribuição de horas
  de serviço e a escolha dos docentes para determinadas turmas estando a
  informação centralizada em apenas um local.
- Evintando assim problemas de redundancia e incoerencia de informação.
- Actualmente no institututo politecnico de Beja, a distribuição do serviço
+ Evitando assim problemas de redundância e incoerência de informação.
+ Atualmente no Instituto Politécnico de Beja, a distribuição do serviço
  docente é realizada de forma bastante rudimentar, recorrendo a folhas de
- calculo como suporte para a informação.
- Sendo actualmente o processo muito moroso, confuso e de dificil execução,
- levando por vezes ao atraso na elaboração dos horarios e na atribuição
- dos docentes as respectivas turmas.
+ cálculo como suporte para a informação.
+ Sendo atualmente o processo muito moroso, confuso e de difícil execução,
+ levando por vezes ao atraso na elaboração dos horários e na atribuição
+ dos docentes as respetivas turmas.
  Com vista a melhorar essa situação foi proposto a criação de um sistema
- de gestão de destribuição de serviço doncente com vista a acelerar os processos
+ de gestão de distribuição de serviço docente com vista a acelerar os processos
  de atribuição das horas de serviço, clarificar a informação, facilitar
  o processo e centralizar a informação.
  
 \end_layout
 
 \begin_layout Standard
-Este sistema esta previsto ser utilizado pelo departamento de recursos humanos,
+Este sistema está previsto ser utilizado pelo departamento de recursos humanos,
  os departamentos de ensino das instituições, os conselhos científicos e
  a gestão das instituições.
- Neste relatorio serão abordados especificamente o departamento de recursos
- humanos, os docentes e a vice-presidencia.
+ Neste relatório serão abordados especificamente o departamento de recursos
+ humanos, os docentes e a vice-presidência.
  Em todas as estas abordagens será clarificado o funcionamento de cada utilizado
 r do sistema, bem como as suas principais tarefas e a forma como as tecnologias
- de desenvolvimnto dos templates (JavaScript, HTML, CSS) foram usadas para
+ de desenvolvimento dos Templates (Javascript, HTML, CSS) foram usadas para
  geração do resultado final.
-\begin_inset Newline linebreak
-\end_inset
+ 
+\end_layout
 
-Durante este relatorio quando for referido por exemplo area dos recursos
- humanos, está se a refeirir a toda a informação que apenas pode ser acedida
+\begin_layout Standard
+Durante este relatório quando for referido por exemplo área dos recursos
+ humanos, está se a referir a toda a informação que apenas pode ser acedida
  e tratada pelos utilizadores dos recursos humanos.
+ 
 \end_layout
 
 \begin_layout Section
@@ -737,29 +924,31 @@ Estrutura Base
 \end_layout
 
 \begin_layout Standard
-Neste relatorio será falado ensencialmente dos templates e respetivos componente
-s que os constituem, visto isto é importante clarificar como foi construido
- o template base que serviu de guia para todos os outros templates das respectiv
-as areas.
-\end_layout
-
-\begin_layout Standard
-Para a construção dos templates é usada a linguagem de templates da framework
- django.
- Para acelerear o processo de criação das paginas web e reduzir a repetição
- desnecessaria de codigo html esta linguagem permite-nos incluir trechos
- de codigo html, existentes em outros ficheiros de extensao html a fim de
- formar a pagina final a ser mostrada ao utilizador.
+Neste relatório será falado essencialmente dos Templates e respetivos componente
+s que os constituem, visto isto é importante clarificar como foi construído
+ o Template base que serviu de guia para todos os outros Templates das respetiva
+s áreas.
  
 \end_layout
 
 \begin_layout Standard
-Em sintese a primeira coisa a fazer, é a criação de uma pagina HTML que
- será a base de todo o site.
- Para tal deppis de criada a estrutura do site com todas as tag DIV necessarias,
- utilizamosum elemento BLOCK facultado pela linguagem de template do django
+Para a construção dos Templates é usada a linguagem de Templates da framework
+ Django.
+ Para acelerar o processo de criação das páginas web e reduzir a repetição
+ desnecessária de código HTML esta linguagem permite-nos incluir trechos
+ de código HTML, existentes em outros ficheiros de extensão HTML a fim de
+ formar a página final a ser mostrada ao utilizador.
+ 
+\end_layout
+
+\begin_layout Standard
+Em síntese a primeira coisa a fazer, é a criação de uma página HTML que
+ será a base de todo a aplicação.
+ Para tal depois de criada a estrutura do site com todas as tag DIV necessárias,
+ utiliza-se um elemento BLOCK facultado pela linguagem de Templates do Django
  que nos permite criar blocos onde depois podem ser preenchidos em outras
- paginas do site.
+ páginas do site.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -786,7 +975,7 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Esquema de Construção do template base
+Esquema de construção do Template base
 \end_layout
 
 \end_inset
@@ -804,20 +993,15 @@ Esquema de Construção do template base
 \end_layout
 
 \begin_layout Standard
-Tal como é possivel visualizar na figura 3.1, temos um exemplo da cosntrução
- de um template base.
- Supondo que todos retangulos que possuem blocos sao formados por tags DIV,
- que por sua vez vão possuir blocos que podem ser modificados ou não em
- qualquer pagina do site que use como base este template.
- Esses blocos são formados pela seguinte sintax 
-\begin_inset Quotes eld
-\end_inset
-
-{% block nome_bloco %}
-\begin_inset Quotes erd
-\end_inset
-
-.
+Tal como é possível visualizar na figura 3.1, temos um exemplo da construção
+ de um Template base.
+ Supondo que todos retângulos que possuem blocos são formados por 
+\emph on
+tags
+\emph default
+ DIV, que por sua vez vão possuir blocos que podem ser modificados ou não
+ em qualquer pagina do site que use como base este Template.
+ Esses blocos são formados pela seguinte sintaxe “{% block nome_bloco %}”.
 \end_layout
 
 \begin_layout Standard
@@ -857,69 +1041,23 @@ Esquema da construção de template que irá extender do base
 \end_layout
 
 \begin_layout Standard
-No exemplo da figura 3.2 temos presente uma pagina html que extende do template
+No exemplo da figura 3.2 temos presente uma pagina HTML que estende do Template
  base.
- Significa isto que esta pagina html bastava extender do template base para
+ Significa isto que esta página HTML bastava estender do Template base para
  funcionar.
  Mas neste exemplo vai-se mais longe.
- Ao extender-se do template base todos os blocos la criados ficam disponiveis
+ Ao estender-se do Template base todos os blocos la criados ficam disponíveis
  nesta nova pagina.
- A grande vantagem do uso de blocos é que pudemos escolher alteralos ou
- mantelos inalterados.
- No exemplo acima foi decidido alterar o 
-\begin_inset Quotes eld
-\end_inset
-
-bloco menus
-\begin_inset Quotes erd
-\end_inset
-
- e o 
-\begin_inset Quotes eld
-\end_inset
-
-bloco conteudo
-\begin_inset Quotes erd
-\end_inset
-
- mantendo o 
-\begin_inset Quotes eld
-\end_inset
-
-bloco cabeçalho
-\begin_inset Quotes erd
-\end_inset
-
- inalterado.
+ A grande vantagem do uso de blocos é que se pode escolher altera-los ou
+ mante-los inalterados.
+ No exemplo acima foi decidido alterar o “bloco menus” e o “bloco conteúdo”
+ mantendo o “bloco cabeçalho” inalterado.
  Para isso bastou nesta nova pagina, fazer uma chamada aos blocos criados
- no template base - 
-\begin_inset Quotes eld
-\end_inset
-
-{% block menus %} ###Conteudo do bloco### {% endblock %}
-\begin_inset Quotes erd
-\end_inset
-
- - o outros blocos cujo conteudo foi alterado, o processo utilizado foi
- o mesmo.
- Assim sendo quando a pagina for requerida pelo utilzdor, tudo será igual
- ao que esta no template base a excepção do 
-\begin_inset Quotes eld
-\end_inset
-
-bloco menus
-\begin_inset Quotes erd
-\end_inset
-
- e do 
-\begin_inset Quotes eld
-\end_inset
-
-bloco conteudo
-\begin_inset Quotes erd
-\end_inset
-
-.
+ no Template base - “{% block menus %} ###Conteúdo do bloco### {% endblock
+ %}” - o outros blocos cujo conteúdo foi alterado, o processo utilizado
+ foi o mesmo.
+ Assim sendo quando a pagina for requerida pelo utilizador, tudo será igual
+ ao que esta no Template base a exceção do “bloco menus” e do “bloco conteúdo”.
 \end_layout
 
 \begin_layout Standard
@@ -965,32 +1103,60 @@ Esquema da visualização do exemplo no browser
 \begin_layout Standard
 Na figura 3.3 é apresentado o esquema de visualização final, aquele que será
  visualizado pelo utilizador no browser.
- Neste caso o utilizador veria o template base com os seus menus e conteudo
- alterados mandento a pagina a sua estrutura base.
-\begin_inset Newline linebreak
-\end_inset
+ Neste caso o utilizador veria o Template base com os seus menus e conteúdo
+ alterados mantendo a página a sua estrutura base.
+ 
+\end_layout
 
-Para alem dos blocos existem outras tags especiais nesta linguagem de template
- do django, tais como:
+\begin_layout Standard
+Para além dos blocos existem outras 
+\emph on
+tags
+\emph default
+ especiais nesta linguagem de Template do Django, tais como:
 \end_layout
 
 \begin_layout Itemize
-{% for a in lista %} ### Conteudo do ciclo #### {% endfor %}
+{% for a in lista %} ### Conteúdo do ciclo #### {% endfor %}
 \end_layout
 
 \begin_deeper
 \begin_layout Itemize
-Que nos permite construi um cliclo for tal como se faz em python.
+Que nos permite construi um ciclo 
+\emph on
+
+\begin_inset Quotes eld
+\end_inset
+
+for
+\begin_inset Quotes erd
+\end_inset
+
+
+\emph default
+ tal como se faz em Python.
 \end_layout
 
 \end_deeper
 \begin_layout Itemize
-{% if exemplo %} ### Conteudo do if #### {% endif %}
+{% if exemplo %} ### Conteúdo do if #### {% endif %}
 \end_layout
 
 \begin_deeper
 \begin_layout Itemize
-Que permite construir uma condição if tal como se faz em python.
+Que permite construir uma condição 
+\emph on
+
+\begin_inset Quotes eld
+\end_inset
+
+if
+\emph default
+ 
+\begin_inset Quotes eld
+\end_inset
+
+ tal como se faz em Python.
 \begin_inset Newline linebreak
 \end_inset
 
@@ -999,29 +1165,27 @@ Que permite construir uma condição if tal como se faz em python.
 
 \end_deeper
 \begin_layout Standard
-É permitido tambem usar variaveis declaradas em codigo python na linguagem
- de template bastando para isso clocando entre {{nome_variavel}}.
- Nome esse que tem que ser rigorosamente igual ao que esta definido no codigo
- python.
+É permitido também usar variáveis declaradas em código Python na linguagem
+ de Template bastando para isso colocar “{{nome_variavel}}”.
+ Nome esse que tem que ser rigorosamente igual ao que esta definido no código
+ Python.
 \end_layout
 
 \begin_layout Standard
-Essas variaveis são passadas quando o metodo de python na view devolve a
+Essas variáveis são passadas quando o método de Python na View devolve a
  resposta ao pedido do URL.
-\begin_inset Newline linebreak
-\end_inset
-
-Visto isto ficou claro que o uso da linguagem de templates do django facilita
+ Visto isto ficou claro que o uso da linguagem de Templates do Django facilita
  a construção de sites em que todas as paginas mantem a mesma estrutura.
- A linguagem de template do django é mais complexa do que aqui foi tratado,
- contudo foi o suficiente para a cosntrução desta aplicação.
+ A linguagem de Template do Django é mais complexa do que aqui foi tratado,
+ contudo foi o suficiente para a construção desta aplicação.
 \end_layout
 
 \begin_layout Standard
-Resumidamente a estrutura base desta aplicação, trata-se do qeu foi abordado
+Resumidamente a estrutura base desta aplicação, trata-se do que foi abordado
  nestes exemplos.
- Uma barra lateral de menus, uma area de conteudos e um cabeçalho onde consta
+ Uma barra lateral de menus, uma área de conteúdos e um cabeçalho onde consta
  o logotipo da aplicação.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -1070,16 +1234,16 @@ Recursos Humanos
 \begin_layout Standard
 O departamento de Recursos Humanos de uma instituição é parte fundamental,
  para o bom funcionamento da mesma.
- Sendo o Institituto Politécnico de Beja uma instituição, não poderia deixar
- de ter uma departamento que trate a informação dos seus colaboradores.
- Como é visivel á partida a distribuição do serviço docente está intrinsecamente
+ Sendo o Instituto Politécnico de Beja uma instituição, não poderia deixar
+ de ter um departamento que trate a informação dos seus colaboradores.
+ Como é visível á partida a distribuição do serviço docente está intrinsecamente
  ligada e dependente do departamento dos recursos humanos.
  Pois é nos recursos humanos que existe a possibilidade de ver os contratos
  dos docentes, bem como alterar informação de docentes ja a laborar na instituiç
 ão.
- Visto isto não poderia deixar de existir uma area na aplicação que trata-se
+ Visto isto não poderia deixar de existir uma área na aplicação que trata-se
  desse tipo de informação.
- Ficando assim a informação centralizada e livre de redundacias e incoerencias.
+ Ficando assim a informação centralizada e livre de redundâncias e incoerências.
 \end_layout
 
 \begin_layout Subsection
@@ -1087,8 +1251,8 @@ Tarfas Implementadas
 \end_layout
 
 \begin_layout Standard
-Na área dos recusros humanos foram implementadas as tarefas concideradas
- necessarias para uma correcta manutenção e gestão do corpo docente existente
+Na área dos Recursos Humanos foram implementadas as tarefas consideradas
+ necessárias para uma correta manutenção e gestão do corpo docente existente
  na instituição.
 \end_layout
 
@@ -1102,9 +1266,9 @@ Adicionar Docente:
 
 \begin_deeper
 \begin_layout Itemize
-Nesta tarefa o utilizador tem possibilidade de crirar um novo docente, introduzi
-ndo para issso alguns dos seus dados pessoais requeridos para este procedimento.
- Este docente criado ficará sem contrato ate que lhe seja feito um.
+Nesta tarefa o utilizador tem possibilidade de criar um novo docente, introduzin
+do para isso alguns dos seus dados pessoais requeridos para este procedimento.
+ Este docente criado ficará sem contrato até que lhe seja feito um.
 \end_layout
 
 \end_deeper
@@ -1114,7 +1278,7 @@ Editar Docente:
 
 \begin_deeper
 \begin_layout Itemize
-Existe a possibilidade de editiar um docente que ja exista na base de dados
+Existe a possibilidade de editar um docente que já exista na base de dados
  do sistema.
  Para isso o utilizador tem de encontrar o docente a editar uma lista de
  docentes e posteriormente edita-lo.
@@ -1138,8 +1302,8 @@ Listar Contratos:
 
 \begin_deeper
 \begin_layout Itemize
-Na listagem de contratos existe a posibilidade do utilizador ver todos os
- docentes e verificar a sua situação em termos contratuais.
+Na listagem de contratos existe a possibilidade do utilizador ver todos
+ os docentes e verificar a sua situação em termos contratuais.
 \end_layout
 
 \end_deeper
@@ -1149,13 +1313,14 @@ Síntese de funcionamento
 
 \begin_layout Standard
 Tendo por base os conhecimentos nas cadeiras de Interação Pessoa-Computador
- e Hipermedia e Acessibilidade, tentou-se cirar uma interface grafica que
- facilita-se e simplifica-se a interacção do utilizador com a aplicação.
- Permitindo que o mesmo obtive-se informação que precisa rapidamente.
+ e Hipermédia e Acessibilidade, tentou-se criar uma interface gráfica que
+ facilita-se e simplifica-se a interação do utilizador com a aplicação.
+ Permitindo que o mesmo obtivesse informação que precisa rapidamente.
 \end_layout
 
 \begin_layout Standard
 Será abordada a forma de funcionamento de todas as tarefas acima referenciadas.
+ 
 \end_layout
 
 \begin_layout Subsection*
@@ -1165,7 +1330,7 @@ Adicionar Docente
 \begin_layout Standard
 Tal como descrito na lista de tarefas, adicionar um docente é uma tarefa
  que tem como finalidade base a adição de um novo docente a base de dados
- da aplicação para que fique disponivel para no futuro para interagir com
+ da aplicação para que fique disponível para no futuro para interagir com
  a distribuição do serviço docente.
 \end_layout
 
@@ -1195,7 +1360,7 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Pagina Inicial dos Recursos Humanos
+Página Inicial dos Recursos Humanos
 \end_layout
 
 \end_inset
@@ -1209,17 +1374,9 @@ Pagina Inicial dos Recursos Humanos
 \end_layout
 
 \begin_layout Standard
-Considerando que o utilizador ja realizou a autenticação na aplicação, e
- estando na pagina inicial (Figura 3.5), do lado esquerdo encontrará um menu.
- Nesse menu o utilizador vai clicar em 
-\begin_inset Quotes eld
-\end_inset
-
-Adicionar Docente
-\begin_inset Quotes erd
-\end_inset
-
-.
+Considerando que o utilizador já realizou a autenticação na aplicação, e
+ estando na página inicial (Figura 3.5), do lado esquerdo encontrará um menu.
+ Nesse menu o utilizador vai clicar em “Adicionar Docente”.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -4033,6 +4190,38 @@ Esta area que se refere a vice-presidencia encontra-se numa fase de construção
  Assim sendo a tarefa mais importante de momento foi a implementada.
  De futuro preve-se a conclusão desta e das outras areas, que são parte
  constituinte desta aplicação.
+\end_layout
+
+\begin_layout Chapter
+Conclusão
+\end_layout
+
+\begin_layout Standard
+Com este sistema implementado, seguramente a tarefa de destribuição das
+ horas de serviço docente será mais rapida e fácil, contendi toda a infromação
+ assecivel num só local, livre das redundancias e incoerencias do passado.
+ O sistema ainda se encontra na sua fase inicial de desenvolvimento e no
+ futuro proximo prevêse a implementação das areas dos restantes orgãos do
+ institututo.
+ Prevêse tabem a correcção do codigo da aplicação afim de aumentar a sua
+ preformace eliminação de possiveis erros.
+ 
+\end_layout
+
+\begin_layout Standard
+O uso da framework DJANGO foi uma grande ajuda e mostrou ser uma ferramente
+ bastante poderosa, pela sua rapidez e velocidade cosntrução da aplicação.
+ Por ser baseada na linguagem python, torna todo o codigo muito mais fluido
+ e facil de intrepertar.
+\end_layout
+
+\begin_layout Standard
+Futuramente o sistema será colocado em um servidor Ubunto, para que fique
+ disponivel e acessivel a todos os utilizadores deste sistema.
+ O Sistema puderá depois assim ser cconsultado em qualquer lugar necessitanto
+ apenas o utilizador de um equipamento com acesso a internet e um browser.
+ Sendo assima as tarefas realizadas facilmente e confortavelemente em qualquer
+ lugar.
 \end_layout
 
 \end_body
