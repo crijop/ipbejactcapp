@@ -335,7 +335,7 @@ ia e redundância existentes ate agora.
 \begin_layout Standard
 Neste relatório será falado essencialmente do desenvolvimento da interface
  gráfica da aplicação.
- O relatório será dividido em três capítulos um dos quais este da introdução.
+ O relatório será dividido em quatro capítulos um dos quais este da introdução.
  O capítulo dois refere-se as ferramentas e tecnologias que foram usadas
  no decurso da construção desta aplicação.
  Nesse capítulo será explicado de forma sucinta as várias tecnologias aqui
@@ -349,7 +349,8 @@ No capítulo três, aquele que apresenta maior relevância, é onde será feita
  Nestas três áreas será elaborado um esquema de funcionamento para cada
  uma das tarefas implementadas bem como qual o uso das tecnologias mencionadas
  no capítulo dois, para a criação da interface gráfica do sistema.
- 
+ E por ultimo no capitulo quatro a conclusão e respetivas ilações e previsões
+ futuras.
 \end_layout
 
 \begin_layout Chapter
@@ -374,7 +375,7 @@ Para o desenvolvimento desta aplicação web são usadas varias ferramentas
  mais fácil.
  A junção de todas estas tecnologias, dão poder necessário a aplicação para
  que possa ser robusta, rápida e fiável, sem esquecer sempre os benefícios
- na usabilidade por parte dos utilizadores do sistema.
+ na usabilidade para os utilizadores do sistema.
 \end_layout
 
 \begin_layout Section
@@ -393,7 +394,7 @@ O que é uma Framework?
 \begin_layout Standard
 Uma framework, é constituída por varias ferramentas controlados pela framework,
  que nos permitem o desenvolvimento de software de forma mais rápida e limpa,
- pois a um nível de abstração maior do que quando utilizamos um conjunto
+ pois existe um nível de abstração maior do que quando utilizamos um conjunto
  de linguagens de programação ou outras ferramentas separadamente.
  A framework pode ainda ser configurada e personalizada pelo utilizador
  a fim de produzir um software com características especificas que vão ao
@@ -464,7 +465,8 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename images/django-framework-266x300.png
+	filename images/Imagem2.png
+	scale 50
 
 \end_inset
 
@@ -514,7 +516,7 @@ O que é a Vista?
 \end_layout
 
 \begin_layout Standard
-A vista quando valamos em Django refere-se ao controlador no MVC padrão.
+A vista quando falamos em Django refere-se ao controlador no MVC padrão.
  Como de costume aqui a vistas sendo controladores vão fazer de ponte entre
  o modelo e o Template.
  É aqui na vista que serão resolvidos os pedidos do URL Dispacher bem como
@@ -588,7 +590,7 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Estrutura de diretorias do Django
+Exemplo de estrutura de diretorias do Django com uma aplicação
 \end_layout
 
 \end_inset
@@ -610,7 +612,7 @@ O Django tal como muitas outras frameworks web, tem uma estrutura, que ajuda
  o utilizador desta ferramenta a navegar nas suas diretorias.
  Em cima (figura 2.2) é apresentado um esquema da estrutura de diretorias
  do Django.
- OS retângulos vermelhos são módulos de Python, os retângulos verdes são
+ Os retângulos vermelhos são módulos de Python, os retângulos verdes são
  pastas, o retângulo laranja é a base de dados e o retângulo roxo são Templates
  HTML.
 \end_layout
@@ -622,7 +624,11 @@ urls.py
 \begin_deeper
 \begin_layout Itemize
 Módulo de Python onde vão ser construídos os URLs responsáveis por resolver
- e encaminha os pedidos do utilizador para as respetiva View.
+ e encaminhar os pedidos do utilizador para as respetivas 
+\emph on
+Views
+\emph default
+.
 \end_layout
 
 \end_deeper
@@ -633,7 +639,7 @@ settings.py
 \begin_deeper
 \begin_layout Itemize
 Módulo de Python onde é possível configurar e personalizar o modo de funcionamen
-to da framework
+to da framework e da aplicação a ser desenvolvida.
 \end_layout
 
 \end_deeper
@@ -644,7 +650,7 @@ manage.py
 \begin_deeper
 \begin_layout Itemize
 Módulo de Python que é chamado na linha de comandos, para criar uma nova
- aplicação ou até inicializar o servidor de testes.
+ aplicação ou até inicializar o servidor de testes entre outras interações..
 \end_layout
 
 \end_deeper
@@ -657,6 +663,17 @@ base-dados.db
 Ficheiro onde esta armazenado o conteúdo da base de dados.
  Ficheiro esse que é posteriormente interpretado pelo gestor de base de
  dados, que a framework usa para fazer o acesso aos dados.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+__init__.py
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Um módulo vazio que diz ao Python que esse diretório deve ser considerado
+ como um pacote Python.
 \end_layout
 
 \end_deeper
@@ -767,7 +784,7 @@ O SQLite 3 foi o gestor de base de dados adotado para gerir a base de dados
 \end_layout
 
 \begin_layout Section
-JavaScript
+Javascript
 \end_layout
 
 \begin_layout Standard
@@ -803,8 +820,19 @@ O Javascript como linguagem de programação que é vai permitir manipular
 \end_layout
 
 \begin_layout Standard
-Por exemplo, é possível recuperar o valor uma tag de input (type:TEXT) HTML
- como uma string utilizando o DOM.
+Por exemplo, é possível recuperar o valor uma 
+\emph on
+tag
+\emph default
+ de 
+\emph on
+input
+\emph default
+ (type:TEXT) HTML como uma 
+\emph on
+string
+\emph default
+ utilizando o DOM.
  Apesar de tudo o DOM não é exclusivo do Javascript pudendo ser utilizado
  em muitas outras linguagens.
 \end_layout
@@ -819,7 +847,7 @@ os" é o uso metodológico de tecnologias como Javascript e XML, disponibilizada
  pelos browsers, para tornar páginas Web mais dinâmicas, utilizando para
  isso chamadas assíncronas de informação ao servidor.
  Com o AJAX é possível o refrescamento de elementos HTML sem ser necessário
- refrescar toda a pagina, fazendo para ta pedidos de informação ao servidor.
+ refrescar toda a página, fazendo para tal pedidos de informação ao servidor.
 \end_layout
 
 \begin_layout Section
@@ -1165,29 +1193,27 @@ if
 
 \end_deeper
 \begin_layout Standard
-É permitido tambem usar variaveis declaradas em codigo python na linguagem
- de template bastando para isso clocando entre {{nome_variavel}}.
- Nome esse que tem que ser rigorosamente igual ao que esta definido no codigo
- python.
+É permitido também usar variáveis declaradas em código Python na linguagem
+ de Template bastando para isso colocar “{{nome_variavel}}”.
+ Nome esse que tem que ser rigorosamente igual ao que esta definido no código
+ Python.
 \end_layout
 
 \begin_layout Standard
-Essas variaveis são passadas quando o metodo de python na view devolve a
+Essas variáveis são passadas quando o método de Python na View devolve a
  resposta ao pedido do URL.
-\begin_inset Newline linebreak
-\end_inset
-
-Visto isto ficou claro que o uso da linguagem de templates do django facilita
+ Visto isto ficou claro que o uso da linguagem de Templates do Django facilita
  a construção de sites em que todas as paginas mantem a mesma estrutura.
- A linguagem de template do django é mais complexa do que aqui foi tratado,
- contudo foi o suficiente para a cosntrução desta aplicação.
+ A linguagem de Template do Django é mais complexa do que aqui foi tratado,
+ contudo foi o suficiente para a construção desta aplicação.
 \end_layout
 
 \begin_layout Standard
-Resumidamente a estrutura base desta aplicação, trata-se do qeu foi abordado
+Resumidamente a estrutura base desta aplicação, trata-se do que foi abordado
  nestes exemplos.
- Uma barra lateral de menus, uma area de conteudos e um cabeçalho onde consta
+ Uma barra lateral de menus, uma área de conteúdos e um cabeçalho onde consta
  o logotipo da aplicação.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -1236,16 +1262,16 @@ Recursos Humanos
 \begin_layout Standard
 O departamento de Recursos Humanos de uma instituição é parte fundamental,
  para o bom funcionamento da mesma.
- Sendo o Institituto Politécnico de Beja uma instituição, não poderia deixar
- de ter uma departamento que trate a informação dos seus colaboradores.
- Como é visivel á partida a distribuição do serviço docente está intrinsecamente
+ Sendo o Instituto Politécnico de Beja uma instituição, não poderia deixar
+ de ter um departamento que trate a informação dos seus colaboradores.
+ Como é visível á partida a distribuição do serviço docente está intrinsecamente
  ligada e dependente do departamento dos recursos humanos.
  Pois é nos recursos humanos que existe a possibilidade de ver os contratos
  dos docentes, bem como alterar informação de docentes ja a laborar na instituiç
 ão.
- Visto isto não poderia deixar de existir uma area na aplicação que trata-se
+ Visto isto não poderia deixar de existir uma área na aplicação que trata-se
  desse tipo de informação.
- Ficando assim a informação centralizada e livre de redundacias e incoerencias.
+ Ficando assim a informação centralizada e livre de redundâncias e incoerências.
 \end_layout
 
 \begin_layout Subsection
@@ -1253,8 +1279,8 @@ Tarfas Implementadas
 \end_layout
 
 \begin_layout Standard
-Na área dos recusros humanos foram implementadas as tarefas concideradas
- necessarias para uma correcta manutenção e gestão do corpo docente existente
+Na área dos Recursos Humanos foram implementadas as tarefas consideradas
+ necessárias para uma correta manutenção e gestão do corpo docente existente
  na instituição.
 \end_layout
 
@@ -1268,9 +1294,9 @@ Adicionar Docente:
 
 \begin_deeper
 \begin_layout Itemize
-Nesta tarefa o utilizador tem possibilidade de crirar um novo docente, introduzi
-ndo para issso alguns dos seus dados pessoais requeridos para este procedimento.
- Este docente criado ficará sem contrato ate que lhe seja feito um.
+Nesta tarefa o utilizador tem possibilidade de criar um novo docente, introduzin
+do para isso alguns dos seus dados pessoais requeridos para este procedimento.
+ Este docente criado ficará sem contrato até que lhe seja feito um.
 \end_layout
 
 \end_deeper
@@ -1280,7 +1306,7 @@ Editar Docente:
 
 \begin_deeper
 \begin_layout Itemize
-Existe a possibilidade de editiar um docente que ja exista na base de dados
+Existe a possibilidade de editar um docente que já exista na base de dados
  do sistema.
  Para isso o utilizador tem de encontrar o docente a editar uma lista de
  docentes e posteriormente edita-lo.
@@ -1304,8 +1330,8 @@ Listar Contratos:
 
 \begin_deeper
 \begin_layout Itemize
-Na listagem de contratos existe a posibilidade do utilizador ver todos os
- docentes e verificar a sua situação em termos contratuais.
+Na listagem de contratos existe a possibilidade do utilizador ver todos
+ os docentes e verificar a sua situação em termos contratuais.
 \end_layout
 
 \end_deeper
@@ -1315,13 +1341,14 @@ Síntese de funcionamento
 
 \begin_layout Standard
 Tendo por base os conhecimentos nas cadeiras de Interação Pessoa-Computador
- e Hipermedia e Acessibilidade, tentou-se cirar uma interface grafica que
- facilita-se e simplifica-se a interacção do utilizador com a aplicação.
- Permitindo que o mesmo obtive-se informação que precisa rapidamente.
+ e Hipermédia e Acessibilidade, tentou-se criar uma interface gráfica que
+ facilita-se e simplifica-se a interação do utilizador com a aplicação.
+ Permitindo que o mesmo obtivesse informação que precisa rapidamente.
 \end_layout
 
 \begin_layout Standard
 Será abordada a forma de funcionamento de todas as tarefas acima referenciadas.
+ 
 \end_layout
 
 \begin_layout Subsection*
@@ -1331,7 +1358,7 @@ Adicionar Docente
 \begin_layout Standard
 Tal como descrito na lista de tarefas, adicionar um docente é uma tarefa
  que tem como finalidade base a adição de um novo docente a base de dados
- da aplicação para que fique disponivel para no futuro para interagir com
+ da aplicação para que fique disponível para no futuro para interagir com
  a distribuição do serviço docente.
 \end_layout
 
@@ -1361,7 +1388,7 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Pagina Inicial dos Recursos Humanos
+Página Inicial dos Recursos Humanos
 \end_layout
 
 \end_inset
@@ -1375,17 +1402,9 @@ Pagina Inicial dos Recursos Humanos
 \end_layout
 
 \begin_layout Standard
-Considerando que o utilizador ja realizou a autenticação na aplicação, e
- estando na pagina inicial (Figura 3.5), do lado esquerdo encontrará um menu.
- Nesse menu o utilizador vai clicar em 
-\begin_inset Quotes eld
-\end_inset
-
-Adicionar Docente
-\begin_inset Quotes erd
-\end_inset
-
-.
+Considerando que o utilizador já realizou a autenticação na aplicação, e
+ estando na página inicial (Figura 3.5), do lado esquerdo encontrará um menu.
+ Nesse menu o utilizador vai clicar em “Adicionar Docente”.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -1414,7 +1433,7 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Pagina Adicionar Docente dos Recursos Humanos
+Página Adicionar Docente dos Recursos Humanos
 \end_layout
 
 \end_inset
@@ -1432,37 +1451,14 @@ Pagina Adicionar Docente dos Recursos Humanos
 \end_layout
 
 \begin_layout Standard
-Depois de clicar em 
-\begin_inset Quotes eld
-\end_inset
-
-Adicionar Docente
-\begin_inset Quotes erd
-\end_inset
-
- o utilizador é encaminhado para outra pagina onde estará disponivel um
- formulário (figura 3.6) que permite introduzir a infrmação do docente a
- criar.
- Os campos marcados com 
-\begin_inset Quotes eld
-\end_inset
-
-(*)
-\begin_inset Quotes erd
-\end_inset
-
- são de caracter obrigatorio e indispensaveis para a correcta validação
- do formulário.
- Quando correctamente preenchido e estando o utilizador satisfeito com a
- informação introduzida, deverá clicar no botão 
-\begin_inset Quotes eld
-\end_inset
-
-Adicionar Docente
-\begin_inset Quotes erd
-\end_inset
-
- existente no fundo do formulário.
+Depois de clicar em “Adicionar Docente” o utilizador é encaminhado para
+ outra pagina onde estará disponível um formulário (figura 3.6) que permite
+ introduzir a informação do docente a criar.
+ Os campos marcados com “(*)” são de caracter obrigatório e indispensáveis
+ para a correta validação do formulário.
+ Quando corretamente preenchido e estando o utilizador satisfeito com a
+ informação introduzida, deverá clicar no botão “Adicionar Docente” existente
+ no fundo do formulário.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -1491,7 +1487,7 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Pagina Adicionar Docente dos Recursos Humanos - Confirmação
+Página Adicionar Docente dos Recursos Humanos - Confirmação
 \end_layout
 
 \end_inset
@@ -1509,36 +1505,15 @@ Pagina Adicionar Docente dos Recursos Humanos - Confirmação
 \end_layout
 
 \begin_layout Standard
-Depois do formulário preenchido correctamente e depois de ter sido clicado
- no botão 
-\begin_inset Quotes eld
-\end_inset
-
-Adicionar Docente".
- O utilizador é encaminhado para uma pagina de confirmação (Figura 3.7).
+Depois do formulário preenchido corretamente e depois de ter sido clicado
+ no botão “Adicionar Docente".
+ O utilizador é encaminhado para uma página de confirmação (Figura 3.7).
  Pagina esta que apesar de ser de confirmação continua a permitir ao utilizador
- fazer alterações dos dado introduzidos no formulário.
- No fundo o utlizador tem um uma mensagem a questionar a confirmação dos
- dados.
+ fazer alterações dos dados introduzidos no formulário.
+ No fundo o utilizador tem uma mensagem a questionar a confirmação dos dados.
  Caso tudo esteja conforme a vontade do utilizador o utilizador clicará
- no botão 
-\begin_inset Quotes eld
-\end_inset
-
-Sim
-\begin_inset Quotes erd
-\end_inset
-
-, existente no fim do formulário para submeter os dados.
- Caso contrario clica no botão 
-\begin_inset Quotes eld
-\end_inset
-
-Não
-\begin_inset Quotes erd
-\end_inset
-
-.
+ no botão “Sim”, existente no fim do formulário para submeter os dados.
+ Caso contrário clica no botão “Não”.
  Sempre que exista alterações nesta etapa em algum dos campos do formulário,
  o mesmo retorna ao 2º passo.
 \end_layout
@@ -1569,7 +1544,7 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Pagina Adicionar Docente dos Recursos Humanos - Sucesso
+Página Adicionar Docente dos Recursos Humanos - Sucesso
 \end_layout
 
 \end_inset
@@ -1587,16 +1562,9 @@ Pagina Adicionar Docente dos Recursos Humanos - Sucesso
 \end_layout
 
 \begin_layout Standard
-Por fim quando o utiliador clica no botão de 
-\begin_inset Quotes eld
-\end_inset
-
-Sim
-\begin_inset Quotes erd
-\end_inset
-
- para confirmar a sua intensão de submeter os dados, é apresentadauma noava
- janela (Figura 3.8), com uma mensagem de confirmação do sucesso da operação.
+Por fim quando o utilizador clica no botão de “Sim” para confirmar a sua
+ intensão de submeter os dados, é apresentada uma nova janela (Figura 3.8),
+ com uma mensagem de confirmação do sucesso da operação.
 \end_layout
 
 \begin_layout Subsection*
@@ -1604,24 +1572,9 @@ Editar Docente
 \end_layout
 
 \begin_layout Standard
-A tarfa 
-\begin_inset Quotes eld
-\end_inset
-
-editar docente
-\begin_inset Quotes erd
-\end_inset
-
- é em tudo semelhante á tarefa 
-\begin_inset Quotes eld
-\end_inset
-
-adicionar um docente
-\begin_inset Quotes erd
-\end_inset
-
+A tarefa “editar docente” é em tudo semelhante á tarefa “adicionar um docente”
  com a diferença que esta tem como finalidade atualizar os dados de um docente
- ja existente na base de dados da aplicação.
+ já existente na base de dados da aplicação.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -1650,7 +1603,7 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Pagina Inicial dos Recursos Humanos
+Página Inicial dos Recursos Humanos
 \end_layout
 
 \end_inset
@@ -1664,17 +1617,9 @@ Pagina Inicial dos Recursos Humanos
 \end_layout
 
 \begin_layout Standard
-Considerando que o utilizador ja realizou a autenticação na aplicação, e
+Considerando que o utilizador já realizou a autenticação na aplicação, e
  estando na pagina inicial (Figura 3.9), do lado esquerdo encontrará um menu.
- Nesse menu o utilizador vai clicar em 
-\begin_inset Quotes eld
-\end_inset
-
-Editar Docente
-\begin_inset Quotes erd
-\end_inset
-
-.
+ Nesse menu o utilizador vai clicar em “Editar Docente”.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -1703,7 +1648,7 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Listagem dos docentes editaveis - Recursos Humanos
+Listagem dos docentes editáveis - Recursos Humanos
 \end_layout
 
 \end_inset
@@ -1717,55 +1662,16 @@ Listagem dos docentes editaveis - Recursos Humanos
 \end_layout
 
 \begin_layout Standard
-Depois de clicar em 
-\begin_inset Quotes eld
-\end_inset
-
-Editar Docente
-\begin_inset Quotes erd
-\end_inset
-
- o utilizador é encaminhado para outra pagina onde estará disponivel umsa
- lista de docentes editaveis (figura 3.10).
+Depois de clicar em “Editar Docente” o utilizador é encaminhado para outra
+ pagina onde estará disponível uma lista de docentes editáveis (figura 3.10).
  Para editar um docente da lista, o utilizador apenas tem que clicar no
- nome docente desejado ou no 
-\begin_inset Quotes eld
-\end_inset
-
-lápis
-\begin_inset Quotes erd
-\end_inset
-
- que se encontra a esquerda do nome.
- O utilizador nesta lista pode navegar pelas varias paginas existentes,
- usando os numeros em baixo.
- Pode procurar os docentes pelo nome, departamento e catgoria na caixa de
- pesquisa, bem como usar os filtros presentes na barra de menus do lado
- esquerdo que permitem filtrar as lista de docentes editaveis por 
-\begin_inset Quotes eld
-\end_inset
-
-Ordem Alfabética
-\begin_inset Quotes erd
-\end_inset
-
- , 
-\begin_inset Quotes eld
-\end_inset
-
-Por Departamento
-\begin_inset Quotes erd
-\end_inset
-
- e 
-\begin_inset Quotes eld
-\end_inset
-
-Por Categoria
-\begin_inset Quotes erd
-\end_inset
-
-.
+ nome docente desejado ou no “lápis” que se encontra a esquerda do nome.
+ O utilizador nesta lista pode navegar pelas várias páginas existentes,
+ usando os números em baixo.
+ Pode procurar os docentes pelo nome, departamento e categoria na caixa
+ de pesquisa, bem como usar os filtros presentes na barra de menus do lado
+ esquerdo que permitem filtrar as lista de docentes editáveis por “Ordem
+ Alfabética” , “Por Departamento” e “Por Categoria”.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -1809,13 +1715,13 @@ Formulário incial da edição do docente - Recursos Humanos
 
 \begin_layout Standard
 Depois de escolhido o docente a editar, o utilizador é encaminhado para
- uma pagina com um formuilário.
+ uma página com um formulário.
  Esse formulário é igual ao existente na tarefa de adicionar docente, com
  a diferença de vir previamente preenchido com os dados existentes na base
- dedados acerca do docente respectivo (Figura 3.11).
- No fundo do formulário é ainda visivel se houve alguma alteração o docente
- em questão e quem a portagonizou bem como a respectiva data e hora do acontecim
-ento.
+ de dados acerca do docente respetivo (Figura 3.11).
+ No fundo do formulário é ainda visível se houve alguma alteração o docente
+ em questão e quem a protagonizou bem como a respetiva data e hora do acontecime
+nto.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -1833,16 +1739,9 @@ Listar Docentes
 \end_layout
 
 \begin_layout Standard
-A tarfa 
-\begin_inset Quotes eld
-\end_inset
-
-Listar Docentes
-\begin_inset Quotes erd
-\end_inset
-
- conciste em mostrar numa lista todos os docentes existentes na aplicação.
- Havendo a possibilidade de ver informação detalhada sobre os msmos.
+A tarefa “Listar Docentes” consiste em mostrar numa lista de todos os docentes
+ existentes na aplicação.
+ Havendo a possibilidade de ver informação detalhada sobre os mesmos.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -1871,7 +1770,7 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Pagina Inicial dos Recursos Humanos
+Página Inicial dos Recursos Humanos
 \end_layout
 
 \end_inset
@@ -1885,18 +1784,10 @@ Pagina Inicial dos Recursos Humanos
 \end_layout
 
 \begin_layout Standard
-Considerando que o utilizador ja realizou a autenticação na aplicação, e
+Considerando que o utilizador já realizou a autenticação na aplicação, e
  estando na pagina inicial (Figura 3.12), do lado esquerdo encontrará um
  menu.
- Nesse menu o utilizador vai clicar em 
-\begin_inset Quotes eld
-\end_inset
-
-Listar Docentes
-\begin_inset Quotes erd
-\end_inset
-
-.
+ Nesse menu o utilizador vai clicar em “Listar Docentes”.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -1939,55 +1830,17 @@ Listagem dos docentes - Recursos Humanos
 \end_layout
 
 \begin_layout Standard
-Depois de clicar em 
-\begin_inset Quotes eld
-\end_inset
-
-Listar Docente
-\begin_inset Quotes erd
-\end_inset
-
- o utilizador é encaminhado para outra pagina onde estará disponivel uma
- lista de docentes (figura 3.13).
- Para ver informoção detalhada de um docente da lista, o utilizador apenas
- tem que clicar no nome docente desejado ou no 
-\begin_inset Quotes eld
-\end_inset
-
-olho
-\begin_inset Quotes erd
-\end_inset
-
- que se encontra á esquerda do nome.
- O utilizador nesta lista pode navegar pelas varias paginas existentes,
- usando os numeros em baixo.
- Pode procurar os docentes pelo nome, departamento e catgoria na caixa de
- pesquisa, bem como usar os filtros presentes na barra de menus do lado
- esquerdo que permitem filtrar as lista de docentes por 
-\begin_inset Quotes eld
-\end_inset
-
-Ordem Alfabética
-\begin_inset Quotes erd
-\end_inset
-
- , 
-\begin_inset Quotes eld
-\end_inset
-
-Por Departamento
-\begin_inset Quotes erd
-\end_inset
-
- e 
-\begin_inset Quotes eld
-\end_inset
-
-Por Categoria
-\begin_inset Quotes erd
-\end_inset
-
-.
+Depois de clicar em “Listar Docente” o utilizador é encaminhado para outra
+ pagina onde estará disponível uma lista de docentes (figura 3.13).
+ Para ver informação detalhada de um docente da lista, o utilizador apenas
+ tem que clicar no nome docente desejado ou no “olho” que se encontra á
+ esquerda do nome.
+ O utilizador nesta lista pode navegar pelas várias páginas existentes,
+ usando os números em baixo.
+ Pode procurar os docentes pelo nome, departamento e categoria na caixa
+ de pesquisa, bem como usar os filtros presentes na barra de menus do lado
+ esquerdo que permitem filtrar as listas de docentes por “Ordem Alfabética”,
+ “Por Departamento” e “Por Categoria”.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -2030,8 +1883,8 @@ Tabela informção detalhada do docente - Recursos Humanos
 \end_layout
 
 \begin_layout Standard
-Depois de se escolher um docente, é apresentada uma nova pagina onde vai
- ser visvel informação detalha sobre o docente clicado, numa tabela (Figura
+Depois de se escolher um docente, é apresentada uma nova página onde vai
+ ser visível informação detalha sobre o docente clicado, numa tabela (Figura
  3.14).
 \end_layout
 
@@ -2040,18 +1893,10 @@ Listar Contratos
 \end_layout
 
 \begin_layout Standard
-A tarfa 
-\begin_inset Quotes eld
-\end_inset
-
-Listar Contrtos
-\begin_inset Quotes erd
-\end_inset
-
- conciste em mostrar numa lista todos os docentes existentes na aplicação
- e os seus respectivos contratos, que presupõe datas de fim e incio de contratos
-, bem como a categoria dos docentes.
- Havendo a possibilidade de ver informação detalhada sobre os msmos.
+A tarefa “Listar Contratos” consiste em mostrar numa lista todos os docentes
+ existentes na aplicação e os seus respetivos contratos, que pressupõe datas
+ de fim e início de contratos, bem como a categoria dos docentes.
+ Havendo a possibilidade de ver informação detalhada sobre os mesmos.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -2080,7 +1925,7 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Pagina Inicial dos Recursos Humanos
+Página Inicial dos Recursos Humanos
 \end_layout
 
 \end_inset
@@ -2094,18 +1939,10 @@ Pagina Inicial dos Recursos Humanos
 \end_layout
 
 \begin_layout Standard
-Considerando que o utilizador ja realizou a autenticação na aplicação, e
+Considerando que o utilizador já realizou a autenticação na aplicação, e
  estando na pagina inicial (Figura 3.12), do lado esquerdo encontrará um
  menu.
- Nesse menu o utilizador vai clicar em 
-\begin_inset Quotes eld
-\end_inset
-
-Listar Contratos
-\begin_inset Quotes erd
-\end_inset
-
-.
+ Nesse menu o utilizador vai clicar em “Listar Contratos”.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -2148,80 +1985,19 @@ Listagem dos contratos - Recursos Humanos
 \end_layout
 
 \begin_layout Standard
-Depois de clicar em 
-\begin_inset Quotes eld
-\end_inset
-
-Listar Contratos
-\begin_inset Quotes erd
-\end_inset
-
- o utilizador é encaminhado para outra pagina onde estará disponivel uma
- lista de docentes e os seus respectivos contratos (figura 3.16).
- Para ver informoção detalhada de um docente da lista em relação aos seu
+Depois de clicar em “Listar Contratos” o utilizador é encaminhado para outra
+ pagina onde estará disponível uma lista de docentes e os seus respetivos
+ contratos (figura 3.16).
+ Para ver informação detalhada de um docente da lista em relação ao seu
  contrato, o utilizador apenas tem que clicar no nome docente desejado ou
- no 
-\begin_inset Quotes eld
-\end_inset
-
-olho
-\begin_inset Quotes erd
-\end_inset
-
- que se encontra á esquerda do nome.
- O utilizador nesta lista pode navegar pelas varias paginas existentes,
- usando os numeros em baixo.
- Pode procurar os docentes pelo nome, departamento e catgoria na caixa de
- pesquisa, bem como usar os filtros presentes na barra de menus do lado
- esquerdo que permitem filtrar as lista de docentes por 
-\begin_inset Quotes eld
-\end_inset
-
-Ordem Alfabética
-\begin_inset Quotes erd
-\end_inset
-
- , 
-\begin_inset Quotes eld
-\end_inset
-
-Por Departamento
-\begin_inset Quotes erd
-\end_inset
-
-, 
-\begin_inset Quotes eld
-\end_inset
-
-Por Categoria
-\begin_inset Quotes erd
-\end_inset
-
- e 
-\begin_inset Quotes eld
-\end_inset
-
-Por Data
-\begin_inset Quotes erd
-\end_inset
-
- que tanto pode ser por 
-\begin_inset Quotes eld
-\end_inset
-
-Data de fim
-\begin_inset Quotes erd
-\end_inset
-
- ou 
-\begin_inset Quotes eld
-\end_inset
-
-Data de inicio
-\begin_inset Quotes erd
-\end_inset
-
-.
+ no “olho” que se encontra á esquerda do nome.
+ O utilizador nesta lista pode navegar pelas várias páginas existentes,
+ usando os números em baixo.
+ Pode procurar os docentes pelo nome, departamento e categoria na caixa
+ de pesquisa, bem como usar os filtros presentes na barra de menus do lado
+ esquerdo que permitem filtrar as lista de docentes por “Ordem Alfabética”
+ , “Por Departamento”, “Por Categoria” e “Por Data” que tanto pode ser por
+ “Data de fim” ou “Data de inicio”.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -2264,9 +2040,9 @@ Tabela informção detalhada do contrato do docente - Recursos Humanos
 \end_layout
 
 \begin_layout Standard
-Depois de se escolher um docente, é apresentada uma nova pagina onde vai
- ser visvel informação detalha sobre o docente e o seu respectivo contrato
- , numa tabela (Figura 3.17).
+Depois de se escolher um docente, é apresentada uma nova página onde vai
+ ser visível informação detalha sobre o docente e o seu respetivo contrato,
+ numa tabela (Figura 3.17).
 \end_layout
 
 \begin_layout Subsection
@@ -2274,11 +2050,12 @@ Aplicação das Tecnologias
 \end_layout
 
 \begin_layout Standard
-Tal como em todas as areas abordadas neste relatorio, usam as tecnologias
- elementares de criação de paginas web.
- Dende da criatividade de quem as usapara tirar o melhor partido das mesmas.
- As principais tecnolgias usadas nesta tarefa foram o JavaScript-DOJO, o
- HTML e o CSS.
+Tal como em todas as áreas abordadas neste relatório, usam as tecnologias
+ elementares de criação de páginas web.
+ Depende da criatividade de quem as usa para tirar o melhor partido das
+ mesmas.
+ As principais tecnologias usadas nesta tarefa foram o Javascript-DOJO,
+ o HTML e o CSS.
 \end_layout
 
 \begin_layout Subsection*
@@ -2290,32 +2067,24 @@ Tarefa - Adicionar Docente
 \end_layout
 
 \begin_layout Standard
-Nesta tarefa foi usado um pequeno segemento de javaScript usando como suporte
+Nesta tarefa foi usado um pequeno segmento de Javascript usando como suporte
  a biblioteca DOJO.
- Foi ncessario criar uma função que detecta-se quando o formulário fosse
- alterado na pagina de confirmação, quer pela introdução de novo texto quer
- pela selecção da comboBox ou da checkBox.
- Para que depois se procedesse á remoção da mensagem de confirmação e dos
- botões 
-\begin_inset Quotes eld
-\end_inset
-
-Sim
-\begin_inset Quotes erd
-\end_inset
-
- e 
-\begin_inset Quotes eld
-\end_inset
-
-Não
-\begin_inset Quotes erd
-\end_inset
-
+ Foi necessário criar uma função que deteta-se quando o formulário fosse
+ alterado na página de confirmação, quer pela introdução de novo texto quer
+ pela seleção da 
+\emph on
+comboBox
+\emph default
+ ou da 
+\emph on
+checkBox
+\emph default
 .
- Pois apenas fazem sentido estes ultimos elementos aparecerem quando o formulári
-o esta valido, o que não é possivel garantir caso exista um aleração do
- mesmo na pagina de confirmação.
+ Para que depois se procedesse á remoção da mensagem de confirmação e dos
+ botões “Sim” e “Não”.
+ Pois apenas fazem sentido estes últimos elementos aparecerem quando o formulári
+o esta valido, o que não é possível garantir caso exista um alteração do
+ mesmo na página de confirmação.
 \end_layout
 
 \begin_layout Standard
@@ -2362,12 +2131,11 @@ Esquema de Funcionamento do AJAX usando DOJO no Django
 \end_layout
 
 \begin_layout Standard
-O uso da biblioteca javaScript DOJO é bastante simples, basta para tal primeiram
-ente descarregara biblioteca para a directoria do projecto.
- Depois é so fazer referencia a biblioteca no template base da aplicação
- e ja é possivel usar a mesma em qualquer ficheiro javaScript que integre
+O uso da biblioteca Javascript DOJO é bastante simples, basta para tal primeiram
+ente descarregara biblioteca para a diretoria do projeto.
+ Depois é só fazer referência a biblioteca no Template base da aplicação
+ e já é possível usar a mesma em qualquer ficheiro Javascript que integre
  a aplicação (Algoritmo 3.1).
- 
 \begin_inset Float algorithm
 placement H
 wide false
@@ -2421,63 +2189,16 @@ Exemplo chamada da biblioteca DOJO no template base.
 
 \begin_layout Standard
 O funcionamento é bastante simples de entender (Figura 3.9) Consiste no envio
- por parte da função DOJO 
-\begin_inset Quotes eld
-\end_inset
-
-request
-\begin_inset Quotes erd
-\end_inset
-
-, de um pedido ao URL dispatcher que por sua vez ira pedir a view escolhida
- que resolva o pedido e o retorne novamente para a mesma função DOJO a qual
- colocará o resultado no codigo HTML onde é visivel ao utlizador (Algoritmo
- 3.2).
- Para tal basta implementar o cabeçalho 
-\begin_inset Quotes eld
-\end_inset
-
-requeire
-\begin_inset Quotes erd
-\end_inset
-
-.
- Chamar a função desejada neste caso a 
-\begin_inset Quotes eld
-\end_inset
-
-dojo/request
-\begin_inset Quotes erd
-\end_inset
-
-.
- De seguida declara-se a função com o argumento 
-\begin_inset Quotes eld
-\end_inset
-
-request
-\begin_inset Quotes erd
-\end_inset
-
-.
- Por fim inicializa-se a função 
-\begin_inset Quotes eld
-\end_inset
-
-resquest
-\begin_inset Quotes erd
-\end_inset
-
-, enviando-lhe o url para o URL Dispatcher resolver.
- Por fim a função 
-\begin_inset Quotes eld
-\end_inset
-
-request
-\begin_inset Quotes erd
-\end_inset
-
- aguarda a resposta que a View lhe vai enviar.
+ por parte da função DOJO “request”, de um pedido ao URL Dispatcher que
+ por sua vez ira pedir a view escolhida que resolva o pedido e o retorne
+ novamente para a mesma função DOJO a qual colocará o resultado no código
+ HTML onde é visível ao utlizador (Algoritmo 3.2).
+ Para tal basta implementar o cabeçalho “requeire”.
+ Chamar a função desejada neste caso a “dojo/request”.
+ De seguida declara-se a função com o argumento “request”.
+ Por fim inicializa-se a função “resquest”, enviando-lhe o URL para o URL
+ Dispatcher resolver.
+ Por fim a função “request” aguarda a resposta que a View lhe vai enviar.
  Caso exista um problema retorna um erro.
 \end_layout
 
@@ -2569,22 +2290,18 @@ Exemplo implementação do AJAX no DOJO
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
 \end_layout
 
 \begin_layout Standard
-Conhecendo agora o esquema é facil de preceber o que acontece.
- Ao haver alteração no formulario a função AJAX construida sob DOJO, pede
- ao URL que envie um pedido a um metodo da VIEW que por sua vez vai enviar
- um outro template para a função, template este que será a resposta.
- E o DOJO terá a resposabilidade de colcar esse pequeno trecho de HTML no
- local apropriado.
+Conhecendo agora o esquema é fácil de perceber o que acontece.
+ Ao haver alteração no formulário a função AJAX construída sob DOJO, pede
+ ao URL que envie um pedido a um método da VIEW que por sua vez vai enviar
+ um outro Template para a função, Template este que será a resposta.
+ E o DOJO terá a responsabilidade de colocar esse pequeno trecho de HTML
+ no local apropriado.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -2592,7 +2309,7 @@ Tarefa 2 - Editar Docente
 \end_layout
 
 \begin_layout Standard
-A tecnologia javascript usada nesta tarefa é em tudo igual a usada na tarefa
+A tecnologia Javascript usada nesta tarefa é em tudo igual a usada na tarefa
  1 - Adicionar Docente.
  Pois ambas as tarefas usam o mesmo esquema de formulário e em resultado
  disso as mesmas ações.
@@ -2603,60 +2320,23 @@ Tarefa 3 - Listar Docentes
 \end_layout
 
 \begin_layout Standard
-As tarefas que tem como função listar são as que mais tiram partido do javascrip
+As tarefas que tem como função listar são as que mais tiram partido do Javascrip
 t.
- Nesta tarefa de listar docentes, existem varios filtros que nos permitem
- filtrar a informação da tabela sob varios parametros.
- Entre esses filtros contam-se o filtro 
-\begin_inset Quotes eld
-\end_inset
-
-Por Ordem Alfabetica
-\begin_inset Quotes erd
-\end_inset
-
-, 
-\begin_inset Quotes eld
-\end_inset
-
-Por Categoria
-\begin_inset Quotes erd
-\end_inset
-
- e 
-\begin_inset Quotes eld
-\end_inset
-
-Por Departamento
-\begin_inset Quotes erd
-\end_inset
-
-.
+ Nesta tarefa de listar docentes, existem vários filtros que nos permitem
+ filtrar a informação da tabela sob vários parâmetros.
+ Entre esses filtros contam-se o filtro “Por Ordem Alfabética”, “Por Categoria”
+ e “Por Departamento”.
 \end_layout
 
 \begin_layout Standard
-Em sintse todos os filtros recebem o seu conteudo por AJAX, o processo usado
- é identico ao falado na Tarefa 1.
- Os filtros possuiem um efeito deslizante que suaviza a abertura do conteudo
+Em síntese todos os filtros recebem o seu conteúdo por AJAX, o processo
+ usado é idêntico ao falado na Tarefa 1.
+ Os filtros possuem um efeito deslizante que suaviza a abertura do conteúdo
  dos filtros.
- Para produzir esse efeito é usado uma função da biblioteca DOJO 
-\begin_inset Quotes eld
-\end_inset
-
-dojo/fx
-\begin_inset Quotes erd
-\end_inset
-
+ Para produzir esse efeito é usado uma função da biblioteca DOJO “dojo/fx”
  (Algoritmo 3.3).
- É tambem usada a função 
-\begin_inset Quotes eld
-\end_inset
-
-dojo/dom
-\begin_inset Quotes erd
-\end_inset
-
- da biblioteca DOJO responsavel por tratar dos elementos HTML.
+ É também usada a função “dojo/dom” da biblioteca DOJO responsável por tratar
+ dos elementos HTML.
  
 \end_layout
 
@@ -2771,39 +2451,24 @@ Exemplo da implementação de deslizamento da DIV.
 \end_layout
 
 \begin_layout Standard
-Na biblioteca DOJO existe tambem a função 
-\begin_inset Quotes eld
-\end_inset
-
-dojo/on
-\begin_inset Quotes erd
-\end_inset
-
- responsavel por controlar ações de click em elementos HTML.
+Na biblioteca DOJO existe também a função “dojo/on” responsável por controlar
+ ações de click em elementos HTML.
  Com essa função conseguimos reproduzir o efeito acima referido quando clicamos
- no elemento HTML que será responsavel por receber o o click.
+ no elemento HTML que será responsável por receber o click.
 \begin_inset Newline newline
 \end_inset
 
-O conteudo de todos os filtros é falcultado por AJAX da mesma forma que
- realizado anteriormente.
+O conteúdo de todos os filtros é facultado por AJAX da mesma forma que realizado
+ anteriormente.
 \end_layout
 
 \begin_layout Itemize
-Filtro 
-\begin_inset Quotes eld
-\end_inset
-
-Por Ordem Alfabetica
-\begin_inset Quotes erd
-\end_inset
-
- (Figura 3.19)
+Filtro “Por Ordem Alfabética” (Figura 3.19)
 \end_layout
 
 \begin_deeper
 \begin_layout Itemize
-Este filtro receberá por AJAX um trecho de html preenchido com uma lista
+Este filtro receberá por AJAX um trecho de HTML preenchido com uma lista
  do alfabeto.
 \end_layout
 
@@ -2834,7 +2499,7 @@ Filtro -
 \begin_inset Quotes eld
 \end_inset
 
-Por Ordem Afabetica
+Por Ordem Afabética
 \begin_inset Quotes erd
 \end_inset
 
@@ -2869,7 +2534,7 @@ Por Departamento
 
 \begin_deeper
 \begin_layout Itemize
-Este filtro receberá por AJAX um trecho de html preenchido com uma lista,
+Este filtro receberá por AJAX um trecho de HTML preenchido com uma lista,
  preenchida depois de uma consulta a base de dados.
 \end_layout
 
@@ -2931,7 +2596,7 @@ Por Categoria
 
 \begin_deeper
 \begin_layout Itemize
-Este filtro receberá por AJAX um trecho de html preenchido com uma lista,
+Este filtro receberá por AJAX um trecho de HTML preenchido com uma lista,
  preenchida depois de uma consulta a base de dados.
 \end_layout
 
@@ -2984,79 +2649,18 @@ Tarefa 4 - Listar Contratos
 \end_layout
 
 \begin_layout Standard
-Nesta tarefa de listar contratos, existem varios filtros que nos permitem
- filtrar a informação da tabela sob varios parametros.
- Entre esses filtros contam-se o filtro 
-\begin_inset Quotes eld
-\end_inset
-
-Por Ordem Alfabetica
-\begin_inset Quotes erd
-\end_inset
-
-, 
-\begin_inset Quotes eld
-\end_inset
-
-Por Categoria
-\begin_inset Quotes erd
-\end_inset
-
- e 
-\begin_inset Quotes eld
-\end_inset
-
-Por Departamento
-\begin_inset Quotes erd
-\end_inset
-
- e 
-\begin_inset Quotes eld
-\end_inset
-
-Por Data
-\begin_inset Quotes erd
-\end_inset
-
-.
- Todos os primeiros tres filtros referidos ja foram tratadosna Tarefa 3,
- sendo que a novidade aqui é mesmo o filtro 
-\begin_inset Quotes eld
-\end_inset
-
-Por Data
-\begin_inset Quotes erd
-\end_inset
-
-.
+Nesta tarefa de listar contratos, existem vários filtros que nos permitem
+ filtrar a informação da tabela sob vários parâmetros.
+ Entre esses filtros contam-se o filtro “Por Ordem Alfabética”, “Por Categoria”
+ e “Por Departamento” e “Por Data”.
+ Todos os primeiros três filtros referidos já foram tratados na Tarefa 3,
+ sendo que a novidade aqui é mesmo o filtro “Por Data”.
 \end_layout
 
 \begin_layout Standard
-Este filtro 
-\begin_inset Quotes eld
-\end_inset
-
-Por Data
-\begin_inset Quotes erd
-\end_inset
-
-, subdivide-se em outros dois filtros 
-\begin_inset Quotes eld
-\end_inset
-
-Por data inicio
-\begin_inset Quotes erd
-\end_inset
-
- e 
-\begin_inset Quotes eld
-\end_inset
-
-Por data de fim
-\begin_inset Quotes erd
-\end_inset
-
- (Figura 3.22).
+Este filtro “Por Data”, subdivide-se em outros dois filtros “Por data início”
+ e “Por data de fim” (Figura 3.22).
+ 
 \end_layout
 
 \begin_layout Standard
@@ -3107,47 +2711,12 @@ Por Data
 \end_layout
 
 \begin_layout Standard
-Ambos os sub-filtros, possuem um calendário construido em javascript por
- 
-\begin_inset Quotes eld
-\end_inset
-
-dynarch.com
-\begin_inset Quotes erd
-\end_inset
-
- de nome 
-\begin_inset Quotes eld
-\end_inset
-
-JSCal2-1.9
-\begin_inset Quotes erd
-\end_inset
-
-.
- Calendário esse que permite navegar entre os meses , anos e obter a data
- actual.
- Essa data é colocada numa caixa de texto 
-\begin_inset Quotes eld
-\end_inset
-
-<input type=
-\begin_inset Quotes erd
-\end_inset
-
-text
-\begin_inset Quotes erd
-\end_inset
-
- />
-\begin_inset Quotes erd
-\end_inset
-
- atravez de um metodo javascript acente em DOM .
-\begin_inset Newline newline
-\end_inset
-
-
+Ambos os sub-filtros, possuem um calendário construído em Javascript por
+ “dynarch.com” de nome “JSCal2-1.9”.
+ Calendário esse que permite navegar entre os meses, anos e obter a data
+ atual.
+ Essa data é colocada numa caixa de texto “<input type=”text” />” através
+ de um método Javascript assente em DOM .
 \begin_inset Float algorithm
 placement H
 wide false
@@ -3252,17 +2821,22 @@ Tarefa 1 - Adicionar Docente
 \end_layout
 
 \begin_layout Standard
-Como é esperado toda e qualquer pagina web é comumente constituida por HTML.
- No Django temos a possibilidade de usar uma linguagem de templates que
+Como é esperado toda e qualquer pagina web é comumente constituída por HTML.
+ No Django temos a possibilidade de usar uma linguagem de Templates que
  torna o uso do HTML mais inteligente, tal como se pode ver no ponto 3.2
- deste capitulo.
+ deste capítulo.
 \end_layout
 
 \begin_layout Standard
-A framework do django permite tambem a criação facil de formularios baseados
- nos modelos existentes no Models do django.
- Sendo que no ficheiros HTML apenas é necessario colocar o conteudo precorrendo
+A framework Django permite também a criação fácil de formulários baseados
+ nos modelos existentes no 
+\emph on
+Models
+\emph default
+ do Django.
+ Sendo que nos ficheiros HTML apenas é necessário colocar o conteúdo percorrendo
  a lista de elementos HTML que nos vem da VIEW.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -3355,74 +2929,29 @@ Exemplo colocação de formulário no template
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
 \end_layout
 
 \begin_layout Standard
-No (Algoritmo 3.3) temos o exemplo dessa mesma implementação, onde o 
-\begin_inset Quotes eld
-\end_inset
-
-form
-\begin_inset Quotes erd
-\end_inset
-
- no ciclo 
-\begin_inset Quotes eld
-\end_inset
-
-for
-\begin_inset Quotes erd
-\end_inset
-
- são os campos do formulario gerados na view, e o 
-\begin_inset Quotes eld
-\end_inset
-
-field
-\begin_inset Quotes erd
-\end_inset
-
- os respectivos campos.
- Basta depois colocar 
-\begin_inset Quotes eld
-\end_inset
-
-.label_tag
-\begin_inset Quotes erd
-\end_inset
-
- para que seja imprimido a etiqueta do componente HTML.
- Este exemplo vai mais longe pois é visivel o tratamento do formulário no
- que e refer a materia de campos obrigatorios.
- Para que se verifique se o campo é obrigatorio é colocado 
-\begin_inset Quotes eld
-\end_inset
-
-.field.required
-\begin_inset Quotes erd
-\end_inset
-
+No (Algoritmo 3.3) temos o exemplo dessa mesma implementação, onde o “form”
+ no ciclo “for” são os campos do formulário gerados na 
+\emph on
+View
+\emph default
+, e o “field” os respetivos campos.
+ Basta depois colocar “.label_tag” para que seja imprimido a etiqueta do
+ componente HTML.
+ Este exemplo vai mais longe pois é visível o tratamento do formulário no
+ que e refere a matéria de campos obrigatórios.
+ Para que se verifique se o campo é obrigatório é colocado “.field.required”
  no campo a testar.
- Tudo isto dentro de uma condição 
-\begin_inset Quotes eld
-\end_inset
-
-if
-\begin_inset Quotes erd
-\end_inset
-
- da linguagem de template do django.
- Caso existam erros nos campos, como por exemplo o campo ser obrigatorio
- e não estar preenchido é imprimido uma lista de erros, lado a lado com
- os campos do formulário.
- A forma de impressao dos erros como é visivel no exemplo acima, é semelhante
+ Tudo isto dentro de uma condição “if” da linguagem de Template Django.
+ Caso existam erros nos campos, como por exemplo o campo ser obrigatório
+ e não estar preenchido é impresso uma lista de erros, lado a lado com os
+ campos do formulário.
+ A forma de impressão dos erros como é visível no exemplo acima, é semelhante
  a usada na impressão dos campos do formulário.
 \end_layout
 
@@ -3433,20 +2962,12 @@ Tarefa 2 - Editar Docente
 \begin_layout Standard
 A tarefa Editar Docentes envolve a criação de uma prévia listagem dos docentes
  existentes.
- Listagem essa elaborada atravez de uma tabela html, elemento que nos permite
- ter uma visualização muito mais agradavel da informação.
- A construção da tabela esta muito facilitada graças a linguagem de template
- do django.
- Pois atravez do uso do ciclo 
-\begin_inset Quotes eld
-\end_inset
-
-for
-\begin_inset Quotes erd
-\end_inset
-
-, é mais rapido e facil precorrer a informação, obtida da View (Algoritmo
- 3.6).
+ Listagem essa elaborada através de uma tabela HTML, elemento que nos permite
+ ter uma visualização muito mais agradável da informação.
+ A construção da tabela está muito facilitada graças a linguagem de Template
+ Django.
+ Pois através do uso do ciclo “for”, é mais rápido e fácil percorrer a informaçã
+o, obtida da View (Algoritmo 3.6).
 \begin_inset Newline newline
 \end_inset
 
@@ -3542,18 +3063,19 @@ Exemplo criação tabela de listagem - Linguagem de Template
 
 \end_inset
 
- Como seria de esperar a listagem dos docentes iria devolver uma tabela
- muito estensa no que se refer ao seu numero de linhas.
- Para colmatar este problema recorreu-se a um sistema de paginação do django
- que permite a divisão de uma lista de elementos em varias sub-listas.
- Essa metodo é utilizado na View que tratará de enviar os elementos a colocar
- na tabela html.
+Como seria de esperar a listagem dos docentes iria devolver uma tabela muito
+ extensa no que se refere ao seu numero de linhas.
+ Para colmatar este problema recorreu-se a um sistema de paginação do Django
+ que permite a divisão de uma lista de elementos em várias sub-listas.
+ Esse método é utilizado na View que tratará de enviar os elementos a colocar
+ na tabela HTML.
  
 \end_layout
 
 \begin_layout Standard
 A parte da edição em si é igual a referida na Tarefa 1 - Adicionar Docente,
- coma difenreça do formulário vir préviamente preenchido.
+ coma diferença do formulário vir previamente preenchido.
+ 
 \end_layout
 
 \begin_layout Subsubsection*
@@ -3561,11 +3083,11 @@ Tarefa 3 - Listar Docentes
 \end_layout
 
 \begin_layout Standard
-A estrutura html, listagem de docentes é igual ao referido na Tarefa 2 -
+A estrutura HTML, listagem de docentes é igual ao referido na Tarefa 2 -
  Editar Docente.
- Ate nesmo a vista detalhada do docente segue o mesmo, paradigma da mostragem
+ Ate mesmo a vista detalhada do docente segue o mesmo, paradigma da mostragem
  da informação em forma de tabela.
- O que propurciona uma melhor visualização e clareza nos dados apresentados.
+ O que proporciona uma melhor visualização e clareza nos dados apresentados.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -3575,42 +3097,15 @@ Tarefa 4 - Listar Contratos
 \begin_layout Standard
 A estrutura desta tarefa em termos de listagem e vista detalhada de informação
  do docente é igual á referida na Tarefa 3 - Listar Docentes.
- Contudo existe uma alteração no que diz respeito á existencia da filtragem
- 
-\begin_inset Quotes eld
-\end_inset
-
-Por Data
-\begin_inset Quotes erd
-\end_inset
-
- pois em ambas as sub-filtragens 
-\begin_inset Quotes eld
-\end_inset
-
-Por Data Ínicio
-\begin_inset Quotes erd
-\end_inset
-
- e 
-\begin_inset Quotes eld
-\end_inset
-
-Por Data Fim
-\begin_inset Quotes erd
-\end_inset
-
- para alem do calendário, tem um incrementador que nos permite definir um
- raio de dias em torno da data escolhida no calendário para a filtrage.
- Esse incremento é feito usando o elemento html <input type=
-\begin_inset Quotes erd
-\end_inset
-
-number
-\begin_inset Quotes erd
-\end_inset
-
-/>.
+ Contudo existe uma alteração no que diz respeito á existência da filtragem
+ “Por Data” pois em ambas as sub-filtragens “Por Data Inicio” e “Por Data
+ Fim” para alem do calendário, tem um incrementador que nos permite definir
+ um raio de dias em torno da data escolhida no calendário para a filtragem.
+ Esse incremento é feito usando o elemento HTML 
+\emph on
+<input type=”number”/>
+\emph default
+.
 \end_layout
 
 \begin_layout Subsection*
@@ -3618,9 +3113,9 @@ CSS
 \end_layout
 
 \begin_layout Standard
-A Barra de menus presente em todasas paginas desta aplicação foi estilizada
- com base em um template de CSS3, que posterioremente foi alterado e ajustado
- para suprir as necessidades da aplicação
+A Barra de menus presente em todas as paginas desta aplicação foi estilizada
+ com base em um Template de CSS3, que posteriormente foi alterado e ajustado
+ para suprir as necessidades da aplicação.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -3629,11 +3124,13 @@ Tarefa 1- Adicionar Docente
 
 \begin_layout Standard
 Os CSSs que dão o estilo e design da aplicação são bastante simples.
- Neste formulário foi ecenssialmente usada a coloração das tags DIV onde
- se encontram os campos do formulário bem como o seu tamanho.
- Foi tambem colocada coloração nas letras, a vermelho sempre que existe
+ Neste formulário foi essencialmente usada a coloração das 
+\emph on
+tags
+\emph default
+ DIV onde se encontram os campos do formulário bem como o seu tamanho.
+ Foi também colocada coloração nas letras, a vermelho sempre que existe
  uma mensagem de erro ou para realçar certas mensagens.
- 
 \end_layout
 
 \begin_layout Subsubsection*
@@ -3642,11 +3139,11 @@ Tarefa 2 - Editar Docente
 
 \begin_layout Standard
 Os CSS que dão vida a tabela de listagem de docentes passiveis de edição,
- foram baseados num template CSS3 e postriormente alterado consoante as
- necessidades de visualização da aplicação.
- Esse template apesar de CSS3, trata-se de um hibrido entre CSS e CSS3.
+ foram baseados num modelo CSS3 e posteriormente alterado consoante as necessida
+des de visualização da aplicação.
+ Esse modelo apesar de CSS3, trata-se de um hibrido entre CSS e CSS3.
  Os formulários de edição do docente estão estilizados de forma igual ao
- que acontece na tarefa 1 - Adicionar Docente
+ que acontece na tarefa 1 - Adicionar Docente.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -3657,7 +3154,7 @@ Tarefa 3 - Listar Docentes e Tarefa 4 - Listar Contratos
 Tanto a listagem de docentes como a listagem de contratos usam a estilização
  referida na tarefa 2 - Editar Docente.
  Pois basicamente a sua estrutura quer na forma listagem quer na forma detalhada
-, é construida com base a tabelas html.
+, é construída com base a tabelas HTML.
 \end_layout
 
 \begin_layout Section
@@ -3665,11 +3162,11 @@ Docentes
 \end_layout
 
 \begin_layout Standard
-Sendo os docentes parte fundamental para o funcionamento de uma instutuição
- de ensino é mais que normal que exista uma area reservada aos mesmos.
- Nesta area os docentes tem acesso a toda a informação disponivel sobre
- si proprios , de forma clara e sintetica sem burocracias nem redundnacias
- pois os dandos estanto centralizados são obtidos do mesmo local.
+Sendo os docentes parte fundamental para o funcionamento de uma instituição
+ de ensino é mais que normal que exista uma área reservada aos mesmos.
+ Nesta área os docentes tem acesso a toda a informação disponível sobre
+ si próprios , de forma clara e sintética sem burocracias nem redundâncias
+ pois os dados ao estarem centralizados são obtidos do mesmo local.
 \end_layout
 
 \begin_layout Subsection
@@ -3677,8 +3174,8 @@ Tarfas Implementadas
 \end_layout
 
 \begin_layout Standard
-Na área dos docentes foram implementadas as tarefas concideradas necessarias
- para uma correcta manutenção e gestão da informação relacionada com cada
+Na área dos docentes foram implementadas as tarefas consideradas necessárias
+ para uma correta manutenção e gestão da informação relacionada com cada
  docente.
 \end_layout
 
@@ -3694,7 +3191,7 @@ Tarefa 1 - Ver resumo informativo:
 \begin_layout Itemize
 Nesta tarefa o utilizador tem oportunidade de ver um resumo da informação
  sobre si.
- Tal como o total de horas de serviço, o numero de turmas qu leciona entre
+ Tal como o total de horas de serviço, o numero de turmas que leciona entre
  outros.
 \end_layout
 
@@ -3717,7 +3214,7 @@ Tarefa 3 - Ver horas e trabalho:
 \begin_deeper
 \begin_layout Itemize
 Esta tarefa mostra ao utilizador, para alem da turma que leciona o numero
- de horas de serviço relacionados com essa turma
+ de horas de serviço relacionados com essa turma.
 \end_layout
 
 \end_deeper
@@ -3726,9 +3223,9 @@ Síntese de funcionamento
 \end_layout
 
 \begin_layout Standard
-O funcionamento da area do docente é muito simples e sintetica, para todas
+O funcionamento da área do docente é muito simples e sintética, para todas
  as suas tarefas.
- Em seguida é apresentado em sintse o funcinamento d cada tarefa.
+ Em seguida é apresentado em síntese o funcionamento d cada tarefa.
 \end_layout
 
 \begin_layout Subsection*
@@ -3737,7 +3234,7 @@ Tarefa 1 - Ver resumo informativo
 
 \begin_layout Standard
 No resumo informativo o utilizador pode ver o estado da sua situação em
- relação as horas atribuidas, bem como o total de horas atribuidas, as horas
+ relação as horas atribuídas, bem como o total de horas atribuídas, as horas
  de redução bem como as horas total.
 \end_layout
 
@@ -3781,8 +3278,8 @@ Informação - Docente
 \end_layout
 
 \begin_layout Standard
-Considerando que o utilizador ja realizou a autenticação na aplicação.
- A pagina de informação é lhe mostrada de inicio.
+Considerando que o utilizador já realizou a autenticação na aplicação.
+ A página de informação é lhe mostrada de inicio.
 \end_layout
 
 \begin_layout Subsection*
@@ -3799,16 +3296,8 @@ Nesta tarefa o utilizador tem a possibilidade de ver todas as turmas que
 \end_layout
 
 \begin_layout Standard
-Considerando que o utilizador ja realizou a autenticação na aplicação.
- Na pagina de informação inicial (ver figura 3.24 tarefa 1) clica em 
-\begin_inset Quotes eld
-\end_inset
-
-Turmas
-\begin_inset Quotes erd
-\end_inset
-
-.
+Considerando que o utilizador já realizou a autenticação na aplicação.
+ Na página de informação inicial (ver figura 3.24 tarefa 1) clica em “Turmas”.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -3851,17 +3340,9 @@ Informação - Docente
 \end_layout
 
 \begin_layout Standard
-Depois de clicado em 
-\begin_inset Quotes eld
-\end_inset
-
-Turmas
-\begin_inset Quotes erd
-\end_inset
-
- o utilizador é encaminhado para outra pagina onde é mostrado em forma de
- tabelas as turmas e respectivos cursos a que pertencem, associadas ao uilizador
- (Figura 3.25).
+Depois de clicado em “Turmas” o utilizador é encaminhado para outra página
+ onde é mostrado em forma de tabelas as turmas e respetivos cursos a que
+ pertencem, associadas ao utilizador (Figura 3.25).
 \end_layout
 
 \begin_layout Subsection*
@@ -3879,16 +3360,9 @@ Nesta tarefa o utilizador tem a possibilidade de ver todas as turmas que
 \end_layout
 
 \begin_layout Standard
-Considerando que o utilizador ja realizou a autenticação na aplicação.
- Na pagina de informação inicial (ver figura 3.24 - tarefa 1) clica em 
-\begin_inset Quotes eld
-\end_inset
-
-Horas Trabalho
-\begin_inset Quotes erd
-\end_inset
-
-.
+Considerando que o utilizador já realizou a autenticação na aplicação.
+ Na página de informação inicial (ver figura 3.24 - tarefa 1) clica em “Horas
+ Trabalho”.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -3931,17 +3405,10 @@ Informação - Docente
 \end_layout
 
 \begin_layout Standard
-Depois de clicado em 
-\begin_inset Quotes eld
-\end_inset
-
-Horas Trabalho
-\begin_inset Quotes erd
-\end_inset
-
- o utilizador é encaminhado para outra pagina onde é mostrado em forma de
- tabela as turmas e respectivos cursos a que pertencem, associadas ao uilizador
- bem como as horas que tera que lecionar (Figura 3.25).
+Depois de clicado em “Horas Trabalho” o utilizador é encaminhado para outra
+ pagina onde é mostrado em forma de tabela as turmas e respetivos cursos
+ a que pertencem, associadas ao utilizador bem como as horas que terá que
+ lecionar (Figura 3.25).
 \end_layout
 
 \begin_layout Subsection
@@ -3949,10 +3416,10 @@ Aplicação das Tecnologias
 \end_layout
 
 \begin_layout Standard
-Esta area da aplicação é que menos recursos tecnologicos usa para a sua
+Esta área da aplicação é a que menos recursos tecnológicos usa para a sua
  construção.
- Nas Tarefas aqui bordadas, as principais tecnologis usadas são o HTML e
- o CSS.
+ Nas Tarefas aqui bordadas, as principais tecnologias usadas são o HTML
+ e o CSS.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -3960,7 +3427,7 @@ JavaScript - DOJO/DOM
 \end_layout
 
 \begin_layout Standard
-Nenhum das tarefas apresentadas na area do docente usa javascript na sua
+Nenhum das tarefas apresentadas na área do docente usa Javascript na sua
  construção.
 \end_layout
 
@@ -3969,21 +3436,14 @@ HTML
 \end_layout
 
 \begin_layout Standard
-As tarefas 1, 2 e 3, mostram o seu conteudo em forma de tabela html por
- forma a ser mais simples e limba a organização da informação.
- Tal como na area dos recursos humanos as tabelas usadas usam todas o mesmo
- template.
- As tabelas são construidas igualmente como as tabelas de listagens existentes
- na area dos recursos humanos.
- Recorrendo ao uso de ciclos 
-\begin_inset Quotes eld
-\end_inset
-
-for
-\begin_inset Quotes erd
-\end_inset
-
- existentes la linguagem de templates do django.
+As tarefas 1, 2 e 3, mostram o seu conteúdo em forma de tabela HTML por
+ forma a ser mais simples e limpa a organização da informação.
+ Tal como na área dos recursos humanos as tabelas usadas usam todas o mesmo
+ Template.
+ As tabelas são construídas igualmente como as tabelas de listagens existentes
+ na área dos recursos humanos.
+ Recorrendo ao uso de ciclos “for” existentes la linguagem de Templates
+ Django.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -3992,9 +3452,9 @@ CSS
 
 \begin_layout Standard
 As tarefas 1, 2 e 3 são estilizadas de forma igual.
- Tal como na area dos recursos humanos todas as tabelas aqui construidas
- usam o template de CSS, que foi posterioremente aletrado e estilizado por
- forma a suprir as necessidades desta area.
+ Tal como na área dos recursos humanos todas as tabelas aqui construídas
+ usam o Template de CSS, que foi posteriormente aletrado e estilizado por
+ forma a suprir as necessidades desta área.
 \end_layout
 
 \begin_layout Section
@@ -4002,12 +3462,12 @@ Vice-Presidência
 \end_layout
 
 \begin_layout Standard
-A vice-presidencia em sem duvida o orgão com mais poder dentro da aplicação,
+A vice-presidência em sem duvida o órgão com mais poder dentro da aplicação,
  pois é daqui que parte a decisão final sobre todas as tarefas realizadas
  na aplicação.
- Sendo o orgão mais complexo foi aquele que foi deixado para o fim e por
- infelicidade foi impossiel de concluir a implementação de todas as terafas
- desejaveis.
+ Sendo o órgão mais complexo foi aquele que foi deixado para o fim e por
+ infelicidade foi impossível de concluir a implementação de todas as tarefas
+ desejáveis.
 \end_layout
 
 \begin_layout Subsection
@@ -4015,10 +3475,10 @@ Tarefas Implementadas
 \end_layout
 
 \begin_layout Standard
-Atualemente toda a informação relacionada com o serviço de destribuição
- do serviço docente é tratada de forma rudimentar por meio da manipulação
- de um ficheiro excel que torna todo o processo demasiado moroso e complexo
- de realizar levando a que possam ocorrer ambiguidades e redundancia de
+Atualmente toda a informação relacionada com o serviço de distribuição do
+ serviço docente é tratada de forma rudimentar por meio da manipulação de
+ uma folha de calculo que torna todo o processo demasiado moroso e complexo
+ de realizar levando a que possam ocorrer ambiguidades e redundância de
  informação.
 \end_layout
 
@@ -4029,10 +3489,10 @@ Tarefa 1 - Gerar xls
 \begin_deeper
 \begin_layout Itemize
 Com vista a suavizar a mudança de para a nova aplicação foi dada a possibilidade
- de gerar um ficheiro excel semelhante ao que existe atualemente com dados
+ de gerar uma folha de cálculo semelhante ao que existe atualmente com dados
  lidos da base de dados.
- Assim o utilizador consegue adpatar-se melhor e visualizar os dados da
- forma que esta habituado antes de dar o salto final para a nova aplicação.
+ Assim o utilizador consegue adaptar-se melhor e visualizar os dados da
+ forma que está habituado antes de dar o salto final para a nova aplicação.
 \end_layout
 
 \end_deeper
@@ -4048,8 +3508,8 @@ Tarefa 1 - Gerar xls
 Esta tarefa foi pensada para aquelas pessoas que tem dificuldades em começar
  a usar um novo software.
  Para evitar que o choque seja grande demais, existe a possibilidade de
- converter o conteudo da base de dados da aplicação para uma folha de calculo
- (Metodo atualmente usado).
+ converter o conteúdo da base de dados da aplicação para uma folha de cálculo
+ (Método atualmente usado).
 \end_layout
 
 \begin_layout Subsubsection*
@@ -4078,7 +3538,7 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Informação - Docente
+Página Inicial - Vice-Presidência
 \end_layout
 
 \end_inset
@@ -4092,16 +3552,9 @@ Informação - Docente
 \end_layout
 
 \begin_layout Standard
-Considerando que o utilizador ja realizou a autenticação na aplicação.
- Na pagina inicial da vice-presidencia(ver figura 3.27) clica em 
-\begin_inset Quotes eld
-\end_inset
-
-Criar XLS
-\begin_inset Quotes erd
-\end_inset
-
-.
+Considerando que o utilizador já realizou a autenticação na aplicação.
+ Na página inicial da vice-presidência (ver figura 3.27) clica em “Criar
+ XLS”.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -4130,7 +3583,7 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Informação - Docente
+Página de sucesso - Criar xls - Vice-Presidência
 \end_layout
 
 \end_inset
@@ -4144,8 +3597,8 @@ Informação - Docente
 \end_layout
 
 \begin_layout Standard
-Após esperar alguns instantes que a os metos da View, responsaveis pela
- criação da folha de calculo terminem a sua criação, o utilizador é encaminhado
+Após esperar alguns instantes que a os métodos da View, responsáveis pela
+ criação da folha de cálculo terminem a sua criação, o utilizador é encaminhado
  para uma outra pagina onde lhe indica o sucesso da operação (Figura 3.28).
 \end_layout
 
@@ -4154,9 +3607,9 @@ Aplicação das Tecnologias
 \end_layout
 
 \begin_layout Standard
-Como em todas as areas desta aplicação, é indepensavel o recurso as tecnologias
- de construção de paginas web.
- Esta area estando ainda na sua fase de construção inicial, da pouco uso
+Como em todas as áreas desta aplicação, é indispensável o recurso as tecnologias
+ de construção de páginas web.
+ Esta área estando ainda na sua fase de construção inicial, dá pouco uso
  as tecnologias web.
 \end_layout
 
@@ -4165,7 +3618,7 @@ JavaScript - DOJO/DOM
 \end_layout
 
 \begin_layout Standard
-Não possui qualquer tipo de codigo javascript
+Não possui qualquer tipo de código Javascript
 \end_layout
 
 \begin_layout Subsubsection*
@@ -4173,7 +3626,7 @@ HTML
 \end_layout
 
 \begin_layout Standard
-O html aqui apresentado é o que é gerado essencialmente pelo template base
+O HTML aqui apresentado é o que é gerado essencialmente pelo Template base
  com a diferença apenas da barra de menus.
 \end_layout
 
@@ -4182,8 +3635,8 @@ CSS
 \end_layout
 
 \begin_layout Standard
-Os CSS são basicamente os mesmo que usados no template base e nas restantes
- areas.
+Os CSS são basicamente os mesmo que usados no Template base e nas restantes
+ áreas.
  
 \begin_inset Newline newline
 \end_inset
@@ -4192,12 +3645,12 @@ Os CSS são basicamente os mesmo que usados no template base e nas restantes
 \begin_inset Newline newline
 \end_inset
 
-Esta area que se refere a vice-presidencia encontra-se numa fase de construção
- incial.
- Pelo que é visivel que se encontra disprovida das funcionalidades que este
- orgão exerce actualmente na distribuição do serviço docente.
+Esta área que se refere a vice-presidência encontra-se numa fase de construção
+ inicial.
+ Pelo que é visível que se encontra desprovida das funcionalidades que este
+ órgão exerce atualmente na distribuição do serviço docente.
  Assim sendo a tarefa mais importante de momento foi a implementada.
- De futuro preve-se a conclusão desta e das outras areas, que são parte
+ De futuro prevê-se a conclusão desta e das outras áreas, que são parte
  constituinte desta aplicação.
 \end_layout
 
@@ -4206,31 +3659,33 @@ Conclusão
 \end_layout
 
 \begin_layout Standard
-Com este sistema implementado, seguramente a tarefa de destribuição das
- horas de serviço docente será mais rapida e fácil, contendi toda a infromação
- assecivel num só local, livre das redundancias e incoerencias do passado.
+Com este sistema implementado, seguramente a tarefa de distribuição das
+ horas de serviço docente será mais rápida e fácil, contendo toda a informação
+ acessível num só local, livre das redundâncias e incoerências do passado.
  O sistema ainda se encontra na sua fase inicial de desenvolvimento e no
- futuro proximo prevêse a implementação das areas dos restantes orgãos do
- institututo.
- Prevêse tabem a correcção do codigo da aplicação afim de aumentar a sua
- preformace eliminação de possiveis erros.
+ futuro próximo prevê-se a implementação das áreas dos restantes órgãos
+ do instituto.
+ Prevê-se também a correção do código da aplicação a fim de aumentar a sua
+ performance e eliminação de possíveis erros.
  
 \end_layout
 
 \begin_layout Standard
-O uso da framework DJANGO foi uma grande ajuda e mostrou ser uma ferramente
- bastante poderosa, pela sua rapidez e velocidade cosntrução da aplicação.
- Por ser baseada na linguagem python, torna todo o codigo muito mais fluido
- e facil de intrepertar.
+O uso da framework DJANGO foi uma grande ajuda e mostrou ser uma ferramenta
+ bastante poderosa, pela sua rapidez e velocidade construção da aplicação.
+ Por ser baseada na linguagem Python, torna todo o código muito mais fluido
+ e fácil de interpretar.
 \end_layout
 
 \begin_layout Standard
 Futuramente o sistema será colocado em um servidor Ubunto, para que fique
- disponivel e acessivel a todos os utilizadores deste sistema.
- O Sistema puderá depois assim ser cconsultado em qualquer lugar necessitanto
- apenas o utilizador de um equipamento com acesso a internet e um browser.
- Sendo assima as tarefas realizadas facilmente e confortavelemente em qualquer
+ disponível e acessível a todos os utilizadores deste sistema.
+ O Sistema poderá depois assim ser acedido em qualquer lugar necessitando
+ apenas o utilizador de um possuir equipamento com acesso a internet e um
+ browser como por exemplo um SmartPhone ou um Tablet.
+ Sendo assim as tarefas realizadas facilmente e confortavelmente em qualquer
  lugar.
+ 
 \end_layout
 
 \end_body
