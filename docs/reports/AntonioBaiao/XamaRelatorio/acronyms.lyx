@@ -333,6 +333,10 @@ XML eXtensible Markup Language
 CSS Cascading Style Sheets
 \end_layout
 
+\begin_layout Description
+ORM Mapeamento de Objetos Relacionais
+\end_layout
+
 \begin_layout Standard
 \begin_inset ERT
 status open
