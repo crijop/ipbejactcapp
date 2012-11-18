@@ -1686,7 +1686,7 @@ Depois de escolhido o docente a editar, o utilizador é encaminhado para
  Esse formulário é igual ao existente na tarefa de adicionar docente, com
  a diferença de vir previamente preenchido com os dados existentes na base
  de dados acerca do docente respetivo (Figura 3.11).
- No fundo do formulário é ainda visível se houve alguma alteração o docente
+ No fundo do formulário é ainda visível se houve alguma alteração ao docente
  em questão e quem a protagonizou bem como a respetiva data e hora do acontecime
 nto.
 \end_layout
@@ -1706,7 +1706,7 @@ Tarefa 3 - Listar Docentes
 \end_layout
 
 \begin_layout Standard
-A tarefa “Listar Docentes” consiste em mostrar numa lista de todos os docentes
+A tarefa “Listar Docentes” consiste em mostrar uma lista de todos os docentes
  existentes na aplicação.
  Havendo a possibilidade de ver informação detalhada sobre os mesmos.
 \end_layout
@@ -1763,7 +1763,7 @@ Listagem dos docentes - Recursos Humanos
 
 \begin_layout Standard
 Depois de clicar em “Listar Docente” o utilizador é encaminhado para outra
- pagina onde estará disponível uma lista de docentes (figura 3.13).
+ página onde estará disponível uma lista de docentes (figura 3.11).
  Para ver informação detalhada de um docente da lista, o utilizador apenas
  tem que clicar no nome docente desejado ou no “olho” que se encontra á
  esquerda do nome.
@@ -1817,7 +1817,7 @@ Tabela informção detalhada do docente - Recursos Humanos
 \begin_layout Standard
 Depois de se escolher um docente, é apresentada uma nova página onde vai
  ser visível informação detalha sobre o docente clicado, numa tabela (Figura
- 3.14).
+ 3.12).
 \end_layout
 
 \begin_layout Subsection*
@@ -1837,7 +1837,7 @@ A tarefa “Listar Contratos” consiste em mostrar numa lista todos os docentes
 
 \begin_layout Standard
 Considerando que o utilizador já realizou a autenticação na aplicação, e
- estando na pagina inicial (Figura 3.5 da tarefa 1), do lado esquerdo encontrará
+ estando na página inicial (Figura 3.5 da tarefa 1), do lado esquerdo encontrará
  um menu.
  Nesse menu o utilizador vai clicar em “Listar Contratos”.
 \end_layout
@@ -1883,11 +1883,11 @@ Listagem dos contratos - Recursos Humanos
 
 \begin_layout Standard
 Depois de clicar em “Listar Contratos” o utilizador é encaminhado para outra
- pagina onde estará disponível uma lista de docentes e os seus respetivos
- contratos (figura 3.16).
+ página onde estará disponível uma lista de docentes e os seus respetivos
+ contratos (figura 3.13).
  Para ver informação detalhada de um docente da lista em relação ao seu
- contrato, o utilizador apenas tem que clicar no nome docente desejado ou
- no “olho” que se encontra á esquerda do nome.
+ contrato, o utilizador apenas tem que clicar no nome do docente desejado
+ ou no “olho” que se encontra á esquerda do nome.
  O utilizador nesta lista pode navegar pelas várias páginas existentes,
  usando os números em baixo.
  Pode procurar os docentes pelo nome, departamento e categoria na caixa
@@ -1939,7 +1939,7 @@ Tabela informção detalhada do contrato do docente - Recursos Humanos
 \begin_layout Standard
 Depois de se escolher um docente, é apresentada uma nova página onde vai
  ser visível informação detalha sobre o docente e o seu respetivo contrato,
- numa tabela (Figura 3.17).
+ numa tabela (Figura 3.14).
 \end_layout
 
 \begin_layout Subsection
@@ -1947,8 +1947,8 @@ Aplicação das Tecnologias
 \end_layout
 
 \begin_layout Standard
-Tal como em todas as áreas abordadas neste relatório, usam as tecnologias
- elementares de criação de páginas web.
+Todas as áreas abordadas neste relatório, usam as tecnologias elementares
+ de criação de páginas web.
  Depende da criatividade de quem as usa para tirar o melhor partido das
  mesmas.
  As principais tecnologias usadas nesta tarefa foram o Javascript-DOJO,
@@ -2085,9 +2085,9 @@ Exemplo chamada da biblioteca DOJO no template base.
 \end_layout
 
 \begin_layout Standard
-O funcionamento é bastante simples de entender (Figura 3.9) Consiste no envio
- por parte da função DOJO “request”, de um pedido ao URL Dispatcher que
- por sua vez ira pedir a view escolhida que resolva o pedido e o retorne
+O funcionamento é bastante simples de entender (Figura 3.15) Consiste no
+ envio por parte da função DOJO “request”, de um pedido ao URL Dispatcher
+ que por sua vez ira pedir a view escolhida que resolva o pedido e o retorne
  novamente para a mesma função DOJO a qual colocará o resultado no código
  HTML onde é visível ao utlizador (Algoritmo 3.2).
  Para tal basta implementar o cabeçalho “requeire”.
@@ -2366,7 +2366,7 @@ Filtro “Por Ordem Alfabética” (Figura 3.19)
 \begin_deeper
 \begin_layout Itemize
 Este filtro receberá por AJAX um trecho de HTML preenchido com uma lista
- do alfabeto.
+ do alfabéto.
 \end_layout
 
 \end_deeper
@@ -2431,8 +2431,8 @@ Por Departamento
 
 \begin_deeper
 \begin_layout Itemize
-Este filtro receberá por AJAX um trecho de HTML preenchido com uma lista,
- preenchida depois de uma consulta a base de dados.
+Este filtro receberá por AJAX um trecho de HTML preenchido com uma lista
+ de departamentos, depois de uma consulta á base de dados.
 \end_layout
 
 \end_deeper
@@ -2493,8 +2493,8 @@ Por Categoria
 
 \begin_deeper
 \begin_layout Itemize
-Este filtro receberá por AJAX um trecho de HTML preenchido com uma lista,
- preenchida depois de uma consulta a base de dados.
+Este filtro receberá por AJAX um trecho de HTML preenchido com uma lista
+ de categorias, depois de uma consulta a base de dados.
 \end_layout
 
 \end_deeper
@@ -2609,7 +2609,34 @@ Por Data
 
 \begin_layout Standard
 Ambos os sub-filtros, possuem um calendário construído em Javascript por
- “dynarch.com” de nome “JSCal2-1.9”.
+ “dynarch.com” de nome “JSCal2-1.9” 
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+JSCal2-1.9 é um calendário produzido em Javascript, desenvolvido pelo web
+ site 
+\begin_inset Quotes eld
+\end_inset
+
+dynarch.com
+\begin_inset Quotes erd
+\end_inset
+
+ - 
+\begin_inset CommandInset href
+LatexCommand href
+name "http://www.dynarch.com/projects/calendar/"
+target "http://www.dynarch.com/projects/calendar/"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+.
  Calendário esse que permite navegar entre os meses, anos e obter a data
  atual.
  Essa data é colocada numa caixa de texto “<input type=”text” />” através
@@ -2662,7 +2689,7 @@ Exemplo do preenchimenro de uma tag html - Input
 \begin_layout Standard
 No (Algoritmo 3.4), é mostrado um exemplo de como é elaborada a operação
  acima referida em DOM.
- O calendário (Figura 3.23) em questão é adicionado á aplicação da mesma
+ O calendário (Figura 3.20) em questão é adicionado á aplicação da mesma
  forma que a biblioteca do DOJO.
 \end_layout
 
@@ -2718,7 +2745,7 @@ Tarefa 1 - Adicionar Docente
 \end_layout
 
 \begin_layout Standard
-Como é esperado toda e qualquer pagina web é comumente constituída por HTML.
+Como é esperado toda e qualquer página web é comumente constituída por HTML.
  No Django temos a possibilidade de usar uma linguagem de Templates que
  torna o uso do HTML mais inteligente, tal como se pode ver no ponto 3.2
  deste capítulo.
@@ -2732,7 +2759,7 @@ Models
 \emph default
  do Django.
  Sendo que nos ficheiros HTML apenas é necessário colocar o conteúdo percorrendo
- a lista de elementos HTML que nos vem da VIEW.
+ a lista de elementos HTML que são devolvidos pela VIEW.
  
 \end_layout
 
@@ -2819,6 +2846,13 @@ status open
 
 \begin_layout Plain Layout
 Exemplo colocação de formulário no template
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:Exemplo-colocação-de"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -2832,8 +2866,15 @@ Exemplo colocação de formulário no template
 \end_layout
 
 \begin_layout Standard
-No (Algoritmo 3.3) temos o exemplo dessa mesma implementação, onde o “form”
- no ciclo “for” são os campos do formulário gerados na 
+No (Algoritmo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:Exemplo-colocação-de"
+
+\end_inset
+
+) está um exemplo dessa mesma implementação, onde o “form” no ciclo “for”
+ é a lista de campos do formulário gerados na 
 \emph on
 View
 \emph default
@@ -2960,8 +3001,8 @@ Exemplo criação tabela de listagem - Linguagem de Template
 
 \end_inset
 
-Como seria de esperar a listagem dos docentes iria devolver uma tabela muito
- extensa no que se refere ao seu numero de linhas.
+Como seria de esperar a listagem dos docentes, iria devolver uma tabela
+ muito extensa no que se refere ao seu numero de linhas.
  Para colmatar este problema recorreu-se a um sistema de paginação do Django
  que permite a divisão de uma lista de elementos em várias sub-listas.
  Esse método é utilizado na View que tratará de enviar os elementos a colocar
@@ -2971,7 +3012,7 @@ Como seria de esperar a listagem dos docentes iria devolver uma tabela muito
 
 \begin_layout Standard
 A parte da edição em si é igual a referida na Tarefa 1 - Adicionar Docente,
- coma diferença do formulário vir previamente preenchido.
+ com a diferença do formulário vir previamente preenchido.
  
 \end_layout
 
@@ -3011,7 +3052,7 @@ CSS
 
 \begin_layout Standard
 A Barra de menus presente em todas as paginas desta aplicação foi estilizada
- com base em um Template de CSS3, que posteriormente foi alterado e ajustado
+ com base em num modelo CSS3, que posteriormente foi alterado e ajustado
  para suprir as necessidades da aplicação.
 \end_layout
 
@@ -3036,8 +3077,8 @@ Tarefa 2 - Editar Docente
 
 \begin_layout Standard
 Os CSS que dão vida a tabela de listagem de docentes passiveis de edição,
- foram baseados num modelo CSS3 e posteriormente alterado consoante as necessida
-des de visualização da aplicação.
+ foram baseados num modelo CSS3, que foii posteriormente alterado consoante
+ as necessidades de visualização da aplicação.
  Esse modelo apesar de CSS3, trata-se de um hibrido entre CSS e CSS3.
  Os formulários de edição do docente estão estilizados de forma igual ao
  que acontece na tarefa 1 - Adicionar Docente.
@@ -3051,7 +3092,7 @@ Tarefa 3 - Listar Docentes e Tarefa 4 - Listar Contratos
 Tanto a listagem de docentes como a listagem de contratos usam a estilização
  referida na tarefa 2 - Editar Docente.
  Pois basicamente a sua estrutura quer na forma listagem quer na forma detalhada
-, é construída com base a tabelas HTML.
+, é construída com base nas tabelas HTML.
 \end_layout
 
 \begin_layout Section
@@ -3063,7 +3104,8 @@ Sendo os docentes parte fundamental para o funcionamento de uma instituição
  de ensino é mais que normal que exista uma área reservada aos mesmos.
  Nesta área os docentes tem acesso a toda a informação disponível sobre
  si próprios , de forma clara e sintética sem burocracias nem redundâncias
- pois os dados ao estarem centralizados são obtidos do mesmo local.
+ pois os dados ao estarem centralizados são obtidos do mesmo local que as
+ restantes áreas da aplicação.
 \end_layout
 
 \begin_layout Subsection
@@ -3120,7 +3162,7 @@ Síntese de funcionamento
 \end_layout
 
 \begin_layout Standard
-O funcionamento da área do docente é muito simples e sintética, para todas
+O funcionamento da área do docente é muito simples e sintético, para todas
  as suas tarefas.
  Em seguida é apresentado em síntese o funcionamento d cada tarefa.
 \end_layout
@@ -3132,7 +3174,7 @@ Tarefa 1 - Ver resumo informativo
 \begin_layout Standard
 No resumo informativo o utilizador pode ver o estado da sua situação em
  relação as horas atribuídas, bem como o total de horas atribuídas, as horas
- de redução bem como as horas total.
+ de redução e as horas totais.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -3175,7 +3217,8 @@ Informação - Docente
 \end_layout
 
 \begin_layout Standard
-Considerando que o utilizador já realizou a autenticação na aplicação.
+Considerando que o utilizador já realizou a autenticação na aplicação (Figura
+ 3.21).
  A página de informação é lhe mostrada de inicio.
 \end_layout
 
@@ -3194,7 +3237,7 @@ Nesta tarefa o utilizador tem a possibilidade de ver todas as turmas que
 
 \begin_layout Standard
 Considerando que o utilizador já realizou a autenticação na aplicação.
- Na página de informação inicial (ver figura 3.24 tarefa 1) clica em “Turmas”.
+ Na página de informação inicial (ver figura 3.21 da tarefa 1) clica em “Turmas”.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -3237,9 +3280,9 @@ Informação - Docente
 \end_layout
 
 \begin_layout Standard
-Depois de clicado em “Turmas” o utilizador é encaminhado para outra página
- onde é mostrado em forma de tabelas as turmas e respetivos cursos a que
- pertencem, associadas ao utilizador (Figura 3.25).
+Depois de ter clicado em “Turmas” o utilizador é encaminhado para outra
+ página onde é mostrado em forma de tabelas as turmas associadas ao utilizador
+ e respetivos cursos a que pertencem (Figura 3.22).
 \end_layout
 
 \begin_layout Subsection*
@@ -3258,7 +3301,7 @@ Nesta tarefa o utilizador tem a possibilidade de ver todas as turmas que
 
 \begin_layout Standard
 Considerando que o utilizador já realizou a autenticação na aplicação.
- Na página de informação inicial (ver figura 3.24 - tarefa 1) clica em “Horas
+ Na página de informação inicial (ver figura 3.21 - tarefa 1) clica em “Horas
  Trabalho”.
 \end_layout
 
@@ -3302,10 +3345,10 @@ Informação - Docente
 \end_layout
 
 \begin_layout Standard
-Depois de clicado em “Horas Trabalho” o utilizador é encaminhado para outra
- pagina onde é mostrado em forma de tabela as turmas e respetivos cursos
- a que pertencem, associadas ao utilizador bem como as horas que terá que
- lecionar (Figura 3.25).
+Depois de ter clicado em “Horas Trabalho” o utilizador é encaminhado para
+ outra página onde é mostrado em forma de tabela as turmas associadas ao
+ utilizador e respetivos cursos a que pertencem, bem como as horas que terá
+ que lecionar (Figura 3.23).
 \end_layout
 
 \begin_layout Subsection
@@ -3315,7 +3358,7 @@ Aplicação das Tecnologias
 \begin_layout Standard
 Esta área da aplicação é a que menos recursos tecnológicos usa para a sua
  construção.
- Nas Tarefas aqui bordadas, as principais tecnologias usadas são o HTML
+ Nas Tarefas aqui abordadas, as principais tecnologias usadas são o HTML
  e o CSS.
 \end_layout
 
@@ -3336,10 +3379,10 @@ HTML
 As tarefas 1, 2 e 3, mostram o seu conteúdo em forma de tabela HTML por
  forma a ser mais simples e limpa a organização da informação.
  Tal como na área dos recursos humanos as tabelas usadas usam todas o mesmo
- Template.
+ modelo.
  As tabelas são construídas igualmente como as tabelas de listagens existentes
  na área dos recursos humanos.
- Recorrendo ao uso de ciclos “for” existentes la linguagem de Templates
+ Recorrendo ao uso de ciclos “for” existentes na linguagem de Templates
  Django.
 \end_layout
 
@@ -3350,7 +3393,7 @@ CSS
 \begin_layout Standard
 As tarefas 1, 2 e 3 são estilizadas de forma igual.
  Tal como na área dos recursos humanos todas as tabelas aqui construídas
- usam o Template de CSS, que foi posteriormente aletrado e estilizado por
+ usam o modelo de CSS, que foi posteriormente aletrado e estilizado por
  forma a suprir as necessidades desta área.
 \end_layout
 
@@ -3359,7 +3402,7 @@ Vice-Presidência
 \end_layout
 
 \begin_layout Standard
-A vice-presidência em sem duvida o órgão com mais poder dentro da aplicação,
+A vice-presidência é sem duvida o órgão com mais poder dentro da aplicação,
  pois é daqui que parte a decisão final sobre todas as tarefas realizadas
  na aplicação.
  Sendo o órgão mais complexo foi aquele que foi deixado para o fim e por
@@ -3374,7 +3417,7 @@ Tarefas Implementadas
 \begin_layout Standard
 Atualmente toda a informação relacionada com o serviço de distribuição do
  serviço docente é tratada de forma rudimentar por meio da manipulação de
- uma folha de calculo que torna todo o processo demasiado moroso e complexo
+ uma folha de cálculo que torna todo o processo demasiado moroso e complexo
  de realizar levando a que possam ocorrer ambiguidades e redundância de
  informação.
 \end_layout
@@ -3385,7 +3428,7 @@ Tarefa 1 - Gerar xls
 
 \begin_deeper
 \begin_layout Itemize
-Com vista a suavizar a mudança de para a nova aplicação foi dada a possibilidade
+Com vista a suavizar a mudança para a nova aplicação foi dada a possibilidade
  de gerar uma folha de cálculo semelhante ao que existe atualmente com dados
  lidos da base de dados.
  Assim o utilizador consegue adaptar-se melhor e visualizar os dados da
@@ -3450,7 +3493,7 @@ Página Inicial - Vice-Presidência
 
 \begin_layout Standard
 Considerando que o utilizador já realizou a autenticação na aplicação.
- Na página inicial da vice-presidência (ver figura 3.27) clica em “Criar
+ Na página inicial da vice-presidência (ver figura 3.24) clica em “Criar
  XLS”.
 \end_layout
 
@@ -3496,7 +3539,7 @@ Página de sucesso - Criar xls - Vice-Presidência
 \begin_layout Standard
 Após esperar alguns instantes que a os métodos da View, responsáveis pela
  criação da folha de cálculo terminem a sua criação, o utilizador é encaminhado
- para uma outra pagina onde lhe indica o sucesso da operação (Figura 3.28).
+ para uma outra pagina onde lhe indica o sucesso da operação (Figura 3.25).
 \end_layout
 
 \begin_layout Subsection
@@ -3578,10 +3621,10 @@ O uso da framework DJANGO foi uma grande ajuda e mostrou ser uma ferramenta
 Futuramente o sistema será colocado em um servidor Ubunto, para que fique
  disponível e acessível a todos os utilizadores deste sistema.
  O Sistema poderá depois assim ser acedido em qualquer lugar necessitando
- apenas o utilizador de um possuir equipamento com acesso a internet e um
- browser como por exemplo um SmartPhone ou um Tablet.
- Sendo assim as tarefas realizadas facilmente e confortavelmente em qualquer
- lugar.
+ apenas o utilizador de possuir um equipamento como por exemplo um SmartPhone
+ ou um Tablet com acesso a internet e um browser.
+ Sendo assim possivel realizar as as tarefas facilmente e confortavelmente
+ em qualquer lugar.
  
 \end_layout
 
