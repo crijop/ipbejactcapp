@@ -312,45 +312,47 @@ Introdução
 \end_layout
 
 \begin_layout Standard
-Este relatório vai incidir essencialmente na parte I do sistema de gestão
- de serviço docente.
+Este relatório incide no sistema de gestão de serviço docente.
  Sistema esse que foi proposto como estágio curricular.
- Esse sistema visa colmatar os problemas que existem hoje dentro do Instituto
- Politécnico de Beja no que diz respeito a distribuição do serviço docente.
- Atualmente a distribuição é realizada de forma rudimentar com recurso a
- uma folha de cálculo.
+ Esse sistema visa melhorar a gestão do serviço docente no Instituto Politécnico
+ de Beja.
+ Atualmente a distribuição é realizada com recurso a uma folha de cálculo
+ que é distribuída por muitas pessoas.
  O excesso de informação na folha de cálculo torna a tarefa de recolha e
  gestão dos dados, morosa e de difícil execução.
  
 \end_layout
 
 \begin_layout Standard
-Com vista a resolver esse problema foi criada uma aplicação web, que tem
- como propósito centralizar toda informação e eliminar os problemas de incoerênc
-ia e redundância existentes ate agora.
- O Sistema foi construído sob a framework Django que utiliza como base a
- linguagem de alto nível Python.
+Com vista a melhorar esse serviço foi criada uma aplicação web, que tem
+ como propósito centralizar toda a informação e eliminar as incoerências
+ e redundâncias.
+ O Sistema foi construído com a 
+\emph on
+framework
+\emph default
+ Django que utiliza como base a linguagem de alto nível Python.
 \end_layout
 
 \begin_layout Standard
-Neste relatório será falado essencialmente do desenvolvimento da interface
- gráfica da aplicação.
- O relatório será dividido em quatro capítulos um dos quais este da introdução.
- O capítulo dois refere-se as ferramentas e tecnologias que foram usadas
- no decurso da construção desta aplicação.
- Nesse capítulo será explicado de forma sucinta as várias tecnologias aqui
+Neste relatório falar-se-á do desenvolvimento da interface gráfica da aplicação.
+ O relatório está dividido em quatro capítulos.
+ Após a introdução, o capítulo dois refere-se às ferramentas e tecnologias
+ que foram usadas no decurso da construção desta aplicação.
+ Nesse capítulo é explicado de forma sucinta as várias tecnologias aqui
  usadas.
+ No capítulo três, aquele que apresenta maior relevância, é onde é discutida
+ a utilização para alguns grupos de utilizadores da aplicação.
+ Como Os Recursos Humanos, o Docente e a Vice-presidência.
+ 
 \end_layout
 
 \begin_layout Standard
-No capítulo três, aquele que apresenta maior relevância, é onde será feita
- a abordagem de algumas das áreas que foram desenvolvidas nesta aplicação,
- como os Recursos Humanos, o Docente e a Vice-presidência.
- Nestas três áreas será elaborado um esquema de funcionamento para cada
- uma das tarefas implementadas bem como qual o uso das tecnologias mencionadas
- no capítulo dois, para a criação da interface gráfica do sistema.
- E por ultimo no capitulo quatro a conclusão e respetivas ilações e previsões
- futuras.
+Para estes três grupos é elaborado um esquema de funcionamento para cada
+ uma das tarefas implementadas e também qual o uso das tecnologias mencionadas
+ no capítulo dois na criação da interface gráfica do sistema.
+ E por último no capítulo quatro são tiradas as conclusões e respetivas
+ ilações e previsões futuras.
 \end_layout
 
 \begin_layout Chapter
@@ -362,20 +364,48 @@ Sinopse
 \end_layout
 
 \begin_layout Standard
-Para o desenvolvimento desta aplicação web são usadas varias ferramentas
- conhecidas e de licença de utilização gratuita.
- Entre as tecnologias base encontram se a linguagem de programação para
- base de dados SQL para a qual é usada a ferramenta SQLite 3, as linguagens
- de programação Python e Javascript bem como a linguagem para construção
- de páginas web HTML incluído CSS para estilização e design da aplicação.
- Como ferramenta base, é utilizada a framework Django, baseada em python
- a qual nos permite a criação de aplicações web.
- Para uma melhor performance é utilizado no Javascript uma biblioteca de
- funções, DOJO, que permite realizar algumas tarefas de Javascript de forma
- mais fácil.
- A junção de todas estas tecnologias, dão poder necessário a aplicação para
- que possa ser robusta, rápida e fiável, sem esquecer sempre os benefícios
- na usabilidade para os utilizadores do sistema.
+No desenvolvimento desta aplicação web são usadas varias ferramentas de
+ ampla utilização e com licença de utilização gratuita.
+ Entre as tecnologias de base encontram se a linguagem de programação para
+ base de dados 
+\emph on
+SQL
+\emph default
+, na qual é usada a ferramenta 
+\emph on
+SQLite 3
+\emph default
+, as linguagens de programação 
+\emph on
+Python
+\emph default
+ e 
+\emph on
+Javascript
+\emph default
+, e a linguagem para construção de páginas web 
+\emph on
+HTML
+\emph default
+, incluindo 
+\emph on
+CSS
+\emph default
+ para estilização e design da aplicação.
+ A ferramenta fundamental, é framework Django, que utiliza como base a linguagem
+ 
+\emph on
+Python
+\emph default
+ que permite a criação rápida de aplicações web.
+ É obtida uma melhor performance com uma biblioteca de funções 
+\emph on
+DOJO
+\emph default
+, que permite realizar algumas tarefas de Javascript de forma mais fácil.
+ A junção de todas estas tecnologias, fazem com que a aplicação possa ser
+ robusta, rápida e fiável, sem esquecer sempre os benefícios na usabilidade
+ para os utilizadores do sistema.
 \end_layout
 
 \begin_layout Section
@@ -383,8 +413,31 @@ Django
 \end_layout
 
 \begin_layout Standard
-O Django é uma Framework construída em Python seguindo como padrão o modelo
- MVC transcrito como MTV (Model, Template, View)
+O Django [1.1] é uma Framework construída em 
+\emph on
+Python
+\emph default
+ seguindo como padrão o modelo 
+\emph on
+MVC
+\emph default
+ transcrito como 
+\emph on
+MTV
+\emph default
+ (
+\emph on
+Model
+\emph default
+, 
+\emph on
+Template
+\emph default
+, 
+\emph on
+View
+\emph default
+)
 \end_layout
 
 \begin_layout Subsubsection*
@@ -392,9 +445,14 @@ O que é uma Framework?
 \end_layout
 
 \begin_layout Standard
-Uma framework, é constituída por varias ferramentas controlados pela framework,
- que nos permitem o desenvolvimento de software de forma mais rápida e limpa,
- pois existe um nível de abstração maior do que quando utilizamos um conjunto
+Uma 
+\emph on
+framework
+\emph default
+ [1.8], é constituída por várias ferramentas.
+ Estas permitem-nos o desenvolvimento de software de forma mais rápida e
+ limpa.
+ Existe um nível de abstração maior do que quando utilizamos um conjunto
  de linguagens de programação ou outras ferramentas separadamente.
  A framework pode ainda ser configurada e personalizada pelo utilizador
  a fim de produzir um software com características especificas que vão ao
@@ -406,8 +464,12 @@ O que é o Python?
 \end_layout
 
 \begin_layout Standard
-Python é uma linguagem de programação de alto nível, interpretada, imperativa,
- orientada a objetos, de tipagem dinâmica e forte.
+
+\emph on
+Python
+\emph default
+ é uma linguagem de programação de alto nível, interpretada, imperativa
+ ou funcional, orientada a objetos, de tipagem dinâmica e forte.
  Atualmente possui um modelo de desenvolvimento comunitário e aberto.
 \end_layout
 
@@ -416,19 +478,24 @@ MVC ou MTV?
 \end_layout
 
 \begin_layout Standard
-O padrão de desenvolvimento MVC consiste em três níveis que separam a estrutura
- da aplicação, em modelo, controlador e vista, constituindo assim partes
- distintas por forma a garantir uma melhor manutenção e construção da mesma,
- pois permite o desenvolvimento, edição e a realização de testes a aplicação
+O modelo de desenvolvimento 
+\emph on
+MVC
+\emph default
+ consiste em três níveis que separam a estrutura da aplicação, em modelo,
+ controlador e vista.
+ Estas constituem assim partes distintas de modo a garantir uma melhor manutençã
+o e construção da aplicação.
+ Permite o desenvolvimento, edição e a realização de testes a aplicação
  de forma separada para cada parte.
- É um padrão baseado na tecnologia de orientação a objetos.
- E no Django apesar de seguir este mesmo padrão é nomeado de outra forma
- sendo chamado de Modelo, Vista e Template, sendo que aqui a Vista corresponde
+ É um modelo baseado na tecnologia de orientação a objetos.
+ O Django apesar de seguir este mesmo modelo nomeia-o de outra forma sendo
+ chamado de Modelo, Vista e Template, sendo que aqui a Vista corresponde
  ao Controlador e o Template á Vista.
 \end_layout
 
 \begin_layout Standard
-Visto desta forma temos:
+Desta forma têm-se:
 \end_layout
 
 \begin_layout Itemize
@@ -446,9 +513,12 @@ Template - Parte visual pela qual o utilizador interage com o sistema
 \begin_layout Paragraph
 
 \series medium
-Com o Django temos total controlo da criação de aplicações web.
- Permite a utilização de bases de dados, código HTML bem como todo o tipo
- de script ou linguagem de construção web.
+Com o Django existe total controlo na criação de aplicações web.
+ Permite a utilização de bases de dados, código 
+\emph on
+HTML
+\emph default
+ e todo o tipo de script ou linguagem de construção web.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -495,19 +565,57 @@ O que é o URL Dispatcher?
 \end_layout
 
 \begin_layout Standard
-Um URL limpo e elegante é um detalhe importante para a alta qualidade de
- aplicações WEB.
- O Django permite criar URLs personalizados sem limitações da framework.
- Para criar URLs para uma aplicação, é apenas necessário um módulo de Python.
- Este modulo será escrito em puro Python e é um simples mapeamento entre
- o URL padrão baseado em expressões regulares e funções escritas em, Python
+Um 
+\emph on
+URL
+\emph default
+ limpo e elegante é um detalhe importante para a alta qualidade de uma aplicação
+ 
+\emph on
+web
+\emph default
+.
+ O Django permite criar 
+\emph on
+URLs
+\emph default
+ personalizados sem limitações da framework.
+ Para criar 
+\emph on
+URLs
+\emph default
+ para uma aplicação, é necessário um módulo de 
+\emph on
+Python
+\emph default
+.
+ O modulo será escrito em 
+\emph on
+Python
+\emph default
+ puro.
+ Trata-se de um simples mapeamento entre o 
+\emph on
+URL
+\emph default
+ padrão baseado em expressões regulares e funções escritas em, 
+\emph on
+Python
+\emph default
  presentes na Vista.
 \end_layout
 
 \begin_layout Standard
-Este mapeamento pode ser curto ou longo consoante a necessidade do mesmo.
- Pode ainda referenciar outros mapeamentos e como os URLs são escritos em
- Python puro, podem ainda ser construídos dinamicamente.
+Este mapeamento pode ser curto ou longo consoante a necessidade.
+ Pode ainda referenciar outros mapeamentos e como os 
+\emph on
+URLs
+\emph default
+ são escritos em 
+\emph on
+Python
+\emph default
+ puro, podem ainda ser construídos dinamicamente.
  
 \end_layout
 
@@ -516,11 +624,21 @@ O que é a Vista?
 \end_layout
 
 \begin_layout Standard
-A vista quando falamos em Django refere-se ao controlador no MVC padrão.
- Como de costume aqui a vistas sendo controladores vão fazer de ponte entre
- o modelo e o Template.
- É aqui na vista que serão resolvidos os pedidos do URL Dispacher bem como
- enviada a resposta para o Template.
+A vista quando falamos em Django refere-se ao controlador no modelo 
+\emph on
+MVC
+\emph default
+.
+ As vistas sendo controladores vão fazer de ponte entre o modelo e o Template.
+ É aqui na vista que serão resolvidos os pedidos do 
+\emph on
+URL
+\emph default
+ 
+\emph on
+Dispacher
+\emph default
+ e enviada a resposta para o Template.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -528,18 +646,29 @@ O que é o Modelo?
 \end_layout
 
 \begin_layout Standard
-O Modelo como habitualmente é onde desenhamos as classes que vão receber
- as consultas a base de dados bem como a forma de obter esses mesmos dados.
+O Modelo é onde se desenham as classes que vão receber as consultas a base
+ de dados e a forma de obter esses mesmos dados.
  Sendo o Django uma framework de alto nível, não necessitamos escrever nada
- em SQL para aceder a base de dados a não ser que seja realmente preciso.
- Pois o Django possui o sistema ORM – Mapeamento de Objetos Relacionais
- que nos permite uma manipulação das tabelas presentes na base dados.
+ em 
+\emph on
+SQL
+\emph default
+ para aceder a base de dados a não ser que seja realmente preciso.
+ O Django possui o sistema 
+\emph on
+ORM
+\emph default
+ – Mapeamento de Objetos Relacionais que permite uma manipulação das tabelas
+ presentes na base dados.
 \end_layout
 
 \begin_layout Standard
-O ORM do Django possui uma elevada compatibilidade sendo compatível com
- a maioria dos sistemas de gestão de base de dados (MySQL, PostgreSQL, SQLite,
- ...).
+O 
+\emph on
+ORM
+\emph default
+ do Django possui uma elevada compatibilidade sendo compatível com a maioria
+ dos sistemas de gestão de base de dados (MySQL, PostgreSQL, SQLite, ...).
  
 \end_layout
 
@@ -549,7 +678,7 @@ O que é o Template?
 
 \begin_layout Standard
 O sistema de Templates do Django é uma das suas mais notórias funcionalidades.
- Com ele podemos criar heranças, ou seja, um Template base contendo a estrutura
+ Com ele podem criar-se heranças, ou seja, um Template base contendo a estrutura
  básica da aplicação web e Templates específicos que herdam as características
  deste Template base e atribuem/criam suas próprias características.
  
@@ -559,9 +688,16 @@ O sistema de Templates do Django é uma das suas mais notórias funcionalidades.
 A linguagem de Templates do Django está desenhada para atingir o balanço
  entre o poder e a simplicidade.
  Foi desenvolvido para quem usa a linguagem se sinta a vontade para trabalhar
- com HTML.
- A linguagem de Template do Django é muito semelhante ao SMARTI, e de fácil
- aprendizagem.
+ com 
+\emph on
+HTML
+\emph default
+.
+ A linguagem de Template do Django é muito semelhante ao 
+\emph on
+SMARTY
+\emph default
+, e de fácil aprendizagem.
  
 \end_layout
 
@@ -608,13 +744,28 @@ Exemplo de estrutura de diretorias do Django com uma aplicação
 \end_layout
 
 \begin_layout Standard
-O Django tal como muitas outras frameworks web, tem uma estrutura, que ajuda
- o utilizador desta ferramenta a navegar nas suas diretorias.
+O Django tal como muitas outras 
+\emph on
+frameworks
+\emph default
+ 
+\emph on
+web
+\emph default
+, tem uma estrutura, que ajuda o utilizador desta ferramenta a navegar nas
+ suas diretorias.
  Em cima (figura 2.2) é apresentado um esquema da estrutura de diretorias
  do Django.
- Os retângulos vermelhos são módulos de Python, os retângulos verdes são
- pastas, o retângulo laranja é a base de dados e o retângulo roxo são Templates
- HTML.
+ Os retângulos vermelhos são módulos de 
+\emph on
+Python
+\emph default
+, os retângulos verdes são pastas, o retângulo laranja é a base de dados
+ e o retângulo roxo são Templates 
+\emph on
+HTML
+\emph default
+.
 \end_layout
 
 \begin_layout Itemize
@@ -623,8 +774,16 @@ urls.py
 
 \begin_deeper
 \begin_layout Itemize
-Módulo de Python onde vão ser construídos os URLs responsáveis por resolver
- e encaminhar os pedidos do utilizador para as respetivas 
+Módulo de 
+\emph on
+Python
+\emph default
+ onde vão ser construídos os 
+\emph on
+URLs
+\emph default
+ responsáveis por resolver e encaminhar os pedidos do utilizador para as
+ respetivas 
 \emph on
 Views
 \emph default
@@ -638,8 +797,12 @@ settings.py
 
 \begin_deeper
 \begin_layout Itemize
-Módulo de Python onde é possível configurar e personalizar o modo de funcionamen
-to da framework e da aplicação a ser desenvolvida.
+Módulo de 
+\emph on
+Python
+\emph default
+ onde é possível configurar e personalizar o modo de funcionamento da framework
+ e da aplicação a ser desenvolvida.
 \end_layout
 
 \end_deeper
@@ -649,8 +812,12 @@ manage.py
 
 \begin_deeper
 \begin_layout Itemize
-Módulo de Python que é chamado na linha de comandos, para criar uma nova
- aplicação ou até inicializar o servidor de testes entre outras interações..
+Módulo de 
+\emph on
+Python
+\emph default
+ que é chamado na linha de comandos, para criar uma nova aplicação ou até
+ inicializar o servidor de testes entre outras interações..
 \end_layout
 
 \end_deeper
@@ -660,9 +827,13 @@ base-dados.db
 
 \begin_deeper
 \begin_layout Itemize
-Ficheiro onde esta armazenado o conteúdo da base de dados.
+Ficheiro onde está armazenado o conteúdo da base de dados.
  Ficheiro esse que é posteriormente interpretado pelo gestor de base de
- dados, que a framework usa para fazer o acesso aos dados.
+ dados, que a 
+\emph on
+framework
+\emph default
+ usa para fazer o acesso aos dados.
 \end_layout
 
 \end_deeper
@@ -683,7 +854,9 @@ Templates
 
 \begin_deeper
 \begin_layout Itemize
-Pasta onde serão armazenadas todas as páginas HTML
+Pasta onde serão armazenadas todas as páginas 
+\emph on
+HTML
 \end_layout
 
 \end_deeper
@@ -693,7 +866,11 @@ Aplicação
 
 \begin_deeper
 \begin_layout Itemize
-É aqui que será construído toda a estrutura em Python da aplicação.
+Aqui que será construída toda a estrutura em 
+\emph on
+Python
+\emph default
+ da aplicação.
 \end_layout
 
 \begin_deeper
@@ -704,7 +881,11 @@ Static
 \begin_deeper
 \begin_layout Itemize
 Nesta pasta serão armazenados todos o componentes estáticos da aplicação,
- como scripts, estilos CSS, bem como imagens.
+ como scripts, estilos 
+\emph on
+CSS
+\emph default
+, e imagens.
 \end_layout
 
 \end_deeper
@@ -714,8 +895,12 @@ models.py
 
 \begin_deeper
 \begin_layout Itemize
-Módulo de Python responsável por criar os modelos da base de dados bem como
- algumas funções chave para a regras de funcionamento da aplicação.
+Módulo de 
+\emph on
+Python
+\emph default
+ responsável por criar os modelos da base de dados e algumas funções chave
+ para a regras de funcionamento da aplicação.
 \end_layout
 
 \end_deeper
@@ -725,9 +910,16 @@ views.py
 
 \begin_deeper
 \begin_layout Itemize
-Módulo de Python responsável pelo controlo de toda aplicação.
- É aqui que os pedidos URL são resolvidos e é feita a ponte ente os dados
- do modelo e os Templates.
+Módulo de 
+\emph on
+Python
+\emph default
+ responsável pelo controlo de toda aplicação.
+ É aqui que os pedidos 
+\emph on
+URL
+\emph default
+ são resolvidos e é feita a ponte ente os dados do modelo e os Templates.
 \end_layout
 
 \end_deeper
@@ -756,10 +948,6 @@ Módulo responsável pela parte administrativa da aplicação.
 \end_deeper
 \end_deeper
 \end_deeper
-\begin_layout Subsubsection*
-South - Google Code - Mercurial
-\end_layout
-
 \begin_layout Section
 SQLite 3
 \end_layout
@@ -769,18 +957,45 @@ O que é o SQLite?
 \end_layout
 
 \begin_layout Standard
-O SQLite é um sistema de gestão de base dados contido numa pequena biblioteca
- de programação em C, habitualmente utilizado como base de dados embebida
- para o armazenamento em aplicações tais como aplicações web.
+O 
+\emph on
+SQLite
+\emph default
+ é um sistema de gestão de base dados contido numa pequena biblioteca de
+ programação em
+\emph on
+ C
+\emph default
+, habitualmente utilizado como base de dados embebida para o armazenamento
+ em aplicações tais como aplicações 
+\emph on
+web
+\emph default
+.
+ 
 \end_layout
 
-\begin_layout Paragraph*
-
-\series medium
-O SQLite 3 foi o gestor de base de dados adotado para gerir a base de dados
- na framework Django.
- Sendo pequeno e simples este gestor torna se a escolha ideal para uma gestão
+\begin_layout Standard
+O 
+\emph on
+SQLite
+\emph default
+ 
+\emph on
+3
+\emph default
+ foi o gestor de base de dados adotado para gerir a base de dados na 
+\emph on
+framework
+\emph default
+ 
+\emph on
+Django
+\emph default
+.
+ Sendo pequeno e simples este gestor torna-se a escolha ideal para uma gestão
  suave e leve de bases de dados que requerem o acesso rápido a informação.
+ 
 \end_layout
 
 \begin_layout Section
@@ -788,9 +1003,20 @@ Javascript
 \end_layout
 
 \begin_layout Standard
-Javascript é uma linguagem de script baseada em ECMAScript padronizada pela
- Ecma international e é atualmente a principal linguagem para programação
- do lado do cliente em browsers.
+Javascript é uma linguagem de script baseada em 
+\emph on
+ECMAScript
+\emph default
+ padronizada pela 
+\emph on
+Ecma international
+\emph default
+ e é atualmente a principal linguagem para programação do lado do cliente
+ em 
+\emph on
+browsers
+\emph default
+.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -798,13 +1024,28 @@ O que é o DOJO?
 \end_layout
 
 \begin_layout Standard
-O Dojo consiste numa biblioteca de Javascript que permite poupar tempo e
- esforço utilizando sempre os standards web.
+O 
+\emph on
+Dojo
+\emph default
+ [1.5] consiste numa biblioteca de 
+\emph on
+Javascript
+\emph default
+ que permite poupar tempo e esforço utilizando sempre os padrões web.
  Esta ferramenta é virada para a construção de aplicações web de alta qualidade.
- Dispõe de muitas funções que nos permitem gerar efeitos animações ou ate
- tarefas que seriam mais exigentes de desenvolver em Javascript puro de
- forma mais rápida e fácil.
- O DOJO vai atualmente na sua versão 1.8 a qual foi usada nesta aplicação.
+ Dispõe de muitas funções que permitem gerar efeitos de animação ou até
+ tarefas que seriam mais exigentes de desenvolver em 
+\emph on
+Javascript
+\emph default
+ puro.
+ De forma mais rápida e fácil.
+ O 
+\emph on
+DOJO
+\emph default
+ vai atualmente na sua versão 1.8 que foi a usada nesta aplicação.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -813,9 +1054,21 @@ O que é o DOM?
 
 \begin_layout Standard
 O Javascript como linguagem de programação que é vai permitir manipular
- objetos DOM.
- O DOM disponibiliza métodos e propriedades que permitem obter, modificar,
- atualizar e remover partes do documento HTML.
+ objetos 
+\emph on
+DOM
+\emph default
+ [1.10].
+ O 
+\emph on
+DOM
+\emph default
+ disponibiliza métodos e propriedades que permitem obter, modificar, atualizar
+ e remover partes do documento 
+\emph on
+HTML
+\emph default
+.
  
 \end_layout
 
@@ -828,13 +1081,24 @@ tag
 \emph on
 input
 \emph default
- (type:TEXT) HTML como uma 
+ (type:TEXT) 
+\emph on
+HTML
+\emph default
+ como uma 
 \emph on
 string
 \emph default
- utilizando o DOM.
- Apesar de tudo o DOM não é exclusivo do Javascript pudendo ser utilizado
- em muitas outras linguagens.
+ utilizando o 
+\emph on
+DOM
+\emph default
+.
+ Apesar de tudo o 
+\emph on
+DOM
+\emph default
+ não é exclusivo do Javascript pudendo ser utilizado em muitas outras linguagens.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -842,12 +1106,34 @@ O que é o AJAX?
 \end_layout
 
 \begin_layout Standard
-O AJAX (do inglês “Asynchronous Javascript and XML”) "Javascript e XML Assíncron
-os" é o uso metodológico de tecnologias como Javascript e XML, disponibilizadas
- pelos browsers, para tornar páginas Web mais dinâmicas, utilizando para
- isso chamadas assíncronas de informação ao servidor.
- Com o AJAX é possível o refrescamento de elementos HTML sem ser necessário
- refrescar toda a página, fazendo para tal pedidos de informação ao servidor.
+O 
+\emph on
+AJAX
+\emph default
+ (do inglês “Asynchronous Javascript and XML”) "Javascript e 
+\emph on
+XML
+\emph default
+ Assíncronos" é o uso metodológico de tecnologias como 
+\emph on
+Javascript
+\emph default
+ e 
+\emph on
+XML
+\emph default
+, disponibilizadas pelos browsers, para tornar páginas Web mais dinâmicas,
+ utilizando para isso chamadas assíncronas de informação ao servidor.
+ Com o 
+\emph on
+AJAX
+\emph default
+ é possível o refrescamento de elementos 
+\emph on
+HTML
+\emph default
+ sem ser necessário refrescar toda a página, fazendo para tal pedidos de
+ informação ao servidor.
 \end_layout
 
 \begin_layout Section
@@ -855,18 +1141,44 @@ CSS
 \end_layout
 
 \begin_layout Standard
-O CSS (ingles ”Cascading Style Sheets”) é uma linguagem de estilo utilizada
- para definir o estilo e design de documentos escritos em HTML ou XML.
+O 
+\emph on
+CSS
+\emph default
+ (inglês ”Cascading Style Sheets”) é uma norma de estilo utilizada para
+ definir o estilo e design de documentos escritos em 
+\emph on
+HTML
+\emph default
+ ou 
+\emph on
+XML
+\emph default
+.
  
 \end_layout
 
 \begin_layout Standard
-Utilizando CSS é possível separar o conteúdo da página HTML do seu estilo
- tornando assim mais simples a construção e manutenção da mesma.
- Atualmente o CSS vai na sua versão três, esta versão já nos permite fazer
- certas animações e posicionamentos de elementos HTML que ate agora apenas
- se conseguia fazer através de Javascript.
- 
+Utilizando 
+\emph on
+CSS
+\emph default
+ é possível separar o conteúdo da página 
+\emph on
+HTML
+\emph default
+ do seu estilo tornando assim mais simples a construção e manutenção da
+ mesma.
+ Atualmente a norma vai na sua versão três, esta versão já permite fazer
+ determinadas animações e posicionamentos de elementos 
+\emph on
+HTML
+\emph default
+ que ate agora apenas se conseguiam fazer através de 
+\emph on
+Javascript
+\emph default
+.
 \end_layout
 
 \begin_layout Section
@@ -874,30 +1186,52 @@ HTML
 \end_layout
 
 \begin_layout Standard
-O HTML (do inglês HyperText Markup Language, que significa Linguagem de
- Marcação de Hipertexto) é uma linguagem de marcação utilizada para produzir
- páginas para a Web.
- Os documentos escritos em HTML podem ser interpretados por browsers.
- 
-\end_layout
-
-\begin_layout Standard
-Atualmente vai na sua versão cinco sendo conhecido por HTML 5.
- Nesta versão foram introduzidas novas ferramentas de acessibilidade, bem
- como novas funcionalidades que ate agora só era conseguidas por meio do
- uso de outras ferramentas, como o Javascript.
+O 
+\emph on
+HTML
+\emph default
+ (que significa Linguagem de Marcação de Hipertexto) é uma linguagem de
+ marcação utilizada para produzir páginas para a 
+\emph on
+Web
+\emph default
+.
+ Os documentos escritos em 
+\emph on
+HTML
+\emph default
+ podem ser interpretados por browsers.
+ Atualmente vai na sua versão cinco.
+ Nesta versão foram introduzidas novas opções de acessibilidade, e novas
+ funcionalidades que até agora só eram conseguidas por meio do uso de outras
+ ferramentas, como o Javascript.
  Esta versão ainda se encontra em desenvolvimento.
- No Django é usado um gestor de Templates semelhante á biblioteca SMARTI,
- que nos permite inserir variáveis ou listas de elementos de forma automática
- e simples.
- Gerando por fim ficheiros HTML capazes de ser interpretados pelo browser.
  
 \end_layout
 
 \begin_layout Standard
-Na construção desta aplicação foi usada uma mistura e código HTML 4.1 Transaction
-al com alguns elementos de HTML 5.
+No Django é usado um gestor de Templates semelhante á biblioteca 
+\emph on
+SMARTY
+\emph default
+, que permite inserir variáveis ou listas de elementos de forma automática
+ e simples.
+ Geram-se por fim ficheiros 
+\emph on
+HTML
+\emph default
+ capazes de ser interpretados pelo browser.
  
+\end_layout
+
+\begin_layout Standard
+Na construção desta aplicação foi usada uma mistura de código 
+\emph on
+HTML 4.1 Transactional
+\emph default
+ com alguns elementos de 
+\emph on
+HTML 5.
 \end_layout
 
 \begin_layout Chapter
@@ -915,13 +1249,13 @@ Um Sistema de Gestão de Distribuição de Serviço Docente é algo importante
  informação centralizada em apenas um local.
  Evitando assim problemas de redundância e incoerência de informação.
  Atualmente no Instituto Politécnico de Beja, a distribuição do serviço
- docente é realizada de forma bastante rudimentar, recorrendo a folhas de
- cálculo como suporte para a informação.
+ docente é realizada, recorrendo a folhas de cálculo como suporte para a
+ informação.
  Sendo atualmente o processo muito moroso, confuso e de difícil execução,
  levando por vezes ao atraso na elaboração dos horários e na atribuição
  dos docentes as respetivas turmas.
  Com vista a melhorar essa situação foi proposto a criação de um sistema
- de gestão de distribuição de serviço docente com vista a acelerar os processos
+ de gestão de distribuição de serviço docente para acelerar os processos
  de atribuição das horas de serviço, clarificar a informação, facilitar
  o processo e centralizar a informação.
  
@@ -929,20 +1263,31 @@ Um Sistema de Gestão de Distribuição de Serviço Docente é algo importante
 
 \begin_layout Standard
 Este sistema está previsto ser utilizado pelo departamento de recursos humanos,
- os departamentos de ensino das instituições, os conselhos científicos e
- a gestão das instituições.
- Neste relatório serão abordados especificamente o departamento de recursos
+ os departamentos de ensino das instituições, o conselho científico e a
+ gestão da instituição.
+ Neste documento será clarificado especificamente o departamento de recursos
  humanos, os docentes e a vice-presidência.
  Em todas as estas abordagens será clarificado o funcionamento de cada utilizado
-r do sistema, bem como as suas principais tarefas e a forma como as tecnologias
- de desenvolvimento dos Templates (Javascript, HTML, CSS) foram usadas para
- geração do resultado final.
+r do sistema, as suas principais tarefas e a forma como as tecnologias de
+ desenvolvimento dos Templates (
+\emph on
+Javascript
+\emph default
+, 
+\emph on
+HTML
+\emph default
+, 
+\emph on
+CSS
+\emph default
+) foram usadas para geração do resultado final.
  
 \end_layout
 
 \begin_layout Standard
-Durante este relatório quando for referido por exemplo área dos recursos
- humanos, está se a referir a toda a informação que apenas pode ser acedida
+Durante este documento quando for referido por exemplo área dos recursos
+ humanos, está-se a referir a toda a informação que apenas pode ser acedida
  e tratada pelos utilizadores dos recursos humanos.
  
 \end_layout
@@ -952,35 +1297,42 @@ Estrutura Base
 \end_layout
 
 \begin_layout Standard
-Neste relatório será falado essencialmente dos Templates e respetivos componente
-s que os constituem, visto isto é importante clarificar como foi construído
- o Template base que serviu de guia para todos os outros Templates das respetiva
-s áreas.
- 
-\end_layout
-
-\begin_layout Standard
-Para a construção dos Templates é usada a linguagem de Templates da framework
+Neste relatório escreve-se essencialmente dos Templates e respetivos componentes
+ que os constituem.
+ Visto isto é importante clarificar como foi construído o Template base
+ que serviu de guia para os restantes Templates da aplicação.
+ Na construção dos Templates é usada a linguagem de Templates da framework
  Django.
  Para acelerar o processo de criação das páginas web e reduzir a repetição
- desnecessária de código HTML.
- Esta linguagem permite-nos incluir trechos de código HTML, existentes em
- outros ficheiros de extensão HTML a fim de formar a página final a ser
- mostrada ao utilizador.
- 
-\end_layout
-
-\begin_layout Standard
-Em síntese a primeira coisa a fazer, é a criação de uma página HTML que
- será a base de todo a aplicação.
- Para tal depois de criada a estrutura da aplicação com todas as 
+ desnecessária de código 
 \emph on
-tag
+HTML
 \emph default
- DIV necessárias, utiliza-se um elemento BLOCK facultado pela linguagem
- de Templates do Django que nos permite criar blocos que podem ser posteriorment
-e preenchidos em outras páginas da aplicação.
- 
+.
+ Esta linguagem permite incluir trechos de código 
+\emph on
+HTML
+\emph default
+, existentes em outros ficheiros de extensão 
+\emph on
+HTML
+\emph default
+ com fim de formar a página final mostrada ao utilizador.
+ Em síntese a primeira coisa a fazer, é a criação de uma página 
+\emph on
+HTML
+\emph default
+ que será a base da aplicação.
+ Depois de criada a estrutura da aplicação com todas as 
+\emph on
+tags DIV
+\emph default
+ necessárias, utiliza-se um elemento 
+\emph on
+BLOCK
+\emph default
+ facultado pela linguagem de Templates do Django que nos permite criar blocos
+ que podem ser posteriormente preenchidos em outras páginas da aplicação.
 \end_layout
 
 \begin_layout Standard
@@ -1031,8 +1383,12 @@ Tal como é possível visualizar na figura 3.1, temos um exemplo da construção
 \emph on
 tags
 \emph default
- DIV, que por sua vez vão possuir blocos que podem ser modificados ou não
- em qualquer página da aplicação que use como base este Template.
+ 
+\emph on
+DIV
+\emph default
+, que por sua vez vão possuir blocos que podem ser modificados ou não em
+ qualquer página da aplicação que use como base este Template.
  Esses blocos são formados pela seguinte sintaxe “{% block nome_bloco %}”.
 \end_layout
 
@@ -1073,18 +1429,23 @@ Esquema da construção de template que irá extender do base
 \end_layout
 
 \begin_layout Standard
-No exemplo da figura 3.2 temos presente uma pagina HTML que estende do Template
- base.
- Significa isto que esta página HTML bastava estender do Template base para
- funcionar.
- Mas neste exemplo vai-se mais longe.
- Ao estender-se do Template base todos os blocos criados no Template base,
- ficam disponíveis nesta nova página.
+No exemplo da figura 3.2 está presente uma página 
+\emph on
+HTML
+\emph default
+ que estende do Template base.
+ Significa isto que esta página 
+\emph on
+HTML
+\emph default
+ bastava estender do Template base para funcionar.
+ Uma página ao estender do Template base todos os blocos criados no Template
+ base, ficam disponíveis nesta nova página.
  A grande vantagem do uso de blocos é que se pode escolher altera-los ou
  mante-los inalterados.
  No exemplo acima foi decidido alterar o “bloco menus” e o “bloco conteúdo”
  mantendo o “bloco cabeçalho” inalterado.
- Para isso bastou nesta nova pagina, fazer uma chamada aos blocos criados
+ Para isso bastou nesta nova página, fazer uma chamada aos blocos criados
  no Template base - “{% block menus %} ###Conteúdo do bloco### {% endblock
  %}” - os outros blocos cujo conteúdo foi alterado, o processo utilizado
  foi o mesmo.
@@ -1154,7 +1515,7 @@ tags
 
 \begin_deeper
 \begin_layout Itemize
-Que nos permite construi um ciclo 
+Que permite construi um ciclo 
 \emph on
 
 \begin_inset Quotes eld
@@ -1166,7 +1527,11 @@ for
 
 
 \emph default
- tal como se faz em Python.
+ tal como se faz em 
+\emph on
+Python
+\emph default
+.
 \end_layout
 
 \end_deeper
@@ -1188,22 +1553,44 @@ if
 \begin_inset Quotes eld
 \end_inset
 
- tal como se faz em Python.
+ tal como se faz em 
+\emph on
+Python
+\emph default
+.
 \end_layout
 
 \end_deeper
 \begin_layout Standard
-É permitido também usar variáveis declaradas em código Python na linguagem
- de Template bastando para isso colocar “{{nome_variavel}}”.
+Podem usar-se também variáveis declaradas em código 
+\emph on
+Python
+\emph default
+ na linguagem de Template bastando para isso colocar “{{nome_variavel}}”.
  Nome esse que tem que ser rigorosamente igual ao que esta definido no código
- Python.
+ 
+\emph on
+Python
+\emph default
+.
 \end_layout
 
 \begin_layout Standard
-Essas variáveis são passadas quando o método de Python na View devolve a
- resposta ao pedido do URL.
- Visto isto ficou claro que o uso da linguagem de Templates do Django facilita
- a construção de aplicações em que todas as paginas mantem a mesma estrutura.
+Essas variáveis são passadas para o Template quando o método de 
+\emph on
+Python
+\emph default
+ na 
+\emph on
+View
+\emph default
+ devolve a resposta ao pedido do 
+\emph on
+URL
+\emph default
+.
+ A linguagem de Templates do Django facilita a construção de aplicações
+ em que todas as páginas mantem a mesma estrutura.
  A linguagem de Template do Django é mais complexa do que aqui foi tratado,
  contudo foi o suficiente para a construção desta aplicação.
 \end_layout
@@ -1242,7 +1629,7 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Exemplo da estrutura da aplicação - Pagina inicial dos Recursos Humanos
+Exemplo da estrutura da aplicação - Página inicial dos Recursos Humanos
 \end_layout
 
 \end_inset
@@ -1260,18 +1647,16 @@ Recursos Humanos
 \end_layout
 
 \begin_layout Standard
-O departamento de Recursos Humanos de uma instituição é parte fundamental,
- para o bom funcionamento da mesma.
- Sendo o Instituto Politécnico de Beja uma instituição, não poderia deixar
- de ter um departamento que trate a informação dos seus colaboradores.
- Como é visível á partida a distribuição do serviço docente está intrinsecamente
- ligada e dependente do departamento dos recursos humanos.
- Pois é nos recursos humanos que existe a possibilidade de ver os contratos
- dos docentes, bem como alterar informação de docentes já a laborar na instituiç
-ão.
- Visto isto não poderia deixar de existir uma área na aplicação que trata-se
- desse tipo de informação.
- Ficando assim a informação centralizada e livre de redundâncias e incoerências.
+O departamento de Recursos Humanos de uma instituição costuma ser parte
+ fundamental, para o funcionamento da mesma.
+ Sendo o Instituto Politécnico de Beja uma instituição, na aplicação existe
+ uma área dedicada ao departamento dos recursos humanos.
+ A distribuição do serviço docente está intrinsecamente ligada e dependente
+ do departamento dos recursos humanos.
+ É nos recursos humanos que existe a possibilidade de examinar os contratos
+ dos docentes, e alterar informação de docentes já a trabalhar na instituição.
+ Ficando desta forma a informação centralizada e livre de redundâncias e
+ incoerências.
 \end_layout
 
 \begin_layout Subsection
@@ -1295,7 +1680,7 @@ Adicionar Docente:
 \begin_deeper
 \begin_layout Itemize
 Nesta tarefa o utilizador tem possibilidade de criar um novo docente, introduzin
-do para isso alguns dos seus dados pessoais requeridos para este procedimento.
+do para isso alguns dos seus dados profissionais.
  Este docente criado ficará sem contrato até que lhe seja feito um.
 \end_layout
 
@@ -1309,7 +1694,7 @@ Editar Docente:
 Existe a possibilidade de editar um docente que já exista na base de dados
  do sistema.
  Para isso o utilizador tem de encontrar o docente a editar numa lista de
- docentes e posteriormente edita-lo.
+ docentes e posteriormente editá-lo.
 \end_layout
 
 \end_deeper
@@ -1319,8 +1704,8 @@ Listar Docentes:
 
 \begin_deeper
 \begin_layout Itemize
-Ao listar os docentes o utilizador pode ver todos os docentes existente
- na instituição e inclusive ver informação detalhada sobre os mesmos.
+Ao listar os docentes o utilizador pode examinar todos os docentes existente
+ na instituição e inclusive ver informação detalhada.
 \end_layout
 
 \end_deeper
@@ -1330,8 +1715,9 @@ Listar Contratos:
 
 \begin_deeper
 \begin_layout Itemize
-Na listagem de contratos existe a possibilidade do utilizador ver todos
- os docentes e verificar a sua situação em termos contratuais.
+Na lista de contratos existe a possibilidade do utilizador ver o conjunto
+ de docentes da instituição e verificar a sua situação em termos contratuais.
+ 
 \end_layout
 
 \end_deeper
@@ -1341,9 +1727,9 @@ Síntese de funcionamento
 
 \begin_layout Standard
 Tendo por base os conhecimentos nas cadeiras de Interação Pessoa-Computador
- e Hipermédia e Acessibilidade, tentou-se criar uma interface gráfica que
- facilita-se e simplifica-se a interação do utilizador com a aplicação.
- Permitindo que o mesmo obtivesse informação que precisa rapidamente.
+ e Hipermédia e Acessibilidade, criou-se uma interface gráfica que facilita
+ e simplifica a interação do utilizador com a aplicação.
+ Permitindo que este obtivesse informação que precisa rapidamente.
 \end_layout
 
 \begin_layout Standard
@@ -1357,10 +1743,9 @@ Terefa 1 - Adicionar Docente
 \end_layout
 
 \begin_layout Standard
-Tal como descrito na lista de tarefas, adicionar um docente é uma tarefa
- que tem como finalidade base a adição de um novo docente a base de dados
- da aplicação para que fique disponível no futuro, interagir com a distribuição
- do serviço docente.
+Adicionar um docente é uma tarefa que tem como finalidade base a adição
+ de um novo docente à base de dados da aplicação para que fique disponível
+ no futuro, e para que posssa interagir com a distribuição do serviço docente.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -1453,7 +1838,7 @@ Página Adicionar Docente dos Recursos Humanos
 
 \begin_layout Standard
 Depois de clicar em “Adicionar Docente” o utilizador é encaminhado para
- outra pagina onde estará disponível um formulário (figura 3.6) que permite
+ outra página onde estará disponível um formulário (figura 3.6) que permite
  introduzir a informação do docente a criar.
  Os campos marcados com “(*)” são de caracter obrigatório e indispensáveis
  para a correta validação do formulário.
@@ -1509,13 +1894,13 @@ Página Adicionar Docente dos Recursos Humanos - Confirmação
 Depois do formulário preenchido corretamente e depois de ter sido clicado
  no botão “Adicionar Docente".
  O utilizador é encaminhado para uma página de confirmação (Figura 3.7).
- Pagina esta que apesar de ser de confirmação continua a permitir ao utilizador
- fazer alterações dos dados introduzidos no formulário.
+ Apesar da página ser de confirmação continua a permitir ao utilizador fazer
+ alterações dos dados introduzidos no formulário.
  No fundo o utilizador tem uma mensagem a questionar a confirmação dos dados.
  Caso tudo esteja conforme a vontade do utilizador o utilizador clicará
  no botão “Sim”, existente no fim do formulário para submeter os dados.
  Caso contrário clica no botão “Não”.
- Sempre que exista alterações nesta etapa em algum dos campos do formulário,
+ Sempre que existam alterações nesta etapa, em algum dos campos do formulário,
  o mesmo retorna automaticamente ao 2º passo.
 \end_layout
 
@@ -1584,7 +1969,7 @@ A tarefa “editar docente” é em tudo semelhante á tarefa “adicionar um do
 
 \begin_layout Standard
 Considerando que o utilizador já realizou a autenticação na aplicação, e
- estando na pagina inicial (Figura 3.5 da tarefa 1), do lado esquerdo encontrará
+ estando na página inicial (Figura 3.5 da tarefa 1), do lado esquerdo encontrará
  um menu.
  Nesse menu o utilizador vai clicar em “Editar Docente”.
 \end_layout
@@ -1630,15 +2015,15 @@ Listagem dos docentes editáveis - Recursos Humanos
 
 \begin_layout Standard
 Depois de clicar em “Editar Docente” o utilizador é encaminhado para outra
- pagina onde estará disponível uma lista de docentes editáveis (figura 3.10).
+ página onde estará disponível uma lista de docentes editáveis (figura 3.10).
  Para editar um docente da lista, o utilizador apenas tem que clicar no
  nome docente desejado ou no “lápis” que se encontra a esquerda do nome.
  O utilizador nesta lista pode navegar pelas várias páginas existentes,
  usando os números em baixo.
  Pode procurar os docentes pelo nome, departamento e categoria na caixa
- de pesquisa, bem como usar os filtros presentes na barra de menus do lado
- esquerdo que permitem filtrar as lista de docentes editáveis por “Ordem
- Alfabética” , “Por Departamento” e “Por Categoria”.
+ de pesquisa, e usar os filtros presentes na barra de menus do lado esquerdo
+ que permitem filtrar as lista de docentes editáveis por “Ordem Alfabética”
+ , “Por Departamento” e “Por Categoria”.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -1687,8 +2072,7 @@ Depois de escolhido o docente a editar, o utilizador é encaminhado para
  a diferença de vir previamente preenchido com os dados existentes na base
  de dados acerca do docente respetivo (Figura 3.11).
  No fundo do formulário é ainda visível se houve alguma alteração ao docente
- em questão e quem a protagonizou bem como a respetiva data e hora do acontecime
-nto.
+ em questão e quem a protagonizou e a respetiva data e hora do acontecimento.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -1706,8 +2090,8 @@ Tarefa 3 - Listar Docentes
 \end_layout
 
 \begin_layout Standard
-A tarefa “Listar Docentes” consiste em mostrar uma lista de todos os docentes
- existentes na aplicação.
+A tarefa “Listar Docentes” consiste em mostrar um conjunto de docentes existente
+s na aplicação.
  Havendo a possibilidade de ver informação detalhada sobre os mesmos.
 \end_layout
 
@@ -1717,7 +2101,7 @@ A tarefa “Listar Docentes” consiste em mostrar uma lista de todos os docente
 
 \begin_layout Standard
 Considerando que o utilizador já realizou a autenticação na aplicação, e
- estando na pagina inicial (Figura 3.5 da tarefa 1), do lado esquerdo encontrará
+ estando na página inicial (Figura 3.5 da tarefa 1), do lado esquerdo encontrará
  um menu.
  Nesse menu o utilizador vai clicar em “Listar Docentes”.
 \end_layout
@@ -1748,7 +2132,7 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Listagem dos docentes - Recursos Humanos
+Lista dos docentes - Recursos Humanos
 \end_layout
 
 \end_inset
@@ -1770,9 +2154,9 @@ Depois de clicar em “Listar Docente” o utilizador é encaminhado para outra
  O utilizador nesta lista pode navegar pelas várias páginas existentes,
  usando os números em baixo.
  Pode procurar os docentes pelo nome, departamento e categoria na caixa
- de pesquisa, bem como usar os filtros presentes na barra de menus do lado
- esquerdo que permitem filtrar as listas de docentes por “Ordem Alfabética”,
- “Por Departamento” e “Por Categoria”.
+ de pesquisa, e usar os filtros presentes na barra de menus do lado esquerdo
+ que permitem filtrar as listas de docentes por “Ordem Alfabética”, “Por
+ Departamento” e “Por Categoria”.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -1828,7 +2212,7 @@ Tarefa 4 - Listar Contratos
 A tarefa “Listar Contratos” consiste em mostrar numa lista todos os docentes
  existentes na aplicação e os seus respetivos contratos, que pressupõe datas
  de fim e início de contratos, bem como a categoria dos docentes.
- Havendo a possibilidade de ver informação detalhada sobre os mesmos.
+ Havendo a possibilidade de examinar informação detalhada sobre os mesmos.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -1868,7 +2252,7 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Listagem dos contratos - Recursos Humanos
+Lista de contratos - Recursos Humanos
 \end_layout
 
 \end_inset
@@ -1948,11 +2332,16 @@ Aplicação das Tecnologias
 
 \begin_layout Standard
 Todas as áreas abordadas neste relatório, usam as tecnologias elementares
- de criação de páginas web.
- Depende da criatividade de quem as usa para tirar o melhor partido das
- mesmas.
- As principais tecnologias usadas nesta tarefa foram o Javascript-DOJO,
- o HTML e o CSS.
+ de criação de páginas 
+\emph on
+web
+\emph default
+.
+ As principais tecnologias usadas nesta tarefa foram o 
+\emph on
+Javascript-DOJO, o HTML e o CSS
+\emph default
+.
 \end_layout
 
 \begin_layout Subsection*
@@ -1964,8 +2353,15 @@ Tarefa - Adicionar Docente
 \end_layout
 
 \begin_layout Standard
-Nesta tarefa foi usado um pequeno segmento de Javascript usando como suporte
- a biblioteca DOJO.
+Nesta tarefa foi usado um pequeno segmento de 
+\emph on
+Javascript
+\emph default
+ usando como suporte a biblioteca 
+\emph on
+DOJO
+\emph default
+.
  Foi necessário criar uma função que deteta-se quando o formulário fosse
  alterado na página de confirmação, quer pela introdução de novo texto quer
  pela seleção da 
@@ -1979,15 +2375,26 @@ checkBox
 .
  Para que depois se procedesse á remoção da mensagem de confirmação e dos
  botões “Sim” e “Não”.
- Pois apenas fazem sentido estes últimos elementos aparecerem quando o formulári
-o esta valido, o que não é possível garantir caso exista um alteração do
- mesmo na página de confirmação.
+ Apenas faz sentido estes últimos elementos aparecerem quando o formulário
+ esta válido, o que não é possível garantir caso exista um alteração na
+ página de confirmação.
 \end_layout
 
 \begin_layout Standard
-Para conseguir isto bastou recorrer ao uso da tecnologia AJAX.
- Para facilitar as coisas usamos a biblioteca DOJO, que possui funções que
- nos facilitam a implementação do AJAX.
+Para conseguir isto bastou recorrer ao uso da tecnologia 
+\emph on
+AJAX
+\emph default
+.
+ Para facilitar as coisas foi usada a biblioteca 
+\emph on
+DOJO
+\emph default
+, que possui funções que facilitam a implementação do 
+\emph on
+AJAX
+\emph default
+.
  
 \end_layout
 
@@ -2014,7 +2421,15 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Esquema de Funcionamento do AJAX usando DOJO no Django
+Esquema de Funcionamento do 
+\emph on
+AJAX
+\emph default
+ usando 
+\emph on
+DOJO
+\emph default
+ no Django
 \end_layout
 
 \end_inset
@@ -2028,11 +2443,23 @@ Esquema de Funcionamento do AJAX usando DOJO no Django
 \end_layout
 
 \begin_layout Standard
-O uso da biblioteca Javascript DOJO é bastante simples, basta para tal primeiram
-ente descarregara biblioteca para a diretoria do projeto.
- Depois é só fazer referência a biblioteca no Template base da aplicação
- e já é possível usar a mesma em qualquer ficheiro Javascript que integre
- a aplicação (Algoritmo 3.1).
+O uso da biblioteca 
+\emph on
+Jav
+\emph default
+as
+\emph on
+crip
+\emph default
+t 
+\emph on
+DOJO
+\emph default
+ é bastante simples.
+ Basta para tal primeiro descarregar a biblioteca para a diretoria do projeto.
+ Depois fazer referência à biblioteca no Template base da aplicação e torna-se
+ possível usar a mesma em qualquer ficheiro Javascript que integre a aplicação
+ (Algoritmo 3.1).
 \begin_inset Float algorithm
 placement H
 wide false
@@ -2086,16 +2513,45 @@ Exemplo chamada da biblioteca DOJO no template base.
 
 \begin_layout Standard
 O funcionamento é bastante simples de entender (Figura 3.15) Consiste no
- envio por parte da função DOJO “request”, de um pedido ao URL Dispatcher
- que por sua vez ira pedir a view escolhida que resolva o pedido e o retorne
- novamente para a mesma função DOJO a qual colocará o resultado no código
- HTML onde é visível ao utlizador (Algoritmo 3.2).
- Para tal basta implementar o cabeçalho “requeire”.
+ envio por parte da função 
+\emph on
+DOJO
+\emph default
+ “request”, de um pedido ao 
+\emph on
+URL Dispatcher
+\emph default
+ que por sua vez ira pedir a 
+\emph on
+view
+\emph default
+ escolhida que resolva o pedido e o retorne novamente para a mesma função
+ 
+\emph on
+DOJO
+\emph default
+ que colocará o resultado no código 
+\emph on
+HTML
+\emph default
+ onde é visível ao utlizador (Algoritmo 3.2).
+ Basta implementar o cabeçalho “requeire”.
  Chamar a função desejada neste caso a “dojo/request”.
  De seguida declara-se a função com o argumento “request”.
- Por fim inicializa-se a função “resquest”, enviando-lhe o URL para o URL
- Dispatcher resolver.
- Por fim a função “request” aguarda a resposta que a View lhe vai enviar.
+ Por fim inicializa-se a função “resquest”, enviando-lhe o 
+\emph on
+URL
+\emph default
+ para o 
+\emph on
+URL Dispatcher
+\emph default
+ resolver.
+ Por fim a função “request” aguarda a resposta que a 
+\emph on
+View
+\emph default
+ lhe vai enviar.
  Caso exista um problema retorna um erro.
 \end_layout
 
@@ -2193,11 +2649,32 @@ Exemplo implementação do AJAX no DOJO
 \end_layout
 
 \begin_layout Standard
-Conhecendo agora o esquema é fácil de perceber o que acontece.
- Ao haver alteração no formulário a função AJAX construída sob DOJO, pede
- ao URL que envie um pedido a um método da VIEW que por sua vez vai enviar
- um outro Template para a função, Template este que será a resposta.
- E o DOJO terá a responsabilidade de colocar esse pequeno trecho de HTML
+Ao haver alteração no formulário a função 
+\emph on
+AJAX
+\emph default
+ construída em 
+\emph on
+DOJO
+\emph default
+, é pedido ao 
+\emph on
+URL
+\emph default
+ que envie uma requisição a um método da 
+\emph on
+VIEW
+\emph default
+ que por sua vez vai enviar um outro Template para a função, Template este
+ que será a resposta.
+ E o 
+\emph on
+DOJO
+\emph default
+ terá a responsabilidade de colocar esse pequeno trecho de 
+\emph on
+HTML
+\emph default
  no local apropriado.
 \end_layout
 
@@ -2206,10 +2683,10 @@ Tarefa 2 - Editar Docente
 \end_layout
 
 \begin_layout Standard
-A tecnologia Javascript usada nesta tarefa é em tudo igual a usada na tarefa
- 1 - Adicionar Docente.
- Pois ambas as tarefas usam o mesmo esquema de formulário e em resultado
- disso as mesmas ações.
+A tecnologia Javascript usada nesta tarefa é igual à usada na tarefa 1 -
+ Adicionar Docente.
+ Ambas as tarefas usam o mesmo esquema de formulário e em resultado disso
+ as mesmas ações.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -2219,21 +2696,34 @@ Tarefa 3 - Listar Docentes
 \begin_layout Standard
 As tarefas que tem como função listar são as que mais tiram partido do Javascrip
 t.
- Nesta tarefa de listar docentes, existem vários filtros que nos permitem
- filtrar a informação da tabela sob vários parâmetros.
+ Nesta tarefa de listar docentes, existem vários filtros que permitem filtrar
+ a informação da tabela sob vários parâmetros.
  Entre esses filtros contam-se o filtro “Por Ordem Alfabética”, “Por Categoria”
  e “Por Departamento”.
 \end_layout
 
 \begin_layout Standard
-Em síntese todos os filtros recebem o seu conteúdo por AJAX, o processo
- usado é idêntico ao falado na Tarefa 1.
+Em síntese todos os filtros recebem o seu conteúdo por 
+\emph on
+AJAX
+\emph default
+, o processo usado é idêntico ao falado na Tarefa 1.
  Os filtros possuem um efeito deslizante que suaviza a abertura do conteúdo
  dos filtros.
- Para produzir esse efeito é usado uma função da biblioteca DOJO “dojo/fx”
- (Algoritmo 3.3).
- É também usada a função “dojo/dom” da biblioteca DOJO responsável por tratar
- dos elementos HTML.
+ Para produzir esse efeito é usado uma função da biblioteca 
+\emph on
+DOJO
+\emph default
+ “dojo/fx” (Algoritmo 3.3).
+ É também usada a função “dojo/dom” da biblioteca 
+\emph on
+DOJO
+\emph default
+ responsável por tratar dos elementos 
+\emph on
+HTML
+\emph default
+.
  
 \end_layout
 
@@ -2348,15 +2838,30 @@ Exemplo da implementação de deslizamento da DIV.
 \end_layout
 
 \begin_layout Standard
-Na biblioteca DOJO existe também a função “dojo/on” responsável por controlar
- ações de click em elementos HTML.
+Na biblioteca 
+\emph on
+DOJO
+\emph default
+ existe também a função “dojo/on” responsável por controlar ações de click
+ em elementos 
+\emph on
+HTML
+\emph default
+.
  Com essa função conseguimos reproduzir o efeito acima referido quando clicamos
- no elemento HTML que será responsável por receber o click.
+ no elemento 
+\emph on
+HTML
+\emph default
+ que será responsável por receber o click.
 \begin_inset Newline newline
 \end_inset
 
-O conteúdo de todos os filtros é facultado por AJAX da mesma forma que realizado
- anteriormente.
+O conteúdo de todos os filtros é facultado por 
+\emph on
+AJAX
+\emph default
+ da mesma forma que realizado anteriormente.
 \end_layout
 
 \begin_layout Itemize
@@ -2365,8 +2870,15 @@ Filtro “Por Ordem Alfabética” (Figura 3.19)
 
 \begin_deeper
 \begin_layout Itemize
-Este filtro receberá por AJAX um trecho de HTML preenchido com uma lista
- do alfabéto.
+Este filtro receberá por 
+\emph on
+AJAX
+\emph default
+ um trecho de 
+\emph on
+HTML
+\emph default
+ preenchido com uma lista do alfabéto.
 \end_layout
 
 \end_deeper
@@ -2431,8 +2943,16 @@ Por Departamento
 
 \begin_deeper
 \begin_layout Itemize
-Este filtro receberá por AJAX um trecho de HTML preenchido com uma lista
- de departamentos, depois de uma consulta á base de dados.
+Este filtro receberá por 
+\emph on
+AJAX
+\emph default
+ um trecho de 
+\emph on
+HTML
+\emph default
+ preenchido com uma lista de departamentos, depois de uma consulta á base
+ de dados.
 \end_layout
 
 \end_deeper
@@ -2493,8 +3013,16 @@ Por Categoria
 
 \begin_deeper
 \begin_layout Itemize
-Este filtro receberá por AJAX um trecho de HTML preenchido com uma lista
- de categorias, depois de uma consulta a base de dados.
+Este filtro receberá por 
+\emph on
+AJAX
+\emph default
+ um trecho de 
+\emph on
+HTML
+\emph default
+ preenchido com uma lista de categorias, depois de uma consulta a base de
+ dados.
 \end_layout
 
 \end_deeper
@@ -2551,7 +3079,7 @@ Nesta tarefa de listar contratos, existem vários filtros que nos permitem
  Entre esses filtros contam-se o filtro “Por Ordem Alfabética”, “Por Categoria”
  e “Por Departamento” e “Por Data”.
  Todos os primeiros três filtros referidos já foram tratados na Tarefa 3,
- sendo que a novidade aqui é mesmo o filtro “Por Data”.
+ sendo que a novidade aqui o filtro “Por Data”.
 \end_layout
 
 \begin_layout Standard
@@ -2637,10 +3165,13 @@ target "http://www.dynarch.com/projects/calendar/"
 \end_inset
 
 .
- Calendário esse que permite navegar entre os meses, anos e obter a data
- atual.
+ Calendário que permite navegar entre os meses, anos e obter a data atual.
  Essa data é colocada numa caixa de texto “<input type=”text” />” através
- de um método Javascript assente em DOM .
+ de um método Javascript assente em 
+\emph on
+DOM
+\emph default
+ .
 \begin_inset Float algorithm
 placement H
 wide false
@@ -2673,7 +3204,9 @@ textbox.value = "10/9/2012";
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Exemplo do preenchimenro de uma tag html - Input
+Exemplo do preenchimenro de uma 
+\emph on
+tag html - Input
 \end_layout
 
 \end_inset
@@ -2688,9 +3221,17 @@ Exemplo do preenchimenro de uma tag html - Input
 
 \begin_layout Standard
 No (Algoritmo 3.4), é mostrado um exemplo de como é elaborada a operação
- acima referida em DOM.
+ acima referida em 
+\emph on
+DOM
+\emph default
+.
  O calendário (Figura 3.20) em questão é adicionado á aplicação da mesma
- forma que a biblioteca do DOJO.
+ forma que a biblioteca do 
+\emph on
+DOJO
+\emph default
+.
 \end_layout
 
 \begin_layout Standard
@@ -2745,10 +3286,17 @@ Tarefa 1 - Adicionar Docente
 \end_layout
 
 \begin_layout Standard
-Como é esperado toda e qualquer página web é comumente constituída por HTML.
+Como é esperado toda e qualquer página web é comumente constituída por 
+\emph on
+HTML
+\emph default
+.
  No Django temos a possibilidade de usar uma linguagem de Templates que
- torna o uso do HTML mais inteligente, tal como se pode ver no ponto 3.2
- deste capítulo.
+ torna o uso do 
+\emph on
+HTML
+\emph default
+ mais inteligente, tal como se pode ver no ponto 3.2 deste capítulo.
 \end_layout
 
 \begin_layout Standard
@@ -2757,9 +3305,21 @@ A framework Django permite também a criação fácil de formulários baseados
 \emph on
 Models
 \emph default
- do Django.
- Sendo que nos ficheiros HTML apenas é necessário colocar o conteúdo percorrendo
- a lista de elementos HTML que são devolvidos pela VIEW.
+ da aplicação.
+ Sendo que nos ficheiros 
+\emph on
+HTML
+\emph default
+ apenas é necessário colocar o conteúdo percorrendo a lista de elementos
+ 
+\emph on
+HTML
+\emph default
+ que são devolvidos pela 
+\emph on
+VIEW
+\emph default
+.
  
 \end_layout
 
@@ -2880,17 +3440,19 @@ View
 \emph default
 , e o “field” os respetivos campos.
  Basta depois colocar “.label_tag” para que seja imprimido a etiqueta do
- componente HTML.
- Este exemplo vai mais longe pois é visível o tratamento do formulário no
- que e refere a matéria de campos obrigatórios.
+ componente 
+\emph on
+HTML
+\emph default
+.
  Para que se verifique se o campo é obrigatório é colocado “.field.required”
  no campo a testar.
- Tudo isto dentro de uma condição “if” da linguagem de Template Django.
+ Tudo isto dentro de uma condição “if” criada na linguagem de Template Django.
  Caso existam erros nos campos, como por exemplo o campo ser obrigatório
  e não estar preenchido é impresso uma lista de erros, lado a lado com os
  campos do formulário.
  A forma de impressão dos erros como é visível no exemplo acima, é semelhante
- a usada na impressão dos campos do formulário.
+ à usada na impressão dos campos do formulário.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -2898,14 +3460,22 @@ Tarefa 2 - Editar Docente
 \end_layout
 
 \begin_layout Standard
-A tarefa Editar Docentes envolve a criação de uma prévia listagem dos docentes
+A tarefa Editar Docentes envolve a criação de uma lista prévia dos docentes
  existentes.
- Listagem essa elaborada através de uma tabela HTML, elemento que nos permite
- ter uma visualização muito mais agradável da informação.
+ Lista essa produzida através de uma tabela 
+\emph on
+HTML
+\emph default
+, elemento que nos permite ter uma visualização muito mais agradável da
+ informação.
  A construção da tabela está muito facilitada graças a linguagem de Template
  Django.
- Pois através do uso do ciclo “for”, é mais rápido e fácil percorrer a informaçã
-o, obtida da View (Algoritmo 3.6).
+ Através do uso do ciclo “for”, é mais rápido e fácil percorrer a informação,
+ obtida da 
+\emph on
+View
+\emph default
+ (Algoritmo 3.6).
 \begin_inset Newline newline
 \end_inset
 
@@ -3001,18 +3571,25 @@ Exemplo criação tabela de listagem - Linguagem de Template
 
 \end_inset
 
-Como seria de esperar a listagem dos docentes, iria devolver uma tabela
- muito extensa no que se refere ao seu numero de linhas.
- Para colmatar este problema recorreu-se a um sistema de paginação do Django
+A lista dos docentes, devolve uma tabela muito extensa no que se refere
+ ao seu numero de linhas.
+ Para contronar este problema recorreu-se a um sistema de paginação do Django
  que permite a divisão de uma lista de elementos em várias sub-listas.
- Esse método é utilizado na View que tratará de enviar os elementos a colocar
- na tabela HTML.
+ Esse método é utilizado na 
+\emph on
+View
+\emph default
+ que tratará de enviar os elementos a colocar na tabela 
+\emph on
+HTML
+\emph default
+.
  
 \end_layout
 
 \begin_layout Standard
 A parte da edição em si é igual a referida na Tarefa 1 - Adicionar Docente,
- com a diferença do formulário vir previamente preenchido.
+ com a diferença do formulário vir préviamente preenchido.
  
 \end_layout
 
@@ -3021,10 +3598,13 @@ Tarefa 3 - Listar Docentes
 \end_layout
 
 \begin_layout Standard
-A estrutura HTML, listagem de docentes é igual ao referido na Tarefa 2 -
- Editar Docente.
- Ate mesmo a vista detalhada do docente segue o mesmo, paradigma da mostragem
- da informação em forma de tabela.
+A estrutura 
+\emph on
+HTML
+\emph default
+, listagem de docentes é igual ao referido na Tarefa 2 - Editar Docente.
+ A vista detalhada do docente segue o mesmo, paradigma da mostragem da informaçã
+o em forma de tabela.
  O que proporciona uma melhor visualização e clareza nos dados apresentados.
 \end_layout
 
@@ -3033,13 +3613,17 @@ Tarefa 4 - Listar Contratos
 \end_layout
 
 \begin_layout Standard
-A estrutura desta tarefa em termos de listagem e vista detalhada de informação
- do docente é igual á referida na Tarefa 3 - Listar Docentes.
+A estrutura desta tarefa em termos da lista e vista detalhada de informação
+ do docente é igual à referida na Tarefa 3 - Listar Docentes.
  Contudo existe uma alteração no que diz respeito á existência da filtragem
  “Por Data” pois em ambas as sub-filtragens “Por Data Inicio” e “Por Data
- Fim” para alem do calendário, tem um incrementador que nos permite definir
+ Fim” para alem do calendário, tem um incrementador que permite definir
  um raio de dias em torno da data escolhida no calendário para a filtragem.
- Esse incremento é feito usando o elemento HTML 
+ Esse incremento é feito usando o elemento 
+\emph on
+HTML
+\emph default
+ 
 \emph on
 <input type=”number”/>
 \emph default
@@ -3051,8 +3635,8 @@ CSS
 \end_layout
 
 \begin_layout Standard
-A Barra de menus presente em todas as paginas desta aplicação foi estilizada
- com base em num modelo CSS3, que posteriormente foi alterado e ajustado
+A Barra de menus presente em todas as páginas desta aplicação foi estilizada
+ com base num modelo CSS3 [1.7], que posteriormente foi alterado e ajustado
  para suprir as necessidades da aplicação.
 \end_layout
 
@@ -3061,14 +3645,22 @@ Tarefa 1- Adicionar Docente
 \end_layout
 
 \begin_layout Standard
-Os CSSs que dão o estilo e design da aplicação são bastante simples.
- Neste formulário foi essencialmente usada a coloração das 
+Os CSSs que dão o estilo e 
+\emph on
+design
+\emph default
+ da aplicação são bastante simples.
+ Neste formulário foi usada a coloração das 
 \emph on
 tags
 \emph default
- DIV onde se encontram os campos do formulário bem como o seu tamanho.
+ 
+\emph on
+DIV
+\emph default
+ onde se encontram os campos do formulário e a definição do seu tamanho.
  Foi também colocada coloração nas letras, a vermelho sempre que existe
- uma mensagem de erro ou para realçar certas mensagens.
+ uma mensagem de erro ou para realçar determinadas mensagens.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -3076,10 +3668,30 @@ Tarefa 2 - Editar Docente
 \end_layout
 
 \begin_layout Standard
-Os CSS que dão vida a tabela de listagem de docentes passiveis de edição,
- foram baseados num modelo CSS3, que foii posteriormente alterado consoante
- as necessidades de visualização da aplicação.
- Esse modelo apesar de CSS3, trata-se de um hibrido entre CSS e CSS3.
+Os 
+\emph on
+CSS
+\emph default
+ que estilizam a tabela da lista de docentes passiveis de edição, foram
+ baseados num modelo 
+\emph on
+CSS3
+\emph default
+, que foi posteriormente alterado consoante as necessidades de visualização
+ da aplicação.
+ Esse modelo apesar de 
+\emph on
+CSS3
+\emph default
+, trata-se de um hibrido entre 
+\emph on
+CSS
+\emph default
+ e 
+\emph on
+CSS3
+\emph default
+.
  Os formulários de edição do docente estão estilizados de forma igual ao
  que acontece na tarefa 1 - Adicionar Docente.
 \end_layout
@@ -3089,10 +3701,14 @@ Tarefa 3 - Listar Docentes e Tarefa 4 - Listar Contratos
 \end_layout
 
 \begin_layout Standard
-Tanto a listagem de docentes como a listagem de contratos usam a estilização
- referida na tarefa 2 - Editar Docente.
- Pois basicamente a sua estrutura quer na forma listagem quer na forma detalhada
-, é construída com base nas tabelas HTML.
+Tanto a lista de docentes como a lista de contratos usam a estilização referida
+ na tarefa 2 - Editar Docente.
+ Basicamente a sua estrutura quer na forma de lista quer na forma detalhada,
+ é construída com base em tabelas 
+\emph on
+HTML
+\emph default
+.
 \end_layout
 
 \begin_layout Section
@@ -3100,12 +3716,12 @@ Docentes
 \end_layout
 
 \begin_layout Standard
-Sendo os docentes parte fundamental para o funcionamento de uma instituição
- de ensino é mais que normal que exista uma área reservada aos mesmos.
+Sendo os docentes parte de uma instituição de ensino existe uma área reservada
+ aos mesmos.
  Nesta área os docentes tem acesso a toda a informação disponível sobre
- si próprios , de forma clara e sintética sem burocracias nem redundâncias
- pois os dados ao estarem centralizados são obtidos do mesmo local que as
- restantes áreas da aplicação.
+ si próprios, de forma clara e sintética sem burocracias nem redundâncias
+ pois os dados ao estarem centralizados são obtidos a partir do mesmo local
+ que as restantes áreas da aplicação.
 \end_layout
 
 \begin_layout Subsection
@@ -3128,9 +3744,9 @@ Tarefa 1 - Ver resumo informativo:
 
 \begin_deeper
 \begin_layout Itemize
-Nesta tarefa o utilizador tem oportunidade de ver um resumo da informação
+Nesta tarefa o utilizador tem oportunidade de examinar um resumo da informação
  sobre si.
- Tal como o total de horas de serviço, o numero de turmas que leciona entre
+ Tal como o total de horas de serviço, o número de turmas que leciona entre
  outros.
 \end_layout
 
@@ -3141,8 +3757,8 @@ Tarefa 2 - Ver turmas:
 
 \begin_deeper
 \begin_layout Itemize
-A tarefa ver turmas, disponibiliza ao utilizador uma visualização de todas
- as turmas que leciona.
+A tarefa ver turmas, disponibiliza ao utilizador informação de todas as
+ turmas que leciona.
 \end_layout
 
 \end_deeper
@@ -3152,7 +3768,7 @@ Tarefa 3 - Ver horas e trabalho:
 
 \begin_deeper
 \begin_layout Itemize
-Esta tarefa mostra ao utilizador, para alem da turma que leciona o numero
+Esta tarefa mostra ao utilizador, para alem da turma que leciona o número
  de horas de serviço relacionados com essa turma.
 \end_layout
 
@@ -3164,7 +3780,7 @@ Síntese de funcionamento
 \begin_layout Standard
 O funcionamento da área do docente é muito simples e sintético, para todas
  as suas tarefas.
- Em seguida é apresentado em síntese o funcionamento d cada tarefa.
+ Em seguida é apresentado em síntese o funcionamento de cada tarefa.
 \end_layout
 
 \begin_layout Subsection*
@@ -3173,8 +3789,8 @@ Tarefa 1 - Ver resumo informativo
 
 \begin_layout Standard
 No resumo informativo o utilizador pode ver o estado da sua situação em
- relação as horas atribuídas, bem como o total de horas atribuídas, as horas
- de redução e as horas totais.
+ relação as horas atribuídas, o total de horas atribuídas, as horas de redução
+ e as horas totais.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -3228,7 +3844,7 @@ Tarefa 2 - Ver turmas
 
 \begin_layout Standard
 Nesta tarefa o utilizador tem a possibilidade de ver todas as turmas que
- leciona bem como o curso a que a turma pertence.
+ leciona e o curso a que a turma pertence.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -3358,8 +3974,15 @@ Aplicação das Tecnologias
 \begin_layout Standard
 Esta área da aplicação é a que menos recursos tecnológicos usa para a sua
  construção.
- Nas Tarefas aqui abordadas, as principais tecnologias usadas são o HTML
- e o CSS.
+ Nas Tarefas aqui abordadas, as principais tecnologias usadas são o 
+\emph on
+HTML
+\emph default
+ e o 
+\emph on
+CSS
+\emph default
+.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -3376,14 +3999,16 @@ HTML
 \end_layout
 
 \begin_layout Standard
-As tarefas 1, 2 e 3, mostram o seu conteúdo em forma de tabela HTML por
- forma a ser mais simples e limpa a organização da informação.
+As tarefas 1, 2 e 3, mostram o seu conteúdo em forma de tabela 
+\emph on
+HTML
+\emph default
+ por forma a ser mais simples e limpa a organização da informação.
  Tal como na área dos recursos humanos as tabelas usadas usam todas o mesmo
  modelo.
- As tabelas são construídas igualmente como as tabelas de listagens existentes
+ As tabelas são construídas igualmente como as tabelas das listas existentes
  na área dos recursos humanos.
- Recorrendo ao uso de ciclos “for” existentes na linguagem de Templates
- Django.
+ Recorrendo ao uso de ciclos “for” criados na linguagem de Templates Django.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -3402,9 +4027,9 @@ Vice-Presidência
 \end_layout
 
 \begin_layout Standard
-A vice-presidência é sem duvida o órgão com mais poder dentro da aplicação,
- pois é daqui que parte a decisão final sobre todas as tarefas realizadas
- na aplicação.
+A vice-presidência é órgão com mais privilégios dentro da aplicação.
+ É daqui que parte a decisão final sobre todas as tarefas realizadas na
+ aplicação.
  Sendo o órgão mais complexo foi aquele que foi deixado para o fim e por
  infelicidade foi impossível de concluir a implementação de todas as tarefas
  desejáveis.
@@ -3416,10 +4041,9 @@ Tarefas Implementadas
 
 \begin_layout Standard
 Atualmente toda a informação relacionada com o serviço de distribuição do
- serviço docente é tratada de forma rudimentar por meio da manipulação de
- uma folha de cálculo que torna todo o processo demasiado moroso e complexo
- de realizar levando a que possam ocorrer ambiguidades e redundância de
- informação.
+ serviço docente é tratada de por meio da manipulação de uma folha de cálculo
+ que torna todo o processo demasiado moroso e complexo de realizar levando
+ a que possam ocorrer ambiguidades e redundância de informação.
 \end_layout
 
 \begin_layout Itemize
@@ -3445,7 +4069,7 @@ Tarefa 1 - Gerar xls
 \end_layout
 
 \begin_layout Standard
-Esta tarefa foi pensada para aquelas pessoas que tem dificuldades em começar
+Esta tarefa foi pensada para as pessoas que têm dificuldades em começar
  a usar um novo software.
  Para evitar que o choque seja grande demais, existe a possibilidade de
  converter o conteúdo da base de dados da aplicação para uma folha de cálculo
@@ -3537,9 +4161,13 @@ Página de sucesso - Criar xls - Vice-Presidência
 \end_layout
 
 \begin_layout Standard
-Após esperar alguns instantes que a os métodos da View, responsáveis pela
- criação da folha de cálculo terminem a sua criação, o utilizador é encaminhado
- para uma outra pagina onde lhe indica o sucesso da operação (Figura 3.25).
+Após esperar alguns instantes que os métodos da 
+\emph on
+View
+\emph default
+, responsáveis pela criação da folha de cálculo terminem a sua criação,
+ o utilizador é encaminhado para uma outra pagina onde lhe indica o sucesso
+ da operação (Figura 3.25).
 \end_layout
 
 \begin_layout Subsection
@@ -3548,9 +4176,11 @@ Aplicação das Tecnologias
 
 \begin_layout Standard
 Como em todas as áreas desta aplicação, é indispensável o recurso as tecnologias
- de construção de páginas web.
- Esta área estando ainda na sua fase de construção inicial, dá pouco uso
- as tecnologias web.
+ de construção de páginas 
+\emph on
+web
+\emph default
+.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -3566,8 +4196,8 @@ HTML
 \end_layout
 
 \begin_layout Standard
-O HTML aqui apresentado é o que é gerado essencialmente pelo Template base
- com a diferença apenas da barra de menus.
+O HTML aqui apresentado é o que é gerado pelo Template base com a exceção
+ apenas da barra de menus.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -3575,8 +4205,7 @@ CSS
 \end_layout
 
 \begin_layout Standard
-Os CSS são basicamente os mesmo que usados no Template base e nas restantes
- áreas.
+Os CSS são os mesmo que usados no Template base e nas restantes áreas.
  
 \begin_inset Newline newline
 \end_inset
@@ -3590,8 +4219,7 @@ Esta área que se refere a vice-presidência encontra-se numa fase de construç�
  Pelo que é visível que se encontra desprovida das funcionalidades que este
  órgão exerce atualmente na distribuição do serviço docente.
  Assim sendo a tarefa mais importante de momento foi a implementada.
- De futuro prevê-se a conclusão desta e das outras áreas, que são parte
- constituinte desta aplicação.
+ 
 \end_layout
 
 \begin_layout Chapter
@@ -3599,31 +4227,44 @@ Conclusão
 \end_layout
 
 \begin_layout Standard
-Com este sistema implementado, seguramente a tarefa de distribuição das
- horas de serviço docente será mais rápida e fácil, contendo toda a informação
- acessível num só local, livre das redundâncias e incoerências do passado.
- O sistema ainda se encontra na sua fase inicial de desenvolvimento e no
- futuro próximo prevê-se a implementação das áreas dos restantes órgãos
+Com este sistema, a tarefa de distribuição das horas de serviço docente
+ é mais rápida e fácil, contendo toda a informação acessível num só local,
+ livre das redundâncias e incoerências.
+ O sistema ainda se encontra em desenvolvimento sendo já funcional.
+ No futuro próximo prevê-se a implementação das áreas dos restantes órgãos
  do instituto.
- Prevê-se também a correção do código da aplicação a fim de aumentar a sua
- performance e eliminação de possíveis erros.
  
 \end_layout
 
 \begin_layout Standard
-O uso da framework DJANGO foi uma grande ajuda e mostrou ser uma ferramenta
- bastante poderosa, pela sua rapidez e velocidade construção da aplicação.
- Por ser baseada na linguagem Python, torna todo o código muito mais fluido
- e fácil de interpretar.
+O uso da 
+\emph on
+framework
+\emph default
+ Django foi uma grande ajuda e mostrou ser uma ferramenta bastante poderosa,
+ pela sua rapidez e velocidade construção da aplicação.
+ Por ser construída na linguagem Python, torna todo o código muito mais
+ fluido e fácil de interpretar.
 \end_layout
 
 \begin_layout Standard
-Futuramente o sistema será colocado em um servidor Ubunto, para que fique
- disponível e acessível a todos os utilizadores deste sistema.
+Futuramente o sistema será colocado em um servidor Ubuntu, para que fique
+ disponível e acessível a todos os utilizadores a que se destina a aplicação.
  O Sistema poderá depois assim ser acedido em qualquer lugar necessitando
- apenas o utilizador de possuir um equipamento como por exemplo um SmartPhone
- ou um Tablet com acesso a internet e um browser.
- Sendo assim possivel realizar as as tarefas facilmente e confortavelmente
+ apenas o utilizador de possuir um equipamento como por exemplo um 
+\emph on
+SmartPhone
+\emph default
+ ou um 
+\emph on
+Tablet
+\emph default
+ com acesso a internet e um 
+\emph on
+browser
+\emph default
+.
+ Sendo assim possível realizar as tarefas facilmente e confortavelmente
  em qualquer lugar.
  
 \end_layout
