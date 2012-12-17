@@ -950,6 +950,7 @@ def  listServicoDocente(request, ano):
 
     listToSend = []
     
+    
     listaServicoDocente = ServicoDocente.objects.filter(turma__unidade_curricular__departamento_id__exact = id_Departamento, turma__ano__exact = ano )
     
     if "searchField" in request.GET or request.GET.get("actualState") == "searchField":
@@ -1152,10 +1153,13 @@ def addServicoDocenteDepart(request, ano):
     listaAnos = listarAnos(id_Departamento)
     listToSend = []
     
+    listRepetidos = []
+    
     listaServicoDocente = ServicoDocente.objects.filter(turma__unidade_curricular__departamento_id__exact = id_Departamento, turma__ano__exact = ano)
     listModulosDelegados = Modulos.objects.filter(servico_docente__turma__ano__exact = ano, departamento_id__exact = id_Departamento).filter(docente_id__exact = None).filter(aprovacao__exact = 1)
-   
-    
+    listServicosDelegados = ServicoDocente.objects.filter(turma__ano__exact = ano)
+        
+    #print listModulosDelegados
     '''
     Lista pela pesquisa efectuada
     '''    
@@ -1183,8 +1187,9 @@ def addServicoDocenteDepart(request, ano):
                     listToSend.append([servico.id, unidade, turma.turno, tipo_aula, servico.horas, id_turma])
            
             for lm in listModulosDelegados:
-               
-                listToSend.append([lm.servico_docente.id, lm.servico_docente.turma.unidade_curricular.nome, lm.servico_docente.turma.turno, lm.servico_docente.turma.tipo_aula.tipo, lm.servico_docente.horas, lm.servico_docente.turma.id])
+                if verify_List_Have_Value(lm.servico_docente.id, listRepetidos) == False:
+                    listRepetidos.append(lm.servico_docente.id)                
+                    listToSend.append([lm.servico_docente.id, lm.servico_docente.turma.unidade_curricular.nome, lm.servico_docente.turma.turno, lm.servico_docente.turma.tipo_aula.tipo, lm.servico_docente.horas, lm.servico_docente.turma.id])
                 
         else:
             finalkeyword = unicodedata.normalize('NFKD', keyword.lower()).encode('ASCII', 'ignore')
@@ -1235,7 +1240,9 @@ def addServicoDocenteDepart(request, ano):
         for lm in listModulosDelegados:
                 nomeUnidadeCurricular = unicodedata.normalize('NFKD', lm.servico_docente.turma.unidade_curricular.nome.lower()).encode('ASCII', 'ignore')
                 if nomeUnidadeCurricular.startswith(letter):
-                    listToSend.append([lm.servico_docente.id, lm.servico_docente.turma.unidade_curricular.nome, lm.servico_docente.turma.turno, lm.servico_docente.turma.tipo_aula.tipo, lm.servico_docente.horas, lm.servico_docente.turma.id])
+                    if verify_List_Have_Value(lm.servico_docente.id, listRepetidos) == False:                    
+                        listRepetidos.append(lm.servico_docente.id) 
+                        listToSend.append([lm.servico_docente.id, lm.servico_docente.turma.unidade_curricular.nome, lm.servico_docente.turma.turno, lm.servico_docente.turma.tipo_aula.tipo, lm.servico_docente.horas, lm.servico_docente.turma.id])
         sizeList = len(listToSend)
          
     elif "curso" in request.GET or request.GET.get("actualState") == "curso":
@@ -1262,7 +1269,9 @@ def addServicoDocenteDepart(request, ano):
         for lm in listModulosDelegados:
                 nomeCurso = unicodedata.normalize('NFKD', lm.servico_docente.turma.unidade_curricular.curso.nome.lower()).encode('ASCII', 'ignore')
                 if nomeCurso == cursos:
-                    listToSend.append([lm.servico_docente.id, lm.servico_docente.turma.unidade_curricular.nome, lm.servico_docente.turma.turno, lm.servico_docente.turma.tipo_aula.tipo, lm.servico_docente.horas, lm.servico_docente.turma.id])
+                    if verify_List_Have_Value(lm.servico_docente.id, listRepetidos) == False:
+                        listRepetidos.append(lm.servico_docente.id) 
+                        listToSend.append([lm.servico_docente.id, lm.servico_docente.turma.unidade_curricular.nome, lm.servico_docente.turma.turno, lm.servico_docente.turma.tipo_aula.tipo, lm.servico_docente.horas, lm.servico_docente.turma.id])
                 
         sizeList = len(listToSend)
         
@@ -1283,9 +1292,13 @@ def addServicoDocenteDepart(request, ano):
                 listToSend.append([id_servico, unidade, turma.turno, tipo_aula, servico.horas])
         
         for lm in listModulosDelegados:
-               
+            #sDocente = ServicoDocente.objects.get(id__exact = lm.servico_docente.id)
+            if verify_List_Have_Value(lm.servico_docente.id, listRepetidos) == False:
+                listRepetidos.append(lm.servico_docente.id) 
+                #listToSend.append([lm.id, lm.turma.unidade_curricular.nome, lm.turma.turno, lm.turma.tipo_aula.tipo, lm.horas, lm.turma.id])
                 listToSend.append([lm.servico_docente.id, lm.servico_docente.turma.unidade_curricular.nome, lm.servico_docente.turma.turno, lm.servico_docente.turma.tipo_aula.tipo, lm.servico_docente.horas, lm.servico_docente.turma.id])
-                
+       
+        print    listRepetidos  
         sizeList = len(listToSend)
     
     listToSend.sort()
@@ -1309,7 +1322,27 @@ def addServicoDocenteDepart(request, ano):
     #return AtribuirServicoDocenteFormPreview(AdicionarServicoDocenteForm)
     pass
 
-
+def verify_List_Have_Value(id_servico, listaValores):
+    
+    exist = True
+    
+    if(len(listaValores) != 0):
+        for i in listaValores:
+            
+            if(i == id_servico):
+               
+                exist = True
+            elif i != id_servico:
+               
+                exist = False
+    else:
+        
+        
+        exist = False
+        
+    return exist
+    
+    pass   
 #Metodo responsavel por tratar o pediodo AJAX do aparecimento
 #do Butão para adicionar o Serviço Docente.
 def showSaveButton(request, id_servico, id_Departamento, ano):
