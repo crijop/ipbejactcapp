@@ -104,14 +104,14 @@ thispagestyle{empty}
 \paragraph_spacing single
 
 \size large
-O relatório refere-se a proposta de estágio curricular titulado, "Realização
- de Sistema de Gestão de Distribuições de Serviço Docente – Parte I".
- Consistiu na elaboração de uma aplicação para facilitar a gestão e distribuição
+O relatório refere-se a proposta de estágio curricular, "Realização de Sistema
+ de Gestão de Distribuições de Serviço Docente – Parte I".
+ Consiste na elaboração de uma aplicação para facilitar a gestão e distribuição
  do serviço docente do Instituto Politécnico de Beja.
- Essa aplicação foi desenvolvida para a web com o auxílio de uma framework
- de alto nível de nome DJANGO.
- Nesta primeira parte foi abordado essencialmente a interface gráfica do
- sistema e a sua interação com os utilizadores do mesmo.
+ Essa aplicação foi desenvolvida para a web com uma framework de alto nível
+ de nome Django.
+ Nesta primeira parte foi abordado a interface gráfica do sistema e a sua
+ interação com os utilizadores.
 \end_layout
 
 \begin_layout Abstract

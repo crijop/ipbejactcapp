@@ -352,6 +352,60 @@ def createXLS_sheet1(wb):
     print "Finished ... "
     pass
 
+@login_required(redirect_field_name='login_redirectUsers')
+@cientificoUserTeste
+def listaDelegacoes(request):
+    
+    modulos_delegados = Modulos.objects.exclude(departamento_id__exact = 0).exclude(departamento_id__exact = None).exclude(aprovacao__exact = 1)
+    
+    listToSend = []
+    
+    for m in modulos_delegados:
+        listToSend.append([m.id, m.servico_docente.turma.unidade_curricular.departamento.nome,  m.servico_docente.turma.unidade_curricular.nome, m.horas, m.departamento.nome ])
+    
+            
+    print modulos_delegados
+    return render_to_response("cientifico/listagemModulosDelegados.html",
+        locals(),
+        context_instance=RequestContext(request),
+        )
+    pass
+
+@login_required(redirect_field_name='login_redirectUsers')
+@cientificoUserTeste
+def aprovarDelegacao(request, id_modulo):
+    
+    m = Modulos.objects.get(id__exact = id_modulo)
+    
+    m.aprovacao = 1
+    
+    m.save()
+    
+    return render_to_response("cientifico/sucess.html",
+        locals(),
+        context_instance=RequestContext(request),
+        )
+    pass
+    
+    
+@login_required(redirect_field_name='login_redirectUsers')
+@cientificoUserTeste
+def reprovarDelegacao(request, id_modulo):
+    
+    m = Modulos.objects.get(id__exact = id_modulo)
+    
+    m.departamento_id = 0
+    
+    m.save()
+    
+    
+    return render_to_response("cientifico/reprove.html",
+        locals(),
+        context_instance=RequestContext(request),
+        )
+    pass
+
+
 '''
 Fim das vistas do Ciêntifico
 '''
