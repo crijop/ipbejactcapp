@@ -114,7 +114,7 @@ function highlightModul(obj) {
 
 			newCell1 = nRows.cells[1];
 			newCell1.colSpan = "2";
-			newCell1.innerHTML = '<a onclick="addComboToDelegate(this.parentNode.parentNode);" href="#" >Delgar a outro departamento</a>';
+			newCell1.innerHTML = '<a onclick="addComboToDelegate(this.parentNode.parentNode);" href="#" >Delegar a outro departamento</a>';
 
 			newCell2 = nRows.cells[2];
 			newCell2.innerHTML = '<a onclick="addComboToDelegate(this.parentNode.parentNode);" href="#" ><img src="/static/images/icons/changeDep.png" /></a>';
