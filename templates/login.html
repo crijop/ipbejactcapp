@@ -4,14 +4,22 @@
 	{% load i18n %}
 	<head>
 		<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-		<link href="static/styles/loginStyle.css" rel="stylesheet" type="text/css" >
+		
+		<link href="static/styles/teste_loginStyle.css"   rel="stylesheet" type="text/css" >
+		<link href="static/styles/landscape_1366x768/main_login.css"  media="screen and (min-device-width: 1366px) and (min-device-height: 768px)" rel="stylesheet" type="text/css" >
 		<title>Sistema de distribuição de serviço docente - Login</title>
+		
 	</head>
 	<body>
-		<div id="window">
-			<div id="master">
-				<div id="titleDiv"><h1>Sistema de distribuição de serviço docente</h1></div>
-				<div id="imageDiv"><img id='logotipo' alt="imagem ipbeja" src="static/images/logo.png" title="logoIPBEJA"></div>
+		<div id="top_login">
+			<div id="imageDivTop">
+				
+				<img id='logotipo' alt="imagem ipbeja" src="static/images/logo.png" title="logoIPBEJA"></div>
+				<div id="login_title"><h1>Sistema de distribuição de serviço docente</h1></div>
+				</div>
+				
+		<div id="middle_login">
+			<div id="imageDiv"><img id='logotipo' alt="imagem ipbeja" src="static/images/logo.png" title="logoIPBEJA"></div>
 				<div id="auth_form_div">
 					<form method="post">
 						 <table class="form_table">
@@ -25,9 +33,24 @@
 					</form>
 				</div>
 			</div>
-			<div id="footer">
-		    	©2012 - Instituto Politécnico de Beja
-			</div>
 		</div>
+		<div id="bottom_login"><div id="footer">
+		    	©2012 - Instituto Politécnico de Beja
+			</div></div>
+		
+		
+		
 	</body>
+	<!--<script language="JavaScript"> 
+	
+			alert(window.innerHeight + "x" + window.innerWidth);
+			
+			var x = document.body;
+			
+			
+			x.style.background="blue";
+			x.style.minHeight=window.innerHeight;
+			x.style.minWidth=window.innerWidth;
+			
+			</script>-->
 </html>
