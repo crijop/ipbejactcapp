@@ -95,10 +95,19 @@ urlpatterns = patterns('',
     #Data: 14/05/2013
     #######################
     
+    #######################Definir Cursos#########################
     url(r'^distro/cientifico/cet$', 
         'ipbejactcapp.distro.view_cientifico.definirCursosCET', 
         name='def_Curso_CET'),
-                       
+                    
+    url(r'^distro/cientifico/lic$', 
+        'ipbejactcapp.distro.view_cientifico.definirCursosLic', 
+        name='def_Curso_Lic'),
+    
+    url(r'^distro/cientifico/mest$', 
+        'ipbejactcapp.distro.view_cientifico.definirCursosMest', 
+        name='def_Curso_Mest'),
+   ###############################################################                    
                        
     
     #####
