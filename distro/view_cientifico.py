@@ -411,10 +411,37 @@ Nova etapa do trabalho
 Data: 14/05/2013
 '''
 
+'''
+Método que vai criar a view da definição de cursos para os CET's
+'''
 @login_required(redirect_field_name='login_redirectUsers')
 @cientificoUserTeste
 def definirCursosCET(request):
     return render_to_response("cientifico/definir_Curso_CET.html",
+        locals(),
+        context_instance=RequestContext(request),
+        )
+    pass
+
+'''
+Método que vai criar a view da definição de cursos para as Licenciaturas
+'''
+@login_required(redirect_field_name='login_redirectUsers')
+@cientificoUserTeste
+def definirCursosLic(request):
+    return render_to_response("cientifico/definir_Curso_Lic.html",
+        locals(),
+        context_instance=RequestContext(request),
+        )
+    pass
+
+'''
+Método que vai criar a view da definição de cursos para os Mestrados
+'''
+@login_required(redirect_field_name='login_redirectUsers')
+@cientificoUserTeste
+def definirCursosMest(request):
+    return render_to_response("cientifico/definir_Curso_Mest.html",
         locals(),
         context_instance=RequestContext(request),
         )
