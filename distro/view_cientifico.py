@@ -407,6 +407,22 @@ def reprovarDelegacao(request, id_modulo):
 
 
 '''
+Nova etapa do trabalho
+Data: 14/05/2013
+'''
+
+@login_required(redirect_field_name='login_redirectUsers')
+@cientificoUserTeste
+def definirCursosCET(request):
+    return render_to_response("cientifico/definir_Curso_CET.html",
+        locals(),
+        context_instance=RequestContext(request),
+        )
+    pass
+
+
+
+'''
 Fim das vistas do Ciêntifico
 '''
 

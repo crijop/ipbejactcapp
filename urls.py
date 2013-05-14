@@ -89,6 +89,17 @@ urlpatterns = patterns('',
      url(r'^distro/cientifico/listaDelegados/reprovarDelegados/(?P<id_modulo>\d+)$', 
         'ipbejactcapp.distro.view_cientifico.reprovarDelegacao', 
         name='reprovarModulo'),
+                       
+    #######################
+    #Nova etapa do trabalho
+    #Data: 14/05/2013
+    #######################
+    
+    url(r'^distro/cientifico/cet$', 
+        'ipbejactcapp.distro.view_cientifico.definirCursosCET', 
+        name='def_Curso_CET'),
+                       
+                       
     
     #####
     #Fim dos Url's destinados aos templates do cientifico
