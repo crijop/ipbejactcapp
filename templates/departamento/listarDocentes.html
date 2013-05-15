@@ -4,7 +4,7 @@
 {% block breadcrumb %}
 <ul id="breadcrumb">
 	<li>
-		<a tabindex="2" href="{% url homeDepartamento %}" title="{% trans 'Home' %}"> <img src="/static/images/BreadCrumbs/home.gif" alt="{% trans 'Home' %}" class="home" /> </a>
+		<a tabindex="2" href="{% url homeDepartamento %}" title="{% trans 'Home' %}"> <img src="/static/images/BreadCrumbs/home.png" alt="{% trans 'Home' %}" class="home" /> </a>
 	</li>
 	<li>
 		Listar Docentes
@@ -40,11 +40,10 @@
 {% endblock %}
 
 {% block content %}
+<h2 class="listElementsTitle">Listar Docentes</h2>
 <table class="tabela_sumario">
-	<tr>
-		<th colspan="6" class="top_sumario" >Listar Docentes</th>
-	</tr>
-	<tr>
+	
+	<tr class="search" >
 		<th colspan="6" class="top_sumario"> {% csrf_token %}
 		<form action="" onkeypress="testeSearch()" method="get" name="searchForm">
 			<img src="/static/images/selector-search.gif" title="search" alt="searchIcon" />
@@ -56,7 +55,7 @@
 				<span>- {{sizeList}} resultados encontrados</span>
 		</form></th>
 	</tr>
-	<tr>
+	<tr class="cabecalho_sumario">
 		<th></th>
 		<th class="cabecalho_sumario">Docente</th>
 		<th class="cabecalho_sumario">Horas Distribuidas</th>
