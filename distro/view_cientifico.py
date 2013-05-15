@@ -1,10 +1,13 @@
 # -*- coding: utf-8 -*-
 
+from distro.Forms.formsVicP import AdicionarCursoForm
 from distro.models import Docente, Contrato, Docente, UnidadeCurricular, Turma, \
-    Modulos, TipoAula
+    Modulos, TipoAula, Curso
 from django.contrib.auth.decorators import login_required, user_passes_test, \
     login_required, user_passes_test
-from django.core.exceptions import ObjectDoesNotExist
+from django.contrib.formtools.preview import FormPreview
+from django.core.exceptions import ObjectDoesNotExist, ObjectDoesNotExist
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.shortcuts import render_to_response, render_to_response
 from django.template.context import RequestContext, RequestContext
 from mx.DateTime.DateTime import ctime, ctime
@@ -16,7 +19,6 @@ from xlwt.Style import XFStyle, easyxf
 from xlwt.Workbook import Workbook
 import time
 import xlwt
-
 
 
 '''
@@ -417,6 +419,37 @@ Método que vai criar a view da definição de cursos para os CET's
 @login_required(redirect_field_name='login_redirectUsers')
 @cientificoUserTeste
 def definirCursosCET(request):
+    id_CET = 4
+    
+    cursoCET = Curso.objects.filter(tipo_curso_id__exact = id_CET)
+    
+    
+    listaCursoCET = []
+    
+    if 'show' in request.GET or request.GET == {} or request.GET.get("actualState") == "show":
+        actualState = "actualState=show"
+    
+        for cC in cursoCET:
+            listaCursoCET.append([cC.id, cC.nome, cC.abreviatura, cC.semestre_letivos])
+            pass
+        pass
+    
+    paginator = Paginator(listaCursoCET, 10)
+    drange = range(1, paginator.num_pages + 1)
+
+
+    page = request.GET.get('page')
+    
+    try:
+        listInfo = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        listInfo = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        listInfo = paginator.page(paginator.num_pages)
+    
+    
     return render_to_response("cientifico/definir_Curso_CET.html",
         locals(),
         context_instance=RequestContext(request),
@@ -429,6 +462,34 @@ Método que vai criar a view da definição de cursos para as Licenciaturas
 @login_required(redirect_field_name='login_redirectUsers')
 @cientificoUserTeste
 def definirCursosLic(request):
+    id_Lic = 1
+    cursoLic = Curso.objects.filter(tipo_curso_id = id_Lic)
+    
+    listaCursoLic = []
+    
+    if 'show' in request.GET or request.GET == {} or request.GET.get("actualState") == "show":
+        actualState = "actualState=show"
+    
+        for cL in cursoLic:
+            listaCursoLic.append([cL.id, cL.nome, cL.abreviatura, cL.semestre_letivos])
+            pass
+        pass
+    
+    paginator = Paginator(listaCursoLic, 10)
+    drange = range(1, paginator.num_pages + 1)
+
+
+    page = request.GET.get('page')
+    
+    try:
+        listInfo = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        listInfo = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        listInfo = paginator.page(paginator.num_pages)
+    
     return render_to_response("cientifico/definir_Curso_Lic.html",
         locals(),
         context_instance=RequestContext(request),
@@ -441,6 +502,35 @@ Método que vai criar a view da definição de cursos para os Mestrados
 @login_required(redirect_field_name='login_redirectUsers')
 @cientificoUserTeste
 def definirCursosMest(request):
+    id_Mest = 2
+    cursoMest = Curso.objects.filter(tipo_curso_id = id_Mest)
+    
+    listaCursoMest = []
+    
+    if 'show' in request.GET or request.GET == {} or request.GET.get("actualState") == "show":
+        actualState = "actualState=show"
+    
+        for cM in cursoMest:
+            listaCursoMest.append([cM.id, cM.nome, cM.abreviatura, cM.semestre_letivos])
+            pass
+        pass
+    
+    paginator = Paginator(listaCursoMest, 10)
+    drange = range(1, paginator.num_pages + 1)
+
+
+    page = request.GET.get('page')
+    
+    try:
+        listInfo = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        listInfo = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        listInfo = paginator.page(paginator.num_pages)
+    
+    
     return render_to_response("cientifico/definir_Curso_Mest.html",
         locals(),
         context_instance=RequestContext(request),
@@ -448,7 +538,66 @@ def definirCursosMest(request):
     pass
 
 
+@login_required(redirect_field_name='login_redirectUsers')
+@cientificoUserTeste
+def addCursoFormClass(request, *args, **kwargs):
+    view = AddCursoModelFormPreview(AdicionarCursoForm)
+    return view(request, *args, **kwargs)
+    pass
 
+
+
+class AddCursoModelFormPreview(FormPreview):
+    preview_template = 'cientifico/pageConfirForm.html'
+    form_template = 'cientifico/addCurso.html'
+
+
+    def done(self, request, cleaned_data):
+        a = 0
+        
+        if request.method == 'POST':
+            form = AdicionarCursoForm(request.POST)
+            if form.is_valid():
+                '''
+                #passar a variavel nome_completo para o template
+                nome_completo= form.cleaned_data['nome_completo']
+                #verifica se o campo do regime de exclusividade é
+                #verdadeiro ou Falso
+                #regime exclusividade igual a verdadeiro
+                if form.cleaned_data['regime_exclusividade']:
+                    p = Docente(nome_completo = form.cleaned_data['nome_completo'],
+                                departamento = form.cleaned_data['departamento'],
+                                escalao = form.cleaned_data['escalao'],
+                                email = form.cleaned_data['email'],
+                                abreviatura = form.cleaned_data['abreviatura'],
+                                regime_exclusividade = form.cleaned_data['regime_exclusividade'])
+                    pass
+                    
+                #regime exclusividade igual a falso
+                else:
+                    regimeExclusividade = False
+                    p = Docente(nome_completo = form.cleaned_data['nome_completo'],
+                                departamento = form.cleaned_data['departamento'],
+                                escalao = form.cleaned_data['escalao'],
+                                email = form.cleaned_data['email'],
+                                abreviatura = form.cleaned_data['abreviatura'],
+                                regime_exclusividade = regimeExclusividade)
+                    pass
+                
+                
+                p.save()
+                '''
+                print "VALIDO"
+                #return HttpResponseRedirect('/thanks/') # Redirect after POST
+        else:
+            form = AdicionarCursoForm() # An unbound form
+        
+        return render_to_response("cientifico/sucesso.html",
+            locals(),
+            context_instance=RequestContext(request),
+            )
+        pass
+    pass
 '''
 Fim das vistas do Ciêntifico
 '''
