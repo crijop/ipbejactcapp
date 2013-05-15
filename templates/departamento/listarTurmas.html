@@ -4,7 +4,7 @@
 {% block breadcrumb %}
 <ul id="breadcrumb">
 	<li>
-		<a tabindex="2" href="{% url homeDepartamento %}" title="{% trans 'Home' %}"> <img src="/static/images/BreadCrumbs/home.gif" alt="{% trans 'Home' %}" class="home" /> </a>
+		<a tabindex="2" href="{% url homeDepartamento %}" title="{% trans 'Home' %}"> <img src="/static/images/BreadCrumbs/home.png" alt="{% trans 'Home' %}" class="home" /> </a>
 	</li>
 	<li>
 		Listar Turmas Departamento {{departamento}}
@@ -14,37 +14,33 @@
 {% block Filtros %}
 <ul>
 
-	<li class='title'>
-		<span>Filtros</span>
-	</li>
 	<li class="has-sub" >
 		<a  id="oa_button" tabindex="4" href='#oa'><span>Por Ordem Alfabética</span></a>
 
 	</li>
 	<div id="oa">
 
-	
-
 	</div>
 	<li class="has-sub">
 		<a id="curso_button" tabindex="4" href='#course'><span>Por Curso</span><span id="ajaxLoader" class="hideAjaxLoader"></span></a>
+		
+			<div id="curso">
+
+			</div>
+		
 	</li>
-	<div id="curso">
 
-	
-
-	</div>
 </ul>
 
 {% endblock %}
 
-
 {% block content %}
+<tr>
+
+	<h2 class="listElementsTitle">Listar Turmas de {{departamento}}</h2>
 	<table class="tabela_sumario">
-		<tr>
-			<th colspan="7" class="top_sumario" >Listar Turmas {{departamento}}</th>
-		</tr>
-		<tr>
+
+		<tr class="search">
 			<th colspan="7" class="top_sumario"> {% csrf_token %}
 			<form action="" onkeypress="testeSearch()" method="get" name="searchForm">
 				<img src="/static/images/selector-search.gif" title="search" alt="searchIcon" />
@@ -56,11 +52,11 @@
 				<span>- {{sizeList}} resultados encontrados</span>
 			</form></th>
 		</tr>
-		<tr>
-	    	<th colspan="6" align="left">{{anoReferente}}</th>
-	    </tr>
-		<tr>
-			
+		<tr class="special_cabecalho">
+			<th colspan="6" align="left">{{anoReferente}}</th>
+		</tr>
+		<tr class="cabecalho_sumario">
+
 			<th class="cabecalho_sumario">Unidade Curricular</th>
 			<th class="cabecalho_sumario">Curso</th>
 			<th class="cabecalho_sumario">Número de Horas</th>
@@ -78,29 +74,29 @@
 			<td>{{turno}}</td>
 		</tr>
 		{% endfor %}
-		
+
 		{%if sizeList == 0 %}
-		
+
 		<tr>
 			<td colspan="6">Não existem resultados para esta pesquisa</td>
 		</tr>
-		
+
 		{% endif %}
-		
+
 	</table>
-	
+
 	<div id="paginator">
-		
+
 		<span class="current"> Página {{ turmas.number }} de {{ turmas.paginator.num_pages }}. </span>
 		<br>
 		<span class="step-links"><a href="?show=all">Todos</a></span>
 		<span class="step-links"> {% for page_num in drange %} <a id="{{ page_num}}" href="?page={{ page_num}}&{{actualState}}">{{ page_num}}</a> {% endfor%} </span>
 	</div>
 	<br>
-	<script type="text/javascript">document.getElementById("searchField").focus();
+	<script type="text/javascript">
+		document.getElementById("searchField").focus();
 		filter_oa();
 		filter_curso();
 	</script>
-{% endblock %}
-
+	{% endblock %}
 

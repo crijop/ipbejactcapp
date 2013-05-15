@@ -1,0 +1,1306 @@
+div#top {
+
+	float: left;
+	position:relative;
+	width: 100%;
+	height: 20%;
+	background: black;
+	text-align: center;
+	/*background-image: url("/static/images/logoAA.png");
+	background-size: 100% 100%;
+	background-repeat: no-repeat;*/
+	
+	border-bottom: 10px solid DimGray;
+	
+	
+
+	
+}
+
+
+
+img#logotipoTop
+{
+	float: left;
+	position:relative;
+	height: 100%;
+	
+}
+
+
+
+div#sys_title
+{
+	padding: 0 0 0 5%;
+	color:white;
+	float: left;
+	font-family: "Segoe UI Light", "Open Sans", "Verdana", "Arial", "Helvetica", sans-serif;
+	font-size: smaller;
+	font-weight: 100;
+	letter-spacing: 0em;
+	line-height: 60pt;
+	
+	
+}
+
+
+
+
+
+div#logoutInfo {
+	position: relative;
+	float: right;
+	width: 75%;
+	height: 30%;
+	text-align: right;
+	margin: 0px 0px 0px 0px;
+	color: white;
+	font-family: Arial;
+	bottom: 10%;
+}
+
+div#logoutInfo a {
+	color: yellow;
+	padding: 0px 20px 0px 0px;
+	text-decoration: none;
+}
+
+/**TERMINOU TOPO*/
+/*************************/
+div#leftBar {
+	position: relative;
+	float: left;
+	width: 20%;
+	height: 80%;
+	background: lightGray;
+}
+
+div#rightBar {
+	position: relative;
+	float: left;
+	width: 60%;
+	
+}
+
+div#filtersBar {
+	background: lightGray;
+	position: relative;
+	float: left;
+	width: 20%;
+	height: 80%;
+}
+
+div#bradCrumb {
+	height: 30px;
+	display: cell;
+	vertical-align: middle;
+}
+
+div#content {
+ 
+
+}
+
+
+
+/*div#footer {
+	background: white;
+	border-top: 1px solid #EFEFEF;
+	clear: left;
+	color: gray;
+	font-size: small;
+	font-weight: 700;
+	margin-top: 5px;
+	padding: 7px;
+	text-align: center;
+}*/
+
+div#bottom_login
+{
+	
+	position: relative;
+	border-top: 10px solid DodgerBlue;
+	float:left;
+	text-align: center;
+	background: black;
+	width: 100%;
+	height: 10%;
+	color: white;
+	/*top: 20%;*/
+}
+
+/*Docentes*/
+/*Pagna inicial*/
+/*
+ */
+
+table.tabela_sumario
+{
+	border-collapse: separate;
+	
+	margin: 0px 0px 20px;
+	width: 100%;
+	
+	
+	
+}
+
+table.tabela_sumario a
+{
+	display: block;
+	text-decoration: none;
+	font-weight: 500;
+	color: OrangeRed;
+}
+
+
+
+table.tabela_sumario tr th,
+table.tabela_sumario tr td {
+  display: table-cell;
+  vertical-align: middle;
+  padding-bottom: 5px;
+  padding-top: 10px;
+  padding-left: 5px;
+  border-bottom: 1px darkGray solid;
+  border-right: 1px darkGray solid;
+  border-left: 1px transparent solid;
+  border-top: 1px transparent solid;
+  font-family: 'Segoe UI', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 11pt;
+  letter-spacing: 0.01em;
+  line-height: 13pt;
+  font-smooth: always;
+  color: black;
+  text-align: center;
+  
+}
+
+table.tabela_sumario tr.special_cabecalho *
+{
+	text-align: left;
+}
+
+table.tabela_sumario tr th.right,
+table.tabela_sumario tr td.right {
+  text-align: right;
+  padding-right: 10px;
+}
+table.tabela_sumario  tr th.last,
+table.tabela_sumario  tr td.last {
+  border-right: 1px transparent solid;
+}
+table.tabela_sumario  tr th:last-child,
+table.tabela_sumario  tr td:last-child {
+  border-right: 1px transparent solid;
+}
+
+table.tabela_sumario tr.cabecalho_sumario *
+{
+	background-color: DodgerBlue;
+	color: white;
+}	
+
+
+table.tabela_sumario tr:hover td
+{
+	
+	color: white;
+	background-color:orange; 
+}
+
+table.tabela_sumario tr:hover a
+{
+	
+	color: white;
+	background-color:orange; 
+}
+
+
+table.tabela_sumario tr.search th
+{
+	text-align: left;
+	background-color:lightGary; 
+}
+
+table.tabela_sumario tr.search input[type="search"]
+{
+	background-color: #FFFFFF;
+	border: 1px solid #BABABA;
+	/*margin-right: 32px;*/
+	/*min-height: 32px;*/
+	outline: 0px none currentColor;
+	padding: 4px 6px 6px 5px;
+	position: relative;
+	/*width: 100%;*/
+}
+
+table.tabela_sumario tr.search input[type="search"]:focus
+{
+	border-bottom-color: #000000;
+	border-left-color: #000000;
+	border-right-color: #000000;
+	border-top-color: #000000;
+}
+
+
+/*FIM CSS TABELAS*/
+/******************/
+
+.view::before {
+	content: url("/static/images/icons/eye.png");
+}
+
+.view ul
+{
+	visibility: hidden;
+	display: none;
+	margin-top: -40px;
+	margin-left: 15px;
+	position: absolute;
+	color: #008000;
+	
+	
+	
+	
+	
+}
+
+.tabela_sumario .view:hover ul
+{
+		
+		visibility: visible;
+		display: block;
+		position: absolute;
+		
+		list-style: none;
+		margin:0;
+		padding: 0;
+		vertical-align: top;
+		line-height: 1;
+		
+		margin-top: -40px;
+		margin-left: 45px;
+		
+		
+
+	
+
+}
+
+.view:hover ul li a
+{
+				/* Layout */
+	display: block;
+	position: relative;
+	margin: 0;
+	border-top: 1px dotted #3a3a3a;
+	border-bottom: 1px dotted #1b1b1b;
+	padding: 15px 32px;
+	/*width: 100%;
+	 */
+	/* Typography */
+	font-family: Helvetica, Arial, sans-serif;
+	color: #d8d8d8;
+	text-decoration: none;
+	text-transform: uppercase;
+	text-shadow: 0 1px 1px #000;
+	font-size: 13px;
+	font-weight: 300;
+	/* Background & effects */
+	/*background: #282828;*/
+	background: #000000;
+	
+}
+
+.view:hover ul li a:hover
+{
+color: #ffffff;
+	text-shadow: 0 1px 0 rgba(0, 0, 0, .3);
+	background: #72FF00;
+	background: -webkit-linear-gradient(bottom, rgb(245,150,7), rgb(234, 126, 14));
+	background: -ms-linear-gradient(bottom, rgb(245,150,7), rgb(234, 126, 14));
+	background: -moz-linear-gradient(bottom, rgb(245,150,7), rgb(234, 126, 14));
+	background: -o-linear-gradient(bottom, rgb(245,150,7), rgb(234, 126, 14));
+	background: -o-linear-gradient(bottom, rgb(245,150,7), rgb(234, 126, 14));
+	border-color: transparent;
+}
+
+
+
+span.edit::before {
+	content: url("/static/images/icons/pencil.png");
+}
+
+span.exit_small::before {
+	content: url("/static/images/icons/SMALL/exit.png");
+}
+
+
+
+.tabela_sumario a.tableLink {
+	color: rgb(63, 72, 204);
+	/*text-decoration: none;*/
+}
+
+.tabela_sumario a.tableLink:hover {
+	color: rgb(0, 162, 232);
+}
+
+.tabela_sumario a.tableLink:active {
+	color: rgb(157, 225, 252);
+}
+
+.tabela_sumario .teacher_name_field {
+	width: 300px;
+}
+
+/****Paginação*****/
+#paginator {
+	margin-top: 5px;
+	width: 100%;
+	height: auto;
+	font-family: Arial;
+}
+#paginator a {
+
+	margin-top: 2px;
+	background-color: #000000;
+	/*border:1px solid #000000;*/
+	display: inline-block;
+	color: #ffffff;
+	font-family: arial;
+	font-size: 15px;
+	font-weight: bold;
+	padding: 3px 3px 3px 3px;
+	text-decoration: none;
+	text-align: center;
+}
+
+#paginator a:hover {
+	background-color: rgb(234, 126, 14);
+}
+#paginator a:active {
+	color: black;
+	background-color: rgb(251,210,149);
+	position: relative;
+	top: 1px;
+}
+
+/*
+ #paginator a:visited
+ {
+ color:black;
+ background-color:rgb(251,210,149);
+ display:inline-block;
+ font-family:arial;
+ font-size:15px;
+ font-weight:bold;
+ padding:3px 3px 3px 3px;
+ text-decoration:none;
+ text-align:center;
+ }
+
+ #paginator a:hover:visited
+ {
+ background-color:rgb(234, 126, 14);
+ color: white;
+ }*/
+
+/*
+ * Search Field
+ */
+#submitSearch {
+
+	/*background-color: #D8D8D8;
+	border: 1px solid #D8D8D8;
+	display: inline-block;
+	color: #000000;
+	font-family: arial;
+	font-size: 15px;
+	font-weight: bold;
+	padding: 3px 3px 3px 3px;
+	text-decoration: none;
+	text-align: center;*/
+	
+	background-color: DodgerBlue ;
+	color: #FFFFFF;
+	
+	/*background-color: #CCCCCC;*/
+	border: 1px solid transparent;
+	border-radius: 0px;
+	/*color: #353535;*/
+	cursor: pointer;
+	display: inline-block;
+	font-family: "Segoe UI", "Open Sans", "Verdana", "Arial", "Helvetica", sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	height: 32px;
+	line-height: 20px;
+	
+	margin-right: 10px;
+	min-height: 32px;
+	min-width: 90px;
+	padding: 4px 12px;
+	text-align: center;
+	vertical-align: middle !important;
+	width: auto;
+}
+
+#submitSearch:hover {
+	background-color: rgb(234, 126, 14);
+	color: #FFFFFF;
+	border: 1px solid rgb(234, 126, 14);
+}
+
+#submitSearch:active {
+	color: black;
+	background-color: rgb(251,210,149);
+	position: relative;
+	top: 1px;
+}
+/*
+ * Menus
+ */
+
+/* MENU DIREITO*/
+#menuLeft > ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	vertical-align: baseline;
+	line-height: 1;
+}
+
+/* The container */
+#menuLeft > ul {
+	display: block;
+	position: relative;
+	width: 100%;
+}
+
+/* The list elements which contain the links */
+#menuLeft > ul li {
+	display: block;
+	position: relative;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+
+/* General link styling */
+#menuLeft > ul li a {
+	/* Layout */
+	display: block;
+	position: relative;
+	margin: 0;
+	/*border-top: 1px dotted #3a3a3a;
+	border-bottom: 1px dotted #1b1b1b;*/
+	padding: 15px 32px;
+	/*width: 100%;
+	 */
+	/* Typography */
+	font-family: "Segoe UI Light", "Open Sans", "Verdana", "Arial", "Helvetica", sans-serif;
+	color: black;
+	text-decoration: none;
+	text-transform: uppercase;
+	/*text-shadow: 0 1px 1px #000;*/
+	font-size: 13px;
+	font-weight: 300;
+	/* Background & effects */
+	/*background: #282828;*/
+	background: lightGray;
+}
+
+
+/* The hover state of the menu/submenu links */
+#menuLeft > ul li > a:hover, #menuLeft > ul li:hover > a {
+	
+	color: #ffffff;
+	/*text-shadow: 0 1px 0 rgba(0, 0, 0, .3);*/
+	background: darkOrange;
+	/*background: -webkit-linear-gradient(bottom, rgb(245,150,7), rgb(234, 126, 14));
+	background: -ms-linear-gradient(bottom, rgb(245,150,7), rgb(234, 126, 14));
+	background: -moz-linear-gradient(bottom, rgb(245,150,7), rgb(234, 126, 14));
+	background: -o-linear-gradient(bottom, rgb(245,150,7), rgb(234, 126, 14));
+	background: -o-linear-gradient(bottom, rgb(245,150,7), rgb(234, 126, 14));*/
+	border-color: transparent;
+	z-index:999;
+}
+
+
+/* The arrow indicating a submenu */
+#menuLeft > ul .has-sub > a::after {
+	content: '';
+	position: absolute;
+	top: 16px;
+	left: 10px;
+	width: 0px;
+	height: 0px;
+	transform: rotate(90deg);
+	-o-transform: rotate(90deg);
+	/* Creating the arrow using borders */
+	border: 4px solid transparent;
+	border-left: 4px solid black;
+	z-index:999;
+	
+}
+
+
+/* The same arrow, but with a darker color, to create the shadow effect */
+#menuLeft > ul .has-sub > a::before {
+	content: '';
+	position: absolute;
+	top: 17px;
+	left: 10px;
+	width: 0px;
+	height: 0px;
+	transform: rotate(90deg);
+	-o-transform: rotate(90deg);
+	/* Creating the arrow using borders */
+	border: 4px solid transparent;
+	border-left: 4px solid #000000;
+	z-index:999;
+}
+
+#menuLeft > ul .has-sub_lateral > a::after{
+	content: '';
+	position: absolute;
+	top: 16px;
+	right: 10px;
+	width: 0px;
+	height: 0px;
+	transform: rotate(0deg);
+	-o-transform: rotate(0deg);
+	/* Creating the arrow using borders */
+	border: 4px solid transparent;
+	border-left: 4px solid black;
+	z-index:999;
+}
+
+
+
+/* Changing the color of the arrow on hover */
+#menuLeft > ul li > a:hover::after, #menuLeft > ul li:hover > a::after {
+	border-left: 4px solid #FFFFFF;
+}
+
+#menuLeft > ul li > a:hover::before, #menuLeft > ul li:hover > a::before {
+	border-left: 4px solid rgba(0, 0, 0, .3);
+}
+
+/* THE SUBMENUS */
+#menuLeft > ul ul {
+	position: absolute;
+	left: 98%;
+	top: -9999px;
+	padding-left: 5px;
+	opacity: 0;
+	/* The fade effect, created using an opacity transition */
+	-webkit-transition: opacity .3s ease-in;
+	-moz-transition: opacity .3s ease-in;
+	-o-transition: opacity .3s ease-in;
+	-ms-transition: opacity .3s ease-in;
+	width: 100%;
+	z-index:999;
+}
+
+
+
+
+/* Showing the submenu when the user is hovering the parent link */
+#menuLeft > ul li:hover > ul {
+	top: 0px;
+	opacity: 1;
+}
+
+/*************************************/
+/*FIM MENU DIREITO*/
+
+/*************************************/
+/*********MENU ESQUERDO *************/
+
+#menuRight > ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	vertical-align: baseline;
+	line-height: 1;
+}
+
+/* The container */
+#menuRight > ul {
+	display: block;
+	position: relative;
+	width: 100%;
+}
+
+/* The list elements which contain the links */
+#menuRight > ul li {
+	display: block;
+	position: relative;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+
+/* General link styling */
+#menuRight > ul li a {
+	/* Layout */
+	display: block;
+	position: relative;
+	margin: 0;
+	/*border-top: 1px dotted #3a3a3a;
+	border-bottom: 1px dotted #1b1b1b;*/
+	padding: 15px 32px;
+	/*width: 100%;
+	 */
+	/* Typography */
+	font-family: "Segoe UI Light", "Open Sans", "Verdana", "Arial", "Helvetica", sans-serif;
+	color: black;
+	text-decoration: none;
+	text-transform: uppercase;
+	/*text-shadow: 0 1px 1px #000;*/
+	font-size: 13px;
+	font-weight: 300;
+	/* Background & effects */
+	/*background: #282828;*/
+	background: lightGray;
+}
+
+
+/* The hover state of the menu/submenu links */
+#menuRight > ul li > a:hover, #menuRight > ul li:hover > a {
+	
+	color: #ffffff;
+	/*text-shadow: 0 1px 0 rgba(0, 0, 0, .3);*/
+	background: darkOrange;
+	/*background: -webkit-linear-gradient(bottom, rgb(245,150,7), rgb(234, 126, 14));
+	background: -ms-linear-gradient(bottom, rgb(245,150,7), rgb(234, 126, 14));
+	background: -moz-linear-gradient(bottom, rgb(245,150,7), rgb(234, 126, 14));
+	background: -o-linear-gradient(bottom, rgb(245,150,7), rgb(234, 126, 14));
+	background: -o-linear-gradient(bottom, rgb(245,150,7), rgb(234, 126, 14));*/
+	border-color: transparent;
+	z-index:999;
+}
+
+
+/* The arrow indicating a submenu */
+#menuRight > ul .has-sub > a::after {
+	content: '';
+	position: absolute;
+	top: 16px;
+	left: 10px;
+	width: 0px;
+	height: 0px;
+	transform: rotate(90deg);
+	-o-transform: rotate(90deg);
+	/* Creating the arrow using borders */
+	border: 4px solid transparent;
+	border-left: 4px solid black;
+	z-index:999;
+	
+}
+
+
+/* The same arrow, but with a darker color, to create the shadow effect */
+#menuRight > ul .has-sub > a::before {
+	content: '';
+	position: absolute;
+	top: 17px;
+	left: 10px;
+	width: 0px;
+	height: 0px;
+	transform: rotate(90deg);
+	-o-transform: rotate(90deg);
+	/* Creating the arrow using borders */
+	border: 4px solid transparent;
+	border-left: 4px solid #000000;
+	z-index:999;
+}
+
+/* Changing the color of the arrow on hover */
+#menuRight > ul li > a:hover::after, #menuRight > ul li:hover > a::after {
+	border-left: 4px solid #FFFFFF;
+}
+
+#menuRight > ul li > a:hover::before, #menuRight > ul li:hover > a::before {
+	border-left: 4px solid rgba(0, 0, 0, .3);
+}
+
+/* THE SUBMENUS */
+#menuRight > ul li div#curso {
+	position: absolute;
+	right: 100%;
+	top: -9999px;
+	padding-left: 5px;
+	opacity: 0;
+	/* The fade effect, created using an opacity transition */
+	-webkit-transition: opacity .3s ease-in;
+	-moz-transition: opacity .3s ease-in;
+	-o-transition: opacity .3s ease-in;
+	-ms-transition: opacity .3s ease-in;
+	width: 300%;
+	z-index:999;
+	
+}
+
+/* Showing the submenu when the user is hovering the parent link */
+#menuRight > ul li:hover > div#curso {
+	top: 0px;
+	opacity: 1;
+	background: DodgerBlue;
+}
+
+#menuRight > ul li> div#curso a{
+	
+	width: 49%;
+	padding: 1% 0 1% 0;
+	display: inline-table;
+	background: DodgerBlue;
+}
+
+#menuRight > ul li> div#curso a:hover{
+	
+	
+	background: DarkOrange;
+}
+
+
+/***************************************/
+/***************************************/
+#cssmenu .title {
+
+	width: 100%;
+	text-align: center;
+	border-top: 1px dotted #3a3a3a;
+	border-bottom: 1px dotted #1b1b1b;
+	padding: 15px 0px 15px 0px;
+	/*width: 100%;
+	 */
+	/* Typography */
+	font-family: Helvetica, Arial, sans-serif;
+	color: #d8d8d8;
+	text-decoration: none;
+	text-transform: uppercase;
+	text-shadow: 0 1px 1px #000000;
+	font-size: 14pt;
+	font-weight: bolder;
+	/* Background & effects */
+	/*background: #282828;*/
+	background: rgb(234, 126, 14);
+}
+
+#oa {
+	display: none;
+	background: DodgerBlue;
+	width: 100%;
+	padding: 10px 0px 10px 0px;
+}
+
+#oa > a {
+	background-color: DodgerBlue;
+	/*border:1px solid #000000;*/
+	display: inline-block;
+	color: #ffffff;
+	font-family: arial;
+	font-size: 15px;
+	font-weight: bold;
+	padding: 3px 3px 3px 3px;
+	text-decoration: none;
+	text-align: center;
+}
+
+#oa > a:hover {
+	background-color: rgb(234, 126, 14);
+}
+#oa > a:active {
+	color: black;
+	background-color: rgb(251,210,149);
+	position: relative;
+	top: 1px;
+}
+
+/**Departamento Filtro**/
+
+#dep {
+	display: none;
+	background-color: #666666;
+	width: 100%;
+	padding: 10px 0px 10px 0px;
+}
+
+#dep > a {
+	background-color: #000000;
+	/*border:1px solid #000000;*/
+	display: inline-block;
+	color: #ffffff;
+	font-family: arial;
+	font-size: 15px;
+	font-weight: bold;
+	padding: 3px 3px 3px 3px;
+	text-decoration: none;
+	text-align: center;
+}
+
+#dep > a:hover {
+	background-color: rgb(234, 126, 14);
+}
+#dep > a:active {
+	color: black;
+	background-color: rgb(251,210,149);
+	position: relative;
+	top: 1px;
+}
+
+
+
+/**filtro categoria **/
+
+#category {
+	display: none;
+	background-color: DodgerBlue;
+	width: 100%;
+	padding: 10px 0px 10px 0px;
+}
+
+#category > a {
+	background-color: #000000;
+	/*border:1px solid #000000;*/
+	display: inline-block;
+	color: #ffffff;
+	font-family: arial;
+	font-size: 15px;
+	font-weight: bold;
+	padding: 3px 3px 3px 3px;
+	text-decoration: none;
+	text-align: center;
+}
+
+#category > a:hover {
+	background-color: rgb(234, 126, 14);
+}
+#category > a:active {
+	color: black;
+	background-color: rgb(251,210,149);
+	position: relative;
+	top: 1px;
+}
+
+/*********************Contratos*****************/
+/*Por data*/
+#date {
+	display: none;
+
+	background-color: rgb(255, 145, 70);
+	width: 100%;
+	padding: 10px 0px 10px 0px;
+}
+#cssmenu > ul li > .date {
+	background-color: rgb(255, 145, 70);
+	padding: 10px 0px 10px 0px;
+	font-weight: 600;
+	color: black;
+	text-shadow: 0 0px 0px #000;
+}
+
+/**data inicio*/
+	
+#start_date
+{
+	width: 100%;
+	display: none;
+	text-align: center;
+	background-color: #666666;
+	
+	padding: 10px 0px 10px 0px;
+	color: white;
+	font-family: Arial;
+	font-weight: 600;
+	font-size: 15pt;
+
+}
+
+#start_date table
+{
+	
+	text-align: center;
+	width: 100%;
+}
+
+/**filtro por data de fim*/
+
+#end_date
+{
+	width: 100%;
+	display: none;
+	text-align: center;
+	background-color: #666666;
+	
+	padding: 10px 0px 10px 0px;
+	color: white;
+	font-family: Arial;
+	font-weight: 600;
+	font-size: 15pt;
+
+}
+
+
+#end_date table
+{
+	
+	text-align: center;
+	width: 100%;
+}
+.testar div
+{
+	padding: 5px 0px 5px 0px;
+}
+
+#number_increment
+{
+	width: 25%;
+	
+	height: 20px;
+	
+	
+}
+/**Caixa de armazenamento da data */
+
+.fieldData
+{
+	width: 70%;
+	border-style: solid;
+	border-color: rgb(234, 126, 14);
+}
+
+/**Estilo dos botões filtrar*/
+	
+.submitDate
+{
+	width: 70%;
+	text-align: left;
+	background-color: #000000;
+	border: 0px solid #000000;
+	display: inline-block;
+	color: #ffffff;
+	font-family: arial;
+	font-size: 15px;
+	font-weight: bold;
+	padding: 5px 5px 5px 5px;
+	text-decoration: none;
+	text-align: center;
+}
+
+.submitDate:hover 
+{
+	background-color: rgb(234, 126, 14);
+}
+
+.submitDate:active {
+	color: black;
+	background-color: rgb(251,210,149);
+	position: relative;
+	top: 1px;
+}
+
+#calendar_startDate
+{
+	width: 100%;
+	background-color: #666666;
+	border-bottom-style: inherit;
+	color: #FFFFFF;
+	font-weight: 600;
+	font-size: 15pt;
+	height: 30px;
+	
+
+}
+
+
+
+/*
+ * Fim Menus
+ */
+
+/*
+ * BreadCrumbs
+ */
+
+#breadcrumb {
+	font: 11px Arial, Helvetica, sans-serif;
+	/*background-image: url('../images/BreadCrumbs/bc_bg.gif');
+	background-repeat: repeat-x;*/
+	height: 30px;
+	line-height: 30px;
+	color: white;
+	/*border-top: solid 1px #cacaca;*/
+	border-bottom: solid 1px #cacaca;
+	border-right: solid 1px #cacaca;
+	width: 100%;
+	overflow: hidden;
+	margin: 0px;
+	padding: 0px;
+	
+	background: DodgerBlue;
+}
+
+#breadcrumb li {
+	list-style-type: none;
+	padding-left: 7px;
+	display: inline-block;
+	float: left;
+}
+
+#breadcrumb a {
+	display: inline-block;
+	background-image: url('../images/BreadCrumbs/bc_separator.png');
+	background-repeat: no-repeat;
+	background-position: right;
+	padding-right: 15px;
+	
+	text-decoration: none;
+	color: #333333;
+	outline: none;
+}
+
+.home {
+	border: none;
+	margin: 7px 7px;
+}
+
+#breadcrumb a:hover {
+	color: #35acc5;
+}
+
+/*
+ * FIM BreadCrumbs
+ */
+
+/*
+ * Butoes
+ */
+
+#submit-row {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	width: 100%;
+	font-family: Arial;
+	float: left;
+	text-align: right;
+}
+#submit-row a {
+
+	background-color: #000000;
+	/*border:0px solid #000000;*/
+	display: inline-block;
+	color: #ffffff;
+	font-family: arial;
+	font-size: 15px;
+	font-weight: bold;
+	padding: 3px 3px 3px 3px;
+	text-decoration: none;
+	text-align: center;
+}
+
+#submit-row input {
+	text-align: left;
+	background-color: #000000;
+	border: 0px solid #000000;
+	display: inline-block;
+	color: #ffffff;
+	font-family: arial;
+	font-size: 15px;
+	font-weight: bold;
+	padding: 3px 3px 3px 3px;
+	text-decoration: none;
+	text-align: center;
+}
+
+#submit-row a:hover {
+	background-color: rgb(234, 126, 14);
+}
+
+#submit-row a:active {
+	color: black;
+	background-color: rgb(251,210,149);
+	position: relative;
+	top: 1px;
+}
+
+/*
+ * Formulário de adicionar docentes e editar
+ */
+
+#contentForm {
+	/*background: rgb(234, 126, 14);
+	*/padding: 10px 15px 20px 20px;
+}
+
+#sucesso{
+	background: rgb(234, 126, 14);
+	padding: 10px 15px 20px 20px;
+	height: 145px;
+	font-size: 20px;
+    font-family: Arial;
+    font-weight: 600;
+	padding: 10px 15px;
+    color: #fff;
+	text-shadow: 1px 1px 1px #444;
+}
+
+#Confirmacao{
+	font-size: 20px;
+    font-family: Arial;
+    font-weight: 700;
+	padding: 10px 15px;
+    color: green;
+    
+
+}
+
+#buttonConfirm
+{
+	float: right;
+	text-align: right;
+	width: 100%;
+	margin-bottom: 5px;
+}
+
+#buttonConfirm input{
+	text-align: left;
+	background-color: #000000;
+	border:0px solid #000000;
+	display: inline-block;
+	color: #ffffff;
+	font-family: arial;
+	font-size: 15px;
+	font-weight: bold;
+	padding: 3px 3px 3px 3px;
+	text-decoration: none;
+	text-align: center;
+}
+
+#CamposObirgatorio {
+	font-size: 16px;
+	font-family: Arial;
+	font-weight: 600;
+	padding: 10px 15px;
+	color: red;
+	
+}
+
+.row1 {
+	color: #fff;
+	background: rgb(234, 126, 14);
+	font-size: 16px;
+	font-family: Arial;
+	font-weight: 600;
+	padding: 10px 15px;
+	text-shadow: 1px 1px 1px #444;
+}
+
+.row2 {
+	color: #fff;
+	background: rgb(255, 145, 70);
+	font-size: 16px;
+	font-family: Arial;
+	font-weight: 600;
+	padding: 10px 15px;
+	text-shadow: 1px 1px 1px #444;
+}
+
+/***Edição de docente */
+.editionLog
+{
+	
+	padding: 10px 15px;
+	background: rgb(234, 126, 14);
+	font-family: Arial;
+	color: #0000FF;
+}
+
+#formtools_nome_completo
+{
+	width: 80%;
+}
+
+#id_nome_completo
+{
+	width: 80%;
+}
+
+.errorField
+{
+	color: #FF0000;
+	text-shadow: None;
+}
+
+/*
+ * Departamento
+ *  */
+
+#unidadeCurricularTurma
+{
+	width: 80%;
+}
+
+h2.statisticsTitle
+{
+margin: 2% 0 2% 5%;	
+background-image: url("/static/images/icons/bars.png");	
+background-repeat: no-repeat;
+padding: 0 0 0 34px;
+color: #000000;
+font-family: "Segoe UI Light", "Open Sans", "Verdana", "Arial", "Helvetica", sans-serif;
+font-size: 20pt;
+font-weight: 300;
+letter-spacing: 0.01em;
+line-height: 22pt;
+
+}
+
+h2.listElementsTitle
+{
+margin: 2% 0 2% 5%;	
+background-image: url("/static/images/icons/list.png");	
+background-repeat: no-repeat;
+padding: 0 0px 0 38px;
+color: #000000;
+font-family: "Segoe UI Light", "Open Sans", "Verdana", "Arial", "Helvetica", sans-serif;
+font-size: 20pt;
+font-weight: 300;
+letter-spacing: 0.01em;
+line-height: 22pt;
+
+}
+
+/*Imagem por cima do menu esquerdo*/
+img#optionsImg
+{
+	/*C D B E*/
+	margin: 10% 0 10% 10%;
+	width: 25%;
+	
+}
+
+/*Imagem por cima do menu direito*/
+img#filterImg
+{
+	/*C D B E*/
+	margin: 10% 0 10% 10%;
+	width: 25%;
+	
+}
+
+/*Imagem por cima do menu central*/
+img#statisticsImg
+{
+	float: left;
+	/*C D B E*/
+	margin: 10% 0 10% 10%;
+	
+	
+}
+

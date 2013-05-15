@@ -330,7 +330,7 @@ function filter_curso() {
 
 				
 				wipeTarget_7.style.display = "block";
-
+				
 				out_7 = 0;
 
 				notify("start", function() {
