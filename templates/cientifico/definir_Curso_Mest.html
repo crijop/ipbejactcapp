@@ -13,34 +13,29 @@
 {% endblock %}
 
 {% block content %}
-<h1>Mestrados!</h1>
 
-<!--
 <table class="tabela_sumario">
 	<tr>
 		<th colspan="6" class="top_sumario" >Lista de Modulos Delegados</th>
 	</tr>
 <tr>
-		<th class="cabecalho_sumario">Departamento Origem</th>
-		<th class="cabecalho_sumario">Serviço Docente Origem</th>
-		<th class="cabecalho_sumario">Horas a lecionar</th>
-		<th class="cabecalho_sumario">Departamento a Delegar</th>
-		<th colspan="2" class="cabecalho_sumario">Aprovar</th>
+		<th class="cabecalho_sumario">Nome Curso</th>
+		<th class="cabecalho_sumario">Abreviatura</th>
+		<th class="cabecalho_sumario">Número de Semestres</th>
 	</tr>
-	{% for id_modulo, departamento_origem, Servico_origem, horas, departamento_fim  in listToSend %}
+	{% for id, nome, abreviatura, semestreLetivo  in listInfo %}
 	<tr>
-		
-		<td class="teacher_name_field">{{departamento_origem}}</td>
-		
-		<td>{{Servico_origem}}</td>
-		<td>{{horas}}</td>
-		<td>{{departamento_fim}}</td>
-		<td><a href='{%url aprovarModulo id_modulo%}'>Sim</a></td>
-		<td><a href='{%url reprovarModulo id_modulo%}'>Não</a></td>
-		
-	
+		<td class="teacher_name_field">{{nome}}</td>
+		<td>{{abreviatura}}</td>
+		<td>{{semestreLetivo}}</td>
 	</tr>
 	{% endfor %}
 </table>
--->
+
+<div id="paginator">
+	<span class="current"> Página {{ listInfo.number }} de {{ listInfo.paginator.num_pages }}. </span>
+	<br>
+	<span class="step-links"><a href="?show=all">Todos</a></span>
+	<span class="step-links"> {% for page_num in drange %} <a id="{{ page_num}}" href="?page={{ page_num}}&{{actualState}}">{{ page_num}}</a> {% endfor%} </span>
+</div>
 {% endblock %}

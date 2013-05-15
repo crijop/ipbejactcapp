@@ -107,8 +107,13 @@ urlpatterns = patterns('',
     url(r'^distro/cientifico/mest$', 
         'ipbejactcapp.distro.view_cientifico.definirCursosMest', 
         name='def_Curso_Mest'),
-   ###############################################################                    
-                       
+   ###############################################################
+   
+   #######################Adicionar Cursos########################
+   url(r'^distro/cientifico/addDocente/$',
+        'ipbejactcapp.distro.view_cientifico.addCursoFormClass',
+        name='adicionarCursos'),                    
+   ###############################################################
     
     #####
     #Fim dos Url's destinados aos templates do cientifico
