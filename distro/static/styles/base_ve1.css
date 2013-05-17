@@ -71,7 +71,7 @@ div#leftBar {
 	position: relative;
 	float: left;
 	width: 20%;
-	height: 80%;
+	
 	background: lightGray;
 }
 
@@ -79,6 +79,8 @@ div#rightBar {
 	position: relative;
 	float: left;
 	width: 60%;
+	min-height: 80%;
+ 	background: white;
 	
 }
 
@@ -87,7 +89,7 @@ div#filtersBar {
 	position: relative;
 	float: left;
 	width: 20%;
-	height: 80%;
+	
 }
 
 div#bradCrumb {
@@ -149,8 +151,8 @@ table.tabela_sumario a
 {
 	display: block;
 	text-decoration: none;
-	font-weight: 500;
-	color: OrangeRed;
+	font-weight: 600;
+	color: MediumBlue;
 }
 
 
@@ -159,7 +161,7 @@ table.tabela_sumario tr th,
 table.tabela_sumario tr td {
   display: table-cell;
   vertical-align: middle;
-  padding-bottom: 5px;
+  padding-bottom: 10px;
   padding-top: 10px;
   padding-left: 5px;
   border-bottom: 1px darkGray solid;
@@ -217,6 +219,13 @@ table.tabela_sumario tr:hover a
 	background-color:orange; 
 }
 
+/**SEM RESULTADOS*/
+table.tabela_sumario tr.noResults td
+{
+	font-size: 14pt;
+	color: white;
+	background: red;
+}
 
 table.tabela_sumario tr.search th
 {
@@ -345,12 +354,10 @@ span.exit_small::before {
 }
 
 .tabela_sumario a.tableLink:hover {
-	color: rgb(0, 162, 232);
+	color: white;
 }
 
-.tabela_sumario a.tableLink:active {
-	color: rgb(157, 225, 252);
-}
+
 
 .tabela_sumario .teacher_name_field {
 	width: 300px;
@@ -464,7 +471,7 @@ span.exit_small::before {
  * Menus
  */
 
-/* MENU DIREITO*/
+/* MENU ESQUERDO*/
 #menuLeft > ul {
 	list-style: none;
 	margin: 0;
@@ -616,10 +623,10 @@ span.exit_small::before {
 }
 
 /*************************************/
-/*FIM MENU DIREITO*/
+/*FIM MENU ESQUERDO*/
 
 /*************************************/
-/*********MENU ESQUERDO *************/
+/*********MENU DIREITO *************/
 
 #menuRight > ul {
 	list-style: none;
@@ -751,6 +758,7 @@ span.exit_small::before {
 	top: 0px;
 	opacity: 1;
 	background: DodgerBlue;
+	
 }
 
 #menuRight > ul li> div#curso a{
@@ -759,11 +767,12 @@ span.exit_small::before {
 	padding: 1% 0 1% 0;
 	display: inline-table;
 	background: DodgerBlue;
+	border-right: 1px solid lightBlue;
 }
 
 #menuRight > ul li> div#curso a:hover{
 	
-	
+	color: white;
 	background: DarkOrange;
 }
 
@@ -858,35 +867,41 @@ span.exit_small::before {
 
 /**filtro categoria **/
 
-#category {
+#menuRight div#category {
 	display: none;
 	background-color: DodgerBlue;
 	width: 100%;
 	padding: 10px 0px 10px 0px;
 }
 
-#category > a {
-	background-color: #000000;
+
+
+#menuRight div#category  a {
+	background: DodgerBlue;
 	/*border:1px solid #000000;*/
-	display: inline-block;
-	color: #ffffff;
+	/*display: inline-block;*/
+	/*color: #ffffff;
 	font-family: arial;
 	font-size: 15px;
 	font-weight: bold;
 	padding: 3px 3px 3px 3px;
 	text-decoration: none;
-	text-align: center;
+	text-align: center;*/
 }
 
-#category > a:hover {
-	background-color: rgb(234, 126, 14);
+#menuRight div#category  a:hover {
+	background: DarkOrange;
+	/*border:1px solid #000000;*/
+	/*display: inline-block;*/
+	/*color: #ffffff;
+	font-family: arial;
+	font-size: 15px;
+	font-weight: bold;
+	padding: 3px 3px 3px 3px;
+	text-decoration: none;
+	text-align: center;*/
 }
-#category > a:active {
-	color: black;
-	background-color: rgb(251,210,149);
-	position: relative;
-	top: 1px;
-}
+
 
 /*********************Contratos*****************/
 /*Por data*/

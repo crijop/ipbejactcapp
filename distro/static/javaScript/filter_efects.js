@@ -325,7 +325,7 @@ function filter_curso() {
 		var ajaxLoader = dom.byId("ajaxLoader");
 		//esconder a div
 
-		on(wipeInButton_7, "click", function(evt) {
+		//on(wipeInButton_7, "click", function(evt) {
 			if (out_7 == 1) {
 
 				
@@ -354,7 +354,7 @@ function filter_curso() {
 					node : wipeTarget_7
 				}).play();
 
-			} else {
+			} /*else {
 
 				wipeTarget_7.innerHTML = "";
 
@@ -365,7 +365,7 @@ function filter_curso() {
 
 				wipeTarget_7.style.display = "block";
 			}
-		});
+		});*/
 
 	});
 }
