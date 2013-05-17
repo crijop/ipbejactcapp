@@ -2,18 +2,20 @@
 {% load i18n %}
 {% block title %} Página de adicionar Curso {% endblock %}
 
-<!--
+
 {% block breadcrumb %}
 <ul id="breadcrumb">
 	<li>
-		<a tabindex="2" href="{% url homeRecursosHumanos %}" title="{% trans 'Home' %}"> <img src="/static/images/BreadCrumbs/home.gif" alt="{% trans 'Home' %}" class="home" /> </a>
+		<a tabindex="2" href="{% url HomeCientifico %}" title="{% trans 'Home' %}"> <img src="/static/images/BreadCrumbs/home.gif" alt="{% trans 'Home' %}" class="home" /> </a>
 	</li>
 	<li>
-		Adicionar Docente
+		<a href="{% url def_Curso_CET %}" title="Definir curso -CET's">Definir curso - CET's</a>
+	</li>
+	<li>
+		Adicionar Curso - CET's
 	</li>
 </ul>
 {% endblock %}
--->
 
 {% block content %}
 
@@ -43,7 +45,7 @@
 	   	<span id = "Confirmacao"></span>
 		<div id="buttonConfirm">
 			<input type="hidden" name="{{ stage_field }}" value="1" />
-			<input type="submit" value="Adicionar Docente" />
+			<input type="submit" value="Adicionar Curso" />
 			<script>changeCountValue();</script>
 		</div>
 		</form>

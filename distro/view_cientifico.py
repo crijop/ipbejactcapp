@@ -558,41 +558,24 @@ class AddCursoModelFormPreview(FormPreview):
         if request.method == 'POST':
             form = AdicionarCursoForm(request.POST)
             if form.is_valid():
-                '''
                 #passar a variavel nome_completo para o template
-                nome_completo= form.cleaned_data['nome_completo']
+                '''nome_completo= form.cleaned_data['nome_completo']'''
                 #verifica se o campo do regime de exclusividade é
                 #verdadeiro ou Falso
                 #regime exclusividade igual a verdadeiro
-                if form.cleaned_data['regime_exclusividade']:
-                    p = Docente(nome_completo = form.cleaned_data['nome_completo'],
-                                departamento = form.cleaned_data['departamento'],
-                                escalao = form.cleaned_data['escalao'],
-                                email = form.cleaned_data['email'],
-                                abreviatura = form.cleaned_data['abreviatura'],
-                                regime_exclusividade = form.cleaned_data['regime_exclusividade'])
-                    pass
-                    
-                #regime exclusividade igual a falso
-                else:
-                    regimeExclusividade = False
-                    p = Docente(nome_completo = form.cleaned_data['nome_completo'],
-                                departamento = form.cleaned_data['departamento'],
-                                escalao = form.cleaned_data['escalao'],
-                                email = form.cleaned_data['email'],
-                                abreviatura = form.cleaned_data['abreviatura'],
-                                regime_exclusividade = regimeExclusividade)
-                    pass
+                nome_curso = form.changed_data['nome']
+                curso = Curso(nome = form.cleaned_data['nome'],
+                            abreviatura = form.cleaned_data['abreviatura'],
+                            tipo_curso = form.cleaned_data['tipo_curso'],
+                            semestre_letivos = form.cleaned_data['semestre_letivos'])
                 
-                
-                p.save()
-                '''
-                print "VALIDO"
+                curso.save()
+                pass
                 #return HttpResponseRedirect('/thanks/') # Redirect after POST
         else:
             form = AdicionarCursoForm() # An unbound form
         
-        return render_to_response("cientifico/sucesso.html",
+        return render_to_response("cientifico/sucessoAddCurso.html",
             locals(),
             context_instance=RequestContext(request),
             )
