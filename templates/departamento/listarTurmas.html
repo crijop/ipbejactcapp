@@ -12,17 +12,18 @@
 </ul>
 {% endblock %}
 {% block Filtros %}
+<img id="filterImg" src="/static/images/filtro.png">
 <ul>
 
 	<li class="has-sub" >
-		<a  id="oa_button" tabindex="4" href='#oa'><span>Por Ordem Alfabética</span></a>
+		<a  id="oa_button" tabindex="4" href='#top'><span>Por Ordem Alfabética</span></a>
 
 	</li>
 	<div id="oa">
 
 	</div>
 	<li class="has-sub">
-		<a id="curso_button" tabindex="4" href='#course'><span>Por Curso</span><span id="ajaxLoader" class="hideAjaxLoader"></span></a>
+		<a id="curso_button"   tabindex="4" href='#course'><span>Por Curso</span><span id="ajaxLoader" class="hideAjaxLoader"></span></a>
 		
 			<div id="curso">
 
@@ -35,9 +36,9 @@
 {% endblock %}
 
 {% block content %}
-<tr>
 
-	<h2 class="listElementsTitle">Listar Turmas de {{departamento}}</h2>
+
+	
 	<table class="tabela_sumario">
 
 		<tr class="search">

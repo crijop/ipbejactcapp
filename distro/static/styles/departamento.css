@@ -151,8 +151,8 @@ table.selectModulo:hover th {
 
 .showAjaxLoader
 {
-	display: block;
-	content: url("/static/images/icons/ajax-loader.gif");
+	display: inline-block;
+	content: url("/static/images/preloader-w8-line-black.gif");
 	
 }
 table.teachersTable tr.select td {
