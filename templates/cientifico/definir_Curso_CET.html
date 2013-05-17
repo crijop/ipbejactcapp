@@ -7,7 +7,7 @@
 		<a tabindex="2" href="{% url HomeCientifico %}" title="{% trans 'Home' %}"> <img src="/static/images/BreadCrumbs/home.gif" alt="{% trans 'Home' %}" class="home" /> </a>
 	</li>
 	<li>
-		Definir Cursos dos CET's
+		Definir Cursos - CET's
 	</li>
 </ul>
 {% endblock %}
@@ -28,7 +28,7 @@
 		<td class="teacher_name_field">{{nome}}</td>
 		<td>{{abreviatura}}</td>
 		<td>{{semestreLetivo}}</td>
-		<td><a tabindex="4" href='{%url adicionarCursos%}'><span>Adicionar Curso</span></a></td>
+		<td><a tabindex="4" href='{%url addCursosCET%}'><span>Adicionar Curso</span></a></td>
 		
 	</tr>
 	{% endfor %}

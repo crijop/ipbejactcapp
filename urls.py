@@ -110,9 +110,11 @@ urlpatterns = patterns('',
    ###############################################################
    
    #######################Adicionar Cursos########################
-   url(r'^distro/cientifico/addDocente/$',
+   url(r'^distro/cientifico/addCurso/$',
         'ipbejactcapp.distro.view_cientifico.addCursoFormClass',
-        name='adicionarCursos'),                    
+        name='addCursosCET'),
+                
+                   
    ###############################################################
     
     #####

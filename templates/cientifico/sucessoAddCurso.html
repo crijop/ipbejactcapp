@@ -1,0 +1,19 @@
+{% extends "cientifico/index.html" %}
+{% load i18n %}
+{% block title %} Página de Confirmação de adicionar docente {% endblock %}
+
+{% block breadcrumb %}
+
+{% endblock %}
+
+
+{% block content %}
+	<table class="tabela_sumario">
+	    <tr>
+	    	<th colspan="2" class="top_sumario">Estado</th>
+	    </tr>
+    </table>
+    <div id="sucesso">
+		<span>O Curso {{nome_curso}} foi adicionado com Sucesso</span>
+    </div>
+{% endblock %}
