@@ -2,12 +2,13 @@
 
 from distro.Forms.formsVicP import AdicionarCursoForm
 from distro.models import Docente, Contrato, Docente, UnidadeCurricular, Turma, \
-    Modulos, TipoAula, Curso
+    Modulos, TipoAula, Curso, TipoCurso
 from django.contrib.auth.decorators import login_required, user_passes_test, \
     login_required, user_passes_test
 from django.contrib.formtools.preview import FormPreview
 from django.core.exceptions import ObjectDoesNotExist, ObjectDoesNotExist
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
+from django.http import Http404
 from django.shortcuts import render_to_response, render_to_response
 from django.template.context import RequestContext, RequestContext
 from mx.DateTime.DateTime import ctime, ctime
@@ -550,13 +551,40 @@ def addCursoFormClass(request, *args, **kwargs):
 class AddCursoModelFormPreview(FormPreview):
     preview_template = 'cientifico/pageConfirForm.html'
     form_template = 'cientifico/addCurso.html'
-
-
+    id_CET = 0
+    
+    def get_context(self, request, form):
+        "Context for template rendering."
+        print "get"
+        
+        return {
+                'form': form,
+                'stage_field': self.unused_name('stage'),
+                'id_CET': self.state['id_CET']
+                }
+    
+    def preview_get(self, request):
+        "Displays the form"
+        
+        form = AdicionarCursoForm(tipoCurso=self.state['id_CET'])
+    
+        return render_to_response(self.form_template,
+            locals(),
+            context_instance=RequestContext(request))
+    
+    def parse_params(self, *args, **kwargs):
+        """Handle captured args/kwargs from the URLconf"""
+        # get the selected HI test
+        try:
+            self.state['id_CET'] = kwargs['id_CET']
+        except Docente.DoesNotExist:
+            raise Http404("Invalid")
+    
+    
     def done(self, request, cleaned_data):
         a = 0
-        
         if request.method == 'POST':
-            form = AdicionarCursoForm(request.POST)
+            form = AdicionarCursoForm(request.POST, tipoCurso=self.state['id_CET'])
             if form.is_valid():
                 #passar a variavel nome_completo para o template
                 '''nome_completo= form.cleaned_data['nome_completo']'''
@@ -573,7 +601,7 @@ class AddCursoModelFormPreview(FormPreview):
                 pass
                 #return HttpResponseRedirect('/thanks/') # Redirect after POST
         else:
-            form = AdicionarCursoForm() # An unbound form
+            form = AdicionarCursoForm(tipoCurso=self.state['id_CET']) # An unbound form
         
         return render_to_response("cientifico/sucessoAddCurso.html",
             locals(),
