@@ -4,7 +4,7 @@
 {% block breadcrumb %}
 <ul id="breadcrumb">
 	<li>
-		<a tabindex="2" href="{% url homeDepartamento %}" title="{% trans 'Home' %}"> <img src="/static/images/BreadCrumbs/home.gif" alt="{% trans 'Home' %}" class="home" /> </a>
+		<a tabindex="2" href="{% url homeDepartamento %}" title="{% trans 'Home' %}"> <img src="/static/images/BreadCrumbs/home.png" alt="{% trans 'Home' %}" class="home" /> </a>
 	</li>
 	<li>
 		<a tabindex="3" href="{% url listDocentesDep %}" title="Listar Docentes">Listar Docentes</a>
@@ -16,10 +16,10 @@
 {% endblock %}
 
 {% block content %}
+
+<h2 class="infoTitle">Informação do Docente: {{docente_name}}</h2>
 <table class="tabela_sumario">
-	<tr>
-		<th colspan="5" class="top_sumario">Informação do Docente: {{docente_name}}</th>
-	</tr>
+	
 	<tr>
 		<th class="cabecalho_sumario">Curso</th>
 		<th colspan="3" class="cabecalho_sumario">Turma</th>

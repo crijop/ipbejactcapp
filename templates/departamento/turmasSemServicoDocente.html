@@ -4,7 +4,7 @@
 {% block breadcrumb %}
 <ul id="breadcrumb">
 	<li>
-		<a tabindex="2" href="{% url homeDepartamento %}" title="{% trans 'Home' %}"> <img src="/static/images/BreadCrumbs/home.gif" alt="{% trans 'Home' %}" class="home" /> </a>
+		<a tabindex="2" href="{% url homeDepartamento %}" title="{% trans 'Home' %}"> <img src="/static/images/BreadCrumbs/home.png" alt="{% trans 'Home' %}" class="home" /> </a>
 	</li>
 	<li>
 		Turmas sem serviço docente
@@ -12,11 +12,8 @@
 </ul>
 {% endblock %}
 {% block Filtros %}
+<img id="filterImg" src="/static/images/filtro.png">
 <ul>
-
-	<li class='title'>
-		<span>Filtros</span>
-	</li>
 	<li class="has-sub" >
 		<a  id="oa_button" tabindex="4" href='#oa'><span>Por Ordem Alfabética</span></a>
 
@@ -28,25 +25,25 @@
 	</div>
 	<li class="has-sub">
 		<a id="curso_button" tabindex="4" href='#curso'><span>Por Curso</span><span id="ajaxLoader" class="hideAjaxLoader"></span></a>
-	</li>
+	
 	<div id="curso">
 
 	
 
 	</div>
+	</li>
 </ul>
 
 {% endblock %}
 
 {% block content %}
+<h2 class="listElementsTitle">Turmas sem Docentes Atribuidos</h2>
 	<table class="tabela_sumario">
-		<tr>
-			<th colspan="7" class="top_sumario" >Turmas sem Serviço Docente</th>
-		</tr>
-		<tr>
+		
+		<tr class="search">
 			<th colspan="7" class="top_sumario"> {% csrf_token %}
 			<form action="" onkeypress="testeSearch()" method="get" name="searchForm">
-				<img src="/static/images/selector-search.gif" title="search" alt="searchIcon" />
+				<img src="/static/images/search.png" title="search" alt="searchIcon" />
 				<input name="searchField"  id="searchField" required type="search" value="{{keyword}}" />
 				<input id="submitSearch" value={%trans 'Search'%} name="Submit" type="submit" />
 				{% if keyword != None%}
@@ -55,10 +52,10 @@
 					<span>- {{sizeList}} resultados encontrados</span>
 			</form></th>
 		</tr>
-		<tr>
+		<tr class="special_cabecalho">
 	    	<th colspan="7" align="left">{{ano}}</th>
 	    </tr>
-		<tr>
+		<tr class="cabecalho_sumario">
 			<th></th>
 			<th colspan="3" class="cabecalho_sumario">Turma</th>
 			<th class="cabecalho_sumario">Horas</th>

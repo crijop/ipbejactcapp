@@ -46,7 +46,7 @@
 	<tr class="search">
 		<th colspan="5" class="top_sumario"> {% csrf_token %}
 		<form action="" onkeypress="testeSearch()" method="get" name="searchForm">
-			<img src="/static/images/selector-search.gif" title="search" alt="searchIcon" />
+			<img src="/static/images/search.png" title="search" alt="searchIcon" />
 			<input name="searchField"  id="searchField" required type="search" value="{{keyword}}" />
 			<input id="submitSearch" value={%trans 'Search'%} name="Submit" type="submit" />
 			{% if keyword != None%}

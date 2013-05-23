@@ -1,13 +1,21 @@
 .teachersDiv {
+	position: relative;
 	width: 45%;
 	float: left;
-	overflow: scroll;
+	
+	overflow-y: scroll;
+	
 	height: 300px;
 
-
-	
 }
 
+.topTeachersDiv {
+	position: relative;
+	width: 45%;
+	/*float: left;*/
+	
+
+}
 .idHide {
 	display: none;
 	/*visibility: hidden;*/

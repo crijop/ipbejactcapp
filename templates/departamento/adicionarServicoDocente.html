@@ -5,7 +5,7 @@
 {% block breadcrumb %}
 <ul id="breadcrumb">
 	<li>
-		<a tabindex="2" href="{% url homeDepartamento %}" title="{% trans 'Home' %}"> <img src="/static/images/BreadCrumbs/home.gif" alt="{% trans 'Home' %}" class="home" /> </a>
+		<a tabindex="2" href="{% url homeDepartamento %}" title="{% trans 'Home' %}"> <img src="/static/images/BreadCrumbs/home.png" alt="{% trans 'Home' %}" class="home" /> </a>
 	</li>
 	<li>
 		Adicionar Serviço Docente
@@ -15,135 +15,39 @@
 
 {% block content %}
 
-<table class="tabela_sumario">
-	<tr>
-		<th colspan="2" class="top_sumario">Adicionar Serviço Docente</th>
-	</tr>
-</table>
+<h2 class="addTitle">Adicionar docentes a {{nomeTurma}}</h2>
+
 
 <div id="contentForm">
 	<form method="post">
 		{% csrf_token %}
 
-		<div class="teachersDiv">
+		<div class="topTeachersDiv">
 
 			<table class="tabela_sumario teachersTable">
-				<tr>
-					<th class="idHide" ></th>
-					<th>Docente</th>
-					<th>Horas</th>
+				<tr class="cabecalho_sumario">
+					<th class="id10 idHide"></th>
+					<th class="name70">Docente</th>
+					<th class="horas20">Horas</th>
 				</tr>
-
+				</table>
+			</div>
+			<div class="teachersDiv">
+				<table class="tabela_sumario teachersTable">
 				{%for docente in listaDocentes %}
 				<tr class="docenteRow" onclick="highlight(this);">
-					<td class="idHide">{{docente.id}}</td>
-					<td >{{docente.nome_completo}}</td>
-					<td>{{docente.horas}}</td>
+					<td class="id10 idHide">{{docente.id}}</td>
+					<td class="name70">{{docente.nome_completo}}</td>
+					<td class="horas20">{{docente.horas}}</td>
 				</tr>
 				{%endfor %}
 
 			</table>
 
 		</div>
-		<div class="servicoControls">
-			<a id="addDocenteDepButton" href="#" onclick="addDocente_to_modul();"></a>
-
-		</div>
-		<div class="modulsDiv">
-			{% for id, horas, docente_id, servico_id, nome, horasDocente, departament in lModulos %}
-			<table class="tabela_sumario modulsTable {% if departament != None and departament.id != id_departamento %}haveDelegate{% endif %}" onclick="highlightModul(this);">
-				<tr >
-					<th  colspan="3">Modulo de {{horas}} horas</th>
-
-				</tr>
-
-				<tr>
-
-					<th class="docenteRow" >Docente</th>
-					<th>Horas</th>
-
-					<th>
-					<input type="hidden" value="{{id}}" name="moduloID[]" />
-					</th>
-
-				</tr>
-				{%if docentesID != None and nome != "" %}
-				<tr>
-
-					<td class="idHide">
-					<input type='text' name='docenteID[]' value="{{docente_id}}" />
-					</td>
-					<td>{{nome}}</td>
-					<td>{{horasDocente}}</td>
-					<td><a href='#' onclick='deleteRowTable(this.parentNode.parentNode.parentNode);'><span class='delButton'></span></a></td>
-				</tr>
-				{%else%}
-
-				{% if docente_id != None %}
-
-				<tr>
-
-					<td class="idHide">
-					<input type='text' name='docenteID[]' value="{{docente_id}}" />
-					</td>
-					<td>{{nome}}</td>
-					<td>{{horasDocente}}</td>
-					<td><a href='#' onclick='deleteRowTable(this.parentNode.parentNode.parentNode);'><span class='delButton'></span></a></td>
-
-				</tr>
-				{%else%}
-
-				<tr>
-
-					<td class="idHide">
-					<input type='text' name='docenteID[]' value="" />
-					</td>
-					<td></td>
-					<td></td>
-					<td></td>
-
-				</tr>
-
-				{%endif%}
-				{%endif%}
-				
-				{% if departament == None%}
-				<tr class="hideDelegate">
-
-					<td class="idHide" >
-					<input type='hidden"' name='delegateDep[]' value="0" />
-					</td>
-					
-					<td colspan="2"></td>
-					<td></td>
-					
-					
-
-				</tr>
-				
-				{% else %}
-				
-					<tr class="showDelegate blockDelegate">
-
-					<td class="idHide" >
-					<input type='hidden"' name='delegateDep[]' value="{{departament.id}}" />
-					</td>
-					
-					<td colspan="3">{{departament.nome}}</td>
-					
-					
-
-				</tr>
-				
-				{% endif%}
-				
-				
-				
-
-			</table>
-
+		
 			<hr />
-			{% endfor %}
+			
 			<span class="errorField">{{erro}}</span>
 			<br>
 			<br>

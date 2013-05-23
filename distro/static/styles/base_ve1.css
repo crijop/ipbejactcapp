@@ -140,7 +140,7 @@ table.tabela_sumario
 {
 	border-collapse: separate;
 	
-	margin: 0px 0px 20px;
+	/*margin: 0px 0px 20px;*/
 	width: 100%;
 	
 	
@@ -200,9 +200,11 @@ table.tabela_sumario  tr td:last-child {
 
 table.tabela_sumario tr.cabecalho_sumario *
 {
+	
 	background-color: DodgerBlue;
 	color: white;
 }	
+
 
 
 table.tabela_sumario tr:hover td
@@ -253,7 +255,27 @@ table.tabela_sumario tr.search input[type="search"]:focus
 	border-top-color: #000000;
 }
 
+/**ESPECIAL ADIÇÃO DE DOCENTE*/
+table.tabela_sumario td.id10, 
+table.tabela_sumario th.id10
+{
+	
+	width: 10%;
+}
 
+table.tabela_sumario td.name70, 
+table.tabela_sumario th.name70
+{
+	
+	width: 70%;
+}
+
+table.tabela_sumario td.horas20, 
+table.tabela_sumario th.horas20
+{
+	
+	width: 20%;
+}
 /*FIM CSS TABELAS*/
 /******************/
 
@@ -435,8 +457,8 @@ span.exit_small::before {
 	color: #FFFFFF;
 	
 	/*background-color: #CCCCCC;*/
-	border: 1px solid transparent;
-	border-radius: 0px;
+	border: DodgerBlue;
+	
 	/*color: #353535;*/
 	cursor: pointer;
 	display: inline-block;
@@ -1266,7 +1288,7 @@ h2.statisticsTitle
 margin: 2% 0 2% 5%;	
 background-image: url("/static/images/icons/bars.png");	
 background-repeat: no-repeat;
-padding: 0 0 0 34px;
+padding: 0 0 1% 34px;
 color: #000000;
 font-family: "Segoe UI Light", "Open Sans", "Verdana", "Arial", "Helvetica", sans-serif;
 font-size: 20pt;
@@ -1281,7 +1303,37 @@ h2.listElementsTitle
 margin: 2% 0 2% 5%;	
 background-image: url("/static/images/icons/list.png");	
 background-repeat: no-repeat;
-padding: 0 0px 0 38px;
+padding: 0 0px 1% 38px;
+color: #000000;
+font-family: "Segoe UI Light", "Open Sans", "Verdana", "Arial", "Helvetica", sans-serif;
+font-size: 20pt;
+font-weight: 300;
+letter-spacing: 0.01em;
+line-height: 22pt;
+
+}
+
+h2.infoTitle
+{
+margin: 2% 0 2% 5%;	
+background-image: url("/static/images/icons/info.png");	
+background-repeat: no-repeat;
+padding: 0px 0px 1% 38px;
+color: #000000;
+font-family: "Segoe UI Light", "Open Sans", "Verdana", "Arial", "Helvetica", sans-serif;
+font-size: 20pt;
+font-weight: 300;
+letter-spacing: 0.01em;
+line-height: 22pt;
+
+}
+
+h2.addTitle
+{
+margin: 2% 0 2% 5%;	
+background-image: url("/static/images/icons/plus.png");	
+background-repeat: no-repeat;
+padding: 0px 0px 1% 38px;
 color: #000000;
 font-family: "Segoe UI Light", "Open Sans", "Verdana", "Arial", "Helvetica", sans-serif;
 font-size: 20pt;
