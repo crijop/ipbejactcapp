@@ -538,6 +538,350 @@ def definirCursosMest(request):
         )
     pass
 
+'''
+Método que vai criar a view da definição de cursos para as Pós-Graduações
+'''
+@login_required(redirect_field_name='login_redirectUsers')
+@cientificoUserTeste
+def definirCursosPG(request):
+    id_PG = 3
+    cursoMest = Curso.objects.filter(tipo_curso_id = id_PG)
+    
+    listaCursoPG = []
+    
+    if 'show' in request.GET or request.GET == {} or request.GET.get("actualState") == "show":
+        actualState = "actualState=show"
+    
+        for cM in cursoMest:
+            listaCursoPG.append([cM.id, cM.nome, cM.abreviatura, cM.semestre_letivos])
+            pass
+        pass
+    
+    paginator = Paginator(listaCursoPG, 10)
+    drange = range(1, paginator.num_pages + 1)
+
+
+    page = request.GET.get('page')
+    
+    try:
+        listInfo = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        listInfo = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        listInfo = paginator.page(paginator.num_pages)
+    
+    
+    return render_to_response("cientifico/definir_Curso_PG.html",
+        locals(),
+        context_instance=RequestContext(request),
+        )
+    pass
+
+
+'''
+Método que vai criar a view da definição de cursos para os Portugues de Lingua Estrangeira
+'''
+@login_required(redirect_field_name='login_redirectUsers')
+@cientificoUserTeste
+def definirCursosPortLE(request):
+    id_PortLE = 5
+    cursoMest = Curso.objects.filter(tipo_curso_id = id_PortLE)
+    
+    listaCursoPortLE = []
+    
+    if 'show' in request.GET or request.GET == {} or request.GET.get("actualState") == "show":
+        actualState = "actualState=show"
+    
+        for cM in cursoMest:
+            listaCursoPortLE.append([cM.id, cM.nome, cM.abreviatura, cM.semestre_letivos])
+            pass
+        pass
+    
+    paginator = Paginator(listaCursoPortLE, 10)
+    drange = range(1, paginator.num_pages + 1)
+
+
+    page = request.GET.get('page')
+    
+    try:
+        listInfo = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        listInfo = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        listInfo = paginator.page(paginator.num_pages)
+    
+    
+    return render_to_response("cientifico/definir_Curso_PortLE.html",
+        locals(),
+        context_instance=RequestContext(request),
+        )
+    pass
+
+###########################################################################################
+################################Listar Cursos##############################################
+###########################################################################################
+'''
+Método que vai criar a view da Listagem de cursos para os CET's
+'''
+@login_required(redirect_field_name='login_redirectUsers')
+@cientificoUserTeste
+def listarCursosCET(request):
+    id_CET = 4
+    cursoCET = Curso.objects.filter(tipo_curso_id__exact = id_CET)
+    
+    
+    listaCursoCET = []
+    
+    if 'show' in request.GET or request.GET == {} or request.GET.get("actualState") == "show":
+        actualState = "actualState=show"
+    
+        for cC in cursoCET:
+            listaCursoCET.append([cC.id, cC.nome, cC.abreviatura, cC.semestre_letivos])
+            pass
+        pass
+    
+    paginator = Paginator(listaCursoCET, 10)
+    drange = range(1, paginator.num_pages + 1)
+
+
+    page = request.GET.get('page')
+    
+    try:
+        listInfo = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        listInfo = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        listInfo = paginator.page(paginator.num_pages)
+    
+    
+    return render_to_response("cientifico/ListarCursos/listar_Curso_CET.html",
+        locals(),
+        context_instance=RequestContext(request),
+        )
+    pass
+
+'''
+Método que vai criar a view a listagem de cursos para as Licenciaturas
+'''
+@login_required(redirect_field_name='login_redirectUsers')
+@cientificoUserTeste
+def listarCursosLic(request):
+    id_Lic = 1
+    cursoLic = Curso.objects.filter(tipo_curso_id = id_Lic)
+    
+    listaCursoLic = []
+    
+    if 'show' in request.GET or request.GET == {} or request.GET.get("actualState") == "show":
+        actualState = "actualState=show"
+    
+        for cL in cursoLic:
+            listaCursoLic.append([cL.id, cL.nome, cL.abreviatura, cL.semestre_letivos])
+            pass
+        pass
+    
+    paginator = Paginator(listaCursoLic, 10)
+    drange = range(1, paginator.num_pages + 1)
+
+
+    page = request.GET.get('page')
+    
+    try:
+        listInfo = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        listInfo = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        listInfo = paginator.page(paginator.num_pages)
+    
+    return render_to_response("cientifico/ListarCursos/listar_Curso_Lic.html",
+        locals(),
+        context_instance=RequestContext(request),
+        )
+    pass
+
+'''
+Método que vai criar a view a listagem de cursos para os Mestrados
+'''
+@login_required(redirect_field_name='login_redirectUsers')
+@cientificoUserTeste
+def listarCursosMest(request):
+    id_Mest = 2
+    cursoMest = Curso.objects.filter(tipo_curso_id = id_Mest)
+    
+    listaCursoMest = []
+    
+    if 'show' in request.GET or request.GET == {} or request.GET.get("actualState") == "show":
+        actualState = "actualState=show"
+    
+        for cM in cursoMest:
+            listaCursoMest.append([cM.id, cM.nome, cM.abreviatura, cM.semestre_letivos])
+            pass
+        pass
+    
+    paginator = Paginator(listaCursoMest, 10)
+    drange = range(1, paginator.num_pages + 1)
+
+
+    page = request.GET.get('page')
+    
+    try:
+        listInfo = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        listInfo = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        listInfo = paginator.page(paginator.num_pages)
+    
+    
+    return render_to_response("cientifico/ListarCursos/listar_Curso_Mest.html",
+        locals(),
+        context_instance=RequestContext(request),
+        )
+    pass
+
+'''
+Método que vai criar a view a listagem de cursos para as Pós-Graduações
+'''
+@login_required(redirect_field_name='login_redirectUsers')
+@cientificoUserTeste
+def listarCursosPG(request):
+    id_PG = 3
+    cursoMest = Curso.objects.filter(tipo_curso_id = id_PG)
+    
+    listaCursoPG = []
+    
+    if 'show' in request.GET or request.GET == {} or request.GET.get("actualState") == "show":
+        actualState = "actualState=show"
+    
+        for cM in cursoMest:
+            listaCursoPG.append([cM.id, cM.nome, cM.abreviatura, cM.semestre_letivos])
+            pass
+        pass
+    
+    paginator = Paginator(listaCursoPG, 10)
+    drange = range(1, paginator.num_pages + 1)
+
+
+    page = request.GET.get('page')
+    
+    try:
+        listInfo = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        listInfo = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        listInfo = paginator.page(paginator.num_pages)
+    
+    
+    return render_to_response("cientifico/ListarCursos/listar_Curso_PG.html",
+        locals(),
+        context_instance=RequestContext(request),
+        )
+    pass
+
+
+'''
+Método que vai criar a view a listagem de cursos para os Portugues de Lingua Estrangeira
+'''
+@login_required(redirect_field_name='login_redirectUsers')
+@cientificoUserTeste
+def listarCursosPortLE(request):
+    id_PortLE = 5
+    cursoMest = Curso.objects.filter(tipo_curso_id = id_PortLE)
+    
+    listaCursoPortLE = []
+    
+    if 'show' in request.GET or request.GET == {} or request.GET.get("actualState") == "show":
+        actualState = "actualState=show"
+    
+        for cM in cursoMest:
+            listaCursoPortLE.append([cM.id, cM.nome, cM.abreviatura, cM.semestre_letivos])
+            pass
+        pass
+    
+    paginator = Paginator(listaCursoPortLE, 10)
+    drange = range(1, paginator.num_pages + 1)
+
+
+    page = request.GET.get('page')
+    
+    try:
+        listInfo = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        listInfo = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        listInfo = paginator.page(paginator.num_pages)
+    
+    
+    return render_to_response("cientifico/ListarCursos/listar_Curso_PortLE.html",
+        locals(),
+        context_instance=RequestContext(request),
+        )
+    pass
+###########################################################################################
+###############################FIM Listar Cursos###########################################
+###########################################################################################
+
+###########################################################################################
+###############################Visualizar Cursos###########################################
+###########################################################################################
+'''
+Método que vai criar a view para visualizar o curso
+'''
+@login_required(redirect_field_name='login_redirectUsers')
+@cientificoUserTeste
+def verCurso(request, id_curso):
+    id_PortLE = 5
+    cursoMest = Curso.objects.filter(tipo_curso_id = id_PortLE)
+    
+    listaCursoPortLE = []
+    
+    if 'show' in request.GET or request.GET == {} or request.GET.get("actualState") == "show":
+        actualState = "actualState=show"
+    
+        for cM in cursoMest:
+            listaCursoPortLE.append([cM.id, cM.nome, cM.abreviatura, cM.semestre_letivos])
+            pass
+        pass
+    
+    paginator = Paginator(listaCursoPortLE, 10)
+    drange = range(1, paginator.num_pages + 1)
+
+
+    page = request.GET.get('page')
+    
+    try:
+        listInfo = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        listInfo = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        listInfo = paginator.page(paginator.num_pages)
+    
+    
+    return render_to_response("cientifico/ListarCursos/listar_Curso_PortLE.html",
+        locals(),
+        context_instance=RequestContext(request),
+        )
+    pass
+###########################################################################################
+###########################FIM Visualizar Cursos###########################################
+###########################################################################################
+
+
+
 
 @login_required(redirect_field_name='login_redirectUsers')
 @cientificoUserTeste

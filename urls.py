@@ -107,14 +107,48 @@ urlpatterns = patterns('',
     url(r'^distro/cientifico/mest$', 
         'ipbejactcapp.distro.view_cientifico.definirCursosMest', 
         name='def_Curso_Mest'),
+                       
+   url(r'^distro/cientifico/pg$', 
+        'ipbejactcapp.distro.view_cientifico.definirCursosPG', 
+        name='def_Curso_PG'),
+                       
+   url(r'^distro/cientifico/portle$', 
+        'ipbejactcapp.distro.view_cientifico.definirCursosPortLE', 
+        name='def_Curso_PortLE'),
    ###############################################################
    
    #######################Adicionar Cursos########################
    url(r'^distro/cientifico/addCurso/(?P<id_CET>\d+)/$',
         'ipbejactcapp.distro.view_cientifico.addCursoFormClass',
         name='addCursosCET'),
-                
-                   
+   ###############################################################
+   
+   #######################Listar Cursos###########################
+   url(r'^distro/cientifico/listar_cet$', 
+        'ipbejactcapp.distro.view_cientifico.listarCursosCET', 
+        name='listar_Curso_CET'),
+                    
+    url(r'^distro/cientifico/listar_lic$', 
+        'ipbejactcapp.distro.view_cientifico.listarCursosLic', 
+        name='listar_Curso_Lic'),
+    
+    url(r'^distro/cientifico/listar_mest$', 
+        'ipbejactcapp.distro.view_cientifico.listarCursosMest', 
+        name='listar_Curso_Mest'),
+                       
+   url(r'^distro/cientifico/listar_pg$', 
+        'ipbejactcapp.distro.view_cientifico.listarCursosPG', 
+        name='listar_Curso_PG'),
+                       
+   url(r'^distro/cientifico/listar_portle$', 
+        'ipbejactcapp.distro.view_cientifico.listarCursosPortLE', 
+        name='listar_Curso_PortLE'),
+   ###############################################################
+   
+   #######################Listar Cursos###########################
+   url(r'^distro/cientifico/listar_cet/(?P<id_curso>\d+)/$', 
+        'ipbejactcapp.distro.view_cientifico.verCurso', 
+        name='ver_curso'),
    ###############################################################
     
     #####
