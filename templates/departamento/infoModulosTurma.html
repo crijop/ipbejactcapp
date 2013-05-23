@@ -6,7 +6,7 @@
 {% block breadcrumb %}
 <ul id="breadcrumb">
 	<li>
-		<a tabindex="2" href="{% url homeDepartamento %}" title="{% trans 'Home' %}"> <img src="/static/images/BreadCrumbs/home.gif" alt="{% trans 'Home' %}" class="home" /> </a>
+		<a tabindex="2" href="{% url homeDepartamento %}" title="{% trans 'Home' %}"> <img src="/static/images/BreadCrumbs/home.png" alt="{% trans 'Home' %}" class="home" /> </a>
 	</li>
 	<li>
 		<a tabindex="3" href="{% url listarServicoDocente ano %}" title="Listar Serviço Docente Atribuido">Listar Serviço Docente Atribuido</a>
@@ -18,14 +18,13 @@
 {% endblock %}
 
 {% block content %}
+	<h2 class="infoTitle">Informação dos Modulos pertencente á Turma: {{nomeTurma}}</h2>
 <table class="tabela_sumario">
-	<tr>
-		<th colspan="2" class="top_sumario" >Informação dos Modulos pertencente á Turma: {{nomeTurma}}</th>
-	</tr>
-	<tr>
+	
+	<tr class="special_cabecalho">
     	<th colspan="2" align="left">Ano: {{ano}} | Tipo Aula: {{tipoAula}} | Turno: {{turno}}</th>
     </tr>
-	<tr>
+	<tr class="cabecalho_sumario">
 		<th class="cabecalho_sumario">Docente</th>
 		<th class="cabecalho_sumario">Horas Atribuidas</th>
 	</tr>
@@ -39,7 +38,7 @@
 		<td>{{horas}}</td>
 	</tr>
 	{% endfor %}
-	<tr>
+	<tr class="cabecalho_sumario">
     	<th class="sub_cabecalho">Horas Total</th>
     	<th class="sub_cabecalho" >{{horasTotal}}</th>
     </tr>
