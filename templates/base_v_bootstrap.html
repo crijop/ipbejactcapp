@@ -39,35 +39,7 @@
 		<style id="holderjs-style" type="text/css"> … </style>
 	</head>
 
-	<body >
-		<div id="top">
-			<!--Div do Logotipo-->
-			
-				<!--<img id='logotipoTop' alt="imagem ipbeja" src="/static/images/logo.png" title="logoIPBEJA">-->
-			
-			<!--Div do titulo da Página-->
-			<!--<div id="sys_title"><h1>Sistema de distribuição de serviço docente</h1></div>-->
-			<!--Div de informação do estado do utilizador-->
-			<div id="logoutInfo">
-				{% block Username %}
-					{% if user.is_active%}
-						{% trans 'Welcome,' %}
-						<strong>{% filter force_escape %}{% firstof user.username %}{% endfilter %}</strong>.
-						{% block userlinks %}
-						{% url 'django-admindocs-docroot' as docsroot %}
-							{% if docsroot %}
-								<!-- Nao faz nada porque senão tiver autenticado não pode entrar neste template
-								depois vai ser melhorado este id-->
-							{% endif %}
-							<a href="{% url sair %}" tabindex="6">{% trans 'Log out' %}  
-								<span class="exit_small">.</span>
-							</a>
-						{% endblock %}
-					{% endif %}
-				{% endblock %}
-			</div>
-		</div>
-		
+	<body class = "row">
 		<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 			<div class="container">
 			<div class="navbar-header">
@@ -80,44 +52,71 @@
 		    </button>
 		</div>
 			<a class="navbar-brand" href="#">Sistema de distribuição de serviço docente</a>
-			<!--<div class="masthead">
-        		<h3 class="text-muted">Sistema de distribuição de serviço docente</h3>  -->
-				{% block Menus %}
-					
-				{% endblock %}
-			  <!--</div>  -->
-			</div>
-		</div>
-		<div id="rightBar">
-			<!--Div da Informação de onde o utilizado se encontra na página-->
-			<div id="bradCrumb">
-				{% block breadcrumb %}
-				<ul id="breadcrumb">
-
-				</ul>
-				{% endblock %}
-			</div>
-			<!--Div do Conteudo da Página-->
-			<div id="content">
-				{% block content %}
-				{% endblock %}
-			</div>
-		</div>
-	</div>
-	<div id="filtersBar">
-			<!--Div dos Menus-->
-			
-			<div id='menuRight'>
+				<div class="navbar-collapse collapse">
 				
-				{% block Filtros %}
-
-				{% endblock %}
+				<ul class="nav navbar-nav col-md-8">
+					{%block Menus%}{%endblock%}
+				
+					{%block User%}
+					<li class="dropdown pull-right navli">
+				      	<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+				      		<span><i class="icon-caret-down"></i>
+				      			{% if user.is_active%}						
+									<strong>
+										{% filter force_escape	%}{% firstof user.username %}{% endfilter %} 
+									</strong>
+							</span>
+							<b class="caret"></b>
+						</a>
+						{% block userlinks %}
+							{% url 'django-admindocs-docroot' as docsroot %} 
+							{% if docsroot %}{% endif %}
+					      	<ul class="dropdown-menu">
+						        <li><a href="#">{% trans 'Editar Perfil' %} </a></li>
+						        <li><a href="{% url sair %}">{% trans 'Log out' %}</a></li>
+						        <li><a href="#">....</a></li>
+						    </ul>
+					   {% endblock %} 
+					   			{% endif %}
+					      
+				    </li>
+					{% endblock %}
+				</ul>
+			  </div>
 			</div>
 		</div>
+		{% block BigBlock %} 
+			<div class="h-90">
+				<div class="h-100 col-xs-12 col-sm-12 col-md-3 col-lg-3 leftBlock ">
+					
+					{% block BigLeftBlock %} 
+	                
+	                	<div class="half-space clearfix h-95">
+							aaaaaaaaaa
+						</div>
+						 
+					{% endblock %}
+					
+				</div>
+			  	<div class="col-xs-12 col-md-12 col-md-9 col-lg-9 h-100">
+					<div class="column-group">
+							 
+						 {% block breadcrumb %} {% endblock %}
+					
+	                	<div class="half-space clearfix">
+	                    {% block content %} {% endblock %}
+	                    {% block teste %} {% endblock %}
+	                    {% block formulario %} {% endblock %}
+	                    </div>
+	            	</div>
+				</div>
+			</div>
+			{% endblock %}
 	<!--Div do Rodapé-->
 	<div class="container marketing">
 	
 	        <p class="pull-right"><a href="#">Back to top</a></p>
+	        <footer>
 	        <p>
 	        	{% block footer %}
 	        		©2012 - Instituto Politécnico de Beja <a href="#">Privacy</a> · <a href="#">Terms</a>
