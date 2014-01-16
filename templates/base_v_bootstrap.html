@@ -1,0 +1,132 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	{% load i18n %}
+	<head>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+		<link href="/static/styles/landscape_1366x768/main_login.css"  media="screen and (min-device-width: 1366px)" rel="stylesheet" type="text/css" >
+		
+		
+		<!--<link href="/static/styles/base_ve1.css" rel="stylesheet" type="text/css" >-->
+		<link rel="stylesheet" href="/static/dojo-release-1.8.0/dijit/themes/claro/claro.css">
+		<link rel="stylesheet" href="/static/styles/calendar.css">
+		<link rel="stylesheet" href="/static/styles/departamento.css">
+		<title>{% block title %}{% endblock %}</title>
+		
+		<script src="/static/dojo-release-1.8.0/dojo/dojo.js"
+		data-dojo-config="isDebug: true, async: true" ></script>
+		<script src="/static/javaScript/filter_efects.js" type="text/javascript" ></script>
+		<script src="/static/javaScript/departamento.js" type="text/javascript" ></script>
+		<script src="/static/javaScript/jscal2.js"></script>
+		<script src="/static/javaScript/lang/pt.js"></script>
+		<link rel="stylesheet" type="text/css" href="/static/styles/jscal2.css" />
+		<!--<link rel="stylesheet" type="text/css" href="/static/src/css/border-radius.css" />-->
+		<link rel="stylesheet" type="text/css" href="/static/styles/steel.css" />
+		
+		
+		<!--Bootstrap core CSS -->
+		<link rel="stylesheet" href="/static/dist_bootstrap/css/bootstrap.css"></link>
+		<!--Bootstrap theme -->
+		<link rel="stylesheet" href="/static/dist_bootstrap/css/bootstrap-theme.min.css"></link>
+		<!--Custom styles for this template -->
+		<link rel="stylesheet" href="/static/dist_bootstrap/css/theme.css"></link>
+		<!--Just for debugging purposes. Don't actually copy this line! -->
+		<!--[if lt IE 9]><script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+		<!--HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!--[if lt IE 9]>
+		      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+		    <![endif]-->
+		<style id="holderjs-style" type="text/css"> … </style>
+	</head>
+
+	<body >
+		<div id="top">
+			<!--Div do Logotipo-->
+			
+				<!--<img id='logotipoTop' alt="imagem ipbeja" src="/static/images/logo.png" title="logoIPBEJA">-->
+			
+			<!--Div do titulo da Página-->
+			<!--<div id="sys_title"><h1>Sistema de distribuição de serviço docente</h1></div>-->
+			<!--Div de informação do estado do utilizador-->
+			<div id="logoutInfo">
+				{% block Username %}
+					{% if user.is_active%}
+						{% trans 'Welcome,' %}
+						<strong>{% filter force_escape %}{% firstof user.username %}{% endfilter %}</strong>.
+						{% block userlinks %}
+						{% url 'django-admindocs-docroot' as docsroot %}
+							{% if docsroot %}
+								<!-- Nao faz nada porque senão tiver autenticado não pode entrar neste template
+								depois vai ser melhorado este id-->
+							{% endif %}
+							<a href="{% url sair %}" tabindex="6">{% trans 'Log out' %}  
+								<span class="exit_small">.</span>
+							</a>
+						{% endblock %}
+					{% endif %}
+				{% endblock %}
+			</div>
+		</div>
+		
+		<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+			<div class="container">
+			<div class="navbar-header">
+
+		    <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse" type="button">
+		        <span class="sr-only"> … </span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		    </button>
+		</div>
+			<a class="navbar-brand" href="#">Sistema de distribuição de serviço docente</a>
+			<!--<div class="masthead">
+        		<h3 class="text-muted">Sistema de distribuição de serviço docente</h3>  -->
+				{% block Menus %}
+					
+				{% endblock %}
+			  <!--</div>  -->
+			</div>
+		</div>
+		<div id="rightBar">
+			<!--Div da Informação de onde o utilizado se encontra na página-->
+			<div id="bradCrumb">
+				{% block breadcrumb %}
+				<ul id="breadcrumb">
+
+				</ul>
+				{% endblock %}
+			</div>
+			<!--Div do Conteudo da Página-->
+			<div id="content">
+				{% block content %}
+				{% endblock %}
+			</div>
+		</div>
+	</div>
+	<div id="filtersBar">
+			<!--Div dos Menus-->
+			
+			<div id='menuRight'>
+				
+				{% block Filtros %}
+
+				{% endblock %}
+			</div>
+		</div>
+	<!--Div do Rodapé-->
+	<div class="container marketing">
+	
+	        <p class="pull-right"><a href="#">Back to top</a></p>
+	        <p>
+	        	{% block footer %}
+	        		©2012 - Instituto Politécnico de Beja <a href="#">Privacy</a> · <a href="#">Terms</a>
+	        	{% endblock %}
+	        </p>
+	      </footer>	
+      </div>
+      <script src="/static/JQuery/jquery-1.10.2.min.js"></script>
+      <script src="/static/dist_bootstrap/js/bootstrap.min.js"></script>
+      <script src="/static/dist_bootstrap/docs-assets/js/holder.js"></script>
+	</body>
+</html>
