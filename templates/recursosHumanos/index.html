@@ -1,51 +1,49 @@
-{% extends "base_ve1.html" %}
+{% extends "base_v_bootstrap.html" %}
 {% load i18n %}
 {% block title %} Página Inícial Recursos Humanos {% endblock %}
 {% block breadcrumb %}
-<ul id="breadcrumb">
+
+<!-- <ul id="breadcrumb">
 	<li>
 		<img src="/static/images/BreadCrumbs/home.gif" alt="{% trans 'Home' %}" class="home" />
 	</li>
+</ul> -->
+
+<ul class="breadcrumb">
+	<li class="active"><span class="glyphicon glyphicon-home"></span> {% trans 'Home' %}</li>
 </ul>
 {% endblock %}
 
 {% block Menus %}
-<ul>
-	<li class='active '>
-		<a tabindex="3" href='/distro'><span>Informação</span></a>
-	</li>
-	<li>
-		<a tabindex="4" href='{%url adicionarDocenteRH%}'><span>Adicionar Docente</span></a>
-	</li>
-	<li>
-		<a tabindex="5" href='{%url listDocenteEdit %}'><span>Editar Docentes</span></a>
-	</li>
-	<li>
-		<a tabindex="6" href='{%url listDocente %}'><span>Listar Docentes</span></a>
-	</li>
-	<li>
-		<a href='{%url listContratos %}' ><span>Listar Contratos</span></a>
-	</li>	
-	<li class='has-sub_lateral'>
-		<a tabindex="5" href='#'><span>Ajuda</span></a>
-			<ul>
-				<li>
-					<a href='{% url ajudaRH 1 %}'><span>Como Adicionar Docente</span></a>
-				</li>
-				<li>
-					<a href='#'><span>Como Editar Docente</span></a>
-				</li>
-				<li>
-					<a href='#'><span>Como Adicionar Docente</span></a>
-				</li>
-				<li>
-					<a href='#'><span>Como Adicionar Docente</span></a>
-				</li>
-			</ul>
-	</li>
-</ul>
+<div class="navbar-collapse collapse">
+  <ul class="nav navbar-nav">
+    <li class="active"><a href="/distro">Informação</a></li>
+    <li class="dropdown">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Docente<b class="caret"></b></a>
+      <ul class="dropdown-menu">
+        <li><a href="{%url adicionarDocenteRH%}">Adicionar Docentes</a></li>
+        <li><a href="{%url listDocenteEdit %}">Editar Docentes</a></li>
+        <li><a href="{%url listDocente %}">Listar Docentes</a></li>
+        <li class="divider"></li>
+        <li class="dropdown-header">Nav header</li>
+        <li><a href="#">Separated link</a></li>
+        <li><a href="#">One more separated link</a></li>
+      </ul></li>
+      <li class="dropdown">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Ajuda <b class="caret"></b></a>
+      <ul class="dropdown-menu">
+        <li><a href="{% url ajudaRH 1 %}">Como Adicionar Docente</a></li>
+        <li><a href="#">Como Editar Docente</a></li>
+        <li><a href="#">....</a></li>
+      </ul>
+      
+    </li>
+  </ul>
+</div>
 {% endblock %}
 {% block content %}
+
+
 	<table class="tabela_sumario">
 	    <tr>
 	    	<th colspan="2"  class="top_sumario">Estatística</th>
