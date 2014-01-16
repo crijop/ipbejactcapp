@@ -15,31 +15,30 @@
 {% endblock %}
 
 {% block Menus %}
-<div class="navbar-collapse collapse">
-  <ul class="nav navbar-nav">
+
+  
     <li class="active"><a href="/distro">Informação</a></li>
     <li class="dropdown">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Docente<b class="caret"></b></a>
-      <ul class="dropdown-menu">
-        <li><a href="{%url adicionarDocenteRH%}">Adicionar Docentes</a></li>
-        <li><a href="{%url listDocenteEdit %}">Editar Docentes</a></li>
-        <li><a href="{%url listDocente %}">Listar Docentes</a></li>
-        <li class="divider"></li>
-        <li class="dropdown-header">Nav header</li>
-        <li><a href="#">Separated link</a></li>
-        <li><a href="#">One more separated link</a></li>
-      </ul></li>
-      <li class="dropdown">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Ajuda <b class="caret"></b></a>
-      <ul class="dropdown-menu">
-        <li><a href="{% url ajudaRH 1 %}">Como Adicionar Docente</a></li>
-        <li><a href="#">Como Editar Docente</a></li>
-        <li><a href="#">....</a></li>
-      </ul>
-      
-    </li>
-  </ul>
-</div>
+	    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Docente<b class="caret"></b></a>
+	    <ul class="dropdown-menu">
+	      <li><a href="{%url adicionarDocenteRH%}">Adicionar Docentes</a></li>
+	      <li><a href="{%url listDocenteEdit %}">Editar Docentes</a></li>
+	      <li><a href="{%url listDocente %}">Listar Docentes</a></li>
+	      <li class="divider"></li>
+	      <li class="dropdown-header">Nav header</li>
+	      <li><a href="#">Separated link</a></li>
+	      <li><a href="#">One more separated link</a></li>
+	    </ul>
+	</li>
+	    <li class="dropdown">
+	    	<a href="#" class="dropdown-toggle" data-toggle="dropdown">Ajuda <b class="caret"></b></a>
+	     <ul class="dropdown-menu">
+	       <li><a href="{% url ajudaRH 1 %}">Como Adicionar Docente</a></li>
+	       <li><a href="#">Como Editar Docente</a></li>
+	       <li><a href="#">....</a></li>
+	     </ul> 
+	</li>
+    
 {% endblock %}
 {% block content %}
 
