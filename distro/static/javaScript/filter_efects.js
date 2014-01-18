@@ -79,7 +79,6 @@ function filter_oa() {
 		on(wipeInButton_1, "click", function(evt) {
 
 			if (out_1 == 1) {
-
 				//esconder a div
 				wipeTarget_1.style.display = "block";
 				request.get("filter_abc").then(function(response) {
@@ -96,7 +95,6 @@ function filter_oa() {
 					node : wipeTarget_1
 				}).play();
 			} else {
-
 				wipeTarget_1.innerHTML = "";
 
 				out_1 = 1;

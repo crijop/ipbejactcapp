@@ -45,9 +45,9 @@ presente na lista de docentes e lista de contratos
 @rhUserTeste
 def filter_abc(request):
 
-
+    print "METODO"
     if request.is_ajax():
-       
+        print "AJAX"
         alfabeto = map(chr , range(65, 91))
         
         return render_to_response("recursosHumanos/filter_abc.html",

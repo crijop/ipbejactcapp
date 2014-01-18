@@ -15,6 +15,11 @@
 {% endblock %}
 
 {% block formulario %}
+<table class="table table-striped">
+	<tr>
+		<th>{% trans 'Adicionar Docente' %}</th>
+	</tr>
+</table>
 
 <form method="post" role="form">
 	{% csrf_token %}
