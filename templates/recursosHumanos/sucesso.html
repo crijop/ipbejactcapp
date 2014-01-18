@@ -1,43 +1,38 @@
 {% extends "recursosHumanos/index.html" %}
 {% load i18n %}
-{% block title %} Página de Confirmação de adicionar docente {% endblock %}
-
+{% block title %} {% trans 'Página de Confirmação de adicionar docente'%} {% endblock %}
 
 {% block breadcrumb %}
-<ul id="breadcrumb">
+<ul class="breadcrumb">
 	<li>
-		<a tabindex="2" href="{% url homeRecursosHumanos %}" title="{% trans 'Home' %}"> <img src="/static/images/BreadCrumbs/home.gif" alt="{% trans 'Home' %}" class="home" /> </a>
+		<span class="glyphicon glyphicon-home"></span> <a tabindex="2" href="{% url homeRecursosHumanos %}" title="{% trans 'Home' %}">{% trans 'Home' %}</a>
 	</li>
 	{% if estado = "add"%}	
 		<li>
-			<a tabindex="3" href="{% url adicionarDocenteRH %}" title="Adicionar Docente">Adicionar Docente</a>
+			<a tabindex="3" href="{% url adicionarDocenteRH %}" title="Adicionar Docente">{% trans 'Adicionar Docente' %}</a>
 		</li>
-		<li>
-			Docente inserido com Sucesso
+		<li class="active">
+			{% trans 'Docente inserido com Sucesso' %}
 		</li>
 	{% else %}
 		<li>
-			<a tabindex="3" href="{% url listDocenteEdit %}" title="Lista docente a editar">Listar Docentes a Editar</a>
+			<a tabindex="3" href="{% url listDocenteEdit %}" title="Lista docente a editar">{% trans 'Listar Docentes a Editar' %}</a>
 		</li>
-		<li>
-			Docente editado com Sucesso
+		<li class="active">
+			{% trans 'Docente editado com Sucesso' %}
 		</li>
 	{%endif%}
 </ul>
 {% endblock %}
 
 {% block content %}
-	<table class="tabela_sumario">
-	    <tr>
-	            <th colspan="2" class="top_sumario">Estado</th>
-	    </tr>
-    </table>
-    <div id="sucesso">
-    	{% if estado = "add"%}
-    		<span>O docente {{nome_completo}} foi adicionado com Sucesso</span>
-    	{% else %}
-    		<span>O docente {{nome_completo}} foi editado com Sucesso</span>
-    	{%endif%}
-    </div>
+
+<div class="alert alert-success">
+	{% if estado = "add"%}
+    	<span>{% trans 'O docente'%} {{nome_completo}} {% trans ' foi adicionado com Sucesso'%}</span>
+    {% else %}
+    	<span>{% trans 'O docente'%} {{nome_completo}} {% trans 'foi editado com Sucesso'%}</span>
+    {%endif%}
+</div>
 {% endblock %}
 
