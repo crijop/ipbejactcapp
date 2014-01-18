@@ -3,9 +3,9 @@
 {% block title %} Página de Confirmação de adicionar docente {% endblock %}
 
 {% block breadcrumb %}
-<ul id="breadcrumb">
+<ul class="breadcrumb">
 	<li>
-		<a tabindex="2" href="{% url homeRecursosHumanos %}" title="{% trans 'Home' %}"> <img src="/static/images/BreadCrumbs/home.gif" alt="{% trans 'Home' %}" class="home" /> </a>
+		<span class="glyphicon glyphicon-home"></span> <a tabindex="2" href="{% url homeRecursosHumanos %}" title="{% trans 'Home' %}">{% trans 'Home' %}</a>
 	</li>
 	{% if estado = "Editar" %}
 		<li>
@@ -19,59 +19,41 @@
 			<a tabindex="3" href="{% url adicionarDocenteRH %}" title="Adicionar Docente">Adicionar Docente</a>
 		</li>
 	{%endif%}
-	<li>
-		Confirmação dados do Docente
-	</li>
+	<li class="active">{% trans 'Confirmação dados do Docente' %}</li>
 </ul>
-
-
 {% endblock %}
 
 {% block content %}
-	<table class="tabela_sumario">
-	    <tr>
-	    	<th colspan="2" class="top_sumario">Confirmação de dados do docente
-	    		{{self.process_preview}}{{context}}</th>
-	    </tr>
-	</table>
-	<!--
-	    {% for field in form %}
-	        <tr>
-	        	<th class="sub_cabecalho"><span>{{ field.label }}:</span></th>
-	        	<td>{{ field.data}}</td>
-	 		</tr>
+{% endblock %}
+
+{% block formulario %}
+<form method="post" role="form">
+	{% csrf_token %}
+	{% for field in form %}
+		<div class="form-group">
+			<label for="col-sm-2 control-label">{{ field.label }} {% if field.field.required %}*{%endif%}</label>
+			{{ field }}
+		</div>
+	    
+	    {% for error in field.errors %} 
+        	<div class="alert alert-danger">
+        		{{error}}
+        	</div> 
 		{% endfor %}
- </table>-->
- 	
-    <div id="contentForm">
-		<form method="post" onkeypress="testeSearch();" >
-			{% csrf_token %}
-			{% for field in form %}
-		        <div class ="{% cycle 'row1' 'row2' %}">
-		            {{ field.label_tag }}: {{ field }}
-		            {% if field.field.required %}
-			        	<span>(*)</span>
-			        {%endif%} 
-		            {% for error in field.errors %} 
-		            	{{error}} 
-		            {% endfor %}
-		        </div>
-	    	{% endfor %}
-	   		<br />
-	    	<span id="CamposObirgatorio">(*) - Campos de preenchimento obrigatório</span>
 		
-			{{t}}
-	
-    		<hr />
-    			<span id = "Confirmacao">Deseja submeter os Dados dos Formulário?</span>
-    		
-				<div id="buttonConfirm">
-					<input type="hidden" name="{{ stage_field }}" value="2" />
-					<input type="hidden" name="{{ hash_field }}" value="{{ hash_value }}" />
-					<input type="button" value="{% trans 'Não' %}" onClick="javascript:history.go(-1);">
-					<input type="submit" value="{% trans 'Sim' %}" />
-				</div>
-				<script>changeCountValue();</script>
-		</form>
+   	{% endfor %}
+    <br />
+   	<span id="CamposObirgatorio">(*) - Campos de preenchimento obrigatório</span>
+   	<hr />
+   	<div class="alert alert-info">{% trans 'Deseja submeter os Dados dos Formulário?' %}</div>
+   	
+   	<span id = "Confirmacao"></span>
+	<div id="buttonConfirm">
+		<input type="hidden" name="{{ stage_field }}" value="2" />
+		<input type="hidden" name="{{ hash_field }}" value="{{ hash_value }}" />
+		<input type="button" class="btn btn-danger btn-lg" value="{% trans 'Não' %}" onClick="javascript:history.go(-1);" />
+		<input type="submit" class="btn btn-primary btn-lg"value="{% trans 'Sim' %}" />
+		<script>changeCountValue();</script>
 	</div>
+</form>
 {% endblock %}

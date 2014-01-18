@@ -1,16 +1,16 @@
 {% extends "recursosHumanos/index.html" %}
 {% load i18n %}
-{% block title %} Página Inícial Recursos Humanos {% endblock %}
+{% block title %}{% trans 'Página Inícial Recursos Humanos' %}{% endblock %}
 {% block breadcrumb %}
-<ul id="breadcrumb">
+<ul class="breadcrumb">
 	<li>
-		<a tabindex="2" href="{% url homeRecursosHumanos %}" title="{% trans 'Home' %}"> <img src="/static/images/BreadCrumbs/home.gif" alt="{% trans 'Home' %}" class="home" /> </a>
+		<span class="glyphicon glyphicon-home"></span> <a tabindex="2" href="{% url homeRecursosHumanos %}" title="{% trans 'Home' %}">{% trans 'Home' %}</a>
 	</li>
-	<li>
-		Listar Docentes a Editar
-	</li>
+	<li class="active">{% trans 'Listar Docentes a Editar' %}</li>
 </ul>
 {% endblock %}
+
+
 {% block Filtros %}
 <ul>
 
@@ -51,7 +51,7 @@
 
 {% block content %}
 
-<table class="tabela_sumario">
+<table class="table table-striped table-hover">
 	<tr>
 		<th colspan="6" class="top_sumario" >Listar Docentes a Editar</th>
 	</tr>
@@ -67,6 +67,8 @@
 					<span>- {{sizeList}} resultados encontrados</span>
 		</form></th>
 	</tr>
+</table>
+<table class="table table-striped table-hover">
 	<tr>
 		<th></th>
 		<th class="cabecalho_sumario">Docente</th>
@@ -96,25 +98,6 @@
 		{% endif %}
 
 </table>
-<!--<div id="paginator">
-<a href="#">1</a>
-<a href="#">Mostrar Todos</a>
-</div>-->
-<!--<div id="paginator">
-<span class="step-links">
-{% if docentes.has_previous %}
-<a href="?page={{ docentes.previous_page_number }}">anterior</a>
-{% endif %}
-
-<span class="current">
-Página {{ docentes.number }} de {{ docentes.paginator.num_pages }}.
-</span>
-
-{% if docentes.has_next %}
-<a href="?page={{ docentes.next_page_number }}">seguinte</a>
-{% endif %}
-</span>
-</div>-->
 
 <div id="paginator">
 	<span class="current"> Página {{ docentes.number }} de {{ docentes.paginator.num_pages }}. </span>
@@ -122,7 +105,7 @@ Página {{ docentes.number }} de {{ docentes.paginator.num_pages }}.
 	<span class="step-links"><a href="?show=all">Todos</a></span>
 	<span class="step-links"> {% for page_num in drange %} <a id="{{ page_num}}" href="?page={{ page_num}}&{{actualState}}">{{ page_num}}</a> {% endfor%} </span>
 </div>
-<br>
+
 <script type="text/javascript">document.getElementById("searchField").focus();
 	filter_oa();
 	filter_dep();
