@@ -78,9 +78,9 @@
 			</div>
 		</div>
 		{% block BigBlock %} 
-			<div class="h-90">
+			<div class="half-space clearfix h-95">
 				<div class="h-100 col-xs-12 col-sm-12 col-md-3 col-lg-3 leftBlock ">
-					
+					<div class="container">
 					{% block BigLeftBlock %} 
 	                
 	                	<div class="half-space clearfix h-95">
@@ -88,7 +88,7 @@
 						</div>
 						 
 					{% endblock %}
-					
+					</div>
 				</div>
 			  	<div class="col-xs-12 col-md-12 col-md-9 col-lg-9 h-100">
 					<div class="column-group">
@@ -98,24 +98,31 @@
 	                	<div class="half-space clearfix">
 	                    {% block content %} {% endblock %}
 	                    {% block teste %} {% endblock %}
-	                    {% block formulario %} {% endblock %}
+	                    <div class="col-xs-12 col-md-12 col-md-8 col-lg-8 h-100">
+	                    	{% block formulario %} {% endblock %}
+	                    </div>
 	                    </div>
 	            	</div>
 				</div>
 			</div>
+				
+			<div class="col-xs-12 col-md-12 col-md-12 col-lg-12 h-100">
+				<div class="container">
+					<div class="panel-footer">
+				        <p class="pull-right"><a href="#">Back to top</a></p>
+				        <footer>
+					        <p>
+					        	{% block footer %}
+					        		©2012 - Instituto Politécnico de Beja <a href="#">Privacy</a> · <a href="#">Terms</a>
+					        	{% endblock %}
+					        </p>
+			      		</footer>	
+					</div>
+				</div>
+			</div>
 			{% endblock %}
 	<!--Div do Rodapé-->
-	<div class="container marketing">
 	
-	        <p class="pull-right"><a href="#">Back to top</a></p>
-	        <footer>
-	        <p>
-	        	{% block footer %}
-	        		©2012 - Instituto Politécnico de Beja <a href="#">Privacy</a> · <a href="#">Terms</a>
-	        	{% endblock %}
-	        </p>
-	      </footer>	
-      </div>
       <script src="/static/JQuery/jquery-1.10.2.min.js"></script>
       <script src="/static/dist_bootstrap/js/bootstrap.min.js"></script>
       <script src="/static/dist_bootstrap/docs-assets/js/holder.js"></script>
