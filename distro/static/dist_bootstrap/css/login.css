@@ -1,6 +1,6 @@
 body {
 padding-top: 5em;
-padding-bottom: 40px;
+padding-bottom: 0;
 background-color: #eee;
 }
 .form-signin {
@@ -58,5 +58,39 @@ div.starter-template
 {
 
 text-align: center;
+
+}
+/**************Footer***************/
+footer.bs-footer
+{
+	
+	background-image: linear-gradient(to bottom, #3C3C3C 0px, #222222 100%);
+    background-repeat: repeat-x;
+	padding-top: 1em;
+}
+
+footer.bs-footer p
+{ 
+	
+	color:white;
+}
+
+/*****NavBar*****/
+div.navbar a.logo-header 
+{
+	
+	float: left;
+	
+	width: 5%;
+
+	padding: 0.5em;
+	
+}
+
+div.navbar a.logo-header img.top-header-logo
+{
+	
+	float: left;
+	width: 100%;
 
 }
