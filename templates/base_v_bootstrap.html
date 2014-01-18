@@ -84,7 +84,7 @@
 					{% block BigLeftBlock %} 
 	                
 	                	<div class="half-space clearfix h-95">
-							aaaaaaaaaa
+							{% block filtros %} {% endblock %}
 						</div>
 						 
 					{% endblock %}
@@ -97,7 +97,6 @@
 					
 	                	<div class="half-space clearfix">
 	                    {% block content %} {% endblock %}
-	                    {% block teste %} {% endblock %}
 	                    <div class="col-xs-12 col-md-12 col-md-8 col-lg-8 h-100">
 	                    	{% block formulario %} {% endblock %}
 	                    </div>

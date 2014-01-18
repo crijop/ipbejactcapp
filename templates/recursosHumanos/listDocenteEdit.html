@@ -6,12 +6,13 @@
 	<li>
 		<span class="glyphicon glyphicon-home"></span> <a tabindex="2" href="{% url homeRecursosHumanos %}" title="{% trans 'Home' %}">{% trans 'Home' %}</a>
 	</li>
-	<li class="active">{% trans 'Listar Docentes a Editar' %}</li>
+	<li class="active">{% trans 'Lista de Docentes a Editar' %}</li>
 </ul>
 {% endblock %}
 
 
-{% block Filtros %}
+{% block filtros %}
+ddddddddddddddddd
 <ul>
 
 	<li class='title'>
@@ -33,7 +34,6 @@
 	</li>
 	<div id="dep">
 
-	
 
 	</div>
 	<li class="has-sub">
@@ -51,9 +51,9 @@
 
 {% block content %}
 
-<table class="table table-striped table-hover">
+<table class="table table-striped">
 	<tr>
-		<th colspan="6" class="top_sumario" >Listar Docentes a Editar</th>
+		<th>{% trans 'Lista de Docentes a Editar' %}</th>
 	</tr>
 	<tr>
 		<th colspan="6" class="top_sumario" > {% csrf_token %}
@@ -99,11 +99,20 @@
 
 </table>
 
-<div id="paginator">
-	<span class="current"> Página {{ docentes.number }} de {{ docentes.paginator.num_pages }}. </span>
-	<br>
-	<span class="step-links"><a href="?show=all">Todos</a></span>
-	<span class="step-links"> {% for page_num in drange %} <a id="{{ page_num}}" href="?page={{ page_num}}&{{actualState}}">{{ page_num}}</a> {% endfor%} </span>
+<div>
+	{% comment %}
+		<span class="current"> Página {{ docentes.number }} de {{ docentes.paginator.num_pages }}. </span>
+		<span class="step-links"><a href="?show=all">Todos</a></span>
+	{% endcomment %}
+	<ul class="pagination">	
+		{% for page_num in drange %}
+			{%if page_num == docentes.number%}
+				<li id = "{{ page_num}}" class="active"><a href="?page={{ page_num}}&{{actualState}}">{{ page_num}}</a></li>
+			{%else%}
+				 <li id = "{{ page_num}}"><a href="?page={{ page_num}}&{{actualState}}">{{ page_num}}</a></li>
+			{%endif%}
+		{% endfor%} 
+	</span>	
 </div>
 
 <script type="text/javascript">document.getElementById("searchField").focus();
