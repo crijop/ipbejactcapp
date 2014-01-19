@@ -18,6 +18,10 @@
 {% endblock %}
 
 {% block formulario %}
+<div class="page-header">
+  <h1>{% trans 'Editar Docente' %}</h1>
+</div>
+
 	<form method="post" role="form">
 	{% csrf_token %}
 	{% for field in form %}
