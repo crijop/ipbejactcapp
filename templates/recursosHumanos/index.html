@@ -40,40 +40,30 @@
 
 
 {% block content %}
-<div class="container">
-<div class="row show-grid">
-	<div class="col-md-10">
-	    Estatística {{dateActualFormatPrint}} 
-	  	<div class="row">
-		  	<div class="col-md-8">
-		        Contratos a Terminar
-		  	</div>
-		    <div class="col-md-4">
-		    </div>
-		    <div class="col-md-8">
-		    	<a href='{% url listContratos %}?date={{dateActualSTR}}&number_increment={{twoMonths}}&type=ct&data_fim_especial=True'>
-					<span>Próximos Dois Meses (Contratos a Termo Certo)</span>
-				</a>
-		    </div>
-	      	<div class="col-md-4">
-	        	<a href='{% url listContratos %}?date={{dateActualSTR}}&number_increment={{twoMonths}}&type=ct&data_fim_especial=True'>
-					<span>
-						{{nrDocentesEndContractTwoMonths}}
-					</span>
-				</a>
-	      	</div>
-		    <div class="col-md-8">
-		    	<a href='{% url listContratos %}?date={{dateActualSTR}}&number_increment={{fourMonths}}&type=st&data_fim_especial=True'>
-					<span>Próximos Quatro Meses (Contratos Sem Termo)</span>
-				</a>
-		   	</div>
-		    <div class="col-md-4">
-		    	<a href='{% url listContratos %}?date={{dateActualSTR}}&number_increment={{fourMonths}}&type=st&data_fim_especial=True'>
-					<span>{{nrDocentesEndContractFourMonths}}</span>
-				</a>
-		    </div>
-	    </div>
-	</div>
+<!-------------------------------------------------------------Cabeçalho-------------------------------------------------------------->	
+<div class="page-header">
+  <h1>{% trans 'Estatística ' %}<small> {{dateActualFormatPrint}} </small></h1>
 </div>
+<!-------------------------------------------------------------Conteudo Estatistico--------------------------------------------------->	
+<h3>Contratos a Terminar</h3>
+<div>
+<a href="{% url listContratos %}?date={{dateActualSTR}}&number_increment={{twoMonths}}&type=ct&data_fim_especial=True">Próximos Dois Meses (Contratos a Termo Certo) <span class="badge" >{{nrDocentesEndContractTwoMonths}}</span></a>
 </div>
+<div>
+<a href="{% url listContratos %}?date={{dateActualSTR}}&number_increment={{fourMonths}}&type=st&data_fim_especial=True">Próximos Quatro Meses (Contratos Sem Termo) <span class="badge" >{{nrDocentesEndContractFourMonths}}</span></a>
+</div>
+	
+<!-------------------------------------------------------------PAinel informativo--------------------------------------------------->	
+<div class="jumbotron">
+	
+  <h1>Recursos Humanos!</h1>
+  <p>Na área de gestão dos Recursos Humanos, terá a possibilidade de:</p>
+  <p>- Adicionar novos docentes ao sistema.</p>
+  <p>- Editar a informação de docentes já existentes.</p>
+  <p>- Listar todos os docentes existentes no sistema, utilizando filtros para refinar a sua pesquisa.</p>
+  <p><a class="btn btn-primary btn-lg" role="button">{% trans "Conheça mais" %}</a></p>
+  
+</div>
+
+
 {% endblock %}
