@@ -1,0 +1,33 @@
+body
+{
+	
+	overflow-x: hidden;
+	
+	
+	
+	
+}
+
+/**************Footer***************/
+footer.bs-footer
+{
+	
+
+position: absolute;
+	float: left;
+	background-image: linear-gradient(to bottom, #3C3C3C 0px, #222222 100%);
+    background-repeat: repeat-x;
+	padding-top: 1em;
+	
+
+	width: 100%;
+	margin-top: 1em;
+	margin-bottom: 0em;
+}
+
+footer.bs-footer p
+{ 
+	
+	color:white;
+}
+/**********************************/
