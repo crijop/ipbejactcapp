@@ -75,22 +75,3 @@ footer.bs-footer p
 	color:white;
 }
 
-/*****NavBar*****/
-div.navbar a.logo-header 
-{
-	
-	float: left;
-	
-	width: 5%;
-
-	padding: 0.5em;
-	
-}
-
-div.navbar a.logo-header img.top-header-logo
-{
-	
-	float: left;
-	width: 100%;
-
-}
