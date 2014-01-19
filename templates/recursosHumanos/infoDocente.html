@@ -1,51 +1,97 @@
 {% extends "recursosHumanos/index.html" %}
 {% load i18n %}
-{% block title %} Página Inícial Recursos Humanos {% endblock %}
-
-
+{% block title %}{% trans 'Página Inícial Recursos Humanos'%}{% endblock %}
 {% block breadcrumb %}
-<ul id="breadcrumb">
-        <li>
-        	<a tabindex="2" href="{% url homeRecursosHumanos %}" title="{% trans 'Home' %}"> <img src="/static/images/BreadCrumbs/home.gif" alt="{% trans 'Home' %}" class="home" /> </a>
-        </li>
-        <li>
-        	<a href="{% url listDocente %}" title="Informação do Docente">Listar Docentes</a>
-        </li>
-        <li>
-        	Informação do Docente
-        </li>
+<ul class="breadcrumb">
+	<li>
+		<span class="glyphicon glyphicon-home"></span> <a tabindex="2" href="{% url homeRecursosHumanos %}" title="{% trans 'Home' %}">{% trans 'Home' %}</a>
+	</li>
+	<li>
+    	<a href="{% url listDocente %}" title="Informação do Docente">{% trans 'Listar Docentes'%}</a>
+    </li>
+	<li class="active">{% trans 'Informação do Docente' %}</li>
 </ul>
 {% endblock %}
 
 
+
+
 {% block content %}
-        <table class="tabela_sumario">
-                <tr>
-                        <th colspan="2" class="top_sumario">Informação Docente</th>
-                </tr>
-                <tr>
-                        <th class="sub_cabecalho"><span>Nome Completo</span></th>
-                        <td>{{ nomeDocente }}</td>
-                </tr>
-                <tr>
-                        <th class="sub_cabecalho" ><span>Departamento</span></th>
-                        <td>{{ nome_Departamento }}</td>
-                </tr>
-                <tr>
-                        <th class="sub_cabecalho" ><span>Escalão</span></th>
-                        <td>{{ escalao }}</td>
-                </tr>
-                <tr>
-                        <th class="sub_cabecalho" ><span>Regime Exclusividade</span></th>
-                        <td>{{ regimeExclusividade }}</td>
-                </tr>
-                <tr>
-                        <th class="sub_cabecalho" ><span>Email Institucional</span></th>
-                        <td>{{ email_institucional }}</td>
-                </tr>
-                <tr>
-                        <th class="sub_cabecalho" ><span>Abreviatura</span></th>
-                        <td>{{ abreviatura }}</td>
-                </tr>
-        </table>    
+<div class="page-header">
+  <h1>{% trans 'Informação Docente' %}</h1>
+</div>
+
+{%comment%}
+<!-- 
+<div class="container">
+<div class="row show-grid"> 
+	  	<div class="row">
+		    <div class="col-md-2">
+				<b>{% trans 'Nome Completo'%}</b>
+		    </div>
+	      	<div class="col-md-10">
+	        	{{nomeDocente}}
+	      	</div>
+		    <div class="col-md-2">
+		    	<b>{% trans 'Departamento'%}</b>
+		   	</div>
+		    <div class="col-md-10">
+				{{nome_Departamento}}
+		    </div>
+		    <div class="col-md-2">
+		    	<b>{% trans 'Escalão'%}</b>
+		   	</div>
+		    <div class="col-md-10">
+				{{escalao}}
+		    </div>
+		    <div class="col-md-2">
+		    	<b>{% trans 'Regime Exclusividade'%}</b>
+		   	</div>
+		    <div class="col-md-10">
+				{{regimeExclusividade}}
+		    </div>
+		    <div class="col-md-2">
+		    	<b>{% trans 'Email Institucional'%}</b>
+		   	</div>
+		    <div class="col-md-10">
+				{{email_institucional}}
+		    </div>
+		    <div class="col-md-2">
+		    	<b>{% trans 'Abreviatura'%}</b>
+		   	</div>
+		    <div class="col-md-10">
+				{{abreviatura}}
+		    </div>
+	    </div>
+	</div>
+</div>
+ -->
+ {%endcomment%}
+
+<table class="table table-striped table-hover">
+	<tr>
+     	<th class="sub_cabecalho"><span>Nome Completo</span></th>
+         <td>{{ nomeDocente }}</td>
+    </tr>
+    <tr>
+     	<th class="sub_cabecalho" ><span>Departamento</span></th>
+     	<td>{{ nome_Departamento }}</td>
+    </tr>
+    <tr>
+		<th class="sub_cabecalho" ><span>Escalão</span></th>
+   		<td>{{ escalao }}</td>
+    </tr>
+    <tr>
+      	<th class="sub_cabecalho" ><span>Regime Exclusividade</span></th>
+      	<td>{{ regimeExclusividade }}</td>
+    </tr>
+    <tr>
+     	<th class="sub_cabecalho" ><span>Email Institucional</span></th>
+      	<td>{{ email_institucional }}</td>
+    </tr>
+    <tr>
+     	<th class="sub_cabecalho" ><span>Abreviatura</span></th>
+      	<td>{{ abreviatura }}</td>
+    </tr>
+</table>    
 {% endblock %}

@@ -1,22 +1,17 @@
 {% extends "recursosHumanos/index.html" %}
 {% load i18n %}
-{% block title %} Página Ajuda {% endblock %}
-
+{% block title %}{% trans 'Página Ajuda'%}{% endblock %}
 {% block breadcrumb %}
-<ul id="breadcrumb">
+<ul class="breadcrumb">
 	<li>
-		<a tabindex="2" href="{% url homeRecursosHumanos %}" title="{% trans 'Home' %}"> <img src="/static/images/BreadCrumbs/home.gif" alt="{% trans 'Home' %}" class="home" /> </a>
+		<span class="glyphicon glyphicon-home"></span> <a tabindex="2" href="{% url homeRecursosHumanos %}" title="{% trans 'Home' %}">{% trans 'Home' %}</a>
 	</li>
-		<li>
-			<a tabindex="3" href="#" title="....">.....</a>
-		</li>
+	<li class="active">{% trans '....' %}</li>
 </ul>
 {% endblock %}
 
 {% block content %}
-	<table class="tabela_sumario">
-	    <tr>
-	    	<th colspan="2" class="top_sumario">Ajuda</th>
-	    </tr>
-    </table>
+<div class="page-header">
+  <h1>{% trans 'Ajuda ' %}</h1>
+</div>
 {% endblock %}
