@@ -1,63 +1,62 @@
 {% extends "recursosHumanos/index.html" %}
 {% load i18n %}
-{% block title %} Página Inícial Recursos Humanos {% endblock %}
-
+{% block title %}{% trans 'Página Inícial Recursos Humanos' %}{% endblock %}
 
 {% block breadcrumb %}
-<ul id="breadcrumb">
-        <li>
-        	<a tabindex="2" href="{% url homeRecursosHumanos %}" title="{% trans 'Home' %}"> <img src="/static/images/BreadCrumbs/home.gif" alt="{% trans 'Home' %}" class="home" /> </a>
-        </li>
-        <li>
-        	<a href="{% url listContratos %}" title="Informação do Docente">Listar Contratos</a>
-        </li>
-        <li>
-        	Informação do Docente/Contacto
-        </li>
+<ul class="breadcrumb">
+	<li>
+		<span class="glyphicon glyphicon-home"></span> <a tabindex="2" href="{% url homeRecursosHumanos %}" title="{% trans 'Home' %}">{% trans 'Home' %}</a>
+	</li>
+	<li>
+    	<a href="{% url listContratos %}" title="{% trans 'Informação do Docente'%}">{% trans 'Listar Contratos'%}</a>
+    </li>
+	<li class="active">{% trans 'Informação do Docente/Contacto' %}</li>
 </ul>
 {% endblock %}
 
 
 {% block content %}
-        <table class="tabela_sumario">
-                <tr>
-                        <th colspan="2" class="top_sumario">Informação Docente/Contrato</th>
-                </tr>
-                <tr>
-                        <th class="sub_cabecalho"><span>Nome Completo</span></th>
-                        <td>{{ nomeDocente }}</td>
-                </tr>
-                <tr>
-                        <th class="sub_cabecalho"><span>Departamento</span></th>
-                        <td>{{ nome_Departamento }}</td>
-                </tr>
-                <tr>
-                        <th class="sub_cabecalho"><span>Escalão</span></th>
-                        <td>{{ escalao }}</td>
-                </tr>
-                <tr>
-                        <th class="sub_cabecalho"><span>Regime Exclusividade</span></th>
-                        <td>{{ regimeExclusividade }}</td>
-                </tr>
-                <tr>
-                        <th class="sub_cabecalho"><span>Categoria</span></th>
-                        <td>{{ categoria }}</td>
-                </tr>
-                <tr>
-                        <th class="sub_cabecalho"><span>Tipo Contrato</span></th>
-                        <td>{{ tipoContrato }}</td>
-                </tr>
-                <tr>
-                        <th class="sub_cabecalho"><span>Percentagem</span></th>
-                        <td>{{ percentagem }}</td>
-                </tr>
-                <tr>
-                        <th class="sub_cabecalho"><span>Data Inicio</span></th>
-                        <td>{{ dataInicio }}</td>
-                </tr>
-                <tr>
-                        <th class="sub_cabecalho"><span>Data Fim</span></th>
-                        <td>{{ dataFim }}</td>
-                </tr>
-        </table>    
+<div class="page-header">
+  <h1>{% trans 'Informação Docente/Contrato' %}</h1>
+</div>
+
+
+<table class="table table-striped table-hover">
+	<tr>
+	        <th class="sub_cabecalho"><span>Nome Completo</span></th>
+	        <td>{{ nomeDocente }}</td>
+	</tr>
+	<tr>
+	        <th class="sub_cabecalho"><span>Departamento</span></th>
+	        <td>{{ nome_Departamento }}</td>
+	</tr>
+	<tr>
+	        <th class="sub_cabecalho"><span>Escalão</span></th>
+	        <td>{{ escalao }}</td>
+	</tr>
+	<tr>
+	        <th class="sub_cabecalho"><span>Regime Exclusividade</span></th>
+	        <td>{{ regimeExclusividade }}</td>
+	</tr>
+	<tr>
+	        <th class="sub_cabecalho"><span>Categoria</span></th>
+	        <td>{{ categoria }}</td>
+	</tr>
+	<tr>
+	        <th class="sub_cabecalho"><span>Tipo Contrato</span></th>
+	        <td>{{ tipoContrato }}</td>
+	</tr>
+	<tr>
+	        <th class="sub_cabecalho"><span>Percentagem</span></th>
+	        <td>{{ percentagem }}</td>
+	</tr>
+	<tr>
+	        <th class="sub_cabecalho"><span>Data Inicio</span></th>
+	        <td>{{ dataInicio }}</td>
+	</tr>
+	<tr>
+	        <th class="sub_cabecalho"><span>Data Fim</span></th>
+	        <td>{{ dataFim }}</td>
+	</tr>
+</table>    
 {% endblock %}

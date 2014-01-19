@@ -56,28 +56,22 @@ ddddddddddddddddd
 </div>
 
 <nav role="navigation" class="navbar navbar-default">
-        
-      
-        
-        <div  class="collapse navbar-collapse">
+	<div  class="collapse navbar-collapse">
        	<div  class="collapse navbar-collapse navbar-left" >
-       		{% if keyword != None%}
-					
-          <p class="navbar-text">Pesquisa por "{{keyword}}</p>
+       		{% if keyword != None%}	
+          		<p class="navbar-text">Pesquisa por "{{keyword}}</p>
           	{% endif %}
-          	
-          <p class="navbar-text">{{sizeList}} resultados encontrados</p>
+          	<p class="navbar-text">{{sizeList}} resultados encontrados</p>
         </div>
         {% csrf_token %}
-          <form role="search" class="navbar-form navbar-left" action="" method="get" name="searchForm">
-            <div class="form-group">
-              <input name="searchField" type="text" placeholder="{%trans 'Search'%}" class="form-control" value="{{keyword}}">
+        <form role="search" class="navbar-form navbar-left" action="" method="get" name="searchForm">
+        	<div class="form-group">
+           		<input name="searchField" type="text" placeholder="{%trans 'Search'%}" class="form-control" value="{{keyword}}">
             </div>
             <button class="btn btn-default" name="Submit" type="submit">{%trans 'Search'%}</button>
-          </form>
-        </div>
-       
-      </nav>
+       	</form>
+	</div>
+</nav>
 <!--<table class="table table-striped">
 	<tr>
 		<th>{% trans 'Lista de Docentes a Editar' %}</th>
