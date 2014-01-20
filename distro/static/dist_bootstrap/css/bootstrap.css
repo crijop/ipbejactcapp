@@ -21,6 +21,29 @@ summary {
   display: block;
 }
 
+/**
+Box Filtros
+*/
+.box_filter {
+    position: relative;
+    top: 100%;
+    left: 0px;
+    z-index: 1000;
+    float: left;
+    min-width: 160px;
+    padding: 5px 0px;
+    margin: 2px 0px 0px;
+    font-size: 14px;
+    list-style: none outside none;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.176);
+    background-clip: padding-box;
+    
+}
+
+
 audio,
 canvas,
 video {
