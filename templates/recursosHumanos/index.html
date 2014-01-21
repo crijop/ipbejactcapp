@@ -19,19 +19,20 @@
 {% block Menus %}
     <li class="active"><a href="/distro">Informação</a></li>
     <li class="dropdown">
-	    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Docente<b class="caret"></b></a>
+	    <a href="#" class="dropdown-toggle" data-toggle="dropdown">{% trans 'Docente' %}<b class="caret"></b></a>
 	    <ul class="dropdown-menu">
-	      <li><a href="{%url adicionarDocenteRH%}">Adicionar Docentes</a></li>
-	      <li><a href="{%url listDocenteEdit %}">Editar Docentes</a></li>
-	      <li><a href="{%url listDocente %}">Listar Docentes</a></li>
+	      <li><a href="{%url adicionarDocenteRH%}">{% trans 'Adicionar Docentes' %}</a></li>
+	      <li><a href="{%url listDocenteEdit %}">{% trans 'Editar Docentes' %}</a></li>
+	      <li><a href="{%url listDocente %}">{% trans 'Listar Docentes' %}</a></li>
+	      <li><a href='{%url listContratos %}'><span>{% trans 'Listar Contratos' %}</span></a></li>
 	      <li class="divider"></li>
 	    </ul>
 	</li>
 	    <li class="dropdown">
-	    	<a href="#" class="dropdown-toggle" data-toggle="dropdown">Ajuda <b class="caret"></b></a>
+	    	<a href="#" class="dropdown-toggle" data-toggle="dropdown">{% trans 'Ajuda'%}<b class="caret"></b></a>
 	     <ul class="dropdown-menu">
-	       <li><a href="{% url ajudaRH 1 %}">Como Adicionar Docente</a></li>
-	       <li><a href="#">Como Editar Docente</a></li>
+	       <li><a href="{% url ajudaRH 1 %}">{% trans 'Como Adicionar Docente'%}</a></li>
+	       <li><a href="#">{% trans 'Como Editar Docente'%}</a></li>
 	       <li><a href="#">....</a></li>
 	     </ul> 
 	</li>
@@ -42,25 +43,25 @@
 {% block content %}
 <!-------------------------------------------------------------Cabeçalho-------------------------------------------------------------->	
 <div class="page-header">
-  <h1>{% trans 'Estatística ' %}<small> {{dateActualFormatPrint}} </small></h1>
+  <h1>{% trans 'Estatística'%}<small> {{dateActualFormatPrint}} </small></h1>
 </div>
 <!-------------------------------------------------------------Conteudo Estatistico--------------------------------------------------->	
-<h3>Contratos a Terminar</h3>
+<h3>{% trans 'Contratos a Terminar'%}</h3>
 <div>
-<a href="{% url listContratos %}?date={{dateActualSTR}}&number_increment={{twoMonths}}&type=ct&data_fim_especial=True">Próximos Dois Meses (Contratos a Termo Certo) <span class="badge" >{{nrDocentesEndContractTwoMonths}}</span></a>
+<a href="{% url listContratos %}?date={{dateActualSTR}}&number_increment={{twoMonths}}&type=ct&data_fim_especial=True">{% trans 'Próximos Dois Meses (Contratos a Termo Certo) '%}<span class="badge" >{{nrDocentesEndContractTwoMonths}}</span></a>
 </div>
 <div>
-<a href="{% url listContratos %}?date={{dateActualSTR}}&number_increment={{fourMonths}}&type=st&data_fim_especial=True">Próximos Quatro Meses (Contratos Sem Termo) <span class="badge" >{{nrDocentesEndContractFourMonths}}</span></a>
+<a href="{% url listContratos %}?date={{dateActualSTR}}&number_increment={{fourMonths}}&type=st&data_fim_especial=True">{% trans 'Próximos Quatro Meses (Contratos Sem Termo) '%}<span class="badge" >{{nrDocentesEndContractFourMonths}}</span></a>
 </div>
 	
 <!-------------------------------------------------------------PAinel informativo--------------------------------------------------->	
 <div class="jumbotron">
 	
-  <h1>Recursos Humanos!</h1>
-  <p>Na área de gestão dos Recursos Humanos, terá a possibilidade de:</p>
-  <p>- Adicionar novos docentes ao sistema.</p>
-  <p>- Editar a informação de docentes já existentes.</p>
-  <p>- Listar todos os docentes existentes no sistema, utilizando filtros para refinar a sua pesquisa.</p>
+  <h1>{% trans 'Recursos Humanos!'%}</h1>
+  <p>{% trans 'Na área de gestão dos Recursos Humanos, terá a possibilidade de:'%}</p>
+  <p>- {% trans 'Adicionar novos docentes ao sistema.'%}</p>
+  <p>- {% trans 'Editar a informação de docentes já existentes.'%}</p>
+  <p>- {% trans 'Listar todos os docentes existentes no sistema, utilizando filtros para refinar a sua pesquisa.'%}</p>
   <p><a class="btn btn-primary btn-lg" role="button">{% trans "Conheça mais" %}</a></p>
   
 </div>
