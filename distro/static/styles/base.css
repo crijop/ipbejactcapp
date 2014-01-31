@@ -103,7 +103,7 @@ div#rightBar {
 
 div#bradCrumb {
         height: 30px;
-        display: cell;
+       
         vertical-align: middle;
 }
 
@@ -348,7 +348,7 @@ table.tabela_sumario {
 }
 
 
-.view::before {
+.view:before {
         content: url("/static/images/icons/eye.png");
 }
 
@@ -438,12 +438,12 @@ color: #ffffff;
 
 
 
-span.edit::before {
+span.edit:before {
         content: url("/static/images/icons/pencil.png");
 }
 
 
-span.exit_small::before {
+span.exit_small:before {
         content: url("/static/images/icons/SMALL/exit.png");
 }
 
@@ -651,7 +651,7 @@ span.exit_small::before {
 
 
 /* The arrow indicating a submenu */
-#cssmenu > ul .has-sub > a::after {
+#cssmenu > ul .has-sub > a:after {
         content: '';
         position: absolute;
         top: 16px;
@@ -669,7 +669,7 @@ span.exit_small::before {
 
 
 /* The same arrow, but with a darker color, to create the shadow effect */
-#cssmenu > ul .has-sub > a::before {
+#cssmenu > ul .has-sub > a:before {
         content: '';
         position: absolute;
         top: 17px;
@@ -684,7 +684,7 @@ span.exit_small::before {
 }
 
 
-#cssmenu > ul .has-sub_lateral > a::after{
+#cssmenu > ul .has-sub_lateral > a:after{
         content: '';
         position: absolute;
         top: 16px;
@@ -700,12 +700,12 @@ span.exit_small::before {
 
 
 /* Changing the color of the arrow on hover */
-#cssmenu > ul li > a:hover::after, #cssmenu > ul li:hover > a::after {
+#cssmenu > ul li > a:hover:after, #cssmenu > ul li:hover > a:after {
         border-left: 4px solid #FFFFFF;
 }
 
 
-#cssmenu > ul li > a:hover::before, #cssmenu > ul li:hover > a::before {
+#cssmenu > ul li > a:hover:before, #cssmenu > ul li:hover > a:before {
         border-left: 4px solid rgba(0, 0, 0, .3);
 }
 

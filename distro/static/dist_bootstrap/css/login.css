@@ -1,7 +1,10 @@
 body {
 padding-top: 5em;
 padding-bottom: 0;
-background-color: #eee;
+background-image:  url("/static/images/wood.jpg");
+color: white;
+text-shadow: 5px 5px 10px black;
+
 }
 .form-signin {
 max-width: 330px;
