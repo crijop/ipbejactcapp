@@ -2,10 +2,26 @@ body
 {
 	
 	overflow-x: hidden;
+	background-image:  url("/static/images/wood.jpg");
 	
 	
 	
+}
+
+.whiteBox{
 	
+	background-color: rgba(255,255,255,0.2);
+	padding-bottom: 1em;
+	padding-top: 1em;
+	border-radius: 1em;
+	
+	 
+}
+.whiteText
+{
+	color: white;
+	text-shadow: 5px 5px 10px black;
+
 }
 
 /**************Footer***************/
