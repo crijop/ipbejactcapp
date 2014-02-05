@@ -2,6 +2,10 @@
 {% load i18n %}
 {% block title %} Página de adicionar docente {% endblock %}
 
+<!-- Estes blocos é para alterar a classe do menu do index, refere se está ou não activo -->
+{% block MenuDocente %}active{% endblock %}
+{% block MenuInformacao %} {% endblock %}
+
 {% block breadcrumb %}
 <ul class="breadcrumb">
 	<li>
@@ -15,14 +19,14 @@
 {% endblock %}
 
 {% block formulario %}
-<div class="page-header">
+<div class="page-header whiteText">
   <h1>{% trans 'Adicionar Docente' %}</h1>
 </div>
 
 <form method="post" role="form">
 	{% csrf_token %}
 	{% for field in form %}
-		<div class="form-group">
+		<div class="form-group whiteText">
 			<label for="col-sm-2 control-label">{{ field.label }} {% if field.field.required %}*{%endif%}</label>
 			{{ field }}
 		</div>
@@ -35,7 +39,7 @@
 		
    	{% endfor %}
     <br />
-   	<span id="CamposObirgatorio">(*) - Campos de preenchimento obrigatório</span>
+   	<span id="CamposObirgatorio" class="whiteText">(*) - Campos de preenchimento obrigatório</span>
    	<hr />
 	<div id="buttonConfirm">
 		<input type="hidden" name="{{ stage_field }}" value="1" />

@@ -17,8 +17,8 @@
 {% endblock %}
 
 {% block Menus %}
-    <li class="active"><a href="/distro">Informação</a></li>
-    <li class="dropdown">
+    <li {% block MenuInformacao %} class="active" {% endblock %}><a href="/distro">Informação</a></li>
+    <li class="dropdown {% block MenuDocente %} {% endblock %}">
 	    <a href="#" class="dropdown-toggle" data-toggle="dropdown">{% trans 'Docente' %}<b class="caret"></b></a>
 	    <ul class="dropdown-menu">
 	      <li><a href="{%url adicionarDocenteRH%}">{% trans 'Adicionar Docentes' %}</a></li>
@@ -28,7 +28,7 @@
 	      <li class="divider"></li>
 	    </ul>
 	</li>
-	    <li class="dropdown">
+	    <li class="dropdown {% block MenuAjuda %} {% endblock %}">
 	    	<a href="#" class="dropdown-toggle" data-toggle="dropdown">{% trans 'Ajuda'%}<b class="caret"></b></a>
 	     <ul class="dropdown-menu">
 	       <li><a href="{% url ajudaRH 1 %}">{% trans 'Como Adicionar Docente'%}</a></li>
