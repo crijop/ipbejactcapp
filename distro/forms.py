@@ -13,33 +13,35 @@ from django.forms.models import ModelForm
 #Class de Teste para adicionar docentes.
 class AddDocenteForm(forms.Form):
     nome_completo     = forms.CharField(max_length=300, label=u'Nome Completo', \
-                                        widget=forms.TextInput(attrs={'class':'form-control'}))
+                                        widget=forms.TextInput(attrs={'class':'form-control colorInput'}))
     departamento      = forms.ModelChoiceField(queryset=Departamento.objects.all(), \
-                                               widget=forms.TextInput(attrs={'class':'form-control'}))
+                                               widget=forms.TextInput(attrs={'class':'form-control colorInput'}))
     escalao           = forms.IntegerField(required=False, initial= 100, \
-                                           widget=forms.TextInput(attrs={'class':'form-control'}) )
+                                           widget=forms.TextInput(attrs={'class':'form-control colorInput'}) )
     regime_exclusividade = forms.BooleanField(required=False, initial = True, \
-                    widget=forms.CheckboxInput(attrs={'class':'form-control'}))
+                    widget=forms.CheckboxInput(attrs={'class':'form-control colorInput'}))
     email = forms.EmailField(required = False, label=u'Email Institucional', \
-                             widget=forms.TextInput(attrs={'class':'form-control'}))
-    abreviatura       = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
+                             widget=forms.TextInput(attrs={'class':'form-control colorInput'}))
+    abreviatura       = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control colorInput'}))
 
 #Class que apresenta o formulário para
 #adicionar o docente
 class AdicionarDocenteForm(ModelForm):
     #widget=forms.TextInput(attrs={ 'required': 'true' })
     nome_completo     = forms.CharField(max_length=300, label=u'Nome Completo', \
-                                        widget=forms.TextInput(attrs={'class':'form-control'}))
+                                        widget=forms.TextInput(attrs={'class':'form-control colorInput'}))
     email = forms.EmailField(required = False, label=u'Email Institucional', \
-                             widget=forms.TextInput(attrs={'class':'form-control'}))
-    abreviatura       = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
+                             widget=forms.TextInput(attrs={'class':'form-control colorInput'}))
+    abreviatura       = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control colorInput'}))
+    escalao           = forms.IntegerField(required=False, initial= 100, \
+                                           widget=forms.TextInput(attrs={'class':'form-control colorInput'}) )
     
     departamento = forms.ModelChoiceField(Departamento.objects.all(),
-                                          widget = forms.Select(attrs = {'class':'form-control', 'onchange':'testeSearch();'}))
+                        widget = forms.Select(attrs = {'class':'form-control colorInput', 'onchange':'testeSearch();'}))
 
     regime_exclusividade = forms.BooleanField(required=False, initial = True, 
                                               widget=forms.CheckboxInput(\
-                                            attrs={'class':'form-control', 'onchange':'testeSearch();'}))
+                                            attrs={'class':'form-control colorInput', 'onchange':'testeSearch();'}))
     
     class Meta:
         model = Docente
@@ -50,16 +52,17 @@ class AdicionarDocenteForm(ModelForm):
 #editar o docente
 class EditarDocenteForm(ModelForm):
     nome_completo     = forms.CharField(max_length=300, label=u'Nome Completo', \
-                                        widget=forms.TextInput(attrs={'class':'form-control'}))
+                                        widget=forms.TextInput(attrs={'class':'form-control colorInput'}))
     email = forms.EmailField(required = False, label=u'Email Institucional', \
-                             widget=forms.TextInput(attrs={'class':'form-control'}))
-    abreviatura       = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
-                                           
+                             widget=forms.TextInput(attrs={'class':'form-control colorInput'}))
+    abreviatura       = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control colorInput'}))
+    escalao           = forms.IntegerField(required=False, initial= 100, \
+                                           widget=forms.TextInput(attrs={'class':'form-control colorInput'}) )
     departamento = forms.ModelChoiceField(Departamento.objects.all(),
-                                          widget = forms.Select(attrs = {'class':'form-control', 'onchange':'testeSearch();'}))
+                                          widget = forms.Select(attrs = {'class':'form-control colorInput', 'onchange':'testeSearch();'}))
 
     regime_exclusividade = forms.BooleanField(required=False, initial = True, 
-                                        widget=forms.CheckboxInput(attrs={'class':'form-control', 'onchange':'testeSearch();'}))
+                                        widget=forms.CheckboxInput(attrs={'class':'form-control colorInput', 'onchange':'testeSearch();'}))
                                               
     #Para evitar que o django faça a 
     #validação do formulario aos campos que são unicos
