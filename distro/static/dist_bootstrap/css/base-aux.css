@@ -10,10 +10,10 @@ body
 
 .whiteBox{
 	
-	background-color: rgba(255,255,255,0.2);
-	padding-bottom: 1em;
-	padding-top: 1em;
-	border-radius: 1em;
+	background-color: rgba(255,255,255,0.9);
+	padding-bottom: 0.5em !important;;
+	padding-top: 1em !important;;
+	border-radius: 0.5em !important; 
 	
 	 
 }
@@ -22,6 +22,19 @@ body
 	color: white;
 	text-shadow: 5px 5px 10px black;
 
+}
+
+/*************************Grupos de filtros**********/
+.list-group
+{
+	width: 25%;
+}
+
+.list-group-item-children
+{
+	
+	background-color: lightGray;
+	padding-left: 3em;
 }
 
 /**************Footer***************/

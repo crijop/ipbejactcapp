@@ -42,16 +42,16 @@
 
 {% block content %}
 <!-------------------------------------------------------------Cabeçalho-------------------------------------------------------------->	
-<div class="page-header">
+<div class="page-header whiteText">
   <h1>{% trans 'Estatística'%}<small> {{dateActualFormatPrint}} </small></h1>
 </div>
 <!-------------------------------------------------------------Conteudo Estatistico--------------------------------------------------->	
-<h3>{% trans 'Contratos a Terminar'%}</h3>
-<div>
-<a href="{% url listContratos %}?date={{dateActualSTR}}&number_increment={{twoMonths}}&type=ct&data_fim_especial=True">{% trans 'Próximos Dois Meses (Contratos a Termo Certo) '%}<span class="badge" >{{nrDocentesEndContractTwoMonths}}</span></a>
+<h3 class="whiteText" >{% trans 'Contratos a Terminar'%}</h3>
+<div  class="alert alert-danger">
+<a class="alert-link" href="{% url listContratos %}?date={{dateActualSTR}}&number_increment={{twoMonths}}&type=ct&data_fim_especial=True">{% trans 'Próximos Dois Meses (Contratos a Termo Certo) '%}<span class="badge" >{{nrDocentesEndContractTwoMonths}}</span></a>
 </div>
-<div>
-<a href="{% url listContratos %}?date={{dateActualSTR}}&number_increment={{fourMonths}}&type=st&data_fim_especial=True">{% trans 'Próximos Quatro Meses (Contratos Sem Termo) '%}<span class="badge" >{{nrDocentesEndContractFourMonths}}</span></a>
+<div  class="alert alert-danger">
+<a class="alert-link" href="{% url listContratos %}?date={{dateActualSTR}}&number_increment={{fourMonths}}&type=st&data_fim_especial=True">{% trans 'Próximos Quatro Meses (Contratos Sem Termo) '%}<span class="badge" >{{nrDocentesEndContractFourMonths}}</span></a>
 </div>
 	
 <!-------------------------------------------------------------PAinel informativo--------------------------------------------------->	
