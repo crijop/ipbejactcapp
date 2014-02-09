@@ -58,8 +58,8 @@ urlpatterns = patterns('',
         name='home'),
     
     #URL para a pagina Sair
-    (r'^distro/sair$', 'django.contrib.auth.views.logout',
-        {'template_name': 'sair.html'}, 'sair'),
+    (r'^sair$', 'django.contrib.auth.views.logout',
+        {'next_page': '/'}, 'sair'),
                        
     
     #ACTORES DO SISTEMA                   
