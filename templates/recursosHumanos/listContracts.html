@@ -16,7 +16,19 @@
 {% block MenuInformacao %} {% endblock %}
 
 {% block filtros %}
-<ul>
+<div class="list-group">
+  <a href="#" class="list-group-item active">
+    Departamento
+  </a>
+  {% include "recursosHumanos/filter_dep.html" %}
+  
+  <a href="#" class="list-group-item active">Categoria</a>
+   {% include "recursosHumanos/filter_cat.html" %}
+  <a href="#" class="list-group-item">Data Inicio</a>
+  <a href="#" class="list-group-item">Data Fim</a>
+</div>
+
+<!--<ul>
 
 	<li class='title'>
 		<span>Filtros</span>
@@ -55,7 +67,7 @@
 		</li>
 		<!--Por data de inicio----------------------------->
 
-		<div  id="start_date">
+		<!--<div  id="start_date">
 
 			<form id="form_start_date" accept-charset="utf-8">
 
@@ -153,12 +165,12 @@
 	</div>
 
 	</div>
-</ul>
+</ul>-->
 
 {% endblock %}
 
 {% block content %}
-<div class="page-header">
+<div class="page-header whiteText">
   <h1>{% trans 'Listar Contratos'%}</h1>
 </div>
 
@@ -180,6 +192,7 @@
 	</div>
 </nav>
 
+<div class="whiteBox">
 <table class="table table-striped table-hover">
 	<tr>
 		<th></th>
@@ -212,6 +225,7 @@
 	{% endif %}
 
 </table>
+</div>
 
 <!--PAGINAÇÂO -->
 <div>
