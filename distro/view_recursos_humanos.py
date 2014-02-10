@@ -976,7 +976,8 @@ def search_category(search_List, allDocentes, isListContracts, listaCate, count 
 def listContracts_RecursosHumanos(request):
     
     allDocentes = Docente.objects.all()
-   
+    allDepartamentos = Departamento.objects.all()
+    allCategories = Categoria.objects.all()
     listaContracts = []
     actualState = ""
     
