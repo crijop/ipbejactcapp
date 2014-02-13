@@ -24,8 +24,36 @@
   
   <a href="#" class="list-group-item active">Categoria</a>
    {% include "recursosHumanos/filter_cat.html" %}
-  <a href="#" class="list-group-item">Data Inicio</a>
-  <a href="#" class="list-group-item">Data Fim</a>
+  <a href="#" class="list-group-item active">Data Inicio</a>
+  <a  class="list-group-item list-group-item-children">
+  	<input type="text" readonly="readonly" id="datepicker_start">
+  	<script>
+  $(function() {
+    $( "#datepicker_start" ).datepicker({
+      changeMonth: true,
+      changeYear: true,
+      showOn: "both",
+      buttonImage: "/static/images/images_jquery_ui/calendar.gif",
+      buttonImageOnly: true
+    });
+  });
+  </script>
+  </a>
+  <a href="#" class="list-group-item active">Data Fim</a>
+    <a  class="list-group-item list-group-item-children">
+  	<input type="text" readonly="readonly" id="datepicker_end">
+  	<script>
+  $(function() {
+    $( "#datepicker_end" ).datepicker({
+      changeMonth: true,
+      changeYear: true,
+      showOn: "both",
+      buttonImage: "/static/images/images_jquery_ui/calendar.gif",
+      buttonImageOnly: true
+    });
+  });
+  </script>
+  </a>
 </div>
 
 <!--<ul>
