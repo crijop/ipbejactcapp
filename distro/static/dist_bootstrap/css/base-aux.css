@@ -86,3 +86,128 @@ div.jumbotron
 	color: white;
 	
 }
+
+
+/*-----------------------TABLE-------------------*/
+table.display td{
+	font-family: "Lucida Grande", Helvetica, Verdana, Arial, sans-serif;
+	color: #4c4c4c;
+	font-size: 13px;
+	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
+	padding: 3px 6px !important;
+	border-top: 1px solid #dddddd;
+}
+
+/*caixa de número de resultados*/
+.dataTables_length, .dataTables_filter{
+	padding-top: 5px;
+	height: 30px;
+	width: 50% !important;
+	background-color: #EDEDED;
+}
+.dataTables_length, .dataTables_info{
+	padding-left: 6px;
+	padding-top: 5px;
+}
+.dataTables_filter label{
+	font-family: "Lucida Grande", Helvetica, Verdana, Arial, sans-serif;
+	color: #4c4c4c;
+	font-size: 13px;
+	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
+}
+
+.dataTables_filter input{
+	cursor: text;
+	position: relative;
+	padding: 1px 0;
+	line-height: 18px;
+	width: 200px;
+	border: 1px solid #ababab;
+	background: white;
+	-moz-border-radius: 13px;
+	-webkit-border-radius: 13px;
+	border-radius: 13px;
+	-moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) inset;
+	-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) inset;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) inset;
+	margin-right: 20px;
+	border-color: #3d8bd0;
+	-moz-box-shadow: 0 1px 2px #3d8bd0 inset;
+	-webkit-box-shadow: 0 1px 2px #3d8bd0 inset;
+	box-shadow: 0 1px 2px #3d8bd0 inset;
+}
+
+.checkAll{
+	margin-left: -3px !important;
+}
+
+
+.sumary_table > thead > tr > th, .sumary_table > tfoot > tr > th{
+	background-color: #EDEDED;
+	font-weight: normal;
+	color: #4c4c4c;
+	border-right: 1px solid #cccccc;
+	border-bottom: 2px solid #cccccc !important;
+	border-top: 1px solid #cccccc !important;
+}
+
+.sumary_table > tbody > tr > th{
+	border-bottom: 1px solid #cccccc;
+	
+}
+
+.sumary_table > tbody > tr:nth-child(odd){
+	background-color: #f0f0fa;
+	background-color: #D3DEFF;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#DEEFFF), to(#DEEFFF));
+	background-image: -webkit-linear-gradient(top, #DEEFFF, #DEEFFF);
+	background-image: -moz-linear-gradient(top, #DEEFFF, #DEEFFF);
+	background-image: -ms-linear-gradient(top, #DEEFFF, #DEEFFF);
+	background-image: -o-linear-gradient(top, #DEEFFF, #DEEFFF);
+	background-image: linear-gradient(to bottom, #DEEFFF, #DEEFFF);
+
+}
+
+.sumary_table tr.odd td.sorting_1{
+	background-color: #DEEFFF;
+}
+.sumary_table tr.even td.sorting_1{
+	background-color: white;
+}
+
+.sumary_table tfoot{
+	border-top: 2px solid #cacaca;
+	border-bottom: 1px solid #cacaca;
+	background: #eeeeee;
+	font-weight: bold;
+}
+
+.view_sumary{
+	width: 90%;
+	margin-top: 30px;
+	margin-left: 20px;
+	font-size: 14px;
+}
+.view_sumary .title{
+	width: 20%;
+	padding-right: 7px;
+	padding-bottom: 5px;
+	font-weight: bold;
+	border-right: 1px solid #cccccc;
+	text-align: right;
+}
+
+.view_sumary .info{
+	width: 50%;
+	padding-left: 7px;
+	padding-bottom: 5px;
+	font-weight: normal;
+}
+
+.table-condensed > tbody > tr > td {
+	padding: 3px 6px;
+	
+	
+}
+
+
