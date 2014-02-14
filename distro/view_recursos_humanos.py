@@ -718,20 +718,22 @@ def listDocenteEdit_RecursosHumanos(request):
         
         
     
-    paginator = Paginator(listaDocentes, 10)
-    drange = range( 1, paginator.num_pages + 1)
-    
-    
-    page = request.GET.get('page')
-     
-    try:
-        docentes = paginator.page(page)
-    except PageNotAnInteger:
-        # If page is not an integer, deliver first page.
-        docentes = paginator.page(1)
-    except EmptyPage:
-        # If page is out of range (e.g. 9999), deliver last page of results.
-        docentes = paginator.page(paginator.num_pages)
+    #===========================================================================
+    # paginator = Paginator(listaDocentes, 10)
+    # drange = range( 1, paginator.num_pages + 1)
+    # 
+    # 
+    # page = request.GET.get('page')
+    #  
+    # try:
+    #     docentes = paginator.page(page)
+    # except PageNotAnInteger:
+    #     # If page is not an integer, deliver first page.
+    #     docentes = paginator.page(1)
+    # except EmptyPage:
+    #     # If page is out of range (e.g. 9999), deliver last page of results.
+    #     docentes = paginator.page(paginator.num_pages)
+    #===========================================================================
         
     return render_to_response("recursosHumanos/listDocenteEdit.html",
         locals(),

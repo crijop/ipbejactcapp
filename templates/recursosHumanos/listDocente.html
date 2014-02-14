@@ -74,16 +74,10 @@
 {% endblock %}
 
 {% block content %}
-
-
-
-
-
-
 <div class="page-header whiteText">
   <h1>{% trans 'Lista de Docentes '%}</h1>
 </div>
-
+{%comment%}
 <nav role="navigation" class="navbar navbar-default">
 	<div  class="collapse navbar-collapse">
        	<div  class="collapse navbar-collapse navbar-left" >
@@ -101,6 +95,8 @@
        	</form>
 	</div>
 </nav>
+{%endcomment%}
+
 <div class="whiteBox">
 <table cellpadding="0" cellspacing="0" border="0" class="display sumary_table" id="example" width="100%">
 <thead>	
@@ -169,11 +165,12 @@ Página {{ docentes.number }} de {{ docentes.paginator.num_pages }}.
 </div>-->
 
 <!--PAGINAÇÂO -->
+{%comment%}
 <div>
-	{% comment %}
+	
 		<span class="current"> Página {{ docentes.number }} de {{ docentes.paginator.num_pages }}. </span>
 		<span class="step-links"><a href="?show=all">Todos</a></span>
-	{% endcomment %}
+	
 	<ul class="pagination">	
 		<li><a href="?show=all">Todos</a></li>
 		{% for page_num in drange %}
@@ -185,7 +182,7 @@ Página {{ docentes.number }} de {{ docentes.paginator.num_pages }}.
 		{% endfor%} 
 	</span>	
 </div>
-
+{%endcomment%}
 
 
 
