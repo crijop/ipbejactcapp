@@ -23,15 +23,15 @@
 {% endblock %}
 
 {% block formulario %}
-<div class="page-header">
+<div class="page-header whiteText">
   <h1>{% trans 'Editar Docente' %}</h1>
 </div>
 
 	<form method="post" role="form">
 	{% csrf_token %}
 	{% for field in form %}
-		<div class="form-group">
-			<label for="col-sm-2 control-label">{{ field.label }} {% if field.field.required %}*{%endif%}</label>
+		<div class="form-group whiteText">
+			<label for="col-sm-4 control-label">{{ field.label }} {% if field.field.required %}*{%endif%}</label>
 			{{ field }}
 		</div>
 	    
@@ -53,7 +53,7 @@
 	</div>
     <br />
     
-   	<span id="CamposObirgatorio">(*) - Campos de preenchimento obrigatório</span>
+   	<span id="CamposObirgatorio" class="whiteText">(*) - Campos de preenchimento obrigatório</span>
    	<hr />
 	<div id="buttonConfirm">
 		<input type="hidden" name="{{ stage_field }}" value="1" />
