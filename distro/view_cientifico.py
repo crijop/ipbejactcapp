@@ -435,20 +435,22 @@ def definirCursosCET(request):
             pass
         pass
     
-    paginator = Paginator(listaCursoCET, 10)
-    drange = range(1, paginator.num_pages + 1)
-
-
-    page = request.GET.get('page')
-    
-    try:
-        listInfo = paginator.page(page)
-    except PageNotAnInteger:
-        # If page is not an integer, deliver first page.
-        listInfo = paginator.page(1)
-    except EmptyPage:
-        # If page is out of range (e.g. 9999), deliver last page of results.
-        listInfo = paginator.page(paginator.num_pages)
+#===============================================================================
+#     paginator = Paginator(listaCursoCET, 10)
+#     drange = range(1, paginator.num_pages + 1)
+# 
+# 
+#     page = request.GET.get('page')
+#     
+#     try:
+#         listInfo = paginator.page(page)
+#     except PageNotAnInteger:
+#         # If page is not an integer, deliver first page.
+#         listInfo = paginator.page(1)
+#     except EmptyPage:
+#         # If page is out of range (e.g. 9999), deliver last page of results.
+#         listInfo = paginator.page(paginator.num_pages)
+#===============================================================================
     
     
     return render_to_response("cientifico/definir_Curso_CET.html",
@@ -476,20 +478,22 @@ def definirCursosLic(request):
             pass
         pass
     
-    paginator = Paginator(listaCursoLic, 10)
-    drange = range(1, paginator.num_pages + 1)
-
-
-    page = request.GET.get('page')
-    
-    try:
-        listInfo = paginator.page(page)
-    except PageNotAnInteger:
-        # If page is not an integer, deliver first page.
-        listInfo = paginator.page(1)
-    except EmptyPage:
-        # If page is out of range (e.g. 9999), deliver last page of results.
-        listInfo = paginator.page(paginator.num_pages)
+#===============================================================================
+#     paginator = Paginator(listaCursoLic, 10)
+#     drange = range(1, paginator.num_pages + 1)
+# 
+# 
+#     page = request.GET.get('page')
+#     
+#     try:
+#         listInfo = paginator.page(page)
+#     except PageNotAnInteger:
+#         # If page is not an integer, deliver first page.
+#         listInfo = paginator.page(1)
+#     except EmptyPage:
+#         # If page is out of range (e.g. 9999), deliver last page of results.
+#         listInfo = paginator.page(paginator.num_pages)
+#===============================================================================
     
     return render_to_response("cientifico/definir_Curso_Lic.html",
         locals(),
@@ -516,20 +520,22 @@ def definirCursosMest(request):
             pass
         pass
     
-    paginator = Paginator(listaCursoMest, 10)
-    drange = range(1, paginator.num_pages + 1)
-
-
-    page = request.GET.get('page')
-    
-    try:
-        listInfo = paginator.page(page)
-    except PageNotAnInteger:
-        # If page is not an integer, deliver first page.
-        listInfo = paginator.page(1)
-    except EmptyPage:
-        # If page is out of range (e.g. 9999), deliver last page of results.
-        listInfo = paginator.page(paginator.num_pages)
+#===============================================================================
+#     paginator = Paginator(listaCursoMest, 10)
+#     drange = range(1, paginator.num_pages + 1)
+# 
+# 
+#     page = request.GET.get('page')
+#     
+#     try:
+#         listInfo = paginator.page(page)
+#     except PageNotAnInteger:
+#         # If page is not an integer, deliver first page.
+#         listInfo = paginator.page(1)
+#     except EmptyPage:
+#         # If page is out of range (e.g. 9999), deliver last page of results.
+#         listInfo = paginator.page(paginator.num_pages)
+#===============================================================================
     
     
     return render_to_response("cientifico/definir_Curso_Mest.html",
@@ -557,20 +563,22 @@ def definirCursosPG(request):
             pass
         pass
     
-    paginator = Paginator(listaCursoPG, 10)
-    drange = range(1, paginator.num_pages + 1)
-
-
-    page = request.GET.get('page')
-    
-    try:
-        listInfo = paginator.page(page)
-    except PageNotAnInteger:
-        # If page is not an integer, deliver first page.
-        listInfo = paginator.page(1)
-    except EmptyPage:
-        # If page is out of range (e.g. 9999), deliver last page of results.
-        listInfo = paginator.page(paginator.num_pages)
+#===============================================================================
+#     paginator = Paginator(listaCursoPG, 10)
+#     drange = range(1, paginator.num_pages + 1)
+# 
+# 
+#     page = request.GET.get('page')
+#     
+#     try:
+#         listInfo = paginator.page(page)
+#     except PageNotAnInteger:
+#         # If page is not an integer, deliver first page.
+#         listInfo = paginator.page(1)
+#     except EmptyPage:
+#         # If page is out of range (e.g. 9999), deliver last page of results.
+#         listInfo = paginator.page(paginator.num_pages)
+#===============================================================================
     
     
     return render_to_response("cientifico/definir_Curso_PG.html",
@@ -599,20 +607,22 @@ def definirCursosPortLE(request):
             pass
         pass
     
-    paginator = Paginator(listaCursoPortLE, 10)
-    drange = range(1, paginator.num_pages + 1)
-
-
-    page = request.GET.get('page')
-    
-    try:
-        listInfo = paginator.page(page)
-    except PageNotAnInteger:
-        # If page is not an integer, deliver first page.
-        listInfo = paginator.page(1)
-    except EmptyPage:
-        # If page is out of range (e.g. 9999), deliver last page of results.
-        listInfo = paginator.page(paginator.num_pages)
+#===============================================================================
+#     paginator = Paginator(listaCursoPortLE, 10)
+#     drange = range(1, paginator.num_pages + 1)
+# 
+# 
+#     page = request.GET.get('page')
+#     
+#     try:
+#         listInfo = paginator.page(page)
+#     except PageNotAnInteger:
+#         # If page is not an integer, deliver first page.
+#         listInfo = paginator.page(1)
+#     except EmptyPage:
+#         # If page is out of range (e.g. 9999), deliver last page of results.
+#         listInfo = paginator.page(paginator.num_pages)
+#===============================================================================
     
     
     return render_to_response("cientifico/definir_Curso_PortLE.html",
@@ -644,20 +654,22 @@ def listarCursosCET(request):
             pass
         pass
     
-    paginator = Paginator(listaCursoCET, 10)
-    drange = range(1, paginator.num_pages + 1)
-
-
-    page = request.GET.get('page')
-    
-    try:
-        listInfo = paginator.page(page)
-    except PageNotAnInteger:
-        # If page is not an integer, deliver first page.
-        listInfo = paginator.page(1)
-    except EmptyPage:
-        # If page is out of range (e.g. 9999), deliver last page of results.
-        listInfo = paginator.page(paginator.num_pages)
+#===============================================================================
+#     paginator = Paginator(listaCursoCET, 10)
+#     drange = range(1, paginator.num_pages + 1)
+# 
+# 
+#     page = request.GET.get('page')
+#     
+#     try:
+#         listInfo = paginator.page(page)
+#     except PageNotAnInteger:
+#         # If page is not an integer, deliver first page.
+#         listInfo = paginator.page(1)
+#     except EmptyPage:
+#         # If page is out of range (e.g. 9999), deliver last page of results.
+#         listInfo = paginator.page(paginator.num_pages)
+#===============================================================================
     
     
     return render_to_response("cientifico/ListarCursos/listar_Curso_CET.html",
@@ -685,20 +697,22 @@ def listarCursosLic(request):
             pass
         pass
     
-    paginator = Paginator(listaCursoLic, 10)
-    drange = range(1, paginator.num_pages + 1)
-
-
-    page = request.GET.get('page')
-    
-    try:
-        listInfo = paginator.page(page)
-    except PageNotAnInteger:
-        # If page is not an integer, deliver first page.
-        listInfo = paginator.page(1)
-    except EmptyPage:
-        # If page is out of range (e.g. 9999), deliver last page of results.
-        listInfo = paginator.page(paginator.num_pages)
+#===============================================================================
+#     paginator = Paginator(listaCursoLic, 10)
+#     drange = range(1, paginator.num_pages + 1)
+# 
+# 
+#     page = request.GET.get('page')
+#     
+#     try:
+#         listInfo = paginator.page(page)
+#     except PageNotAnInteger:
+#         # If page is not an integer, deliver first page.
+#         listInfo = paginator.page(1)
+#     except EmptyPage:
+#         # If page is out of range (e.g. 9999), deliver last page of results.
+#         listInfo = paginator.page(paginator.num_pages)
+#===============================================================================
     
     return render_to_response("cientifico/ListarCursos/listar_Curso_Lic.html",
         locals(),
@@ -725,20 +739,22 @@ def listarCursosMest(request):
             pass
         pass
     
-    paginator = Paginator(listaCursoMest, 10)
-    drange = range(1, paginator.num_pages + 1)
-
-
-    page = request.GET.get('page')
-    
-    try:
-        listInfo = paginator.page(page)
-    except PageNotAnInteger:
-        # If page is not an integer, deliver first page.
-        listInfo = paginator.page(1)
-    except EmptyPage:
-        # If page is out of range (e.g. 9999), deliver last page of results.
-        listInfo = paginator.page(paginator.num_pages)
+#===============================================================================
+#     paginator = Paginator(listaCursoMest, 10)
+#     drange = range(1, paginator.num_pages + 1)
+# 
+# 
+#     page = request.GET.get('page')
+#     
+#     try:
+#         listInfo = paginator.page(page)
+#     except PageNotAnInteger:
+#         # If page is not an integer, deliver first page.
+#         listInfo = paginator.page(1)
+#     except EmptyPage:
+#         # If page is out of range (e.g. 9999), deliver last page of results.
+#         listInfo = paginator.page(paginator.num_pages)
+#===============================================================================
     
     
     return render_to_response("cientifico/ListarCursos/listar_Curso_Mest.html",
@@ -766,20 +782,22 @@ def listarCursosPG(request):
             pass
         pass
     
-    paginator = Paginator(listaCursoPG, 10)
-    drange = range(1, paginator.num_pages + 1)
-
-
-    page = request.GET.get('page')
-    
-    try:
-        listInfo = paginator.page(page)
-    except PageNotAnInteger:
-        # If page is not an integer, deliver first page.
-        listInfo = paginator.page(1)
-    except EmptyPage:
-        # If page is out of range (e.g. 9999), deliver last page of results.
-        listInfo = paginator.page(paginator.num_pages)
+#===============================================================================
+#     paginator = Paginator(listaCursoPG, 10)
+#     drange = range(1, paginator.num_pages + 1)
+# 
+# 
+#     page = request.GET.get('page')
+#     
+#     try:
+#         listInfo = paginator.page(page)
+#     except PageNotAnInteger:
+#         # If page is not an integer, deliver first page.
+#         listInfo = paginator.page(1)
+#     except EmptyPage:
+#         # If page is out of range (e.g. 9999), deliver last page of results.
+#         listInfo = paginator.page(paginator.num_pages)
+#===============================================================================
     
     
     return render_to_response("cientifico/ListarCursos/listar_Curso_PG.html",
@@ -808,20 +826,22 @@ def listarCursosPortLE(request):
             pass
         pass
     
-    paginator = Paginator(listaCursoPortLE, 10)
-    drange = range(1, paginator.num_pages + 1)
-
-
-    page = request.GET.get('page')
-    
-    try:
-        listInfo = paginator.page(page)
-    except PageNotAnInteger:
-        # If page is not an integer, deliver first page.
-        listInfo = paginator.page(1)
-    except EmptyPage:
-        # If page is out of range (e.g. 9999), deliver last page of results.
-        listInfo = paginator.page(paginator.num_pages)
+#===============================================================================
+#     paginator = Paginator(listaCursoPortLE, 10)
+#     drange = range(1, paginator.num_pages + 1)
+# 
+# 
+#     page = request.GET.get('page')
+#     
+#     try:
+#         listInfo = paginator.page(page)
+#     except PageNotAnInteger:
+#         # If page is not an integer, deliver first page.
+#         listInfo = paginator.page(1)
+#     except EmptyPage:
+#         # If page is out of range (e.g. 9999), deliver last page of results.
+#         listInfo = paginator.page(paginator.num_pages)
+#===============================================================================
     
     
     return render_to_response("cientifico/ListarCursos/listar_Curso_PortLE.html",
