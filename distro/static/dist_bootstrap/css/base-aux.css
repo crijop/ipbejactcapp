@@ -8,15 +8,20 @@ body
 	
 }
 
-.whiteBox{
-	
+.whiteBox {
+	width: 100%;
+	float: left;
 	background-color: rgba(255,255,255,0.9);
-	padding-bottom: 0.5em !important;;
-	padding-top: 1em !important;;
+	padding-bottom: 2em !important;
+	padding-top: 2em !important;
 	border-radius: 0.5em !important; 
+	margin: 0em;
+
 	
 	 
 }
+
+
 .whiteText
 {
 	color: white;
@@ -92,14 +97,24 @@ div.jumbotron
 table.display td{
 	font-family: "Lucida Grande", Helvetica, Verdana, Arial, sans-serif;
 	color: #4c4c4c;
-	font-size: 13px;
+	font-size: 1em;
 	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
-	padding: 3px 6px !important;
+	padding: 0.5em 0.5em !important;
 	border-top: 1px solid #dddddd;
 }
 
+table.display th{
+	font-family: "Lucida Grande", Helvetica, Verdana, Arial, sans-serif;
+	color: #4c4c4c;
+	font-size: 1em;
+	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
+	padding: 0.5em 0.5em !important;
+	border-top: 1px solid #dddddd;
+	background-color:  #DCDCDC;
+}
+
 /*caixa de número de resultados*/
-.dataTables_length, .dataTables_filter{
+/*.dataTables_length, .dataTables_filter{
 	padding-top: 5px;
 	height: 30px;
 	width: 50% !important;
@@ -142,7 +157,7 @@ table.display td{
 }
 
 
-.sumary_table > thead > tr > th, .sumary_table > tfoot > tr > th{
+.table > thead > tr > th, .sumary_table > tfoot > tr > th{
 	background-color: #EDEDED;
 	font-weight: normal;
 	color: #4c4c4c;
@@ -209,5 +224,132 @@ table.display td{
 	
 	
 }
+*/
+
+/*Special Bar Data Tables*/
 
 
+
+.dataTables_wrapper .dataTables_special_bar
+{
+	display: inline;
+	position: relative;
+	float: left;
+	margin-bottom: 1em !important;
+	background-color: white !important;
+	width: 100%;
+	padding: 1em 0.5em;
+	border-radius: 0.5em;
+	
+}
+
+.dataTables_wrapper .dataTables_special_bar .dataTables_info
+{
+	
+	clear: all;
+
+	width: 50% !important;
+	padding-top: 0.5em;
+
+
+}
+
+.dataTables_wrapper .dataTables_special_bar .dataTables_filter
+{
+	
+	clear: all;
+	width: 50% !important;
+
+	
+}
+
+.dataTables_wrapper .dataTables_special_bar .dataTables_filter input
+{
+	clear: all;
+	background-color: #FDE497;
+	width: 20em !important;
+	border-radius: 0.5em;
+	border: 1px solid lightgray;
+	padding: 0.3em 0em;
+
+
+}
+
+.dataTables_wrapper .dataTables_special_bar .dataTables_filter input:focus
+{
+	
+-moz-box-shadow: 0px 0px 6px #008aff;
+-webkit-box-shadow: 0px 0px 6px #008aff;
+box-shadow: 0px 0px 6px #008aff;
+
+}
+
+/****Pagination*/
+.dataTables_wrapper .pagination_box
+{
+	margin-top: 1em;
+	float: left;
+
+	width: 100%;
+}
+
+.dataTables_wrapper .pagination_box .dataTables_paginate
+{
+float: left;
+}
+
+.dataTables_wrapper .pagination_box .dataTables_paginate .paginate_button
+{
+
+clear: all;
+margin: 0;
+
+border: 1px solid #DDDDDD;
+
+background-color: white !important;
+padding: 0.5em 1em;
+color: #428BCA !important;
+
+}
+
+.dataTables_wrapper .pagination_box .dataTables_paginate .paginate_active
+{
+
+clear: all;
+margin: 0;
+border: 1px solid #428BCA;
+background-color: #428BCA !important;
+padding: 0.5em 1em;
+color: white !important;
+
+}
+
+.dataTables_wrapper .pagination_box .dataTables_paginate .first
+{
+
+border-radius: 0.3em 0 0 0.3em ;
+
+} 
+
+.dataTables_wrapper .pagination_box .dataTables_paginate .last
+{
+
+border-radius: 0 0.3em 0.3em 0 ;
+
+} 
+
+.dataTables_wrapper .pagination_box .dataTables_paginate .paginate_button_disabled
+{
+
+color: lightgray !important;
+
+} 
+
+.dataTables_wrapper .pagination_box .dataTables_paginate .paginate_button:hover
+{
+
+background-color: #E6E6FA !important;
+
+} 
+
+ 	
