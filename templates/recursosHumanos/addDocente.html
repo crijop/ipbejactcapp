@@ -1,6 +1,6 @@
 {% extends "recursosHumanos/index.html" %}
 {% load i18n %}
-{% block title %} Página de adicionar docente {% endblock %}
+{% block title %}{% trans 'Página de adicionar docente' %}{% endblock %}
 
 <!-- Estes blocos é para alterar a classe do menu do index, refere se está ou não activo -->
 {% block MenuDocente %}active{% endblock %}
@@ -39,7 +39,7 @@
 		
    	{% endfor %}
     <br />
-   	<span id="CamposObirgatorio" class="whiteText">(*) - Campos de preenchimento obrigatório</span>
+   	<span id="CamposObirgatorio" class="whiteText">(*) - {% trans 'Campos de preenchimento obrigatório' %}</span>
    	<hr />
 	<div id="buttonConfirm">
 		<input type="hidden" name="{{ stage_field }}" value="1" />

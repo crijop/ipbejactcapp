@@ -5,41 +5,11 @@
 {% block breadcrumb %}
 	<ul id="breadcrumb">
 		<li>
-			<img src="/static/images/BreadCrumbs/home.gif" alt="{% trans 'Home' %}" class="home" />
+			<span class="glyphicon glyphicon-home"></span> <a tabindex="2" href="{% url HomeCientifico %}" title="{% trans 'Home' %}">{% trans 'Home' %}</a>
 		</li>
 	</ul>
 {% endblock %}
 
-{% block Menus %}
-	<ul>
-		<!--<li class='active '>
-			<a tabindex="3" href='/distro'><span>Informação</span></a>
-		</li>-->
-		<li>
-			<a tabindex="5" href='{%url criarXLS %}'><span>Cria XLS</span></a>
-		</li>	
-		<li>
-			<a tabindex="5" href='{%url modulosDelegados %}'><span>Listar Modulos Delegados</span></a>
-		</li>	
-		<li class='has-sub_lateral'>
-			<a tabindex="5" href='#'><span>Ajuda</span></a>
-				<ul>
-					<li>
-						<a href='#'><span>Como Gerar XLS</span></a>
-					</li>
-					<li>
-						<a href='#'><span>---</span></a>
-					</li>
-					<li>
-						<a href='#'><span>---</span></a>
-					</li>
-					<li>
-						<a href='#'><span>---</span></a>
-					</li>
-				</ul>
-		</li>
-	</ul>
-{% endblock %}
 {% block content %}
 	<h1> A delegação do modulo foi aprovada com sucesso</h1>
 {% endblock %}
