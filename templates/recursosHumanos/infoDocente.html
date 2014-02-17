@@ -19,7 +19,7 @@
 
 
 {% block content %}
-<div class="page-header">
+<div class="page-header whiteText">
   <h1>{% trans 'Informação Docente' %}</h1>
 </div>
 
@@ -69,8 +69,49 @@
 </div>
  -->
  {%endcomment%}
+ 
+ <div class="panel panel-primary">
+  <div class="panel-heading">Nome Completo</div>
+  <div class="panel-body">
+    {{ nomeDocente }}
+  </div>
+</div>
 
-<table class="table table-striped table-hover">
+ <div class="panel panel-primary">
+  <div class="panel-heading">Departamento</div>
+  <div class="panel-body">
+    {{ nome_Departamento }}
+  </div>
+</div>
+
+ <div class="panel panel-primary">
+  <div class="panel-heading">Escalão</div>
+  <div class="panel-body">
+    {{ escalao }}
+  </div>
+</div>
+
+ <div class="panel panel-primary">
+  <div class="panel-heading">Exclusividade</div>
+  <div class="panel-body">
+    {{ regimeExclusividade }}
+  </div>
+</div>
+
+ <div class="panel panel-primary">
+  <div class="panel-heading">Email Institucional</div>
+  <div class="panel-body">
+{{ email_institucional }}
+  </div>
+</div>
+
+ <div class="panel panel-primary">
+  <div class="panel-heading">Abreviatura</div>
+  <div class="panel-body">
+{{ abreviatura }}
+  </div>
+</div>
+<!--<table class="table table-striped table-hover">
 	<tr>
      	<th class="sub_cabecalho"><span>Nome Completo</span></th>
          <td>{{ nomeDocente }}</td>
@@ -95,5 +136,5 @@
      	<th class="sub_cabecalho" ><span>Abreviatura</span></th>
       	<td>{{ abreviatura }}</td>
     </tr>
-</table>    
+</table>  -->  
 {% endblock %}

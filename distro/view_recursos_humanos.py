@@ -1357,8 +1357,12 @@ def listContracts_RecursosHumanos(request):
                 
                 
                 listaContracts.append([docente.nome_completo, nomeCategoria, id_Docente, contract_type, percent, contract_start, contract_end])
+                pass
             
-        sizeList = len(listaContracts)
+        
+            
+    docentes = listaContracts
+    '''sizeList = len(listaContracts)
         
     
     paginator = Paginator(listaContracts, 10)
@@ -1374,7 +1378,7 @@ def listContracts_RecursosHumanos(request):
         docentes = paginator.page(1)
     except EmptyPage:
         # If page is out of range (e.g. 9999), deliver last page of results.
-        docentes = paginator.page(paginator.num_pages)
+        docentes = paginator.page(paginator.num_pages)'''
     
     
     return render_to_response("recursosHumanos/listContracts.html",
