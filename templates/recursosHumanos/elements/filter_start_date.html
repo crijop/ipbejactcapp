@@ -1,0 +1,34 @@
+<a href="#" class="list-group-item active">Data Inicio</a>
+<form id="form_start_date" accept-charset="utf-8">
+  <a  class="list-group-item list-group-item-children">
+  	
+  	<input value="{{start_date}}" type="text" readonly="readonly" id="datepicker_start" name="data_inicio" onchange="submit_start_date()">
+  	<script>
+  $(function() {
+  	
+    $( "#datepicker_start" ).datepicker ({
+      changeMonth: true,
+      changeYear: true,
+      showOn: "both",
+      buttonImage: "/static/images/images_jquery_ui/calendar.gif",
+      buttonImageOnly: true,
+      dateFormat: "dd-mm-yy"
+    });
+    
+   });
+  </script>
+  </a>
+  <a  class="list-group-item list-group-item-children list-group-item-special-center">
+  	<input id="spinner_start" name="spinner_inicio" value="5">
+  	<script>
+  $(function() {
+  	
+     $( "#spinner_start" ).spinner({
+      min: 1,
+      step: 1,
+      numberFormat: "C"
+    });
+  });
+  </script>
+  </a>
+</form>  

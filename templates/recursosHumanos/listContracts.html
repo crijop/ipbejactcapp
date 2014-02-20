@@ -20,49 +20,12 @@
   <a href="#" class="list-group-item active">
     Departamento
   </a>
-  {% include "recursosHumanos/filter_dep.html" %}
+  {% include "recursosHumanos/elements/filter_dep.html" %}
   
   <a href="#" class="list-group-item active">Categoria</a>
-   {% include "recursosHumanos/filter_cat.html" %}
-  <a href="#" class="list-group-item active">Data Inicio</a>
-  <a  class="list-group-item list-group-item-children">
-  	<input id="spinner" name="spinner" value="5">
-  	<input type="text" readonly="readonly" id="datepicker_start">
-  	<script>
-  $(function() {
-  	
-    $( "#datepicker_start" ).datepicker ({
-      changeMonth: true,
-      changeYear: true,
-      showOn: "both",
-      buttonImage: "/static/images/images_jquery_ui/calendar.gif",
-      buttonImageOnly: true
-    });
-    
-     $( "#spinner" ).spinner({
-      min: 1,
-      step: 1,
-      numberFormat: "C"
-    });
-  });
-  </script>
-  </a>
-  <a href="#" class="list-group-item active">Data Fim</a>
-    <a  class="list-group-item list-group-item-children">
-  	<input type="text" readonly="readonly" id="datepicker_end">
-  	<script>
-  $(function() {
-  
-    $( "#datepicker_end" ).datepicker({
-      changeMonth: true,
-      changeYear: true,
-      showOn: "both",
-      buttonImage: "/static/images/images_jquery_ui/calendar.gif",
-      buttonImageOnly: true
-    });
-  });
-  </script>
-  </a>
+  {% include "recursosHumanos/elements/filter_cat.html" %}
+  {% include "recursosHumanos/elements/filter_start_date.html" %}
+  {% include "recursosHumanos/elements/filter_end_date.html" %}
 </div>
 
 <!--<ul>
@@ -225,6 +188,11 @@
 	</tr>
 	</thead>
 	<tbody>
+			{%if sizeList != 0 %}
+			
+			
+			
+	
 	{% for nome, nomeCategoria, id_Docente, contract_type, percentagem, start_contract, end_contract in docentes %}
 	<tr>
 			<td ><a href="{{id_Docente}}"><span class="view"></span></a></td>
@@ -238,13 +206,8 @@
 		<td>{{end_contract}}</td>
 	</tr>
 	{% endfor %}
-	{%if sizeList == 0 %}
-			
-			<tr>
-				<td colspan="7">Não existem resultados para esta pesquisa</td>
-			</tr>
-			
 	{% endif %}
+
 </tbody>
 </table>
 <!--PAGINAÇÂO -->
@@ -269,7 +232,7 @@
 	
 
 </script>
-
+<script src="/static/javaScript/recursosHumanos_contratos.js"></script>
 
 
 <!--<script type="text/javascript">document.getElementById("searchField").focus();

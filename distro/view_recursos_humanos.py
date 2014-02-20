@@ -1166,9 +1166,9 @@ def listContracts_RecursosHumanos(request):
         pass
     
     elif "data_inicio" in request.GET or request.GET.get("actualState") == "data_inicio":
-        start_date = request.GET.get("date")
-        radius = request.GET.get("number_increment")
-        actualState = "actualState=data_inicio&date=" + start_date + "&number_increment=" + radius
+        start_date = request.GET.get("data_inicio")
+        radius = request.GET.get("spinner_inicio")
+        #actualState = "actualState=data_inicio&date=" + start_date + "&number_increment=" + radius
        
         convertedDate = datetime.strptime(start_date, "%d-%m-%Y")
         
@@ -1220,9 +1220,9 @@ def listContracts_RecursosHumanos(request):
         pass
     
     if "data_fim" in request.GET or request.GET.get("actualState") == "data_fim":
-        end_date = request.GET.get("date")
-        radius = request.GET.get("number_increment")
-        actualState = "actualState=data_fim&date=" + end_date + "&number_increment=" + radius
+        end_date = request.GET.get("data_fim")
+        radius = request.GET.get("spinner_fim")
+        #actualState = "actualState=data_fim&date=" + end_date + "&number_increment=" + radius
        
         convertedDate = datetime.strptime(end_date, "%d-%m-%Y")
         
@@ -1362,9 +1362,9 @@ def listContracts_RecursosHumanos(request):
         
             
     docentes = listaContracts
-    '''sizeList = len(listaContracts)
+    sizeList = len(listaContracts)
         
-    
+    '''
     paginator = Paginator(listaContracts, 10)
     drange = range( 1, paginator.num_pages + 1)
     

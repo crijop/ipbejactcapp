@@ -352,4 +352,18 @@ background-color: #E6E6FA !important;
 
 } 
 
- 	
+ 
+ /***********Spiner do Calendário*******/
+.list-group-item-special-center{
+	padding-left: 0 !important;
+	padding-right: 0 !important;
+	text-align: center !important;
+}
+
+.ui-spinner-input
+{
+	
+	float: left !important;
+	width: 5em !important;
+	
+}	
