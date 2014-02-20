@@ -1,146 +1,89 @@
-{% extends "base_ve1.html" %}
+{% extends "base_v_bootstrap.html" %}
 {% load i18n %}
-{% block title %} Página Inícial Departamento {% endblock %}
+{% block title %}{% trans 'Página Inícial Departamento '%}{% endblock %}
 
 {% block breadcrumb %}
-	<ul id="breadcrumb">
-		<li>
-			<img src="/static/images/BreadCrumbs/home.png" alt="{% trans 'Home' %}" class="home" />
-		</li>
+	<ul class="breadcrumb">
+		<li class="active"><span class="glyphicon glyphicon-home"></span> {% trans 'Home' %}</li>
 	</ul>
 {% endblock %}
 
 {% block Menus %}
-	<ul>
-		<li class='active '>
-			<a tabindex="3" href='/distro'><span>Informação</span></a>
-		</li>
-		<li class='has-sub_lateral'>
-			<a tabindex="4" href='#'><span>Listar Turmas</span></a>
-			<ul>
-				{%for ano in listaAnos%}
-				<li>
-					<a href='{%url listarTurmas ano%}'><span>{{ano}}</span></a>
-				</li>
-				{%endfor%}
-			</ul>
-		</li>
-		<li>
-			<a tabindex="5" href='{%url listDocentesDep %}'><span>Listar Docentes</span></a>
-		</li>
-		<li class='has-sub_lateral'>
-			<a tabindex="6" href='#'><span>Listar Serviços Docentes Atribuidos</span></a>
-			<ul>
-				{%for ano in listaAnos%}
-				<li>
-					<a href='{%url listarServicoDocente ano%}'><span>{{ano}}</span></a>
-				</li>
-				{%endfor%}
-			</ul>
-		</li>
-		<li class='has-sub_lateral'>
-			<a href='#' ><span>Atribuir Serviço Docente</span></a>
-			<ul>
-				{%for ano in listaAnos%}
-				<li>
-					<a href='{%url turmaSemServDocente ano%}'><span>{{ano}}</span></a>
-				</li>
-				{%endfor%}
-			</ul>
-		</li>		
-		<li class='has-sub_lateral'>
-			<a tabindex="5" href='#'><span>Ajuda</span></a>
-				<ul>
-					<li>
-						<a href='{% url ajudaRH 1 %}'><span>Como Listar Turmas</span></a>
-					</li>
-					<li>
-						<a href='#'><span>Como Listar Docentes</span></a>
-					</li>
-					<li>
-						<a href='#'><span>Como Atribuir Serviço Docente</span></a>
-					</li>
-					<li>
-						<a href='#'><span>Como Listar Serviço Docente</span></a>
-					</li>
-				</ul>
-		</li>
-	</ul>
+<li {% block MenuInformacao %}class='active'{% endblock %}><a tabindex="3" href='/distro'><span>Informação</span></a></li>
+
+<li class="dropdown {% block Listar %} {% endblock %}">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">{% trans 'Listar' %}<b class="caret"></b></a>
+    <ul class="dropdown-menu">
+    	<li class="dropdown-header">{% trans 'Turma - Ano'%}</li>
+    	<li class="divider"></li>
+	    {%for ano in listaAnos%}
+	      <li><a href='{%url listarTurmas ano%}'>{{ano}}</a></li>
+	    {%endfor%}
+	    <li class="divider"></li>
+	    <li><a href='{%url listDocentesDep %}'>{% trans 'Docentes' %}</a></li>
+    </ul>
+</li>
+<li class="dropdown {% block ListServDoc %} {% endblock %}">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">{% trans 'Serviços Docentes Atribuidos' %}<b class="caret"></b></a>
+    <ul class="dropdown-menu">
+    	<li class="dropdown-header">{% trans 'Ano'%}</li>
+    	<li class="divider"></li>
+	    {%for ano in listaAnos%}
+	      <li><a href='{%url listarServicoDocente ano%}'>{{ano}}</a></li>
+	    {%endfor%}
+    </ul>
+</li>
+<li class="dropdown {% block AtribuirServ %} {% endblock %}">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">{% trans 'Atribuir Serviço Docente' %}<b class="caret"></b></a>
+    <ul class="dropdown-menu">
+    	<li class="dropdown-header">{% trans 'Ano'%}</li>
+	    <li class="divider"></li>
+	    {%for ano in listaAnos%}
+	      <li><a href='{%url turmaSemServDocente ano%}'>{{ano}}</a></li>
+	    {%endfor%}
+    </ul>
+</li>
+<li class="dropdown {% block MenuAjuda %} {% endblock %}">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">{% trans 'Ajuda' %}<b class="caret"></b></a>
+    <ul class="dropdown-menu">
+		<li><a href='{% url ajudaRH 1 %}'>{% trans 'Como Listar Turmas' %}</a></li>
+		<li><a href="#">....</a></li>
+		<li><a href="#">....</a></li>
+    </ul>
+</li>
+
 {% endblock %}
 {% block content %}
-
-	<h2 class="statisticsTitle">Estatística</h2>
-	<table class="tabela_sumario">
-	    
-
-	    <tr class="special_cabecalho" >
-	    	<th colspan="2" align="left">ANO: {{ano}}</th>
-	    </tr>
-	    <tr>
-		<tr class="cabecalho_sumario">
-			<th colspan="2" >Serviços Docentes</th>
-		</tr>
-		<tr>
-			<td>
-				<a href='{%url turmaSemServDocente ano%}'>
-					<span>Disciplinas sem docentes atribuidos no Ano {{ano}}</span>
-				</a>
-			</td>
-			<td>
-				<a href='{%url turmaSemServDocente ano%}'>
-					<span>
-						{{sizeListSDoc}}
-					</span>
-				</a>
-			</td>
-		</tr>
-		<tr >
-			<td >
-				<a href='{%url listarServicoDocente ano %}'>
-					<span>Disciplinas com docentes atribuidos no Ano {{ano}}</span>
-				</a>
-			</td>
-			<td>
-				<a href='{%url listarServicoDocente ano %}'>
-					<span>
-						{{sizeListCDoc}}
-					</span>
-				</a>
-			</td>
-		</tr>
-		
-		<tr class="cabecalho_sumario">
-			<th colspan="2" >Docentes/horas</th>
-		</tr>
-		<tr>
-			<td >
-				<a href='{% url listDocentesDep%}?docExcedHours=False&ano={{ano}}'>
-					<span>Docentes a exceder o número de horas</span>
-				</a>
-			</td>
-			<td>
-				<a href='{% url listDocentesDep%}?docExcedHours=False&ano={{ano}}'>
-					<span>
-						{{nrDocExcedHoras}}
-					</span>
-				</a>
-			</td>
-		</tr>
-		<tr>
-			<td >
-				<a href='{% url listDocentesDep%}?docExcedHours=True&ano={{ano}}'>
-					<span>Docentes com nenhuma hora atribuida</span>
-				</a>
-			</td>
-			<td>
-				<a href='{% url listDocentesDep%}?docExcedHours=True&ano={{ano}}'>
-					<span>
-						{{nrDocSemHoras}}
-					</span>
-				</a>
-			</td>
-		</tr>
-		
-    </table>
+<!-------------------------------------------------------------Cabeçalho-------------------------------------------------------------->	
+<div class="page-header whiteText">
+  <h1>{% trans 'Estatística '%}<small>{% trans 'ANO:'%} {{ano}} </small></h1>
+</div>
+<!-------------------------------------------------------------Conteudo Estatistico--------------------------------------------------->	
+<h3 class="whiteText" >{% trans 'Serviços docentes'%}</h3>
+<div  class="alert alert-danger">
+<a class="alert-link" href="{%url turmaSemServDocente ano%}">{% trans 'Disciplinas sem docentes atribuidos no ano '%}{{ano}} <span class="badge" >{{sizeListSDoc}}</span></a>
+</div>
+<div  class="alert alert-danger">
+<a class="alert-link" href="{%url listarServicoDocente ano %}">{% trans 'Disciplinas com docentes atribuidos no ano '%}{{ano}} <span class="badge" >{{sizeListCDoc}}</span></a>
+</div>
+<h3 class="whiteText" >{% trans 'Docentes/horas'%}</h3>
+<div  class="alert alert-danger">
+<a class="alert-link" href="{% url listDocentesDep%}?docExcedHours=False&ano={{ano}}">{% trans 'Docentes a exceder o número de horas '%}<span class="badge" >{{nrDocExcedHoras}}</span></a>
+</div>
+<div  class="alert alert-danger">
+<a class="alert-link" href="{% url listDocentesDep%}?docExcedHours=True&ano={{ano}}">{% trans 'Docentes com nenhuma hora atribuida '%}<span class="badge" >{{nrDocSemHoras}}</span></a>
+</div>
+	
+<!-------------------------------------------------------------PAinel informativo--------------------------------------------------->	
+<div class="jumbotron">
+	
+  <h1>{% trans 'Departamento!'%}</h1>
+  <p>{% trans '.'%}</p>
+  <p>- {% trans '.'%}</p>
+  <p>- {% trans '.'%}</p>
+  <p>- {% trans '.'%}</p>
+  <p><a class="btn btn-primary btn-lg" role="button">{% trans "Conheça mais" %}</a></p>
+  
+</div>
 {% endblock %}
 
