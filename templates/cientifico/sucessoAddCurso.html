@@ -1,0 +1,20 @@
+{% extends "cientifico/index.html" %}
+{% load i18n %}
+{% block title %} Página de Confirmação de adicionar docente {% endblock %}
+
+{% block breadcrumb %}
+
+{% endblock %}
+
+
+{% block content %}
+	<div class="page-header whiteText">
+	  <h1>{% trans 'Estado' %}</h1>
+	</div>
+	<div class="alert alert-success">
+   		<span>{% trans 'O Curso'%} {{nome_completo}} {% trans ' foi adicionado com Sucesso'%}</span>
+	</div>
+    <div id="sucesso">
+		<span>O Curso {{nome_curso}} foi adicionado com Sucesso</span>
+    </div>
+{% endblock %}

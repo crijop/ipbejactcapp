@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %} Página Inícial da Presidencia {% endblock %}
+
+{% block breadcrumb %}
+	<ul class="breadcrumb">
+		<li>
+			<span class="glyphicon glyphicon-home"></span> <a tabindex="2" href="{% url HomeCientifico %}" title="{% trans 'Home' %}">{% trans 'Home' %}</a>
+		</li>
+	</ul>
+{% endblock %}
+
+{% block content %}
+	<h1>A delegação do modulo foi reprovada</h1>
+{% endblock %}
+
+
+

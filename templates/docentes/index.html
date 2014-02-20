@@ -1,0 +1,51 @@
+{% extends "base_v_bootstrap.html" %}
+{% load i18n %}
+{% block title %}{% trans 'Página Inícial Docente'%}{% endblock %}
+{% block Menus %}
+    <li {% block menuInfoDocente %} class="active" {% endblock %}><a href="/distro">{% trans 'Informação'%}</a></li>
+    <li {% block menuTurma %} {% endblock %}><a href="{%url turmasDocentes%}">{% trans 'Turmas'%}</a></li>
+    <li {% block menuHoraTrab %} {% endblock %}><a href="{%url horasServico%}">{% trans 'Horas de Trabalho'%}</a></li>
+{% endblock %}
+
+{% block breadcrumb %}
+<ul class="breadcrumb">
+	<li class="active"><span class="glyphicon glyphicon-home"></span> {% trans 'Home' %}</li>
+</ul>
+{% endblock %}
+
+{% block content %}
+<div class="page-header whiteText">
+  <h1>{% trans 'Sumário'%}</h1>
+</div>
+<table class="table table-striped table-hover">
+	<tr>
+		<th colspan="2" class="cabecalho_sumario">Estado</th>
+	</tr>
+	<tr>
+		<td colspan="2" >Pendente</td>
+	</tr>
+	<tr>
+		<th colspan="2" class="cabecalho_sumario">Turmas</th>
+	</tr>
+	<tr>
+		<th class="sub_cabecalho"><span>Número de Turmas</span></th>
+		<td>{{  numeroTotalTurmas }}</td>
+	</tr>
+	<tr>
+		<th colspan="2" class="cabecalho_sumario">Horas de Trabalho</th>
+	</tr>
+	<tr>
+		<th class="sub_cabecalho" ><span>Horas de serviço</span></th>
+		<td>{{  horasServico }}</td>
+	</tr>
+	<tr>
+		<th class="sub_cabecalho" ><span>Horas de redução</span></th>
+		<td>{{  reducaoHoras }}</td>
+	</tr>
+	<tr>
+		<th class="sub_cabecalho" ><span>Horas Total</span></th>
+		<td>{{  numeroTotalHoras }}</td>
+	</tr>
+</table>
+{% endblock %}
+

@@ -1,0 +1,67 @@
+{% extends "cientifico/index.html" %}
+{% load i18n %}
+{% block title %}{% trans "Listar Cursos Mestrados (Vice Presidencia)"%}{% endblock %}
+{% block breadcrumb %}
+<ul class="breadcrumb">
+	<li>
+		<span class="glyphicon glyphicon-home"></span> <a tabindex="2" href="{% url HomeCientifico %}" title="{% trans 'Home' %}">{% trans 'Home' %}</a>
+	</li>
+	<li class="active">{% trans "Listar Cursos dos Mestrados" %}</li>
+</ul>
+{% endblock %}
+
+<!-- Estes blocos é para alterar a classe do menu do index, refere se está ou não activo -->
+{% block MenuListCursos %}active{% endblock %}
+{% block MenuInformacao %} {% endblock %}
+
+{% block content %}
+<div class="page-header whiteText">
+  <h1>{% trans "Lista de Mestrados (Lista de Modulos Delegados)"%}</h1>
+</div>
+<div class="whiteBox">
+	<table cellpadding="0" cellspacing="0" border="0" class="display sumary_table" id="table_id" width="100%">
+		<thead>
+			<tr>
+				<th></th>
+				<th class="cabecalho_sumario">Nome Curso</th>
+				<th class="cabecalho_sumario">Abreviatura</th>
+				<th class="cabecalho_sumario">Número de Semestres</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for id_curso, nome, abreviatura, semestreLetivo  in listaCursoMest %}
+			<tr>
+				<td ><a href="{% url ver_curso id_curso %}"><span class="view"></span></a></td>
+				<td class="teacher_name_field"><a href="{% url ver_curso id_curso %}">{{nome}}</a></td>
+				<td>{{abreviatura}}</td>
+				<td>{{semestreLetivo}}</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+	<div class="clearfix"></div>
+</div>
+
+{%comment%}
+	<div id="paginator">
+		<span class="current"> Página {{ listInfo.number }} de {{ listInfo.paginator.num_pages }}. </span>
+		<br>
+		<span class="step-links"><a href="?show=all">Todos</a></span>
+		<span class="step-links"> {% for page_num in drange %} <a id="{{ page_num}}" href="?page={{ page_num}}&{{actualState}}">{{ page_num}}</a> {% endfor%} </span>
+	</div>
+{%endcomment%}
+
+<script src="/static/javaScript/jquery-2.0.3.js"></script>
+<script src="/static/dataTables/js/jquery.dataTables.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function() {
+	$('#table_id').dataTable({
+		"oLanguage": {
+            "sUrl": "/static/dataTables/lang/pt-pt.txt"
+        }	
+	});
+	$('.hasTooltip').tooltip({"container": false});
+} );
+</script>
+{% endblock %}

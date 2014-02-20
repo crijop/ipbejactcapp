@@ -1,0 +1,193 @@
+
+div#top_login
+{
+	border-bottom: 10px solid DimGray;
+	float:left;
+	position: relative;
+	background: black;
+	width: 100%;
+	height: 20%;
+	z-index: 999;
+	top: 0%;
+	
+	
+}
+
+div#middle_login
+{
+	/*por causa da borda */
+	/*top: 21%;*/
+	position: relative;
+	background: white;
+	text-align: center;
+	float:left;
+	width: 100%;
+	height: 70%;
+}
+
+div#bottom_login
+{
+	
+	position: relative;
+	border-top: 10px solid DodgerBlue;
+	float:left;
+	text-align: center;
+	background: black;
+	width: 100%;
+	height: 10%;
+	/*top: 20%;*/
+}
+/*div#window{
+	margin:0 auto;
+	width: 50%;
+	height: 100%;
+}
+
+div#master
+{
+	width:100%;
+	margin-left:auto;
+	margin-right:auto;
+	background: white;
+	margin-top:50px; 
+	margin-bottom: 10px;
+}*/
+
+
+
+
+div#imageDiv
+{
+	
+	margin: 0 auto;
+	margin-top: 1%;
+	text-align:center;
+	width:40%;
+	
+}
+
+div#imageDivTop
+{
+	position: relative;
+	float:left;
+	width: 20%
+	
+}
+
+div#login_title
+{
+	color:white;
+	
+	font-family: "Segoe UI Light", "Open Sans", "Verdana", "Arial", "Helvetica", sans-serif;
+	font-size: smaller;
+	font-weight: 100;
+	letter-spacing: 0em;
+	line-height: 60pt;
+	
+	
+	
+}
+
+
+div#auth_form_div
+{
+	text-align:center;
+	margin-top: 20px;
+}
+
+.errorlist
+{
+	color: red;
+	font-size: 8pt;
+	font-family: Arial;
+	float: right;
+}
+
+table.form_table  label
+{
+	font-family: "Segoe UI Light", "Open Sans", "Verdana", "Arial", "Helvetica", sans-serif;
+	font-weight: 200;
+	letter-spacing: 0.01em;
+	line-height: 22pt;
+	float:right;
+}
+
+table.form_table input[type=text],input[type=password]
+{
+	background-color: #FFFFFF;
+	border: 1px solid #BABABA;
+	/*margin-right: 32px;*/
+	/*min-height: 32px;*/
+	outline: 0px none currentColor;
+	padding: 4px 6px 6px 5px;
+	position: relative;
+	/*width: 100%;*/
+}
+
+table.form_table input[type=text]:focus, input[type=password]:focus
+{
+	
+	border-bottom-color: #000000;
+	border-left-color: #000000;
+	border-right-color: #000000;
+	border-top-color: #000000;
+}
+
+table.form_table input[type=submit]
+{
+	background-color: DodgerBlue ;
+	color: #FFFFFF;
+	
+	/*background-color: #CCCCCC;*/
+	border: 1px solid transparent;
+	border-radius: 0px;
+	/*color: #353535;*/
+	cursor: pointer;
+	display: inline-block;
+	font-family: "Segoe UI", "Open Sans", "Verdana", "Arial", "Helvetica", sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	height: 32px;
+	line-height: 20px;
+	margin-bottom: 10px;
+	margin-right: 10px;
+	min-height: 32px;
+	min-width: 90px;
+	padding: 4px 12px;
+	text-align: center;
+	vertical-align: middle !important;
+	width: auto;
+}
+
+table.form_table input[type=submit]:hover
+{
+	background-color: DarkBlue ;
+	
+}
+
+
+div#footer{
+	/*background: rgb(230,115,0);*/
+	/*border-top: 1px solid #EFEFEF;*/
+	clear: left;
+	color: white;
+	font-size: small;
+	font-weight: 700;
+	/*margin-top: 5px;*/
+	padding: 7px;
+	text-align: center;
+}
+
+
+.form_table{
+	text-align:center;
+	margin: 0 auto;
+}
+
+img#logotipo
+{
+	width: 70%;
+	height: 70%;
+	
+}
+

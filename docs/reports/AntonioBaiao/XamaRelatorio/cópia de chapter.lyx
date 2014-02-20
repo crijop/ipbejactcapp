@@ -1,0 +1,4339 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass report
+\begin_preamble
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  This is preamble.tex file should be put %
+%  in the latex preamble in Lyx to set up  %
+%  the format of your thesis               %
+%  Written by M. Imran 2001/06/18          % 
+%  No Copyright for this file              %
+%  Save your time and enjoy it             %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%                                  
+\date{text}
+\usepackage{listings}
+\usepackage{color}
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Here the page setup based on 
+%  the university of Durham regulation 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagestyle{plain}
+\setlength{\voffset}{-1in}  
+\setlength{\marginparsep}{0in}  
+\setlength{\marginparwidth}{0in}  
+\setlength{\marginparpush}{0in}  
+\setlength{\hoffset}{-1in}  
+\setlength{\oddsidemargin}{3.8cm}  
+\setlength{\evensidemargin}{0in} 
+\setlength{\textwidth}{15cm}
+\setlength{\topmargin}{2cm}
+\setlength{\headheight}{15pt}
+\setlength{\headsep}{16pt}
+\setlength{\textheight}{23.8cm}
+\setlength{\footskip}{18pt}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Redefine \tableofcontents in report.cls
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\makeatletter
+\renewcommand\tableofcontents{%
+    \if@twocolumn
+      \@restonecoltrue\onecolumn
+    \else
+      \@restonecolfalse
+    \fi
+    \chapter*{\contentsname
+      \@mkboth{\contentsname}{\contentsname}}%
+    \@starttoc{toc}%
+    \if@restonecol\twocolumn\fi
+    }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Redefine \listoffigures in report.cls
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand\listoffigures{%
+    \if@twocolumn
+      \@restonecoltrue\onecolumn
+    \else
+      \@restonecolfalse
+    \fi
+    \chapter*{\listfigurename
+      \@mkboth{\listfigurename}{\listfigurename}}%
+    \@starttoc{lof}%
+    \if@restonecol\twocolumn\fi
+    }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Redefine \listoftables in report.cls
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand\listoftables{%
+    \if@twocolumn
+      \@restonecoltrue\onecolumn
+    \else
+      \@restonecolfalse
+    \fi
+    \chapter*{\listtablename
+      \@mkboth{\listtablename}{\listtablename}}%
+    \@starttoc{lot}%
+    \if@restonecol\twocolumn\fi
+    }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Redefine thebibliograph in report.cls
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewenvironment{thebibliography}[1]
+     {\chapter*{\bibname
+        \@mkboth{\bibname}{\bibname}}%
+      \list{\@biblabel{\@arabic\c@enumiv}}%
+           {\settowidth\labelwidth{\@biblabel{#1}}%
+            \leftmargin\labelwidth
+            \advance\leftmargin\labelsep
+            \@openbib@code
+            \usecounter{enumiv}%
+            \let\p@enumiv\@empty
+            \renewcommand\theenumiv{\@arabic\c@enumiv}}%
+      \sloppy
+      \clubpenalty4000
+      \@clubpenalty \clubpenalty
+      \widowpenalty4000%
+      \sfcode`\.\@m}
+     {\def\@noitemerr
+       {\@latex@warning{Empty `thebibliography' environment}}%
+      \endlist}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Put packages you want to use
+%  here and 'fancyhdr' is required  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{fancyhdr}
+\usepackage{epsfig}
+\usepackage{cite}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{theorem}
+\usepackage{amssymb}
+\usepackage{latexsym}
+\usepackage{epic}
+\usepackage{setspace}
+\usepackage{psfrag}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%    Set line spacing = 1.5 here 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\baselinestretch}{1.5}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%         Your fancy heading 
+% For the final copy you need to remove 
+%       '\bfseries\today' below 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pagestyle{fancy}
+\renewcommand{\chaptermark}[1]{\markright{\chaptername\ \thechapter.\ #1}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection.\ #1}{}}
+\lhead[\fancyplain{}{}]%
+      {\fancyplain{}{\bfseries\rightmark}}
+\chead[\fancyplain{}{}]%
+      {\fancyplain{}{}}
+\rhead[\fancyplain{}{}]%
+      {\fancyplain{}{\bfseries\thepage}}
+\lfoot[\fancyplain{}{}]%
+      {\fancyplain{}{}}
+\cfoot[\fancyplain{}{}]%
+      {\fancyplain{}{}}
+\rfoot[\fancyplain{}{}]%
+      {\fancyplain{}{\bfseries\today}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Here you set the space between the main 
+%  text and the start of the footnote
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\addtolength{\skip\footins}{5mm}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Define new counter so you can have 
+%  the equation number 4.2.1a for example, 
+%  this a gift from J.F.Blowey 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcounter{ind}
+\def\eqlabon{
+\setcounter{ind}{\value{equation}}\addtocounter{ind}{1}
+\setcounter{equation}{0}
+\renewcommand{\theequation}{\arabic{chapter}%
+         .\arabic{section}.\arabic{ind}\alph{equation}}}
+\def\eqlaboff{
+\renewcommand{\theequation}{\arabic{chapter}%
+         .\arabic{section}.\arabic{equation}}
+\setcounter{equation}{\value{ind}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  New theorem you want to use
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\theorembodyfont{\rmfamily}%
+   \newtheorem{Pro}{{\textbf Proposition}}[section]}
+{\theorembodyfont{\rmfamily}%
+   \newtheorem{The}{{\textbf Theorem}}[section]}
+{\theorembodyfont{\rmfamily}%
+   \newtheorem{Def}[The]{{\textbf Definition}}}
+{\theorembodyfont{\rmfamily}%
+   \newtheorem{Cor}[The]{{\textbf Corollary}}}
+{\theorembodyfont{\rmfamily}%
+   \newtheorem{Lem}[The]{{\textbf Lemma}}}
+{\theorembodyfont{\rmfamily}%
+   \newtheorem{Exp}{{\textbf Example}}[section]}
+\def\remark{\textbf{Remark}:}
+\def\remarks{\textbf{Remarks}:}
+\def\bproof{\textbf{Proof}: }
+\def\eproof{\hfill$\Box$}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Bold font in math mode, a gift from J.F.Blowey
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\bv#1{\mbox{\boldmath$#1$}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   New symbol which is not defined in Latex
+%   a gift from J.F.Blowey
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% The Mean INTegral
+% to be used in displaystyle
+\def\mint{\textstyle\mints\displaystyle}
+% to be used in textstyle
+\def\mints{\int\!\!\!\!\!\!{\rm-}\ }
+%
+% The Mean SUM
+% to be used in displaystyle
+\def\msum{\textstyle\msums\displaystyle}
+% to be used in textstyle
+\def\msums{\sum\!\!\!\!\!\!\!{\rm-}\ }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Define your short cut here
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\poincare{Poincar\'e }
+\def\holder{H\"older }
+\end_preamble
+\options a4
+\use_default_options false
+\maintain_unincluded_children false
+\language portuguese
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 12
+\spacing other 1.1499999999999999
+\use_hyperref false
+\papersize a4paper
+\use_geometry false
+\use_amsmath 1
+\use_esint 0
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 0
+\index Índice
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+setcounter{equation}{0}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Introdução
+\end_layout
+
+\begin_layout Standard
+Neste capítulo, xxxxxxxxxxxxxxxxxxxxxxxx e 
+\shape italic
+open source
+\shape default
+.
+\end_layout
+
+\begin_layout Section
+Tecnologias e Protocolos utilizados por ISPs
+\end_layout
+
+\begin_layout Standard
+No que respeita a ISPs
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Internet Service Providers
+\end_layout
+
+\end_inset
+
+ com fxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.
+\end_layout
+
+\begin_layout Itemize
+RADIUS
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Remote Authentication Dial-In User Service
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+O RADIxxxxxxxxxxxxxxxxxxxxxAAA
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Authentication, Authorization and Accounting
+\end_layout
+
+\end_inset
+
+ para controlo de acessos à rede [1].
+ É um Sistema 
+\shape italic
+standard
+\shape default
+ de autenticação remoto presente na maioria de todos os sistemas opexxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxuso por ISPs.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+NAS
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Authentication, Authorization and Accounting
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Tendo xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+UAM
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Universal Access Method
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Este método cxxxxxxxxxxxxxxxxxxxxxxxo TCP
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Transport Control Protocol
+\end_layout
+
+\end_inset
+
+ e redireccionar para um portal de autenticação, onde é pedido ao utilizador
+ que introduza um 
+\shape italic
+username
+\shape default
+ e 
+\shape italic
+password
+\shape default
+ para aceder à Intxxxxxxxxxxxxxxxxxxxxxxxxxxxx de hotspots, sendo um método
+ bastante adoptado por ISPs.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+802.1X
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+O 802.1X com início em Junho de 2001, é um protocolo utilizado para controle
+ de acesso à rede [3].
+ O qual suporta acessos, sendo por utilizador e por máquina.
+ Tem a possibilidade de centralização de utilizadores, bem como, suporte
+ a RADIUS e 
+\shape italic
+roaming
+\shape default
+.
+ É utilizado por empresas, Campus universitários e adoptado por alguns ISPs.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+PPPOE
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Point-to-Point Protocol over Ethernet
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+O PPPOE desenvolvido em Fevereiro de 1999, é um protocolo de conexão e autentica
+ção mais utilizado em redes 
+\shape italic
+ethernet
+\shape default
+ e presente na maioria dos equipamentos 
+\shape italic
+client
+\shape default
+ existentes no mercado.
+ É utilizado quer em redes com e sem fios, torna possível o controlo de
+ várias funcionalidades como a definição de largura de banda por utilizador,
+ a identificação de utilizador, a contabilização em tempo de sessão 
+\shape italic
+online
+\shape default
+, entre outras [4].
+ Neste protocolo o 
+\shape italic
+username
+\shape default
+ e 
+\shape italic
+password
+\shape default
+ podem ser encriptados entre o equipamento 
+\shape italic
+client
+\shape default
+ e o NAS, sendo o outro tráfego não encriptado, salvo o uso de protocolos
+ de encriptação.
+ Este protocolo é muito utilizado por ISPs.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+PPTP
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Point-to-Point Tunneling Protocol
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Foi desenvolvido para implementação de redes privadas virtuais [5], tendo
+ surgido em Julho de 1999.
+ Este permite privacidade no tráfego gerado, sendo uma opção utilizada por
+ alguns ISPs para autenticação de utilizadores quer em rede com e sem fios.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+L2TP/IPSec
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Layer 2 Tunneling Protocol/Internet Protocol Security
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+O L2TP/IPSec tendo surgido em Novembro de 2001, é uma junção de dois protocolos,
+ sendo eles L2TP e IPSec.
+ O IPSec é usado para dar segurança aos pacotes L2TP.
+ São utilizados para a criação de VPNs e também, utilizados por ISPs para
+ conexão à rede.
+ Têm a possibilidade de oferecer confidencialidade e autenticação segura
+ [6].
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+EAP
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Extensible Authentication Protocol
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+O EAP criado em Março de 1998, é um mecanismo seguro para troca de mensagens
+ de autenticação, o qual permite que as mensagens entre os equipamentos
+ 
+\shape italic
+client
+\shape default
+, NAS e RADIUS sejam efectuadas de forma segura [7].
+ Não é um mecanismo de autenticação específico, o EAP fornece algumas funções
+ comuns de negociação de mecanismo de autenticação.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{10 mm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Os ISPs usualmente utilizam RADIUS para 
+\shape italic
+Authentication, Authorization 
+\shape default
+de utilizadores
+\shape italic
+ 
+\shape default
+e
+\shape italic
+ Accounting
+\shape default
+ para 
+\shape italic
+status
+\shape default
+ ou contabilização do serviço, utilizam ainda os equipamentos NAS e equipamentos
+ 
+\shape italic
+client.
+
+\shape default
+ Em cenário de funcionamento, o equipamento 
+\shape italic
+client
+\shape default
+ solicita acesso aos recursos do NAS
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Network qualquer coisa
+\end_layout
+
+\end_inset
+
+, este por sua vez autentica o 
+\shape italic
+client
+\shape default
+ no servidor RADIUS, se for válido o NAS decide o nível de autorização apropriad
+o consoante os privilégios e cede acesso à rede.
+\end_layout
+
+\begin_layout Standard
+Este sistema é relativamente seguro devido à partilha de uma chave secreta
+ entre ambos os sistemas, o servidor RADIUS e NAS.
+ Todas as mensagens são trocadas de forma segura utilizando o protocolo
+ EAP
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Extensible Authentication Protocol
+\end_layout
+
+\end_inset
+
+ ou suas variantes (PEAP
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Protected Extensible Authentication Protocol
+\end_layout
+
+\end_inset
+
+, LEAP
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Lightweight Extensible Authentication Protocol
+\end_layout
+
+\end_inset
+
+, etc).
+\end_layout
+
+\begin_layout Standard
+A Fig.
+ 2.1 apresenta o funcionamento usual de autenticação num ISP.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/FuncionamentoStandardDeUmISP.PNG
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Funcionamento usual de Autenticação num ISP
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+No que consiste ao método de autenticação do lado do equipamento 
+\shape italic
+client
+\shape default
+, podemos salientar o método UAM
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Universal Access Method
+\end_layout
+
+\end_inset
+
+.
+ Este método consiste em o utilizador introduzir 
+\shape italic
+username
+\shape default
+ e 
+\shape italic
+password
+\shape default
+ no 
+\shape italic
+browser
+\shape default
+ enquanto tenta aceder à Internet sem ter as devidas credenciais inseridas.
+ Dentro deste método temos a possibilidade de utilizar os protocolos PAP
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Password Authentication Protocol
+\end_layout
+
+\end_inset
+
+, CHAP
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Challenge Handshake Authentication Protocol
+\end_layout
+
+\end_inset
+
+ e SSL
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Secure Socket Layer
+\end_layout
+
+\end_inset
+
+ para transferência de dados entre o equipamento 
+\shape italic
+client
+\shape default
+ e o NAS.
+ Tanto os protocolos CHAP e SSL encriptam a informação introduzida pelo
+ utilizador, já o mesmo não acontece com o protocolo PAP, sendo os dados
+ enviados em texto simples.
+\end_layout
+
+\begin_layout Standard
+Existe também, a variante de autenticação pelo endereço de MAC do equipamento
+ 
+\shape italic
+client
+\shape default
+ dentro do método UAM, sendo o próprio endereço de MAC o 
+\shape italic
+username
+\shape default
+, ficando a 
+\shape italic
+password
+\shape default
+ definida no NAS.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{10 mm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Outra possibilidade de autenticação é através do protocolo 802.1x, este tipo
+ de autenticação é mais utilizado para redes empresariais, não propriamente
+ por ISPs.
+ Este é um método que permite eliminar o chamado NAS, pois o próprio 
+\shape italic
+Access Point
+\shape default
+ faz de autenticador, fazendo apenas a passagem das credenciais até ao servidor
+ RADIUS, permitindo, ou não, o acesso à rede por parte do equipamento 
+\shape italic
+client
+\shape default
+.
+ Ver Fig.
+ 2.1 para topologia de rede para 802.1x.
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/802.1x.PNG
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Topologia de rede para 802.1x
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{10 mm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Da perspectiva de autenticação os protocolos mais utilizados, são PPPOE,
+ PPTP e L2TP/IPSec [4][5][6].
+ Em sistemas com acessos à Internet com a ADSL
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Asymmetric Digital Subscriber Line
+\end_layout
+
+\end_inset
+
+ ou suas variantes, temos o PPPOE como sistema principal de autenticação,
+ igualmente podemos considerar este como o protocolo de eleição utilizado
+ pelos ISPs de vertente WI-FI.
+ Este protocolo está presente em quase todos os equipamentos 
+\shape italic
+client
+\shape default
+, o mesmo já não acontece com os outros dois métodos referenciados.
+ Permitindo a encriptação dos dados de autenticação, o PPPOE torna-se seguro
+ quanto à salvaguarda das credenciais de cada utilizador, no entanto, já
+ não acontece o mesmo quanto ao tráfego do equipamento 
+\shape italic
+client
+\shape default
+ até à 
+\shape italic
+gateway
+\shape default
+ (o mesmo equipamento que o NAS).
+ 
+\end_layout
+
+\begin_layout Standard
+Os outros dois protocolos, mais seguros, conhecidos por criarem túneis encriptad
+os, tanto as credenciais dos utilizadores como o tráfego entre o equipamento
+ 
+\shape italic
+client
+\shape default
+ e a 
+\shape italic
+gateway
+\shape default
+ são encriptados.
+ Assim, evitam-se ataques como 
+\shape italic
+man-in-the-middle
+\shape default
+, visualização da informação, modificação da informação e controlo de sessão.
+ Deve-se salientar que apenas são encriptados os dados desde o equipamento
+ 
+\shape italic
+client
+\shape default
+ até à 
+\shape italic
+gateway
+\shape default
+ (NAS), como se pode observar na Fig.
+ 2.2.
+ O tráfego depois do NAS à Internet não é encriptado, salvo com a utilização
+ de protocolos próprios de encriptação.
+ 
+\end_layout
+
+\begin_layout Standard
+A Fig.
+ 2.2 ilustra os protocolos de autenticação mais utilizados.
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/ch3_img3.PNG
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Métodos de Autenticação mais utilizados
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Sistemas Comerciais / Open Source
+\end_layout
+
+\begin_layout Standard
+Numa perspectiva de sistema completo, podemos considerar uma junção de várias
+ tecnologias e equipamentos com funções específicas.
+ Actualmente são poucos os produtos que possam oferecer uma completa funcionalid
+ade para as necessidades totais de um ISP.
+ Assim, existe normalmente a necessidade de agrupar várias tecnologias como
+ bases de dados, RADIUS, NAS, sistemas de 
+\shape italic
+Billing
+\shape default
+ e 
+\shape italic
+Ordering
+\shape default
+, software para gestão de utilizadores e 
+\shape italic
+software
+\shape default
+ de monitorização.
+ São poucos os produtos considerados sistemas 
+\begin_inset Quotes eld
+\end_inset
+
+chave-na-mão
+\begin_inset Quotes erd
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Abaixo indicam-se alguns sistemas comerciais e 
+\shape italic
+open source
+\shape default
+ mais conhecidos e utilizados actualmente.
+\end_layout
+
+\begin_layout Subsection
+Comerciais
+\end_layout
+
+\begin_layout Subsubsection
+Aradial Radius Server
+\end_layout
+
+\begin_layout Standard
+Com início em 1997 [8], este sistema oferece várias possibilidades desde
+ pequenos a grandes ISPs nas áreas de DSL, VOIP
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Voice Over Internet Protocol
+\end_layout
+
+\end_inset
+
+, Mobile, WI-FI, WIMAX
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Worldwide Interoperability for Microwave Access
+\end_layout
+
+\end_inset
+
+.
+ É um sistema proprietário onde incorpora RADIUS, sistema de 
+\shape italic
+billing
+\shape default
+ e 
+\shape italic
+ordering
+\shape default
+, gestão de utilizadores e monitorização.
+ Tem a possibilidade de conectividade a várias bases de dados, como MySQL,
+ MS SQL Server, Oracle e LDAP.
+ Está disponível nas plataformas Microsoft, Linux e Unix.
+ Possibilidade de interoperabilidade com vários NAS: cisco, Nomadix, Colubris,
+ Handlink, ValuePoint, Linksys, Zyxel entre outros.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Internet Authentication Service (IAS)
+\end_layout
+
+\begin_layout Standard
+RADIUS Sever da Microsoft [9], desenvolvido em Janeiro de 2003, está disponível
+ nas versões server da Microsoft, quer em 2003 Server e 2008 Server, é uma
+ possibilidade de implementação para ISPs.
+ Este sistema funciona directamente com o 
+\shape italic
+Active Directory
+\shape default
+ impossibilitando a consulta directa através de SQL, sendo necessário a
+ replicação da base de dados para o 
+\shape italic
+Active Directory
+\shape default
+ ou vice-versa.
+ O IAS é compatível com alguns NAS, salientam-se o NAS da Proxim, Cisco,
+ Interasys, 3com, Linksys, Nomadiz, Colubris e ainda Zyxel.
+\end_layout
+
+\begin_layout Subsubsection
+Cisco ACS
+\end_layout
+
+\begin_layout Standard
+RADIUS da cisco, é utilizado por várias empresas de pequena, média e grande
+ dimensão, para autenticações dial-up, DSL ou WI-FI [10].
+ Neste sistema, é necessário a versão correcta de IOS
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Internetwork Operating System
+\end_layout
+
+\end_inset
+
+ para activação e funcionalidade de RADIUS.
+ No entanto, para a funcionalidade de NAS, a Cisco incorpora no seu 
+\shape italic
+software
+\shape default
+ o Cisco VPDN Server, o qual poderá observar na Tabela 2.1 as respectivas
+ funcionalidades
+\end_layout
+
+\begin_layout Subsubsection
+StarOS
+\end_layout
+
+\begin_layout Standard
+O StarOS começou a ser desenvolvido a partir de 2006, este teve como objectivo
+ de ser uma solução simples e de baixo custo para WISPs
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Wireless Internet Service Providers
+\end_layout
+
+\end_inset
+
+ [12].
+ Contempla algumas funcionalidades importantes como o método de autenticação
+ PPPOE.
+ É utilizado apenas como solução NAS e em sistemas embutidos para 
+\shape italic
+Access Points
+\shape default
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="17" columns="5">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+RouterOS
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Cisco
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Chillispot
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Hotspot authentication / accounting
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+✓
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+✓
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Hotspot auto disconnect
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+✓
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+✓
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Hotspot bandwidth management
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+✓
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+✓
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Hotspot static IP address
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+✓
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+PPPoE authentication / accounting
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+✓
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+✓
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+PPPoE auto disconnect
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+✓
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+✓
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+PPPoE bandwidth management
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+✓
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+✓
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+PPPoE static IP address
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+✓
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+✓
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+PPtP authentication / accounting
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+✓
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+✓
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+PPtP auto disconnect
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+✓
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+✓
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+PPtP bandwidth management
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+✓
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+✓
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+L2tP authentication / accounting
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+✓
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+✓
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+L2tP auto disconnect
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+✓
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+✓
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+L2tP bandwidth management
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+✓
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+✓
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Wireless access list support
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+✓
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Hotspot MAC authentication
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+✓
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Funcionalidades NAS -  Cisco / Chillispot / StarOS
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Open Source
+\end_layout
+
+\begin_layout Subsubsection
+Freeradius
+\end_layout
+
+\begin_layout Standard
+Desenvolvido em Junho de 1999, é onsiderado o servidor RADIUS 
+\shape italic
+open source
+\shape default
+ mais popular em todo o mundo, este autentica mais de 100 milhões de utilizadore
+s diariamente e utiliza os protocolos de autenticação mais comuns.
+ O Freeradius pode ser instalado em praticamente todas as distribuições
+ Linux, Unix e também em Windows.
+ Várias estimativas definem que o servidor Freeradius ronda 1/3 de todos
+ os utilizadores que se autenticam na Internet, ficando os restantes em
+ igual parte pelo radius da Microsoft (IAS) e da Cisco (ACS).
+ Este suporta pedidos em 
+\shape italic
+proxying
+\shape default
+ com tolerância a falhas, balanceamento de pedidos, bem como a possibilidade
+ de acesso a vários tipos de bases de dados como 
+\shape italic
+back-end
+\shape default
+ [13].
+\end_layout
+
+\begin_layout Standard
+O Freeradius contempla ainda uma aplicação desenvolvida para administração
+ e gestão de utilizadores denominada 
+\shape italic
+dial-up admin, 
+\shape default
+esta suporta as seguintes características:
+\end_layout
+
+\begin_layout Itemize
+Utilizadores em LDAP
+\end_layout
+
+\begin_layout Itemize
+Utilizadores e grupos em base de dados SQL (MySQL, PostgreSQL e Oracle)
+\end_layout
+
+\begin_layout Itemize
+Relatórios de acessos
+\end_layout
+
+\begin_layout Itemize
+Testes para o correcto funcionamento do servidor
+\end_layout
+
+\begin_layout Itemize
+Estatísticas de utilização dos utilizadores
+\end_layout
+
+\begin_layout Standard
+Outras aplicações 
+\shape italic
+open source
+\shape default
+ podem ser utilizadas para gestão, como o 
+\shape italic
+phpMyPrepaid
+\shape default
+ [10.14] e 
+\shape italic
+DaloRadius
+\shape default
+ [15].
+\end_layout
+
+\begin_layout Subsubsection
+ChilliSpot
+\end_layout
+
+\begin_layout Standard
+Utilizado apenas como NAS, o ChilliSpot controla acessos de utilizadores
+ com ou sem fios [16].
+ Este suporta UAM
+\shape italic
+ 
+\shape default
+que actualmente é o 
+\shape italic
+standard
+\shape default
+ para hotspots públicos e também suporta o protocolo 802.1x.
+ O ChilliSpot está disponível para as plataformas Linux (Redhat, Febora,
+ Debian, Mandrake) e para dispositivos embutidos com o sistema Linux OpenWRT,
+ DD-WRT e Coova.
+\end_layout
+
+\begin_layout Section
+bla bla bla
+\end_layout
+
+\begin_layout Standard
+Vamos estudar AS ...sdgf
+\end_layout
+
+\begin_layout Standard
+sadgf
+\end_layout
+
+\begin_layout Standard
+asdgf
+\end_layout
+
+\begin_layout Standard
+sag
+\end_layout
+
+\begin_layout Standard
+safg
+\end_layout
+
+\begin_layout Standard
+sf
+\end_layout
+
+\begin_layout Standard
+gsd
+\end_layout
+
+\begin_layout Standard
+fgs
+\end_layout
+
+\begin_layout Subsection
+zdf
+\end_layout
+
+\begin_layout Standard
+ghfhfhffffffffffffffffhfhg hfhfhffffffffffffffffhfhghfhfhfffffffffffff fffhfhghf
+hfhfffff fffffffffffhfhghfhfh ffffffffffffffffhfhghf hfhffffffffffffffffhfhghfhf
+h ffffffffffffffffhfhghfhfhffffffffffffffffh fhghfhfhfffff fffffffffffhfhghfh
+ fhffffffffffffffffhfhghfhfhfff fffffffffffffhfhgh fhfhffffffffffffffffh
+ fhghfhfh ffffffffffffffffhfhghfh fhffffffffffffffffhf hghfhfhffffffffffffffff
+ hfhghfhfhffffffffff ffffffhfhghfhf hffffffffffffffffh fhghfhfhffffff ffffffffff
+ hfhghfhfhfffffffffffff fffhfhghfhf hffffffffffffffffhfhghfhfhffffffffffffffffhf
+hghf hfhffffffffffffffffhfhg hfhfhffffffffffffffffhfhghfhf hffffffffffffffff
+ hfhghfhfhffffffffffffffff hfhghfhfhfffff fffffffffffhfhghfhfhffffffffff
+ ffffffh fhghfhfhffffff ffffffffffh fhghfhfhfffffffff fffffffhfhghfhf hfffffffff
+fffffffhfhghf hfhffffffffffffffffhfhghfhfhffffffffffffffffhfhghfhf hffffffffffff
+ffffhfhghfhfhf fffffffffffffffh fhghfhfhffffff ffffffffffhfhghfhfh fffffffffffff
+fffhfhghfhfhfffffff fffffffffhfhghfhfhfff fffffffffffffhfhg hfhfhfffffff
+ fffffffffhf hghfhf h fffffffffffffffhfh ghfhfhffffff ffffffffffhfh ghfhfhffffff
+ ffffffffffhf 
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/new-year-wallpaper-11.jpg
+	scale 50
+	clip
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+rgdfgdgdgd
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Tecnologias Usadas
+\end_layout
+
+\begin_layout Section
+Sumário
+\end_layout
+
+\begin_layout Standard
+Para o desenvolvimento desta aplicação web são usadas varias ferramentas
+ conhecidas e de licença de utilização gratuita.
+ Entre as tecnologias base encontram se a linguagem de programação para
+ base de dados SQL para a qual é usada a ferramenta SQLite 3, as liguangens
+ de programação Python e JavaScript bem como a linguagem para construção
+ de paginas web HTML incluido CSS para estilização e design da aplicação.
+ Como ferramenta base, é utilizada a framework Django, baseada em python
+ a qual nos permite a criação de aplicações web.
+ Para uma melhor performance é utilizado no JavaScript uma bioblioteca de
+ funções, DOJO, que permite realizar algumas tarefas de JavaScript de forma
+ mais facil.
+ A junção de todas estas tecnlogias, dão poder necessario a aplicação para
+ que possa ser robusta, rápida e fiável, sem esquecer sempre os benefícios
+ na usabilidade por parte dos utilizadores do sistema.
+\end_layout
+
+\begin_layout Section
+Django
+\end_layout
+
+\begin_layout Standard
+O Django é uma Framework construída em Python seguindo como padrão o modelo
+ MVC transcrito como MVT (Model, View, Template)
+\end_layout
+
+\begin_layout Subsubsection*
+O que é uma Framework?
+\end_layout
+
+\begin_layout Standard
+Uma framework, é constituída por varias ferramentas controlados pela framework,
+ que nos permitem o desenvolvimento de software de forma mais rápida e limpa,
+ pois a um nivel de asbtração maior do que quando utilizamos um conjunto
+ de linguagens de programação ou outras ferramentas separadamente.
+ A framework pode ainda ser configurada e perssonalizada pelo utilizador
+ a fim de produzir um software com caracteristicas especificas que vão ao
+ encontro das necessidades do utilizador da ferramenta.
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+O que é o Python?
+\end_layout
+
+\begin_layout Standard
+Python é uma linguagem de programação de alto nível, interpretada, imperativa,
+ orientada a objetos, de tipagem dinâmica e forte.
+ Atualmente possui um modelo de desenvolvimento comunitário e aberto.
+\end_layout
+
+\begin_layout Subsubsection*
+MVC ou MTV?
+\end_layout
+
+\begin_layout Standard
+O padrão de desenvolvimento MVC conciste em três niveis que separão a estrutra
+ da aplicação, em modelo, controlador e vista, constituindo assim partes
+ distintas por forma a garantir uma melhor manutenção e construção da mesma,
+ pois permite o desenvolvimento, edição e a realização de testes a aplicaçã
+ de forma separada para cada parte.
+ É um padrão baseado na tecnologia de orientação a objectos.
+ E no Django apesar de seguir este mesmo padrão é nomeado de outra forma
+ sendo chamado de Modelo, Vista e Template, sendo que aqui a vista corresponde
+ ao controlador e o template a vista.
+\end_layout
+
+\begin_layout Standard
+Visto desta forma temos:
+\end_layout
+
+\begin_layout Itemize
+Modelo - Regras de negocio
+\end_layout
+
+\begin_layout Itemize
+Vista - Ponte de comunicação entre o template e o modelo
+\end_layout
+
+\begin_layout Itemize
+Template - Parte visual pela qual o utilizador interage com o sistema
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Com o django temos total controlo da criação de aplicações web.
+ Permite a utilzação de bases de dados, codigo html bem como todo o tipo
+ de script ou linguagem de construção web.
+\end_layout
+
+\begin_layout Subsubsection*
+Como funciona?
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/django-framework-266x300.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+O MVC do Django - MVT
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+O que é o URL Dispatcher?
+\end_layout
+
+\begin_layout Standard
+Um URL limpo e elegante é um detalhe importante para a alta qualidade de
+ aplicações WEB.
+ O Django permite criar URL's perssonalizados sem limitações da framework.
+\begin_inset Newline linebreak
+\end_inset
+
+Para criar URLs para uma aplicação, é apenas necessario um modulo de Python.
+ Este modulo será escrito em puro Python e é um simples mapeamento entre
+ o URL padrão baseado em expressoes regulares e funções escritas em, Python
+ presentes na VISTA.
+\end_layout
+
+\begin_layout Standard
+Este mapeamento pode ser curto ou longo consoante a necessidade do mesmo.
+ Pode ainda referenciar outros mapeamentos e como os URLs sao escritos em
+ Python puro, podem ainda ser construidos dinamicamente.
+\end_layout
+
+\begin_layout Subsubsection*
+O que é a Vista?
+\end_layout
+
+\begin_layout Standard
+A vista quando valamos em Django refere-se ao controlador no MVC padrão.
+ Como de costume aqui a vistas sendo controladores vão fazer de ponte entre
+ o modelo e o template.
+ É aqui na vista que serão resolvidos os pedidos do URL Dispacher bem como
+ enviada a resposta para o template.
+\end_layout
+
+\begin_layout Subsubsection*
+O que é o Modelo?
+\end_layout
+
+\begin_layout Standard
+O Modelo como habitualmente é onde desenhamos as classes que vao receber
+ as consultas a base de dados bem como a forma de obter esses mesmos dados.
+ Sendo o Django uma framework de alto nivel, não necessitamos escrever nada
+ em SQL para aceder a base de dados a não ser que seja realmente preciso.
+ Pois o Django possui o sistema ORM – Mapeamento de Objetos Relacionais
+ que nos permite um manipulamento das tabelas presentes na base dados.
+\end_layout
+
+\begin_layout Standard
+O ORM do Django possui uma elevada compatibilidade sendo compativel com
+ a maioria dos sistesmas de gestão de base de dados (MySQL, PostgreSQL,
+ SQLite, ...).
+\end_layout
+
+\begin_layout Subsubsection*
+O que é o Template?
+\end_layout
+
+\begin_layout Standard
+O sistema de templates do Django é uma das suas mais notórias funcionalidades.
+ Com ele podemos criar heranças, ou seja, um template base contendo a estrutura
+ básica da aplicação web e templates específicos que herdam as características
+ deste template base e atribuem/criam suas próprias características.
+ 
+\end_layout
+
+\begin_layout Standard
+A linguagem de templates do Django está desenhada para atingir o balanço
+ entre o poder e a simplicidade.
+ Foi desenvolvido para quem usa a linguagem se sinta a vontade para trabalhar
+ com HTML.
+ A linguagem de template do dajango é muito semelhante ao SMARTI, e de facil
+ aprendizagem.
+\end_layout
+
+\begin_layout Subsubsection*
+South - Google Code - Mercurial
+\end_layout
+
+\begin_layout Section
+SQLite 3
+\end_layout
+
+\begin_layout Subsubsection*
+O que é o SQLite?
+\end_layout
+
+\begin_layout Standard
+O SQLite é um sistema de gestão de base dados contido numa pequena biblioteca
+ de programação em C, habitualmente utilizado como base de dados embebida
+ para o aramazenamento em aplicações tais como aplicações web.
+\end_layout
+
+\begin_layout Paragraph*
+
+\series medium
+O SQLite 3 foi o gestor de base de dados adoptado para gerir a base de dados
+ na framework Django.
+ Sendo pequeno e simples este gestor torna se a escolha ideal para uma gestão
+ suave e leve de bases de dedados que requerem o acesso rapido a informação.
+\end_layout
+
+\begin_layout Section
+JavaScript
+\end_layout
+
+\begin_layout Standard
+JavaScript é uma linguagem de script baseada em ECMAScript padronizada pela
+ Ecma international e é actualmente a principal linguagem para programação
+ do lado do cliente em browsers.
+\end_layout
+
+\begin_layout Subsubsection*
+O que é o DOJO?
+\end_layout
+
+\begin_layout Standard
+O Dojo consiste numa biblioteca de JavaScript que permite poupar tempo e
+ esforço utilizando sempre os standards web.
+ Esta ferramenta é virada para a construção de aplicações web de alta qualidade.
+ Dispõe de muitas funções que nos permitem gerar efeitos animações ou ate
+ tarefas que seriam mais exigentes de desenvolver em JavaScript puro de
+ forma mais rápida e facil.
+ O DOJO vai actualmente na sua versão 1.8 a qual foi usada nesta aplicação.
+\end_layout
+
+\begin_layout Subsubsection*
+O que é o DOM?
+\end_layout
+
+\begin_layout Standard
+O JavaScript como linguagem de programação que é vai permitir manipular
+ objetos DOM.
+ O DOM disbonibiliza métodos e propriedades que permitem obter, modificar,
+ atualizar e remover partes do documento html.
+ 
+\end_layout
+
+\begin_layout Standard
+Por exemplo, é possivel recuperar o valor uma tag de input (type:TEXT) HTML
+ como uma string utilizando o DOM.
+ 
+\begin_inset Newline linebreak
+\end_inset
+
+Apesar de tudo o DOM não é exclusivo do JavaScript pudendo ser utilizado
+ em muitas outras linguagens.
+\end_layout
+
+\begin_layout Subsubsection*
+O que é o AJAX?
+\end_layout
+
+\begin_layout Standard
+O AJAX (do inglês 
+\begin_inset Quotes eld
+\end_inset
+
+Asynchronous Javascript and XML
+\begin_inset Quotes erd
+\end_inset
+
+) "Javascript e XML Assíncronos" é o uso metodológico de tecnologias como
+ Javascript e XML, disponibilizadas pelos browsers, para tornar páginas
+ Web mais dinamicas, utilizando para isso chamadas assíncronas de informação
+ ao servidor.
+ Com o AJAX é possivel o rerfrescamento de elementos HTML sem ser necessario
+ refrescar toda a pagina, fazendo para ta pedidos de informação ao servidor.
+\end_layout
+
+\begin_layout Section
+CSS
+\end_layout
+
+\begin_layout Standard
+O CSS (ingles 
+\begin_inset Quotes erd
+\end_inset
+
+Cascading Style Sheets
+\begin_inset Quotes erd
+\end_inset
+
+) é uma linguagem de estilo utilizada para definir o estilo e design de
+ documentos escritos em HTML ou XML.
+ 
+\end_layout
+
+\begin_layout Standard
+Utilizando CSS é possivel separar o conteudo da pagina html do seu estilo
+ tornando assim mais simples a cosntrução e manutenção da mesma.
+\begin_inset Newline linebreak
+\end_inset
+
+Atualmente o CSS vai na sua versão três, esta versão ja nos permite fazer
+ certas animações e posicionamentos de elementos HTML que ate agora apenas
+ se conseguia fazer atravez de JavaScript.
+\end_layout
+
+\begin_layout Section
+HTML
+\end_layout
+
+\begin_layout Standard
+O HTML (do inglês HyperText Markup Language, que significa Linguagem de
+ Marcação de Hipertexto) é uma linguagem de marcação utilizada para produzir
+ páginas para a Web.
+ Os documentos escritos em HTML podem ser interpretados por browsers.
+ 
+\end_layout
+
+\begin_layout Standard
+Actualmente vai na sua versão cinco sendo conhecido por HTML 5.
+ Nesta versão foram introduzidas novas ferramentas de acessibilidade, bem
+ como novas funcionalidades que ate agora só era conseguidas por meio do
+ uso de outras ferramentas, como o JavaScript.
+ Esta versão ainda se encontra em desenvolvimento.
+\begin_inset Newline linebreak
+\end_inset
+
+No Django é usado um gestor de templates semelhante á biblioteca SMARTI,
+ que nos permite inserir variáveis ou listas de elementos de forma automática
+ e simples.
+ Gerando por fim ficheiros HTML capazes de ser interpretados pelo browser.
+\begin_inset Newline linebreak
+\end_inset
+
+Na construção desta aplicação foi usada uma mistura e codigo HTML 4.1 Transaction
+al com alguns elementos de HTML 5.
+\end_layout
+
+\begin_layout Chapter
+Sistema de Gestão de Destribuição de Serviço Docente
+\end_layout
+
+\begin_layout Section
+Sumário
+\end_layout
+
+\begin_layout Standard
+Um Sistema de Gestão de Distribuição de Serviço Docente é algo importante
+ em todos os estabelelicmentos de ensino, pois facilita atribuição de horas
+ de serviço e a escolha dos docentes para determinadas turmas estando a
+ informação centralizada em apenas um local.
+ Evintando assim problemas de redundancia e incoerencia de informação.
+ Actualmente no institututo politecnico de Beja, a distribuição do serviço
+ docente é realizada de forma bastante rudimentar, recorrendo a folhas de
+ calculo como suporte para a informação.
+ Sendo actualmente o processo muito moroso, confuso e de dificil execução,
+ levando por vezes ao atraso na elaboração dos horarios e na atribuição
+ dos docentes as respectivas turmas.
+ Com vista a melhorar essa situação foi proposto a criação de um sistema
+ de gestão de destribuição de serviço doncente com vista a acelerar os processos
+ de atribuição das horas de serviço, clarificar a informação, facilitar
+ o processo e centralizar a informação.
+ 
+\end_layout
+
+\begin_layout Standard
+Este sistema esta previsto ser utilizado pelo departamento de recursos humanos,
+ os departamentos de ensino das instituições, os conselhos científicos e
+ a gestão das instituições.
+ Neste relatorio serão abordados especificamente o departamento de recursos
+ humanos, os docentes e a vice-presidencia.
+ Em todas as estas abordagens será clarificado o funcionamento de cada utilizado
+r do sistema, bem como as suas principais tarefas e a forma como as tecnologias
+ de desenvolvimnto dos templates (JavaScript, HTML, CSS) foram usadas para
+ geração do resultado final.
+\begin_inset Newline linebreak
+\end_inset
+
+Durante este relatorio quando for referido por exemplo area dos recursos
+ humanos, está se a refeirir a toda a informação que apenas pode ser acedida
+ e tratada pelos utilizadores dos recursos humanos.
+\end_layout
+
+\begin_layout Section
+Estrutura Base
+\end_layout
+
+\begin_layout Standard
+Neste relatorio será falado ensencialmente dos templates e respetivos componente
+s que os constituem, visto isto é importante clarificar como foi construido
+ o template base que serviu de guia para todos os outros templates das respectiv
+as areas.
+\end_layout
+
+\begin_layout Standard
+Para a construção dos templates é usada a linguagem de templates da framework
+ django.
+ Para acelerear o processo de criação das paginas web e reduzir a repetição
+ desnecessaria de codigo html esta linguagem permite-nos incluir trechos
+ de codigo html, existentes em outros ficheiros de extensao html a fim de
+ formar a pagina final a ser mostrada ao utilizador.
+ 
+\end_layout
+
+\begin_layout Standard
+Em sintese a primeira coisa a fazer, é a criação de uma pagina HTML que
+ será a base de todo o site.
+ Para tal deppis de criada a estrutura do site com todas as tag DIV necessarias,
+ utilizamosum elemento BLOCK facultado pela linguagem de template do django
+ que nos permite criar blocos onde depois podem ser preenchidos em outras
+ paginas do site.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/base.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Esquema de Construção do template base
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Tal como é possivel visualizar na figura 3.1, temos um exemplo da cosntrução
+ de um template base.
+ Supondo que todos retangulos que possuem blocos sao formados por tags DIV,
+ que por sua vez vão possuir blocos que podem ser modificados ou não em
+ qualquer pagina do site que use como base este template.
+ Esses blocos são formados pela seguinte sintax 
+\begin_inset Quotes eld
+\end_inset
+
+{% block nome_bloco %}
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/exemplo.png
+	scale 50
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Esquema da construção de template que irá extender do base
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+No exemplo da figura 3.2 temos presente uma pagina html que extende do template
+ base.
+ Significa isto que esta pagina html bastava extender do template base para
+ funcionar.
+ Mas neste exemplo vai-se mais longe.
+ Ao extender-se do template base todos os blocos la criados ficam disponiveis
+ nesta nova pagina.
+ A grande vantagem do uso de blocos é que pudemos escolher alteralos ou
+ mantelos inalterados.
+ No exemplo acima foi decidido alterar o 
+\begin_inset Quotes eld
+\end_inset
+
+bloco menus
+\begin_inset Quotes erd
+\end_inset
+
+ e o 
+\begin_inset Quotes eld
+\end_inset
+
+bloco conteudo
+\begin_inset Quotes erd
+\end_inset
+
+ mantendo o 
+\begin_inset Quotes eld
+\end_inset
+
+bloco cabeçalho
+\begin_inset Quotes erd
+\end_inset
+
+ inalterado.
+ Para isso bastou nesta nova pagina, fazer uma chamada aos blocos criados
+ no template base - 
+\begin_inset Quotes eld
+\end_inset
+
+{% block menus %} ###Conteudo do bloco### {% endblock %}
+\begin_inset Quotes erd
+\end_inset
+
+ - o outros blocos cujo conteudo foi alterado, o processo utilizado foi
+ o mesmo.
+ Assim sendo quando a pagina for requerida pelo utilzdor, tudo será igual
+ ao que esta no template base a excepção do 
+\begin_inset Quotes eld
+\end_inset
+
+bloco menus
+\begin_inset Quotes erd
+\end_inset
+
+ e do 
+\begin_inset Quotes eld
+\end_inset
+
+bloco conteudo
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/exemplo_final.png
+	scale 50
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Esquema da visualização do exemplo no browser
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Na figura 3.3 é apresentado o esquema de visualização final, aquele que será
+ visualizado pelo utilizador no browser.
+ Neste caso o utilizador veria o template base com os seus menus e conteudo
+ alterados mandento a pagina a sua estrutura base.
+\begin_inset Newline linebreak
+\end_inset
+
+Para alem dos blocos existem outras tags especiais nesta linguagem de template
+ do django, tais como:
+\end_layout
+
+\begin_layout Itemize
+{% for a in lista %} ### Conteudo do ciclo #### {% endfor %}
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Que nos permite construi um cliclo for tal como se faz em python.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+{% if exemplo %} ### Conteudo do if #### {% endif %}
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Que permite construir uma condição if tal como se faz em python.
+\begin_inset Newline linebreak
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+É permitido tambem usar variaveis declaradas em codigo python na linguagem
+ de template bastando para isso clocando entre {{nome_variavel}}.
+ Nome esse que tem que ser rigorosamente igual ao que esta definido no codigo
+ python.
+\end_layout
+
+\begin_layout Standard
+Essas variaveis são passadas quando o metodo de python na view devolve a
+ resposta ao pedido do URL.
+\begin_inset Newline linebreak
+\end_inset
+
+Visto isto ficou claro que o uso da linguagem de templates do django facilita
+ a construção de sites em que todas as paginas mantem a mesma estrutura.
+ A linguagem de template do django é mais complexa do que aqui foi tratado,
+ contudo foi o suficiente para a cosntrução desta aplicação.
+\end_layout
+
+\begin_layout Standard
+Resumidamente a estrutura base desta aplicação, trata-se do qeu foi abordado
+ nestes exemplos.
+ Uma barra lateral de menus, uma area de conteudos e um cabeçalho onde consta
+ o logotipo da aplicação.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/base_altafidelidade.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Exemplo da estrutura da aplicação - Pagina inicial dos Recursos Humanos
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Recursos Humanos
+\end_layout
+
+\begin_layout Standard
+O departamento de Recursos Humanos de uma instituição é parte fundamental,
+ para o bom funcionamento da mesma.
+ Sendo o Institituto Politécnico de Beja uma instituição, não poderia deixar
+ de ter uma departamento que trate a informação dos seus colaboradores.
+ Como é visivel a partida a distribuição don serviço docente está intinsecamente
+ ligada e dependente do departamento dos recursos humanos.
+ Pois é nos recursos humanos que existe a possibilidade de ver os contratos
+ dos docentes, bem como alterar informação de docentes ja a laborar na instituiç
+ão.
+ Visto isto não poderia deixar de existir uma area na aplicação que trata-se
+ desse tipo de informação.
+ Ficando assim a informação centralizada e livre de redundacias e incoerencias.
+\end_layout
+
+\begin_layout Subsection
+Tarfas Implementadas
+\end_layout
+
+\begin_layout Standard
+Na área dos recusros humanos foram implementadas as tarefas concideradas
+ necessarias para uma correcta manutenção e gestão do corpo docente existente
+ na instituição.
+\end_layout
+
+\begin_layout Subsubsection*
+Tarefas
+\end_layout
+
+\begin_layout Itemize
+Adicionar Docente:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Nesta tarefa o utilizador tem possibilidade de crirar um novo docente, introduzi
+ndo para issso alguns dos seus dados pessoais requeridos para este procedimento.
+ Este docente criado ficará sem contrato ate que lhe seja feito um.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Editar Docente:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Existe a possibilidade de editiar um docente que ja exista na base de dados
+ do sistema.
+ Para isso o utilizador tem de encontrar o docente a editar uma lista de
+ docentes e posteriormente edita-lo.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Listar Docentes:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Ao listar os docentes o utilizador pode ver todos os docentes existente
+ na instituição e inclusive ver informação detalhada sobre os mesmos.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Listar Contratos:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Na listagem de contratos existe a posibilidade do utilizador ver todos os
+ docentes e verificar a sua situação em termos contratuais.
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Síntese de funcionamento
+\end_layout
+
+\begin_layout Standard
+Tendo por base os conhecimentos nas cadeiras de Interação Pessoa-Computador
+ e Hipermedia e Acessibilidade, tentou-se cirar uma interface grafica que
+ facilita-se e simplifica-se a interacção do utilizador com a aplicação.
+ Permitindo que o mesmo obtove-se informação que precisa rapidamente.
+\end_layout
+
+\begin_layout Standard
+Será abordada a forma de funcionamento de todas as tarefas acima referenciadas.
+\end_layout
+
+\begin_layout Subsection*
+Adicionar Docente
+\end_layout
+
+\begin_layout Standard
+Tal como descrito na lista de tarefas, adicionar um docente é uma tarefa
+ que tem como finalidade base a adição de um novo docente a base de dados
+ da aplicação para que fique disponivel para no futuro para interagir com
+ a distribuição do serviço docente.
+\end_layout
+
+\begin_layout Subsubsection*
+1º passo
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/base_altafidelidade.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Pagina Inicial dos Recursos Humanos
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Considerando que o utilizador ja realizou a autenticação na aplicação, e
+ estando na pagina inicial (Figura 3.5), do lado esquerdo encontrará um menu.
+ Nesse menu o utilizador vai clicar em 
+\begin_inset Quotes eld
+\end_inset
+
+Adicionar Docente
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+2º passo
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/adicionar_docente_recursos_humanos_inicial.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Pagina Adicionar Docente dos Recursos Humanos
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Depois de clicar em 
+\begin_inset Quotes eld
+\end_inset
+
+Adicionar Docente
+\begin_inset Quotes erd
+\end_inset
+
+ o utilizador é encaminhado para outra pagina onde estará disponivel um
+ formulário (figura 3.6) que permite introduzir a infrmação do docente a
+ criar.
+ Os campos marcados com 
+\begin_inset Quotes eld
+\end_inset
+
+(*)
+\begin_inset Quotes erd
+\end_inset
+
+ são de caracter obrigatorio e indispensaveis para a correcta validação
+ do formulário.
+ Quando correctamente preenchido e estando o utilizador satisfeito com a
+ informação introduzida, deverá clicar no botão 
+\begin_inset Quotes eld
+\end_inset
+
+Adicionar Docente
+\begin_inset Quotes erd
+\end_inset
+
+ existente no fundo do formulário.
+\end_layout
+
+\begin_layout Subsubsection*
+3º Passo
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/adicionar_docente_recursos_humanos_confirmacao.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Pagina Adicionar Docente dos Recursos Humanos - Confirmação
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Depois do formulário preenchido correctamente e depois de ter sido clicado
+ no botão 
+\begin_inset Quotes eld
+\end_inset
+
+Adicionar Docente".
+ O utilizador é encaminhado para uma pagina de confirmação (Figura 3.7).
+ Pagina esta que apesar de ser de confirmação continua a permitir ao utilizador
+ fazer alterações dos dado introduzidos no formulário.
+ No fundo o utlizador tem um uma mensagem a questionar a confirmação dos
+ dados.
+ Caso tudo esteja conforme a vontade do utilizador o utilizador clicará
+ no botão 
+\begin_inset Quotes eld
+\end_inset
+
+Sim
+\begin_inset Quotes erd
+\end_inset
+
+, existente no fim do formulário para submeter os dados.
+ Caso contrario clica no botão 
+\begin_inset Quotes eld
+\end_inset
+
+Não
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Sempre que exista alterações nesta etapa em algum dos campos do formulário,
+ o mesmo retorna ao 2º passo.
+\end_layout
+
+\begin_layout Subsubsection*
+4º passo
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/adicionar_docente_recursos_humanos_sucesso.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Pagina Adicionar Docente dos Recursos Humanos - Sucesso
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Por fim quando o utiliador clica no botão de 
+\begin_inset Quotes eld
+\end_inset
+
+Sim
+\begin_inset Quotes erd
+\end_inset
+
+ para confirmar a sua intensão de submeter os dados, é apresentadauma noava
+ janela (Figura 3.8), com uma mensagem de confirmação do sucesso da operação.
+\end_layout
+
+\begin_layout Subsection*
+Editar Docente
+\end_layout
+
+\begin_layout Standard
+A tarfa 
+\begin_inset Quotes eld
+\end_inset
+
+editar docente
+\begin_inset Quotes erd
+\end_inset
+
+ é em tudo semelhante á tarefa 
+\begin_inset Quotes eld
+\end_inset
+
+adicionar um docente
+\begin_inset Quotes erd
+\end_inset
+
+ com a diferença que esta tem como finalidade atualizar os dados de um docente
+ ja existente na base de dados da aplicação.
+\end_layout
+
+\begin_layout Subsubsection*
+1º passo
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/base_altafidelidade.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Pagina Inicial dos Recursos Humanos
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Considerando que o utilizador ja realizou a autenticação na aplicação, e
+ estando na pagina inicial (Figura 3.9), do lado esquerdo encontrará um menu.
+ Nesse menu o utilizador vai clicar em 
+\begin_inset Quotes eld
+\end_inset
+
+Editar Docente
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+2º passo
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/editar_docente_recursos_humanos_lista.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Listagem dos docentes editaveis - Recursos Humanos
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Depois de clicar em 
+\begin_inset Quotes eld
+\end_inset
+
+Editar Docente
+\begin_inset Quotes erd
+\end_inset
+
+ o utilizador é encaminhado para outra pagina onde estará disponivel umsa
+ lista de docentes editaveis (figura 3.10).
+ Para editar um docente da lista, o utilizador apenas tem que clicar no
+ nome docente desejado ou no 
+\begin_inset Quotes eld
+\end_inset
+
+lápis
+\begin_inset Quotes erd
+\end_inset
+
+ que se encontra a esquerda do nome.
+ O utilizador nesta lista pode navegar pelas varias paginas existentes,
+ usando os numeros em baixo.
+ Pode procurar os docentes pelo nome, departamento e catgoria na caixa de
+ pesquisa, bem como usar os filtros presentes na barra de menus do lado
+ esquerdo que permitem filtrar as lista de docentes editaveis por 
+\begin_inset Quotes eld
+\end_inset
+
+Ordem Alfabética
+\begin_inset Quotes erd
+\end_inset
+
+ , 
+\begin_inset Quotes eld
+\end_inset
+
+Por Departamento
+\begin_inset Quotes erd
+\end_inset
+
+ e 
+\begin_inset Quotes eld
+\end_inset
+
+Por Categoria
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+3º passo
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/editar_docente_recursos_humanos_inicial.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Formulário incial da edição do docente - Recursos Humanos
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Depois de escolhido o docente a editar, o utilizador é encaminhado para
+ uma pagina com um formuilário.
+ Esse formulário é igual ao existente na tarefa de adicionar docente, com
+ a diferença de vir previamente preenchido com os dados existentes na base
+ dedados acerca do docente respectivo (Figura 3.11).
+ No fundo do formulário é ainda visivel se houve alguma alteração o docente
+ em questão e quem a portagonizou bem como a respectiva data e hora do acontecim
+ento.
+\end_layout
+
+\begin_layout Subsubsection*
+4º passo e 5º passo
+\end_layout
+
+\begin_layout Standard
+Os passos 4º e 5º são rigorosamente iguais aos passos 3º e 4º da tarefa
+ adicionar docente descrita em cima.
+ 
+\end_layout
+
+\begin_layout Subsection*
+Listar Docentes
+\end_layout
+
+\begin_layout Standard
+A tarfa 
+\begin_inset Quotes eld
+\end_inset
+
+Listar Docentes
+\begin_inset Quotes erd
+\end_inset
+
+ conciste em mostrar numa lista todos os docentes existentes na aplicação.
+ Havendo a possibilidade de ver informação detalhada sobre os msmos.
+\end_layout
+
+\begin_layout Subsubsection*
+1º passo
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/base_altafidelidade.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Pagina Inicial dos Recursos Humanos
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Considerando que o utilizador ja realizou a autenticação na aplicação, e
+ estando na pagina inicial (Figura 3.12), do lado esquerdo encontrará um
+ menu.
+ Nesse menu o utilizador vai clicar em 
+\begin_inset Quotes eld
+\end_inset
+
+Listar Docentes
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+2º passo
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/listar_docentes_recursos_humanos_lista.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Listagem dos docentes - Recursos Humanos
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Depois de clicar em 
+\begin_inset Quotes eld
+\end_inset
+
+Listar Docente
+\begin_inset Quotes erd
+\end_inset
+
+ o utilizador é encaminhado para outra pagina onde estará disponivel uma
+ lista de docentes (figura 3.13).
+ Para ver informoção detalhada de um docente da lista, o utilizador apenas
+ tem que clicar no nome docente desejado ou no 
+\begin_inset Quotes eld
+\end_inset
+
+olho
+\begin_inset Quotes erd
+\end_inset
+
+ que se encontra á esquerda do nome.
+ O utilizador nesta lista pode navegar pelas varias paginas existentes,
+ usando os numeros em baixo.
+ Pode procurar os docentes pelo nome, departamento e catgoria na caixa de
+ pesquisa, bem como usar os filtros presentes na barra de menus do lado
+ esquerdo que permitem filtrar as lista de docentes por 
+\begin_inset Quotes eld
+\end_inset
+
+Ordem Alfabética
+\begin_inset Quotes erd
+\end_inset
+
+ , 
+\begin_inset Quotes eld
+\end_inset
+
+Por Departamento
+\begin_inset Quotes erd
+\end_inset
+
+ e 
+\begin_inset Quotes eld
+\end_inset
+
+Por Categoria
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+3º passo
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/listar_docentes_recursos_humanos_detalhe.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Tabela informção detalhada do docente - Recursos Humanos
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Depois de se escolher um docente, é apresentada uma nova pagina onde vai
+ ser visvel informação detalha sobre o docente clicado, numa tabela.
+\end_layout
+
+\begin_layout Subsection
+Aplicação das Tecnologias
+\end_layout
+
+\begin_layout Standard
+Tal como em todas as areas abordadas neste relatorio, usam as tecnologias
+ elementares de criação de paginas web.
+ Dende da criatividade de quem as usapara tirar o melhor partido das mesmas.
+ As principais tecnolgias usadas nesta tarefa foram o JavaScript-DOJO, o
+ HTML e o CSS.
+\end_layout
+
+\begin_layout Subsection*
+JavaScript - DOJO/DOM
+\end_layout
+
+\begin_layout Subsubsection*
+Tarefa - Adicionar Docente
+\end_layout
+
+\begin_layout Standard
+Nesta tarefa foi usado um pequeno segemento de javaScript usando como suporte
+ a biblioteca DOJO.
+ Foi ncessario criar uma função que detecta-se quando o formulário fosse
+ alterado na pagina de confirmação, quer pela introdução de novo texto quer
+ pela selecção da comboBox ou da checkBox.
+ Para que depois se procedesse á remoção da mensagem de confirmação e dos
+ botões 
+\begin_inset Quotes eld
+\end_inset
+
+Sim
+\begin_inset Quotes erd
+\end_inset
+
+ e 
+\begin_inset Quotes eld
+\end_inset
+
+Não
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Pois apenas fazem sentido estes ultimos elementos aparecerem quando o formulári
+o esta valido, o que não é possivel garantir caso exista um aleração do
+ mesmo na pagina de confirmação.
+\end_layout
+
+\begin_layout Standard
+Para conseguir isto bastou recorrer ao uso da tecnologia AJAX.
+ Para facilitar as coisas usamos a biblioteca DOJO, que possui funções que
+ nos facilitam a implementação do AJAX.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/esquema_AJAX_DJANGO_DOJO.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Esquema de Funcionamento do AJAX usando DOJO no Django
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+O uso da biblioteca javaScript DOJO é bastante simples, basta para tal primeiram
+ente descarregara biblioteca para a directoria do projecto.
+ Depois é so fazer referencia a biblioteca no template base da aplicação
+ e ja é possivel usar a mesma em qualquer ficheiro javaScript que integre
+ a aplicação (Algoritmo 3.1).
+ 
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset listings
+lstparams "language=HTML,numbers=left"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+<script src="/static/dojo-release-1.8.0/dojo/dojo.js" 
+\end_layout
+
+\begin_layout Plain Layout
+
+data-dojo-config="isDebug:true, async: true" ></script>
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Exemplo chamada da biblioteca DOJO no template base.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+O funcionamento é bastante simples de entender (Figura 3.9) Consiste no envio
+ por parte da função DOJO 
+\begin_inset Quotes eld
+\end_inset
+
+request
+\begin_inset Quotes erd
+\end_inset
+
+, de um pedido ao URL dispatcher que por sua vez ira pedir a view escolhida
+ que resolva o pedido e o retorne novamente para a mesma função DOJO a qual
+ colocará o resultado no codigo HTML onde é visivel ao utlizador (Algoritmo
+ 3.2).
+ Para tal basta implementar o cabeçalho 
+\begin_inset Quotes eld
+\end_inset
+
+requeire
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Chamar a função desejada neste caso a 
+\begin_inset Quotes eld
+\end_inset
+
+dojo/request
+\begin_inset Quotes erd
+\end_inset
+
+.
+ De seguida declara-se a função com o argumento 
+\begin_inset Quotes eld
+\end_inset
+
+request
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Por fim inicializa-se a função 
+\begin_inset Quotes eld
+\end_inset
+
+resquest
+\begin_inset Quotes erd
+\end_inset
+
+, enviando-lhe o url para o URL Dispatcher resolver.
+ Por fim a função 
+\begin_inset Quotes eld
+\end_inset
+
+request
+\begin_inset Quotes erd
+\end_inset
+
+ aguarda a resposta que a View lhe vai enviar.
+ Caso exista um problema retorna um erro.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset listings
+lstparams "language=Java,numbers=left"
+inline false
+status open
+
+\begin_layout Plain Layout
+\align center
+
+require(["dojo/request"], function(request) {
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+request.get("exemplo_url").then(function(response) {
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	alert(response);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+}, function(error) { 	
+\end_layout
+
+\begin_layout Plain Layout
+
+				
+\end_layout
+
+\begin_layout Plain Layout
+
+// Mostra o erro retornado 					
+\end_layout
+
+\begin_layout Plain Layout
+
+alert(response + "errro"); 
+\end_layout
+
+\begin_layout Plain Layout
+
+				
+\end_layout
+
+\begin_layout Plain Layout
+
+});
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Exemplo implementação do AJAX no DOJO
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Conhecendo agora o esquema é facil de preceber o que acontece.
+ Ao haver alteração no formulario a função AJAX construida sob DOJO, pede
+ ao URL que envie um pedido a um metodo da VIEW que por sua vez vai enviar
+ um outro template para a função, template este que será a resposta.
+ E o DOJO terá a resposabilidade de colcar esse pequeno trecho de HTML no
+ local apropriado.
+\end_layout
+
+\begin_layout Subsubsection*
+Tarefa 2 - Editar Docente
+\end_layout
+
+\begin_layout Subsection*
+HTML
+\end_layout
+
+\begin_layout Subsubsection*
+Tarefa - Adicionar Docente
+\end_layout
+
+\begin_layout Standard
+Como é esperado toda e qualquer pagina web é comumente constituida por HTML.
+ No Django temos a possibilidade de usar uma linguagem de templates que
+ torna o uso do HTML mais inteligente, tal como se pode ver no ponto 3.2
+ deste capitulo.
+\end_layout
+
+\begin_layout Standard
+A framework do django permite tambem a criação facil de formularios baseados
+ nos modelos existentes no Models do django.
+ Sendo que no ficheiros HTML apenas é necessario colocar o conteudo precorrendo
+ a lista de elementos HTML que nos vem da VIEW.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset listings
+lstparams "language=HTML,numbers=left"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+<form method="post"> 						
+\end_layout
+
+\begin_layout Plain Layout
+
+	{% for field in form %}
+\end_layout
+
+\begin_layout Plain Layout
+
+		{{ field.label_tag }}: {{ field }}
+\end_layout
+
+\begin_layout Plain Layout
+
+			{% if field.field.required %} 		        		
+\end_layout
+
+\begin_layout Plain Layout
+
+				<span>(*)</span> 		        	
+\end_layout
+
+\begin_layout Plain Layout
+
+			{%endif%} 		            
+\end_layout
+
+\begin_layout Plain Layout
+
+		{% for error in field.errors %}  		            	
+\end_layout
+
+\begin_layout Plain Layout
+
+			<span class="errorField">{{error}}</span>  		            
+\end_layout
+
+\begin_layout Plain Layout
+
+		{% endfor %} 		        
+\end_layout
+
+\begin_layout Plain Layout
+
+	{% endfor %}
+\end_layout
+
+\begin_layout Plain Layout
+
+...
+\end_layout
+
+\begin_layout Plain Layout
+
+</form>
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Exemplo colocação de formulário no template
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+No (Algoritmo 3.3) temos o exemplo dessa mesma implementação, onde o 
+\begin_inset Quotes eld
+\end_inset
+
+form
+\begin_inset Quotes erd
+\end_inset
+
+ no ciclo 
+\begin_inset Quotes eld
+\end_inset
+
+for
+\begin_inset Quotes erd
+\end_inset
+
+ são os campos do formulario gerados na view, e o 
+\begin_inset Quotes eld
+\end_inset
+
+field
+\begin_inset Quotes erd
+\end_inset
+
+ os respectivos campos.
+ Basta depois colocar 
+\begin_inset Quotes eld
+\end_inset
+
+.label_tag
+\begin_inset Quotes erd
+\end_inset
+
+ para que seja imprimido a etiqueta do componente HTML.
+ Este exemplo vai mais longe pois é visivel o tratamento do formulário no
+ que e refer a materia de campos obrigatorios.
+ Para que se verifique se o campo é obrigatorio é colocado 
+\begin_inset Quotes eld
+\end_inset
+
+.field.required
+\begin_inset Quotes erd
+\end_inset
+
+ no campo a testar.
+ Tudo isto dentro de uma condição 
+\begin_inset Quotes eld
+\end_inset
+
+if
+\begin_inset Quotes erd
+\end_inset
+
+ da linguagem de template do django.
+ Caso existam erros nos campos, como por exemplo o campo ser obrigatorio
+ e não estar preenchido é imprimido uma lista de erros, lado a lado com
+ os campos do formulário.
+ A forma de impressao dos erros como é visivel no exemplo acima, é semelhante
+ a usada na impressão dos campos do formulário.
+\end_layout
+
+\begin_layout Subsection*
+CSS
+\end_layout
+
+\begin_layout Subsubsection*
+Tarefa - Adicionar Docente
+\end_layout
+
+\begin_layout Standard
+Os CSSs que dão o estilo e design da aplicação são bastante simples.
+ Neste formulário foi ecenssialmente usada a coloração das tags DIV onde
+ se encontram os campos do formulário bem como o seu tamanho.
+ Foi tambem colocada coloração nas letras, a vermelho sempre que existe
+ uma mensagem de erro ou para realçar certas mensagens.
+ 
+\end_layout
+
+\begin_layout Section
+Docentes
+\end_layout
+
+\begin_layout Subsection
+Síntese de funcionamento
+\end_layout
+
+\begin_layout Standard
+sfsdfsdf
+\end_layout
+
+\begin_layout Subsection
+Tarfas Implementadas
+\end_layout
+
+\begin_layout Standard
+sfsdf
+\end_layout
+
+\begin_layout Subsection
+Aplicação das Tecnologias
+\end_layout
+
+\begin_layout Standard
+sfsdfdsf
+\end_layout
+
+\begin_layout Subsubsection*
+JavaScript - DOJO/DOM
+\end_layout
+
+\begin_layout Standard
+sdfsf
+\end_layout
+
+\begin_layout Subsubsection*
+HTML
+\end_layout
+
+\begin_layout Standard
+sfsdfsdf
+\end_layout
+
+\begin_layout Subsubsection*
+CSS
+\end_layout
+
+\begin_layout Standard
+sfsdfsd
+\end_layout
+
+\begin_layout Section
+Vice-Presidência
+\end_layout
+
+\begin_layout Subsection
+Síntese de funcionamento
+\end_layout
+
+\begin_layout Subsection
+Tarefas Implementadas
+\end_layout
+
+\begin_layout Subsection
+Aplicação das Tecnologias
+\end_layout
+
+\begin_layout Subsubsection*
+JavaScript - DOJO/DOM
+\end_layout
+
+\begin_layout Subsubsection*
+HTML
+\end_layout
+
+\begin_layout Subsubsection*
+CSS
+\end_layout
+
+\end_body
+\end_document

@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+	{% load i18n %}
+	<head>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+		
+		<!--<link href="/static/styles/loginStyle.css"   rel="stylesheet" type="text/css" >
+		<link href="/static/styles/landscape_1024x768/main_login.css"  media="screen and (min-device-width: 1024px)" rel="stylesheet" type="text/css" >
+		<link href="/static/styles/landscape_1366x768/main_login.css"  media="screen and (min-device-width: 1366px)" rel="stylesheet" type="text/css" >
+		-->
+		<!--Bootstrap core CSS -->
+		<link rel="stylesheet" href="/static/dist_bootstrap/css/bootstrap.css"></link>
+		<!--Bootstrap theme -->
+		<link rel="stylesheet" href="/static/dist_bootstrap/css/bootstrap-theme.min.css"></link>
+		<!--Custom styles for this template -->
+		<link rel="stylesheet" href="/static/dist_bootstrap/css/theme.css"></link>
+		<link rel="stylesheet" href="/static/dist_bootstrap/css/login.css"></link>
+		
+		
+		<title>Sistema de distribuição de serviço docente - Login</title>
+		<script language="JavaScript">//alert(window.innerHeight + "x" + window.innerWidth);</script>
+	</head>
+	<body>
+	<div role="navigation" class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+      	
+                    
+          <a href="#" class="navbar-brand">Sistema de distribuição de serviço docente</a>
+        </div>
+        
+      </div>
+    </div>
+    <div class="container">
+    <div class="starter-template">
+    <h1>Sistema de distribuição de serviço docente</h1>
+    </div>
+    </div>
+    <div id="imageDiv"><img id='logotipo' alt="imagem ipbeja" src="static/images/logo.png" title="logoIPBEJA"></div>
+		<div class="container">
+
+      <form role="form" method="post" class="form-signin">
+      {% csrf_token %}
+        <h2 class="form-signin-heading">Entrar</h2>
+        <input type="text" autofocus="" required="" name="username" placeholder="Nome de Utilizador" class="form-control">
+        <input type="password" required="" name="password" placeholder="Palavra-Passe" class="form-control">
+       
+        <button type="submit" class="btn btn-lg btn-primary btn-block">{% trans "Entrar" %}</button>
+      </form>
+
+    </div>
+<footer  class="bs-footer">
+      <div class="container">
+          <p class="pull-right"><a href="#">Voltar ao Topo</a></p>
+        <p>©2012 - Instituto Politécnico de Beja.</p>
+      
+        <p><a href="#">Acerca</a></p>
+    
+        
+        
+        
+      </div>
+    </footer>
+	</body>
+	<script language="JavaScript"> 
+			
+			//alert(window.innerHeight + "x" + window.innerWidth);
+			//alert("vamos la");
+			/*var x = document.body;
+			
+			
+			x.style.background="blue";
+			x.style.minHeight=window.innerHeight;
+			x.style.minWidth=window.innerWidth;*/
+			
+			
+			if(document.getElementsByClassName("errorlist").length)
+			{
+			
+			var errorElement = document.getElementsByClassName("errorlist");
+			
+			//alert(errorElement.length);
+			var table = document.getElementsByClassName("form_table");
+			
+			if(table[0].rows[0].cells[1].getElementsByTagName("ul").length >= 1)
+			{
+				//alert("cima");
+				table[0].rows[0].cells[1].removeChild(table[0].rows[0].cells[1].childNodes[0]);
+				cellUser = table[0].rows[0].insertCell(2);
+			cellUser.innerHTML = "<ul class='errorlist'><li>Este campo é obrigatório.</li></ul>";
+			}
+			
+			if(table[0].rows[1].cells[1].getElementsByTagName("ul").length >= 1)
+			{
+				//alert("baixo");
+				table[0].rows[1].cells[1].removeChild(table[0].rows[1].cells[1].childNodes[0]);
+				cellUser = table[0].rows[1].insertCell(2);
+				cellUser.innerHTML = "<ul class='errorlist'><li>Este campo é obrigatório.</li></ul>";
+				
+			}
+			
+			
+			
+			
+			
+			//alert(table[0].childNodes[1].childNodes[0].childNodes[1].childNodes[0]);
+			//table[0].rows[1].cells[1].childNodes[0].innerHTML = "";
+			//alert(table[0].rows[1].cells[1].childNodes[0].innerHTML = "");
+			}else
+			{
+				//alert("nada");
+			}
+			</script>
+</html>

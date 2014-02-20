@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+        {% load i18n %}
+        <head>
+                <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+                <link href="/static/styles/base.css" rel="stylesheet" type="text/css" >
+                <link rel="stylesheet" href="/static/dojo-release-1.8.0/dijit/themes/claro/claro.css">
+                <link rel="stylesheet" href="/static/styles/calendar.css">
+                <link rel="stylesheet" href="/static/styles/departamento.css">
+                <title>{% block title %}{% endblock %}</title>
+                <script src="/static/dojo-release-1.8.0/dojo/dojo.js"
+                data-dojo-config="isDebug: true, async: true" ></script>
+                <script src="/static/javaScript/filter_efects.js" type="text/javascript" ></script>
+                <script src="/static/javaScript/departamento.js" type="text/javascript" ></script>
+                
+        
+                <script src="/static/javaScript/jscal2.js"></script>
+                <script src="/static/javaScript/lang/pt.js"></script>
+                <link rel="stylesheet" type="text/css" href="/static/styles/jscal2.css" />
+                <!--<link rel="stylesheet" type="text/css" href="/static/src/css/border-radius.css" />-->
+                <link rel="stylesheet" type="text/css" href="/static/styles/steel.css" />
+                
+                
+        </head>
+
+
+        <body >
+                
+                <div id="window">
+                        <div id="master">
+                                <div id="top">
+                                        <!--Div do Logotipo-->
+                                        <div id="logo" >
+                                                <!--<img id="logotipo" src="/static/images/logoA.png" >-->
+                                        </div>
+                                        <!--Div do titulo da Página-->
+                                        <div id="title">
+                                                <h1>Sistema de Distribuições de Serviço Docente</h1>
+                                        </div>
+                                        <!--Div de informação do estado do utilizador-->
+                                        <div id="logoutInfo">
+                                                {% block Username %}
+                                                        {% if user.is_active%}
+                                                                {% trans 'Welcome,' %}
+                                                                <strong>{% filter force_escape %}{% firstof user.username %}{% endfilter %}</strong>.
+                                                                {% block userlinks %}
+                                                                {% url 'django-admindocs-docroot' as docsroot %}
+                                                                        {% if docsroot %}
+                                                                                <!-- Nao faz nada porque senão tiver autenticado não pode entrar neste template
+                                                                                depois vai ser melhorado este id-->
+                                                                        {% endif %}
+                                                                        <a href="{% url sair %}" tabindex="6">{% trans 'Log out' %}  
+                                                                                <span class="exit_small">.</span>
+                                                                        </a>
+                                                                {% endblock %}
+                                                        {% endif %}
+                                                {% endblock %}
+                                        </div>
+                                </div>
+                                <div id="leftBar">
+                                        <!--Div dos Menus-->
+                                        <div id='cssmenu'>
+                                                {% block Menus %}
+                                                
+                                                {% endblock %}
+                                                {% block Filtros %}
+
+
+                                                {% endblock %}
+                                        </div>
+                                </div>
+                                <div id="rightBar">
+                                        <!--Div da Informação de onde o utilizado se encontra na página-->
+                                        <div id="bradCrumb">
+                                                {% block breadcrumb %}
+                                                <ul id="breadcrumb">
+
+
+                                                </ul>
+                                                {% endblock %}
+                                        </div>
+                                        <!--Div do Conteudo da Página-->
+                                        <div id="content">
+                                                {% block content %}
+                                                {% endblock %}
+                                        </div>
+                                </div>
+                        </div>
+                        <!--Div do Rodapé-->
+                        <div id="footer">
+                                {% block footer %}
+                                ©2012 - Instituto Politécnico de Beja
+                                {% endblock %}
+                        
+                        </div>
+                </div>
+
+
+        </body>
+</html>
+

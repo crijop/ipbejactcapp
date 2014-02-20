@@ -1,0 +1,70 @@
+{% extends "base_v_bootstrap.html" %}
+{% load i18n %}
+{% block title %} {% trans 'Página Inícial Recursos Humanos'%}{% endblock %}
+
+
+{% block breadcrumb %}
+
+<!-- <ul id="breadcrumb">
+	<li>
+		<img src="/static/images/BreadCrumbs/home.gif" alt="{% trans 'Home' %}" class="home" />
+	</li>
+</ul> -->
+
+<ul class="breadcrumb">
+	<li class="active"><span class="glyphicon glyphicon-home"></span> {% trans 'Home' %}</li>
+</ul>
+{% endblock %}
+
+{% block Menus %}
+    <li {% block MenuInformacao %} class="active" {% endblock %}><a href="/distro">Informação</a></li>
+    <li class="dropdown {% block MenuDocente %} {% endblock %}">
+	    <a href="#" class="dropdown-toggle" data-toggle="dropdown">{% trans 'Docente' %}<b class="caret"></b></a>
+	    <ul class="dropdown-menu">
+	      <li><a href="{%url adicionarDocenteRH%}">{% trans 'Adicionar Docentes' %}</a></li>
+	      <li><a href="{%url listDocenteEdit %}">{% trans 'Editar Docentes' %}</a></li>
+	      <li><a href="{%url listDocente %}">{% trans 'Listar Docentes' %}</a></li>
+	      <li><a href='{%url listContratos %}'><span>{% trans 'Listar Contratos' %}</span></a></li>
+	      <li class="divider"></li>
+	    </ul>
+	</li>
+	    <li class="dropdown {% block MenuAjuda %} {% endblock %}">
+	    	<a href="#" class="dropdown-toggle" data-toggle="dropdown">{% trans 'Ajuda'%}<b class="caret"></b></a>
+	     <ul class="dropdown-menu">
+	       <li><a href="{% url ajudaRH 1 %}">{% trans 'Como Adicionar Docente'%}</a></li>
+	       <li><a href="#">{% trans 'Como Editar Docente'%}</a></li>
+	       <li><a href="#">....</a></li>
+	     </ul> 
+	</li>
+{% endblock %}
+
+
+
+{% block content %}
+<!-------------------------------------------------------------Cabeçalho-------------------------------------------------------------->	
+<div class="page-header whiteText">
+  <h1>{% trans 'Estatística'%}<small> {{dateActualFormatPrint}} </small></h1>
+</div>
+<!-------------------------------------------------------------Conteudo Estatistico--------------------------------------------------->	
+<h3 class="whiteText" >{% trans 'Contratos a Terminar'%}</h3>
+<div  class="alert alert-danger">
+<a class="alert-link" href="{% url listContratos %}?date={{dateActualSTR}}&number_increment={{twoMonths}}&type=ct&data_fim_especial=True">{% trans 'Próximos Dois Meses (Contratos a Termo Certo) '%}<span class="badge" >{{nrDocentesEndContractTwoMonths}}</span></a>
+</div>
+<div  class="alert alert-danger">
+<a class="alert-link" href="{% url listContratos %}?date={{dateActualSTR}}&number_increment={{fourMonths}}&type=st&data_fim_especial=True">{% trans 'Próximos Quatro Meses (Contratos Sem Termo) '%}<span class="badge" >{{nrDocentesEndContractFourMonths}}</span></a>
+</div>
+	
+<!-------------------------------------------------------------PAinel informativo--------------------------------------------------->	
+<div class="jumbotron">
+	
+  <h1>{% trans 'Recursos Humanos!'%}</h1>
+  <p>{% trans 'Na área de gestão dos Recursos Humanos, terá a possibilidade de:'%}</p>
+  <p>- {% trans 'Adicionar novos docentes ao sistema.'%}</p>
+  <p>- {% trans 'Editar a informação de docentes já existentes.'%}</p>
+  <p>- {% trans 'Listar todos os docentes existentes no sistema, utilizando filtros para refinar a sua pesquisa.'%}</p>
+  <p><a class="btn btn-primary btn-lg" role="button">{% trans "Conheça mais" %}</a></p>
+  
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends "cientifico/index.html" %}
+{% load i18n %}
+{% block title %}{% trans 'Página de adicionar Curso' %}{% endblock %}
+
+
+{% block breadcrumb %}
+<ul class="breadcrumb">
+	<li>
+		<span class="glyphicon glyphicon-home"></span> <a tabindex="2" href="{% url HomeCientifico %}" title="{% trans 'Home' %}">{% trans 'Home' %}</a>
+	</li>
+	<li>
+		<a href="{% url def_Curso_CET %}" title="Definir curso -CET's">{% trans "Definir curso - CET's"%}</a>
+	</li>
+	<li class="active">{% trans "Adicionar Curso - CET's" %}</li>
+</ul>
+{% endblock %}
+
+{% block content %}
+{% endblock %}
+
+{% block formulario %}
+	<div class="page-header whiteText">
+	  <h1>{% trans 'Adicionar Curso' %}</h1>
+	</div>
+
+	<form method="post" role="form">
+		{% csrf_token %}
+		{% for field in form %}
+			<div class="form-group whiteText">
+				<label for="col-sm-2 control-label">{{ field.label }} {% if field.field.required %}*{%endif%}</label>
+				{{ field }}
+			</div>
+	        {% for error in field.errors %} 
+	        	<div class="alert alert-danger">
+	        		{{error}}
+	        	</div> 
+	        {% endfor %}
+	   	{% endfor %}
+	    <br />
+	   	<span id="CamposObirgatorio" class="whiteText">(*) - {% trans 'Campos de preenchimento obrigatório' %}</span>
+	   	<hr />
+	   	<span id = "Confirmacao"></span>
+		<div id="buttonConfirm">
+			<input type="hidden" name="{{ stage_field }}" value="1" />
+			<input type="submit" value="{% trans 'Adicionar Curso' %}" class="btn btn-primary btn-lg"/>
+			<script>changeCountValue();</script>
+		</div>
+	</form>
+{% endblock %}
