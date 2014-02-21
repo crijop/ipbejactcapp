@@ -1,0 +1,369 @@
+body
+{
+	
+	overflow-x: hidden;
+	background-image:  url("/static/images/wood.jpg");
+	
+	
+	
+}
+
+.whiteBox {
+	width: 100%;
+	float: left;
+	background-color: rgba(255,255,255,0.9);
+	padding-bottom: 1em !important;
+	padding-top: 1em !important;
+	border-radius: 0.5em !important; 
+	margin: 0em;
+
+	
+	 
+}
+
+
+.whiteText
+{
+	color: white;
+	text-shadow: 5px 5px 10px black;
+
+}
+
+.colorInput
+{
+	background-color: #fde497;
+	/*#fde8a9;*/
+	/*#fdebb3*/
+}
+
+/*************************Grupos de filtros**********/
+.list-group
+{
+	width: 25%;
+	z-index: 0 !important;
+}
+
+.list-group-item
+{
+
+	z-index: 0 !important;
+}
+
+
+.list-group-item-children
+{
+	
+	background-color: lightGray;
+	padding-left: 3em;
+}
+
+/**************Footer***************/
+footer.bs-footer
+{
+	
+
+position: absolute;
+	float: left;
+	background-image: linear-gradient(to bottom, #3C3C3C 0px, #222222 100%);
+    background-repeat: repeat-x;
+	padding-top: 1em;
+	
+
+	width: 100%;
+	margin-top: 1em;
+	margin-bottom: 0em;
+}
+
+footer.bs-footer p
+{ 
+	
+	color:white;
+}
+/**********************************/
+/************Jumbruton*************/
+div.jumbotron
+{
+	
+	margin-top: 1em;
+	background-image: linear-gradient(to bottom, #3C3C3C 0px, #222222 100%);
+    background-repeat: repeat-x;
+	border-radius: 0.5em;
+	color: white;
+	
+}
+
+
+/*-----------------------TABLE-------------------*/
+table.display td{
+	font-family: "Lucida Grande", Helvetica, Verdana, Arial, sans-serif;
+	color: #4c4c4c;
+	font-size: 1em;
+	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
+	padding: 0.5em 0.5em !important;
+	border-top: 1px solid #dddddd;
+}
+
+table.display th{
+	font-family: "Lucida Grande", Helvetica, Verdana, Arial, sans-serif;
+	color: #4c4c4c;
+	font-size: 1em;
+	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
+	padding: 0.5em 0.5em !important;
+	border-top: 1px solid #dddddd;
+	background-color:  #DCDCDC;
+}
+
+/*caixa de número de resultados*/
+/*.dataTables_length, .dataTables_filter{
+	padding-top: 5px;
+	height: 30px;
+	width: 50% !important;
+	background-color: #EDEDED;
+}
+.dataTables_length, .dataTables_info{
+	padding-left: 6px;
+	padding-top: 5px;
+}
+.dataTables_filter label{
+	font-family: "Lucida Grande", Helvetica, Verdana, Arial, sans-serif;
+	color: #4c4c4c;
+	font-size: 13px;
+	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
+}
+
+.dataTables_filter input{
+	cursor: text;
+	position: relative;
+	padding: 1px 0;
+	line-height: 18px;
+	width: 200px;
+	border: 1px solid #ababab;
+	background: white;
+	-moz-border-radius: 13px;
+	-webkit-border-radius: 13px;
+	border-radius: 13px;
+	-moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) inset;
+	-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) inset;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) inset;
+	margin-right: 20px;
+	border-color: #3d8bd0;
+	-moz-box-shadow: 0 1px 2px #3d8bd0 inset;
+	-webkit-box-shadow: 0 1px 2px #3d8bd0 inset;
+	box-shadow: 0 1px 2px #3d8bd0 inset;
+}
+
+.checkAll{
+	margin-left: -3px !important;
+}
+
+
+.table > thead > tr > th, .sumary_table > tfoot > tr > th{
+	background-color: #EDEDED;
+	font-weight: normal;
+	color: #4c4c4c;
+	border-right: 1px solid #cccccc;
+	border-bottom: 2px solid #cccccc !important;
+	border-top: 1px solid #cccccc !important;
+}
+
+.sumary_table > tbody > tr > th{
+	border-bottom: 1px solid #cccccc;
+	
+}
+
+.sumary_table > tbody > tr:nth-child(odd){
+	background-color: #f0f0fa;
+	background-color: #D3DEFF;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#DEEFFF), to(#DEEFFF));
+	background-image: -webkit-linear-gradient(top, #DEEFFF, #DEEFFF);
+	background-image: -moz-linear-gradient(top, #DEEFFF, #DEEFFF);
+	background-image: -ms-linear-gradient(top, #DEEFFF, #DEEFFF);
+	background-image: -o-linear-gradient(top, #DEEFFF, #DEEFFF);
+	background-image: linear-gradient(to bottom, #DEEFFF, #DEEFFF);
+
+}
+
+.sumary_table tr.odd td.sorting_1{
+	background-color: #DEEFFF;
+}
+.sumary_table tr.even td.sorting_1{
+	background-color: white;
+}
+
+.sumary_table tfoot{
+	border-top: 2px solid #cacaca;
+	border-bottom: 1px solid #cacaca;
+	background: #eeeeee;
+	font-weight: bold;
+}
+
+.view_sumary{
+	width: 90%;
+	margin-top: 30px;
+	margin-left: 20px;
+	font-size: 14px;
+}
+.view_sumary .title{
+	width: 20%;
+	padding-right: 7px;
+	padding-bottom: 5px;
+	font-weight: bold;
+	border-right: 1px solid #cccccc;
+	text-align: right;
+}
+
+.view_sumary .info{
+	width: 50%;
+	padding-left: 7px;
+	padding-bottom: 5px;
+	font-weight: normal;
+}
+
+.table-condensed > tbody > tr > td {
+	padding: 3px 6px;
+	
+	
+}
+*/
+
+/*Special Bar Data Tables*/
+
+
+
+.dataTables_wrapper .dataTables_special_bar
+{
+	display: inline;
+	position: relative;
+	float: left;
+	margin-bottom: 1em !important;
+	background-color: white !important;
+	width: 100%;
+	padding: 1em 0.5em;
+	border-radius: 0.5em;
+	
+}
+
+.dataTables_wrapper .dataTables_special_bar .dataTables_info
+{
+	
+
+	width: 50% !important;
+	padding-top: 0.5em !important;
+
+
+}
+
+.dataTables_wrapper .dataTables_special_bar .dataTables_filter
+{
+	
+
+	width: 50% !important;
+
+	
+}
+
+.dataTables_wrapper .dataTables_special_bar .dataTables_filter input
+{
+
+	background-color: #FDE497;
+	width: 20em !important;
+	border-radius: 0.5em;
+	border: 1px solid lightgray;
+	padding: 0.3em 0em;
+
+
+}
+
+.dataTables_wrapper .dataTables_special_bar .dataTables_filter input:focus
+{
+	
+-moz-box-shadow: 0px 0px 6px #008aff;
+-webkit-box-shadow: 0px 0px 6px #008aff;
+box-shadow: 0px 0px 6px #008aff;
+
+}
+
+/****Pagination*/
+.dataTables_wrapper .pagination_box
+{
+	margin-top: 1em;
+	float: left;
+
+	width: 100%;
+}
+
+.dataTables_wrapper .pagination_box .dataTables_paginate
+{
+float: left;
+text-align: left;
+}
+
+.dataTables_wrapper .pagination_box .dataTables_paginate .paginate_button
+{
+
+
+margin: 0;
+
+border: 1px solid #DDDDDD;
+
+background-color: white !important;
+padding: 0.5em 1em;
+color: #428BCA !important;
+
+}
+
+.dataTables_wrapper .pagination_box .dataTables_paginate .paginate_active
+{
+
+
+margin: 0;
+border: 1px solid #428BCA;
+background-color: #428BCA !important;
+padding: 0.5em 1em;
+color: white !important;
+
+}
+
+.dataTables_wrapper .pagination_box .dataTables_paginate .first
+{
+
+border-radius: 0.3em 0 0 0.3em ;
+
+} 
+
+.dataTables_wrapper .pagination_box .dataTables_paginate .last
+{
+
+border-radius: 0 0.3em 0.3em 0 ;
+
+} 
+
+.dataTables_wrapper .pagination_box .dataTables_paginate .paginate_button_disabled
+{
+
+color: gray !important;
+
+} 
+
+.dataTables_wrapper .pagination_box .dataTables_paginate .paginate_button:hover
+{
+
+background-color: #E6E6FA !important;
+
+} 
+
+ 
+ /***********Spiner do Calendário*******/
+.list-group-item-special-center{
+	padding-left: 0 !important;
+	padding-right: 0 !important;
+	text-align: center !important;
+}
+
+.ui-spinner-input
+{
+	
+	float: left !important;
+	width: 5em !important;
+	
+}	

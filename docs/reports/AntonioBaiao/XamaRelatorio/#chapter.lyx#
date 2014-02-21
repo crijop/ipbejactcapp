@@ -1,0 +1,4139 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass report
+\begin_preamble
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  This is preamble.tex file should be put %
+%  in the latex preamble in Lyx to set up  %
+%  the format of your thesis               %
+%  Written by M. Imran 2001/06/18          % 
+%  No Copyright for this file              %
+%  Save your time and enjoy it             %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%                                  
+\date{text}
+
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Here the page setup based on 
+%  the university of Durham regulation 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagestyle{plain}
+\setlength{\voffset}{-1in}  
+\setlength{\marginparsep}{0in}  
+\setlength{\marginparwidth}{0in}  
+\setlength{\marginparpush}{0in}  
+\setlength{\hoffset}{-1in}  
+\setlength{\oddsidemargin}{3.8cm}  
+\setlength{\evensidemargin}{0in} 
+\setlength{\textwidth}{15cm}
+\setlength{\topmargin}{2cm}
+\setlength{\headheight}{15pt}
+\setlength{\headsep}{16pt}
+\setlength{\textheight}{23.8cm}
+\setlength{\footskip}{18pt}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Redefine \tableofcontents in report.cls
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\makeatletter
+\renewcommand\tableofcontents{%
+    \if@twocolumn
+      \@restonecoltrue\onecolumn
+    \else
+      \@restonecolfalse
+    \fi
+    \chapter*{\contentsname
+      \@mkboth{\contentsname}{\contentsname}}%
+    \@starttoc{toc}%
+    \if@restonecol\twocolumn\fi
+    }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Redefine \listoffigures in report.cls
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand\listoffigures{%
+    \if@twocolumn
+      \@restonecoltrue\onecolumn
+    \else
+      \@restonecolfalse
+    \fi
+    \chapter*{\listfigurename
+      \@mkboth{\listfigurename}{\listfigurename}}%
+    \@starttoc{lof}%
+    \if@restonecol\twocolumn\fi
+    }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Redefine \listoftables in report.cls
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand\listoftables{%
+    \if@twocolumn
+      \@restonecoltrue\onecolumn
+    \else
+      \@restonecolfalse
+    \fi
+    \chapter*{\listtablename
+      \@mkboth{\listtablename}{\listtablename}}%
+    \@starttoc{lot}%
+    \if@restonecol\twocolumn\fi
+    }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Redefine thebibliograph in report.cls
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewenvironment{thebibliography}[1]
+     {\chapter*{\bibname
+        \@mkboth{\bibname}{\bibname}}%
+      \list{\@biblabel{\@arabic\c@enumiv}}%
+           {\settowidth\labelwidth{\@biblabel{#1}}%
+            \leftmargin\labelwidth
+            \advance\leftmargin\labelsep
+            \@openbib@code
+            \usecounter{enumiv}%
+            \let\p@enumiv\@empty
+            \renewcommand\theenumiv{\@arabic\c@enumiv}}%
+      \sloppy
+      \clubpenalty4000
+      \@clubpenalty \clubpenalty
+      \widowpenalty4000%
+      \sfcode`\.\@m}
+     {\def\@noitemerr
+       {\@latex@warning{Empty `thebibliography' environment}}%
+      \endlist}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Put packages you want to use
+%  here and 'fancyhdr' is required  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{fancyhdr}
+\usepackage{epsfig}
+\usepackage{cite}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{theorem}
+\usepackage{amssymb}
+\usepackage{latexsym}
+\usepackage{epic}
+\usepackage{setspace}
+\usepackage{psfrag}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%    Set line spacing = 1.5 here 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\baselinestretch}{1.5}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%         Your fancy heading 
+% For the final copy you need to remove 
+%       '\bfseries\today' below 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pagestyle{fancy}
+\renewcommand{\chaptermark}[1]{\markright{\chaptername\ \thechapter.\ #1}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection.\ #1}{}}
+\lhead[\fancyplain{}{}]%
+      {\fancyplain{}{\bfseries\rightmark}}
+\chead[\fancyplain{}{}]%
+      {\fancyplain{}{}}
+\rhead[\fancyplain{}{}]%
+      {\fancyplain{}{\bfseries\thepage}}
+\lfoot[\fancyplain{}{}]%
+      {\fancyplain{}{}}
+\cfoot[\fancyplain{}{}]%
+      {\fancyplain{}{}}
+\rfoot[\fancyplain{}{}]%
+      {\fancyplain{}{\bfseries\today}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Here you set the space between the main 
+%  text and the start of the footnote
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\addtolength{\skip\footins}{5mm}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Define new counter so you can have 
+%  the equation number 4.2.1a for example, 
+%  this a gift from J.F.Blowey 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcounter{ind}
+\def\eqlabon{
+\setcounter{ind}{\value{equation}}\addtocounter{ind}{1}
+\setcounter{equation}{0}
+\renewcommand{\theequation}{\arabic{chapter}%
+         .\arabic{section}.\arabic{ind}\alph{equation}}}
+\def\eqlaboff{
+\renewcommand{\theequation}{\arabic{chapter}%
+         .\arabic{section}.\arabic{equation}}
+\setcounter{equation}{\value{ind}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  New theorem you want to use
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\theorembodyfont{\rmfamily}%
+   \newtheorem{Pro}{{\textbf Proposition}}[section]}
+{\theorembodyfont{\rmfamily}%
+   \newtheorem{The}{{\textbf Theorem}}[section]}
+{\theorembodyfont{\rmfamily}%
+   \newtheorem{Def}[The]{{\textbf Definition}}}
+{\theorembodyfont{\rmfamily}%
+   \newtheorem{Cor}[The]{{\textbf Corollary}}}
+{\theorembodyfont{\rmfamily}%
+   \newtheorem{Lem}[The]{{\textbf Lemma}}}
+{\theorembodyfont{\rmfamily}%
+   \newtheorem{Exp}{{\textbf Example}}[section]}
+\def\remark{\textbf{Remark}:}
+\def\remarks{\textbf{Remarks}:}
+\def\bproof{\textbf{Proof}: }
+\def\eproof{\hfill$\Box$}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Bold font in math mode, a gift from J.F.Blowey
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\bv#1{\mbox{\boldmath$#1$}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   New symbol which is not defined in Latex
+%   a gift from J.F.Blowey
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% The Mean INTegral
+% to be used in displaystyle
+\def\mint{\textstyle\mints\displaystyle}
+% to be used in textstyle
+\def\mints{\int\!\!\!\!\!\!{\rm-}\ }
+%
+% The Mean SUM
+% to be used in displaystyle
+\def\msum{\textstyle\msums\displaystyle}
+% to be used in textstyle
+\def\msums{\sum\!\!\!\!\!\!\!{\rm-}\ }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Define your short cut here
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\poincare{Poincar\'e }
+\def\holder{H\"older }
+\end_preamble
+\options a4
+\use_default_options false
+\maintain_unincluded_children false
+\language portuguese
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 12
+\spacing other 1.1499999999999999
+\use_hyperref false
+\papersize a4paper
+\use_geometry false
+\use_amsmath 1
+\use_esint 0
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 0
+\index Índice
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+setcounter{equation}{0}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Introdução
+\end_layout
+
+\begin_layout Standard
+Este relatório incide no sistema de gestão de serviço docente.
+ Sistema esse que foi proposto como estágio curricular.
+ Esse sistema visa melhorar a gestão do serviço docente no Instituto Politécnico
+ de Beja.
+ Atualmente a distribuição é realizada com recurso a uma folha de cálculo
+ que é distribuída por muitas pessoas.
+ O excesso de informação na folha de cálculo torna a tarefa de recolha e
+ gestão dos dados, morosa e de difícil execução.
+ 
+\end_layout
+
+\begin_layout Standard
+Com vista a melhorar esse serviço foi criada uma aplicação web, que tem
+ como propósito centralizar toda a informação e eliminar as incoerências
+ e redundâncias.
+ O Sistema foi construído com a 
+\emph on
+framework
+\emph default
+ Django que utiliza como base a linguagem de alto nível Python.
+\end_layout
+
+\begin_layout Standard
+Neste relatório falar-se-á do desenvolvimento da interface gráfica da aplicação.
+ O relatório está dividido em quatro capítulos.
+ Após a introdução, o capítulo dois refere-se às ferramentas e tecnologias
+ que foram usadas no decurso da construção desta aplicação.
+ Nesse capítulo é explicado de forma sucinta as várias tecnologias aqui
+ usadas.
+ No capítulo três, aquele que apresenta maior relevância, é onde é discutida
+ a utilização para alguns grupos de utilizadores da aplicação.
+ Como Os Recursos Humanos, o Docente e a Vice-presidência.
+ 
+\end_layout
+
+\begin_layout Standard
+Para estes três grupos é elaborado um esquema de funcionamento para cada
+ uma das tarefas implementadas e também qual o uso das tecnologias mencionadas
+ no capítulo dois na criação da interface gráfica do sistema.
+ E por último no capítulo quatro são tiradas as conclusões e respetivas
+ ilações e previsões futuras.
+\end_layout
+
+\begin_layout Chapter
+Tecnologias Usadas
+\end_layout
+
+\begin_layout Section
+Sinopse
+\end_layout
+
+\begin_layout Standard
+No desenvolvimento desta aplicação web são usadas varias ferramentas de
+ ampla utilização e com licença de utilização gratuita.
+ Entre as tecnologias de base encontram se a linguagem de programação para
+ base de dados 
+\emph on
+SQL
+\emph default
+, na qual é usada a ferramenta 
+\emph on
+SQLite 3
+\emph default
+, as linguagens de programação 
+\emph on
+Python
+\emph default
+ e 
+\emph on
+Javascript
+\emph default
+, e a linguagem para construção de páginas web 
+\emph on
+HTML
+\emph default
+, incluindo 
+\emph on
+CSS
+\emph default
+ para estilização e design da aplicação.
+ A ferramenta fundamental, é framework Django, que utiliza como base a linguagem
+ 
+\emph on
+Python
+\emph default
+ que permite a criação rápida de aplicações web.
+ É obtida uma melhor performance com uma biblioteca de funções 
+\emph on
+DOJO
+\emph default
+, que permite realizar algumas tarefas de Javascript de forma mais fácil.
+ A junção de todas estas tecnologias, fazem com que a aplicação possa ser
+ robusta, rápida e fiável, sem esquecer sempre os benefícios na usabilidade
+ para os utilizadores do sistema.
+\end_layout
+
+\begin_layout Section
+Django
+\end_layout
+
+\begin_layout Standard
+O Django [1.1] é uma Framework construída em 
+\emph on
+Python
+\emph default
+ seguindo como padrão o modelo 
+\emph on
+MVC
+\emph default
+ transcrito como 
+\emph on
+MTV
+\emph default
+ (
+\emph on
+Model
+\emph default
+, 
+\emph on
+Template
+\emph default
+, 
+\emph on
+View
+\emph default
+)
+\end_layout
+
+\begin_layout Subsubsection*
+O que é uma Framework?
+\end_layout
+
+\begin_layout Standard
+Uma 
+\emph on
+framework
+\emph default
+ [1.8], é constituída por várias ferramentas.
+ Estas permitem-nos o desenvolvimento de software de forma mais rápida e
+ limpa.
+ Existe um nível de abstração maior do que quando utilizamos um conjunto
+ de linguagens de programação ou outras ferramentas separadamente.
+ A framework pode ainda ser configurada e personalizada pelo utilizador
+ a fim de produzir um software com características especificas que vão ao
+ encontro das necessidades do utilizador da ferramenta.
+\end_layout
+
+\begin_layout Subsubsection*
+O que é o Python?
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+Python
+\emph default
+ é uma linguagem de programação de alto nível, interpretada, imperativa
+ ou funcional, orientada a objetos, de tipagem dinâmica e forte.
+ Atualmente possui um modelo de desenvolvimento comunitário e aberto.
+\end_layout
+
+\begin_layout Subsubsection*
+MVC ou MTV?
+\end_layout
+
+\begin_layout Standard
+O modelo de desenvolvimento 
+\emph on
+MVC
+\emph default
+ consiste em três níveis que separam a estrutura da aplicação, em modelo,
+ controlador e vista.
+ Estas constituem assim partes distintas de modo a garantir uma melhor manutençã
+o e construção da aplicação.
+ Permite o desenvolvimento, edição e a realização de testes a aplicação
+ de forma separada para cada parte.
+ É um modelo baseado na tecnologia de orientação a objetos.
+ O Django apesar de seguir este mesmo modelo nomeia-o de outra forma sendo
+ chamado de Modelo, Vista e Template, sendo que aqui a Vista corresponde
+ ao Controlador e o Template á Vista.
+\end_layout
+
+\begin_layout Standard
+Desta forma têm-se:
+\end_layout
+
+\begin_layout Itemize
+Modelo - Regras de negócio
+\end_layout
+
+\begin_layout Itemize
+Vista - Ponte de comunicação entre o Template e o Modelo
+\end_layout
+
+\begin_layout Itemize
+Template - Parte visual pela qual o utilizador interage com o sistema
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Com o Django existe total controlo na criação de aplicações web.
+ Permite a utilização de bases de dados, código 
+\emph on
+HTML
+\emph default
+ e todo o tipo de script ou linguagem de construção web.
+\end_layout
+
+\begin_layout Subsubsection*
+Como funciona?
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/Imagem2.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+O MVC do Django - MVT
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+O que é o URL Dispatcher?
+\end_layout
+
+\begin_layout Standard
+Um 
+\emph on
+URL
+\emph default
+ limpo e elegante é um detalhe importante para a alta qualidade de uma aplicação
+ 
+\emph on
+web
+\emph default
+.
+ O Django permite criar 
+\emph on
+URLs
+\emph default
+ personalizados sem limitações da framework.
+ Para criar 
+\emph on
+URLs
+\emph default
+ para uma aplicação, é necessário um módulo de 
+\emph on
+Python
+\emph default
+.
+ O modulo será escrito em 
+\emph on
+Python
+\emph default
+ puro.
+ Trata-se de um simples mapeamento entre o 
+\emph on
+URL
+\emph default
+ padrão baseado em expressões regulares e funções escritas em, 
+\emph on
+Python
+\emph default
+ presentes na Vista.
+\end_layout
+
+\begin_layout Standard
+Este mapeamento pode ser curto ou longo consoante a necessidade.
+ Pode ainda referenciar outros mapeamentos e como os 
+\emph on
+URLs
+\emph default
+ são escritos em 
+\emph on
+Python
+\emph default
+ puro, podem ainda ser construídos dinamicamente.
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+O que é a Vista?
+\end_layout
+
+\begin_layout Standard
+A vista quando falamos em Django refere-se ao controlador no modelo 
+\emph on
+MVC
+\emph default
+.
+ As vistas sendo controladores vão fazer de ponte entre o modelo e o Template.
+ É aqui na vista que serão resolvidos os pedidos do 
+\emph on
+URL
+\emph default
+ 
+\emph on
+Dispacher
+\emph default
+ e enviada a resposta para o Template.
+\end_layout
+
+\begin_layout Subsubsection*
+O que é o Modelo?
+\end_layout
+
+\begin_layout Standard
+O Modelo é onde se desenham as classes que vão receber as consultas a base
+ de dados e a forma de obter esses mesmos dados.
+ Sendo o Django uma framework de alto nível, não necessitamos escrever nada
+ em 
+\emph on
+SQL
+\emph default
+ para aceder a base de dados a não ser que seja realmente preciso.
+ O Django possui o sistema 
+\emph on
+ORM
+\emph default
+ – Mapeamento de Objetos Relacionais que permite uma manipulação das tabelas
+ presentes na base dados.
+\end_layout
+
+\begin_layout Standard
+O 
+\emph on
+ORM
+\emph default
+ do Django possui uma elevada compatibilidade sendo compatível com a maioria
+ dos sistemas de gestão de base de dados (MySQL, PostgreSQL, SQLite, ...).
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+O que é o Template?
+\end_layout
+
+\begin_layout Standard
+O sistema de Templates do Django é uma das suas mais notórias funcionalidades.
+ Com ele podem criar-se heranças, ou seja, um Template base contendo a estrutura
+ básica da aplicação web e Templates específicos que herdam as características
+ deste Template base e atribuem/criam suas próprias características.
+ 
+\end_layout
+
+\begin_layout Standard
+A linguagem de Templates do Django está desenhada para atingir o balanço
+ entre o poder e a simplicidade.
+ Foi desenvolvido para quem usa a linguagem se sinta a vontade para trabalhar
+ com 
+\emph on
+HTML
+\emph default
+.
+ A linguagem de Template do Django é muito semelhante ao 
+\emph on
+SMARTY
+\emph default
+, e de fácil aprendizagem.
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+A estrutura das diretorias.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/EsquemaDjango.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Exemplo de estrutura de diretorias do Django com uma aplicação
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+O Django tal como muitas outras 
+\emph on
+frameworks
+\emph default
+ 
+\emph on
+web
+\emph default
+, tem uma estrutura, que ajuda o utilizador desta ferramenta a navegar nas
+ suas diretorias.
+ Em cima (figura 2.2) é apresentado um esquema da estrutura de diretorias
+ do Django.
+ Os retângulos vermelhos são módulos de 
+\emph on
+Python
+\emph default
+, os retângulos verdes são pastas, o retângulo laranja é a base de dados
+ e o retângulo roxo são Templates 
+\emph on
+HTML
+\emph default
+.
+\end_layout
+
+\begin_layout Itemize
+urls.py
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Módulo de 
+\emph on
+Python
+\emph default
+ onde vão ser construídos os 
+\emph on
+URLs
+\emph default
+ responsáveis por resolver e encaminhar os pedidos do utilizador para as
+ respetivas 
+\emph on
+Views
+\emph default
+.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+settings.py
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Módulo de 
+\emph on
+Python
+\emph default
+ onde é possível configurar e personalizar o modo de funcionamento da framework
+ e da aplicação a ser desenvolvida.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+manage.py
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Módulo de 
+\emph on
+Python
+\emph default
+ que é chamado na linha de comandos, para criar uma nova aplicação ou até
+ inicializar o servidor de testes entre outras interações..
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+base-dados.db
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Ficheiro onde está armazenado o conteúdo da base de dados.
+ Ficheiro esse que é posteriormente interpretado pelo gestor de base de
+ dados, que a 
+\emph on
+framework
+\emph default
+ usa para fazer o acesso aos dados.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+__init__.py
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Um módulo vazio que diz ao Python que esse diretório deve ser considerado
+ como um pacote Python.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Templates
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Pasta onde serão armazenadas todas as páginas 
+\emph on
+HTML
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Aplicação
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Aqui que será construída toda a estrutura em 
+\emph on
+Python
+\emph default
+ da aplicação.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Static
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Nesta pasta serão armazenados todos o componentes estáticos da aplicação,
+ como scripts, estilos 
+\emph on
+CSS
+\emph default
+, e imagens.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+models.py
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Módulo de 
+\emph on
+Python
+\emph default
+ responsável por criar os modelos da base de dados e algumas funções chave
+ para a regras de funcionamento da aplicação.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+views.py
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Módulo de 
+\emph on
+Python
+\emph default
+ responsável pelo controlo de toda aplicação.
+ É aqui que os pedidos 
+\emph on
+URL
+\emph default
+ são resolvidos e é feita a ponte ente os dados do modelo e os Templates.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+forms.py
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Módulo responsável pela criação das estruturas dos formulários a serem usados
+ na aplicação.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+admin.py
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Módulo responsável pela parte administrativa da aplicação.
+ Local esse onde é possível ter uma vista total de todos os componentes
+ passiveis de serem usados na aplicação.
+\end_layout
+
+\end_deeper
+\end_deeper
+\end_deeper
+\begin_layout Section
+SQLite 3
+\end_layout
+
+\begin_layout Subsubsection*
+O que é o SQLite?
+\end_layout
+
+\begin_layout Standard
+O 
+\emph on
+SQLite
+\emph default
+ é um sistema de gestão de base dados contido numa pequena biblioteca de
+ programação em
+\emph on
+ C
+\emph default
+, habitualmente utilizado como base de dados embebida para o armazenamento
+ em aplicações tais como aplicações 
+\emph on
+web
+\emph default
+.
+ 
+\end_layout
+
+\begin_layout Standard
+O 
+\emph on
+SQLite
+\emph default
+ 
+\emph on
+3
+\emph default
+ foi o gestor de base de dados adotado para gerir a base de dados na 
+\emph on
+framework
+\emph default
+ 
+\emph on
+Django
+\emph default
+.
+ Sendo pequeno e simples este gestor torna-se a escolha ideal para uma gestão
+ suave e leve de bases de dados que requerem o acesso rápido a informação.
+ 
+\end_layout
+
+\begin_layout Section
+Javascript
+\end_layout
+
+\begin_layout Standard
+Javascript é uma linguagem de script baseada em 
+\emph on
+ECMAScript
+\emph default
+ padronizada pela 
+\emph on
+Ecma international
+\emph default
+ e é atualmente a principal linguagem para programação do lado do cliente
+ em 
+\emph on
+browsers
+\emph default
+.
+\end_layout
+
+\begin_layout Subsubsection*
+O que é o DOJO?
+\end_layout
+
+\begin_layout Standard
+O 
+\emph on
+Dojo
+\emph default
+ [1.5] consiste numa biblioteca de 
+\emph on
+Javascript
+\emph default
+ que permite poupar tempo e esforço utilizando sempre os padrões web.
+ Esta ferramenta é virada para a construção de aplicações web de alta qualidade.
+ Dispõe de muitas funções que permitem gerar efeitos de animação ou até
+ tarefas que seriam mais exigentes de desenvolver em 
+\emph on
+Javascript
+\emph default
+ puro.
+ De forma mais rápida e fácil.
+ O 
+\emph on
+DOJO
+\emph default
+ vai atualmente na sua versão 1.8 que foi a usada nesta aplicação.
+\end_layout
+
+\begin_layout Subsubsection*
+O que é o DOM?
+\end_layout
+
+\begin_layout Standard
+O Javascript como linguagem de programação que é vai permitir manipular
+ objetos 
+\emph on
+DOM
+\emph default
+ [1.10].
+ O 
+\emph on
+DOM
+\emph default
+ disponibiliza métodos e propriedades que permitem obter, modificar, atualizar
+ e remover partes do documento 
+\emph on
+HTML
+\emph default
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Por exemplo, é possível recuperar o valor uma 
+\emph on
+tag
+\emph default
+ de 
+\emph on
+input
+\emph default
+ (type:TEXT) 
+\emph on
+HTML
+\emph default
+ como uma 
+\emph on
+string
+\emph default
+ utilizando o 
+\emph on
+DOM
+\emph default
+.
+ Apesar de tudo o 
+\emph on
+DOM
+\emph default
+ não é exclusivo do Javascript pudendo ser utilizado em muitas outras linguagens.
+\end_layout
+
+\begin_layout Subsubsection*
+O que é o AJAX?
+\end_layout
+
+\begin_layout Standard
+O AJAX (do inglês “Asynchronous Javascript and XML”) "Javascript e XML Assíncron
+os" é o uso metodológico de tecnologias como Javascript e XML, disponibilizadas
+ pelos browsers, para tornar páginas Web mais dinâmicas, utilizando para
+ isso chamadas assíncronas de informação ao servidor.
+ Com o AJAX é possível o refrescamento de elementos HTML sem ser necessário
+ refrescar toda a página, fazendo para tal pedidos de informação ao servidor.
+\end_layout
+
+\begin_layout Section
+CSS
+\end_layout
+
+\begin_layout Standard
+O CSS (inglês ”Cascading Style Sheets”) é uma norma de estilo utilizada
+ para definir o estilo e design de documentos escritos em HTML ou XML.
+ 
+\end_layout
+
+\begin_layout Standard
+Utilizando CSS é possível separar o conteúdo da página HTML do seu estilo
+ tornando assim mais simples a construção e manutenção da mesma.
+ Atualmente a norma vai na sua versão três, esta versão já permite fazer
+ determinadas animações e posicionamentos de elementos HTML que ate agora
+ apenas se conseguiam fazer através de Javascript.
+\end_layout
+
+\begin_layout Section
+HTML
+\end_layout
+
+\begin_layout Standard
+O 
+\emph on
+HTML
+\emph default
+ (que significa Linguagem de Marcação de Hipertexto) é uma linguagem de
+ marcação utilizada para produzir páginas para a 
+\emph on
+Web
+\emph default
+.
+ Os documentos escritos em 
+\emph on
+HTML
+\emph default
+ podem ser interpretados por browsers.
+ Atualmente vai na sua versão cinco.
+ Nesta versão foram introduzidas novas opções de acessibilidade, e novas
+ funcionalidades que até agora só eram conseguidas por meio do uso de outras
+ ferramentas, como o Javascript.
+ Esta versão ainda se encontra em desenvolvimento.
+ 
+\end_layout
+
+\begin_layout Standard
+No Django é usado um gestor de Templates semelhante á biblioteca 
+\emph on
+SMARTY
+\emph default
+, que permite inserir variáveis ou listas de elementos de forma automática
+ e simples.
+ Geram-se por fim ficheiros 
+\emph on
+HTML
+\emph default
+ capazes de ser interpretados pelo browser.
+ 
+\end_layout
+
+\begin_layout Standard
+Na construção desta aplicação foi usada uma mistura de código 
+\emph on
+HTML 4.1 Transactional
+\emph default
+ com alguns elementos de 
+\emph on
+HTML 5.
+\end_layout
+
+\begin_layout Chapter
+Sistema de Gestão de Distribuição de Serviço Docente
+\end_layout
+
+\begin_layout Section
+Sinopse
+\end_layout
+
+\begin_layout Standard
+Um Sistema de Gestão de Distribuição de Serviço Docente é algo importante
+ em todos os estabelecimentos de ensino, pois facilita atribuição de horas
+ de serviço e a escolha dos docentes para determinadas turmas estando a
+ informação centralizada em apenas um local.
+ Evitando assim problemas de redundância e incoerência de informação.
+ Atualmente no Instituto Politécnico de Beja, a distribuição do serviço
+ docente é realizada, recorrendo a folhas de cálculo como suporte para a
+ informação.
+ Sendo atualmente o processo muito moroso, confuso e de difícil execução,
+ levando por vezes ao atraso na elaboração dos horários e na atribuição
+ dos docentes as respetivas turmas.
+ Com vista a melhorar essa situação foi proposto a criação de um sistema
+ de gestão de distribuição de serviço docente para acelerar os processos
+ de atribuição das horas de serviço, clarificar a informação, facilitar
+ o processo e centralizar a informação.
+ 
+\end_layout
+
+\begin_layout Standard
+Este sistema está previsto ser utilizado pelo departamento de recursos humanos,
+ os departamentos de ensino das instituições, o conselho científico e a
+ gestão da instituição.
+ Neste documento será clarificado especificamente o departamento de recursos
+ humanos, os docentes e a vice-presidência.
+ Em todas as estas abordagens será clarificado o funcionamento de cada utilizado
+r do sistema, as suas principais tarefas e a forma como as tecnologias de
+ desenvolvimento dos Templates (
+\emph on
+Javascript
+\emph default
+, 
+\emph on
+HTML
+\emph default
+, 
+\emph on
+CSS
+\emph default
+) foram usadas para geração do resultado final.
+ 
+\end_layout
+
+\begin_layout Standard
+Durante este documento quando for referido por exemplo área dos recursos
+ humanos, está-se a referir a toda a informação que apenas pode ser acedida
+ e tratada pelos utilizadores dos recursos humanos.
+ 
+\end_layout
+
+\begin_layout Section
+Estrutura Base
+\end_layout
+
+\begin_layout Standard
+Neste relatório escreve-se essencialmente dos Templates e respetivos componentes
+ que os constituem.
+ Visto isto é importante clarificar como foi construído o Template base
+ que serviu de guia para os restantes Templates da aplicação.
+ Na construção dos Templates é usada a linguagem de Templates da framework
+ Django.
+ Para acelerar o processo de criação das páginas web e reduzir a repetição
+ desnecessária de código 
+\emph on
+HTML
+\emph default
+.
+ Esta linguagem permite incluir trechos de código 
+\emph on
+HTML
+\emph default
+, existentes em outros ficheiros de extensão 
+\emph on
+HTML
+\emph default
+ com fim de formar a página final mostrada ao utilizador.
+ Em síntese a primeira coisa a fazer, é a criação de uma página 
+\emph on
+HTML
+\emph default
+ que será a base da aplicação.
+ Depois de criada a estrutura da aplicação com todas as 
+\emph on
+tags DIV
+\emph default
+ necessárias, utiliza-se um elemento 
+\emph on
+BLOCK
+\emph default
+ facultado pela linguagem de Templates do Django que nos permite criar blocos
+ que podem ser posteriormente preenchidos em outras páginas da aplicação.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/base.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Esquema de construção do Template base
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Tal como é possível visualizar na figura 3.1, temos um exemplo da construção
+ de um Template base.
+ Supondo que todos retângulos que possuem blocos são formados por 
+\emph on
+tags
+\emph default
+ 
+\emph on
+DIV
+\emph default
+, que por sua vez vão possuir blocos que podem ser modificados ou não em
+ qualquer página da aplicação que use como base este Template.
+ Esses blocos são formados pela seguinte sintaxe “{% block nome_bloco %}”.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/exemplo.png
+	scale 50
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Esquema da construção de template que irá extender do base
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+No exemplo da figura 3.2 está presente uma página HTML que estende do Template
+ base.
+ Significa isto que esta página HTML bastava estender do Template base para
+ funcionar.
+ Uma página ao estender do Template base todos os blocos criados no Template
+ base, ficam disponíveis nesta nova página.
+ A grande vantagem do uso de blocos é que se pode escolher altera-los ou
+ mante-los inalterados.
+ No exemplo acima foi decidido alterar o “bloco menus” e o “bloco conteúdo”
+ mantendo o “bloco cabeçalho” inalterado.
+ Para isso bastou nesta nova página, fazer uma chamada aos blocos criados
+ no Template base - “{% block menus %} ###Conteúdo do bloco### {% endblock
+ %}” - os outros blocos cujo conteúdo foi alterado, o processo utilizado
+ foi o mesmo.
+ Assim sendo quando a página for requerida pelo utilizador, tudo será igual
+ ao que esta no Template base a exceção do “bloco menus” e do “bloco conteúdo”.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/exemplo_final.png
+	scale 50
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Esquema da visualização do exemplo no browser
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Na figura 3.3 é apresentado o esquema de visualização final, aquele que será
+ visualizado pelo utilizador no browser.
+ Neste caso o utilizador veria o Template base com os seus menus e conteúdo
+ alterados mantendo a página a sua estrutura base.
+ 
+\end_layout
+
+\begin_layout Standard
+Para além dos blocos existem outras 
+\emph on
+tags
+\emph default
+ especiais nesta linguagem de Template do Django, tais como:
+\end_layout
+
+\begin_layout Itemize
+{% for a in lista %} ### Conteúdo do ciclo #### {% endfor %}
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Que permite construi um ciclo 
+\emph on
+
+\begin_inset Quotes eld
+\end_inset
+
+for
+\begin_inset Quotes erd
+\end_inset
+
+
+\emph default
+ tal como se faz em Python.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+{% if exemplo %} ### Conteúdo do if #### {% endif %}
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Que permite construir uma condição 
+\emph on
+
+\begin_inset Quotes eld
+\end_inset
+
+if
+\emph default
+ 
+\begin_inset Quotes eld
+\end_inset
+
+ tal como se faz em Python.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Podem usar-se também variáveis declaradas em código Python na linguagem
+ de Template bastando para isso colocar “{{nome_variavel}}”.
+ Nome esse que tem que ser rigorosamente igual ao que esta definido no código
+ Python.
+\end_layout
+
+\begin_layout Standard
+Essas variáveis são passadas para o Template quando o método de Python na
+ 
+\emph on
+View
+\emph default
+ devolve a resposta ao pedido do 
+\emph on
+URL
+\emph default
+.
+ A linguagem de Templates do Django facilita a construção de aplicações
+ em que todas as páginas mantem a mesma estrutura.
+ A linguagem de Template do Django é mais complexa do que aqui foi tratado,
+ contudo foi o suficiente para a construção desta aplicação.
+\end_layout
+
+\begin_layout Standard
+Resumidamente a estrutura base desta aplicação, trata-se do que foi abordado
+ nestes exemplos.
+ Uma barra lateral de menus, uma área de conteúdos e um cabeçalho onde consta
+ o logotipo da aplicação.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/base_altafidelidade.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Exemplo da estrutura da aplicação - Página inicial dos Recursos Humanos
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Recursos Humanos
+\end_layout
+
+\begin_layout Standard
+O departamento de Recursos Humanos de uma instituição costuma ser parte
+ fundamental, para o funcionamento da mesma.
+ Sendo o Instituto Politécnico de Beja uma instituição, na aplicação existe
+ uma área dedicada ao departamento dos recursos humanos.
+ A distribuição do serviço docente está intrinsecamente ligada e dependente
+ do departamento dos recursos humanos.
+ É nos recursos humanos que existe a possibilidade de examinar os contratos
+ dos docentes, e alterar informação de docentes já a trabalhar na instituição.
+ Ficando desta forma a informação centralizada e livre de redundâncias e
+ incoerências.
+\end_layout
+
+\begin_layout Subsection
+Tarfas Implementadas
+\end_layout
+
+\begin_layout Standard
+Na área dos Recursos Humanos foram implementadas as tarefas consideradas
+ necessárias para uma correta manutenção e gestão do corpo docente existente
+ na instituição.
+\end_layout
+
+\begin_layout Subsubsection*
+Tarefas
+\end_layout
+
+\begin_layout Itemize
+Adicionar Docente:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Nesta tarefa o utilizador tem possibilidade de criar um novo docente, introduzin
+do para isso alguns dos seus dados profissionais.
+ Este docente criado ficará sem contrato até que lhe seja feito um.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Editar Docente:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Existe a possibilidade de editar um docente que já exista na base de dados
+ do sistema.
+ Para isso o utilizador tem de encontrar o docente a editar numa lista de
+ docentes e posteriormente editá-lo.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Listar Docentes:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Ao listar os docentes o utilizador pode examinar todos os docentes existente
+ na instituição e inclusive ver informação detalhada.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Listar Contratos:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Na lista de contratos existe a possibilidade do utilizador ver o conjunto
+ de docentes da instituição e verificar a sua situação em termos contratuais.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Síntese de funcionamento
+\end_layout
+
+\begin_layout Standard
+Tendo por base os conhecimentos nas cadeiras de Interação Pessoa-Computador
+ e Hipermédia e Acessibilidade, criou-se uma interface gráfica que facilita
+ e simplifica a interação do utilizador com a aplicação.
+ Permitindo que este obtivesse informação que precisa rapidamente.
+\end_layout
+
+\begin_layout Standard
+De seguida será abordada a forma de funcionamento de todas as tarefas acima
+ referenciadas.
+ 
+\end_layout
+
+\begin_layout Subsection*
+Terefa 1 - Adicionar Docente
+\end_layout
+
+\begin_layout Standard
+Adicionar um docente é uma tarefa que tem como finalidade base a adição
+ de um novo docente à base de dados da aplicação para que fique disponível
+ no futuro, e para que posssa interagir com a distribuição do serviço docente.
+\end_layout
+
+\begin_layout Subsubsection*
+1º passo
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/base_altafidelidade.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Página Inicial dos Recursos Humanos
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Considerando que o utilizador já realizou a autenticação na aplicação, e
+ estando na página inicial (Figura 3.5), do lado esquerdo encontrará um menu.
+ Nesse menu o utilizador vai clicar em “Adicionar Docente”.
+\end_layout
+
+\begin_layout Subsubsection*
+2º passo
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/adicionar_docente_recursos_humanos_inicial.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Página Adicionar Docente dos Recursos Humanos
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Depois de clicar em “Adicionar Docente” o utilizador é encaminhado para
+ outra página onde estará disponível um formulário (figura 3.6) que permite
+ introduzir a informação do docente a criar.
+ Os campos marcados com “(*)” são de caracter obrigatório e indispensáveis
+ para a correta validação do formulário.
+ Quando corretamente preenchido e estando o utilizador satisfeito com a
+ informação introduzida, deverá clicar no botão “Adicionar Docente” existente
+ no fundo do formulário.
+\end_layout
+
+\begin_layout Subsubsection*
+3º Passo
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/adicionar_docente_recursos_humanos_confirmacao.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Página Adicionar Docente dos Recursos Humanos - Confirmação
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Depois do formulário preenchido corretamente e depois de ter sido clicado
+ no botão “Adicionar Docente".
+ O utilizador é encaminhado para uma página de confirmação (Figura 3.7).
+ Apesar da página ser de confirmação continua a permitir ao utilizador fazer
+ alterações dos dados introduzidos no formulário.
+ No fundo o utilizador tem uma mensagem a questionar a confirmação dos dados.
+ Caso tudo esteja conforme a vontade do utilizador o utilizador clicará
+ no botão “Sim”, existente no fim do formulário para submeter os dados.
+ Caso contrário clica no botão “Não”.
+ Sempre que existam alterações nesta etapa, em algum dos campos do formulário,
+ o mesmo retorna automaticamente ao 2º passo.
+\end_layout
+
+\begin_layout Subsubsection*
+4º passo
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/adicionar_docente_recursos_humanos_sucesso.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Página Adicionar Docente dos Recursos Humanos - Sucesso
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Por fim quando o utilizador clica no botão de “Sim” para confirmar a sua
+ intensão de submeter os dados, é apresentada uma nova janela (Figura 3.8),
+ com uma mensagem de confirmação do sucesso da operação.
+\end_layout
+
+\begin_layout Subsection*
+Tarefa 2 - Editar Docente
+\end_layout
+
+\begin_layout Standard
+A tarefa “editar docente” é em tudo semelhante á tarefa “adicionar um docente”
+ com a diferença que esta tem como finalidade atualizar os dados de um docente
+ já existente na base de dados da aplicação.
+\end_layout
+
+\begin_layout Subsubsection*
+1º passo
+\end_layout
+
+\begin_layout Standard
+Considerando que o utilizador já realizou a autenticação na aplicação, e
+ estando na página inicial (Figura 3.5 da tarefa 1), do lado esquerdo encontrará
+ um menu.
+ Nesse menu o utilizador vai clicar em “Editar Docente”.
+\end_layout
+
+\begin_layout Subsubsection*
+2º passo
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/editar_docente_recursos_humanos_lista.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Listagem dos docentes editáveis - Recursos Humanos
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Depois de clicar em “Editar Docente” o utilizador é encaminhado para outra
+ página onde estará disponível uma lista de docentes editáveis (figura 3.10).
+ Para editar um docente da lista, o utilizador apenas tem que clicar no
+ nome docente desejado ou no “lápis” que se encontra a esquerda do nome.
+ O utilizador nesta lista pode navegar pelas várias páginas existentes,
+ usando os números em baixo.
+ Pode procurar os docentes pelo nome, departamento e categoria na caixa
+ de pesquisa, e usar os filtros presentes na barra de menus do lado esquerdo
+ que permitem filtrar as lista de docentes editáveis por “Ordem Alfabética”
+ , “Por Departamento” e “Por Categoria”.
+\end_layout
+
+\begin_layout Subsubsection*
+3º passo
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/editar_docente_recursos_humanos_inicial.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Formulário incial da edição do docente - Recursos Humanos
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Depois de escolhido o docente a editar, o utilizador é encaminhado para
+ uma página com um formulário.
+ Esse formulário é igual ao existente na tarefa de adicionar docente, com
+ a diferença de vir previamente preenchido com os dados existentes na base
+ de dados acerca do docente respetivo (Figura 3.11).
+ No fundo do formulário é ainda visível se houve alguma alteração ao docente
+ em questão e quem a protagonizou e a respetiva data e hora do acontecimento.
+\end_layout
+
+\begin_layout Subsubsection*
+4º passo e 5º passo
+\end_layout
+
+\begin_layout Standard
+Os passos 4º e 5º são rigorosamente iguais aos passos 3º e 4º da tarefa
+ adicionar docente descrita em cima.
+ 
+\end_layout
+
+\begin_layout Subsection*
+Tarefa 3 - Listar Docentes
+\end_layout
+
+\begin_layout Standard
+A tarefa “Listar Docentes” consiste em mostrar um conjunto de docentes existente
+s na aplicação.
+ Havendo a possibilidade de ver informação detalhada sobre os mesmos.
+\end_layout
+
+\begin_layout Subsubsection*
+1º passo
+\end_layout
+
+\begin_layout Standard
+Considerando que o utilizador já realizou a autenticação na aplicação, e
+ estando na página inicial (Figura 3.5 da tarefa 1), do lado esquerdo encontrará
+ um menu.
+ Nesse menu o utilizador vai clicar em “Listar Docentes”.
+\end_layout
+
+\begin_layout Subsubsection*
+2º passo
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/listar_docentes_recursos_humanos_lista.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Lista dos docentes - Recursos Humanos
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Depois de clicar em “Listar Docente” o utilizador é encaminhado para outra
+ página onde estará disponível uma lista de docentes (figura 3.11).
+ Para ver informação detalhada de um docente da lista, o utilizador apenas
+ tem que clicar no nome docente desejado ou no “olho” que se encontra á
+ esquerda do nome.
+ O utilizador nesta lista pode navegar pelas várias páginas existentes,
+ usando os números em baixo.
+ Pode procurar os docentes pelo nome, departamento e categoria na caixa
+ de pesquisa, e usar os filtros presentes na barra de menus do lado esquerdo
+ que permitem filtrar as listas de docentes por “Ordem Alfabética”, “Por
+ Departamento” e “Por Categoria”.
+\end_layout
+
+\begin_layout Subsubsection*
+3º passo
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/listar_docentes_recursos_humanos_detalhe.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Tabela informção detalhada do docente - Recursos Humanos
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Depois de se escolher um docente, é apresentada uma nova página onde vai
+ ser visível informação detalha sobre o docente clicado, numa tabela (Figura
+ 3.12).
+\end_layout
+
+\begin_layout Subsection*
+Tarefa 4 - Listar Contratos
+\end_layout
+
+\begin_layout Standard
+A tarefa “Listar Contratos” consiste em mostrar numa lista todos os docentes
+ existentes na aplicação e os seus respetivos contratos, que pressupõe datas
+ de fim e início de contratos, bem como a categoria dos docentes.
+ Havendo a possibilidade de examinar informação detalhada sobre os mesmos.
+\end_layout
+
+\begin_layout Subsubsection*
+1º passo
+\end_layout
+
+\begin_layout Standard
+Considerando que o utilizador já realizou a autenticação na aplicação, e
+ estando na página inicial (Figura 3.5 da tarefa 1), do lado esquerdo encontrará
+ um menu.
+ Nesse menu o utilizador vai clicar em “Listar Contratos”.
+\end_layout
+
+\begin_layout Subsubsection*
+2º passo
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/listar_contratos_recursos_humanos_lista.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Lista de contratos - Recursos Humanos
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Depois de clicar em “Listar Contratos” o utilizador é encaminhado para outra
+ página onde estará disponível uma lista de docentes e os seus respetivos
+ contratos (figura 3.13).
+ Para ver informação detalhada de um docente da lista em relação ao seu
+ contrato, o utilizador apenas tem que clicar no nome do docente desejado
+ ou no “olho” que se encontra á esquerda do nome.
+ O utilizador nesta lista pode navegar pelas várias páginas existentes,
+ usando os números em baixo.
+ Pode procurar os docentes pelo nome, departamento e categoria na caixa
+ de pesquisa, bem como usar os filtros presentes na barra de menus do lado
+ esquerdo que permitem filtrar as lista de docentes por “Ordem Alfabética”
+ , “Por Departamento”, “Por Categoria” e “Por Data” que tanto pode ser por
+ “Data de fim” ou “Data de inicio”.
+\end_layout
+
+\begin_layout Subsubsection*
+3º passo
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/listar_contratos_recursos_humanos_detalhe.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Tabela informção detalhada do contrato do docente - Recursos Humanos
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Depois de se escolher um docente, é apresentada uma nova página onde vai
+ ser visível informação detalha sobre o docente e o seu respetivo contrato,
+ numa tabela (Figura 3.14).
+\end_layout
+
+\begin_layout Subsection
+Aplicação das Tecnologias
+\end_layout
+
+\begin_layout Standard
+Todas as áreas abordadas neste relatório, usam as tecnologias elementares
+ de criação de páginas 
+\emph on
+web
+\emph default
+.
+ As principais tecnologias usadas nesta tarefa foram o Javascript-DOJO,
+ o HTML e o CSS.
+\end_layout
+
+\begin_layout Subsection*
+JavaScript - DOJO/DOM
+\end_layout
+
+\begin_layout Subsubsection*
+Tarefa - Adicionar Docente
+\end_layout
+
+\begin_layout Standard
+Nesta tarefa foi usado um pequeno segmento de Javascript usando como suporte
+ a biblioteca DOJO.
+ Foi necessário criar uma função que deteta-se quando o formulário fosse
+ alterado na página de confirmação, quer pela introdução de novo texto quer
+ pela seleção da 
+\emph on
+comboBox
+\emph default
+ ou da 
+\emph on
+checkBox
+\emph default
+.
+ Para que depois se procedesse á remoção da mensagem de confirmação e dos
+ botões “Sim” e “Não”.
+ Apenas faz sentido estes últimos elementos aparecerem quando o formulário
+ esta válido, o que não é possível garantir caso exista um alteração na
+ página de confirmação.
+\end_layout
+
+\begin_layout Standard
+Para conseguir isto bastou recorrer ao uso da tecnologia AJAX.
+ Para facilitar as coisas foi usada a biblioteca DOJO, que possui funções
+ que facilitam a implementação do AJAX.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/esquema_AJAX_DJANGO_DOJO.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Esquema de Funcionamento do AJAX usando DOJO no Django
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+O uso da biblioteca Javascript DOJO é bastante simples.
+ Basta para tal primeiro descarregar a biblioteca para a diretoria do projeto.
+ Depois fazer referência à biblioteca no Template base da aplicação e torna-se
+ possível usar a mesma em qualquer ficheiro Javascript que integre a aplicação
+ (Algoritmo 3.1).
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset listings
+lstparams "language=HTML,numbers=left"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+<script src="/static/dojo-release-1.8.0/dojo/dojo.js" 
+\end_layout
+
+\begin_layout Plain Layout
+
+data-dojo-config="isDebug:true, async: true" ></script>
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Exemplo chamada da biblioteca DOJO no template base.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+O funcionamento é bastante simples de entender (Figura 3.15) Consiste no
+ envio por parte da função DOJO “request”, de um pedido ao 
+\emph on
+URL Dispatcher
+\emph default
+ que por sua vez ira pedir a 
+\emph on
+view
+\emph default
+ escolhida que resolva o pedido e o retorne novamente para a mesma função
+ 
+\emph on
+DOJO
+\emph default
+ que colocará o resultado no código 
+\emph on
+HTML
+\emph default
+ onde é visível ao utlizador (Algoritmo 3.2).
+ Basta implementar o cabeçalho “requeire”.
+ Chamar a função desejada neste caso a “dojo/request”.
+ De seguida declara-se a função com o argumento “request”.
+ Por fim inicializa-se a função “resquest”, enviando-lhe o 
+\emph on
+URL
+\emph default
+ para o 
+\emph on
+URL Dispatcher
+\emph default
+ resolver.
+ Por fim a função “request” aguarda a resposta que a 
+\emph on
+View
+\emph default
+ lhe vai enviar.
+ Caso exista um problema retorna um erro.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset listings
+lstparams "language=PHP,numbers=left"
+inline false
+status open
+
+\begin_layout Plain Layout
+\align center
+
+require(["dojo/request"], function(request) {
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+request.get("exemplo_url").then(function(response) {
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	alert(response);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+}, function(error) { 	
+\end_layout
+
+\begin_layout Plain Layout
+
+				
+\end_layout
+
+\begin_layout Plain Layout
+
+// Mostra o erro retornado 					
+\end_layout
+
+\begin_layout Plain Layout
+
+alert(response + "errro"); 
+\end_layout
+
+\begin_layout Plain Layout
+
+				
+\end_layout
+
+\begin_layout Plain Layout
+
+});
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Exemplo implementação do AJAX no DOJO
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Ao haver alteração no formulário a função 
+\emph on
+AJAX
+\emph default
+ construída em 
+\emph on
+DOJO
+\emph default
+, é pedido ao 
+\emph on
+URL
+\emph default
+ que envie uma requisição a um método da 
+\emph on
+VIEW
+\emph default
+ que por sua vez vai enviar um outro Template para a função, Template este
+ que será a resposta.
+ E o 
+\emph on
+DOJO
+\emph default
+ terá a responsabilidade de colocar esse pequeno trecho de HTML no local
+ apropriado.
+\end_layout
+
+\begin_layout Subsubsection*
+Tarefa 2 - Editar Docente
+\end_layout
+
+\begin_layout Standard
+A tecnologia Javascript usada nesta tarefa é igual à usada na tarefa 1 -
+ Adicionar Docente.
+ Ambas as tarefas usam o mesmo esquema de formulário e em resultado disso
+ as mesmas ações.
+\end_layout
+
+\begin_layout Subsubsection*
+Tarefa 3 - Listar Docentes
+\end_layout
+
+\begin_layout Standard
+As tarefas que tem como função listar são as que mais tiram partido do Javascrip
+t.
+ Nesta tarefa de listar docentes, existem vários filtros que permitem filtrar
+ a informação da tabela sob vários parâmetros.
+ Entre esses filtros contam-se o filtro “Por Ordem Alfabética”, “Por Categoria”
+ e “Por Departamento”.
+\end_layout
+
+\begin_layout Standard
+Em síntese todos os filtros recebem o seu conteúdo por AJAX, o processo
+ usado é idêntico ao falado na Tarefa 1.
+ Os filtros possuem um efeito deslizante que suaviza a abertura do conteúdo
+ dos filtros.
+ Para produzir esse efeito é usado uma função da biblioteca DOJO “dojo/fx”
+ (Algoritmo 3.3).
+ É também usada a função “dojo/dom” da biblioteca DOJO responsável por tratar
+ dos elementos HTML.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset listings
+lstparams "language=PHP,numbers=left"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+require(["dojo/on", "dojo/fx","dojo/dom","dojo/domReady!"], function(on,fx,dom)
+ {
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	var wipeTarget = dom.byId("exemplo_div");
+\end_layout
+
+\begin_layout Plain Layout
+
+	var wipeInButton = dom.byId("elemento_html");
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	on(wipeInButton, "click", function(evt) {
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		fx.wipeIn({ 					
+\end_layout
+
+\begin_layout Plain Layout
+
+			node : wipeTarget
+\end_layout
+
+\begin_layout Plain Layout
+
+		}).play();
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	});
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+});
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Exemplo da implementação de deslizamento da DIV.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Na biblioteca 
+\emph on
+DOJO
+\emph default
+ existe também a função “dojo/on” responsável por controlar ações de click
+ em elementos 
+\emph on
+HTML
+\emph default
+.
+ Com essa função conseguimos reproduzir o efeito acima referido quando clicamos
+ no elemento 
+\emph on
+HTML
+\emph default
+ que será responsável por receber o click.
+\begin_inset Newline newline
+\end_inset
+
+O conteúdo de todos os filtros é facultado por 
+\emph on
+AJAX
+\emph default
+ da mesma forma que realizado anteriormente.
+\end_layout
+
+\begin_layout Itemize
+Filtro “Por Ordem Alfabética” (Figura 3.19)
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Este filtro receberá por 
+\emph on
+AJAX
+\emph default
+ um trecho de 
+\emph on
+HTML
+\emph default
+ preenchido com uma lista do alfabéto.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/Filtro_OrdemAlfabetica.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Filtro - 
+\begin_inset Quotes eld
+\end_inset
+
+Por Ordem Afabética
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Filtro 
+\begin_inset Quotes eld
+\end_inset
+
+Por Departamento
+\begin_inset Quotes erd
+\end_inset
+
+ (Figura 3.20)
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Este filtro receberá por 
+\emph on
+AJAX
+\emph default
+ um trecho de 
+\emph on
+HTML
+\emph default
+ preenchido com uma lista de departamentos, depois de uma consulta á base
+ de dados.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/Filtro_Departamento.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Filtro - 
+\begin_inset Quotes eld
+\end_inset
+
+Por Departamento
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Filtro 
+\begin_inset Quotes eld
+\end_inset
+
+Por Categoria
+\begin_inset Quotes erd
+\end_inset
+
+ (Figura 3.21)
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Este filtro receberá por 
+\emph on
+AJAX
+\emph default
+ um trecho de 
+\emph on
+HTML
+\emph default
+ preenchido com uma lista de categorias, depois de uma consulta a base de
+ dados.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/Filtro_Categoria.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Filtro - 
+\begin_inset Quotes eld
+\end_inset
+
+Por Categoria
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Tarefa 4 - Listar Contratos
+\end_layout
+
+\begin_layout Standard
+Nesta tarefa de listar contratos, existem vários filtros que nos permitem
+ filtrar a informação da tabela sob vários parâmetros.
+ Entre esses filtros contam-se o filtro “Por Ordem Alfabética”, “Por Categoria”
+ e “Por Departamento” e “Por Data”.
+ Todos os primeiros três filtros referidos já foram tratados na Tarefa 3,
+ sendo que a novidade aqui o filtro “Por Data”.
+\end_layout
+
+\begin_layout Standard
+Este filtro “Por Data”, subdivide-se em outros dois filtros “Por data início”
+ e “Por data de fim” (Figura 3.22).
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/Filtro_PorData.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Filtro- 
+\begin_inset Quotes eld
+\end_inset
+
+Por Data
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Ambos os sub-filtros, possuem um calendário construído em Javascript por
+ “dynarch.com” de nome “JSCal2-1.9” 
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+JSCal2-1.9 é um calendário produzido em Javascript, desenvolvido pelo web
+ site 
+\begin_inset Quotes eld
+\end_inset
+
+dynarch.com
+\begin_inset Quotes erd
+\end_inset
+
+ - 
+\begin_inset CommandInset href
+LatexCommand href
+name "http://www.dynarch.com/projects/calendar/"
+target "http://www.dynarch.com/projects/calendar/"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+.
+ Calendário que permite navegar entre os meses, anos e obter a data atual.
+ Essa data é colocada numa caixa de texto “<input type=”text” />” através
+ de um método Javascript assente em 
+\emph on
+DOM
+\emph default
+ .
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset listings
+lstparams "language=PHP,numbers=left"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+var textbox = document.getElementById("text_box");
+\end_layout
+
+\begin_layout Plain Layout
+
+textbox.value = "10/9/2012";
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Exemplo do preenchimenro de uma 
+\emph on
+tag html - Input
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+No (Algoritmo 3.4), é mostrado um exemplo de como é elaborada a operação
+ acima referida em 
+\emph on
+DOM
+\emph default
+.
+ O calendário (Figura 3.20) em questão é adicionado á aplicação da mesma
+ forma que a biblioteca do 
+\emph on
+DOJO
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/Filtro_PorDataInicio.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Filtro- 
+\begin_inset Quotes eld
+\end_inset
+
+Por Data Inicio
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+HTML
+\end_layout
+
+\begin_layout Subsubsection*
+Tarefa 1 - Adicionar Docente
+\end_layout
+
+\begin_layout Standard
+Como é esperado toda e qualquer página web é comumente constituída por 
+\emph on
+HTML
+\emph default
+.
+ No Django temos a possibilidade de usar uma linguagem de Templates que
+ torna o uso do 
+\emph on
+HTML
+\emph default
+ mais inteligente, tal como se pode ver no ponto 3.2 deste capítulo.
+\end_layout
+
+\begin_layout Standard
+A framework Django permite também a criação fácil de formulários baseados
+ nos modelos existentes no 
+\emph on
+Models
+\emph default
+ da aplicação.
+ Sendo que nos ficheiros 
+\emph on
+HTML
+\emph default
+ apenas é necessário colocar o conteúdo percorrendo a lista de elementos
+ 
+\emph on
+HTML
+\emph default
+ que são devolvidos pela 
+\emph on
+VIEW
+\emph default
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset listings
+lstparams "language=HTML,numbers=left"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+<form method="post"> 						
+\end_layout
+
+\begin_layout Plain Layout
+
+	{% for field in form %}
+\end_layout
+
+\begin_layout Plain Layout
+
+		{{ field.label_tag }}: {{ field }}
+\end_layout
+
+\begin_layout Plain Layout
+
+			{% if field.field.required %} 		        		
+\end_layout
+
+\begin_layout Plain Layout
+
+				<span>(*)</span> 		        	
+\end_layout
+
+\begin_layout Plain Layout
+
+			{%endif%} 		            
+\end_layout
+
+\begin_layout Plain Layout
+
+		{% for error in field.errors %}  		            	
+\end_layout
+
+\begin_layout Plain Layout
+
+			<span class="errorField">{{error}}</span>  		            
+\end_layout
+
+\begin_layout Plain Layout
+
+		{% endfor %} 		        
+\end_layout
+
+\begin_layout Plain Layout
+
+	{% endfor %}
+\end_layout
+
+\begin_layout Plain Layout
+
+...
+\end_layout
+
+\begin_layout Plain Layout
+
+</form>
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Exemplo colocação de formulário no template
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:Exemplo-colocação-de"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+No (Algoritmo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:Exemplo-colocação-de"
+
+\end_inset
+
+) está um exemplo dessa mesma implementação, onde o “form” no ciclo “for”
+ é a lista de campos do formulário gerados na 
+\emph on
+View
+\emph default
+, e o “field” os respetivos campos.
+ Basta depois colocar “.label_tag” para que seja imprimido a etiqueta do
+ componente 
+\emph on
+HTML
+\emph default
+.
+ Para que se verifique se o campo é obrigatório é colocado “.field.required”
+ no campo a testar.
+ Tudo isto dentro de uma condição “if” criada na linguagem de Template Django.
+ Caso existam erros nos campos, como por exemplo o campo ser obrigatório
+ e não estar preenchido é impresso uma lista de erros, lado a lado com os
+ campos do formulário.
+ A forma de impressão dos erros como é visível no exemplo acima, é semelhante
+ à usada na impressão dos campos do formulário.
+\end_layout
+
+\begin_layout Subsubsection*
+Tarefa 2 - Editar Docente
+\end_layout
+
+\begin_layout Standard
+A tarefa Editar Docentes envolve a criação de uma lista prévia dos docentes
+ existentes.
+ Lista essa produzida através de uma tabela 
+\emph on
+HTML
+\emph default
+, elemento que nos permite ter uma visualização muito mais agradável da
+ informação.
+ A construção da tabela está muito facilitada graças a linguagem de Template
+ Django.
+ Através do uso do ciclo “for”, é mais rápido e fácil percorrer a informação,
+ obtida da 
+\emph on
+View
+\emph default
+ (Algoritmo 3.6).
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset listings
+lstparams "language=HTML,numbers=left"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+<table>
+\end_layout
+
+\begin_layout Plain Layout
+
+	<tr> 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		<th>cabeçalho1</th>
+\end_layout
+
+\begin_layout Plain Layout
+
+		<th>cabeçalho2</th>
+\end_layout
+
+\begin_layout Plain Layout
+
+	</tr> 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	{% for item1, item2 in lista %}
+\end_layout
+
+\begin_layout Plain Layout
+
+	<tr> 			
+\end_layout
+
+\begin_layout Plain Layout
+
+		<td>{{item1}}</td>
+\end_layout
+
+\begin_layout Plain Layout
+
+		<td>{{item2}}</td>
+\end_layout
+
+\begin_layout Plain Layout
+
+	</tr> 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	{% endfor %}
+\end_layout
+
+\begin_layout Plain Layout
+
+</table>
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Exemplo criação tabela de listagem - Linguagem de Template
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+A lista dos docentes, devolve uma tabela muito extensa no que se refere
+ ao seu numero de linhas.
+ Para contronar este problema recorreu-se a um sistema de paginação do Django
+ que permite a divisão de uma lista de elementos em várias sub-listas.
+ Esse método é utilizado na 
+\emph on
+View
+\emph default
+ que tratará de enviar os elementos a colocar na tabela 
+\emph on
+HTML
+\emph default
+.
+ 
+\end_layout
+
+\begin_layout Standard
+A parte da edição em si é igual a referida na Tarefa 1 - Adicionar Docente,
+ com a diferença do formulário vir préviamente preenchido.
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+Tarefa 3 - Listar Docentes
+\end_layout
+
+\begin_layout Standard
+A estrutura 
+\emph on
+HTML
+\emph default
+, listagem de docentes é igual ao referido na Tarefa 2 - Editar Docente.
+ A vista detalhada do docente segue o mesmo, paradigma da mostragem da informaçã
+o em forma de tabela.
+ O que proporciona uma melhor visualização e clareza nos dados apresentados.
+\end_layout
+
+\begin_layout Subsubsection*
+Tarefa 4 - Listar Contratos
+\end_layout
+
+\begin_layout Standard
+A estrutura desta tarefa em termos da lista e vista detalhada de informação
+ do docente é igual à referida na Tarefa 3 - Listar Docentes.
+ Contudo existe uma alteração no que diz respeito á existência da filtragem
+ “Por Data” pois em ambas as sub-filtragens “Por Data Inicio” e “Por Data
+ Fim” para alem do calendário, tem um incrementador que permite definir
+ um raio de dias em torno da data escolhida no calendário para a filtragem.
+ Esse incremento é feito usando o elemento 
+\emph on
+HTML
+\emph default
+ 
+\emph on
+<input type=”number”/>
+\emph default
+.
+\end_layout
+
+\begin_layout Subsection*
+CSS
+\end_layout
+
+\begin_layout Standard
+A Barra de menus presente em todas as páginas desta aplicação foi estilizada
+ com base num modelo CSS3 [1.7], que posteriormente foi alterado e ajustado
+ para suprir as necessidades da aplicação.
+\end_layout
+
+\begin_layout Subsubsection*
+Tarefa 1- Adicionar Docente
+\end_layout
+
+\begin_layout Standard
+Os CSSs que dão o estilo e 
+\emph on
+design
+\emph default
+ da aplicação são bastante simples.
+ Neste formulário foi usada a coloração das 
+\emph on
+tags
+\emph default
+ 
+\emph on
+DIV
+\emph default
+ onde se encontram os campos do formulário e a definição do seu tamanho.
+ Foi também colocada coloração nas letras, a vermelho sempre que existe
+ uma mensagem de erro ou para realçar determinadas mensagens.
+\end_layout
+
+\begin_layout Subsubsection*
+Tarefa 2 - Editar Docente
+\end_layout
+
+\begin_layout Standard
+Os 
+\emph on
+CSS
+\emph default
+ que estilizam a tabela da lista de docentes passiveis de edição, foram
+ baseados num modelo 
+\emph on
+CSS3
+\emph default
+, que foi posteriormente alterado consoante as necessidades de visualização
+ da aplicação.
+ Esse modelo apesar de 
+\emph on
+CSS3
+\emph default
+, trata-se de um hibrido entre 
+\emph on
+CSS
+\emph default
+ e 
+\emph on
+CSS3
+\emph default
+.
+ Os formulários de edição do docente estão estilizados de forma igual ao
+ que acontece na tarefa 1 - Adicionar Docente.
+\end_layout
+
+\begin_layout Subsubsection*
+Tarefa 3 - Listar Docentes e Tarefa 4 - Listar Contratos
+\end_layout
+
+\begin_layout Standard
+Tanto a lista de docentes como a lista de contratos usam a estilização referida
+ na tarefa 2 - Editar Docente.
+ Basicamente a sua estrutura quer na forma de lista quer na forma detalhada,
+ é construída com base em tabelas 
+\emph on
+HTML
+\emph default
+.
+\end_layout
+
+\begin_layout Section
+Docentes
+\end_layout
+
+\begin_layout Standard
+Sendo os docentes parte de uma instituição de ensino existe uma área reservada
+ aos mesmos.
+ Nesta área os docentes tem acesso a toda a informação disponível sobre
+ si próprios, de forma clara e sintética sem burocracias nem redundâncias
+ pois os dados ao estarem centralizados são obtidos a partir do mesmo local
+ que as restantes áreas da aplicação.
+\end_layout
+
+\begin_layout Subsection
+Tarfas Implementadas
+\end_layout
+
+\begin_layout Standard
+Na área dos docentes foram implementadas as tarefas consideradas necessárias
+ para uma correta manutenção e gestão da informação relacionada com cada
+ docente.
+\end_layout
+
+\begin_layout Subsubsection*
+Tarefas
+\end_layout
+
+\begin_layout Itemize
+Tarefa 1 - Ver resumo informativo:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Nesta tarefa o utilizador tem oportunidade de examinar um resumo da informação
+ sobre si.
+ Tal como o total de horas de serviço, o número de turmas que leciona entre
+ outros.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Tarefa 2 - Ver turmas:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+A tarefa ver turmas, disponibiliza ao utilizador informação de todas as
+ turmas que leciona.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Tarefa 3 - Ver horas e trabalho:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Esta tarefa mostra ao utilizador, para alem da turma que leciona o número
+ de horas de serviço relacionados com essa turma.
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Síntese de funcionamento 
+\end_layout
+
+\begin_layout Standard
+O funcionamento da área do docente é muito simples e sintético, para todas
+ as suas tarefas.
+ Em seguida é apresentado em síntese o funcionamento de cada tarefa.
+\end_layout
+
+\begin_layout Subsection*
+Tarefa 1 - Ver resumo informativo
+\end_layout
+
+\begin_layout Standard
+No resumo informativo o utilizador pode ver o estado da sua situação em
+ relação as horas atribuídas, o total de horas atribuídas, as horas de redução
+ e as horas totais.
+\end_layout
+
+\begin_layout Subsubsection*
+1º passo
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/informacao_docente.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Informação - Docente
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Considerando que o utilizador já realizou a autenticação na aplicação (Figura
+ 3.21).
+ A página de informação é lhe mostrada de inicio.
+\end_layout
+
+\begin_layout Subsection*
+Tarefa 2 - Ver turmas
+\end_layout
+
+\begin_layout Standard
+Nesta tarefa o utilizador tem a possibilidade de ver todas as turmas que
+ leciona e o curso a que a turma pertence.
+\end_layout
+
+\begin_layout Subsubsection*
+1º passo
+\end_layout
+
+\begin_layout Standard
+Considerando que o utilizador já realizou a autenticação na aplicação.
+ Na página de informação inicial (ver figura 3.21 da tarefa 1) clica em “Turmas”.
+\end_layout
+
+\begin_layout Subsubsection*
+2º passo
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/turmas_docente.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Informação - Docente
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Depois de ter clicado em “Turmas” o utilizador é encaminhado para outra
+ página onde é mostrado em forma de tabelas as turmas associadas ao utilizador
+ e respetivos cursos a que pertencem (Figura 3.22).
+\end_layout
+
+\begin_layout Subsection*
+Tarefa 3 - Ver horas de trabalho
+\end_layout
+
+\begin_layout Standard
+Nesta tarefa o utilizador tem a possibilidade de ver todas as turmas que
+ leciona bem como o curso a que a turma pertence e as horas que terá que
+ lecionar em cada uma dessas turmas.
+\end_layout
+
+\begin_layout Subsubsection*
+1º passo
+\end_layout
+
+\begin_layout Standard
+Considerando que o utilizador já realizou a autenticação na aplicação.
+ Na página de informação inicial (ver figura 3.21 - tarefa 1) clica em “Horas
+ Trabalho”.
+\end_layout
+
+\begin_layout Subsubsection*
+2º passo
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/horas_trabalho_docente.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Informação - Docente
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Depois de ter clicado em “Horas Trabalho” o utilizador é encaminhado para
+ outra página onde é mostrado em forma de tabela as turmas associadas ao
+ utilizador e respetivos cursos a que pertencem, bem como as horas que terá
+ que lecionar (Figura 3.23).
+\end_layout
+
+\begin_layout Subsection
+Aplicação das Tecnologias
+\end_layout
+
+\begin_layout Standard
+Esta área da aplicação é a que menos recursos tecnológicos usa para a sua
+ construção.
+ Nas Tarefas aqui abordadas, as principais tecnologias usadas são o 
+\emph on
+HTML
+\emph default
+ e o 
+\emph on
+CSS
+\emph default
+.
+\end_layout
+
+\begin_layout Subsubsection*
+JavaScript - DOJO/DOM
+\end_layout
+
+\begin_layout Standard
+Nenhum das tarefas apresentadas na área do docente usa Javascript na sua
+ construção.
+\end_layout
+
+\begin_layout Subsubsection*
+HTML
+\end_layout
+
+\begin_layout Standard
+As tarefas 1, 2 e 3, mostram o seu conteúdo em forma de tabela 
+\emph on
+HTML
+\emph default
+ por forma a ser mais simples e limpa a organização da informação.
+ Tal como na área dos recursos humanos as tabelas usadas usam todas o mesmo
+ modelo.
+ As tabelas são construídas igualmente como as tabelas das listas existentes
+ na área dos recursos humanos.
+ Recorrendo ao uso de ciclos “for” criados na linguagem de Templates Django.
+\end_layout
+
+\begin_layout Subsubsection*
+CSS
+\end_layout
+
+\begin_layout Standard
+As tarefas 1, 2 e 3 são estilizadas de forma igual.
+ Tal como na área dos recursos humanos todas as tabelas aqui construídas
+ usam o modelo de CSS, que foi posteriormente aletrado e estilizado por
+ forma a suprir as necessidades desta área.
+\end_layout
+
+\begin_layout Section
+Vice-Presidência
+\end_layout
+
+\begin_layout Standard
+A vice-presidência é órgão com mais privilégios dentro da aplicação.
+ É daqui que parte a decisão final sobre todas as tarefas realizadas na
+ aplicação.
+ Sendo o órgão mais complexo foi aquele que foi deixado para o fim e por
+ infelicidade foi impossível de concluir a implementação de todas as tarefas
+ desejáveis.
+\end_layout
+
+\begin_layout Subsection
+Tarefas Implementadas
+\end_layout
+
+\begin_layout Standard
+Atualmente toda a informação relacionada com o serviço de distribuição do
+ serviço docente é tratada de por meio da manipulação de uma folha de cálculo
+ que torna todo o processo demasiado moroso e complexo de realizar levando
+ a que possam ocorrer ambiguidades e redundância de informação.
+\end_layout
+
+\begin_layout Itemize
+Tarefa 1 - Gerar xls
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Com vista a suavizar a mudança para a nova aplicação foi dada a possibilidade
+ de gerar uma folha de cálculo semelhante ao que existe atualmente com dados
+ lidos da base de dados.
+ Assim o utilizador consegue adaptar-se melhor e visualizar os dados da
+ forma que está habituado antes de dar o salto final para a nova aplicação.
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Síntese de funcionamento
+\end_layout
+
+\begin_layout Subsection*
+Tarefa 1 - Gerar xls
+\end_layout
+
+\begin_layout Standard
+Esta tarefa foi pensada para as pessoas que têm dificuldades em começar
+ a usar um novo software.
+ Para evitar que o choque seja grande demais, existe a possibilidade de
+ converter o conteúdo da base de dados da aplicação para uma folha de cálculo
+ (Método atualmente usado).
+\end_layout
+
+\begin_layout Subsubsection*
+1º Passo
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/cientifico_inicio.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Página Inicial - Vice-Presidência
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Considerando que o utilizador já realizou a autenticação na aplicação.
+ Na página inicial da vice-presidência (ver figura 3.24) clica em “Criar
+ XLS”.
+\end_layout
+
+\begin_layout Subsubsection*
+2º passo
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/gerar_xls_cientifico.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Página de sucesso - Criar xls - Vice-Presidência
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Após esperar alguns instantes que os métodos da 
+\emph on
+View
+\emph default
+, responsáveis pela criação da folha de cálculo terminem a sua criação,
+ o utilizador é encaminhado para uma outra pagina onde lhe indica o sucesso
+ da operação (Figura 3.25).
+\end_layout
+
+\begin_layout Subsection
+Aplicação das Tecnologias
+\end_layout
+
+\begin_layout Standard
+Como em todas as áreas desta aplicação, é indispensável o recurso as tecnologias
+ de construção de páginas 
+\emph on
+web
+\emph default
+.
+\end_layout
+
+\begin_layout Subsubsection*
+JavaScript - DOJO/DOM
+\end_layout
+
+\begin_layout Standard
+Não possui qualquer tipo de código Javascript
+\end_layout
+
+\begin_layout Subsubsection*
+HTML
+\end_layout
+
+\begin_layout Standard
+O HTML aqui apresentado é o que é gerado pelo Template base com a exceção
+ apenas da barra de menus.
+\end_layout
+
+\begin_layout Subsubsection*
+CSS
+\end_layout
+
+\begin_layout Standard
+Os CSS são os mesmo que usados no Template base e nas restantes áreas.
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Esta área que se refere a vice-presidência encontra-se numa fase de construção
+ inicial.
+ Pelo que é visível que se encontra desprovida das funcionalidades que este
+ órgão exerce atualmente na distribuição do serviço docente.
+ Assim sendo a tarefa mais importante de momento foi a implementada.
+ 
+\end_layout
+
+\begin_layout Chapter
+Conclusão
+\end_layout
+
+\begin_layout Standard
+Com este sistema, a tarefa de distribuição das horas de serviço docente
+ é mais rápida e fácil, contendo toda a informação acessível num só local,
+ livre das redundâncias e incoerências.
+ O sistema ainda se encontra em desenvolvimento sendo já funcional.
+ No futuro próximo prevê-se a implementação das áreas dos restantes órgãos
+ do instituto.
+ 
+\end_layout
+
+\begin_layout Standard
+O uso da 
+\emph on
+framework
+\emph default
+ Django foi uma grande ajuda e mostrou ser uma ferramenta bastante poderosa,
+ pela sua rapidez e velocidade construção da aplicação.
+ Por ser construída na linguagem Python, torna todo o código muito mais
+ fluido e fácil de interpretar.
+\end_layout
+
+\begin_layout Standard
+Futuramente o sistema será colocado em um servidor Ubuntu, para que fique
+ disponível e acessível a todos os utilizadores a que se destina a aplicação.
+ O Sistema poderá depois assim ser acedido em qualquer lugar necessitando
+ apenas o utilizador de possuir um equipamento como por exemplo um 
+\emph on
+SmartPhone
+\emph default
+ ou um 
+\emph on
+Tablet
+\emph default
+ com acesso a internet e um 
+\emph on
+browser
+\emph default
+.
+ Sendo assim possível realizar as tarefas facilmente e confortavelmente
+ em qualquer lugar.
+ 
+\end_layout
+
+\end_body
+\end_document

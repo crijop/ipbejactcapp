@@ -1,0 +1,55 @@
+- model: distro.reducao
+  pk: 1
+  fields:
+    nome: Pró-Presidente
+    horas: 300
+- model: distro.reducao
+  pk: 2
+  fields:
+    nome: Presidente do Conselho para Avaliação e Qualidade
+    horas: 300
+- model: distro.reducao
+  pk: 3
+  fields:
+    nome: Coordenador de Curso
+    horas: 60
+- model: distro.reducao
+  pk: 4
+  fields:
+    nome: Coordenação do Centro de Línguas e Culturas
+    horas: 60
+- model: distro.reducao
+  pk: 5
+  fields:
+    nome: Baixa médica
+    horas: 360
+- model: distro.reducao
+  pk: 6
+  fields:
+    nome: Diretor do Museu Botânico
+    horas: 300
+- model: distro.reducao
+  pk: 7
+  fields:
+    nome: Sub-Diretor de Escola
+    horas: 180
+- model: distro.reducao
+  pk: 8
+  fields:
+    nome: Diretor de Departamento
+    horas: 60
+- model: distro.reducao
+  pk: 9
+  fields:
+    nome: Coordenador GAI
+    horas: 60
+- model: distro.reducao
+  pk: 10
+  fields:
+    nome: Coordenadora IPBeja casa
+    horas: 40
+- model: distro.reducao
+  pk: 11
+  fields:
+    nome: SPDE
+    horas: 180

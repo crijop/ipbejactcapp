@@ -1,0 +1,35 @@
+{% extends "departamento/index.html" %}
+{% load i18n %}
+{% block title %} Página de Sucesso de adicionar serviço docente (Departamento) {% endblock %}
+
+
+{% block breadcrumb %}
+<ul id="breadcrumb">
+	<li>
+		<a tabindex="2" href="{% url homeDepartamento %}" title="{% trans 'Home' %}"> <img src="/static/images/BreadCrumbs/home.gif" alt="{% trans 'Home' %}" class="home" /> </a>
+	</li>
+	<li>
+		<a tabindex="3" href="{% url turmaSemServDocente ano %}" title="Criar Serviço Docente">Criar Serviço Docente</a>
+	</li>
+	<li>
+		Serviço Docente criado com Sucesso
+	</li>
+</ul>
+{% endblock %}
+
+{% block content %}
+	<table class="tabela_sumario">
+	    <tr>
+	   		<th colspan="2" class="top_sumario">Estado</th>
+	    </tr>
+    </table>
+    <div id="sucesso">
+    	{%for t in turma%}
+    		<span>O serviço docente foi criado com sucesso para a turma "{{t.turma.unidade_curricular.nome}}",
+    			 turno "{{t.turma.turno}}", com o tipo de aula "{{t.turma.tipo_aula.tipo}}" 
+    			 e número de horas "{{t.horas}}"
+    		</span>
+    	{%endfor%}
+    </div>
+{% endblock %}
+

@@ -1,0 +1,44 @@
+- model: distro.titulo
+  pk: 1
+  fields:
+    nome: Agregado
+- model: distro.titulo
+  pk: 2
+  fields:
+    nome: Doutor
+- model: distro.titulo
+  pk: 3
+  fields:
+    nome: Mestre
+- model: distro.titulo
+  pk: 4
+  fields:
+    nome: Licenciado
+- model: distro.titulo
+  pk: 5
+  fields:
+    nome: Bacharel
+- model: distro.titulo
+  pk: 6
+  fields:
+    nome: Docteur
+- model: distro.titulo
+  pk: 7
+  fields:
+    nome: PhD
+- model: distro.titulo
+  pk: 8
+  fields:
+    nome: Doctor
+- model: distro.titulo
+  pk: 9
+  fields:
+    nome: Especialista
+- model: distro.titulo
+  pk: 10
+  fields:
+    nome: MSc
+
+
+
+    

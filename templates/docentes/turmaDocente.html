@@ -1,0 +1,38 @@
+{% extends "docentes/index.html" %}
+{% load i18n %}
+{% block title %}{% trans 'Página de apresentação das turmas do Docente ' %}{% endblock %}
+
+{% block breadcrumb %}
+<ul class="breadcrumb">
+	<li>
+		<span class="glyphicon glyphicon-home"></span> <a tabindex="2" href="{% url homeDocente %}" title="{% trans 'Home' %}">{% trans 'Home' %}</a>
+	</li>
+	<li class="active">{% trans 'Turmas do Docente' %}</li>
+</ul>
+{% endblock %}
+
+
+{% block menuInfoDocente %} {% endblock %}
+{% block menuTurma %}class="active"{% endblock %}
+
+
+
+{% block content %}
+<div class="page-header whiteText">
+  <h1>{% trans 'Sumário'%}</h1>
+</div>
+<table class="table table-striped table-hover">
+	<tr>
+		<th class="cabecalho_sumario">{% trans 'Curso' %}</th>
+		<th class="cabecalho_sumario">{% trans 'Turma' %}</th>
+	</tr>
+	{%for id, turma, curso in lista%}
+	<tr>
+		<td>{{ curso }}</td>
+		<td>{{ turma }}</td>
+
+	</tr>
+	{%endfor%}
+	
+</table>
+{% endblock %}

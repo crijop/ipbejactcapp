@@ -1,0 +1,43 @@
+{% extends "recursosHumanos/index.html" %}
+{% load i18n %}
+{% block title %} {% trans 'Página de Confirmação de adicionar docente'%} {% endblock %}
+
+<!-- Estes blocos é para alterar a classe do menu do index, refere se está ou não activo -->
+{% block MenuDocente %}active{% endblock %}
+{% block MenuInformacao %} {% endblock %}
+
+
+{% block breadcrumb %}
+<ul class="breadcrumb">
+	<li>
+		<span class="glyphicon glyphicon-home"></span> <a tabindex="2" href="{% url homeRecursosHumanos %}" title="{% trans 'Home' %}">{% trans 'Home' %}</a>
+	</li>
+	{% if estado = "add"%}	
+		<li>
+			<a tabindex="3" href="{% url adicionarDocenteRH %}" title="Adicionar Docente">{% trans 'Adicionar Docente' %}</a>
+		</li>
+		<li class="active">
+			{% trans 'Docente inserido com Sucesso' %}
+		</li>
+	{% else %}
+		<li>
+			<a tabindex="3" href="{% url listDocenteEdit %}" title="Lista docente a editar">{% trans 'Listar Docentes a Editar' %}</a>
+		</li>
+		<li class="active">
+			{% trans 'Docente editado com Sucesso' %}
+		</li>
+	{%endif%}
+</ul>
+{% endblock %}
+
+{% block content %}
+
+<div class="alert alert-success">
+	{% if estado = "add"%}
+    	<span>{% trans 'O docente'%} {{nome_completo}} {% trans ' foi adicionado com Sucesso'%}</span>
+    {% else %}
+    	<span>{% trans 'O docente'%} {{nome_completo}} {% trans 'foi editado com Sucesso'%}</span>
+    {%endif%}
+</div>
+{% endblock %}
+

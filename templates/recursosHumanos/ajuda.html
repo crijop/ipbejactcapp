@@ -1,0 +1,23 @@
+{% extends "recursosHumanos/index.html" %}
+{% load i18n %}
+{% block title %}{% trans 'Página Ajuda'%}{% endblock %}
+
+<!-- Estes blocos é para alterar a classe do menu do index, refere se está ou não activo -->
+{% block MenuDocente %}{% endblock %}
+{% block MenuInformacao %}{% endblock %}
+{% block MenuAjuda %}active{% endblock %}
+
+{% block breadcrumb %}
+<ul class="breadcrumb">
+	<li>
+		<span class="glyphicon glyphicon-home"></span> <a tabindex="2" href="{% url homeRecursosHumanos %}" title="{% trans 'Home' %}">{% trans 'Home' %}</a>
+	</li>
+	<li class="active">{% trans '....' %}</li>
+</ul>
+{% endblock %}
+
+{% block content %}
+<div class="page-header">
+  <h1>{% trans 'Ajuda ' %}</h1>
+</div>
+{% endblock %}

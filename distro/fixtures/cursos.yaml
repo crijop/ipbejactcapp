@@ -1,0 +1,282 @@
+- model: distro.curso
+  pk: 1
+  fields:
+    nome: Agronomia
+    abreviatura: AGR
+    tipo_curso: 1
+- model: distro.curso
+  pk: 2
+  fields:
+    nome: Agronomia (PL)
+    abreviatura: AGRPL
+    tipo_curso: 1
+- model: distro.curso
+  pk: 3
+  fields:
+    nome: Animação Sociocultural
+    abreviatura: ASC
+    tipo_curso: 1
+- model: distro.curso
+  pk: 4
+  fields:
+    nome: Artes Plásticas e Multimédia 
+    abreviatura: APM
+    tipo_curso: 1
+- model: distro.curso
+  pk: 5
+  fields:
+    nome: Biologia e Recursos Naturais
+    abreviatura: BRC
+    tipo_curso: 1
+- model: distro.curso
+  pk: 6
+  fields:
+    nome: CET - ESA
+    abreviatura: CET-ESA
+    tipo_curso: 4
+- model: distro.curso
+  pk: 7
+  fields:
+    nome: Condução de Obra
+    abreviatura: CO
+    tipo_curso: 4
+- model: distro.curso
+  pk: 8
+  fields:
+    nome: Cultural Animation, Leisure and Tourism
+    abreviatura: CALT
+    tipo_curso: 3
+- model: distro.curso
+  pk: 9
+  fields:
+    nome: Culturas Regadas
+    abreviatura: CR
+    tipo_curso: 4
+- model: distro.curso
+  pk: 10
+  fields:
+    nome: Desporto
+    abreviatura: D
+    tipo_curso: 1
+- model: distro.curso
+  pk: 11
+  fields:
+    nome: Educação Básica
+    abreviatura: EB
+    tipo_curso: 1
+- model: distro.curso
+  pk: 12
+  fields:
+    nome: Educação e Comunicação Multimédia
+    abreviatura: ECM
+    tipo_curso: 1
+- model: distro.curso
+  pk: 13
+  fields:
+    nome: Educação Especial - Especialização no Dominio Cognitivo e Motor
+    abreviatura: EEEDCM
+    tipo_curso: 2
+- model: distro.curso
+  pk: 14
+  fields:
+    nome: Educação Pré-Escolar e Ensino do 1.º Ciclo do Ensino Básico
+    abreviatura: EPEEPCEB
+    tipo_curso: 2
+- model: distro.curso
+  pk: 15
+  fields:
+    nome: Enfermagem
+    abreviatura: ENF
+    tipo_curso: 1
+- model: distro.curso
+  pk: 16
+  fields: 
+    nome: Enfermagem (Março)
+    abreviatura: ENFM
+    tipo_curso: 1
+- model: distro.curso
+  pk: 17
+  fields:
+    nome: Enfermagem Comunitária
+    abreviatura: ENFC
+    tipo_curso: 5
+- model: distro.curso
+  pk: 18
+  fields:
+    nome: Enfermagem Infantil e Pediatria
+    abreviatura: EIP
+    tipo_curso: 5
+- model: distro.curso
+  pk: 19
+  fields:
+    nome: Enfermagem Saúde Infantil e Pediatria
+    abreviatura: ESIP
+    tipo_curso: 5
+- model: distro.curso
+  pk: 20
+  fields:
+    nome: Engenharia Alimentar
+    abreviatura: EA
+    tipo_curso: 1
+- model: distro.curso
+  pk: 21
+  fields:
+    nome: Engenharia Civil
+    abreviatura: EC
+    tipo_curso: 1
+- model: distro.curso
+  pk: 22
+  fields:
+    nome: Engenharia Civil (PL)
+    abreviatura: ECPL
+    tipo_curso: 1
+- model: distro.curso
+  pk: 23
+  fields:
+    nome: Engenharia de Segurança Informática
+    abreviatura: MESI
+    tipo_curso: 2
+- model: distro.curso
+  pk: 24
+  fields:
+    nome: Engenharia do Ambiente
+    abreviatura: EAA
+    tipo_curso: 1
+- model: distro.curso
+  pk: 25
+  fields:
+    nome: Engenharia Informática
+    abreviatura: EI
+    tipo_curso: 1
+- model: distro.curso
+  pk: 26
+  fields:
+    nome: Engenharia Informática (PL)
+    abreviatura: EIPL
+    tipo_curso: 1
+- model: distro.curso
+  pk: 27
+  fields:
+    nome: ERASMUS
+    abreviatura: ERA
+    tipo_curso: 5
+- model: distro.curso
+  pk: 28
+  fields:
+    nome: Gestão de Empresas
+    abreviatura: GE
+    tipo_curso: 1
+- model: distro.curso
+  pk: 29
+  fields:
+    nome: Gestão de Empresas (PL)
+    abreviatura: GEPL
+    tipo_curso: 1
+- model: distro.curso
+  pk: 30
+  fields:
+    nome: M_Agronomia
+    abreviatura: MA
+    tipo_curso: 2
+- model: distro.curso
+  pk: 31
+  fields:
+    nome: M_Engenharia Alimentar
+    abreviatura: MEA
+    tipo_curso: 2
+- model: distro.curso
+  pk: 32
+  fields:
+    nome: M_Engenharia do Ambiente
+    abreviatura: MEAA
+    tipo_curso: 2
+- model: distro.curso
+  pk: 33
+  fields:
+    nome: Projecto e Instalação de Redes Locais de Computadores
+    abreviatura: PIRLC
+    tipo_curso: 4
+- model: distro.curso
+  pk: 34
+  fields:
+    nome: Proteção Civil
+    abreviatura: PC
+    tipo_curso: 1
+- model: distro.curso
+  pk: 35
+  fields:
+    nome: Psicogerontologia
+    abreviatura: PSI
+    tipo_curso: 4
+- model: distro.curso
+  pk: 36
+  fields:
+    nome: Psicogerontologia Comunitária
+    abreviatura: MPSI
+    tipo_curso: 2
+- model: distro.curso
+  pk: 37
+  fields: 
+    nome: Qualidade Ambiental
+    abreviatura: QA
+    tipo_curso: 4
+- model: distro.curso
+  pk: 38
+  fields:
+    nome: Saúde Ambiental
+    abreviatura: SA
+    tipo_curso: 1
+- model: distro.curso
+  pk: 39
+  fields:
+    nome: Segurança e Higiene Alimentar
+    abreviatura: SHA
+    tipo_curso: 4
+- model: distro.curso
+  pk: 40
+  fields:
+    nome: Serviço Social
+    abreviatura: SS
+    tipo_curso: 1
+- model: distro.curso
+  pk: 41
+  fields:
+    nome: Serviço Social (PL)
+    abreviatura: SSPL
+    tipo_curso: 1
+- model: distro.curso
+  pk: 42
+  fields:
+    nome: Solicitadoria
+    abreviatura: SLC
+    tipo_curso: 1
+- model: distro.curso
+  pk: 43
+  fields:
+    nome: Solicitadoria (ED)
+    abreviatura: SED
+    tipo_curso: 1
+- model: distro.curso
+  pk: 44
+  fields:
+    nome: Terapia Ocupacional
+    abreviatura: TO
+    tipo_curso: 1
+- model: distro.curso
+  pk: 45
+  fields:
+    nome: Terapia Ocupacional (Março)
+    abreviatura: TOM
+    tipo_curso: 1
+- model: distro.curso
+  pk: 46
+  fields:
+    nome: Treino Desportivo de Jovens Atletas
+    abreviatura: TDJA
+    tipo_curso: 4
+- model: distro.curso
+  pk: 47
+  fields:
+    nome: Turismo
+    abreviatura: TUR
+    tipo_curso: 1

@@ -1,0 +1,20 @@
+- model: distro.unidadeorganica
+  pk: 1
+  fields:
+    nome: Escola Superior de Tecnologia e Gestão
+    abreviatura: ESTIG
+- model: distro.unidadeorganica
+  pk: 2
+  fields:
+    nome: Escola Superior de Saúde
+    abreviatura: ESS
+- model: distro.unidadeorganica
+  pk: 3
+  fields:
+    nome: Escola Superior de Educação
+    abreviatura: ESE
+- model: distro.unidadeorganica
+  pk: 4
+  fields:
+    nome: Escola Superior Agrária
+    abreviatura: ESA

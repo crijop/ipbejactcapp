@@ -1,0 +1,85 @@
+body
+{
+	margin: 0 auto;
+	background: #EBEBEB;
+}
+
+div#window{
+	margin:0 auto;
+	width: 50%;
+	height: 100%;
+}
+
+div#master
+{
+	width:100%;
+	margin-left:auto;
+	margin-right:auto;
+	background: white;
+	margin-top:50px; 
+	margin-bottom: 10px;
+}
+
+div#titleDiv
+{
+	width:100%;
+	float:left;
+	text-align:center;
+}
+
+div#imageDiv
+{
+	text-align:center;
+}
+
+div#auth_form_div
+{
+	text-align:center;
+	margin-top: 20px;
+}
+
+.errorlist
+{
+	color: red;
+	font-size: 8pt;
+	font-family: Arial;
+	
+}
+
+table.form_table  label
+{
+	font-family: Arial;
+	float:right;
+}
+
+
+
+div#footer{
+	background: white;
+	border-top: 1px solid #EFEFEF;
+	clear: left;
+	color: gray;
+	font-size: small;
+	font-weight: 700;
+	margin-top: 5px;
+	padding: 7px;
+	text-align: center;
+}
+
+
+.form_table{
+	text-align:center;
+	margin: 0 auto;
+}
+
+img#logotipo
+{
+	width: 70%;
+	height: 70%;
+}
+
+h1
+{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:xx-large;
+}

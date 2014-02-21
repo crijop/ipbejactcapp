@@ -1,0 +1,63 @@
+{% extends "recursosHumanos/index.html" %}
+{% load i18n %}
+{% block title %} Página de Confirmação de adicionar docente {% endblock %}
+
+<!-- Estes blocos é para alterar a classe do menu do index, refere se está ou não activo -->
+{% block MenuDocente %}active{% endblock %}
+{% block MenuInformacao %} {% endblock %}
+
+{% block breadcrumb %}
+<ul class="breadcrumb">
+	<li>
+		<span class="glyphicon glyphicon-home"></span> <a tabindex="2" href="{% url homeRecursosHumanos %}" title="{% trans 'Home' %}">{% trans 'Home' %}</a>
+	</li>
+	{% if estado = "Editar" %}
+		<li>
+			<a tabindex="3" href="{% url listDocenteEdit %}" title="Lista Docentes a editar">Listar docentes a Editar</a>
+		</li>
+		<li>
+			<a tabindex="4" href="{% url RH_EditarDocente id_docente%}" title="Docente a editar">Docentes a Editar</a>
+		</li>
+	{% else %}
+		<li>
+			<a tabindex="3" href="{% url adicionarDocenteRH %}" title="Adicionar Docente">Adicionar Docente</a>
+		</li>
+	{%endif%}
+	<li class="active">{% trans 'Confirmação dados do Docente' %}</li>
+</ul>
+{% endblock %}
+
+{% block content %}
+{% endblock %}
+
+{% block formulario %}
+<form method="post" role="form">
+	{% csrf_token %}
+	{% for field in form %}
+		<div class="form-group">
+			<label for="col-sm-2 control-label">{{ field.label }} {% if field.field.required %}*{%endif%}</label>
+			{{ field }}
+		</div>
+	    
+	    {% for error in field.errors %} 
+        	<div class="alert alert-danger">
+        		{{error}}
+        	</div> 
+		{% endfor %}
+		
+   	{% endfor %}
+    <br />
+   	<span id="CamposObirgatorio">(*) - Campos de preenchimento obrigatório</span>
+   	<hr />
+   	<div class="alert alert-info">{% trans 'Deseja submeter os Dados dos Formulário?' %}</div>
+   	
+   	<span id = "Confirmacao"></span>
+	<div id="buttonConfirm">
+		<input type="hidden" name="{{ stage_field }}" value="2" />
+		<input type="hidden" name="{{ hash_field }}" value="{{ hash_value }}" />
+		<input type="button" class="btn btn-danger btn-lg" value="{% trans 'Não' %}" onClick="javascript:history.go(-1);" />
+		<input type="submit" class="btn btn-primary btn-lg"value="{% trans 'Sim' %}" />
+		<script>changeCountValue();</script>
+	</div>
+</form>
+{% endblock %}
