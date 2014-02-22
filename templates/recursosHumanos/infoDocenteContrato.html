@@ -20,11 +20,58 @@
 
 
 {% block content %}
-<div class="page-header">
+<div class="page-header whiteText">
   <h1>{% trans 'Informação Docente/Contrato' %}</h1>
 </div>
 
-
+<div class="whiteBox">
+ 	
+ 	<dl class="dl-horizontal">
+  <dt>Nome Completo</dt>
+  <dd>{{ nomeDocente }}</dd>
+</dl>
+<!---------------------------------------------->
+ 	<dl class="dl-horizontal">
+  <dt>Departamento</dt>
+  <dd>{{ nome_Departamento }}</dd>
+</dl>
+<!---------------------------------------------->
+ 	<dl class="dl-horizontal">
+  <dt>Escalão</dt>
+  <dd>{{ escalao }}</dd>
+</dl>
+<!---------------------------------------------->
+ 	<dl class="dl-horizontal">
+  <dt>Exclusividade</dt>
+  <dd>{{ regimeExclusividade }}</dd>
+</dl>
+<!---------------------------------------------->
+ 	<dl class="dl-horizontal">
+  <dt>Categoria</dt>
+  <dd>{{ categoria }}</dd>
+</dl>
+<!---------------------------------------------->
+ 	<dl class="dl-horizontal">
+  <dt>Tipo Contrato</dt>
+  <dd>{{ tipoContrato }}</dd>
+</dl>
+<!---------------------------------------------->
+ 	<dl class="dl-horizontal">
+  <dt>Percentagem</dt>
+  <dd>{{ percentagem }}</dd>
+</dl>
+<!---------------------------------------------->
+ 	<dl class="dl-horizontal">
+  <dt>Data Inicio</dt>
+  <dd>{{ dataInicio }}</dd>
+</dl>
+<!---------------------------------------------->
+ 	<dl class="dl-horizontal">
+  <dt>Data Fim</dt>
+  <dd>{{ dataFim }}</dd>
+</dl>
+ </div>
+{%comment%}
 <table class="table table-striped table-hover">
 	<tr>
 	        <th class="sub_cabecalho"><span>Nome Completo</span></th>
@@ -63,4 +110,5 @@
 	        <td>{{ dataFim }}</td>
 	</tr>
 </table>    
+ {%endcomment%}
 {% endblock %}
