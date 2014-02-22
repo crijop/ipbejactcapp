@@ -1,18 +1,20 @@
 {% extends "departamento/index.html" %}
 {% load i18n %}
-{% block title %} Listar Docentes (Departamento) {% endblock %}
+{% block title %}{% trans 'Listar Docentes (Departamento)'%}{% endblock %}
 {% block breadcrumb %}
-<ul id="breadcrumb">
+<ul class="breadcrumb">
 	<li>
-		<a tabindex="2" href="{% url homeDepartamento %}" title="{% trans 'Home' %}"> <img src="/static/images/BreadCrumbs/home.png" alt="{% trans 'Home' %}" class="home" /> </a>
+		<span class="glyphicon glyphicon-home"></span> <a tabindex="2" href="{% url homeDepartamento %}" title="{% trans 'Home' %}">{% trans 'Home' %}</a>
 	</li>
-	<li>
-		Listar Docentes
-	</li>
+	<li class="active">{% trans 'Listar Docentes' %}</li>
 </ul>
 {% endblock %}
-{% block Filtros %}
-<img id="filterImg" src="/static/images/filtro.png">
+
+<!-- Estes blocos é para alterar a classe do menu do index, refere se está ou não activo -->
+{% block Listar %}active{% endblock %}
+{% block MenuInformacao %} {% endblock %}
+
+{% block filtros %}
 <ul>
 
 	
@@ -39,7 +41,10 @@
 {% endblock %}
 
 {% block content %}
-<h2 class="listElementsTitle">Listar Docentes</h2>
+<div class="page-header whiteText">
+  <h1>{% trans 'Lista de Docentes '%}</h1>
+</div>
+{%comment%}
 <table class="tabela_sumario">
 	
 	<tr class="search" >
@@ -53,13 +58,18 @@
 				{% endif %}
 				<span>- {{sizeList}} resultados encontrados</span>
 		</form></th>
-	</tr>
+{%endcomment%}
+
+<table cellpadding="0" cellspacing="0" border="0" class="display sumary_table" id="special_table" width="100%">
+<thead>
 	<tr class="cabecalho_sumario">
 		<th></th>
 		<th class="cabecalho_sumario">Docente</th>
 		<th class="cabecalho_sumario">Horas Distribuidas</th>
 		<th class="cabecalho_sumario">Turmas</th>
 	</tr>
+</thead>
+<tbody>
 	{% for id_Docente, nome, turmas, horas  in listInfo %}
 	<tr>
 		<td ><a href="{{id_Docente}}"><span class="view"></span></a></td>
@@ -79,25 +89,21 @@
 	
 	</tr>
 	{% endfor %}
-		{%if sizeList == 0 %}
-		
-		<tr>
-			<td colspan="4">Não existem resultados para esta pesquisa</td>
-		</tr>
-		
-		{% endif %}
-
+</tbody>
 </table>
 
-<div id="paginator">
-	<span class="current"> Página {{ listInfo.number }} de {{ listInfo.paginator.num_pages }}. </span>
-	<br>
-	<span class="step-links"><a href="?show=all">Todos</a></span>
-	<span class="step-links"> {% for page_num in drange %} <a id="{{ page_num}}" href="?page={{ page_num}}&{{actualState}}">{{ page_num}}</a> {% endfor%} </span>
-</div>
-<br>
-<script type="text/javascript">document.getElementById("searchField").focus();
-	filter_oa();
-	filter_cat();
-	</script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$('#special_table').dataTable({
+		"oLanguage": {
+            "sUrl": "/static/dataTables/lang/pt-pt.txt"
+        },
+         "sPaginationType": "full_numbers",
+         "sDom": '<"dataTables_special_bar"l><"dataTables_special_bar"if><"whiteBox"rt><"pagination_box"p>'
+        
+        	
+	});
+	$('.hasTooltip').tooltip({"container": false});
+} );
+</script>
 {% endblock %}
