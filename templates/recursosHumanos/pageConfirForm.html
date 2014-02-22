@@ -34,7 +34,7 @@
 <form method="post" role="form">
 	{% csrf_token %}
 	{% for field in form %}
-		<div class="form-group">
+		<div class="form-group whiteText">
 			<label for="col-sm-2 control-label">{{ field.label }} {% if field.field.required %}*{%endif%}</label>
 			{{ field }}
 		</div>
@@ -47,7 +47,7 @@
 		
    	{% endfor %}
     <br />
-   	<span id="CamposObirgatorio">(*) - Campos de preenchimento obrigatório</span>
+   	<span class="whiteText" id="CamposObirgatorio">(*) - Campos de preenchimento obrigatório</span>
    	<hr />
    	<div class="alert alert-info">{% trans 'Deseja submeter os Dados dos Formulário?' %}</div>
    	

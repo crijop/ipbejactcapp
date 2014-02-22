@@ -12,12 +12,12 @@
 </ul> -->
 
 <ul class="breadcrumb">
-	<li class="active"><span class="glyphicon glyphicon-home"></span> {% trans 'Home' %}</li>
+	<li class="active"><span class="glyphicon glyphicon-home"> {% trans 'Home' %}</span></li>
 </ul>
 {% endblock %}
 
 {% block Menus %}
-    <li {% block MenuInformacao %} class="active" {% endblock %}><a href="/distro">Informação</a></li>
+    
     <li class="dropdown {% block MenuDocente %} {% endblock %}">
 	    <a href="#" class="dropdown-toggle" data-toggle="dropdown">{% trans 'Docente' %}<b class="caret"></b></a>
 	    <ul class="dropdown-menu">
