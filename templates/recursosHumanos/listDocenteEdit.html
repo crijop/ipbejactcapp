@@ -17,15 +17,16 @@
 
 {% block filtros %}
 
-        <ul  role="menu" class="dropdown-menu">
-          <li class="dropdown-header" role="presentation">Dropdown header</li>
-          <li role="presentation"><a href="#" tabindex="-1" role="menuitem">Action</a></li>
-          <li role="presentation"><a href="#" tabindex="-1" role="menuitem">Another action</a></li>
-          <li role="presentation"><a href="#" tabindex="-1" role="menuitem">Something else here</a></li>
-          <li class="divider" role="presentation"></li>
-          <li class="dropdown-header" role="presentation">Dropdown header</li>
-          <li role="presentation"><a href="#" tabindex="-1" role="menuitem">Separated link</a></li>
-        </ul>
+    <div class="list-group">
+  <a href="#" class="list-group-item active">
+    Departamento
+  </a>
+  {% include "recursosHumanos/elements/filter_dep.html" %}
+  
+  <a href="#" class="list-group-item active">Categoria</a>
+  {% include "recursosHumanos/elements/filter_cat.html" %}
+
+</div>
       
 
 <!--<ul>

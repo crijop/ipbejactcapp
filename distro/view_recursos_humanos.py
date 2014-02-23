@@ -222,7 +222,8 @@ def splitSearchPhrase(keyword):
 def listDocente_RecursosHumanos(request):
     
     allDocentes = Docente.objects.all()
-    
+    allDepartamentos = Departamento.objects.all()
+    allCategories = Categoria.objects.all()
     
     #nomesDepartamentos = {dep.nome for dep in allDepartamentos}
    
@@ -484,6 +485,8 @@ def listDocente_RecursosHumanos(request):
 def listDocenteEdit_RecursosHumanos(request):
     
     allDocentes = Docente.objects.all()
+    allDepartamentos = Departamento.objects.all()
+    allCategories = Categoria.objects.all()
     
     
     #nomesDepartamentos = {dep.nome for dep in allDepartamentos}
