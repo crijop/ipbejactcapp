@@ -13,6 +13,7 @@ from django.contrib.auth.models import Group
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render_to_response, redirect
 from django.template.context import RequestContext
+from distro import view_admin
 
 
 
@@ -35,6 +36,7 @@ def login_redirectUsers(request):
     name_group6 = Group.objects.get(name = "servicosPlaneamento")
     name_group7 = Group.objects.get(name = "Eng")
     name_group8 = Group.objects.get(name = "B")
+    name_group9 = Group.objects.get(name = "Administrador")
     
     #verifica se o utlizador pertence ao grupo do Cientifico
     if name_group in request.user.groups.all():
@@ -84,6 +86,11 @@ def login_redirectUsers(request):
     elif name_group8 in request.user.groups.all():
         request.session['dep_id'] = Departamento.objects.get(abreviatura__exact = name_group8).id
         return redirect(indexDepartamento)
+        pass
+    #verifica se o utlizador pertence ao grupo dos servicosPlaneamento
+    elif name_group9 in request.user.groups.all():
+        print "REDIRECTTTTTTTTTTT"
+        return redirect(view_admin.index)
         pass
     
     #Se as condições anteriores não se verificarem, 
