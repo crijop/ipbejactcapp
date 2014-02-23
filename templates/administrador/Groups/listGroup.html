@@ -1,0 +1,52 @@
+{% extends "administrador/index.html" %}
+{% load i18n %}
+{% block title %}{% trans 'Página da Lista grupos de utilizadores'%}{% endblock %}
+
+{% block breadcrumb %}
+<ul class="breadcrumb">
+	<li>
+		<span class="glyphicon glyphicon-home"></span> <a tabindex="2" href="{% url HomeAdmin %}" title="{% trans 'Início' %}">{% trans 'Início' %}</a>
+	</li>
+	<li class="active">{% trans 'Lista de grupos utilizadores' %}</li>
+</ul>
+{% endblock %}
+
+<!-- Estes blocos é para alterar a classe do menu do index, refere se está ou não activo -->
+{% block menuGroup %}active{% endblock %}
+
+{% block content %}
+<div class="page-header whiteText">
+  <h1>{% trans 'Lista de Grupos de Utilizadores '%}</h1>
+</div>
+
+<table cellpadding="0" cellspacing="0" border="0" class="display sumary_table" id="special_table" width="100%">
+<thead>	
+	<tr>
+		<th class="cabecalho_sumario">{% trans 'Nome'%}</th>
+	</tr>
+</thead>
+<tbody>
+	{% for group in listGroup %}
+		<tr>
+			<td class="teacher_name_field"><a href="{{group.id}}">{{group.name}}</a></td>
+		</tr>
+	{% endfor %}
+</tbody>
+</table>
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+	$('#special_table').dataTable({
+		"oLanguage": {
+            "sUrl": "/static/dataTables/lang/pt-pt.txt"
+        },
+         "sPaginationType": "full_numbers",
+         "sDom": '<"dataTables_special_bar"l><"dataTables_special_bar"if><"whiteBox"rt><"pagination_box"p>'
+        
+        	
+	});
+	$('.hasTooltip').tooltip({"container": false});
+} );
+</script>
+{% endblock %}

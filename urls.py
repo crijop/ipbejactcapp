@@ -43,6 +43,21 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     
     
+    
+    
+    
+    ######################## 23/02/2014 ####################################
+    # Url's destinados aos templates do Administrador
+    # Faz include de distro/urlAdministrador/url_admin.py
+    ####
+    
+    url(r'^distro/administrator/', include('ipbejactcapp.distro.urlAdministrador.url_admin')),
+    
+    #####
+    #Fim dos Url's destinados aos templates do cientifico
+    ########################################################################################
+    
+    
     #URL LOGIN
     (r'^$', 'django.contrib.auth.views.login',
         {'template_name': 'login.html'}, 'entrar'),
@@ -402,6 +417,7 @@ urlpatterns = patterns('',
     #####
     #Fim dos Url's destinados aos templates do serviço de Planeamento
     ########################################################################################
+
     
 )
 

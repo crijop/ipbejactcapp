@@ -1,0 +1,58 @@
+{% extends "base_v_bootstrap.html" %}
+{% load i18n %}
+{% block title %} {% trans 'Página Inícial Admin'%}{% endblock %}
+
+{% block breadcrumb %}
+<ul class="breadcrumb">
+	<li class="active"><span class="glyphicon glyphicon-home"> {% trans 'Início' %}</span></li>
+</ul>
+{% endblock %}
+
+{% block Menus %}
+    
+    <li class="dropdown {% block menuGroup %} {% endblock %}">
+	    <a href="#" class="dropdown-toggle" data-toggle="dropdown">{% trans 'Grupos' %}<b class="caret"></b></a>
+	    <ul class="dropdown-menu">
+	      <li><a href="#">{% trans 'Adicionar' %}</a></li>
+	      <li><a href="#">{% trans 'Editar' %}</a></li>
+	      <li><a href='{%url listGroup %}'>{% trans 'Listar' %}</a></li>
+	    </ul>
+	</li>
+	<li class="dropdown {% block menuUsers %} {% endblock %}">
+	    <a href="#" class="dropdown-toggle" data-toggle="dropdown">{% trans 'Utilizadores' %}<b class="caret"></b></a>
+	    <ul class="dropdown-menu">
+	      <li><a href="#">{% trans 'Adicionar' %}</a></li>
+	      <li><a href="#">{% trans 'Editar' %}</a></li>
+	      <li><a href='{%url listUser %}'>{% trans 'Listar' %}</a></li>
+	    </ul>
+	</li>
+	<li class="dropdown {% block menuAjuda %} {% endblock %}">
+		<a href="#" class="dropdown-toggle" data-toggle="dropdown">{% trans 'Ajuda'%}<b class="caret"></b></a>
+	     <ul class="dropdown-menu">
+	       <li><a href="{% url ajudaRH 1 %}">{% trans 'Como Adicionar Docente'%}</a></li>
+	       <li><a href="#">{% trans 'Como Editar Docente'%}</a></li>
+	       <li><a href="#">....</a></li>
+	     </ul> 
+	</li>
+{% endblock %}
+
+
+{% block content %}
+<!-------------------------------------------------------------Cabeçalho-------------------------------------------------------------->	
+<div class="page-header whiteText">
+  <h1>{% trans 'Estatística'%}<small> {{dateActualFormatPrint}} </small></h1>
+</div>
+
+	
+<!-------------------------------------------------------------PAinel informativo--------------------------------------------------->	
+<div class="jumbotron">
+	
+  <h1>{% trans 'Administrador!'%}</h1>
+  <p>{% trans ':'%}</p>
+  <p>- {% trans '.'%}</p>
+  <p>- {% trans '.'%}</p>
+  <p>- {% trans '.'%}</p>
+  <p><a class="btn btn-primary btn-lg" role="button">{% trans "Conheça mais" %}</a></p>
+  
+</div>
+{% endblock %}
