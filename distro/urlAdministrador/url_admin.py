@@ -30,6 +30,11 @@ urlpatterns = patterns('',
     # Url's destinados aos utilizadores
     ####
     
+    # Adicionar utilizadores
+    url(r'^adduser/$', 'distro.view_admin.addUsers', 
+            name='addUser'),
+    
+    
     # Lista de utilizadores
     url(r'^lstuser/$', 'distro.view_admin.listUser', 
             name='listUser'),

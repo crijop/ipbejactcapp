@@ -36,6 +36,20 @@ body
 	/*#fdebb3*/
 }
 
+.tamanhoInput
+{
+	width: 50% !important;
+	height: 30px !important;
+}
+
+.tamanhoAlertDanger
+{
+	width: 50%;
+	height: 30px;
+	padding: 5px;
+	margin-bottom: 3px;
+}
+
 /*************************Grupos de filtros**********/
 .list-group
 {
