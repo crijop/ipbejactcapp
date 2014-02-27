@@ -1,0 +1,50 @@
+{% extends "administrador/index.html" %}
+{% load i18n %}
+{% block title %}{% trans 'Página de adicionar utilizador' %}{% endblock %}
+
+<!-- Estes blocos é para alterar a classe do menu do index, refere se está ou não activo -->
+{% block menuUsers %}active{% endblock %}
+
+{% block breadcrumb %}
+<ul class="breadcrumb">
+	<li>
+		<span class="glyphicon glyphicon-home"></span> <a tabindex="2" href="{% url HomeAdmin %}" title="{% trans 'Home' %}">{% trans 'Home' %}</a>
+	</li>
+	<li class="active">{% trans 'Adicionar utilizador' %}</li>
+</ul>
+{% endblock %}
+
+{% block content %}
+{% endblock %}
+
+{% block formulario %}
+<div class="page-header whiteText">
+  <h1>{% trans 'Adicionar utilizador' %}</h1>
+</div>
+
+<form method="post" role="form">
+	{% csrf_token %}
+	{% for field in form %}
+		<div class="form-group whiteText">
+			<label for="col-sm-2 control-label">{{ field.label }} {% if field.field.required %}*{%endif%}</label>
+			{{ field }}
+		</div>
+	    
+	    {% for error in field.errors %} 
+        	<div class="alert alert-danger tamanhoAlertDanger">
+        		{{error}}
+        	</div> 
+		{% endfor %}
+		
+   	{% endfor %}
+    <br />
+   	<span id="CamposObirgatorio" class="whiteText">(*) - {% trans 'Campos de preenchimento obrigatório' %}</span>
+   	<hr />
+	<div id="buttonConfirm">
+		<input type="hidden" name="{{ stage_field }}" value="1" />
+		
+		<input type="submit" value = "{% trans 'Adicionar Docente' %}" class="btn btn-primary btn-lg" />
+		<script>changeCountValue();</script>
+	</div>
+</form>
+{% endblock %}

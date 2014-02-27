@@ -21,7 +21,7 @@
 	<li class="dropdown {% block menuUsers %} {% endblock %}">
 	    <a href="#" class="dropdown-toggle" data-toggle="dropdown">{% trans 'Utilizadores' %}<b class="caret"></b></a>
 	    <ul class="dropdown-menu">
-	      <li><a href="#">{% trans 'Adicionar' %}</a></li>
+	      <li><a href="{% url addUser %}">{% trans 'Adicionar' %}</a></li>
 	      <li><a href="#">{% trans 'Editar' %}</a></li>
 	      <li><a href='{%url listUser %}'>{% trans 'Listar' %}</a></li>
 	    </ul>
