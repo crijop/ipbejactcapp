@@ -42,6 +42,12 @@ body
 	height: 30px !important;
 }
 
+.tamanhoInputMultipleSelect
+{
+	width: 50% !important;
+	height: 150px !important;
+}
+
 .tamanhoAlertDanger
 {
 	width: 50%;
