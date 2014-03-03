@@ -18,12 +18,14 @@ from django.contrib.auth.models import Group
 from django.contrib.formtools.preview import FormPreview
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
-from django.http import HttpResponseRedirect, Http404
+from django.http import HttpResponseRedirect, Http404, HttpResponse
 from django.shortcuts import render_to_response, get_object_or_404
 from django.template.context import RequestContext
 from django.utils.datetime_safe import datetime
 from pydoc import Doc
 import unicodedata
+from django.template.loader import render_to_string
+from django.utils import simplejson
 
 rhUserTeste = user_passes_test(lambda u:u.groups.filter(name='RecusosHumanos').count(), login_url='')
 
@@ -1475,6 +1477,182 @@ def editDocenteFormClass(request, *args, **kwargs):
     return view(request, *args, **kwargs)
     pass
 
+@login_required(redirect_field_name='login_redirectUsers')
+@rhUserTeste
+def editDocenteForm(request, id_docente = None):
+    
+    id_docente = id_docente
+   
+    form_template = 'recursosHumanos/editDocente.html'
+    
+    docenteEdit = Docente.objects.get(id=id_docente)
+    d = get_object_or_404(Docente, pk=id_docente) 
+    if request.method == 'GET': 
+        print "VAI CARREGAR o FORMULARIO"
+        form = EditarDocenteForm(instance=docenteEdit)
+        
+        try:
+            modificacao = DocenteLogs.objects.filter(docente_id = id_docente)
+            
+            if(len(modificacao) != 0):
+                
+                modificacao = modificacao.reverse()[len(modificacao) - 1]
+                userName = models.User.objects.get(id__exact= modificacao.id_user).username
+                infoEdicao = 0
+                
+        except ObjectDoesNotExist:
+            
+            modificacao = "O Docente ainda não foi alterado"
+            infoEdicao = 1
+        
+            
+        return render_to_response(form_template,
+            locals(),
+            context_instance=RequestContext(request))
+    else:
+        
+        b = Docente.objects.get(id=id_docente)
+        form = EditarDocenteForm(request.POST, instance=b)
+        if form.is_valid():
+            print "VAI SALVAR A EDIÇÃO"
+            #passar a variavel nome_completo para o template
+            nome_completo= form.cleaned_data['nome_completo']
+            #verifica se o campo do regime de exclusividade é
+            #verdadeiro ou Falso
+            #regime exclusividade igual a verdadeiro
+            if form.cleaned_data['regime_exclusividade']:
+                d.nome_completo = form.cleaned_data['nome_completo']
+                d.departamento = form.cleaned_data['departamento']
+                d.escalao = form.cleaned_data['escalao']
+                d.email = form.cleaned_data['email']
+                d.abreviatura = form.cleaned_data['abreviatura']
+                d.regime_exclusividade = form.cleaned_data['regime_exclusividade']
+                pass
+            #regime exclusividade igual a falso
+            else:
+                regimeExclusividade = False
+                d.nome_completo = form.cleaned_data['nome_completo']
+                d.departamento = form.cleaned_data['departamento']
+                d.escalao = form.cleaned_data['escalao']
+                d.email = form.cleaned_data['email']
+                d.abreviatura = form.cleaned_data['abreviatura']
+                d.regime_exclusividade = regimeExclusividade
+                pass
+            
+            docLogs = DocenteLogs(docente_id = id_docente,
+                                data_modificacao = datetime.today(),
+                                id_user = request.user.id
+                                )
+           
+            docLogs.save()
+            d.save()
+            
+            #return HttpResponseRedirect('/thanks/') # Redirect after POST
+        
+            return render_to_response("recursosHumanos/sucesso.html",
+                locals(),
+                context_instance=RequestContext(request),
+                )
+        else:
+            return render_to_response(form_template,
+            locals(),
+            context_instance=RequestContext(request))
+            
+            '''
+            print "Id do Docente ", id_docente
+            print "DATA ", datetime.today()
+            print "Id do User ", request.user.id
+            
+            '''
+            
+            
+            
+        pass
+    pass
+
+
+@login_required(redirect_field_name='login_redirectUsers')
+@rhUserTeste
+def valid_ajax(request, id_docente):
+    
+    serialized_data = None
+    
+    
+  
+    
+    b = Docente.objects.get(id=id_docente)
+    form = EditarDocenteForm(request.GET, instance=b)
+    
+    
+   
+   
+    
+    '''if regime_exclusividade == True :
+        regimeExclusividade = "Sim"
+        pass
+    else:
+        regimeExclusividade = "Não"
+        pass'''
+    
+    
+   
+    
+    if form.is_valid():
+        
+         
+         nome_Departamento = form.cleaned_data['departamento']
+         nomeDocente = form.cleaned_data['nome_completo']
+         escalao = form.cleaned_data['escalao']
+    
+         regime_exclusividade = form.cleaned_data['regime_exclusividade']
+         
+         if(regime_exclusividade == True):
+             regime_exclusividade = "Sim"
+         else:
+             regime_exclusividade = "Não"
+         
+         email_institucional = form.cleaned_data['email']
+         abreviatura = form.cleaned_data['abreviatura']
+        
+        
+        
+        
+         html = render_to_string("recursosHumanos/preview_edit_docente.html", locals())
+         serialized_data = simplejson.dumps({"valid":"s", "html":html})
+       
+    else:
+        serialized_data = simplejson.dumps({"valid":"n", "errors": form.errors})
+        
+        pass
+    
+    
+    return HttpResponse(serialized_data, mimetype="application/json")
+        
+      
+        
+        
+        
+    pass
+
+
+
+'''
+Metodo reposavel por validar o formulario de edição.
+'''
+@login_required(redirect_field_name='login_redirectUsers')
+@rhUserTeste
+def filter_abc(request, id_docente = None):
+
+    print "METODO"
+    if request.is_ajax():
+        d = get_object_or_404(Docente, pk=id_docente)
+        print "AJAX"
+        alfabeto = map(chr , range(65, 91))
+        
+        return render_to_response("recursosHumanos/filter_abc.html",
+        locals(),
+        context_instance=RequestContext(request),
+        )
 
 
 @login_required(redirect_field_name='login_redirectUsers')
@@ -1578,7 +1756,7 @@ class EditDocenteModelFormPreview(FormPreview):
         "Displays the form"
         
         id_docente = self.state['id_docente']
-        print "dfdfdfdf"
+        print "Estou no PreviewGET do EDITAR DOCENTE"
         docenteEdit = Docente.objects.get(id=id_docente)
         form = EditarDocenteForm(instance=docenteEdit)
         
@@ -1749,6 +1927,19 @@ def showSaveButton1(request):
         )
     pass 
 
+def preview_edit_docente_ajax(request):
+    if request.is_ajax():
+        
+       
+       
+        html = render_to_string("recursosHumanos/preview_edit_docente.html", locals())
+        serialized_data = simplejson.dumps({"html":html, "teste":t});
+        
+        return HttpResponse(serialized_data, mimetype="application/json");
+
+        pass
+       
+    pass 
 
 '''
 Fim das vistas dos Recursos Humanos

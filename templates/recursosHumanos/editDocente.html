@@ -27,7 +27,7 @@
   <h1>{% trans 'Editar Docente' %}</h1>
 </div>
 
-	<form method="post" role="form">
+	<form id="edit_form" method="post" role="form">
 	{% csrf_token %}
 	{% for field in form %}
 		<div class="form-group whiteText">
@@ -58,8 +58,9 @@
 	<div id="buttonConfirm">
 		<input type="hidden" name="{{ stage_field }}" value="1" />
 		
-		<input type="submit" value = "{% trans 'Gravar' %}" class="btn btn-primary btn-lg" />
-		<script>changeCountValue();</script>
+		<input type="button" onclick="form_validation({{id_docente}})" value = "{% trans 'Gravar' %}" class="btn btn-primary btn-lg" />
+		
 	</div>
 </form>
+<script src="/static/javaScript/recursosHumanos_contratos.js"></script>
 {% endblock %}

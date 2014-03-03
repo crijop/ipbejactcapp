@@ -1,0 +1,42 @@
+<div class="teste_dialogo">
+	<dl class="dl-horizontal">
+  <dt>Nome Completo</dt>
+  <dd>{{ nomeDocente }}</dd>
+</dl>
+<!---------------------------------------------->
+ 	<dl class="dl-horizontal">
+  <dt>Departamento</dt>
+  <dd>{{ nome_Departamento }}</dd>
+</dl>
+<!---------------------------------------------->
+ 	<dl class="dl-horizontal">
+  <dt>Escalão</dt>
+  <dd>{{ escalao }}</dd>
+</dl>
+
+<!---------------------------------------------->
+ 	<dl class="dl-horizontal">
+  <dt>Exclusividade</dt>
+  <dd>{{ regime_exclusividade }}</dd>
+</dl>
+<!---------------------------------------------->
+ 	<dl class="dl-horizontal">
+  <dt>Email Institucional</dt>
+  <dd>{{ email_institucional }}</dd>
+</dl>
+<!---------------------------------------------->
+ 	<dl class="dl-horizontal">
+  <dt>Abreviatura</dt>
+  <dd>{{ abreviatura }}</dd>
+</dl>
+
+       	<div class="alert alert-info">Deseja submeter os Dados dos Formulário?</div>
+   	
+   	<span id = "Confirmacao"></span>
+	<div id="buttonConfirm">
+		<input type="hidden" name="{{ stage_field }}" value="2" />
+		<input type="hidden" name="{{ hash_field }}" value="{{ hash_value }}" />
+		<input type="button" onclick="$( '.teste_dialogo' ).dialog('close');" class="btn btn-danger btn-lg" value="Não"  />
+		<input type="submit" onclick="$('#edit_form').submit()" class="btn btn-primary btn-lg" value="Sim" />
+	</div>
+	</div>
