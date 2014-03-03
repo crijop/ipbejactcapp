@@ -339,6 +339,8 @@ urlpatterns = patterns('',
     url(r'^distro/recursosHumanos/addDocente/$',
         'ipbejactcapp.distro.view_recursos_humanos.addDocenteFormClass',
         name='adicionarDocenteRH'),
+                       
+    
 
     #Aparece o butão para salvar o formulario quando
     #existe alguma alteração.
@@ -346,7 +348,7 @@ urlpatterns = patterns('',
     
     #Url destinado a apresentar o formulario para editar um determinado docente.                  
     url(r'^distro/recursosHumanos/listDocenteEdit/(?P<id_docente>\d+)/$',
-        'ipbejactcapp.distro.view_recursos_humanos.editDocenteFormClass',
+        'ipbejactcapp.distro.view_recursos_humanos.editDocenteForm',
         name='RH_EditarDocente'),
     
     #Url para apresentar a lista dos docentes               
@@ -376,6 +378,10 @@ urlpatterns = patterns('',
     url(r'^distro/recursosHumanos/listDocenteEdit/filter_cat/$', 'ipbejactcapp.distro.view_recursos_humanos.filter_cat'),
     
     url(r'^distro/recursosHumanos/listDocenteEdit/(?P<id_docente>\d+)/addSaveButton/$', 'ipbejactcapp.distro.view_recursos_humanos.showSaveButton'),
+    
+
+    url(r'^distro/recursosHumanos/valid_ajax/(?P<id_docente>\d+)$',
+        'ipbejactcapp.distro.view_recursos_humanos.valid_ajax'),
     
     #lista de docentes                   
     url(r'^distro/recursosHumanos/ajax/$', 'ipbejactcapp.distro.view_recursos_humanos.ajax'),  
