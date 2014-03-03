@@ -32,6 +32,30 @@
 
 {% block content %}
 
+{% if estado = "add"%}
+<div class="jumbotron">
+	
+  <h1>{% trans 'Sucesso!'%}</h1>
+  <p>{% trans 'O docente'%} {{nome_completo}} {% trans ' foi adicionado com Sucesso'%}</p>
+  <p></p>
+  <p>- {% trans 'Clique em ir para ir para lista de docentes.'%}</p>
+  <p><a class="btn btn-primary btn-lg" href="/distro/recursosHumanos/listDocente/" role="button">{% trans "Ir" %}</a></p>
+  
+</div>
+{% else %}
+<div class="jumbotron success_jumbotron">
+	
+  <h1>{% trans 'Sucesso!'%}</h1>
+  <p>{% trans 'O docente'%} {{nome_completo}} {% trans 'foi editado com Sucesso'%}</p>
+  <p></p>
+  <p>- {% trans 'Clique em voltar para regressar a lista de docentes a editar.'%}</p>
+  <p><a class="btn btn-primary btn-lg" href="/distro/recursosHumanos/listDocenteEdit/" role="button">{% trans "Voltar" %}</a></p>
+  
+</div>
+
+{%endif%}
+{% comment %}
+
 <div class="alert alert-success">
 	{% if estado = "add"%}
     	<span>{% trans 'O docente'%} {{nome_completo}} {% trans ' foi adicionado com Sucesso'%}</span>
@@ -39,5 +63,6 @@
     	<span>{% trans 'O docente'%} {{nome_completo}} {% trans 'foi editado com Sucesso'%}</span>
     {%endif%}
 </div>
+{% endcomment %}
 {% endblock %}
 

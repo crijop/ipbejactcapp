@@ -77,6 +77,11 @@ body
 	padding-left: 3em;
 }
 
+/***********MAIN BLOCK***************/
+div.main_block
+{
+	min-height: 100%;
+}
 /**************Footer***************/
 footer.bs-footer
 {
@@ -92,6 +97,7 @@ position: absolute;
 	width: 100%;
 	margin-top: 1em;
 	margin-bottom: 0em;
+	
 }
 
 footer.bs-footer p
@@ -112,6 +118,13 @@ div.jumbotron
 	
 }
 
+.success_jumbotron
+{
+
+	background-image: linear-gradient(to bottom,  #006400 0px, #556B2F 100%) !important;
+    background-repeat: repeat-x !important;
+	
+}
 
 /*-----------------------TABLE-------------------*/
 table.display td{
