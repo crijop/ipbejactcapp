@@ -58,6 +58,17 @@ urlpatterns = patterns('',
     ########################################################################################
     
     
+    ######################## 08/03/2014 ####################################
+    #### Utilizadores do Sistema
+    
+    url(r'^distro/changepass$', 
+        'ipbejactcapp.distro.view_utilizadores.password_changeUser', 
+        name='changePassword'),
+    
+    ########################################################################
+    
+    
+    
     #URL LOGIN
     (r'^$', 'django.contrib.auth.views.login',
         {'template_name': 'login.html'}, 'entrar'),
