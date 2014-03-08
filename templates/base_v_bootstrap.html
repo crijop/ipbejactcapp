@@ -83,6 +83,7 @@
 											{% if docsroot %}{% endif %}
 									      	<ul class="dropdown-menu">
 										        <li><a href="#">{% trans 'Editar Perfil' %} </a></li>
+										        <li><a href="{% url changePassword %}">{% trans 'Alterar Palavra Chave' %} </a></li>
 										        <li><a href="{% url sair %}">{% trans 'Log out' %}</a></li>
 										    </ul>
 									   	{% endblock %} 

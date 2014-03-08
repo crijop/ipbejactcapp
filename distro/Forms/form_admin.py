@@ -159,7 +159,6 @@ class SetPasswordForm(forms.Form):
         return self.user
 
 # FORM para os utilizadores poderem alterar a sua passord
-# ainda nao esta a ser chamado.
 class PasswordChangeForm(SetPasswordForm):
     """
     A form that lets a user change his/her password by entering

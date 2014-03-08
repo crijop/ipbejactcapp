@@ -1,0 +1,30 @@
+{% extends extentTemplate %}
+
+
+{% load i18n %}
+{% block title %} {% trans 'Palavra Chave alterada com Sucesso'%} {% endblock %}
+
+{% block breadcrumb %}
+<ul class="breadcrumb">
+	<li>
+		<span class="glyphicon glyphicon-home"></span> <a tabindex="2" href="/distro" title="{% trans 'Home' %}">{% trans 'Home' %}</a>
+	</li>
+		<li>
+			<a tabindex="3" href="{% url changePassword %}" title="Alterar Palavra chave">{% trans 'Alterar Palavra Chave' %}</a>
+		</li>
+		<li class="active">
+			{% trans 'Palavra chave alterada com Sucesso' %}
+		</li>
+</ul>
+{% endblock %}
+
+{% block content %}
+<div class="jumbotron success_jumbotron">
+  <h1>{% trans 'Sucesso!'%}</h1>
+  <p>{% trans 'A palavra chave foi alterada com Sucesso'%}</p>
+  <p></p>
+  <p>- {% trans 'Clique em voltar para regressar a pagina inícial.'%}</p>
+  <p><a class="btn btn-primary btn-lg" href="/distro" role="button">{% trans "Voltar" %}</a></p>
+</div>
+{% endblock %}
+
