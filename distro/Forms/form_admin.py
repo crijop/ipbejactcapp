@@ -51,6 +51,12 @@ class AddUserForm(forms.ModelForm):
     password2 = forms.CharField(label=_("Password confirmation"),
         widget=forms.PasswordInput(attrs={'class':'form-control colorInput tamanhoInput'}),
         help_text = _("Enter the same password as above, for verification."))
+    
+    group = forms.ModelChoiceField(required = False, \
+                   queryset = Group.objects.all(), \
+                   label=_(u'Grupos'), \
+                   widget=forms.Select(
+                               attrs={'class':'form-control colorInput tamanhoInput'}))
 
     class Meta:
         model = User
@@ -106,6 +112,12 @@ class EditUserForm(forms.ModelForm):
             'invalid': _("This value may contain only letters, numbers and "
                          "@/./+/-/_ characters.")}, widget=forms.TextInput(attrs={'class':'form-control colorInput tamanhoInput'}))
     
+    group = forms.ModelChoiceField(required = False, \
+                   queryset = Group.objects.all(), \
+                   label=_(u'Grupos'), \
+                   widget=forms.Select(
+                               attrs={'class':'form-control colorInput tamanhoInput'}))
+    
     def __init__(self, username, *args, **kwargs):
         super(EditUserForm, self).__init__(*args, **kwargs)
         self.username = username
@@ -124,6 +136,8 @@ class EditUserForm(forms.ModelForm):
             except User.DoesNotExist:
                 return username
             raise forms.ValidationError(self.error_messages['duplicate_username'])
+        return username
+ 
 
 # Actualizar Password.
 class SetPasswordForm(forms.Form):

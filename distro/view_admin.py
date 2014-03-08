@@ -92,6 +92,17 @@ def addUsers(request, *args, **kwargs):
                         )
             tableuser.set_password(form.cleaned_data['password1'])
             tableuser.save()
+            
+            
+            
+            nomeGrupo = form.cleaned_data['group']
+            g = Group.objects.get(name= nomeGrupo)
+            users = User.objects.filter(username = form.cleaned_data['username'])
+            for u in users:
+                g.user_set.add(u)
+            
+            
+            
     else:
         form = AddUserForm()
     
@@ -123,7 +134,9 @@ def editUser(request, *args, **kwargs):
     return render_to_response(template,
         locals(),
         context_instance=RequestContext(request),
-        )
+        )    
+
+    
     
 # Fazer reset a password por parte do administrador
 def password_changeReset(request, *args, **kwargs):
@@ -145,8 +158,6 @@ def password_changeReset(request, *args, **kwargs):
         context_instance=RequestContext(request),
         )
     
-
-
 
 # Lista de utilizadores
 @login_required

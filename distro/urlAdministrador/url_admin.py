@@ -45,8 +45,8 @@ urlpatterns = patterns('',
     url(r'^alterpwd/(?P<idUser>\d+)$', 'distro.view_admin.password_changeReset', 
             name='alterPassword'),
     
-                       
-                       
+    
+
     
     
     # Lista de utilizadores
