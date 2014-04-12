@@ -1,47 +1,61 @@
 {% extends "departamento/index.html" %}
 {% load i18n %}
-{% block title %} 
-	Página informação dos Modulos pertencente á Turma
-{% endblock %}
+{% block title %}{% trans 'Página informação dos Modulos pertencente á Turma' %}{% endblock %}
 {% block breadcrumb %}
-<ul id="breadcrumb">
+<ul class="breadcrumb">
 	<li>
-		<a tabindex="2" href="{% url homeDepartamento %}" title="{% trans 'Home' %}"> <img src="/static/images/BreadCrumbs/home.png" alt="{% trans 'Home' %}" class="home" /> </a>
+		<span class="glyphicon glyphicon-home"></span> <a tabindex="2" href="{% url homeDepartamento %}" title="{% trans 'Home' %}">{% trans 'Home' %}</a>
 	</li>
 	<li>
-		<a tabindex="3" href="{% url listarServicoDocente ano %}" title="Listar Serviço Docente Atribuido">Listar Serviço Docente Atribuido</a>
+		<a tabindex="2" href="{% url listarServicoDocente ano %}" title="{% trans 'Listar Serviço Docente Atribuido' %}">{% trans 'Listar Serviço Docente Atribuido' %}</a>
 	</li>
-	<li>
-		Informação dos Modulos pertencente á Turma - {{nomeTurma}}
-	</li>
+	<li class="active">{% trans 'Informação dos Modulos pertencente á Turma' %} - {{nomeTurma}}</li>
 </ul>
 {% endblock %}
 
 {% block content %}
-	<h2 class="infoTitle">Informação dos Modulos pertencente á Turma: {{nomeTurma}}</h2>
-<table class="tabela_sumario">
-	
-	<tr class="special_cabecalho">
-    	<th colspan="2" align="left">Ano: {{ano}} | Tipo Aula: {{tipoAula}} | Turno: {{turno}}</th>
-    </tr>
-	<tr class="cabecalho_sumario">
-		<th class="cabecalho_sumario">Docente</th>
-		<th class="cabecalho_sumario">Horas Atribuidas</th>
-	</tr>
-	
-	{% for id_Docente, nome, horas, turmas, a in listInfo %}
-	
-	<tr {%if id_Docente == "" %}
-	
-	class="WithoutTeacher" {% endif %}>
-		<td>{{nome}}</td>
-		<td>{{horas}}</td>
-	</tr>
-	{% endfor %}
-	<tr class="cabecalho_sumario">
-    	<th class="sub_cabecalho">Horas Total</th>
-    	<th class="sub_cabecalho" >{{horasTotal}}</th>
-    </tr>
-
+	<div class="page-header whiteText">
+	  <h1>{% trans 'Informação dos Modulos pertencente á Turma: '%}{{nomeTurma}}</h1>
+	</div>
+	<table cellpadding="0" cellspacing="0" border="0" class="display sumary_table" id="special_table" width="100%">
+		<thead>
+			<tr class="special_cabecalho">
+		    	<th colspan="2" align="left">Ano: {{ano}} | Tipo Aula: {{tipoAula}} | Turno: {{turno}}</th>
+		    </tr>
+			<tr class="cabecalho_sumario">
+				<th class="cabecalho_sumario">{% trans 'Docente' %}</th>
+				<th class="cabecalho_sumario">{% trans 'Horas Atribuidas' %}</th>
+			</tr>
+		</thead>
+		<tbody>
+		{% for id_Docente, nome, horas, turmas, a in listInfo %}
+			<tr {%if id_Docente == "" %}class="WithoutTeacher" {% endif %}>
+				<td>{{nome}}</td>
+				<td>{{horas}}</td>
+			</tr>
+		{% endfor %}
+		
+    </tbody>
+    <tfoot>
+		 <tr>
+		   <th>Horas Total</th>
+		   <th>{{horasTotal}}</th>
+		 </tr>
+	</tfoot>
 </table>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+		$('#special_table').dataTable({
+			"oLanguage": {
+	            "sUrl": "/static/dataTables/lang/pt-pt.txt"
+	        },
+	         "sPaginationType": "full_numbers",
+	         "sDom": '<"dataTables_special_bar"l><"dataTables_special_bar"if><"whiteBox"rt><"pagination_box"p>'
+		        
+		        	
+			});
+			$('.hasTooltip').tooltip({"container": false});
+		} );
+	</script>
 {% endblock %}

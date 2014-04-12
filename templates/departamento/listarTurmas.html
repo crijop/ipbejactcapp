@@ -1,17 +1,17 @@
 {% extends "departamento/index.html" %}
 {% load i18n %}
-{% block title %} Listar Turmas Departamento {% endblock %}
+{% block title %}{% trans 'Listar Turmas Departamento' %}{% endblock %}
 {% block breadcrumb %}
-<ul id="breadcrumb">
+<ul class="breadcrumb">
 	<li>
-		<a tabindex="2" href="{% url homeDepartamento %}" title="{% trans 'Home' %}"> <img src="/static/images/BreadCrumbs/home.png" alt="{% trans 'Home' %}" class="home" /> </a>
+		<span class="glyphicon glyphicon-home"></span> <a tabindex="2" href="{% url homeDepartamento %}" title="{% trans 'Home' %}">{% trans 'Home' %}</a>
 	</li>
-	<li>
-		Listar Turmas Departamento {{departamento}}
-	</li>
+	<li class="active">{% trans 'Listar Turmas Departamento' %} {{departamento}}</li>
 </ul>
 {% endblock %}
-{% block Filtros %}
+
+
+{% block filtros %}
 <img id="filterImg" src="/static/images/filtro.png">
 <ul>
 
@@ -36,68 +36,54 @@
 {% endblock %}
 
 {% block content %}
-
-
-	
-	<table class="tabela_sumario">
-
-		<tr class="search">
-			<th colspan="7" class="top_sumario"> {% csrf_token %}
-			<form action="" onkeypress="testeSearch()" method="get" name="searchForm">
-				<img src="/static/images/selector-search.gif" title="search" alt="searchIcon" />
-				<input name="searchField"  id="searchField" required type="search" value="{{keyword}}" />
-				<input id="submitSearch" value={%trans 'Search'%} name="Submit" type="submit" />
-				{% if keyword != None%}
-				<span>- Pesquisa por "{{keyword}}"</span>
-				{% endif %}
-				<span>- {{sizeList}} resultados encontrados</span>
-			</form></th>
-		</tr>
-		<tr class="special_cabecalho">
-			<th colspan="6" align="left">{{anoReferente}}</th>
-		</tr>
-		<tr class="cabecalho_sumario">
-
-			<th class="cabecalho_sumario">Unidade Curricular</th>
-			<th class="cabecalho_sumario">Curso</th>
-			<th class="cabecalho_sumario">Número de Horas</th>
-			<th class="cabecalho_sumario">Número de Alunos</th>
-			<th class="cabecalho_sumario">Tipo Aula</th>
-			<th class="cabecalho_sumario">Turno</th>
-		</tr>
-		{% for unidadeCurricular, idTurma, curso, horas, nrAlunos, tipoAula, turno in turmas %}
-		<tr>
-			<td class="teacher_name_field">{{unidadeCurricular}}</td>
-			<td>{{curso}}</td>
-			<td>{{horas}}</td>
-			<td>{{nrAlunos}}</td>
-			<td>{{tipoAula}}</td>
-			<td>{{turno}}</td>
-		</tr>
-		{% endfor %}
-
-		{%if sizeList == 0 %}
-
-		<tr>
-			<td colspan="6">Não existem resultados para esta pesquisa</td>
-		</tr>
-
-		{% endif %}
-
-	</table>
-
-	<div id="paginator">
-
-		<span class="current"> Página {{ turmas.number }} de {{ turmas.paginator.num_pages }}. </span>
-		<br>
-		<span class="step-links"><a href="?show=all">Todos</a></span>
-		<span class="step-links"> {% for page_num in drange %} <a id="{{ page_num}}" href="?page={{ page_num}}&{{actualState}}">{{ page_num}}</a> {% endfor%} </span>
+	<div class="page-header whiteText">
+	  <h1>{% trans 'Listar Turmas Departamento'%} {{departamento}}</h1>
 	</div>
-	<br>
+	
+	
+	<table cellpadding="0" cellspacing="0" border="0" class="display sumary_table" id="special_table" width="100%">
+		<thead>
+			<tr class="special_cabecalho">
+				<th colspan="6">{{anoReferente}}</th>
+			</tr>
+			<tr class="cabecalho_sumario">
+	
+				<th class="cabecalho_sumario">{% trans 'Unidade Curricular'%}</th>
+				<th class="cabecalho_sumario">{% trans 'Curso'%}</th>
+				<th class="cabecalho_sumario">{% trans 'Número de Horas'%}</th>
+				<th class="cabecalho_sumario">{% trans 'Número de Alunos'%}</th>
+				<th class="cabecalho_sumario">{% trans 'Tipo Aula'%}</th>
+				<th class="cabecalho_sumario">{% trans 'Turno'%}</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for unidadeCurricular, idTurma, curso, horas, nrAlunos, tipoAula, turno in turmas %}
+			<tr>
+				<td class="teacher_name_field">{{unidadeCurricular}}</td>
+				<td>{{curso}}</td>
+				<td>{{horas}}</td>
+				<td>{{nrAlunos}}</td>
+				<td>{{tipoAula}}</td>
+				<td>{{turno}}</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+	
+
 	<script type="text/javascript">
-		document.getElementById("searchField").focus();
-		filter_oa();
-		filter_curso();
+			$(document).ready(function() {
+		$('#special_table').dataTable({
+			"oLanguage": {
+	            "sUrl": "/static/dataTables/lang/pt-pt.txt"
+	        },
+	         "sPaginationType": "full_numbers",
+	         "sDom": '<"dataTables_special_bar"l><"dataTables_special_bar"if><"whiteBox"rt><"pagination_box"p>'
+	        
+	        	
+		});
+		$('.hasTooltip').tooltip({"container": false});
+	} );
 	</script>
 	{% endblock %}
 
