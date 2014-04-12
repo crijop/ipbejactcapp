@@ -10,6 +10,7 @@
 
 {% block Menus %}
     
+    {%comment%}
     <li class="dropdown {% block menuGroup %} {% endblock %}">
 	    <a href="#" class="dropdown-toggle" data-toggle="dropdown">{% trans 'Grupos' %}<b class="caret"></b></a>
 	    <ul class="dropdown-menu">
@@ -18,11 +19,12 @@
 	      <li><a href='{%url listGroup %}'>{% trans 'Listar' %}</a></li>
 	    </ul>
 	</li>
+	{%endcomment%}
 	<li class="dropdown {% block menuUsers %} {% endblock %}">
 	    <a href="#" class="dropdown-toggle" data-toggle="dropdown">{% trans 'Utilizadores' %}<b class="caret"></b></a>
 	    <ul class="dropdown-menu">
 	      <li><a href="{% url addUser %}">{% trans 'Adicionar' %}</a></li>
-	      <li><a href="#">{% trans 'Editar' %}</a></li>
+	      {%comment%}<li><a href="#">{% trans 'Editar' %}</a></li>{%endcomment%}
 	      <li><a href='{%url listUser %}'>{% trans 'Listar' %}</a></li>
 	    </ul>
 	</li>

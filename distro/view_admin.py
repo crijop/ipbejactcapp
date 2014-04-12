@@ -9,6 +9,7 @@ from distro.Forms.form_admin import AddUserForm, AddGroupForm, EditUserForm, \
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import Group, User, Permission
+from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response
 from django.template.context import RequestContext
@@ -21,11 +22,11 @@ def index(request, *args, **kwargs):
 
     return render_to_response(template,
         locals(),
-        context_instance=RequestContext(request),
+        context_instance = RequestContext(request),
         )
 
 # Adicionar Grupo de utilizadores
-#def addGrupo(request, *args, **kwargs):
+# def addGrupo(request, *args, **kwargs):
     
     
 
@@ -40,7 +41,7 @@ def listGroup(request):
 
     return render_to_response(template,
         locals(),
-        context_instance=RequestContext(request),
+        context_instance = RequestContext(request),
         )
     
     
@@ -89,17 +90,21 @@ def addUsers(request, *args, **kwargs):
                         last_name = form.cleaned_data['last_name'],
                         email = form.cleaned_data['email'],
                         password = form.cleaned_data['password1'],
+                        is_active = form.cleaned_data['is_active'],
                         )
             tableuser.set_password(form.cleaned_data['password1'])
             tableuser.save()
             
             
+            # Verificar o se o grupo vem a null
+            print "aswwww", form.cleaned_data['group']
+            if form.cleaned_data['group'] != None:
             
-            nomeGrupo = form.cleaned_data['group']
-            g = Group.objects.get(name= nomeGrupo)
-            users = User.objects.filter(username = form.cleaned_data['username'])
-            for u in users:
-                g.user_set.add(u)
+                nomeGrupo = form.cleaned_data['group']
+                g = Group.objects.get(name = nomeGrupo)
+                users = User.objects.filter(username = form.cleaned_data['username'])
+                for u in users:
+                    g.user_set.add(u)
             
             
             
@@ -109,7 +114,7 @@ def addUsers(request, *args, **kwargs):
     template = "administrador/Users/add_edit_User.html"
     return render_to_response(template,
         locals(),
-        context_instance=RequestContext(request),
+        context_instance = RequestContext(request),
         )
     
 # Adicionar Utilizadores de utilizadores
@@ -118,22 +123,24 @@ def editUser(request, *args, **kwargs):
     idUser = kwargs["idUser"]
     userEdit = User.objects.get(id = idUser)
     if request.method == 'POST':
-        form = EditUserForm(userEdit.username, request.POST)
+        form = EditUserForm(userEdit.username, request.POST, instance = userEdit)
         
         if form.is_valid():
-            print "aaaaaaaaaa", form.cleaned_data['username']
             User.objects.filter(id = idUser).update(username = form.cleaned_data['username'],
                         first_name = form.cleaned_data['first_name'],
                         last_name = form.cleaned_data['last_name'],
                         email = form.cleaned_data['email'],
+                        is_active = form.cleaned_data['is_active'],
                             )
+            
+            return HttpResponseRedirect(reverse('listUser'))
     else:
         form = EditUserForm(userEdit.username, instance = userEdit)
     
     template = "administrador/Users/add_edit_User.html"
     return render_to_response(template,
         locals(),
-        context_instance=RequestContext(request),
+        context_instance = RequestContext(request),
         )    
 
     
@@ -146,16 +153,16 @@ def password_changeReset(request, *args, **kwargs):
     
     password_change_form = PasswordChangeFormReset
     if request.method == "POST":
-        form = password_change_form(user=userEdit, data=request.POST)
+        form = password_change_form(user = userEdit, data = request.POST)
         if form.is_valid():
             form.save()
     else:
-        form = password_change_form(user=userEdit)
+        form = password_change_form(user = userEdit)
         
     template = "administrador/Users/changePassword.html"
     return render_to_response(template,
         locals(),
-        context_instance=RequestContext(request),
+        context_instance = RequestContext(request),
         )
     
 
@@ -169,7 +176,7 @@ def listUser(request):
 
     return render_to_response(template,
         locals(),
-        context_instance=RequestContext(request),
+        context_instance = RequestContext(request),
         )    
     
     

@@ -11,12 +11,12 @@ from django.utils.datastructures import SortedDict
 from django.utils.translation import ugettext, ugettext_lazy as _
 
 
-#Cria o form de criação de grupos
+# Cria o form de criação de grupos
 class AddGroupForm(forms.Form):
         
-    name = forms.CharField(max_length=300, label=_(u'Nome do grupo'), widget=forms.TextInput(attrs={'class':'form-control colorInput tamanhoInput'}))
+    name = forms.CharField(max_length = 300, label = _(u'Nome do grupo'), widget = forms.TextInput(attrs = {'class':'form-control colorInput tamanhoInput'}))
     
-    perm = forms.ModelMultipleChoiceField(queryset=Permission.objects.all(), label=_(u'Permissões'), widget=forms.SelectMultiple(attrs={'multiple class':'form-control colorInput tamanhoInputMultipleSelect'}))
+    perm = forms.ModelMultipleChoiceField(queryset = Permission.objects.all(), label = _(u'Permissões'), widget = forms.SelectMultiple(attrs = {'multiple class':'form-control colorInput tamanhoInputMultipleSelect'}))
     
     class Meta:
         model = Group
@@ -24,50 +24,52 @@ class AddGroupForm(forms.Form):
 
 
 # Formulario para adicionar utilizador
-class AddUserForm(forms.ModelForm):
+class AddUserForm(forms.Form):
     error_messages = {
         'duplicate_username': _(u"O nome de utilizador inserido já existe."),
         'password_mismatch': _(u"Os dois campos da palavra-chave são diferentes."),
     }
     
-    first_name  = forms.CharField(required = False, max_length=150, label=u'Primeiro Nome', \
-                                        widget=forms.TextInput(attrs={'class':'form-control colorInput tamanhoInput'}))
+    first_name = forms.CharField(required = False, max_length = 150, label = u'Primeiro Nome', \
+                                        widget = forms.TextInput(attrs = {'class':'form-control colorInput tamanhoInput'}))
     
-    last_name  = forms.CharField(required = False, max_length=150, label=u'Último Nome', \
-                                        widget=forms.TextInput(attrs={'class':'form-control colorInput tamanhoInput'}))
-    email = forms.EmailField(max_length=300, label=_(u'E-mail'), widget=forms.TextInput(attrs={'class':'form-control tamanhoInput'}))
+    last_name = forms.CharField(required = False, max_length = 150, label = u'Último Nome', \
+                                        widget = forms.TextInput(attrs = {'class':'form-control colorInput tamanhoInput'}))
+    email = forms.EmailField(max_length = 300, label = _(u'E-mail'), widget = forms.TextInput(attrs = {'class':'form-control tamanhoInput'}))
     
-    username = forms.RegexField(label=_("Nome Utilizador"), max_length=30,
-        regex=r'^[\w.@+-]+$',
+    username = forms.RegexField(label = _("Nome Utilizador"), max_length = 30,
+        regex = r'^[\w.@+-]+$',
         help_text = _("Required. 30 characters or fewer. Letters, digits and "
                       "@/./+/-/_ only."),
         error_messages = {
             'invalid': _("This value may contain only letters, numbers and "
-                         "@/./+/-/_ characters.")}, widget=forms.TextInput(attrs={'class':'form-control colorInput tamanhoInput'}))
+                         "@/./+/-/_ characters.")}, widget = forms.TextInput(attrs = {'class':'form-control colorInput tamanhoInput'}))
     
+    is_active = forms.BooleanField(label = _("Activo"), required = False, initial = True, \
+                    widget = forms.CheckboxInput(attrs = {'class':'form-control tamanhoInput colorInput'}))
     
-    password1 = forms.CharField(label=_("Password"),
-        widget=forms.PasswordInput(attrs={'class':'form-control colorInput tamanhoInput'}))
-    password2 = forms.CharField(label=_("Password confirmation"),
-        widget=forms.PasswordInput(attrs={'class':'form-control colorInput tamanhoInput'}),
+    password1 = forms.CharField(label = _("Password"),
+        widget = forms.PasswordInput(attrs = {'class':'form-control colorInput tamanhoInput'}))
+    password2 = forms.CharField(label = _("Password confirmation"),
+        widget = forms.PasswordInput(attrs = {'class':'form-control colorInput tamanhoInput'}),
         help_text = _("Enter the same password as above, for verification."))
     
     group = forms.ModelChoiceField(required = False, \
                    queryset = Group.objects.all(), \
-                   label=_(u'Grupos'), \
-                   widget=forms.Select(
-                               attrs={'class':'form-control colorInput tamanhoInput'}))
+                   label = _(u'Grupos'), \
+                   widget = forms.Select(
+                               attrs = {'class':'form-control colorInput tamanhoInput'}))
 
-    class Meta:
-        model = User
-        fields = ("first_name", "last_name", "email", "username",)
+    # class Meta:
+    #    model = User
+    #    fields = ("first_name", "last_name", "email", "username", "is_active")
 
     def clean_username(self):
         # Since User.username is unique, this check is redundant,
         # but it sets a nicer error message than the ORM. See #13147.
         username = self.cleaned_data["username"]
         try:
-            User.objects.get(username=username)
+            User.objects.get(username = username)
         except User.DoesNotExist:
             return username
         raise forms.ValidationError(self.error_messages['duplicate_username'])
@@ -97,46 +99,52 @@ class EditUserForm(forms.ModelForm):
         'password_mismatch': _(u"Os dois campos da palavra-chave são diferentes."),
     }
     
-    first_name  = forms.CharField(required = False, max_length=150, label=u'Primeiro Nome', \
-                                        widget=forms.TextInput(attrs={'class':'form-control colorInput tamanhoInput'}))
+    first_name = forms.CharField(required = False, max_length = 150, label = u'Primeiro Nome', \
+                                        widget = forms.TextInput(attrs = {'class':'form-control colorInput tamanhoInput'}))
     
-    last_name  = forms.CharField(required = False, max_length=150, label=u'Último Nome', \
-                                        widget=forms.TextInput(attrs={'class':'form-control colorInput tamanhoInput'}))
-    email = forms.EmailField(max_length=300, label=_(u'E-mail'), widget=forms.TextInput(attrs={'class':'form-control tamanhoInput'}))
+    last_name = forms.CharField(required = False, max_length = 150, label = u'Último Nome', \
+                                        widget = forms.TextInput(attrs = {'class':'form-control colorInput tamanhoInput'}))
+    email = forms.EmailField(max_length = 300, label = _(u'E-mail'), widget = forms.TextInput(attrs = {'class':'form-control tamanhoInput'}))
     
-    username = forms.RegexField(label=_("Nome Utilizador"), max_length=30,
-        regex=r'^[\w.@+-]+$',
+    username = forms.RegexField(label = _("Nome Utilizador"), max_length = 30,
+        regex = r'^[\w.@+-]+$',
         help_text = _("Required. 30 characters or fewer. Letters, digits and "
                       "@/./+/-/_ only."),
         error_messages = {
             'invalid': _("This value may contain only letters, numbers and "
-                         "@/./+/-/_ characters.")}, widget=forms.TextInput(attrs={'class':'form-control colorInput tamanhoInput'}))
+                         "@/./+/-/_ characters.")}, widget = forms.TextInput(attrs = {'class':'form-control colorInput tamanhoInput'}))
+    is_active = forms.BooleanField(label = _("Activo"), required = False, initial = True, \
+                    widget = forms.CheckboxInput(attrs = {'class':'form-control tamanhoInput colorInput'}))
     
     group = forms.ModelChoiceField(required = False, \
                    queryset = Group.objects.all(), \
-                   label=_(u'Grupos'), \
-                   widget=forms.Select(
-                               attrs={'class':'form-control colorInput tamanhoInput'}))
+                   label = _(u'Grupos'), \
+                   widget = forms.Select(
+                               attrs = {'class':'form-control colorInput tamanhoInput'}))
     
     def __init__(self, username, *args, **kwargs):
         super(EditUserForm, self).__init__(*args, **kwargs)
         self.username = username
     
     
-    class Meta:
-        model = User
-        fields = ("first_name", "last_name", "email", "username",)
+    # class Meta:
+        # model = User
+        # fields = ("first_name", "last_name", "email", "username")
 
     def clean_username(self):
         username = self.cleaned_data["username"]
-        print "ddddddddd", username, self.username
+        print "username", username, type(username) 
+        print "self.username", self.username, type(username)
         if self.username != username:
+            print "IF"
             try:
-                User.objects.get(username=username)
+                User.objects.get(username = username)
             except User.DoesNotExist:
                 return username
             raise forms.ValidationError(self.error_messages['duplicate_username'])
-        return username
+        else:
+            print "else"
+            return username
  
 
 # Actualizar Password.
@@ -148,10 +156,10 @@ class SetPasswordForm(forms.Form):
     error_messages = {
         'password_mismatch': _("The two password fields didn't match."),
     }
-    new_password1 = forms.CharField(label=_("New password"),
-                                    widget=forms.PasswordInput(attrs={'class':'form-control colorInput tamanhoInput'}) )
-    new_password2 = forms.CharField(label=_("New password confirmation"),
-                                    widget=forms.PasswordInput(attrs={'class':'form-control colorInput tamanhoInput'}))
+    new_password1 = forms.CharField(label = _("New password"),
+                                    widget = forms.PasswordInput(attrs = {'class':'form-control colorInput tamanhoInput'}))
+    new_password2 = forms.CharField(label = _("New password confirmation"),
+                                    widget = forms.PasswordInput(attrs = {'class':'form-control colorInput tamanhoInput'}))
 
     def __init__(self, user, *args, **kwargs):
         self.user = user
@@ -166,7 +174,7 @@ class SetPasswordForm(forms.Form):
                     self.error_messages['password_mismatch'])
         return password2
 
-    def save(self, commit=True):
+    def save(self, commit = True):
         self.user.set_password(self.cleaned_data['new_password1'])
         if commit:
             self.user.save()
@@ -182,8 +190,8 @@ class PasswordChangeForm(SetPasswordForm):
         'password_incorrect': _("Your old password was entered incorrectly. "
                                 "Please enter it again."),
     }
-    old_password = forms.CharField(label=_("Old password"),
-                                   widget=forms.PasswordInput(attrs={'class':'form-control colorInput tamanhoInput'}))
+    old_password = forms.CharField(label = _("Old password"),
+                                   widget = forms.PasswordInput(attrs = {'class':'form-control colorInput tamanhoInput'}))
 
     def clean_old_password(self):
         """
@@ -209,10 +217,10 @@ class PasswordChangeFormReset(forms.Form):
     error_messages = {
         'password_mismatch': _("The two password fields didn't match."),
     }
-    password1 = forms.CharField(label=_("Password"),
-                                widget=forms.PasswordInput(attrs={'class':'form-control colorInput tamanhoInput'}))
-    password2 = forms.CharField(label=_("Password (again)"),
-                                widget=forms.PasswordInput(attrs={'class':'form-control colorInput tamanhoInput'}))
+    password1 = forms.CharField(label = _("Password"),
+                                widget = forms.PasswordInput(attrs = {'class':'form-control colorInput tamanhoInput'}))
+    password2 = forms.CharField(label = _("Password (again)"),
+                                widget = forms.PasswordInput(attrs = {'class':'form-control colorInput tamanhoInput'}))
 
     def __init__(self, user, *args, **kwargs):
         self.user = user
@@ -227,7 +235,7 @@ class PasswordChangeFormReset(forms.Form):
                     self.error_messages['password_mismatch'])
         return password2
 
-    def save(self, commit=True):
+    def save(self, commit = True):
         """
         Saves the new password.
         """
