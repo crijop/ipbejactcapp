@@ -11,31 +11,29 @@
 {% endblock %}
 
 {% block filtros %}
-<img id="filterImg" src="/static/images/filtro.png">
-<ul>
-
-	
-	<li class="has-sub" >
-		<a  id="oa_button" tabindex="4" href='#oa'><span>Por Ordem Alfabética</span></a>
-
-	</li>
-	<div id="oa">
-
-	
-
+	<div class="list-group">
+	  <a href="#" class="list-group-item active">Cursos</a>
+	  {% include "departamento/elements/filter_curso.html" %}
 	</div>
-	<li class="has-sub">
-		<a id="curso_button" tabindex="5" href='#curso'><span>Por Curso</span><span id="ajaxLoader" class="hideAjaxLoader"></span></a>
-		<div id="curso">
+{%endblock%}
 
-	
-
-	</div>
-	</li>
-	
-</ul>
-
-{% endblock %}
+{%comment%} <!-- Comentario -->
+	{% block Filtros %}
+	<img id="filterImg" src="/static/images/filtro.png">
+	<ul>
+		<li class="has-sub" >
+			<a  id="oa_button" tabindex="4" href='#oa'><span>Por Ordem Alfabética</span></a>
+		</li>
+		<div id="oa">
+		</div>
+		<li class="has-sub">
+			<a id="curso_button" tabindex="5" href='#curso'><span>Por Curso</span><span id="ajaxLoader" class="hideAjaxLoader"></span></a>
+			<div id="curso">
+		</div>
+		</li>
+	</ul>
+	{% endblock %}
+{%endcomment%}
 
 {% block content %}
 	<div class="page-header whiteText">

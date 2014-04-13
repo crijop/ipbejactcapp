@@ -5,8 +5,8 @@ Created on 10 de Out de 2012
 @author: admin1
 '''
 
-#Modulo de python com o nome view_departamento.py
-#Modulo que trata de todas as views dos departamentos
+# Modulo de python com o nome view_departamento.py
+# Modulo que trata de todas as views dos departamentos
 
 
 from distro.forms_departamento import AdicionarServicoDocenteForm
@@ -26,7 +26,7 @@ import unicodedata
 
 
 
-DepUserTeste = user_passes_test(lambda u:u.groups.filter(Q(name='Departamento') | Q(name='Eng') | Q(name='B')).count(), login_url='/')
+DepUserTeste = user_passes_test(lambda u:u.groups.filter(Q(name = 'Departamento') | Q(name = 'Eng') | Q(name = 'B')).count(), login_url = '/')
 
 '''
 Método responsavel por
@@ -34,7 +34,7 @@ colocar a combo box para o
 utilizaodr escolher um departamento
 para delegar o modulo
 '''
-@login_required(redirect_field_name='login_redirectUsers')
+@login_required(redirect_field_name = 'login_redirectUsers')
 @DepUserTeste
 def addComboToDelegate(request, *args, **kwargs):
 
@@ -45,7 +45,7 @@ def addComboToDelegate(request, *args, **kwargs):
         
         return render_to_response("departamento/comboToDelegate.html",
         locals(),
-        context_instance=RequestContext(request),
+        context_instance = RequestContext(request),
         )
 
 '''
@@ -53,7 +53,7 @@ Metodo responsavel por tratar o pediodo AJAX de aparecimento do filtro de ordena
 uma letra do alfabeto
 presente na lista de docentes e lista de contratos
 '''
-@login_required(redirect_field_name='login_redirectUsers')
+@login_required(redirect_field_name = 'login_redirectUsers')
 @DepUserTeste
 def filter_abc(request, *args, **kwargs):
 
@@ -62,7 +62,7 @@ def filter_abc(request, *args, **kwargs):
         alfabeto = map(chr , range(65, 91))
         return render_to_response("departamento/filter_abc.html",
         locals(),
-        context_instance=RequestContext(request),
+        context_instance = RequestContext(request),
         )
         
 '''
@@ -79,13 +79,13 @@ def filter_abcd(request):
         alfabeto = map(chr , range(65, 91))
         return render_to_response("departamento/filter_abc.html",
         locals(),
-        context_instance=RequestContext(request),
+        context_instance = RequestContext(request),
         )
         
 '''
 Método responsavel por tratar o pedido ajax para o aparecimento da filtragem por categorias
 '''
-@login_required(redirect_field_name='login_redirectUsers')
+@login_required(redirect_field_name = 'login_redirectUsers')
 @DepUserTeste
 def filter_cat(request):
 
@@ -96,20 +96,19 @@ def filter_cat(request):
 
         return render_to_response("departamento/filter_cat.html",
         locals(),
-        context_instance=RequestContext(request),
+        context_instance = RequestContext(request),
         )
         
 '''
 Método responsavel por tratar o pedido ajax para o aparecimento da filtragem por cursos
 '''
-@login_required(redirect_field_name='login_redirectUsers')
+@login_required(redirect_field_name = 'login_redirectUsers')
 @DepUserTeste
 def filter_curso(request, ano):
-
     if request.is_ajax():
         allCursos = []
         listTurmas = Turma.objects.filter(unidade_curricular__departamento_id__exact \
-                                          = request.session['dep_id'], ano__exact=ano)
+ = request.session['dep_id'], ano__exact = ano)
         for t in listTurmas:
             allCursos.append(t.unidade_curricular.curso)
             pass
@@ -119,11 +118,11 @@ def filter_curso(request, ano):
         
         return render_to_response("departamento/filter_curso.html",
         locals(),
-        context_instance=RequestContext(request),
+        context_instance = RequestContext(request),
         )
         
-#Método responsável por remover elementos
-#repetidos numa lista
+# Método responsável por remover elementos
+# repetidos numa lista
 def removeRepetidosLista(l):
     # cria um dicionario em branco
     dict = {}
@@ -137,9 +136,9 @@ def removeRepetidosLista(l):
     return l        
     pass
 
-#Método para definir o ano
-#Se o mês actual for igual ou superior ao mẽs de Agosto
-#vai devolver o ano seguinte ao da data actual.
+# Método para definir o ano
+# Se o mês actual for igual ou superior ao mẽs de Agosto
+# vai devolver o ano seguinte ao da data actual.
 def calcularAno():
     dateActual = datetime.today()
     mesActual = dateActual.month
@@ -153,10 +152,10 @@ def calcularAno():
 '''
 Inicio das vistas do Departamento
 '''
-#View da página index do departamento.
-#só vai entrar nesta view se o utilizador estiver autenticado
-#e se pertencer ao grupo de Departamento.
-@login_required(redirect_field_name='login_redirectUsers')
+# View da página index do departamento.
+# só vai entrar nesta view se o utilizador estiver autenticado
+# e se pertencer ao grupo de Departamento.
+@login_required(redirect_field_name = 'login_redirectUsers')
 @DepUserTeste
 def indexDepartamento(request):
 
@@ -171,37 +170,37 @@ def indexDepartamento(request):
     listToSendSDoc = []
     listToSendCDoc = []
     
-    listaServicoDocente = ServicoDocente.objects.filter(turma__unidade_curricular__departamento_id__exact = id_Departamento,\
+    listaServicoDocente = ServicoDocente.objects.filter(turma__unidade_curricular__departamento_id__exact = id_Departamento, \
                                                          turma__ano__exact = ano)
     
     for servico in listaServicoDocente:
-        #Lista de Serviços sem docentes atribuidos
+        # Lista de Serviços sem docentes atribuidos
         modulos = Modulos.objects.filter(servico_docente_id__exact = servico.id).filter(docente_id__exact = None)
         if(len(modulos) != 0):
             modulos = modulos.reverse()[0]
-            turma = Turma.objects.get(id__exact=servico.turma_id)
-            unidade = UnidadeCurricular.objects.get(id__exact=turma.unidade_curricular_id).nome
-            tipo_aula = TipoAula.objects.get(id__exact=turma.tipo_aula_id).tipo
+            turma = Turma.objects.get(id__exact = servico.turma_id)
+            unidade = UnidadeCurricular.objects.get(id__exact = turma.unidade_curricular_id).nome
+            tipo_aula = TipoAula.objects.get(id__exact = turma.tipo_aula_id).tipo
             id_servico = servico.id
             listToSendSDoc.append([unidade, id_servico, turma.turno, tipo_aula, servico.horas])
             pass
         
-        #Lista de Serviços com docentes atribuidos
+        # Lista de Serviços com docentes atribuidos
         modulos = Modulos.objects.filter(servico_docente_id__exact = servico.id).exclude(docente_id__exact = None)            
         if(len(modulos) != 0):
             modulos = modulos.reverse()[0]
             id_turma = servico.turma_id
-            turma = Turma.objects.get(id__exact=servico.turma_id)
-            unidade = UnidadeCurricular.objects.get(id__exact=turma.unidade_curricular_id).nome
+            turma = Turma.objects.get(id__exact = servico.turma_id)
+            unidade = UnidadeCurricular.objects.get(id__exact = turma.unidade_curricular_id).nome
             
-            tipo_aula = TipoAula.objects.get(id__exact=turma.tipo_aula_id).tipo
+            tipo_aula = TipoAula.objects.get(id__exact = turma.tipo_aula_id).tipo
             listToSendCDoc.append([servico.id, unidade, turma.turno, tipo_aula, servico.horas, id_turma])
     
     sizeListSDoc = len(listToSendSDoc)        
     sizeListCDoc = len(listToSendCDoc)
     
-    #Responsavel por ver os Docentes com excesso de horas
-    #atribuidas e os docentes com nenhuma hora atribuida.
+    # Responsavel por ver os Docentes com excesso de horas
+    # atribuidas e os docentes com nenhuma hora atribuida.
     
     listaDocentesDepartamento = Docente.objects.filter(departamento_id__exact = id_Departamento)
     
@@ -219,33 +218,35 @@ def indexDepartamento(request):
             horasTemp += m.horas
             pass
         if horasTemp > MAXIMO_HORAS: 
-            nrDocExcedHoras +=1
+            nrDocExcedHoras += 1
             pass
         elif horasTemp == 0:
-            nrDocSemHoras +=1
+            nrDocSemHoras += 1
             pass
         pass
             
     return render_to_response("departamento/index.html",
         locals(),
-        context_instance=RequestContext(request),
+        context_instance = RequestContext(request),
         )
     pass
 
 
-#view responsavel por filtrar as Turmas pertencentes ao
-#Departamento que estiver autenticado.
-#só vai entrar nesta view se o utilizador estiver autenticado
-#e se pertencer ao grupo de Departamento.
-@login_required(redirect_field_name='login_redirectUsers')
+# view responsavel por filtrar as Turmas pertencentes ao
+# Departamento que estiver autenticado.
+# só vai entrar nesta view se o utilizador estiver autenticado
+# e se pertencer ao grupo de Departamento.
+@login_required(redirect_field_name = 'login_redirectUsers')
 @DepUserTeste
 def listarTurmasDepart(request, ano):
     listaAnos = listarAnos(request.session['dep_id'])
     listaTurmas = []
     anoReferente = ano
-    departamento = Departamento.objects.get(id__exact=request.session['dep_id']).nome
+    departamento = Departamento.objects.get(id__exact = request.session['dep_id']).nome
 
-    listTurmas = Turma.objects.filter(unidade_curricular__departamento_id__exact = request.session['dep_id'], ano__exact=ano)
+    allCursos = filtro_Cursos(request, ano)
+
+    listTurmas = Turma.objects.filter(unidade_curricular__departamento_id__exact = request.session['dep_id'], ano__exact = ano)
 
     if "searchField" in request.GET or request.GET.get("actualState") == "searchField":
         keyword = request.GET.get("searchField")
@@ -354,7 +355,7 @@ def listarTurmasDepart(request, ano):
 
     return render_to_response("departamento/listarTurmas.html",
         locals(),
-        context_instance=RequestContext(request),
+        context_instance = RequestContext(request),
         )
     pass
 
@@ -374,16 +375,16 @@ def splitSearchPhrase(keyword):
 '''
 Metodo responsavel por fazer as pesquisas por docente do campo de procura
 '''
-def search_docente(search_List, allDocentes, listateste, count=0):
+def search_docente(search_List, allDocentes, listateste, count = 0):
 
 
     listDocentes = []
     searchList = search_List
 
     countIncrements = count
-    #print count
+    # print count
     if count < len(searchList):
-        #print "entrei no ninho"
+        # print "entrei no ninho"
         for docente in allDocentes:
 
             nomeDocente = unicodedata.normalize('NFKD', docente.nome_completo.lower()).encode('ASCII', 'ignore')
@@ -392,14 +393,14 @@ def search_docente(search_List, allDocentes, listateste, count=0):
                 listDocentes.append(docente)
 
         countIncrements += 1
-        #print "vou chamar o metodo"
+        # print "vou chamar o metodo"
         search_docente(searchList, listDocentes, listateste, countIncrements)
 
     else:
 
         for docente in allDocentes:
 
-            #listServicoTemp = ServicoDocente.objects.filter(docente_id__exact=docente.id)
+            # listServicoTemp = ServicoDocente.objects.filter(docente_id__exact=docente.id)
             listServicoTemp = Modulos.objects.filter(docente_id__exact = docente.id)
             numberHoras = 0
             for h in listServicoTemp:
@@ -407,7 +408,7 @@ def search_docente(search_List, allDocentes, listateste, count=0):
             listateste.append([docente.id, docente.nome_completo, len(listServicoTemp), numberHoras])
 
 
-        #print "vou terminar o else"
+        # print "vou terminar o else"
         pass
 
     pass
@@ -415,16 +416,16 @@ def search_docente(search_List, allDocentes, listateste, count=0):
 '''
 Metodo responsavel por fazer as pesquisas por unidade curricular do campo de procura
 '''
-def search_unidadeCurricurlar(search_List, allTurmas, lista, ano,count=0):
+def search_unidadeCurricurlar(search_List, allTurmas, lista, ano, count = 0):
 
 
     listTurmas = []
     searchList = search_List
 
     countIncrements = count
-    #print count
+    # print count
     if count < len(searchList):
-        #print "entrei no ninho"
+        # print "entrei no ninho"
 
         for turmas in allTurmas:
             uCtoFind = unicodedata.normalize('NFKD', turmas.unidade_curricular.nome.lower()).encode('ASCII', 'ignore')
@@ -432,8 +433,8 @@ def search_unidadeCurricurlar(search_List, allTurmas, lista, ano,count=0):
                 listTurmas.append(turmas)
 
         countIncrements += 1
-        #print "vou chamar o metodo"
-        search_unidadeCurricurlar(searchList, listTurmas, lista,ano, countIncrements)
+        # print "vou chamar o metodo"
+        search_unidadeCurricurlar(searchList, listTurmas, lista, ano, countIncrements)
 
     else:
 
@@ -447,16 +448,16 @@ def search_unidadeCurricurlar(search_List, allTurmas, lista, ano,count=0):
 '''
 Metodo responsavel por fazer as pesquisas por curso do campo de procura
 '''
-def search_curso(search_List, allTurmas, lista, ano,count=0):
+def search_curso(search_List, allTurmas, lista, ano, count = 0):
 
 
     listTurmas = []
     searchList = search_List
 
     countIncrements = count
-    #print count
+    # print count
     if count < len(searchList):
-        #print "entrei no ninho"
+        # print "entrei no ninho"
 
 
         for turmas in allTurmas:
@@ -466,9 +467,9 @@ def search_curso(search_List, allTurmas, lista, ano,count=0):
 
 
         countIncrements += 1
-        #print "vou chamar o metodo"
+        # print "vou chamar o metodo"
 
-        search_curso(searchList, listTurmas, lista,ano, countIncrements)
+        search_curso(searchList, listTurmas, lista, ano, countIncrements)
 
     else:
 
@@ -484,7 +485,7 @@ def search_curso(search_List, allTurmas, lista, ano,count=0):
 listDocentes - Mostra todos os professores do departamento e as horas que ainda tem por atribuir
 e o numero de turmas a que tão associados e o numero de horas que ja tem atribuidas
 '''
-@login_required(redirect_field_name='login_redirectUsers')
+@login_required(redirect_field_name = 'login_redirectUsers')
 @DepUserTeste
 def listDocentes(request):
     id_Departamento = request.session['dep_id']
@@ -493,7 +494,7 @@ def listDocentes(request):
 
     listToSend = []
 
-    listDocentes = Docente.objects.filter(departamento_id__exact=request.session['dep_id'])
+    listDocentes = Docente.objects.filter(departamento_id__exact = request.session['dep_id'])
 
     if "searchField" in request.GET or request.GET.get("actualState") == "searchField":
         keyword = request.GET.get("searchField")
@@ -505,7 +506,7 @@ def listDocentes(request):
 
         if keyword == "":
             for docente in listDocentes:
-                listServicoTemp = ServicoDocente.objects.filter(docente_id__exact=docente.id)
+                listServicoTemp = ServicoDocente.objects.filter(docente_id__exact = docente.id)
                 numberHoras = 0
                 for h in listServicoTemp:
                     numberHoras += h.horas
@@ -536,8 +537,8 @@ def listDocentes(request):
         letter = unicodedata.normalize('NFKD', keyword.lower()).encode('ASCII', 'ignore')
 
         for docente in listDocentes:
-            #listServicoTemp = ServicoDocente.objects.filter(docente_id__exact=docente.id)
-            listServicoTemp = Modulos.objects.filter(docente_id__exact=docente.id)
+            # listServicoTemp = ServicoDocente.objects.filter(docente_id__exact=docente.id)
+            listServicoTemp = Modulos.objects.filter(docente_id__exact = docente.id)
         
             id_Docente = docente.id
             numberHoras = 0
@@ -545,9 +546,9 @@ def listDocentes(request):
                 numberHoras += h.horas
                 pass
             try:
-                contrato = Contrato.objects.get(docente__id=id_Docente)
+                contrato = Contrato.objects.get(docente__id = id_Docente)
                 contract_end = contrato.data_fim.strftime("%d/%m/%Y")
-                nomeCategoria = Categoria.objects.get(id__exact=contrato.categoria.id).nome
+                nomeCategoria = Categoria.objects.get(id__exact = contrato.categoria.id).nome
             except ObjectDoesNotExist:
                 nomeCategoria = u'Sem Categoria'
 
@@ -570,8 +571,8 @@ def listDocentes(request):
             nomeDocente = unicodedata.normalize('NFKD', docente.nome_completo.lower()).encode('ASCII', 'ignore')
 
             if nomeDocente.startswith(letter):
-                #listServicoTemp = ServicoDocente.objects.filter(docente_id__exact=docente.id)
-                listServicoTemp = Modulos.objects.filter(docente_id__exact=docente.id)
+                # listServicoTemp = ServicoDocente.objects.filter(docente_id__exact=docente.id)
+                listServicoTemp = Modulos.objects.filter(docente_id__exact = docente.id)
                 numberHoras = 0
                 for h in listServicoTemp:
                     numberHoras += h.horas
@@ -588,9 +589,9 @@ def listDocentes(request):
         actualState = "actualState=docExcedHours&docExcedHours=" + chave + "&ano=" + ano
         MAXIMO_HORAS = 360 
         listaDocentesDepartamento = Docente.objects.filter(departamento_id__exact = id_Departamento)
-        horasTemp       = 0 
+        horasTemp = 0 
         nrDocExcedHoras = 0
-        nrDocSemHoras   = 0
+        nrDocSemHoras = 0
         
         if chave == "True":
             for l in listaDocentesDepartamento:
@@ -602,7 +603,7 @@ def listDocentes(request):
                     pass
                 if horasTemp == 0:
                     listToSend.append([l.id, l.nome_completo, len(listServicoTemp), horasTemp])
-                    nrDocSemHoras +=1
+                    nrDocSemHoras += 1
                     pass
             pass
             
@@ -610,14 +611,14 @@ def listDocentes(request):
             for l in listaDocentesDepartamento:
                 horasTemp = 0
                 listServicoTemp = Modulos.objects.filter(servico_docente__turma__unidade_curricular__departamento_id__exact\
-                                                     = id_Departamento, servico_docente__turma__ano__exact= ano)\
+ = id_Departamento, servico_docente__turma__ano__exact = ano)\
                                                      .filter(docente_id__exact = l.id)
                 for m in listServicoTemp:
                     horasTemp += m.horas
                     pass
                 if horasTemp > MAXIMO_HORAS: 
                     listToSend.append([l.id, l.nome_completo, len(listServicoTemp), horasTemp])
-                    nrDocExcedHoras +=1
+                    nrDocExcedHoras += 1
                     pass
             pass
         sizeList = len(listToSend)
@@ -627,7 +628,7 @@ def listDocentes(request):
         actualState = "actualState=show"
 
         for docente in listDocentes:
-            listServicoTemp = Modulos.objects.filter(docente_id__exact=docente.id)
+            listServicoTemp = Modulos.objects.filter(docente_id__exact = docente.id)
             numberHoras = 0
             for h in listServicoTemp:
                 numberHoras += h.horas
@@ -655,7 +656,7 @@ def listDocentes(request):
 
     return render_to_response("departamento/listarDocentes.html",
         locals(),
-        context_instance=RequestContext(request),
+        context_instance = RequestContext(request),
         )
 
 
@@ -664,9 +665,9 @@ Mostra todos os anos disponiveis para um dado departamento
 '''
 def listarAnos(id_departamento):
     listaAnos = []
-    unidadesCurriculares = UnidadeCurricular.objects.filter(departamento_id__exact=id_departamento)
+    unidadesCurriculares = UnidadeCurricular.objects.filter(departamento_id__exact = id_departamento)
     for uC in unidadesCurriculares:
-        turmas = Turma.objects.filter(unidade_curricular_id__exact=uC.id)
+        turmas = Turma.objects.filter(unidade_curricular_id__exact = uC.id)
         for tur in turmas:
             listaAnos.append(tur.ano)
 
@@ -689,53 +690,53 @@ def removeDuplicatedElements(dataList):
                 last = templist[i]
     return templist
 
-#View responsavel por representar a informação de um 
-#determinado docente. o metodo recebe o id_docente em questão
-#só vai entrar nesta view se o utilizador estiver autenticado
-#e se pertencer ao grupo de Departamento.
-@login_required(redirect_field_name='login_redirectUsers')
+# View responsavel por representar a informação de um 
+# determinado docente. o metodo recebe o id_docente em questão
+# só vai entrar nesta view se o utilizador estiver autenticado
+# e se pertencer ao grupo de Departamento.
+@login_required(redirect_field_name = 'login_redirectUsers')
 @DepUserTeste
 def infoDocenteDep(request, id_docente):
     listaAnos = listarAnos(request.session['dep_id'])
-    servicoDocente = Modulos.objects.filter(docente_id__exact=id_docente)
+    servicoDocente = Modulos.objects.filter(docente_id__exact = id_docente)
     unidadesCurriculares = UnidadeCurricular.objects.all()
 
-    docente_name = Docente.objects.get(id__exact=id_docente).nome_completo
+    docente_name = Docente.objects.get(id__exact = id_docente).nome_completo
 
     lista = []
    
     horasTotal = 0
     for servDocente in servicoDocente:
 
-        #nome da unidade curricular que o docente vai dar aulas.
-        nomeUnidadeCurricular = UnidadeCurricular.objects.get(id__exact=servDocente.servico_docente.turma.unidade_curricular_id).nome
-        turma = Turma.objects.get(id__exact=servDocente.servico_docente.turma_id)
-        tipoAula = TipoAula.objects.get(id__exact=turma.tipo_aula_id).tipo
+        # nome da unidade curricular que o docente vai dar aulas.
+        nomeUnidadeCurricular = UnidadeCurricular.objects.get(id__exact = servDocente.servico_docente.turma.unidade_curricular_id).nome
+        turma = Turma.objects.get(id__exact = servDocente.servico_docente.turma_id)
+        tipoAula = TipoAula.objects.get(id__exact = turma.tipo_aula_id).tipo
         turno = turma.turno
-        nomeCurso = UnidadeCurricular.objects.get(turma__id__exact=servDocente.servico_docente.turma_id).curso
+        nomeCurso = UnidadeCurricular.objects.get(turma__id__exact = servDocente.servico_docente.turma_id).curso
         horasTotal += servDocente.horas
         lista.append((servDocente.docente_id, nomeUnidadeCurricular,
                            servDocente.horas, nomeCurso))
     
     return render_to_response("departamento/horasServico.html",
         locals(),
-        context_instance=RequestContext(request),
+        context_instance = RequestContext(request),
         )
 
 
 '''
 Metodo responsavel por fazer as pesquisas por curso do campo de procura na area do serviço docente
 '''
-def search_curso_sd(search_List, allServicos, lista, count=0):
+def search_curso_sd(search_List, allServicos, lista, count = 0):
 
 
     listServicos = []
     searchList = search_List
 
     countIncrements = count
-    #print count
+    # print count
     if count < len(searchList):
-        #print "entrei no ninho"
+        # print "entrei no ninho"
         for servico in allServicos:
             modulos = Modulos.objects.filter(servico_docente_id__exact = servico.id).exclude(docente_id__exact = None)
             if(len(modulos) != 0):
@@ -748,7 +749,7 @@ def search_curso_sd(search_List, allServicos, lista, count=0):
                     listServicos.append(servico)
          
         countIncrements += 1
-        #print "vou chamar o metodo"
+        # print "vou chamar o metodo"
     
         search_curso_sd(searchList, listServicos, lista, countIncrements)
 
@@ -759,10 +760,10 @@ def search_curso_sd(search_List, allServicos, lista, count=0):
             if(len(modulos) != 0):
                 modulos = modulos.reverse()[0]
                 id_turma = servico.turma_id
-                turma = Turma.objects.get(id__exact=servico.turma_id)
-                unidade = UnidadeCurricular.objects.get(id__exact=turma.unidade_curricular_id).nome
+                turma = Turma.objects.get(id__exact = servico.turma_id)
+                unidade = UnidadeCurricular.objects.get(id__exact = turma.unidade_curricular_id).nome
                     
-                tipo_aula = TipoAula.objects.get(id__exact=turma.tipo_aula_id).tipo
+                tipo_aula = TipoAula.objects.get(id__exact = turma.tipo_aula_id).tipo
                              
                 lista.append([servico.id, unidade, turma.turno, tipo_aula, servico.horas, id_turma])
                 
@@ -774,7 +775,7 @@ def search_curso_sd(search_List, allServicos, lista, count=0):
 '''
 Metodo responsavel por fazer as pesquisas por curso do campo de procura na area do serviço docente sem atribuição
 '''
-def search_curso_nsd(search_List, allServicos, allDelegateModuls, lista, count=0):
+def search_curso_nsd(search_List, allServicos, allDelegateModuls, lista, count = 0):
 
 
     listServicos = []
@@ -782,9 +783,9 @@ def search_curso_nsd(search_List, allServicos, allDelegateModuls, lista, count=0
     searchList = search_List
 
     countIncrements = count
-    #print count
+    # print count
     if count < len(searchList):
-        #print "entrei no ninho"
+        # print "entrei no ninho"
         for servico in allServicos:
             modulos = Modulos.objects.filter(servico_docente_id__exact = servico.id).filter(docente_id__exact = None)
             if(len(modulos) != 0):
@@ -802,7 +803,7 @@ def search_curso_nsd(search_List, allServicos, allDelegateModuls, lista, count=0
                     listDelgateModuls.append(lm)
          
         countIncrements += 1
-        #print "vou chamar o metodo"
+        # print "vou chamar o metodo"
         
        
         search_curso_nsd(searchList, listServicos, listDelgateModuls, lista, countIncrements)
@@ -812,10 +813,10 @@ def search_curso_nsd(search_List, allServicos, allDelegateModuls, lista, count=0
         for servico in allServicos:
            
             id_turma = servico.turma_id
-            turma = Turma.objects.get(id__exact=servico.turma_id)
-            unidade = UnidadeCurricular.objects.get(id__exact=turma.unidade_curricular_id).nome
+            turma = Turma.objects.get(id__exact = servico.turma_id)
+            unidade = UnidadeCurricular.objects.get(id__exact = turma.unidade_curricular_id).nome
                     
-            tipo_aula = TipoAula.objects.get(id__exact=turma.tipo_aula_id).tipo
+            tipo_aula = TipoAula.objects.get(id__exact = turma.tipo_aula_id).tipo
                              
             lista.append([servico.id, unidade, turma.turno, tipo_aula, servico.horas, id_turma])
         
@@ -832,15 +833,15 @@ def search_curso_nsd(search_List, allServicos, allDelegateModuls, lista, count=0
 Metodo responsavel por fazer as pesquisas por unidade curricular do campo de procura 
 na lista de serviços docente já atribuidos
 '''
-def search_unidadeCurricurlar_sd(search_List, allServicos, lista, count=0):
+def search_unidadeCurricurlar_sd(search_List, allServicos, lista, count = 0):
     
     listServicos = []
     searchList = search_List
 
     countIncrements = count
-    #print count
+    # print count
     if count < len(searchList):
-        #print "entrei no ninho"
+        # print "entrei no ninho"
         for servico in allServicos:
             modulos = Modulos.objects.filter(servico_docente_id__exact = servico.id).exclude(docente_id__exact = None)
             
@@ -854,7 +855,7 @@ def search_unidadeCurricurlar_sd(search_List, allServicos, lista, count=0):
                     listServicos.append(servico)
          
         countIncrements += 1
-        #print "vou chamar o metodo"
+        # print "vou chamar o metodo"
         
        
         search_unidadeCurricurlar_nsd(searchList, listServicos, lista, countIncrements)
@@ -864,10 +865,10 @@ def search_unidadeCurricurlar_sd(search_List, allServicos, lista, count=0):
         for servico in allServicos:
            
             id_turma = servico.turma_id
-            turma = Turma.objects.get(id__exact=servico.turma_id)
-            unidade = UnidadeCurricular.objects.get(id__exact=turma.unidade_curricular_id).nome
+            turma = Turma.objects.get(id__exact = servico.turma_id)
+            unidade = UnidadeCurricular.objects.get(id__exact = turma.unidade_curricular_id).nome
                     
-            tipo_aula = TipoAula.objects.get(id__exact=turma.tipo_aula_id).tipo
+            tipo_aula = TipoAula.objects.get(id__exact = turma.tipo_aula_id).tipo
                              
             lista.append([servico.id, unidade, turma.turno, tipo_aula, servico.horas, id_turma])
             print lista
@@ -881,7 +882,7 @@ def search_unidadeCurricurlar_sd(search_List, allServicos, lista, count=0):
 Metodo responsavel por fazer as pesquisas por unidade curricular do campo de 
 procura na lista de serviços docente por atribuir
 '''
-def search_unidadeCurricurlar_nsd(search_List, allServicos, allDelegateModuls, lista, count=0):
+def search_unidadeCurricurlar_nsd(search_List, allServicos, allDelegateModuls, lista, count = 0):
     
     
 
@@ -890,9 +891,9 @@ def search_unidadeCurricurlar_nsd(search_List, allServicos, allDelegateModuls, l
     searchList = search_List
 
     countIncrements = count
-    #print count
+    # print count
     if count < len(searchList):
-        #print "entrei no ninho"
+        # print "entrei no ninho"
         for servico in allServicos:
             modulos = Modulos.objects.filter(servico_docente_id__exact = servico.id).filter(docente_id__exact = None)
             
@@ -911,20 +912,20 @@ def search_unidadeCurricurlar_nsd(search_List, allServicos, allDelegateModuls, l
                     listDelgateModuls.append(lm)
          
         countIncrements += 1
-        #print "vou chamar o metodo"
+        # print "vou chamar o metodo"
         
        
-        search_unidadeCurricurlar_nsd(searchList, listServicos,listDelgateModuls, lista, countIncrements)
+        search_unidadeCurricurlar_nsd(searchList, listServicos, listDelgateModuls, lista, countIncrements)
 
     else:
         
         for servico in allServicos:
            
             id_turma = servico.turma_id
-            turma = Turma.objects.get(id__exact=servico.turma_id)
-            unidade = UnidadeCurricular.objects.get(id__exact=turma.unidade_curricular_id).nome
+            turma = Turma.objects.get(id__exact = servico.turma_id)
+            unidade = UnidadeCurricular.objects.get(id__exact = turma.unidade_curricular_id).nome
                     
-            tipo_aula = TipoAula.objects.get(id__exact=turma.tipo_aula_id).tipo
+            tipo_aula = TipoAula.objects.get(id__exact = turma.tipo_aula_id).tipo
                              
             lista.append([servico.id, unidade, turma.turno, tipo_aula, servico.horas, id_turma])
             
@@ -938,20 +939,38 @@ def search_unidadeCurricurlar_nsd(search_List, allServicos, allDelegateModuls, l
         lista.sort()
         pass
 
+
+
+def filtro_Cursos(request, ano):
+    allCursos = []
+    listTurmas = Turma.objects.filter(unidade_curricular__departamento_id__exact = request.session['dep_id'],
+                                      ano__exact = ano)
+    for t in listTurmas:
+        allCursos.append(t.unidade_curricular.curso)
+    
+    allCursos1 = removeRepetidosLista(allCursos)
+    sorted(allCursos1)
+    
+    return allCursos1
+
+
 '''
 Lista todas os serviços de docente já atribuidos
 recebendo para isso o ano
 '''
-@login_required(redirect_field_name='login_redirectUsers')
+@login_required(redirect_field_name = 'login_redirectUsers')
 @DepUserTeste
 def  listServicoDocente(request, ano):
+    
+    allCursos = filtro_Cursos(request, ano)
+    
     id_Departamento = request.session['dep_id']
     listaAnos = listarAnos(id_Departamento)
 
     listToSend = []
     
     
-    listaServicoDocente = ServicoDocente.objects.filter(turma__unidade_curricular__departamento_id__exact = id_Departamento, turma__ano__exact = ano )
+    listaServicoDocente = ServicoDocente.objects.filter(turma__unidade_curricular__departamento_id__exact = id_Departamento, turma__ano__exact = ano)
     
     if "searchField" in request.GET or request.GET.get("actualState") == "searchField":
         keyword = request.GET.get("searchField")
@@ -968,10 +987,10 @@ def  listServicoDocente(request, ano):
                 if(len(modulos) != 0):
                     modulos = modulos.reverse()[0]
                     id_turma = servico.turma_id
-                    turma = Turma.objects.get(id__exact=servico.turma_id)
-                    unidade = UnidadeCurricular.objects.get(id__exact=turma.unidade_curricular_id).nome
+                    turma = Turma.objects.get(id__exact = servico.turma_id)
+                    unidade = UnidadeCurricular.objects.get(id__exact = turma.unidade_curricular_id).nome
                     
-                    tipo_aula = TipoAula.objects.get(id__exact=turma.tipo_aula_id).tipo
+                    tipo_aula = TipoAula.objects.get(id__exact = turma.tipo_aula_id).tipo
                     
         
                     listToSend.append([servico.id, unidade, turma.turno, tipo_aula, servico.horas, id_turma])
@@ -1008,17 +1027,17 @@ def  listServicoDocente(request, ano):
        
         for servico in listaServicoDocente:
             modulos = Modulos.objects.filter(servico_docente_id__exact = servico.id).exclude(docente_id__exact = None)
-            #nomeUnidadeCurricular = servico.turma.unidade_curricular.nome
+            # nomeUnidadeCurricular = servico.turma.unidade_curricular.nome
             nomeUnidadeCurricular = unicodedata.normalize('NFKD', servico.turma.unidade_curricular.nome.lower()).encode('ASCII', 'ignore')
             
             if nomeUnidadeCurricular.startswith(letter):
                 if(len(modulos) != 0):
                     modulos = modulos.reverse()[0]
                     id_turma = servico.turma_id
-                    turma = Turma.objects.get(id__exact=servico.turma_id)
-                    unidade = UnidadeCurricular.objects.get(id__exact=turma.unidade_curricular_id).nome
+                    turma = Turma.objects.get(id__exact = servico.turma_id)
+                    unidade = UnidadeCurricular.objects.get(id__exact = turma.unidade_curricular_id).nome
                     
-                    tipo_aula = TipoAula.objects.get(id__exact=turma.tipo_aula_id).tipo
+                    tipo_aula = TipoAula.objects.get(id__exact = turma.tipo_aula_id).tipo
                     
         
                     listToSend.append([servico.id, unidade, turma.turno, tipo_aula, servico.horas, id_turma])
@@ -1036,12 +1055,12 @@ def  listServicoDocente(request, ano):
                 nomeCurso = unicodedata.normalize('NFKD', modulos.servico_docente.turma.unidade_curricular.curso.nome.lower()).encode('ASCII', 'ignore')
             
                 if nomeCurso == cursos:
-                    #modulos = modulos.reverse()[0]
+                    # modulos = modulos.reverse()[0]
                     id_turma = servico.turma_id
-                    turma = Turma.objects.get(id__exact=servico.turma_id)
-                    unidade = UnidadeCurricular.objects.get(id__exact=turma.unidade_curricular_id).nome
+                    turma = Turma.objects.get(id__exact = servico.turma_id)
+                    unidade = UnidadeCurricular.objects.get(id__exact = turma.unidade_curricular_id).nome
                     
-                    tipo_aula = TipoAula.objects.get(id__exact=turma.tipo_aula_id).tipo
+                    tipo_aula = TipoAula.objects.get(id__exact = turma.tipo_aula_id).tipo
                     
                     listToSend.append([servico.id, unidade, turma.turno, tipo_aula, servico.horas, id_turma])
             sizeList = len(listToSend)
@@ -1059,10 +1078,10 @@ def  listServicoDocente(request, ano):
             if(len(modulos) != 0):
                 modulos = modulos.reverse()[0]
                 id_turma = servico.turma_id
-                turma = Turma.objects.get(id__exact=servico.turma_id)
-                unidade = UnidadeCurricular.objects.get(id__exact=turma.unidade_curricular_id).nome
+                turma = Turma.objects.get(id__exact = servico.turma_id)
+                unidade = UnidadeCurricular.objects.get(id__exact = turma.unidade_curricular_id).nome
                 
-                tipo_aula = TipoAula.objects.get(id__exact=turma.tipo_aula_id).tipo
+                tipo_aula = TipoAula.objects.get(id__exact = turma.tipo_aula_id).tipo
                 
     
                 listToSend.append([servico.id, unidade, turma.turno, tipo_aula, servico.horas, id_turma])
@@ -1090,26 +1109,26 @@ def  listServicoDocente(request, ano):
 
     return render_to_response("departamento/listarServicoDocente.html",
         locals(),
-        context_instance=RequestContext(request),
+        context_instance = RequestContext(request),
         )
     
 '''
 Informação por Modulos pertencente ao Docente 
 '''    
-@login_required(redirect_field_name='login_redirectUsers')
+@login_required(redirect_field_name = 'login_redirectUsers')
 @DepUserTeste
 def infoModulosDocente(request, id_docente, ano):
     nomeDocente = Docente.objects.get(id__exact = id_docente)
     return render_to_response("departamento/infoModulosDocente.html",
         locals(),
-        context_instance=RequestContext(request),
+        context_instance = RequestContext(request),
         )
     
 '''
 Informação por Modulos pertencente a cada turma 
 já com serviço de Docente atribuido em cada ano
 '''    
-@login_required(redirect_field_name='login_redirectUsers')
+@login_required(redirect_field_name = 'login_redirectUsers')
 @DepUserTeste
 def infoModulosTurma(request, id_servico, ano):
     id_Departamento = request.session['dep_id']
@@ -1118,7 +1137,7 @@ def infoModulosTurma(request, id_servico, ano):
     listInfo = []
     
     modulos = Modulos.objects.filter(servico_docente_id__exact = id_servico)
-    servico = ServicoDocente.objects.get(id__exact=id_servico)
+    servico = ServicoDocente.objects.get(id__exact = id_servico)
     
     nomeTurma = servico.turma.unidade_curricular.nome
     turno = servico.turma.turno
@@ -1137,7 +1156,7 @@ def infoModulosTurma(request, id_servico, ano):
     
     return render_to_response("departamento/infoModulosTurma.html",
         locals(),
-        context_instance=RequestContext(request),
+        context_instance = RequestContext(request),
         )
      
     
@@ -1145,10 +1164,10 @@ def infoModulosTurma(request, id_servico, ano):
 Método responsavel por listar todos os serviços docente que ainda nao tem todos os docentes atribuidos
 nos seus modulos
 '''
-@login_required(redirect_field_name='login_redirectUsers')
+@login_required(redirect_field_name = 'login_redirectUsers')
 @DepUserTeste
 def addServicoDocenteDepart(request, ano):
-   
+    allCursos = filtro_Cursos(request, ano)
     id_Departamento = request.session['dep_id']
     listaAnos = listarAnos(id_Departamento)
     listToSend = []
@@ -1159,7 +1178,7 @@ def addServicoDocenteDepart(request, ano):
     listModulosDelegados = Modulos.objects.filter(servico_docente__turma__ano__exact = ano, departamento_id__exact = id_Departamento).filter(docente_id__exact = None).filter(aprovacao__exact = 1)
     listServicosDelegados = ServicoDocente.objects.filter(turma__ano__exact = ano)
         
-    #print listModulosDelegados
+    # print listModulosDelegados
     '''
     Lista pela pesquisa efectuada
     '''    
@@ -1178,10 +1197,10 @@ def addServicoDocenteDepart(request, ano):
                 if(len(modulos) != 0):
                     modulos = modulos.reverse()[0]
                     id_turma = servico.turma_id
-                    turma = Turma.objects.get(id__exact=servico.turma_id)
-                    unidade = UnidadeCurricular.objects.get(id__exact=turma.unidade_curricular_id).nome
+                    turma = Turma.objects.get(id__exact = servico.turma_id)
+                    unidade = UnidadeCurricular.objects.get(id__exact = turma.unidade_curricular_id).nome
                     
-                    tipo_aula = TipoAula.objects.get(id__exact=turma.tipo_aula_id).tipo
+                    tipo_aula = TipoAula.objects.get(id__exact = turma.tipo_aula_id).tipo
                     
                     
                     listToSend.append([servico.id, unidade, turma.turno, tipo_aula, servico.horas, id_turma])
@@ -1199,7 +1218,7 @@ def addServicoDocenteDepart(request, ano):
             listaTempoCurso = []
             search_curso_nsd(listSplited, listaServicoDocente, listModulosDelegados, listaTempoCurso)
             listaTempoUC = []
-            search_unidadeCurricurlar_nsd(listSplited, listaServicoDocente, listModulosDelegados,  listaTempoUC)
+            search_unidadeCurricurlar_nsd(listSplited, listaServicoDocente, listModulosDelegados, listaTempoUC)
            
             tempList = listaTempoCurso + listaTempoUC
 
@@ -1225,17 +1244,17 @@ def addServicoDocenteDepart(request, ano):
        
         for servico in listaServicoDocente:
             modulos = Modulos.objects.filter(servico_docente_id__exact = servico.id).filter(docente_id__exact = None).filter(departamento_id__exact = None)
-            #nomeUnidadeCurricular = servico.turma.unidade_curricular.nome
+            # nomeUnidadeCurricular = servico.turma.unidade_curricular.nome
             nomeUnidadeCurricular = unicodedata.normalize('NFKD', servico.turma.unidade_curricular.nome.lower()).encode('ASCII', 'ignore')
             
             if nomeUnidadeCurricular.startswith(letter):
                 if(len(modulos) != 0):
                     modulos = modulos.reverse()[0]
-                    turma = Turma.objects.get(id__exact=servico.turma_id)
-                    unidade = UnidadeCurricular.objects.get(id__exact=turma.unidade_curricular_id).nome
-                    tipo_aula = TipoAula.objects.get(id__exact=turma.tipo_aula_id).tipo
+                    turma = Turma.objects.get(id__exact = servico.turma_id)
+                    unidade = UnidadeCurricular.objects.get(id__exact = turma.unidade_curricular_id).nome
+                    tipo_aula = TipoAula.objects.get(id__exact = turma.tipo_aula_id).tipo
                     id_servico = servico.id
-                    listToSend.append([id_servico, unidade,  turma.turno, tipo_aula, servico.horas])
+                    listToSend.append([id_servico, unidade, turma.turno, tipo_aula, servico.horas])
                     
         for lm in listModulosDelegados:
                 nomeUnidadeCurricular = unicodedata.normalize('NFKD', lm.servico_docente.turma.unidade_curricular.nome.lower()).encode('ASCII', 'ignore')
@@ -1260,9 +1279,9 @@ def addServicoDocenteDepart(request, ano):
                 
                 nomeCurso = unicodedata.normalize('NFKD', modulos.servico_docente.turma.unidade_curricular.curso.nome.lower()).encode('ASCII', 'ignore')
                 if nomeCurso == cursos:      
-                    turma = Turma.objects.get(id__exact=servico.turma_id)
-                    unidade = UnidadeCurricular.objects.get(id__exact=turma.unidade_curricular_id).nome
-                    tipo_aula = TipoAula.objects.get(id__exact=turma.tipo_aula_id).tipo
+                    turma = Turma.objects.get(id__exact = servico.turma_id)
+                    unidade = UnidadeCurricular.objects.get(id__exact = turma.unidade_curricular_id).nome
+                    tipo_aula = TipoAula.objects.get(id__exact = turma.tipo_aula_id).tipo
                     id_servico = servico.id
                     listToSend.append([id_servico, unidade, turma.turno, tipo_aula, servico.horas])
                     
@@ -1284,18 +1303,18 @@ def addServicoDocenteDepart(request, ano):
             if(len(modulos) != 0):
                 
                 modulos = modulos.reverse()[0]
-                turma = Turma.objects.get(id__exact=servico.turma_id)
-                unidade = UnidadeCurricular.objects.get(id__exact=turma.unidade_curricular_id).nome
-                tipo_aula = TipoAula.objects.get(id__exact=turma.tipo_aula_id).tipo
+                turma = Turma.objects.get(id__exact = servico.turma_id)
+                unidade = UnidadeCurricular.objects.get(id__exact = turma.unidade_curricular_id).nome
+                tipo_aula = TipoAula.objects.get(id__exact = turma.tipo_aula_id).tipo
                 id_servico = servico.id
                 
                 listToSend.append([id_servico, unidade, turma.turno, tipo_aula, servico.horas])
         
         for lm in listModulosDelegados:
-            #sDocente = ServicoDocente.objects.get(id__exact = lm.servico_docente.id)
+            # sDocente = ServicoDocente.objects.get(id__exact = lm.servico_docente.id)
             if verify_List_Have_Value(lm.servico_docente.id, listRepetidos) == False:
                 listRepetidos.append(lm.servico_docente.id) 
-                #listToSend.append([lm.id, lm.turma.unidade_curricular.nome, lm.turma.turno, lm.turma.tipo_aula.tipo, lm.horas, lm.turma.id])
+                # listToSend.append([lm.id, lm.turma.unidade_curricular.nome, lm.turma.turno, lm.turma.tipo_aula.tipo, lm.horas, lm.turma.id])
                 listToSend.append([lm.servico_docente.id, lm.servico_docente.turma.unidade_curricular.nome, lm.servico_docente.turma.turno, lm.servico_docente.turma.tipo_aula.tipo, lm.servico_docente.horas, lm.servico_docente.turma.id])
        
         print    listRepetidos  
@@ -1317,9 +1336,9 @@ def addServicoDocenteDepart(request, ano):
         listInfo = paginator.page(paginator.num_pages)
     return render_to_response("departamento/turmasSemServicoDocente.html",
         locals(),
-        context_instance=RequestContext(request),
+        context_instance = RequestContext(request),
         )
-    #return AtribuirServicoDocenteFormPreview(AdicionarServicoDocenteForm)
+    # return AtribuirServicoDocenteFormPreview(AdicionarServicoDocenteForm)
     pass
 
 def verify_List_Have_Value(id_servico, listaValores):
@@ -1343,23 +1362,23 @@ def verify_List_Have_Value(id_servico, listaValores):
     return exist
     
     pass   
-#Metodo responsavel por tratar o pediodo AJAX do aparecimento
-#do Butão para adicionar o Serviço Docente.
+# Metodo responsavel por tratar o pediodo AJAX do aparecimento
+# do Butão para adicionar o Serviço Docente.
 def showSaveButton(request, id_servico, id_Departamento, ano):
     if request.is_ajax():
 
         return render_to_response("departamento/saveButton.html",
                                                         locals(),
-                                                        context_instance=RequestContext(request),)
+                                                        context_instance = RequestContext(request),)
         pass
     pass
 
 
-#View responsavél por atribuir o serviço docente
-#Responsavel por apresentar o formulario ao utilizador.
-#só vai entrar nesta view se o utilizador estiver autenticado
-#e se pertencer ao grupo de Departamento.
-@login_required(redirect_field_name='login_redirectUsers')
+# View responsavél por atribuir o serviço docente
+# Responsavel por apresentar o formulario ao utilizador.
+# só vai entrar nesta view se o utilizador estiver autenticado
+# e se pertencer ao grupo de Departamento.
+@login_required(redirect_field_name = 'login_redirectUsers')
 @DepUserTeste
 def viewFormClass(request, *args, **kwargs):
     view = AtribuirServicoDocenteFormPreview(AdicionarServicoDocenteForm)
@@ -1367,10 +1386,10 @@ def viewFormClass(request, *args, **kwargs):
     pass
 
 
-#Class Criada para tratar do formulario
-#atribuir o serviço docente.
-#mais propriamente para fazer a confirmação dos dados do
-#formulário a enviar.
+# Class Criada para tratar do formulario
+# atribuir o serviço docente.
+# mais propriamente para fazer a confirmação dos dados do
+# formulário a enviar.
 class AtribuirServicoDocenteFormPreview(FormPreview):
     preview_template = 'departamento/pageConfirForm.html'
     form_template = 'departamento/adicionarServicoDocente.html'
@@ -1398,14 +1417,14 @@ class AtribuirServicoDocenteFormPreview(FormPreview):
         listaAnos = listarAnos(id_departamento)
         id_servico = self.state['id_servico']
         nomeTurma = ServicoDocente.objects.get(id__exact = id_servico).turma.unidade_curricular.nome
-        f = self.form(auto_id=self.get_auto_id(), initial=self.get_initial(request))
-        modulosID  = None
+        f = self.form(auto_id = self.get_auto_id(), initial = self.get_initial(request))
+        modulosID = None
         docentesID = None
         
         depEspecial = ServicoDocente.objects.get(id__exact = id_servico)
         if(depEspecial.turma.unidade_curricular.departamento.id == id_departamento):
             listaModuls = Modulos.objects.filter(servico_docente_id__exact = id_servico)
-            #cont = 0 
+            # cont = 0 
             lModulos = []
             for lm in listaModuls:
                 
@@ -1416,14 +1435,14 @@ class AtribuirServicoDocenteFormPreview(FormPreview):
                         lModulos.append([lm.id, lm.horas, lm.docente_id, lm.servico_docente_id, nomeDocente, "", lm.departamento])
                     except Departamento.DoesNotExist:
                         lModulos.append([lm.id, lm.horas, lm.docente_id, lm.servico_docente_id, nomeDocente, "", None])
-                    #cont +=1 
+                    # cont +=1 
                 else:
                     try:
                         lModulos.append([lm.id, lm.horas, lm.docente_id, lm.servico_docente_id, "", "", lm.departamento])
                     except Departamento.DoesNotExist:
                         lModulos.append([lm.id, lm.horas, lm.docente_id, lm.servico_docente_id, "", "", None])
                         
-                    #cont +=1
+                    # cont +=1
                 pass
             
             print lModulos
@@ -1433,8 +1452,8 @@ class AtribuirServicoDocenteFormPreview(FormPreview):
         else:
             listaModuls = Modulos.objects.filter(servico_docente_id__exact = id_servico, departamento_id__exact = id_departamento, aprovacao__exact = 1)
             
-            print "fsdfdf ",listaModuls
-            #cont = 0 
+            print "fsdfdf ", listaModuls
+            # cont = 0 
             lModulos = []
             for lm in listaModuls:
                 
@@ -1442,14 +1461,14 @@ class AtribuirServicoDocenteFormPreview(FormPreview):
                     nomeDocente = Docente.objects.get(id__exact = lm.docente_id).nome_completo
                     
                     lModulos.append([lm.id, lm.horas, lm.docente_id, lm.servico_docente_id, nomeDocente, "", lm.departamento])
-                    #cont +=1 
+                    # cont +=1 
                 else:
                     try:
                         lModulos.append([lm.id, lm.horas, lm.docente_id, lm.servico_docente_id, "", "", lm.departamento])
                     except Departamento.DoesNotExist:
                         lModulos.append([lm.id, lm.horas, lm.docente_id, lm.servico_docente_id, "", "", None])
                         
-                    #cont +=1
+                    # cont +=1
                 pass
             
             print lModulos
@@ -1459,7 +1478,7 @@ class AtribuirServicoDocenteFormPreview(FormPreview):
         
         return render_to_response(self.form_template,
             locals(),
-            context_instance=RequestContext(request))
+            context_instance = RequestContext(request))
    
     def parse_params(self, *args, **kwargs):
         """Handle captured args/kwargs from the URLconf"""
@@ -1481,7 +1500,7 @@ class AtribuirServicoDocenteFormPreview(FormPreview):
         
         erro = "Um ou mais Modulos não tem docente atribuido"
        
-        #Adiciona se os dois arrays vindos do POST 
+        # Adiciona se os dois arrays vindos do POST 
         modulosID = dict(request.POST)[u'moduloID[]']
         
       
@@ -1490,11 +1509,11 @@ class AtribuirServicoDocenteFormPreview(FormPreview):
         
         depDelegated = dict(request.POST)[u'delegateDep[]']
         
-        print "delegação - ",depDelegated
+        print "delegação - ", depDelegated
         
         nomeTurma = ServicoDocente.objects.get(id__exact = id_servico).turma.unidade_curricular.nome
-        #precorre se o array de ID de docente faz-se uma consulta pelo seu ID para se obter o Nome e 
-        #horas que o deocente realizou e depois guarda se na lista seguinte
+        # precorre se o array de ID de docente faz-se uma consulta pelo seu ID para se obter o Nome e 
+        # horas que o deocente realizou e depois guarda se na lista seguinte
         lista_docentesFinal = []
         if(docentesID != None):
         
@@ -1510,7 +1529,7 @@ class AtribuirServicoDocenteFormPreview(FormPreview):
                     pass
         depEspecial = ServicoDocente.objects.get(id__exact = id_servico)
         if(depEspecial.turma.unidade_curricular.departamento.id == id_departamento):
-            #Aqui criamos uma lista que vai receber os dados a serem mostrados no template entre eles os dados do array criado em cima
+            # Aqui criamos uma lista que vai receber os dados a serem mostrados no template entre eles os dados do array criado em cima
             listaModuls = Modulos.objects.filter(servico_docente_id__exact = id_servico)
             cont = 0 
             print "posição - ", depDelegated[cont]
@@ -1524,7 +1543,7 @@ class AtribuirServicoDocenteFormPreview(FormPreview):
                     except Departamento.DoesNotExist:
                         lModulos.append([lm.id, lm.horas, docentesID[cont], lm.servico_docente_id, lista_docentesFinal[cont][0], lista_docentesFinal[cont][1], None, int(depDelegated[cont])])
                     
-                cont +=1 
+                cont += 1 
                 pass
         else:
             listaModuls = Modulos.objects.filter(servico_docente_id__exact = id_servico, departamento_id__exact = id_departamento, aprovacao__exact = 1)
@@ -1539,7 +1558,7 @@ class AtribuirServicoDocenteFormPreview(FormPreview):
                         lModulos.append([lm.id, lm.horas, docentesID[cont], lm.servico_docente_id, lista_docentesFinal[cont][0], lista_docentesFinal[cont][1], lm.departamento, int(depDelegated[cont])])
                     except Departamento.DoesNotExist:
                         lModulos.append([lm.id, lm.horas, docentesID[cont], lm.servico_docente_id, lista_docentesFinal[cont][0], lista_docentesFinal[cont][1], None, int(depDelegated[cont])])
-                cont +=1 
+                cont += 1 
                 pass
         
         depList = Departamento.objects.exclude(id__exact = id_departamento)
@@ -1549,18 +1568,18 @@ class AtribuirServicoDocenteFormPreview(FormPreview):
         
         listaDocentes = Docente.objects.filter(departamento_id__exact = id_departamento)
         
-        b = ServicoDocente.objects.get(id=id_servico)
+        b = ServicoDocente.objects.get(id = id_servico)
         
-        f = AdicionarServicoDocenteForm(request.POST, instance=b)
+        f = AdicionarServicoDocenteForm(request.POST, instance = b)
         context = self.get_context(request, f, docentesID, listaAnos, lModulos, listaDocentes, erro, depList, id_departamento)
         if f.is_valid(modulosID, docentesID):
              
             self.process_preview(request, f, context)
             context['hash_field'] = self.unused_name('hash')
             context['hash_value'] = self.security_hash(request, f)
-            return render_to_response(self.preview_template, context, context_instance=RequestContext(request))
+            return render_to_response(self.preview_template, context, context_instance = RequestContext(request))
         else:
-            return render_to_response(self.form_template, context, context_instance=RequestContext(request))
+            return render_to_response(self.form_template, context, context_instance = RequestContext(request))
     
     
     def post_post(self, request):
@@ -1571,7 +1590,7 @@ class AtribuirServicoDocenteFormPreview(FormPreview):
         id_servico = self.state['id_servico']
         erro = "Um ou mais Modulos não tem docente atribuido"
        
-        #Adiciona se os dois arrays vindos do POST 
+        # Adiciona se os dois arrays vindos do POST 
         modulosID = dict(request.POST)[u'moduloID[]']
         
       
@@ -1582,8 +1601,8 @@ class AtribuirServicoDocenteFormPreview(FormPreview):
         
         
         nomeTurma = ServicoDocente.objects.get(id__exact = id_servico).turma.unidade_curricular.nome
-        #precorre se o array de ID de docente faz-se uma consulta pelo seu ID para se obter o Nome e 
-        #horas que o deocente realizou e depois guarda se na lista seguinte
+        # precorre se o array de ID de docente faz-se uma consulta pelo seu ID para se obter o Nome e 
+        # horas que o deocente realizou e depois guarda se na lista seguinte
         lista_docentesFinal = []
         if(docentesID != None):
         
@@ -1600,7 +1619,7 @@ class AtribuirServicoDocenteFormPreview(FormPreview):
         
         depEspecial = ServicoDocente.objects.get(id__exact = id_servico)
         if(depEspecial.turma.unidade_curricular.departamento.id == id_departamento):
-            #Aqui criamos uma lista que vai receber os dados a serem mostrados no template entre eles os dados do array criado em cima
+            # Aqui criamos uma lista que vai receber os dados a serem mostrados no template entre eles os dados do array criado em cima
             listaModuls = Modulos.objects.filter(servico_docente_id__exact = id_servico)
             cont = 0 
             lModulos = []
@@ -1613,7 +1632,7 @@ class AtribuirServicoDocenteFormPreview(FormPreview):
                         lModulos.append([lm.id, lm.horas, docentesID[cont], lm.servico_docente_id, lista_docentesFinal[cont][0], lista_docentesFinal[cont][1], lm.departamento, int(depDelegated[cont])])
                     except Departamento.DoesNotExist:
                         lModulos.append([lm.id, lm.horas, docentesID[cont], lm.servico_docente_id, lista_docentesFinal[cont][0], lista_docentesFinal[cont][1], None, int(depDelegated[cont])])
-                cont +=1  
+                cont += 1  
                 pass
         else:
             listaModuls = Modulos.objects.filter(servico_docente_id__exact = id_servico, departamento_id__exact = id_departamento, aprovacao__exact = 1)
@@ -1628,7 +1647,7 @@ class AtribuirServicoDocenteFormPreview(FormPreview):
                         lModulos.append([lm.id, lm.horas, docentesID[cont], lm.servico_docente_id, lista_docentesFinal[cont][0], lista_docentesFinal[cont][1], lm.departamento, int(depDelegated[cont])])
                     except Departamento.DoesNotExist:
                         lModulos.append([lm.id, lm.horas, docentesID[cont], lm.servico_docente_id, lista_docentesFinal[cont][0], lista_docentesFinal[cont][1], None, int(depDelegated[cont])])
-                cont +=1  
+                cont += 1  
                 pass
            
         
@@ -1636,20 +1655,20 @@ class AtribuirServicoDocenteFormPreview(FormPreview):
         
         listaDocentes = Docente.objects.filter(departamento_id__exact = id_departamento)
         
-        b = ServicoDocente.objects.get(id=id_servico)
+        b = ServicoDocente.objects.get(id = id_servico)
         
-        f = AdicionarServicoDocenteForm(request.POST, instance=b)
+        f = AdicionarServicoDocenteForm(request.POST, instance = b)
         
         if f.is_valid(modulosID, docentesID):
 
             if not self._check_security_hash(request.POST.get(self.unused_name('hash'), ''),
                                              request, f):
-                return self.failed_hash(request) # Security hash failed.
+                return self.failed_hash(request)  # Security hash failed.
             return self.done(request)
         else:
             return render_to_response(self.form_template,
                 locals(),
-                context_instance=RequestContext(request))
+                context_instance = RequestContext(request))
 
     
     def done(self, request):
@@ -1658,7 +1677,7 @@ class AtribuirServicoDocenteFormPreview(FormPreview):
         ano = self.state['ano']
         turma = ServicoDocente.objects.filter(id__exact = id_servico)
         
-        #Adiciona se os dois arrays vindos do POST 
+        # Adiciona se os dois arrays vindos do POST 
         modulosID = dict(request.POST)[u'moduloID[]']
         
       
@@ -1670,8 +1689,8 @@ class AtribuirServicoDocenteFormPreview(FormPreview):
         
         if request.method == 'POST':
 
-            b = ServicoDocente.objects.get(id=id_servico)
-            f = AdicionarServicoDocenteForm(request.POST, instance=b)
+            b = ServicoDocente.objects.get(id = id_servico)
+            f = AdicionarServicoDocenteForm(request.POST, instance = b)
             
             if f.is_valid(modulosID, docentesID):
                 
@@ -1687,15 +1706,15 @@ class AtribuirServicoDocenteFormPreview(FormPreview):
                     count += 1
 
         else:
-            b = ServicoDocente.objects.get(id=id_servico)
+            b = ServicoDocente.objects.get(id = id_servico)
 
-            form = AdicionarServicoDocenteForm(instance=b, id_Departamento = self.state['id_Departamento'],
+            form = AdicionarServicoDocenteForm(instance = b, id_Departamento = self.state['id_Departamento'],
                                                                                 ano = self.state['ano'])
 
         return render_to_response("departamento/sucesso.html",
 
             locals(),
-            context_instance=RequestContext(request),
+            context_instance = RequestContext(request),
             )
         pass
 
