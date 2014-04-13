@@ -1,22 +1,19 @@
 {% extends "departamento/index.html" %}
 {% load i18n %}
-{% block title %} Página de adicionar Serviço de Docente {% endblock %}
-
+{% block title %}{% trans 'Página de adicionar Serviço de Docente'%}{% endblock %}
 {% block breadcrumb %}
-<ul id="breadcrumb">
+<ul class="breadcrumb">
 	<li>
-		<a tabindex="2" href="{% url homeDepartamento %}" title="{% trans 'Home' %}"> <img src="/static/images/BreadCrumbs/home.png" alt="{% trans 'Home' %}" class="home" /> </a>
+		<span class="glyphicon glyphicon-home"></span> <a tabindex="2" href="{% url homeDepartamento %}" title="{% trans 'Home' %}">{% trans 'Home' %}</a>
 	</li>
-	<li>
-		Adicionar Serviço Docente
-	</li>
+	<li class="active">{% trans 'Adicionar Serviço Docente' %}</li>
 </ul>
 {% endblock %}
 
 {% block content %}
-
-<h2 class="addTitle">Adicionar docentes a {{nomeTurma}}</h2>
-
+	<div class="page-header whiteText">
+	  <h1>{% trans 'Adicionar docentes a'%} {{nomeTurma}}</h1>
+	</div>
 
 <div id="contentForm">
 	<form method="post">
@@ -27,8 +24,8 @@
 			<table class="tabela_sumario teachersTable">
 				<tr class="cabecalho_sumario">
 					<th class="id10 idHide"></th>
-					<th class="name70">Docente</th>
-					<th class="horas20">Horas</th>
+					<th class="name70">{% trans 'Docente' %}</th>
+					<th class="horas20">{% trans 'Horas' %}</th>
 				</tr>
 				</table>
 			</div>
