@@ -35,7 +35,10 @@ class AddUserForm(forms.Form):
     
     last_name = forms.CharField(required = False, max_length = 150, label = u'Último Nome', \
                                         widget = forms.TextInput(attrs = {'class':'form-control colorInput tamanhoInput'}))
-    email = forms.EmailField(max_length = 300, label = _(u'E-mail'), widget = forms.TextInput(attrs = {'class':'form-control tamanhoInput'}))
+    email = forms.EmailField(max_length = 300, \
+                             label = _(u'E-mail'),
+                             widget = forms.TextInput(attrs = {'class':'form-control colorInput tamanhoInput', \
+                                                               "autocomplete": "off"}))
     
     username = forms.RegexField(label = _("Nome Utilizador"), max_length = 30,
         regex = r'^[\w.@+-]+$',
@@ -43,13 +46,13 @@ class AddUserForm(forms.Form):
                       "@/./+/-/_ only."),
         error_messages = {
             'invalid': _("This value may contain only letters, numbers and "
-                         "@/./+/-/_ characters.")}, widget = forms.TextInput(attrs = {'class':'form-control colorInput tamanhoInput'}))
+                         "@/./+/-/_ characters.")}, widget = forms.TextInput(attrs = {'class':'form-control colorInput tamanhoInput', "autocomplete": "off"}))
     
     is_active = forms.BooleanField(label = _("Activo"), required = False, initial = True, \
                     widget = forms.CheckboxInput(attrs = {'class':'form-control tamanhoInput colorInput'}))
     
     password1 = forms.CharField(label = _("Password"),
-        widget = forms.PasswordInput(attrs = {'class':'form-control colorInput tamanhoInput'}))
+        widget = forms.PasswordInput(attrs = {'class':'form-control colorInput tamanhoInput', "autocomplete": "off"}))
     password2 = forms.CharField(label = _("Password confirmation"),
         widget = forms.PasswordInput(attrs = {'class':'form-control colorInput tamanhoInput'}),
         help_text = _("Enter the same password as above, for verification."))
