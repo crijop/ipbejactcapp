@@ -285,6 +285,8 @@ tr.even {
 
 .dataTables_empty {
 	text-align: center;
+	background-color: crimson;
+	color: white !important;
 }
 
 tfoot input {

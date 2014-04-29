@@ -2,6 +2,7 @@
 {% load i18n %}
 {% block title %}{% trans 'Informação do Docente' %}{% endblock %}
 {% block breadcrumb %}
+
 <ul class="breadcrumb">
 	<li>
 		<span class="glyphicon glyphicon-home"></span> <a tabindex="2" href="{% url homeDepartamento %}" title="{% trans 'Home' %}">{% trans 'Home' %}</a>
@@ -15,8 +16,31 @@
 
 {% block content %}
 	<div class="page-header whiteText">
-	  <h1>{% trans 'nformação do Docente:'%} {{docente_name}}</h1>
+	  <h1>{% trans 'Informação do Docente:'%} {{docente_name}}</h1>
 	</div>
+	
+<!----------------------------------------------------------------------------->	
+	<form id="filter_ano_form" class="form-horizontal" role="form">
+	 <div class="form-group whiteText">
+    <label class="col-xs-1 control-label">Ano</label>
+    <div class="col-xs-2">
+      <select class="form-control" name="ano" onchange="$('#filter_ano_form').submit()">
+      	{%for ano in listaAnos%}
+  		<option 
+  		{% if ano.ano == "2013" %}
+  		selected="selected"
+  		
+  		{% endif %}
+  		 >{{ano.ano}}</option>
+  		{%endfor%}
+
+  </select>
+    </div>
+  	</div>
+	
+</form>
+<!----------------------------------------------------------------------------->
+
 	<table cellpadding="0" cellspacing="0" border="0" class="display sumary_table" id="special_table" width="100%">
 		<thead>
 			<tr>

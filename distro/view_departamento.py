@@ -11,7 +11,7 @@ Created on 10 de Out de 2012
 
 from distro.forms_departamento import AdicionarServicoDocenteForm
 from distro.models import Departamento, Turma, UnidadeCurricular, ServicoDocente, \
-    Docente, TipoAula, Contrato, Categoria, Modulos, Curso
+    Docente, TipoAula, Contrato, Categoria, Modulos, Curso, Ano
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib.formtools.preview import FormPreview
 from django.core.exceptions import ObjectDoesNotExist
@@ -166,7 +166,7 @@ def indexDepartamento(request):
     MAXIMO_HORAS = 360
     MINIMO_HORAS = 180
     
-    listaAnos = listarAnos(id_Departamento)
+    listaAnos = Ano.objects.all()#listarAnos(id_Departamento)
     listToSendSDoc = []
     listToSendCDoc = []
     
@@ -489,7 +489,8 @@ e o numero de turmas a que tão associados e o numero de horas que ja tem atribu
 @DepUserTeste
 def listDocentes(request):
     id_Departamento = request.session['dep_id']
-    listaAnos = listarAnos(id_Departamento)
+    listaAnos = Ano.objects.all()#listarAnos(id_Departamento)
+    allCategories = Categoria.objects.all()
     actualState = ""
 
     listToSend = []
@@ -697,8 +698,19 @@ def removeDuplicatedElements(dataList):
 @login_required(redirect_field_name = 'login_redirectUsers')
 @DepUserTeste
 def infoDocenteDep(request, id_docente):
-    listaAnos = listarAnos(request.session['dep_id'])
-    servicoDocente = Modulos.objects.filter(docente_id__exact = id_docente)
+    form = request.GET
+    
+    ano_selected = None
+    if(form != {}):
+        ano_selected =  str(form['ano'])
+    else:
+        ano_selected = str(2012)
+    
+
+    #listaAnos = listarAnos(request.session['dep_id'])
+    listaAnos = Ano.objects.all()
+    servicoDocente = Modulos.objects.filter(Q(docente_id__exact = id_docente),Q(servico_docente__turma__ucAno__cursosAno__ano__ano__exact = ano_selected))
+    
     unidadesCurriculares = UnidadeCurricular.objects.all()
 
     docente_name = Docente.objects.get(id__exact = id_docente).nome_completo
@@ -708,6 +720,10 @@ def infoDocenteDep(request, id_docente):
     horasTotal = 0
     for servDocente in servicoDocente:
 
+        print "#################################"
+        print servDocente.servico_docente.turma.ucAno.cursosAno.ano.id
+        print servDocente.servico_docente.turma.unidade_curricular_id
+        print "#################################"
         # nome da unidade curricular que o docente vai dar aulas.
         nomeUnidadeCurricular = UnidadeCurricular.objects.get(id__exact = servDocente.servico_docente.turma.unidade_curricular_id).nome
         turma = Turma.objects.get(id__exact = servDocente.servico_docente.turma_id)
