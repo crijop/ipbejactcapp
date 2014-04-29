@@ -15,28 +15,12 @@
 {% block MenuInformacao %} {% endblock %}
 
 {% block filtros %}
-<ul>
+<div class="list-group">
+  
+  <a href="#" class="list-group-item active">Categoria</a>
+  {% include "recursosHumanos/elements/filter_cat.html" %}
 
-	
-	<li class="has-sub" >
-		<a  id="oa_button" tabindex="4" href='#oa'><span>Por Ordem Alfabética</span></a>
-
-	</li>
-	<div id="oa">
-
-	
-
-	</div>
-	<li class="has-sub">
-		<a id="ca_button" tabindex="4" href='#category'><span>Por Categoria</span></a>
-		
-	</li>
-	<div id="category">
-
-	
-
-	</div>
-</ul>
+</div>
 
 {% endblock %}
 
@@ -63,7 +47,7 @@
 <table cellpadding="0" cellspacing="0" border="0" class="display sumary_table" id="special_table" width="100%">
 <thead>
 	<tr class="cabecalho_sumario">
-		<th></th>
+		<th>ID</th>
 		<th class="cabecalho_sumario">Docente</th>
 		<th class="cabecalho_sumario">Horas Distribuidas</th>
 		<th class="cabecalho_sumario">Turmas</th>
@@ -72,7 +56,7 @@
 <tbody>
 	{% for id_Docente, nome, turmas, horas  in listInfo %}
 	<tr>
-		<td ><a href="{{id_Docente}}"><span class="view"></span></a></td>
+		<td ><a href="{{id_Docente}}"><span class="view">{{id_Docente}}</span></a></td>
 		<td class="teacher_name_field"><a href="{{id_Docente}}">{{nome}}</a></td>
 		
 		<td {% if horas < 180  %} 

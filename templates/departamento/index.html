@@ -17,7 +17,7 @@
     	<li class="dropdown-header">{% trans 'Turma - Ano'%}</li>
     	<li class="divider"></li>
 	    {%for ano in listaAnos%}
-	      <li><a href='{%url listarTurmas ano%}'>{{ano}}</a></li>
+	      <li><a href='{%url listarTurmas ano.ano %}'>{{ano.ano}}</a></li>
 	    {%endfor%}
 	    <li class="divider"></li>
 	    <li><a href='{%url listDocentesDep %}'>{% trans 'Docentes' %}</a></li>
@@ -29,7 +29,7 @@
     	<li class="dropdown-header">{% trans 'Ano'%}</li>
     	<li class="divider"></li>
 	    {%for ano in listaAnos%}
-	      <li><a href='{%url listarServicoDocente ano%}'>{{ano}}</a></li>
+	      <li><a href='{%url listarServicoDocente ano.ano%}'>{{ano.ano}}</a></li>
 	    {%endfor%}
     </ul>
 </li>
@@ -39,7 +39,7 @@
     	<li class="dropdown-header">{% trans 'Ano'%}</li>
 	    <li class="divider"></li>
 	    {%for ano in listaAnos%}
-	      <li><a href='{%url turmaSemServDocente ano%}'>{{ano}}</a></li>
+	      <li><a href='{%url turmaSemServDocente ano.ano%}'>{{ano.ano}}</a></li>
 	    {%endfor%}
     </ul>
 </li>

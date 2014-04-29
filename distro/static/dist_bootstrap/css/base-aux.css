@@ -276,6 +276,7 @@ table.display th{
 	position: relative;
 	float: left;
 	margin-bottom: 1em !important;
+	margin-top: 1em !important;
 	background-color: white !important;
 	width: 100%;
 	padding: 1em 0.5em;
