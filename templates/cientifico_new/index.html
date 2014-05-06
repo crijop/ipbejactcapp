@@ -1,0 +1,72 @@
+{% extends "base_v_bootstrap.html" %}
+{% load i18n %}
+{% block title %}{% trans 'Página Inícial Cientifico'%}{% endblock %}
+
+{% block breadcrumb %}
+	<ul class="breadcrumb">
+		<li class="active"><span class="glyphicon glyphicon-home"></span> {% trans 'Home' %}</li>
+	</ul>
+{% endblock %}
+
+{% block Menus %}
+    <li class="dropdown {% block tabelas %}{% endblock %}">
+	    <a href="#" class="dropdown-toggle" data-toggle="dropdown">{% trans 'Tabelas' %}<b class="caret"></b></a>
+	    <ul class="dropdown-menu">
+	    	<li><a href="{% url lstCursoCientifico %}">{% trans 'Cursos' %}</a></li>
+	    	<li><a href="{% url lstucCientifico ano %}">{% trans 'Unidades Curriculares' %}</a></li>
+	    	<li><a href="#">{% trans 'Turmas' %}</a></li>
+	    	<li><a href="#">{% trans 'Docentes' %}</a></li>
+	    </ul>
+	</li>
+	{%comment%}
+    <li class="dropdown {% block MenuDefCursos %} {% endblock %}">
+	    <a href="#" class="dropdown-toggle" data-toggle="dropdown">{% trans 'Definir Cursos' %}<b class="caret"></b></a>
+	    <ul class="dropdown-menu">
+	      <li><a href="{%url def_Curso_CET %}">{% trans "CET's" %}</a></li>
+	      <li><a href="{%url def_Curso_Lic %}">{% trans 'Licenciaturas' %}</a></li>
+	      <li><a href="{%url def_Curso_Mest %}">{% trans 'Mestrados' %}</a></li>
+	      <li><a href='{%url def_Curso_PG %}'><span>{% trans 'Pós-Graduações' %}</span></a></li>
+	      <li><a href='{%url def_Curso_PortLE %}'><span>{% trans 'Português Lingua Estrangeira' %}</span></a></li>
+	    </ul>
+	</li>
+	<li class="dropdown {% block MenuListCursos %} {% endblock %}">
+	    <a href="#" class="dropdown-toggle" data-toggle="dropdown">{% trans 'Lista Cursos' %}<b class="caret"></b></a>
+	    <ul class="dropdown-menu">
+	      <li><a href="{%url listar_Curso_CET %}">{% trans "CET's" %}</a></li>
+	      <li><a href="{%url listar_Curso_Lic %}">{% trans 'Licenciaturas' %}</a></li>
+	      <li><a href="{%url listar_Curso_Mest %}">{% trans 'Mestrados' %}</a></li>
+	      <li><a href='{%url listar_Curso_PG %}'><span>{% trans 'Pós-Graduações' %}</span></a></li>
+	      <li><a href='{%url listar_Curso_PortLE %}'><span>{% trans 'Português Lingua Estrangeira' %}</span></a></li>
+	    </ul>
+	</li>
+	<li class="dropdown {% block MenuModDeleg %}{% endblock %}">
+	    <a href="#" class="dropdown-toggle" data-toggle="dropdown">{% trans 'Lista Modulos' %}<b class="caret"></b></a>
+	    <ul class="dropdown-menu">
+	      <li><a href="{%url modulosDelegados %}">{% trans 'Modulos Delegados' %}</a></li>
+	    </ul>
+	</li>
+	{%endcomment%}
+	<li class="dropdown {% block MenuAjuda %} {% endblock %}">
+	    <a href="#" class="dropdown-toggle" data-toggle="dropdown">{% trans 'Ajuda'%}<b class="caret"></b></a>
+	    <ul class="dropdown-menu">
+	       <li><a href="#">{% trans 'Como Gerar XLS'%}</a></li>
+	     </ul> 
+	</li>
+{% endblock %}
+
+{% block content %}
+	<!-------------------------------------------------------------PAinel informativo--------------------------------------------------->	
+<div class="jumbotron">
+	
+  <h1>{% trans 'Cientifico!'%}</h1>
+  {%comment%}<p>{% trans 'Na área de gestão dos Recursos Humanos, terá a possibilidade de:'%}</p>
+  <p>- {% trans 'Adicionar novos docentes ao sistema.'%}</p>
+  <p>- {% trans 'Editar a informação de docentes já existentes.'%}</p>
+  <p>- {% trans 'Listar todos os docentes existentes no sistema, utilizando filtros para refinar a sua pesquisa.'%}</p>{%endcomment%}
+  <p><a class="btn btn-primary btn-lg" role="button">{% trans "Conheça mais" %}</a></p>
+  
+</div>
+{% endblock %}
+
+
+

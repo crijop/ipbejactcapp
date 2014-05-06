@@ -200,6 +200,9 @@ class CursosAno(models.Model):
                             blank = True
                             )
     curso = models.ForeignKey('Curso')
+    
+    def __unicode__(self):
+        return unicode(self.curso.nome)
 
 
 class UC_Ano(models.Model):
@@ -208,6 +211,9 @@ class UC_Ano(models.Model):
                                           blank = True
                                           )
     cursosAno = models.ForeignKey('CursosAno')
+    
+    def __unicode__(self):
+        return unicode(self.unidadeCurricular.nome)
     
 
 
