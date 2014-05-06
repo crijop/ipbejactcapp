@@ -26,27 +26,27 @@ import xlwt
 Inicio das vistas do Ciêntifico
 '''
 
-cientificoUserTeste = user_passes_test(lambda u:u.groups.filter(name='Cientifico').count(), login_url='')
+cientificoUserTeste = user_passes_test(lambda u:u.groups.filter(name = 'vicP').count(), login_url = '')
 
 
-#View para apresentar o index do cientifico (presidencia do 
-#concelho cientifico)
-#só vai entrar nesta view se o utilizador estiver autenticado
-#e se pertencer ao grupo do cientifico.
-@login_required(redirect_field_name='login_redirectUsers')
+# View para apresentar o index do cientifico (presidencia do 
+# concelho cientifico)
+# só vai entrar nesta view se o utilizador estiver autenticado
+# e se pertencer ao grupo do cientifico.
+@login_required(redirect_field_name = 'login_redirectUsers')
 @cientificoUserTeste
-def indexCientifico(request):
+def indexVicP(request):
     return render_to_response("cientifico/index.html",
         locals(),
-        context_instance=RequestContext(request),
+        context_instance = RequestContext(request),
         )
     pass
 
-#View para criar os XLS da Base dados
-#ao entrar nesta vista os XLS são logo criados.
-#só vai entrar nesta view se o utilizador estiver autenticado
-#e se pertencer ao grupo do cientifico.
-@login_required(redirect_field_name='login_redirectUsers')
+# View para criar os XLS da Base dados
+# ao entrar nesta vista os XLS são logo criados.
+# só vai entrar nesta view se o utilizador estiver autenticado
+# e se pertencer ao grupo do cientifico.
+@login_required(redirect_field_name = 'login_redirectUsers')
 @cientificoUserTeste
 def criarXLS(request):
 
@@ -59,23 +59,23 @@ def criarXLS(request):
 
     return render_to_response("cientifico/criar_xls.html",
         locals(),
-        context_instance=RequestContext(request),
+        context_instance = RequestContext(request),
         )
     pass
 
 
-#Metdodo de Criação da folha Matriz_SD do XLS
+# Metdodo de Criação da folha Matriz_SD do XLS
 def createXLS_sheet0(wb):
-    #Nome Folha
+    # Nome Folha
     ws0 = wb.add_sheet('Matriz_SD')
 
-    #Estilos
+    # Estilos
     style = xlwt.easyxf('pattern: pattern solid, fore_colour green')
     borders = Borders()
-    borders.left    = 5
-    borders.right   = 5
-    borders.top     = 5
-    borders.bottom  = 5
+    borders.left = 5
+    borders.right = 5
+    borders.top = 5
+    borders.bottom = 5
     style.borders = borders
     
     lista = []
@@ -140,7 +140,7 @@ def createXLS_sheet0(wb):
                 "Excesso 360"
                 ]
     
-    #Cabeçalhos do XLS
+    # Cabeçalhos do XLS
     col = 0
     row = 0
     for lCab in listaCAB:
@@ -150,7 +150,7 @@ def createXLS_sheet0(wb):
     listaModulos = Modulos.objects.all()
     nrHorasDocente = 0
     for modulos in listaModulos:
-        #Calcular as horas dos docentes anual...
+        # Calcular as horas dos docentes anual...
         nome_departamento = ""
         nome_docente = ""
         nome_categoria = ""
@@ -167,18 +167,18 @@ def createXLS_sheet0(wb):
             nome_escalao = ""
             pass
         '''modulos.docente.departamento.nome'''
-        #modulos.docente.nome_completo 
-        #Contrato.objects.get(docente_id__exact = modulos.docente_id).categoria.nome   
-        #modulos.docente.escalao
-        lista.append([modulos.servico_docente.turma.unidade_curricular.departamento.sede.abreviatura,\
-                      nome_departamento,\
-                      nome_docente,\
-                      0,\
-                      nome_categoria,\
-                      nome_escalao,\
-                      modulos.servico_docente.turma.unidade_curricular.curso.nome,\
-                      modulos.servico_docente.turma.unidade_curricular.curso.tipo_curso.abreviatura,\
-                      "", modulos.servico_docente.turma.unidade_curricular.nome,\
+        # modulos.docente.nome_completo 
+        # Contrato.objects.get(docente_id__exact = modulos.docente_id).categoria.nome   
+        # modulos.docente.escalao
+        lista.append([modulos.servico_docente.turma.unidade_curricular.departamento.sede.abreviatura, \
+                      nome_departamento, \
+                      nome_docente, \
+                      0, \
+                      nome_categoria, \
+                      nome_escalao, \
+                      modulos.servico_docente.turma.unidade_curricular.curso.nome, \
+                      modulos.servico_docente.turma.unidade_curricular.curso.tipo_curso.abreviatura, \
+                      "", modulos.servico_docente.turma.unidade_curricular.nome, \
                       modulos.servico_docente.turma.unidade_curricular.departamento.nome,
                       modulos.servico_docente.turma.unidade_curricular.cnaef.codigo,
                       modulos.servico_docente.turma.unidade_curricular.ects,
@@ -195,9 +195,9 @@ def createXLS_sheet0(wb):
                       "", "",
                       modulos.servico_docente.turma.unidade_curricular.horas_lei_ot,
                       modulos.servico_docente.turma.unidade_curricular.horas_lei_o,
-                      "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", 
-                      "-", 
-                      modulos.servico_docente.turma.observacoesDirDepartamento, 
+                      "", "", "", "", "", "", "", "", "", "", "", "", "", "", "",
+                      "-",
+                      modulos.servico_docente.turma.observacoesDirDepartamento,
                       modulos.servico_docente.turma.observacoesDirEscola,
                       modulos.servico_docente.turma.observacoesPresidencia, "", ""
                       ])
@@ -212,20 +212,20 @@ def createXLS_sheet0(wb):
             col += 1
         col = 0
         row += 1
-    #wb.save('decdcd.xls')
+    # wb.save('decdcd.xls')
 
-#Metdodo de Criação da folha Docentes1011 do XLS
+# Metdodo de Criação da folha Docentes1011 do XLS
 def folhaDocentes1011(wb):
-    #Nome Folha
+    # Nome Folha
     ws0 = wb.add_sheet('Docentes1011')
     
-    #Estilos
+    # Estilos
     style = xlwt.easyxf('pattern: pattern solid, fore_colour green')
     borders = Borders()
-    borders.left    = 5
-    borders.right   = 5
-    borders.top     = 5
-    borders.bottom  = 5
+    borders.left = 5
+    borders.right = 5
+    borders.top = 5
+    borders.bottom = 5
     style.borders = borders
     
 
@@ -238,7 +238,7 @@ def folhaDocentes1011(wb):
                 "%"
                 ]
    
-    #Cabeçalhos do XLS
+    # Cabeçalhos do XLS
     col = 0
     row = 0
     for lCab in listaCAB:
@@ -248,7 +248,7 @@ def folhaDocentes1011(wb):
     for docente in lisDocentes: 
         contratos = Contrato.objects.filter(docente_id__exact = docente.id)
         for c in contratos:
-            lista.append([unicode(docente.departamento.nome),\
+            lista.append([unicode(docente.departamento.nome), \
                           unicode(docente.nome_completo), \
                           unicode(c.categoria.nome), \
                           unicode(docente.escalao)]\
@@ -262,10 +262,10 @@ def folhaDocentes1011(wb):
             col += 1
         col = 0
         row += 1
-    #wb.save('docentes1011.xls')
+    # wb.save('docentes1011.xls')
     pass
 
-#Metdodo de Criação da folha PCurricularNTurmaFix do XLS
+# Metdodo de Criação da folha PCurricularNTurmaFix do XLS
 def createXLS_sheet1(wb):
   
     font0 = Font()
@@ -292,42 +292,42 @@ def createXLS_sheet1(wb):
     listFinal = []
     
     listFinal.append([u"UO do Curso", u"CURSO", u"Tipo CURSO",
-                           u"Regime/Turma CURSO", u"UNIDADE de FORMAÇÃO ou UNIDADE CURRICULAR", u"DEP UF ou UC", 
-                           u"ID CNAEF", u"ECTS", u"ANO", u"SEM", 
-                           u"Época UC",u"Nº Alunos",u"Turmas T",u"Turmas TP","Turmas PL",u"Turmas TC",u"Turmas S",
-                           u"Turmas E",u"Turmas OT", u"Turmas O", u"Horas Lei T", 
-                           u"Horas Lei TP",u"Horas Lei PL", u"Horas Lei TC",
+                           u"Regime/Turma CURSO", u"UNIDADE de FORMAÇÃO ou UNIDADE CURRICULAR", u"DEP UF ou UC",
+                           u"ID CNAEF", u"ECTS", u"ANO", u"SEM",
+                           u"Época UC", u"Nº Alunos", u"Turmas T", u"Turmas TP", "Turmas PL", u"Turmas TC", u"Turmas S",
+                           u"Turmas E", u"Turmas OT", u"Turmas O", u"Horas Lei T",
+                           u"Horas Lei TP", u"Horas Lei PL", u"Horas Lei TC",
                              u"Horas Lei S", u"Horas Lei E", u"Horas calc CCAA E",
-                             u"Horas corr CCAA E", u"Horas Lei OT",u"Horas Lei O",u"Fundamentação Turmas (Director de Escola)"
-                             ,"",u"VER Turmas T",u"VER Turmas TP",u"VER Turmas PL",u"VER Turmas TC","VER Turmas S",u"VER Turmas E"
-                             ,u"VER Turmas OT", u"VER Turmas O", u"Erro n.º Turmas", u"Observações"])
+                             u"Horas corr CCAA E", u"Horas Lei OT", u"Horas Lei O", u"Fundamentação Turmas (Director de Escola)"
+                             , "", u"VER Turmas T", u"VER Turmas TP", u"VER Turmas PL", u"VER Turmas TC", "VER Turmas S", u"VER Turmas E"
+                             , u"VER Turmas OT", u"VER Turmas O", u"Erro n.º Turmas", u"Observações"])
     
     allUC = UnidadeCurricular.objects.all()
     
     for uc in allUC:
         try:
             listFinal.append([uc.departamento.sede.abreviatura, uc.curso.nome, uc.curso.tipo_curso.abreviatura, "",
-                           uc.nome, uc.departamento.nome, uc.cnaef.codigo, 
-                           uc.ects, uc.ano, uc.semestre, uc.epoca.abreviatura, 
+                           uc.nome, uc.departamento.nome, uc.cnaef.codigo,
+                           uc.ects, uc.ano, uc.semestre, uc.epoca.abreviatura,
                            "",
-                           "","","","","","","","", uc.horas_lei_t, uc.horas_lei_tp, 
-                           uc.horas_lei_pl,uc.horas_lei_tc, uc.horas_lei_s,
+                           "", "", "", "", "", "", "", "", uc.horas_lei_t, uc.horas_lei_tp,
+                           uc.horas_lei_pl, uc.horas_lei_tc, uc.horas_lei_s,
                              uc.horas_lei_e, uc.horas_lei_ot, uc.horas_lei_o,
-                             "", "","","","","","","","","","",""])
+                             "", "", "", "", "", "", "", "", "", "", "", ""])
         except AttributeError:
             listFinal.append([uc.departamento.sede.nome, uc.curso.nome, uc.curso.tipo_curso.abreviatura, "",
-                           uc.nome, uc.departamento.nome, "", 
-                           uc.ects, uc.ano, uc.semestre, "", 
+                           uc.nome, uc.departamento.nome, "",
+                           uc.ects, uc.ano, uc.semestre, "",
                            "",
-                           "","","","","","","","", uc.horas_lei_t, uc.horas_lei_tp, 
-                           uc.horas_lei_pl,uc.horas_lei_tc, uc.horas_lei_s,
+                           "", "", "", "", "", "", "", "", uc.horas_lei_t, uc.horas_lei_tp,
+                           uc.horas_lei_pl, uc.horas_lei_tc, uc.horas_lei_s,
                              uc.horas_lei_e, uc.horas_lei_ot, uc.horas_lei_o,
-                             "", "","","","","","","","","","",""])
+                             "", "", "", "", "", "", "", "", "", "", "", ""])
         
         
         
     
-    #t0 = time()
+    # t0 = time()
     print "Start..."
     rowcount = 0
     colcount = 0
@@ -349,13 +349,13 @@ def createXLS_sheet1(wb):
     
    
     print "Storing..."
-    #wb.save('big-16Mb.xls')
+    # wb.save('big-16Mb.xls')
     
-    #t2 = time() - t0
+    # t2 = time() - t0
     print "Finished ... "
     pass
 
-@login_required(redirect_field_name='login_redirectUsers')
+@login_required(redirect_field_name = 'login_redirectUsers')
 @cientificoUserTeste
 def listaDelegacoes(request):
     
@@ -364,17 +364,17 @@ def listaDelegacoes(request):
     listToSend = []
     
     for m in modulos_delegados:
-        listToSend.append([m.id, m.servico_docente.turma.unidade_curricular.departamento.nome,  m.servico_docente.turma.unidade_curricular.nome, m.horas, m.departamento.nome ])
+        listToSend.append([m.id, m.servico_docente.turma.unidade_curricular.departamento.nome, m.servico_docente.turma.unidade_curricular.nome, m.horas, m.departamento.nome ])
     
             
     print modulos_delegados
     return render_to_response("cientifico/listagemModulosDelegados.html",
         locals(),
-        context_instance=RequestContext(request),
+        context_instance = RequestContext(request),
         )
     pass
 
-@login_required(redirect_field_name='login_redirectUsers')
+@login_required(redirect_field_name = 'login_redirectUsers')
 @cientificoUserTeste
 def aprovarDelegacao(request, id_modulo):
     
@@ -386,12 +386,12 @@ def aprovarDelegacao(request, id_modulo):
     
     return render_to_response("cientifico/sucess.html",
         locals(),
-        context_instance=RequestContext(request),
+        context_instance = RequestContext(request),
         )
     pass
     
     
-@login_required(redirect_field_name='login_redirectUsers')
+@login_required(redirect_field_name = 'login_redirectUsers')
 @cientificoUserTeste
 def reprovarDelegacao(request, id_modulo):
     
@@ -404,7 +404,7 @@ def reprovarDelegacao(request, id_modulo):
     
     return render_to_response("cientifico/reprove.html",
         locals(),
-        context_instance=RequestContext(request),
+        context_instance = RequestContext(request),
         )
     pass
 
@@ -417,7 +417,7 @@ Data: 14/05/2013
 '''
 Método que vai criar a view da definição de cursos para os CET's
 '''
-@login_required(redirect_field_name='login_redirectUsers')
+@login_required(redirect_field_name = 'login_redirectUsers')
 @cientificoUserTeste
 def definirCursosCET(request):
     id_CET = 4
@@ -455,14 +455,14 @@ def definirCursosCET(request):
     
     return render_to_response("cientifico/definir_Curso_CET.html",
         locals(),
-        context_instance=RequestContext(request),
+        context_instance = RequestContext(request),
         )
     pass
 
 '''
 Método que vai criar a view da definição de cursos para as Licenciaturas
 '''
-@login_required(redirect_field_name='login_redirectUsers')
+@login_required(redirect_field_name = 'login_redirectUsers')
 @cientificoUserTeste
 def definirCursosLic(request):
     id_Lic = 1
@@ -497,14 +497,14 @@ def definirCursosLic(request):
     
     return render_to_response("cientifico/definir_Curso_Lic.html",
         locals(),
-        context_instance=RequestContext(request),
+        context_instance = RequestContext(request),
         )
     pass
 
 '''
 Método que vai criar a view da definição de cursos para os Mestrados
 '''
-@login_required(redirect_field_name='login_redirectUsers')
+@login_required(redirect_field_name = 'login_redirectUsers')
 @cientificoUserTeste
 def definirCursosMest(request):
     id_Mest = 2
@@ -540,14 +540,14 @@ def definirCursosMest(request):
     
     return render_to_response("cientifico/definir_Curso_Mest.html",
         locals(),
-        context_instance=RequestContext(request),
+        context_instance = RequestContext(request),
         )
     pass
 
 '''
 Método que vai criar a view da definição de cursos para as Pós-Graduações
 '''
-@login_required(redirect_field_name='login_redirectUsers')
+@login_required(redirect_field_name = 'login_redirectUsers')
 @cientificoUserTeste
 def definirCursosPG(request):
     id_PG = 3
@@ -583,7 +583,7 @@ def definirCursosPG(request):
     
     return render_to_response("cientifico/definir_Curso_PG.html",
         locals(),
-        context_instance=RequestContext(request),
+        context_instance = RequestContext(request),
         )
     pass
 
@@ -591,7 +591,7 @@ def definirCursosPG(request):
 '''
 Método que vai criar a view da definição de cursos para os Portugues de Lingua Estrangeira
 '''
-@login_required(redirect_field_name='login_redirectUsers')
+@login_required(redirect_field_name = 'login_redirectUsers')
 @cientificoUserTeste
 def definirCursosPortLE(request):
     id_PortLE = 5
@@ -627,7 +627,7 @@ def definirCursosPortLE(request):
     
     return render_to_response("cientifico/definir_Curso_PortLE.html",
         locals(),
-        context_instance=RequestContext(request),
+        context_instance = RequestContext(request),
         )
     pass
 
@@ -637,7 +637,7 @@ def definirCursosPortLE(request):
 '''
 Método que vai criar a view da Listagem de cursos para os CET's
 '''
-@login_required(redirect_field_name='login_redirectUsers')
+@login_required(redirect_field_name = 'login_redirectUsers')
 @cientificoUserTeste
 def listarCursosCET(request):
     id_CET = 4
@@ -674,14 +674,14 @@ def listarCursosCET(request):
     
     return render_to_response("cientifico/ListarCursos/listar_Curso_CET.html",
         locals(),
-        context_instance=RequestContext(request),
+        context_instance = RequestContext(request),
         )
     pass
 
 '''
 Método que vai criar a view a listagem de cursos para as Licenciaturas
 '''
-@login_required(redirect_field_name='login_redirectUsers')
+@login_required(redirect_field_name = 'login_redirectUsers')
 @cientificoUserTeste
 def listarCursosLic(request):
     id_Lic = 1
@@ -716,14 +716,14 @@ def listarCursosLic(request):
     
     return render_to_response("cientifico/ListarCursos/listar_Curso_Lic.html",
         locals(),
-        context_instance=RequestContext(request),
+        context_instance = RequestContext(request),
         )
     pass
 
 '''
 Método que vai criar a view a listagem de cursos para os Mestrados
 '''
-@login_required(redirect_field_name='login_redirectUsers')
+@login_required(redirect_field_name = 'login_redirectUsers')
 @cientificoUserTeste
 def listarCursosMest(request):
     id_Mest = 2
@@ -759,14 +759,14 @@ def listarCursosMest(request):
     
     return render_to_response("cientifico/ListarCursos/listar_Curso_Mest.html",
         locals(),
-        context_instance=RequestContext(request),
+        context_instance = RequestContext(request),
         )
     pass
 
 '''
 Método que vai criar a view a listagem de cursos para as Pós-Graduações
 '''
-@login_required(redirect_field_name='login_redirectUsers')
+@login_required(redirect_field_name = 'login_redirectUsers')
 @cientificoUserTeste
 def listarCursosPG(request):
     id_PG = 3
@@ -802,7 +802,7 @@ def listarCursosPG(request):
     
     return render_to_response("cientifico/ListarCursos/listar_Curso_PG.html",
         locals(),
-        context_instance=RequestContext(request),
+        context_instance = RequestContext(request),
         )
     pass
 
@@ -810,7 +810,7 @@ def listarCursosPG(request):
 '''
 Método que vai criar a view a listagem de cursos para os Portugues de Lingua Estrangeira
 '''
-@login_required(redirect_field_name='login_redirectUsers')
+@login_required(redirect_field_name = 'login_redirectUsers')
 @cientificoUserTeste
 def listarCursosPortLE(request):
     id_PortLE = 5
@@ -846,7 +846,7 @@ def listarCursosPortLE(request):
     
     return render_to_response("cientifico/ListarCursos/listar_Curso_PortLE.html",
         locals(),
-        context_instance=RequestContext(request),
+        context_instance = RequestContext(request),
         )
     pass
 ###########################################################################################
@@ -859,7 +859,7 @@ def listarCursosPortLE(request):
 '''
 Método que vai criar a view para visualizar o curso
 '''
-@login_required(redirect_field_name='login_redirectUsers')
+@login_required(redirect_field_name = 'login_redirectUsers')
 @cientificoUserTeste
 def verCurso(request, id_curso):
     id_PortLE = 5
@@ -893,7 +893,7 @@ def verCurso(request, id_curso):
     
     return render_to_response("cientifico/ListarCursos/listar_Curso_PortLE.html",
         locals(),
-        context_instance=RequestContext(request),
+        context_instance = RequestContext(request),
         )
     pass
 ###########################################################################################
@@ -903,7 +903,7 @@ def verCurso(request, id_curso):
 
 
 
-@login_required(redirect_field_name='login_redirectUsers')
+@login_required(redirect_field_name = 'login_redirectUsers')
 @cientificoUserTeste
 def addCursoFormClass(request, *args, **kwargs):
     view = AddCursoModelFormPreview(AdicionarCursoForm)
@@ -930,11 +930,11 @@ class AddCursoModelFormPreview(FormPreview):
     def preview_get(self, request):
         "Displays the form"
         
-        form = AdicionarCursoForm(tipoCurso=self.state['id_CET'])
+        form = AdicionarCursoForm(tipoCurso = self.state['id_CET'])
     
         return render_to_response(self.form_template,
             locals(),
-            context_instance=RequestContext(request))
+            context_instance = RequestContext(request))
     
     def parse_params(self, *args, **kwargs):
         """Handle captured args/kwargs from the URLconf"""
@@ -948,13 +948,13 @@ class AddCursoModelFormPreview(FormPreview):
     def done(self, request, cleaned_data):
         a = 0
         if request.method == 'POST':
-            form = AdicionarCursoForm(request.POST, tipoCurso=self.state['id_CET'])
+            form = AdicionarCursoForm(request.POST, tipoCurso = self.state['id_CET'])
             if form.is_valid():
-                #passar a variavel nome_completo para o template
+                # passar a variavel nome_completo para o template
                 '''nome_completo= form.cleaned_data['nome_completo']'''
-                #verifica se o campo do regime de exclusividade é
-                #verdadeiro ou Falso
-                #regime exclusividade igual a verdadeiro
+                # verifica se o campo do regime de exclusividade é
+                # verdadeiro ou Falso
+                # regime exclusividade igual a verdadeiro
                 nome_curso = form.changed_data['nome']
                 curso = Curso(nome = form.cleaned_data['nome'],
                             abreviatura = form.cleaned_data['abreviatura'],
@@ -963,13 +963,13 @@ class AddCursoModelFormPreview(FormPreview):
                 
                 curso.save()
                 pass
-                #return HttpResponseRedirect('/thanks/') # Redirect after POST
+                # return HttpResponseRedirect('/thanks/') # Redirect after POST
         else:
-            form = AdicionarCursoForm(tipoCurso=self.state['id_CET']) # An unbound form
+            form = AdicionarCursoForm(tipoCurso = self.state['id_CET'])  # An unbound form
         
         return render_to_response("cientifico/sucessoAddCurso.html",
             locals(),
-            context_instance=RequestContext(request),
+            context_instance = RequestContext(request),
             )
         pass
     pass

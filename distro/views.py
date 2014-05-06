@@ -2,9 +2,12 @@
 
 
 # Create your views here.
+from distro import view_admin
 from distro.models import Docente, ServicoDocente, TipoAula, Turma, \
     UnidadeCurricular, ReducaoServicoDocente, Reducao, Departamento, Modulos
-from distro.view_cientifico import indexCientifico
+from distro.modulosCientifico import views_cientifico
+from distro.modulosCientifico.views_cientifico import indexCientifico
+from distro.view_cientifico import indexVicP
 from distro.view_departamento import indexDepartamento
 from distro.view_recursos_humanos import indexRecursosHumanos
 from django import forms
@@ -13,48 +16,48 @@ from django.contrib.auth.models import Group
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render_to_response, redirect
 from django.template.context import RequestContext
-from distro import view_admin
 
 
 
-#login_required - só entra nesta vista se
-#o utilizador estiver autênticado
-#vista para a Página Home de cada utilizador
-#autenticado.
+# login_required - só entra nesta vista se
+# o utilizador estiver autênticado
+# vista para a Página Home de cada utilizador
+# autenticado.
 @login_required
 def login_redirectUsers(request):
     
-    #request.session.set_expiry(1800)
+    # request.session.set_expiry(1800)
   
     
-    name_group = Group.objects.get(name="Cientifico")
-    name_group1 = Group.objects.get(name="CoordenadoresCursos")
-    name_group2 = Group.objects.get(name="Departamento")
+    name_group = Group.objects.get(name = "Cientifico")
+    name_group1 = Group.objects.get(name = "CoordenadoresCursos")
+    name_group2 = Group.objects.get(name = "Departamento")
     name_group3 = Group.objects.get(name = "DirectoresEscola")
-    name_group4 = Group.objects.get(name="Docente")
+    name_group4 = Group.objects.get(name = "Docente")
     name_group5 = Group.objects.get(name = "RecusosHumanos")
     name_group6 = Group.objects.get(name = "servicosPlaneamento")
     name_group7 = Group.objects.get(name = "Eng")
     name_group8 = Group.objects.get(name = "B")
     name_group9 = Group.objects.get(name = "Administrador")
+    name_group10 = Group.objects.get(name = "vicP")
     
-    #verifica se o utlizador pertence ao grupo do Cientifico
+    # verifica se o utlizador pertence ao grupo do Cientifico
     if name_group in request.user.groups.all():
         return redirect(indexCientifico)
         pass
-    #verifica se o utlizador pertence ao grupo dos Coordenadores Cursos
+    # verifica se o utlizador pertence ao grupo dos Coordenadores Cursos
     elif name_group1 in request.user.groups.all():
         return redirect(indexCoordCursos)
         pass
-    #verifica se o utlizador pertence ao grupo do Departamento
+    # verifica se o utlizador pertence ao grupo do Departamento
     elif name_group2 in request.user.groups.all():
         return redirect(indexDepartamento)
         pass
-    #verifica se o utlizador pertence ao grupo dos Directores de Escolas
+    # verifica se o utlizador pertence ao grupo dos Directores de Escolas
     elif name_group3 in request.user.groups.all():
         return redirect(indexDirectoresEscola)
         pass
-    #verifica se o utlizador pertence ao grupo do Docente
+    # verifica se o utlizador pertence ao grupo do Docente
     elif name_group4 in request.user.groups.all():
         '''return render_to_response("docentes/index.html",
         locals(),
@@ -71,11 +74,11 @@ def login_redirectUsers(request):
                 pass
             
         return False
-    #verifica se o utlizador pertence ao grupo dos recursos Humanos
+    # verifica se o utlizador pertence ao grupo dos recursos Humanos
     elif name_group5 in request.user.groups.all():
         return redirect(indexRecursosHumanos)
         pass
-    #verifica se o utlizador pertence ao grupo dos servicosPlaneamento
+    # verifica se o utlizador pertence ao grupo dos servicosPlaneamento
     elif name_group6 in request.user.groups.all():
         return redirect(indexServicoPlaneamento)
         pass
@@ -87,18 +90,23 @@ def login_redirectUsers(request):
         request.session['dep_id'] = Departamento.objects.get(abreviatura__exact = name_group8).id
         return redirect(indexDepartamento)
         pass
-    #verifica se o utlizador pertence ao grupo dos servicosPlaneamento
+    # verifica se o utlizador pertence ao grupo dos servicosPlaneamento
     elif name_group9 in request.user.groups.all():
         print "REDIRECTTTTTTTTTTT"
         return redirect(view_admin.index)
         pass
+    # verifica se o utlizador pertence ao grupo do vicP
+    elif name_group10 in request.user.groups.all():
+        print "REDIRECTTTTTTTTTTT"
+        return redirect(indexVicP)
+        pass
     
-    #Se as condições anteriores não se verificarem, 
-    #é mostrado o conteudo da Página login_redirectUsers.html
+    # Se as condições anteriores não se verificarem, 
+    # é mostrado o conteudo da Página login_redirectUsers.html
     else:
         return render_to_response("Teste_home.html",
             locals(),
-            context_instance=RequestContext(request),
+            context_instance = RequestContext(request),
             )
         pass
     pass
@@ -108,13 +116,13 @@ def login_redirectUsers(request):
 '''
 Inicio das vistas dos Coordenadores Cursos
 '''
-#Falta a tabela para definir os Coordenadores...........
-#Falta fazer o url's
-@login_required(redirect_field_name='login_redirectUsers')
+# Falta a tabela para definir os Coordenadores...........
+# Falta fazer o url's
+@login_required(redirect_field_name = 'login_redirectUsers')
 def indexCoordCursos(request):
     return render_to_response("CoordCursos/index.html",
         locals(),
-        context_instance=RequestContext(request),
+        context_instance = RequestContext(request),
         )
     pass
 
@@ -128,13 +136,13 @@ Fim das vistas dos Coordenadores Cursos
 '''
 Inicio das vistas dos Directores de Escola
 ''' 
-#View da index dos directores de escola
-#de referir que ainda falta implementar....
-@login_required(redirect_field_name='login_redirectUsers')
+# View da index dos directores de escola
+# de referir que ainda falta implementar....
+@login_required(redirect_field_name = 'login_redirectUsers')
 def indexDirectoresEscola(request):
     return render_to_response("directoresEscola/index.html",
         locals(),
-        context_instance=RequestContext(request),
+        context_instance = RequestContext(request),
         )
     pass
 
@@ -147,58 +155,58 @@ Fim das vistas dos Directores de Escola
 '''
 Inicio das vistas dos docentes
 ''' 
-#Página Inicial do utilizador Docente
-#Só entra nesta view se o utilizador estiver autentitcado
-#e se o utilizador pertencer ao Grupo Docente.
-@login_required(redirect_field_name='login_redirectUsers')
-@user_passes_test(lambda u:u.groups.filter(name='Docente').count())
+# Página Inicial do utilizador Docente
+# Só entra nesta view se o utilizador estiver autentitcado
+# e se o utilizador pertencer ao Grupo Docente.
+@login_required(redirect_field_name = 'login_redirectUsers')
+@user_passes_test(lambda u:u.groups.filter(name = 'Docente').count())
 def indexDocente(request):
     nomeDocente = request.session['nomeDocente']
     nrDocente = request.session['nr_Docente']
     modulos = Modulos.objects.all()
     lista = []
-    #numero total de horas que o docente tem de serviço
+    # numero total de horas que o docente tem de serviço
     numeroTotalHoras = 0
     horasServico = 0
     reducaoHoras = 0
     for modul in modulos:
-        if modul.docente_id ==  nrDocente:
-            #nome da unidade curricular que o docente vai dar aulas.
-            nomeUnidadeCurricular = UnidadeCurricular.objects.get(id__exact=modul.servico_docente.turma.unidade_curricular_id).nome
-            #todas a reduções de serviço referentes ao docente
-            reducao = ReducaoServicoDocente.objects.filter(docente_id__exact=nrDocente)
-            #se o tamanho for 0 é porque nao existem reduções
+        if modul.docente_id == nrDocente:
+            # nome da unidade curricular que o docente vai dar aulas.
+            nomeUnidadeCurricular = UnidadeCurricular.objects.get(id__exact = modul.servico_docente.turma.unidade_curricular_id).nome
+            # todas a reduções de serviço referentes ao docente
+            reducao = ReducaoServicoDocente.objects.filter(docente_id__exact = nrDocente)
+            # se o tamanho for 0 é porque nao existem reduções
             if len(reducao) == 0 :
-                #nao faz nada
+                # nao faz nada
                 pass
             else:
-                #obtem o ID da redução
-                reducaoId = ReducaoServicoDocente.objects.get(docente_id__exact=nrDocente).reducao_id
-                #print "reducao id - ", reducaoId
-                #obtem o numero de horas de redução
-                reducaoHoras = Reducao.objects.get(id__exact=reducaoId).horas
+                # obtem o ID da redução
+                reducaoId = ReducaoServicoDocente.objects.get(docente_id__exact = nrDocente).reducao_id
+                # print "reducao id - ", reducaoId
+                # obtem o numero de horas de redução
+                reducaoHoras = Reducao.objects.get(id__exact = reducaoId).horas
                 pass
             
-            #print "docente_n _ ", reducao
-            #incrementa as horas de serviço
+            # print "docente_n _ ", reducao
+            # incrementa as horas de serviço
             horasServico += modul.horas
             numeroTotalHoras = horasServico + reducaoHoras
             lista.append((modul.docente_id, nomeUnidadeCurricular,
                            modul.horas, reducaoHoras))
     numeroTotalTurmas = len(lista)   
-    #print "dsfdf - ", reducaoHoras
+    # print "dsfdf - ", reducaoHoras
     return render_to_response("docentes/index.html",
         locals(),
-        context_instance=RequestContext(request),
+        context_instance = RequestContext(request),
         )
 
 
     
-#Página de apresentação das turmas a que os Docentes pertencem
-#Só entra nesta view se o utilizador estiver autentitcado
-#e se o utilizador pertencer ao Grupo Docente.
-@login_required(redirect_field_name='login_redirectUsers')
-@user_passes_test(lambda u:u.groups.filter(name='Docente').count())
+# Página de apresentação das turmas a que os Docentes pertencem
+# Só entra nesta view se o utilizador estiver autentitcado
+# e se o utilizador pertencer ao Grupo Docente.
+@login_required(redirect_field_name = 'login_redirectUsers')
+@user_passes_test(lambda u:u.groups.filter(name = 'Docente').count())
 def turmasDocentes(request):    
     nomeDocente = request.session['nomeDocente']
     nrDocente = request.session['nr_Docente']
@@ -206,41 +214,41 @@ def turmasDocentes(request):
     unidadesCurriculares = UnidadeCurricular.objects.all()
     lista = []
     for modul in modulos:
-        if modul.docente_id ==  nrDocente:
-            #nome da unidade curricular que o docente vai dar aulas.
-            nomeUnidadeCurricular = UnidadeCurricular.objects.get(id__exact=modul.servico_docente.turma.unidade_curricular_id).nome
-            nomeCurso = UnidadeCurricular.objects.get(id__exact=modul.servico_docente.turma.unidade_curricular_id).curso       
+        if modul.docente_id == nrDocente:
+            # nome da unidade curricular que o docente vai dar aulas.
+            nomeUnidadeCurricular = UnidadeCurricular.objects.get(id__exact = modul.servico_docente.turma.unidade_curricular_id).nome
+            nomeCurso = UnidadeCurricular.objects.get(id__exact = modul.servico_docente.turma.unidade_curricular_id).curso       
             lista.append((modul.docente_id, nomeUnidadeCurricular, nomeCurso))
     return render_to_response("docentes/turmaDocente.html",
         locals(),
-        context_instance=RequestContext(request),
+        context_instance = RequestContext(request),
         )    
     
-#Página de apresentação das horas de serviço pertencente a cada Docente
-#Só entra nesta view se o utilizador estiver autentitcado
-#e se o utilizador pertencer ao Grupo Docente.
-@login_required(redirect_field_name='login_redirectUsers')
-@user_passes_test(lambda u:u.groups.filter(name='Docente').count())
+# Página de apresentação das horas de serviço pertencente a cada Docente
+# Só entra nesta view se o utilizador estiver autentitcado
+# e se o utilizador pertencer ao Grupo Docente.
+@login_required(redirect_field_name = 'login_redirectUsers')
+@user_passes_test(lambda u:u.groups.filter(name = 'Docente').count())
 def horasServico(request):
     nomeDocente = request.session['nomeDocente']
     nrDocente = request.session['nr_Docente']  
     modulos = Modulos.objects.all()
     unidadesCurriculares = UnidadeCurricular.objects.all()
     lista = []
-    #numero total de horas que o docente tem de serviço
+    # numero total de horas que o docente tem de serviço
     numeroTotalHoras = 0
     for modul in modulos:
-        if modul.docente_id ==  nrDocente:
-            #nome da unidade curricular que o docente vai dar aulas.
-            nomeUnidadeCurricular = UnidadeCurricular.objects.get(id__exact=modul.servico_docente.turma.unidade_curricular_id).nome
-            nomeCurso = UnidadeCurricular.objects.get(id__exact=modul.servico_docente.turma.unidade_curricular_id).curso
-            numeroTotalHoras +=modul.horas       
+        if modul.docente_id == nrDocente:
+            # nome da unidade curricular que o docente vai dar aulas.
+            nomeUnidadeCurricular = UnidadeCurricular.objects.get(id__exact = modul.servico_docente.turma.unidade_curricular_id).nome
+            nomeCurso = UnidadeCurricular.objects.get(id__exact = modul.servico_docente.turma.unidade_curricular_id).curso
+            numeroTotalHoras += modul.horas       
             lista.append((modul.docente_id, nomeUnidadeCurricular,
                            modul.horas, nomeCurso))
               
     return render_to_response("docentes/horasServico.html",
         locals(),
-        context_instance=RequestContext(request),
+        context_instance = RequestContext(request),
         )
     
 '''
@@ -256,13 +264,13 @@ Fim das vistas dos docentes
 '''
 Inicio das vistas dos Serviços de Planeamento
 '''
-#View da index dos Serviços de Planeamento
-#de referir que ainda falta implementar....
-@login_required(redirect_field_name='login_redirectUsers')
+# View da index dos Serviços de Planeamento
+# de referir que ainda falta implementar....
+@login_required(redirect_field_name = 'login_redirectUsers')
 def indexServicoPlaneamento(request):
     return render_to_response("servicosPlaneamento/index.html",
         locals(),
-        context_instance=RequestContext(request),
+        context_instance = RequestContext(request),
         )
     pass
 
@@ -343,11 +351,11 @@ def criar_turmas(request, ano):
             pass
         
         for tipo_aula, horas in tipos_aula:
-            nova_turma = Turma(ano=ano,
-                               turno='A',
-                               unidade_curricular=uc,
-                               tipo_aula=tipo_aula,
-                               horas=horas)
+            nova_turma = Turma(ano = ano,
+                               turno = 'A',
+                               unidade_curricular = uc,
+                               tipo_aula = tipo_aula,
+                               horas = horas)
             
             nova_turma.save()
             pass
@@ -364,44 +372,44 @@ def criar_servico(request, ano):
     
     for turma in turmas:
         if turma.tipo_aula.tipo == 'PL':
-            novo_servico = ServicoDocente(turma=turma,
-                                          horas=turma.unidade_curricular.horas_lei_pl)
-            #nada += 'PL '
+            novo_servico = ServicoDocente(turma = turma,
+                                          horas = turma.unidade_curricular.horas_lei_pl)
+            # nada += 'PL '
             pass
         if turma.tipo_aula.tipo == 'TP':
-            novo_servico = ServicoDocente(turma=turma,
-                                          horas=turma.unidade_curricular.horas_lei_tp)
-            #nada += 'TP '
+            novo_servico = ServicoDocente(turma = turma,
+                                          horas = turma.unidade_curricular.horas_lei_tp)
+            # nada += 'TP '
             pass
         if turma.tipo_aula.tipo == 'T':
-            novo_servico = ServicoDocente(turma=turma,
-                                          horas=turma.unidade_curricular.horas_lei_t)
-            #nada += 'T '
+            novo_servico = ServicoDocente(turma = turma,
+                                          horas = turma.unidade_curricular.horas_lei_t)
+            # nada += 'T '
             pass
         if turma.tipo_aula.tipo == 'TC':
-            novo_servico = ServicoDocente(turma=turma,
-                                          horas=turma.unidade_curricular.horas_lei_tc)
-            #nada += 'TC '
+            novo_servico = ServicoDocente(turma = turma,
+                                          horas = turma.unidade_curricular.horas_lei_tc)
+            # nada += 'TC '
             pass
         if turma.tipo_aula.tipo == 'E':
-            novo_servico = ServicoDocente(turma=turma,
-                                          horas=turma.unidade_curricular.horas_lei_e)
-            #nada += 'E '
+            novo_servico = ServicoDocente(turma = turma,
+                                          horas = turma.unidade_curricular.horas_lei_e)
+            # nada += 'E '
             pass
         if turma.tipo_aula.tipo == 'OT':
-            novo_servico = ServicoDocente(turma=turma,
-                                          horas=turma.unidade_curricular.horas_lei_ot)
-            #nada += 'OT '
+            novo_servico = ServicoDocente(turma = turma,
+                                          horas = turma.unidade_curricular.horas_lei_ot)
+            # nada += 'OT '
             pass
         if turma.tipo_aula.tipo == 'S':
-            novo_servico = ServicoDocente(turma=turma,
-                                          horas=turma.unidade_curricular.horas_lei_s)
-            #nada += 'S '
+            novo_servico = ServicoDocente(turma = turma,
+                                          horas = turma.unidade_curricular.horas_lei_s)
+            # nada += 'S '
             pass
         if turma.tipo_aula.tipo == 'O':
-            novo_servico = ServicoDocente(turma=turma,
-                                          horas=turma.unidade_curricular.horas_lei_o)
-            #nada += 'O '
+            novo_servico = ServicoDocente(turma = turma,
+                                          horas = turma.unidade_curricular.horas_lei_o)
+            # nada += 'O '
             pass
         lista_servicos.append(novo_servico)
         
@@ -437,15 +445,15 @@ def search_form(request):
 
 def search(request):
     error = False
-    if 'q' in request.GET: # and request.GET['q']:
+    if 'q' in request.GET:  # and request.GET['q']:
         q = request.GET['q']
         if not q:
             error = True
         else:
-            docentes = Docente.objects.filter(nome_completo__icontains=q)
+            docentes = Docente.objects.filter(nome_completo__icontains = q)
             contagem = len(docentes)
             return render_to_response('search_results.html',
-                                      {'docentes': docentes, 
+                                      {'docentes': docentes,
                                        'query': q,
                                        'contagem': contagem})
         pass
@@ -457,21 +465,21 @@ def search(request):
 
 # código para experimentar posteriormente
 class ContactForm(forms.Form):
-    subject = forms.CharField(max_length=100)
+    subject = forms.CharField(max_length = 100)
     message = forms.CharField()
     sender = forms.EmailField()
-    cc_myself = forms.BooleanField(required=False)
+    cc_myself = forms.BooleanField(required = False)
 
 
 def contact(request):
-    if request.method == 'POST': # If the form has been submitted...
-        form = ContactForm(request.POST) # A form bound to the POST data
-        if form.is_valid(): # All validation rules pass
+    if request.method == 'POST':  # If the form has been submitted...
+        form = ContactForm(request.POST)  # A form bound to the POST data
+        if form.is_valid():  # All validation rules pass
             # Process the data in form.cleaned_data
             # ...
-            return HttpResponseRedirect('/thanks/') # Redirect after POST
+            return HttpResponseRedirect('/thanks/')  # Redirect after POST
     else:
-        form = ContactForm() # An unbound form
+        form = ContactForm()  # An unbound form
         pass
 
 
