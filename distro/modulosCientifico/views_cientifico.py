@@ -5,6 +5,7 @@ Created on 23/04/2014
 @author: Carlos Rijo Palma
 @author: António Urbano Baião
 '''
+from distro.Forms.form_extra import ComboxAno
 from distro.models import CursosAno, Ano, UC_Ano, Curso, Turma, Departamento, \
     UnidadeCurricular
 from django.contrib.auth.decorators import user_passes_test, login_required
@@ -41,6 +42,31 @@ def indexCientifico(request):
 def listCursos(request, *args, **kwargs):
     # ano = kwargs['ano'] 
     ano = "2012"
+    
+    
+    form = request.GET
+    
+    ano_selected = 0
+    if form != {}:
+        if form['ano'] != "":
+            ano_selected = form['ano']
+    else:
+        ano_selected = str(1) 
+        # Ir buscar a data do sistema
+    
+    listaAnos = Ano.objects.all()
+    
+    form_combo = ComboxAno(listaAnos, initial = {"ano":ano_selected})
+    
+    
+    ano = ano_selected
+    
+    if ano != 0:
+        anoActual = Ano.objects.get(id = ano)
+        anoActual = anoActual.ano
+    else:
+        anoActual = "(Não selecionou ano)"
+    
     curso_ano = list_Cursos_ano(ano)
     print curso_ano
     
@@ -59,7 +85,8 @@ def listUnidadesCurriculares(request, *args, **kwargs):
     curso = kwargs['curso']
     # ano = "2013"
     # curso = 25
-     
+    
+    
     ano_id = Ano.objects.filter(ano = ano)
     curso_id = Curso.objects.filter(id = curso)
      
@@ -91,7 +118,7 @@ def removeRepetidosLista(l):
 
 # lista de cursos num dado ano
 def list_Cursos_ano(ano):
-    ano_id = Ano.objects.filter(ano = ano)
+    ano_id = Ano.objects.filter(id = ano)
     curso_ano = CursosAno.objects.filter(ano = ano_id)
     return curso_ano
 
@@ -100,32 +127,41 @@ def list_Cursos_ano(ano):
 @login_required(redirect_field_name = 'login_redirectUsers')
 @cientificoUserTeste
 def listUC(request, *args, **kwargs):
-    ano = "2012"
     # ano = kwargs['ano']
     
     # Filtros
-    allCursos = list_Cursos_ano(ano)
+    
     allDepartamentos = Departamento.objects.all()
-
-    ano_id = Ano.objects.filter(ano = ano)
     
+    # Lista de anos
+    listaAnos = Ano.objects.all()
     
-    if "curso" in request.GET:
-        print "Curso"
+    if "curso" in request.GET and "ano" in request.GET:
         keyword = request.GET.get("curso")
-        print keyword
-        curso_ano = CursosAno.objects.filter(id = int(keyword), ano = ano_id)
+        ano_selected = request.GET['ano']
+        # Lista de Cursos para os Filtros
+        allCursos = list_Cursos_ano(ano_selected)
+        form_combo = ComboxAno(listaAnos, initial = {"ano":ano_selected})
+        anoActual = Ano.objects.get(id = ano_selected)
+        anoActual = anoActual.ano
+        
+        curso_ano = CursosAno.objects.filter(id = int(keyword), ano__id = ano_selected)
         listaUC_Ano = UC_Ano.objects.filter(cursosAno = curso_ano)
 
-    elif "departamento" in request.GET:
-        print "Departamento"
+    elif "departamento" in request.GET and "ano" in request.GET:
         keyword = request.GET.get("departamento")
+        ano_selected = request.GET['ano']
+        # Lista de Cursos para os Filtros
+        allCursos = list_Cursos_ano(ano_selected)
         
         # Departamento clicado pelo o utilizador
         departamento = Departamento.objects.get(id = int(keyword))
+        form_combo = ComboxAno(listaAnos, initial = {"ano":ano_selected})
+        anoActual = Ano.objects.get(id = ano_selected)
+        anoActual = anoActual.ano
         
         # Lista de cursos num determinado ano
-        curso_ano = list_Cursos_ano(ano)
+        curso_ano = list_Cursos_ano(ano_selected)
         
         # Lista de Ids dos cursos
         listaId_cursos = [ id_curso.curso.id for id_curso in curso_ano]
@@ -135,70 +171,33 @@ def listUC(request, *args, **kwargs):
         listaUC_Ano = UC_Ano.objects.filter(unidadeCurricular__in = unidades_curriculares)
         
     elif request.GET == {}:
-        curso_ano = list_Cursos_ano(ano)
+        ano_selected = 1
+        # Lista de Cursos para os Filtros
+        allCursos = list_Cursos_ano(ano_selected)
+        form_combo = ComboxAno(listaAnos, initial = {"ano":ano_selected})   
+        anoActual = Ano.objects.get(id = ano_selected)
+        anoActual = anoActual.ano
+        
+        curso_ano = list_Cursos_ano(ano_selected)
         listaUC_Ano = UC_Ano.objects.filter(cursosAno__in = curso_ano)
-    
+    elif "ano" in request.GET:
+        ano_selected = request.GET['ano']
+        
+        if ano_selected == "":
+            form_combo = ComboxAno(listaAnos, initial = {"ano":ano_selected})
+            anoActual = "(Não selecionou ano)"
+        else:
+            # Lista de Cursos para os Filtros
+            allCursos = list_Cursos_ano(ano_selected)
+            form_combo = ComboxAno(listaAnos, initial = {"ano":ano_selected})   
+            
+            anoActual = Ano.objects.get(id = ano_selected)
+            anoActual = anoActual.ano
+            
+            curso_ano = list_Cursos_ano(ano_selected)
+            listaUC_Ano = UC_Ano.objects.filter(cursosAno__in = curso_ano)
      
     return render_to_response("cientifico_new/list_uc.html",
         locals(),
         context_instance = RequestContext(request),
-        )
-
-
-
-
-
-
-
-
-#===============================================================================
-# # Listas de Docentes
-# @login_required(redirect_field_name = 'login_redirectUsers')
-# @cientificoUserTeste
-# def listUnidadesCurriculares(request, *args, **kwargs):
-#     
-#     ano = kwargs['ano']     
-#     ano_id = Ano.objects.filter(ano = ano)
-#     
-#     cursos_ano = CursosAno.objects.filter(ano = ano_id)
-#     
-#     listaUnidadesCurriculares = []
-#     for cursoAno in cursos_ano:
-#         listaUC_Ano = UC_Ano.objects.filter(cursosAno = cursoAno.id)
-#         listaUnidadesCurriculares.append(listaUC_Ano)
-#    
-#     if "curso" in request.GET:
-#         
-#         print "AAAAAAAAAAAAAAAAAAAAA"
-#         
-#         keyword = request.GET.get("curso")
-#         curso_id = unicodedata.normalize('NFKD', keyword.lower()).encode('ASCII', 'ignore')
-#         
-#         print curso_id
-#         
-#         for cursoAno in cursos_ano:
-#             
-#             # tumar_course = unicodedata.normalize('NFKD', t.unidade_curricular.curso.nome.lower()).encode('ASCII', 'ignore')
-#             
-#             if curso_id == cursoAno.id:
-#                 print "ola"   
-#                 listaUC_Ano = UC_Ano.objects.filter(cursosAno = cursoAno.id)
-#                 listaUnidadesCurriculares.append(listaUC_Ano)
-#         
-#         
-#         
-#         
-#         
-#     
-#     return render_to_response("cientifico_new/list_uc.html",
-#         locals(),
-#         context_instance = RequestContext(request),
-#         )
-#===============================================================================
-    
-
-
-
-
-
-    
+        )    

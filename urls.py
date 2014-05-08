@@ -196,7 +196,7 @@ urlpatterns = patterns('',
         name = 'lstCursoCientifico'),
     
     # Url lista de cursos por ano - cientifico
-    url(r'^distro/cientifico/lstuc/(?P<ano>\d+)/$',
+    url(r'^distro/cientifico/lstuc/$',
         'ipbejactcapp.distro.modulosCientifico.views_cientifico.listUC',
         name = 'lstucCientifico'),
                        

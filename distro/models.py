@@ -193,6 +193,9 @@ class UnidadeCurricular(models.Model):
 
 class Ano(models.Model):
     ano = models.IntegerField(null = True)
+    
+    def __unicode__(self):
+        return unicode(self.ano)
 
 class CursosAno(models.Model):
     ano = models.ForeignKey('Ano',

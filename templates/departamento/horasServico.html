@@ -22,19 +22,13 @@
 <!----------------------------------------------------------------------------->	
 	<form id="filter_ano_form" class="form-horizontal" role="form">
 	 <div class="form-group whiteText">
-    <label class="col-xs-1 control-label">Ano</label>
     <div class="col-xs-2">
-      <select class="form-control" name="ano" onchange="$('#filter_ano_form').submit()">
-      	{%for ano in listaAnos%}
-  		<option 
-  		{% if ano.ano == "2013" %}
-  		selected="selected"
-  		
-  		{% endif %}
-  		 >{{ano.ano}}</option>
-  		{%endfor%}
-
-  </select>
+      {%for field in form_combo%}
+      	{{ field.label_tag }}: {{ field }}
+      {%endfor%}
+      
+      
+     
     </div>
   	</div>
 	

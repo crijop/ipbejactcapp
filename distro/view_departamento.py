@@ -9,6 +9,7 @@ Created on 10 de Out de 2012
 # Modulo que trata de todas as views dos departamentos
 
 
+from distro.Forms.form_extra import ComboxAno
 from distro.forms_departamento import AdicionarServicoDocenteForm
 from distro.models import Departamento, Turma, UnidadeCurricular, ServicoDocente, \
     Docente, TipoAula, Contrato, Categoria, Modulos, Curso, Ano
@@ -166,7 +167,7 @@ def indexDepartamento(request):
     MAXIMO_HORAS = 360
     MINIMO_HORAS = 180
     
-    listaAnos = Ano.objects.all()#listarAnos(id_Departamento)
+    listaAnos = Ano.objects.all()  # listarAnos(id_Departamento)
     listToSendSDoc = []
     listToSendCDoc = []
     
@@ -489,7 +490,7 @@ e o numero de turmas a que tão associados e o numero de horas que ja tem atribu
 @DepUserTeste
 def listDocentes(request):
     id_Departamento = request.session['dep_id']
-    listaAnos = Ano.objects.all()#listarAnos(id_Departamento)
+    listaAnos = Ano.objects.all()  # listarAnos(id_Departamento)
     allCategories = Categoria.objects.all()
     actualState = ""
 
@@ -700,16 +701,19 @@ def removeDuplicatedElements(dataList):
 def infoDocenteDep(request, id_docente):
     form = request.GET
     
-    ano_selected = None
-    if(form != {}):
-        ano_selected =  str(form['ano'])
+    ano_selected = 0
+    if form != {}:
+        if form['ano'] != "":
+            ano_selected = form['ano']
     else:
-        ano_selected = str(2012)
+        ano_selected = str(1) 
+        # Ir buscar a data do sistema
     
-
-    #listaAnos = listarAnos(request.session['dep_id'])
     listaAnos = Ano.objects.all()
-    servicoDocente = Modulos.objects.filter(Q(docente_id__exact = id_docente),Q(servico_docente__turma__ucAno__cursosAno__ano__ano__exact = ano_selected))
+    
+    form_combo = ComboxAno(listaAnos, initial = {"ano":ano_selected})
+    
+    servicoDocente = Modulos.objects.filter(Q(docente_id__exact = id_docente), Q(servico_docente__turma__ucAno__cursosAno__ano__id__exact = ano_selected))
     
     unidadesCurriculares = UnidadeCurricular.objects.all()
 
