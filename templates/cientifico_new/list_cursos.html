@@ -1,12 +1,12 @@
 {% extends "cientifico_new/index.html" %}
 {% load i18n %}
-{% block title %}{% trans 'Lista Cursos - ano '%}{{ano}}{% endblock %}
+{% block title %}{% trans 'Lista Cursos - ano '%}{{anoActual}}{% endblock %}
 {% block breadcrumb %}
 <ul class="breadcrumb">
 	<li>
 		<span class="glyphicon glyphicon-home"></span> <a tabindex="2" href="{% url HomeCientifico %}" title="{% trans 'Home' %}">{% trans 'Home' %}</a>
 	</li>
-	<li class="active">{% trans 'Lista de cursos do ano ' %}{{ano}}</li>
+	<li class="active">{% trans 'Lista de cursos do ano ' %}{{anoActual}}</li>
 </ul>
 {% endblock %}
 
@@ -19,8 +19,19 @@
 
 {% block content %}
 <div class="page-header whiteText">
-  <h1>{% trans 'Lista de Cursos - Ano '%}{{ano}}</h1>
+  <h1>{% trans 'Lista de Cursos - Ano '%}{{anoActual}}</h1>
 </div>
+
+<form id="filter_ano_form" class="form-horizontal" role="form">
+	 <div class="form-group whiteText">
+   	 	<div class="col-xs-2">
+	      {%for field in form_combo%}
+	      	{{ field.label_tag }}: {{ field }}
+	      {%endfor%}  
+    	</div>
+  	</div>
+</form>
+
 
 <table cellpadding="0" cellspacing="0" border="0" class="display sumary_table" id="special_table" width="100%">
 <thead>	
