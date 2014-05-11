@@ -219,6 +219,12 @@ urlpatterns = patterns('',
     url(r'^distro/cientifico/infoDocentes/(?P<id_docente>\d+)/$', \
         'ipbejactcapp.distro.modulosCientifico.views_cientifico.infoDocente_cientifico', \
         name = 'infoDocenteCientifico'),
+                       
+    # Listar Turmas
+    # Lista de Docentes por ano - cientifico
+    url(r'^distro/cientifico/lstturmas/$',
+        'ipbejactcapp.distro.modulosCientifico.views_cientifico.listarTurmas',
+        name = 'lstTurmasCientifico'),
     
     #####
     # Fim dos Url's destinados aos templates do cientifico

@@ -1,0 +1,91 @@
+{% extends "cientifico_new/index.html" %}
+{% load i18n %}
+{% block title %}{% trans 'Listar Turmas' %}{% endblock %}
+{% block breadcrumb %}
+<ul class="breadcrumb">
+	<li>
+		<span class="glyphicon glyphicon-home"></span><a tabindex="2" href="{% url HomeCientifico %}" title="{% trans 'Home' %}">{% trans 'Home' %}</a>
+	</li>
+	<li class="active">
+		<a tabindex="2" href='?show=' title="{% trans 'Todas as Turmas' %}">{% trans 'Listar Turmas' %}</a>
+	</li>
+</ul>
+{% endblock %}
+
+{% block filtros %}
+<div class="list-group">
+  
+  {%comment%}
+	  <a href="#" class="list-group-item active">
+	    Departamento
+	  </a>
+	  {% include "cientifico_new/elements/filter_dep.html" %}
+  {%endcomment%}
+  
+  <a href="#" class="list-group-item active">Cursos</a>
+  {% include "cientifico_new/elements/filter_curso.html" %}
+</div>
+{%endblock%}
+
+{% block content %}
+	<div class="page-header whiteText">
+	  <h1>{% trans 'Listar Turmas'%}</h1>
+	</div>
+	
+	
+	<form id="filter_ano_form" class="form-horizontal" role="form">
+		<div class="form-group whiteText">
+	   	 	<div class="col-xs-2">
+		      {%for field in form_combo%}
+		      	{{ field.label_tag }}: {{ field }}
+		      {%endfor%}  
+	    	</div>
+	  	</div>
+	</form>
+	
+	<table cellpadding="0" cellspacing="0" border="0" class="display sumary_table" id="special_table" width="100%">
+		<thead>
+			<tr class="special_cabecalho">
+				<th colspan="6">{{anoReferente}}</th>
+			</tr>
+			<tr class="cabecalho_sumario">
+	
+				<th class="cabecalho_sumario">{% trans 'Unidade Curricular'%}</th>
+				<th class="cabecalho_sumario">{% trans 'Curso'%}</th>
+				<th class="cabecalho_sumario">{% trans 'Número Horas'%}</th>
+				<th class="cabecalho_sumario">{% trans 'Número Alunos'%}</th>
+				<th class="cabecalho_sumario">{% trans 'Tipo Aula'%}</th>
+				<th class="cabecalho_sumario">{% trans 'Turno'%}</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for unidadeCurricular, idTurma, curso, horas, nrAlunos, tipoAula, turno in listaTurmas %}
+			<tr>
+				<td class="teacher_name_field">{{unidadeCurricular}}</td>
+				<td>{{curso}}</td>
+				<td>{{horas}}</td>
+				<td>{{nrAlunos}}</td>
+				<td>{{tipoAula}}</td>
+				<td>{{turno}}</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+	
+
+	<script type="text/javascript">
+			$(document).ready(function() {
+		$('#special_table').dataTable({
+			"oLanguage": {
+	            "sUrl": "/static/dataTables/lang/pt-pt.txt"
+	        },
+	         "sPaginationType": "full_numbers",
+	         "sDom": '<"dataTables_special_bar"l><"dataTables_special_bar"if><"whiteBox"rt><"pagination_box"p>'
+	        
+	        	
+		});
+		$('.hasTooltip').tooltip({"container": false});
+	} );
+	</script>
+	{% endblock %}
+

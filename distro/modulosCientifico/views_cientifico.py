@@ -180,7 +180,7 @@ def informacao_UC(request, *args, **kwargs):
         context_instance = RequestContext(request),
         )
     
-    
+
 
 '''
 listDocentes - Mostra todos os Docentes e as horas que ainda tem por atribuir
@@ -363,3 +363,177 @@ def infoDocente_cientifico(request, *args, **kwargs):
         locals(),
         context_instance = RequestContext(request),
         )
+
+
+
+# view responsavel por listar todas as turmas
+
+
+@login_required(redirect_field_name = 'login_redirectUsers')
+@cientificoUserTeste
+def listarTurmas(request, *args, **kwargs):
+    listaAnos = Ano.objects.all()
+    listaTurmas = []
+    
+    
+    #===========================================================================
+    # keyword = request.GET.get("curso")
+    # ano_selected = request.GET['ano']
+    # # Lista de Cursos para os Filtros
+    # allCursos = list_Cursos_ano(ano_selected)
+    # form_combo = ComboxAno(listaAnos, initial = {"ano":ano_selected})
+    # anoActual = Ano.objects.get(id = ano_selected)
+    # anoActual = anoActual.ano
+    # 
+    # curso_ano = CursosAno.objects.filter(id = int(keyword), ano__id = ano_selected)
+    #===========================================================================
+    
+
+    # anoReferente = ano
+    # departamento = Departamento.objects.get(id__exact = request.session['dep_id']).nome
+
+    # allCursos = list_Cursos_ano(ano_selected)
+
+    if request.GET == {} or "show" in request.GET:
+        ano_selected = 1
+        # Lista de Cursos para os Filtros
+        allCursos = list_Cursos_ano(ano_selected)
+        form_combo = ComboxAno(listaAnos, initial = {"ano":ano_selected})   
+        anoActual = Ano.objects.get(id = ano_selected)
+        anoActual = anoActual.ano
+        
+        listTurmas = Turma.objects.filter(ucAno__cursosAno__ano__id__exact = ano_selected)
+        for t in listTurmas:
+            listaTurmas.append([t.unidade_curricular.nome, \
+                                t.id, \
+                                t.unidade_curricular.curso, \
+                                t.horas, \
+                                t.numero_alunos, \
+                                t.tipo_aula, \
+                                t.turno])
+        listaTurmas.sort()
+    
+    elif "ano" in request.GET:
+        ano_selected = request.GET['ano']
+        if ano_selected == "":
+            form_combo = ComboxAno(listaAnos, initial = {"ano":ano_selected})
+            anoActual = "(Não selecionou ano)"
+        else:
+            allCursos = list_Cursos_ano(ano_selected)
+            form_combo = ComboxAno(listaAnos, initial = {"ano":ano_selected})   
+            anoActual = Ano.objects.get(id = ano_selected)
+            anoActual = anoActual.ano
+            listTurmas = Turma.objects.filter(ucAno__cursosAno__ano__id__exact = ano_selected)
+            for t in listTurmas:
+                listaTurmas.append([t.unidade_curricular.nome, \
+                                    t.id, t.unidade_curricular.curso, \
+                                    t.horas, t.numero_alunos, t.tipo_aula, \
+                                    t.turno])
+            listaTurmas.sort()
+            
+            
+            
+
+
+#===============================================================================
+#     if "searchField" in request.GET or request.GET.get("actualState") == "searchField":
+#         keyword = request.GET.get("searchField")
+#         actualState = "actualState=searchField&searchField="
+#         actualState += str(keyword.encode('utf-8'))
+# 
+#         if keyword == None:
+#             keyword = ""
+# 
+#         if keyword == "":
+#             for t in listTurmas:
+#                 listaTurmas.append([t.unidade_curricular.nome, t.id, t.unidade_curricular.curso, t.horas, t.numero_alunos, t.tipo_aula, t.turno])
+# 
+#             listaTurmas.sort()
+#         else:
+#             finalkeyword = unicodedata.normalize('NFKD', keyword.lower()).encode('ASCII', 'ignore')
+#             listSplited = splitSearchPhrase(finalkeyword)
+#             print listSplited
+# 
+#             listaTempoUC = []
+#             listaTempoCurso = []
+#             search_unidadeCurricurlar(listSplited, listTurmas, listaTempoUC, ano)
+#             search_curso(listSplited, listTurmas, listaTempoUC, ano)
+# 
+#             tempList = listaTempoUC + listaTempoCurso
+# 
+# 
+#             tempList = removeDuplicatedElements(tempList)
+#             
+#             sizeList = len(tempList)
+# 
+#             if len(tempList) != 0:
+#                 listaTurmas += tempList
+# 
+#             pass
+# 
+#     elif "letra" in request.GET or request.GET.get("actualState") == "letra":
+# 
+# 
+#         keyword = request.GET.get("letra")
+#         actualState = "actualState=letra&letra=" + keyword
+#         letter = unicodedata.normalize('NFKD', keyword.lower()).encode('ASCII', 'ignore')
+# 
+# 
+# 
+# 
+#         for t in listTurmas:
+#             tumar_uc = unicodedata.normalize('NFKD', t.unidade_curricular.nome.lower()).encode('ASCII', 'ignore')
+# 
+# 
+#             if tumar_uc.startswith(letter):
+#                 
+#                 listaTurmas.append([t.unidade_curricular.nome, t.id, t.unidade_curricular.curso, t.horas, t.numero_alunos, t.tipo_aula, t.turno])
+#                 pass
+#         
+#         sizeList = len(listaTurmas)
+# 
+# 
+#         pass
+#     elif "curso" in request.GET or request.GET.get("actualState") == "curso":
+# 
+# 
+#         keyword = request.GET.get("curso")
+#         actualState = "actualState=curso&curso=" + keyword
+#         courseName = unicodedata.normalize('NFKD', keyword.lower()).encode('ASCII', 'ignore')
+# 
+# 
+#         for t in listTurmas:
+#             tumar_course = unicodedata.normalize('NFKD', t.unidade_curricular.curso.nome.lower()).encode('ASCII', 'ignore')
+# 
+# 
+#             if tumar_course == courseName:
+#                 
+#                 listaTurmas.append([t.unidade_curricular.nome, t.id, t.unidade_curricular.curso, t.horas, t.numero_alunos, t.tipo_aula, t.turno])
+#                 pass
+#             
+#         sizeList = len(listaTurmas)
+# 
+# 
+#         pass      
+# 
+# 
+#     elif 'show' in request.GET or request.GET == {} or request.GET.get("actualState") == "show":
+#         actualState = "actualState=show"
+# 
+#         for t in listTurmas:
+#             listaTurmas.append([t.unidade_curricular.nome, t.id, t.unidade_curricular.curso, t.horas, t.numero_alunos, t.tipo_aula, t.turno])
+# 
+#         listaTurmas.sort()
+#         sizeList = len(listaTurmas)
+# 
+#     paginator = Paginator(listaTurmas, 10)
+#     drange = range(1, paginator.num_pages + 1)
+#===============================================================================
+
+    return render_to_response("cientifico_new/listarTurmas.html",
+        locals(),
+        context_instance = RequestContext(request),
+        )
+    pass
+
+
