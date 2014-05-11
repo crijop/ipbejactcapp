@@ -1,0 +1,48 @@
+{% extends "cientifico_new/index.html" %}
+{% load i18n %}
+{% block title %}{% trans 'Página Inícial Recursos Humanos'%}{% endblock %}
+{% block breadcrumb %}
+<ul class="breadcrumb">
+	<li>
+		<span class="glyphicon glyphicon-home"></span> <a tabindex="2" href="{% url HomeCientifico %}" title="{% trans 'Home' %}">{% trans 'Home' %}</a>
+	</li>
+	<li>
+		<a tabindex="2" href="{% url lstCursoCientifico %}">{% trans 'Cursos' %}</a>
+	</li>
+	<li class="active">{% trans 'Informação do Curso ' %} {{curso}}</li>
+</ul>
+{% endblock %}
+
+<!-- Estes blocos é para alterar a classe do menu do index, refere se está ou não activo -->
+{% block tabelas %}active{% endblock %}
+
+
+{% block content %}
+<div class="page-header whiteText">
+  <h1>{% trans 'Informação Curso' %}</h1>
+</div>
+ 
+ <div class="whiteBox">
+ 	
+	<dl class="dl-horizontal">
+	  <dt>{% trans 'Nome Curso' %}</dt>
+	  <dd>{{ curso.nome }}</dd>
+	</dl>
+	<!---------------------------------------------->
+	 	<dl class="dl-horizontal">
+	  <dt>{% trans 'Abreviatura' %}</dt>
+	  <dd>{{ curso.abreviatura }}</dd>
+	</dl>
+	<!---------------------------------------------->
+	 	<dl class="dl-horizontal">
+	  <dt>{% trans 'Tipo Curso' %}</dt>
+	  <dd>{{ curso.tipo_curso.nome}}</dd>
+	</dl>
+	
+	<!---------------------------------------------->
+	 	<dl class="dl-horizontal">
+	  <dt>{% trans 'Semestres Létivos' %}</dt>
+	  <dd>{{ curso.semestre_letivos }}</dd>
+	</dl>
+ </div>  
+{% endblock %}

@@ -195,11 +195,30 @@ urlpatterns = patterns('',
         'ipbejactcapp.distro.modulosCientifico.views_cientifico.listCursos',
         name = 'lstCursoCientifico'),
     
+    # Url Informação de cursos por ano - cientifico
+    url(r'^distro/cientifico/infocurso/(?P<curso>\d+)/$',
+        'ipbejactcapp.distro.modulosCientifico.views_cientifico.informacao_Curso',
+        name = 'infoCursoCientifico'),
+    
     # Url lista de cursos por ano - cientifico
     url(r'^distro/cientifico/lstuc/$',
         'ipbejactcapp.distro.modulosCientifico.views_cientifico.listUC',
         name = 'lstucCientifico'),
                        
+    # Url Informação de cursos por ano - cientifico
+    url(r'^distro/cientifico/infouc/(?P<uc_id>\d+)/$',
+        'ipbejactcapp.distro.modulosCientifico.views_cientifico.informacao_UC',
+        name = 'infoUcCientifico'),
+    
+    # Lista de Docentes por ano - cientifico
+    url(r'^distro/cientifico/lstdocentes/$',
+        'ipbejactcapp.distro.modulosCientifico.views_cientifico.listDocentes',
+        name = 'lstDocenteCientifico'),
+    
+    # Informação de Docente
+    url(r'^distro/cientifico/infoDocentes/(?P<id_docente>\d+)/$', \
+        'ipbejactcapp.distro.modulosCientifico.views_cientifico.infoDocente_cientifico', \
+        name = 'infoDocenteCientifico'),
     
     #####
     # Fim dos Url's destinados aos templates do cientifico

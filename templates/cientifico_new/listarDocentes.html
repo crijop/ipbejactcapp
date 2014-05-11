@@ -1,0 +1,77 @@
+{% extends "cientifico_new/index.html" %}
+{% load i18n %}
+{% block title %}{% trans 'Listar Docentes'%}{% endblock %}
+{% block breadcrumb %}
+<ul class="breadcrumb">
+	<li>
+		<span class="glyphicon glyphicon-home"></span><a tabindex="2" href="{% url HomeCientifico %}" title="{% trans 'Home' %}">{% trans 'Home' %}</a>
+	</li>
+	<li class="active">
+		<a tabindex="2" href='?show=' title="{% trans 'Todos Docentes' %}">{% trans 'Listar Docentes' %}</a>
+	</li>
+</ul>
+{% endblock %}
+
+<!-- Estes blocos é para alterar a classe do menu do index, refere se está ou não activo -->
+{% block tabelas %}active{% endblock %}
+
+{% block filtros %}
+<div class="list-group">
+  
+  <a href="#" class="list-group-item active">Categoria</a>
+  {% include "cientifico_new/elements/filter_cat.html" %}
+
+</div>
+
+{% endblock %}
+
+{% block content %}
+<div class="page-header whiteText">
+  <h1>{% trans 'Lista de Docentes '%}</h1>
+</div>
+
+<table cellpadding="0" cellspacing="0" border="0" class="display sumary_table" id="special_table" width="100%">
+<thead>
+	<tr class="cabecalho_sumario">
+		<th class="cabecalho_sumario">Docente</th>
+		<th class="cabecalho_sumario">Horas Distribuidas</th>
+		<th class="cabecalho_sumario">Turmas</th>
+	</tr>
+</thead>
+<tbody>
+	{% for id_Docente, nome, turmas, horas  in listToSend %}
+	<tr>
+		<td class="teacher_name_field"><a href="{% url infoDocenteCientifico id_Docente%}">{{nome}}</a></td>
+		
+		<td {% if horas < 180  %} 
+		class="hoursDownLimit"
+		title="Inferior ao limite (< 180)"
+		{% elif horas > 360 %}
+		class="hoursUpLimit"
+		title="A exceder o limite (> 360)"
+		{% endif %}
+		>{{horas}}</td>
+		
+		<td>{{turmas}}</td>
+		
+	
+	</tr>
+	{% endfor %}
+</tbody>
+</table>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	$('#special_table').dataTable({
+		"oLanguage": {
+            "sUrl": "/static/dataTables/lang/pt-pt.txt"
+        },
+         "sPaginationType": "full_numbers",
+         "sDom": '<"dataTables_special_bar"l><"dataTables_special_bar"if><"whiteBox"rt><"pagination_box"p>'
+        
+        	
+	});
+	$('.hasTooltip').tooltip({"container": false});
+} );
+</script>
+{% endblock %}

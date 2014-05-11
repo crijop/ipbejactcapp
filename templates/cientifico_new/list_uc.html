@@ -6,9 +6,6 @@
 	<li>
 		<span class="glyphicon glyphicon-home"></span> <a tabindex="2" href="{% url HomeCientifico %}" title="{% trans 'Home' %}">{% trans 'Home' %}</a>
 	</li>
-	<li>
-		<a tabindex="2" href="{% url lstCursoCientifico %}">{% trans 'Cursos' %}</a>
-	</li>
 	<li class="active">{% trans 'Lista Unidades curriculares do Curso ' %} {{curso}} no {{anoActual}}</li>
 </ul>
 {% endblock %}
@@ -50,8 +47,8 @@
 <table cellpadding="0" cellspacing="0" border="0" class="display sumary_table" id="special_table" width="100%">
 <thead>	
 	<tr>
-		<th class="cabecalho_sumario">CNAEF</th>
 		<th class="cabecalho_sumario">Unidade Curricular</th>
+		<th class="cabecalho_sumario">CNAEF</th>
 		<th class="cabecalho_sumario">Curso</th>
 		<th class="cabecalho_sumario">Departamento</th>
 		<th class="cabecalho_sumario">Créditos</th>
@@ -62,8 +59,8 @@
 <tbody>
 	{% for uc in listaUC_Ano %}
 		<tr>
+			<td class="teacher_name_field"><a href="{% url infoUcCientifico uc.unidadeCurricular.id%}">{{uc.unidadeCurricular.nome}}</a></td>
 			<td>{{uc.unidadeCurricular.cnaef.codigo}}</td>
-			<td class="teacher_name_field"><a href="">{{uc.unidadeCurricular.nome}}</a></td>
 			<td>{{uc.unidadeCurricular.curso.nome}}</td>
 			<td>{{uc.unidadeCurricular.departamento.nome}}</td>
 			<td>{{uc.unidadeCurricular.ects}}</td>
