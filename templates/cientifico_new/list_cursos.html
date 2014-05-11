@@ -45,7 +45,7 @@
 <tbody>
 	{% for c in curso_ano %}
 		<tr>
-			<td class="teacher_name_field"><a href="#">{{c.curso.nome}}</a></td>
+			<td class="teacher_name_field"><a href="{% url infoCursoCientifico c.curso.id %}">{{c.curso.nome}}</a></td>
 			<td>{{c.curso.abreviatura}}</td>
 			<td>{{c.curso.tipo_curso.nome}}</td>
 			<td>{{c.curso.semestre_letivos}}</td>

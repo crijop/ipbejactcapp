@@ -1,0 +1,64 @@
+{% extends "cientifico_new/index.html" %}
+{% load i18n %}
+{% block title %}{% trans 'Informação Unidades Curriculares'%}{% endblock %}
+{% block breadcrumb %}
+<ul class="breadcrumb">
+	<li>
+		<span class="glyphicon glyphicon-home"></span> <a tabindex="2" href="{% url HomeCientifico %}" title="{% trans 'Home' %}">{% trans 'Home' %}</a>
+	</li>
+	<li>
+		<a tabindex="2" href="{% url lstucCientifico %}">{% trans 'Unidades Curriculares' %}</a>
+	</li>
+	<li class="active">{% trans 'Informação da Unidade Curricular ' %} {{uc}}</li>
+</ul>
+{% endblock %}
+
+
+<!-- Estes blocos é para alterar a classe do menu do index, refere se está ou não activo -->
+{% block tabelas %}active{% endblock %}
+
+
+{% block content %}
+<div class="page-header whiteText">
+  <h1>{% trans 'Informação Curso' %}</h1>
+</div>
+ 
+ <div class="whiteBox">
+ 	
+	<dl class="dl-horizontal">
+	  <dt>{% trans 'Unidade Curricular' %}</dt>
+	  <dd>{{ uc.nome }}</dd>
+	</dl>
+	<!---------------------------------------------->
+	<dl class="dl-horizontal">
+	  <dt>{% trans 'CNAEF' %}</dt>
+	  <dd>{{ uc.cnaef.codigo }} - {{ uc.cnaef.nome }}</dd>
+	</dl>
+	<!---------------------------------------------->
+	<dl class="dl-horizontal">
+	  <dt>{% trans 'Departamento' %}</dt>
+	  <dd>{{ uc.departamento.nome}}</dd>
+	</dl>
+	<!---------------------------------------------->
+	 	<dl class="dl-horizontal">
+	  <dt>{% trans 'Curso' %}</dt>
+	  <dd>{{ uc.curso.nome }}</dd>
+	</dl>
+	<!---------------------------------------------->
+	 	<dl class="dl-horizontal">
+	  <dt>{% trans 'Ano no Curso' %}</dt>
+	  <dd>{{ uc.ano }}</dd>
+	</dl>
+	<!---------------------------------------------->
+	 	<dl class="dl-horizontal">
+	  <dt>{% trans 'Créditos' %}</dt>
+	  <dd>{{ uc.ects }}</dd>
+	</dl>
+	<!---------------------------------------------->
+	 	<dl class="dl-horizontal">
+	  <dt>{% trans 'Semestre' %}</dt>
+	  <dd>{{ uc.semestre }}</dd>
+	</dl>
+	
+ </div>  
+{% endblock %}

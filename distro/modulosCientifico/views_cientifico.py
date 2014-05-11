@@ -7,8 +7,10 @@ Created on 23/04/2014
 '''
 from distro.Forms.form_extra import ComboxAno
 from distro.models import CursosAno, Ano, UC_Ano, Curso, Turma, Departamento, \
-    UnidadeCurricular
+    UnidadeCurricular, Categoria, Docente, Modulos, Contrato, TipoAula
 from django.contrib.auth.decorators import user_passes_test, login_required
+from django.core.exceptions import ObjectDoesNotExist
+from django.db.models.query_utils import Q
 from django.shortcuts import render_to_response
 from django.template.context import RequestContext
 import unicodedata
@@ -40,10 +42,6 @@ def indexCientifico(request):
 @login_required(redirect_field_name = 'login_redirectUsers')
 @cientificoUserTeste
 def listCursos(request, *args, **kwargs):
-    # ano = kwargs['ano'] 
-    ano = "2012"
-    
-    
     form = request.GET
     
     ano_selected = 0
@@ -55,10 +53,7 @@ def listCursos(request, *args, **kwargs):
         # Ir buscar a data do sistema
     
     listaAnos = Ano.objects.all()
-    
     form_combo = ComboxAno(listaAnos, initial = {"ano":ano_selected})
-    
-    
     ano = ano_selected
     
     if ano != 0:
@@ -74,47 +69,17 @@ def listCursos(request, *args, **kwargs):
         locals(),
         context_instance = RequestContext(request),
         )
-    pass
 
-# Listas de Unidades Curriculares
+# Informação de um determinado Curso
 @login_required(redirect_field_name = 'login_redirectUsers')
 @cientificoUserTeste
-def listUnidadesCurriculares(request, *args, **kwargs):
-     
-    ano = kwargs['ano'] 
-    curso = kwargs['curso']
-    # ano = "2013"
-    # curso = 25
-    
-    
-    ano_id = Ano.objects.filter(ano = ano)
-    curso_id = Curso.objects.filter(id = curso)
-     
-    curso_ano = CursosAno.objects.filter(ano = ano_id, \
-                                         curso = curso)
-    
-    listaUC_Ano = UC_Ano.objects.filter(cursosAno = curso_ano)
-     
-    return render_to_response("cientifico_new/list_uc.html",
+def informacao_Curso(request, *args, **kwargs):
+    curso_id = kwargs['curso']
+    curso = Curso.objects.get(id = curso_id)
+    return render_to_response("cientifico_new/info_curso.html",
         locals(),
         context_instance = RequestContext(request),
         )
-
-# Método responsável por remover elementos
-# repetidos numa lista
-def removeRepetidosLista(l):
-    # cria um dicionario em branco
-    dict = {}
-    # para cada valor na lista l
-    for word in l:
-        # adiciona ao dicionario: valor:1
-        # note que se for repetido o valor somente sobrescreve ele :)
-        dict[word] = 1
-    # retorna uma copia das 'keys'
-    l[:] = dict.keys()
-    return l        
-    pass
-
 
 # lista de cursos num dado ano
 def list_Cursos_ano(ano):
@@ -200,4 +165,201 @@ def listUC(request, *args, **kwargs):
     return render_to_response("cientifico_new/list_uc.html",
         locals(),
         context_instance = RequestContext(request),
-        )    
+        ) 
+
+
+# Informação de uma determinada Unidade Curricular
+@login_required(redirect_field_name = 'login_redirectUsers')
+@cientificoUserTeste
+def informacao_UC(request, *args, **kwargs):
+    uc_id = kwargs['uc_id']
+    uc = UnidadeCurricular.objects.get(id = uc_id)
+    
+    return render_to_response("cientifico_new/info_uc.html",
+        locals(),
+        context_instance = RequestContext(request),
+        )
+    
+    
+
+'''
+listDocentes - Mostra todos os Docentes e as horas que ainda tem por atribuir
+e o numero de turmas a que tão associados e o numero de horas que ja tem atribuidas
+'''
+@login_required(redirect_field_name = 'login_redirectUsers')
+@cientificoUserTeste
+def listDocentes(request, *args, **kwargs):
+    
+    listaAnos = Ano.objects.all()  # listarAnos(id_Departamento)
+    allCategories = Categoria.objects.all()
+    actualState = ""
+
+    listToSend = []
+
+    listDocentes = Docente.objects.all()
+
+    if "category" in request.GET or request.GET.get("actualState") == "category":
+        keyword = request.GET.get("category")
+        actualState = "actualState=category&category=" + keyword
+        letter = unicodedata.normalize('NFKD', keyword.lower()).encode('ASCII', 'ignore')
+         
+        for docente in listDocentes:
+            # listServicoTemp = ServicoDocente.objects.filter(docente_id__exact=docente.id)
+            listServicoTemp = Modulos.objects.filter(docente_id__exact = docente.id)
+             
+            id_Docente = docente.id
+            numberHoras = 0
+            for h in listServicoTemp:
+                numberHoras += h.horas
+            try:
+                contrato = Contrato.objects.get(docente__id = id_Docente)
+                contract_end = contrato.data_fim.strftime("%d/%m/%Y")
+                nomeCategoria = Categoria.objects.get(id__exact = contrato.categoria.id).nome
+            except ObjectDoesNotExist:
+                nomeCategoria = u'Sem Categoria'
+             
+            nomeCategoria_final = unicodedata.normalize('NFKD', nomeCategoria.lower()).encode('ASCII', 'ignore')
+  
+            if nomeCategoria_final == letter:
+                listToSend.append([docente.id, docente.nome_completo, len(listServicoTemp), numberHoras])
+        sizeList = len(listToSend)
+
+
+#  
+#     elif "letra" in request.GET or request.GET.get("actualState") == "letra":
+#  
+#        keyword = request.GET.get("letra")
+#        actualState = "actualState=letra&letra=" + keyword
+#        letter = unicodedata.normalize('NFKD', keyword.lower()).encode('ASCII', 'ignore')
+#  
+#  
+#        for docente in listDocentes:
+#            nomeDocente = unicodedata.normalize('NFKD', docente.nome_completo.lower()).encode('ASCII', 'ignore')
+#  
+#            if nomeDocente.startswith(letter):
+#                # listServicoTemp = ServicoDocente.objects.filter(docente_id__exact=docente.id)
+#                listServicoTemp = Modulos.objects.filter(docente_id__exact = docente.id)
+#                numberHoras = 0
+#                for h in listServicoTemp:
+#                    numberHoras += h.horas
+#                pass
+#                listToSend.append([docente.id, docente.nome_completo, len(listServicoTemp), numberHoras])
+#        sizeList = len(listToSend)
+#              
+#  
+#        pass
+#      
+#     elif "docExcedHours" in request.GET or request.GET.get("actualState") == "docExcedHours":
+#        chave = request.GET.get("docExcedHours")
+#        ano = request.GET.get("ano")
+#        actualState = "actualState=docExcedHours&docExcedHours=" + chave + "&ano=" + ano
+#        MAXIMO_HORAS = 360 
+#        listaDocentesDepartamento = Docente.objects.filter(departamento_id__exact = id_Departamento)
+#        horasTemp = 0 
+#        nrDocExcedHoras = 0
+#        nrDocSemHoras = 0
+#          
+#        if chave == "True":
+#            for l in listaDocentesDepartamento:
+#                horasTemp = 0
+#                listServicoTemp = Modulos.objects.filter(servico_docente__turma__ano__exact = ano)\
+#                                                     .filter(docente_id__exact = l.id)
+#                for m in listServicoTemp:
+#                    horasTemp += m.horas
+#                    pass
+#                if horasTemp == 0:
+#                    listToSend.append([l.id, l.nome_completo, len(listServicoTemp), horasTemp])
+#                    nrDocSemHoras += 1
+#                    pass
+#            pass
+#              
+#        elif chave == "False":
+#            for l in listaDocentesDepartamento:
+#                horasTemp = 0
+#                listServicoTemp = Modulos.objects.filter(servico_docente__turma__unidade_curricular__departamento_id__exact\
+# = id_Departamento, servico_docente__turma__ano__exact = ano)\
+#                                                     .filter(docente_id__exact = l.id)
+#                for m in listServicoTemp:
+#                    horasTemp += m.horas
+#                    pass
+#                if horasTemp > MAXIMO_HORAS: 
+#                    listToSend.append([l.id, l.nome_completo, len(listServicoTemp), horasTemp])
+#                    nrDocExcedHoras += 1
+#                    pass
+#            pass
+#        sizeList = len(listToSend)
+#        pass
+#===============================================================================
+    
+    if 'show' in request.GET or request.GET == {} or request.GET.get("actualState") == "show":
+        actualState = "actualState=show"
+
+        for docente in listDocentes:
+            print docente.nome_completo
+            listServicoTemp = Modulos.objects.filter(docente_id__exact = docente.id)
+            numberHoras = 0
+            for h in listServicoTemp:
+                numberHoras += h.horas
+            listToSend.append([docente.id, docente.nome_completo, len(listServicoTemp), numberHoras])
+        sizeList = len(listToSend)
+
+    
+    print sizeList
+    print listToSend
+    return render_to_response("cientifico_new/listarDocentes.html",
+        locals(),
+        context_instance = RequestContext(request),
+        )
+
+
+# View responsavel por representar a informação de um 
+# determinado docente. o metodo recebe o id_docente em questão
+# só vai entrar nesta view se o utilizador estiver autenticado
+# e se pertencer ao grupo de Departamento.
+@login_required(redirect_field_name = 'login_redirectUsers')
+@cientificoUserTeste
+def infoDocente_cientifico(request, *args, **kwargs):
+    id_docente = kwargs['id_docente']
+    form = request.GET
+    
+    ano_selected = 0
+    if form != {}:
+        if form['ano'] != "":
+            ano_selected = form['ano']
+    else:
+        ano_selected = str(1) 
+        # Ir buscar a data do sistema
+    
+    listaAnos = Ano.objects.all()
+    
+    form_combo = ComboxAno(listaAnos, initial = {"ano":ano_selected})
+    
+    servicoDocente = Modulos.objects.filter(Q(docente_id__exact = id_docente), Q(servico_docente__turma__ucAno__cursosAno__ano__id__exact = ano_selected))
+    
+    unidadesCurriculares = UnidadeCurricular.objects.all()
+
+    docente_name = Docente.objects.get(id__exact = id_docente).nome_completo
+
+    lista = []
+   
+    horasTotal = 0
+    for servDocente in servicoDocente:
+
+        print "#################################"
+        print servDocente.servico_docente.turma.ucAno.cursosAno.ano.id
+        print servDocente.servico_docente.turma.unidade_curricular_id
+        print "#################################"
+        # nome da unidade curricular que o docente vai dar aulas.
+        nomeUnidadeCurricular = UnidadeCurricular.objects.get(id__exact = servDocente.servico_docente.turma.unidade_curricular_id).nome
+        turma = Turma.objects.get(id__exact = servDocente.servico_docente.turma_id)
+        tipoAula = TipoAula.objects.get(id__exact = turma.tipo_aula_id).tipo
+        turno = turma.turno
+        nomeCurso = UnidadeCurricular.objects.get(turma__id__exact = servDocente.servico_docente.turma_id).curso
+        horasTotal += servDocente.horas
+        lista.append((servDocente.docente_id, nomeUnidadeCurricular,
+                           servDocente.horas, nomeCurso))
+    
+    return render_to_response("cientifico_new/horasServico.html",
+        locals(),
+        context_instance = RequestContext(request),
+        )
