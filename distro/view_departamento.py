@@ -240,7 +240,8 @@ def indexDepartamento(request):
 @login_required(redirect_field_name = 'login_redirectUsers')
 @DepUserTeste
 def listarTurmasDepart(request, ano):
-    listaAnos = listarAnos(request.session['dep_id'])
+    listaAnos = Ano.objects.all()
+    #listaAnos = listarAnos(request.session['dep_id'])
     listaTurmas = []
     anoReferente = ano
     departamento = Departamento.objects.get(id__exact = request.session['dep_id']).nome
@@ -985,7 +986,7 @@ def  listServicoDocente(request, ano):
     allCursos = filtro_Cursos(request, ano)
     
     id_Departamento = request.session['dep_id']
-    listaAnos = listarAnos(id_Departamento)
+    listaAnos = Ano.objects.all()
 
     listToSend = []
     
@@ -1189,7 +1190,7 @@ nos seus modulos
 def addServicoDocenteDepart(request, ano):
     allCursos = filtro_Cursos(request, ano)
     id_Departamento = request.session['dep_id']
-    listaAnos = listarAnos(id_Departamento)
+    listaAnos = Ano.objects.all()
     listToSend = []
     
     listRepetidos = []

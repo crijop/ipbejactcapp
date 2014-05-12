@@ -1,0 +1,36 @@
+{% extends "cientifico/index.html" %}
+{% load i18n %}
+{% block title %}{% trans 'Página de adicionar Curso' %}{% endblock %}
+
+
+{% block breadcrumb %}
+<ul class="breadcrumb">
+	<li>
+		<span class="glyphicon glyphicon-home"></span> <a tabindex="2" href="{% url HomeCientifico %}" title="{% trans 'Home' %}">{% trans 'Home' %}</a>
+	</li>
+	<li>
+		<a href="{% url def_Curso_CET %}" title="Definir curso -CET's">{% trans "Definir curso - CET's"%}</a>
+	</li>
+	<li class="active">{% trans "Adicionar Curso - CET's" %}</li>
+</ul>
+{% endblock %}
+
+{% block content %}
+
+
+
+	<div class="page-header whiteText">
+	  <h1>{% trans 'Assistente de criação de novo ano letivo "2014/2015"' %}</h1>
+	</div>
+
+<div class="jumbotron">
+  <h1>2014/2015</h1>
+  <p>Pode criar um ano totalmente novo</p>
+  <p>Usar informação do ano anterior para uma maior rapidez na criação</p>
+  <p>Caso já tenha iniciado o processo de criação pode a qualquer hora continua-lo</p>
+  <p><a class="btn btn-primary btn-lg" role="button">Baseado no ano anterior</a>
+  	<a class="btn btn-default btn-lg" role="button">Criar ano totalmente novo</a>
+  	<a class="btn btn-default btn-lg" role="button"><span class="glyphicon glyphicon-floppy-disk"></span>Continuar criação de ano</a></p>
+</div>
+
+{% endblock %}
