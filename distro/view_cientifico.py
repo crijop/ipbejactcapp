@@ -901,7 +901,18 @@ def verCurso(request, id_curso):
 ###########################################################################################
 
 
-
+###################Assistente de criação de novo ano##############
+@login_required(redirect_field_name = 'login_redirectUsers')
+@cientificoUserTeste
+def wizard_cna(request, *args, **kwargs):
+ 
+   
+    return render_to_response("cientifico/Criar_novo_ano/index_acna.html",
+        locals(),
+        context_instance = RequestContext(request),
+        )
+    pass
+#####################################################
 
 @login_required(redirect_field_name = 'login_redirectUsers')
 @cientificoUserTeste
@@ -909,6 +920,8 @@ def addCursoFormClass(request, *args, **kwargs):
     view = AddCursoModelFormPreview(AdicionarCursoForm)
     return view(request, *args, **kwargs)
     pass
+
+
 
 
 

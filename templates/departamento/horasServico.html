@@ -5,86 +5,87 @@
 
 <ul class="breadcrumb">
 	<li>
-		<span class="glyphicon glyphicon-home"></span> <a tabindex="2" href="{% url homeDepartamento %}" title="{% trans 'Home' %}">{% trans 'Home' %}</a>
+		<span class="glyphicon glyphicon-home"></span><a tabindex="2" href="{% url homeDepartamento %}" title="{% trans 'Home' %}">{% trans 'Home' %}</a>
 	</li>
 	<li>
 		<a tabindex="3" href="{% url listDocentesDep %}" title="Listar Docentes">Listar Docentes</a>
 	</li>
-	<li class="active">{% trans 'Informação do Docente -' %} {{docente_name}}</li>
+	<li class="active">
+		{% trans 'Informação do Docente -' %} {{docente_name}}
+	</li>
 </ul>
 {% endblock %}
 
 {% block content %}
-	<div class="page-header whiteText">
-	  <h1>{% trans 'Informação do Docente:'%} {{docente_name}}</h1>
-	</div>
-	
-<!----------------------------------------------------------------------------->	
-	<form id="filter_ano_form" class="form-horizontal" role="form">
-	 <div class="form-group whiteText">
-    <div class="col-xs-2">
+<div class="page-header whiteText">
+	<h1>{% trans 'Informação do Docente:'%} {{docente_name}}</h1>
+</div>
+
+<!----------------------------------------------------------------------------->
+<form id="filter_ano_form" class="form-horizontal" role="form">
+	<div class="form-group whiteText">
+		<div class="col-xs-2">
       {%for field in form_combo%}
       	{{ field.label_tag }}: {{ field }}
       {%endfor%}
       
       
      
-    </div>
-  	</div>
-	
+		</div>
+	</div>
+
 </form>
 <!----------------------------------------------------------------------------->
 
-	<table cellpadding="0" cellspacing="0" border="0" class="display sumary_table" id="special_table" width="100%">
-		<thead>
-			<tr>
-				<th class="cabecalho_sumario">Curso</th>
-				<th class="cabecalho_sumario">Turma</th>
-				<th class="cabecalho_sumario">Turno</th>
-				<th class="cabecalho_sumario">Tipo Aula</th>
-				<th class="cabecalho_sumario">Horas de Serviço</th>
-			</tr>
-		</thead>
-		<tbody>
-			{%for id, turma, horas, curso in lista%}
-				<tr>
-					<td>{{ curso }}</td>
-					<td>{{ turma }}</td>
-					<td>{{turno}}</td>
-					<td>{{tipoAula}}</td>
-					<td class="horas_servico">{{ horas }}</td>
-				</tr>
-			{%endfor%}
-		</tbody>
-		<tfoot>
-				<tr>
-					<th colspan="4" class="sub_cabecalho">Horas Total</th>
-					<th  {% if horasTotal < 180  %} 
-						class="sub_cabecalho hoursDownLimit"
-						title="Inferior ao limite (< 180)"
-						{% elif horasTotal > 360 %}
-						class="sub_cabecalho hoursUpLimit"
-						title="A exceder o limite (> 360)"
-						{% endif %}
-						>{{horasTotal}}
-					</th>
-				</tr>
-		</tfoot>
+<table cellpadding="0" cellspacing="0" border="0" class="display sumary_table" id="special_table" width="100%">
+	<thead>
+		<tr>
+			<th class="cabecalho_sumario">Curso</th>
+			<th class="cabecalho_sumario">Turma</th>
+			<th class="cabecalho_sumario">Turno</th>
+			<th class="cabecalho_sumario">Tipo Aula</th>
+			<th class="cabecalho_sumario">Horas de Serviço</th>
+		</tr>
+	</thead>
+	<tbody>
+		{%for id, turma, horas, curso in lista%}
+		<tr>
+			<td>{{ curso }}</td>
+			<td>{{ turma }}</td>
+			<td>{{turno}}</td>
+			<td>{{tipoAula}}</td>
+			<td class="horas_servico">{{ horas }}</td>
+		</tr>
+		{%endfor%}
+	</tbody>
+	<tfoot>
+		<tr>
+			<th colspan="4" class="sub_cabecalho">Horas Total</th>
+			<th  {% if horasTotal < 180  %}
+			class="sub_cabecalho hoursDownLimit"
+			title="Inferior ao limite (< 180)"
+			{% elif horasTotal > 360 %}
+			class="sub_cabecalho hoursUpLimit"
+			title="A exceder o limite (> 360)"
+			{% endif %}
+			>{{horasTotal}} </th>
+		</tr>
+	</tfoot>
 </table>
 
-
 <script type="text/javascript">
-		$(document).ready(function() {
+	$(document).ready(function() {
 		$('#special_table').dataTable({
-			"oLanguage": {
-	            "sUrl": "/static/dataTables/lang/pt-pt.txt"
-	        },
-	         "sPaginationType": "full_numbers",
-	         "sDom": '<"dataTables_special_bar"l><"dataTables_special_bar"if><"whiteBox"rt><"pagination_box"p>'
-		        
-		        	
-			});
-			$('.hasTooltip').tooltip({"container": false});
-		} );
-	</script>
+			"oLanguage" : {
+				"sUrl" : "/static/dataTables/lang/pt-pt.txt"
+			},
+			"sPaginationType" : "full_numbers",
+			"sDom" : '<"dataTables_special_bar"l><"dataTables_special_bar"if><"whiteBox"rt><"pagination_box"p>'
+
+		});
+		$('.hasTooltip').tooltip({
+			"container" : false
+		});
+	}); 
+</script>
 {% endblock %}

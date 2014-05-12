@@ -6,7 +6,7 @@
 	<li>
 		<span class="glyphicon glyphicon-home"></span> <a tabindex="2" href="{% url homeDepartamento %}" title="{% trans 'Home' %}">{% trans 'Home' %}</a>
 	</li>
-	<li class="active">{% trans 'Listar Turmas Departamento' %} {{departamento}}</li>
+	<li class="active">{% trans 'Listar Turmas Departamento' %} {{departamento}} - {{anoReferente}}</li>
 </ul>
 {% endblock %}
 
@@ -40,7 +40,7 @@
 
 {% block content %}
 	<div class="page-header whiteText">
-	  <h1>{% trans 'Listar Turmas Departamento'%} {{departamento}}</h1>
+	  <h1>{% trans 'Listar Turmas Departamento'%} {{departamento}} - {{anoReferente}}</h1>
 	</div>
 	
 	

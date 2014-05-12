@@ -90,96 +90,7 @@ urlpatterns = patterns('',
     
     # ACTORES DO SISTEMA                   
     
-    #######################################################################################
-    # Url's destinados aos templates do vicP
-    ####
-    # Url Home vicP
-    url(r'^distro/vicp/$',
-        'ipbejactcapp.distro.views.indexVicP',
-        name = 'HomeVicP'),
     
-    # Url Criar XLS                   
-    url(r'^distro/vicp/criarXLS$',
-        'ipbejactcapp.distro.view_cientifico.criarXLS',
-        name = 'criarXLS'),
-                       
-     # Url listar modulos                  
-    url(r'^distro/vicp/listaDelegados$',
-        'ipbejactcapp.distro.view_cientifico.listaDelegacoes',
-        name = 'modulosDelegados'),
-                       
-      url(r'^distro/vicp/listaDelegados/aprovarDelegados/(?P<id_modulo>\d+)$',
-        'ipbejactcapp.distro.view_cientifico.aprovarDelegacao',
-        name = 'aprovarModulo'),
-                       
-     url(r'^distro/vicp/listaDelegados/reprovarDelegados/(?P<id_modulo>\d+)$',
-        'ipbejactcapp.distro.view_cientifico.reprovarDelegacao',
-        name = 'reprovarModulo'),
-                       
-    #######################
-    # Nova etapa do trabalho
-    # Data: 14/05/2013
-    #######################
-    
-    #######################Definir Cursos#########################
-    url(r'^distro/vicp/cet$',
-        'ipbejactcapp.distro.view_cientifico.definirCursosCET',
-        name = 'def_Curso_CET'),
-                    
-    url(r'^distro/vicp/lic$',
-        'ipbejactcapp.distro.view_cientifico.definirCursosLic',
-        name = 'def_Curso_Lic'),
-    
-    url(r'^distro/vicp/mest$',
-        'ipbejactcapp.distro.view_cientifico.definirCursosMest',
-        name = 'def_Curso_Mest'),
-                       
-   url(r'^distro/vicp/pg$',
-        'ipbejactcapp.distro.view_cientifico.definirCursosPG',
-        name = 'def_Curso_PG'),
-                       
-   url(r'^distro/vicp/portle$',
-        'ipbejactcapp.distro.view_cientifico.definirCursosPortLE',
-        name = 'def_Curso_PortLE'),
-   ###############################################################
-   
-   #######################Adicionar Cursos########################
-   url(r'^distro/vicp/addCurso/(?P<id_CET>\d+)/$',
-        'ipbejactcapp.distro.view_cientifico.addCursoFormClass',
-        name = 'addCursosCET'),
-   ###############################################################
-   
-   #######################Listar Cursos###########################
-   url(r'^distro/vicp/listar_cet$',
-        'ipbejactcapp.distro.view_cientifico.listarCursosCET',
-        name = 'listar_Curso_CET'),
-                    
-    url(r'^distro/vicp/listar_lic$',
-        'ipbejactcapp.distro.view_cientifico.listarCursosLic',
-        name = 'listar_Curso_Lic'),
-    
-    url(r'^distro/vicp/listar_mest$',
-        'ipbejactcapp.distro.view_cientifico.listarCursosMest',
-        name = 'listar_Curso_Mest'),
-                       
-   url(r'^distro/vicp/listar_pg$',
-        'ipbejactcapp.distro.view_cientifico.listarCursosPG',
-        name = 'listar_Curso_PG'),
-                       
-   url(r'^distro/vicp/listar_portle$',
-        'ipbejactcapp.distro.view_cientifico.listarCursosPortLE',
-        name = 'listar_Curso_PortLE'),
-   ###############################################################
-   
-   #######################Listar Cursos###########################
-   url(r'^distro/vicp/listar_cet/(?P<id_curso>\d+)/$',
-        'ipbejactcapp.distro.view_cientifico.verCurso',
-        name = 'ver_curso'),
-   ###############################################################
-    
-    #####
-    # Fim dos Url's destinados aos templates do vicP
-    ########################################################################################
     
     
     #######################################################################################
@@ -242,6 +153,7 @@ urlpatterns = patterns('',
     #####
     # Fim dos Url's destinados aos templates do coordenadores de Cursos
     ########################################################################################
+    
     
   
     ########################################################################################
@@ -488,3 +400,4 @@ urlpatterns = patterns('',
 )
 
 
+urlpatterns = urlpatterns + patterns('', (r'^', include('vicP_urls')))
