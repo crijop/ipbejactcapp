@@ -25,16 +25,18 @@ def password_changeUser(request, *args, **kwargs):
     if nomeGrupo == "RecusosHumanos":
         extentTemplate = "recursosHumanos/index.html"
     elif nomeGrupo == "Cientifico":
-        extentTemplate = "cientifico/index.html"
+        extentTemplate = "cientifico_new/index.html"
     elif nomeGrupo == "Departamento" or nomeGrupo == "Eng":
         extentTemplate = "departamento/index.html"
     elif nomeGrupo == "Docente":
         extentTemplate = "docentes/index.html"
     elif nomeGrupo == "Administrador":
         extentTemplate = "administrador/index.html"
+    elif nomeGrupo == "vicP":
+        extentTemplate = "cientifico/index.html"
     
     
-    print extentTemplate
+    
     password_change_form = PasswordChangeForm
     if request.method == "POST":
         form = PasswordChangeForm(user = userEdit, data = request.POST)
