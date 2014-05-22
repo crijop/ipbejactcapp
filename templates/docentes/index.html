@@ -2,7 +2,6 @@
 {% load i18n %}
 {% block title %}{% trans 'Página Inícial Docente'%}{% endblock %}
 {% block Menus %}
-    <li {% block menuInfoDocente %} class="active" {% endblock %}><a href="/distro">{% trans 'Informação'%}</a></li>
     <li {% block menuTurma %} {% endblock %}><a href="{%url turmasDocentes%}">{% trans 'Turmas'%}</a></li>
     <li {% block menuHoraTrab %} {% endblock %}><a href="{%url horasServico%}">{% trans 'Horas de Trabalho'%}</a></li>
 {% endblock %}

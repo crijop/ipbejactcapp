@@ -18,21 +18,40 @@
 
 
 {% block content %}
-<div class="page-header whiteText">
-  <h1>{% trans 'Sumário'%}</h1>
-</div>
-<table class="table table-striped table-hover">
-	<tr>
-		<th class="cabecalho_sumario">{% trans 'Curso' %}</th>
-		<th class="cabecalho_sumario">{% trans 'Turma' %}</th>
-	</tr>
-	{%for id, turma, curso in lista%}
-	<tr>
-		<td>{{ curso }}</td>
-		<td>{{ turma }}</td>
-
-	</tr>
-	{%endfor%}
+	<div class="page-header whiteText">
+	  <h1>{% trans 'Sumário'%}</h1>
+	</div>
 	
-</table>
+	<table cellpadding="0" cellspacing="0" border="0" class="display sumary_table" id="special_table" width="100%">
+	<thead>	
+		<tr>
+			<th class="cabecalho_sumario">Curso</th>
+			<th class="cabecalho_sumario">Turma</th>
+		</tr>
+	</thead>
+	<tbody>
+		{%for id, turma, curso in lista%}
+			<tr>
+				<td>{{ curso }}</td>
+				<td>{{ turma }}</td>
+		
+			</tr>
+		{%endfor%}
+	</tbody>
+	</table>
+	
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#special_table').dataTable({
+				"oLanguage": {
+		            "sUrl": "/static/dataTables/lang/pt-pt.txt"
+		        },
+		         "sPaginationType": "full_numbers",
+		         "sDom": '<"dataTables_special_bar"l><"dataTables_special_bar"if><"whiteBox"rt><"pagination_box"p>'
+		        
+		        	
+			});
+			$('.hasTooltip').tooltip({"container": false});
+		} );
+	</script>
 {% endblock %}
