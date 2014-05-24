@@ -2,7 +2,7 @@
 '''
 Created on 26/02/2014
 
-@author: admin1
+@author: Carlos Rijo Palma & António Urbano Baião
 '''
 from django import forms
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
@@ -107,7 +107,7 @@ class EditUserForm(forms.ModelForm):
     
     last_name = forms.CharField(required = False, max_length = 150, label = u'Último Nome', \
                                         widget = forms.TextInput(attrs = {'class':'form-control colorInput tamanhoInput'}))
-    email = forms.EmailField(max_length = 300, label = _(u'E-mail'), widget = forms.TextInput(attrs = {'class':'form-control tamanhoInput'}))
+    email = forms.EmailField(max_length = 300, label = _(u'E-mail'), widget = forms.TextInput(attrs = {'class':'form-control colorInput tamanhoInput'}))
     
     username = forms.RegexField(label = _("Nome Utilizador"), max_length = 30,
         regex = r'^[\w.@+-]+$',
@@ -128,11 +128,6 @@ class EditUserForm(forms.ModelForm):
     def __init__(self, username, *args, **kwargs):
         super(EditUserForm, self).__init__(*args, **kwargs)
         self.username = username
-    
-    
-    # class Meta:
-        # model = User
-        # fields = ("first_name", "last_name", "email", "username")
 
     def clean_username(self):
         username = self.cleaned_data["username"]
@@ -249,6 +244,61 @@ class PasswordChangeFormReset(forms.Form):
 
 
 
+# Formulário para o utilizador com login efectuado
+# editar o seu perfil de utilizador
+class EditUser_com_login_Form(forms.ModelForm):
+    error_messages = {
+        'duplicate_email': _(u"O email inserido já existe."),
+        'duplicate_username': _(u"O nome de utilizador inserido já existe."),
+        'password_mismatch': _(u"Os dois campos da palavra-chave são diferentes."),
+    }
+    
+    first_name = forms.CharField(required = False, \
+                                 max_length = 150, \
+                                 label = u'Primeiro Nome', \
+                                 widget = forms.TextInput(attrs = {'class':'form-control colorInput tamanhoInput'}))
+    last_name = forms.CharField(required = False, \
+                                max_length = 150, \
+                                label = u'Último Nome', \
+                                widget = forms.TextInput(attrs = {'class':'form-control colorInput tamanhoInput'}))
+    email = forms.EmailField(max_length = 300, \
+                             label = _(u'E-mail'), \
+                             widget = forms.TextInput(attrs = {'class':'form-control colorInput tamanhoInput'}))
+    username = forms.RegexField(label = _("Nome Utilizador"), \
+                                max_length = 30,
+                                regex = r'^[\w.@+-]+$',
+        help_text = _("Required. 30 characters or fewer. Letters, digits and ""@/./+/-/_ only."),
+        error_messages = {
+            'invalid': _("This value may contain only letters, numbers and "
+                         "@/./+/-/_ characters.")}, \
+                                widget = forms.TextInput(attrs = {'class':'form-control colorInput tamanhoInput'}))
+    
+    def __init__(self, username, email, *args, **kwargs):
+        super(EditUser_com_login_Form, self).__init__(*args, **kwargs)
+        self.username = username
+        self.email = email
+
+    def clean_username(self):
+        username = self.cleaned_data["username"]
+        if self.username != username:
+            try:
+                User.objects.get(username = username)
+            except User.DoesNotExist:
+                return username
+            raise forms.ValidationError(self.error_messages['duplicate_username'])
+        else:
+            return username
+    
+    def clean_email(self):
+        email = self.cleaned_data["email"]
+        if self.email != email:
+            try:
+                User.objects.get(email = email)
+            except User.DoesNotExist:
+                return email
+            raise forms.ValidationError(self.error_messages['duplicate_email'])
+        else:
+            return email
 
 #===============================================================================
 # class UserChangeForm(forms.ModelForm):

@@ -65,6 +65,12 @@ urlpatterns = patterns('',
         'ipbejactcapp.distro.view_utilizadores.password_changeUser',
         name = 'changePassword'),
     
+    url(r'^distro/editperfil$',
+        'ipbejactcapp.distro.view_utilizadores.editUser',
+        name = 'editPerfilUser'),
+    
+    
+    
     ########################################################################
     
     
