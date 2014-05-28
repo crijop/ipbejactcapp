@@ -91,7 +91,18 @@ urlpatterns = patterns('',
        url(r'^distro/vicp/wizard_cna/$',
         'ipbejactcapp.distro.view_cientifico.wizard_cna',
         name = 'wizard_cna'),
+                       
+   url(r'^distro/vicp/wizard_new_department/$',
+    'ipbejactcapp.distro.view_cientifico.wizard_cna_novo_departamento',
+    name = 'wizard_cna_n_d'),
+                       
+    url(r'^distro/vicp/wizard_new_course/$',
+        'ipbejactcapp.distro.view_cientifico.wizard_cna_novo_curso',
+        name = 'wizard_cna_n_c'),
 
+
+    url(r'^distro/vicp/ajax_abrir_lista_departamentos/$',
+        'ipbejactcapp.distro.view_cientifico.ajax_abrir_lista_departamentos'),
 
     
 )

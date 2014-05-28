@@ -8,10 +8,7 @@
 	<li>
 		<span class="glyphicon glyphicon-home"></span> <a tabindex="2" href="{% url HomeCientifico %}" title="{% trans 'Home' %}">{% trans 'Home' %}</a>
 	</li>
-	<li>
-		<a href="{% url def_Curso_CET %}" title="Definir curso -CET's">{% trans "Definir curso - CET's"%}</a>
-	</li>
-	<li class="active">{% trans "Adicionar Curso - CET's" %}</li>
+	<li class="active">{% trans "Criar Novo Ano" %}</li>
 </ul>
 {% endblock %}
 
@@ -29,8 +26,8 @@
   <p>Usar informação do ano anterior para uma maior rapidez na criação</p>
   <p>Caso já tenha iniciado o processo de criação pode a qualquer hora continua-lo</p>
   <p><a class="btn btn-primary btn-lg" role="button">Baseado no ano anterior</a>
-  	<a class="btn btn-default btn-lg" role="button">Criar ano totalmente novo</a>
-  	<a class="btn btn-default btn-lg" role="button"><span class="glyphicon glyphicon-floppy-disk"></span>Continuar criação de ano</a></p>
+  	<a href="{% url wizard_cna_n_d %}" class="btn btn-default btn-lg" role="button">Criar ano totalmente novo</a>
+  	<a class="btn btn-default btn-lg" role="button"><span class="glyphicon glyphicon-floppy-open"></span>Continuar criação de ano</a></p>
 </div>
 
 {% endblock %}

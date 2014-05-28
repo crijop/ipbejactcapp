@@ -1,0 +1,67 @@
+<!-- Modal -->
+{% load i18n %}
+<div class="teste_dialogo modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Departamentos</h4>
+      </div>
+      <div class="modal-body">
+ <!--------------------------------------------------------------------------------------------------->
+<div class="row"> 
+	<table cellpadding="0" cellspacing="0" border="0" class="display sumary_table" id="special_table" width="100%">
+		<thead>
+			<tr>
+	
+				<th >{% trans 'Nome'%}</th>
+				<th >{% trans '#'%}</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for Departamento in departamentos %}
+			<tr>
+				<td >{{Departamento}}</td>
+				<td >
+					
+	
+						<input type="checkbox">
+					
+					
+				</td>
+				
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+	
+
+	<script type="text/javascript">
+			$(document).ready(function() {
+		$('#special_table').DataTable({
+			"oLanguage": {
+	            "sUrl": "/static/dataTables/lang/pt-pt.txt"
+	        },  "aoColumnDefs": [
+      			{ "bSortable": false, "aTargets": [ 1 ] }
+   				 ]
+	         /*"sPaginationType": "full_numbers",*/
+	         /*"sDom": '<"dataTables_special_bar"l><"dataTables_special_bar"if><"whiteBox"rt><"pagination_box"p>'*/
+	        
+	        	
+		});
+		$('.hasTooltip').tooltip({"container": false});
+	} );
+	</script>
+	</div> 
+<!--------------------------------------------------------------------------------------------------->
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+

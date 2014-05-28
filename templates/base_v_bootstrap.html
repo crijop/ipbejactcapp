@@ -16,7 +16,8 @@
 		<script src="/static/JQuery/jquery-1.10.2.js"></script>
 		<script src="/static/JQuery/jquery-ui-1.10.4.custom.js"></script>
 		<!--<script src="/static/javaScript/jquery-2.0.3.js"></script>-->
-		<script src="/static/dataTables/js/jquery.dataTables.js"></script>
+		<script src="/static/DataTables-1.10.0/media/js/jquery.dataTables.js"></script>
+		
 		
 		
 		<link rel="stylesheet" type="text/css" href="/static/styles/jscal2.css" />
@@ -42,13 +43,15 @@
 		    <![endif]-->
 		
 		
-		<link rel="stylesheet" type="text/css" href="/static/dataTables/css/demo_page.css">
-		<link rel="stylesheet" type="text/css" href="/static/dataTables/css/demo_table.css">
+		<!--<link rel="stylesheet" type="text/css" href="/static/DataTables-1.10.0/media/css/jquery.dataTables.css">-->
+		<!--<link rel="stylesheet" type="text/css" href="/static/DataTables-1.10.0/media/css/jquery.dataTables_themeroller.css">-->
+
 		
-		
+		{%block script%}{%endblock%}
 	</head>
 
 	<body>
+		 <div class="wrapper">
 		<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 			<div class="container">
 			
@@ -138,6 +141,7 @@
 				</div>
 			</div>-->
 			{% endblock %}
+		</div>
 	<!--Div do Rodapé-->
 	
 	<footer  class="bs-footer panel-footer" role="contentinfo">

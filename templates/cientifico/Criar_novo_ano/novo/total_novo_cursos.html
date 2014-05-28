@@ -1,0 +1,79 @@
+{% extends "cientifico/index.html" %}
+{% load i18n %}
+{% block title %}{% trans 'Página de adicionar Curso' %}{% endblock %}
+
+{% block breadcrumb %}
+<ul class="breadcrumb">
+	<li>
+		<span class="glyphicon glyphicon-home"></span><a tabindex="2" href="{% url HomeCientifico %}" title="{% trans 'Home' %}">{% trans 'Home' %}</a>
+	</li>
+	<li>
+		<a href="{% url def_Curso_CET %}" title="Definir curso -CET's">{% trans "Definir curso - CET's"%}</a>
+	</li>
+	<li class="active">
+		{% trans "Adicionar Curso - CET's" %}
+	</li>
+</ul>
+{% endblock %}
+
+{% block content %}
+
+<div class="page-header whiteText">
+	<h1>{% trans 'Assistente de criação de novo ano letivo "2014/2015" - Adicionar Cursos' %}</h1>
+</div>
+<!--------------------------------------------------------------------------------------------------------->
+<div class="btn-group">
+	<button type="button" class="btn btn-default btn-lg navbar-btn">
+		<span class="glyphicon glyphicon-floppy-disk"></span> Guardar
+	</button>
+</div>
+<!--------------------------------------------------------------------------------------------------------->
+<div class="panel panel-default">
+	<!-- Default panel contents -->
+	<div class="panel-heading ">
+		Departamento de Engenharia
+
+		<div class="btn-group btn-group-xs pull-right">
+			<button type="button" class="btn btn-default">
+				<span class="glyphicon glyphicon-certificate"></span> Adicionar Curso
+			</button>
+			<button type="button" class="btn btn-default">
+				<span class="glyphicon glyphicon-minus-sign"></span> Esconder
+			</button>
+		</div>
+		
+	</div>
+
+	<!-- Table -->
+	<table class="table">
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Username</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>1</td>
+				<td>Mark</td>
+				<td>Otto</td>
+				<td>@mdo</td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>Jacob</td>
+				<td>Thornton</td>
+				<td>@fat</td>
+			</tr>
+			<tr>
+				<td>3</td>
+				<td>Larry</td>
+				<td>the Bird</td>
+				<td>@twitter</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+{% endblock %}
