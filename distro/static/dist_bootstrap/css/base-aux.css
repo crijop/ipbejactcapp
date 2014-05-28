@@ -3,7 +3,7 @@ body
 	
 	overflow-x: hidden;
 	background-image:  url("/static/images/wood.jpg");
-	
+	height: 100%;
 	
 	
 }
@@ -92,19 +92,29 @@ div.main_block
 	min-height: 100%;
 }
 /**************Footer***************/
+.wrapper 
+{
+min-height: 100%;
+height: auto !important;
+height: 100%;
+margin: 0 auto;
+padding-bottom:10%;
+}
+
 footer.bs-footer
 {
 	
+
 
 	position: absolute;
 	float: left;
 	background-image: linear-gradient(to bottom, #3C3C3C 0px, #222222 100%);
     background-repeat: repeat-x;
-	padding-top: 1em;
+	/*padding-top: 1em;*/
 	width: 100%;
-	margin-top: 1em;
-	margin-bottom: 0em !important;
-
+	/*margin-top: 1em;
+	margin-bottom: 0em !important;*/
+	bottom: 0 !important;
 	
 }
 
@@ -276,8 +286,8 @@ table.display th{
 	display: inline;
 	position: relative;
 	float: left;
-	margin-bottom: 1em !important;
-	margin-top: 1em !important;
+	margin-bottom: 0.5em !important;
+	/*margin-top: 0.5em !important;*/
 	background-color: white !important;
 	width: 100%;
 	padding: 1em 0.5em;
@@ -354,7 +364,7 @@ color: #428BCA !important;
 
 }
 
-.dataTables_wrapper .pagination_box .dataTables_paginate .paginate_active
+.dataTables_wrapper .pagination_box .dataTables_paginate .current
 {
 
 
@@ -409,3 +419,5 @@ background-color: #E6E6FA !important;
 	width: 5em !important;
 	
 }	
+
+

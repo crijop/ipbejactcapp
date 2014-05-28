@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from distro.Forms.formsVicP import AdicionarCursoForm
-from distro.models import Docente, Contrato, Docente, UnidadeCurricular, Turma, \
+from distro.models import Departamento, Docente, Contrato, Docente, UnidadeCurricular, Turma, \
     Modulos, TipoAula, Curso, TipoCurso
 from django.contrib.auth.decorators import login_required, user_passes_test, \
     login_required, user_passes_test
@@ -20,6 +20,9 @@ from xlwt.Style import XFStyle, easyxf
 from xlwt.Workbook import Workbook
 import time
 import xlwt
+from django.template.loader import render_to_string
+from django.utils import simplejson
+from django.http import HttpResponseRedirect, Http404, HttpResponse
 
 
 '''
@@ -912,6 +915,29 @@ def wizard_cna(request, *args, **kwargs):
         context_instance = RequestContext(request),
         )
     pass
+
+@login_required(redirect_field_name = 'login_redirectUsers')
+@cientificoUserTeste
+def wizard_cna_novo_departamento(request, *args, **kwargs):
+ 
+   
+    return render_to_response("cientifico/Criar_novo_ano/novo/total_novo_departamentos.html",
+        locals(),
+        context_instance = RequestContext(request),
+        )
+    pass
+
+
+@login_required(redirect_field_name = 'login_redirectUsers')
+@cientificoUserTeste
+def wizard_cna_novo_curso(request, *args, **kwargs):
+ 
+   
+    return render_to_response("cientifico/Criar_novo_ano/novo/total_novo_cursos.html",
+        locals(),
+        context_instance = RequestContext(request),
+        )
+    pass
 #####################################################
 
 @login_required(redirect_field_name = 'login_redirectUsers')
@@ -986,6 +1012,28 @@ class AddCursoModelFormPreview(FormPreview):
             )
         pass
     pass
+
+######################################################################################################
+
+@login_required(redirect_field_name = 'login_redirectUsers')
+@cientificoUserTeste
+def ajax_abrir_lista_departamentos(request):
+    
+    serialized_data = None
+    
+    departamentos = Departamento.objects.all() 
+        
+    html = render_to_string("cientifico/Elementos/teste.html", locals())
+    serialized_data = simplejson.dumps({"html":html})
+       
+    
+    return HttpResponse(serialized_data, mimetype = "application/json")
+               
+        
+    pass
+
+
+
 '''
 Fim das vistas do Ciêntifico
 '''
