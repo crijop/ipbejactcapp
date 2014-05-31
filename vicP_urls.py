@@ -105,6 +105,12 @@ urlpatterns = patterns('',
         'ipbejactcapp.distro.view_cientifico.ajax_abrir_lista_departamentos'),
 
     
+    # save departamentos
+    url(r'^distro/vicp/ajax_save_lista_departamentos/$',
+        'ipbejactcapp.distro.view_cientifico.ajax_save_lista_departamentos', \
+        name = "ajax_save_lista_departamentos"),
+    
+    
 )
 
 
