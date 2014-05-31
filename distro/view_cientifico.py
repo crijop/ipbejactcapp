@@ -1,33 +1,34 @@
 # -*- coding: utf-8 -*-
 
-from distro.Forms.formsVicP import AdicionarCursoForm
-from distro.models import Departamento, Docente, Contrato, Docente, UnidadeCurricular, Turma, \
-    Modulos, TipoAula, Curso, TipoCurso
+'''
+Inicio das vistas do Ciêntifico
+'''
+
 from django.contrib.auth.decorators import login_required, user_passes_test, \
     login_required, user_passes_test
 from django.contrib.formtools.preview import FormPreview
 from django.core.exceptions import ObjectDoesNotExist, ObjectDoesNotExist
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.http import Http404
+from django.http import HttpResponseRedirect, Http404, HttpResponse
 from django.shortcuts import render_to_response, render_to_response
 from django.template.context import RequestContext, RequestContext
+from django.template.loader import render_to_string
+from django.utils import simplejson
 from mx.DateTime.DateTime import ctime, ctime
+import time
 from twisted.python.reflect import ObjectNotFound
 from types import NoneType
 from xlwt import Cell
+import xlwt
 from xlwt.Formatting import Font, Borders, Pattern
 from xlwt.Style import XFStyle, easyxf
 from xlwt.Workbook import Workbook
-import time
-import xlwt
-from django.template.loader import render_to_string
-from django.utils import simplejson
-from django.http import HttpResponseRedirect, Http404, HttpResponse
 
+from distro.Forms.formsVicP import AdicionarCursoForm
+from distro.models import Departamento, Docente, Contrato, Docente, UnidadeCurricular, Turma, \
+    Modulos, TipoAula, Curso, TipoCurso, Ano, DepartamentoAno
 
-'''
-Inicio das vistas do Ciêntifico
-'''
 
 cientificoUserTeste = user_passes_test(lambda u:u.groups.filter(name = 'vicP').count(), login_url = '')
 
@@ -919,7 +920,9 @@ def wizard_cna(request, *args, **kwargs):
 @login_required(redirect_field_name = 'login_redirectUsers')
 @cientificoUserTeste
 def wizard_cna_novo_departamento(request, *args, **kwargs):
- 
+    
+    
+    
    
     return render_to_response("cientifico/Criar_novo_ano/novo/total_novo_departamentos.html",
         locals(),
@@ -1025,13 +1028,38 @@ def ajax_abrir_lista_departamentos(request):
         
     html = render_to_string("cientifico/Elementos/teste.html", locals())
     serialized_data = simplejson.dumps({"html":html})
-       
-    
-    return HttpResponse(serialized_data, mimetype = "application/json")
-               
-        
-    pass
 
+    return HttpResponse(serialized_data, mimetype = "application/json")
+
+
+
+@login_required(redirect_field_name = 'login_redirectUsers')
+@cientificoUserTeste
+def ajax_save_lista_departamentos(request, *args, **kwargs):
+    
+    listaIdsDepartamento = request.POST.getlist("listaIdsDepartamento[]")
+    anoId = request.POST.get("ano")
+    
+    anoObj = Ano.objects.get(id = anoId)
+    listObjDepartamento = [Departamento.objects.get(id = departamento) for departamento in listaIdsDepartamento]
+    
+    
+    for departamentoObj in listObjDepartamento:
+          
+        depAno = DepartamentoAno(departamento = departamentoObj,
+                                 ano = anoObj)
+        depAno.save()
+        print "SAVE"
+    
+    
+    #serialized_data = None
+    
+    #departamentos = Departamento.objects.all() 
+        
+    html = render_to_string("cientifico/Elementos/teste.html", locals())
+    serialized_data = simplejson.dumps({"html":html})
+
+    return HttpResponse(serialized_data, mimetype = "application/json")
 
 
 '''

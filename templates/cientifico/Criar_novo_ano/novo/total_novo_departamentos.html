@@ -1,26 +1,18 @@
-{% extends "cientifico/index.html" %}
-{% load i18n %}
-
-{% block title %}{% trans 'Página de adicionar Curso' %}{% endblock %}
-
+{% extends "cientifico/index.html" %} 
+{% load i18n %} 
+{% block title%}{% trans 'Página de adicionar Curso' %}{% endblock %} 
 {% block breadcrumb %}
 <ul class="breadcrumb">
-	<li>
-		<span class="glyphicon glyphicon-home"></span><a tabindex="2" href="{% url HomeCientifico %}" title="{% trans 'Home' %}">{% trans 'Home' %}</a>
-	</li>
-	<li>
-		<a href="{% url def_Curso_CET %}" title="Definir curso -CET's">{% trans "Definir curso - CET's"%}</a>
-	</li>
-	<li class="active">
-		{% trans "Adicionar Curso - CET's" %}
-	</li>
+	<li><span class="glyphicon glyphicon-home"></span><a tabindex="2"
+		href="{% url HomeCientifico %}" title="{% trans 'Home' %}">{%trans 'Home' %}</a></li>
+	<li><a href="{% url def_Curso_CET %}" title="Definir curso -CET's">{%trans "Definir curso - CET's"%}</a></li>
+	<li class="active">{% trans "Adicionar Curso - CET's" %}</li>
 </ul>
-{% endblock %}
-
+{% endblock %} 
 {% block content %}
 
 <div class="page-header whiteText">
-	<h1>{% trans 'Assistente de criação de novo ano letivo "2014/2015" - Adicionar Departamentos' %}</h1>
+	<h1>{% trans 'Assistente de criação de novo ano letivo "2014/2015"- Adicionar Departamentos' %}</h1>
 </div>
 <!--------------------------------------------------------------------------------------------------------->
 <div class="btn-group">
@@ -30,39 +22,40 @@
 </div>
 <!--------------------------------------------------------------------------------------------------------->
 <div class="panel-group" id="accordion">
-<div class="panel panel-default">
-	<!-- Default panel contents -->
-	<div class="panel-heading ">
-		
- <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-        Ano 2014/2015
-        </a>
-		<div class="btn-group btn-group-xs pull-right">
-			<button onclick="abrir_departamentos();" type="button" class="btn btn-default">
-				<span class="glyphicon glyphicon-certificate"></span> Adicionar Departamento
-			</button>
+	<div class="panel panel-default">
+		<!-- Default panel contents -->
+		<div class="panel-heading ">
+
+			<a data-toggle="collapse" data-parent="#accordion"
+				href="#collapseOne"> Ano 2014/2015 </a>
+			<div class="btn-group btn-group-xs pull-right">
+				<button onclick="abrir_departamentos();" type="button"
+					class="btn btn-default">
+					<span class="glyphicon glyphicon-certificate"></span> Adicionar
+					Departamento
+				</button>
+			</div>
+
 		</div>
-		
+		<div id="collapseOne" class="panel-collapse collapse in">
+			<!-- Table -->
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Nome</th>
+						<th>Abreviatura</th>
+						<th>Unidade Organica</th>
+						<th>#</th>
+					</tr>
+				</thead>
+				<tbody>
+				</tbody>
+			</table>
+		</div>
 	</div>
- <div id="collapseOne" class="panel-collapse collapse in">
-	<!-- Table -->
-	<table class="table">
-		<thead>
-			<tr>
-				<th>Nome</th>
-				<th>Abreviatura</th>
-				<th>Unidade Organica</th>
-				<th>#</th>
-			</tr>
-		</thead>
-		<tbody>
-		</tbody>
-	</table>
-	</div>
-</div>
 </div>
 <ul class="pager">
-  
-  <li class="next"><a href="#">Seguinte &rarr;</a></li>
+
+	<li class="next"><a href="#">Seguinte &rarr;</a></li>
 </ul>
 {% endblock %}
