@@ -9,24 +9,24 @@
       </div>
       <div class="modal-body">
  <!--------------------------------------------------------------------------------------------------->
-<div class="row"> 
-	<table cellpadding="0" cellspacing="0" border="0" class="display sumary_table" id="special_table" width="100%">
-		<thead>
-			<tr>
-				<th >{% trans 'Nome'%}</th>
-				<th><input type="checkbox" class="checkAll"></th>
-			</tr>
-		</thead>
-		<tbody>
-			{% for departamento in departamentos %}
-			<tr>
-				<td >{{departamento}}</td>
-				<td><input type="checkbox" value="{{departamento.id}}" class="checkable"></td>
-			</tr>
-			{% endfor %}
-		</tbody>
-	</table>
-</div> 
+<div class="row">
+        <table cellpadding="0" cellspacing="0" border="0" class="display sumary_table" id="special_table" width="100%">
+                <thead>
+                        <tr>
+                                <th >{% trans 'Nome'%}</th>
+                                <th><input type="checkbox" class="checkAll"></th>
+                        </tr>
+                </thead>
+                <tbody>
+                        {% for departamento in departamentos %}
+                        <tr>
+                                <td >{{departamento}}</td>
+                                <td><input type="checkbox" value="{{departamento.id}}" class="checkable"></td>
+                        </tr>
+                        {% endfor %}
+                </tbody>
+        </table>
+</div>
 <!--------------------------------------------------------------------------------------------------->
       </div>
       <div class="modal-footer">
@@ -38,59 +38,59 @@
 </div>
 
 <script type="text/javascript">
-		$(document).ready(function() {
-			$('#special_table').DataTable({
-				"oLanguage": {
-		            "sUrl": "/static/dataTables/lang/pt-pt.txt"
-		        },  "aoColumnDefs": [
-	      			{ "bSortable": false, "aTargets": [ 1 ] }
-	   				 ]
-		         /*"sPaginationType": "full_numbers",*/
-		         /*"sDom": '<"dataTables_special_bar"l><"dataTables_special_bar"if><"whiteBox"rt><"pagination_box"p>'*/
-		        
-		        	
-			});
-			$('.hasTooltip').tooltip({"container": false});
-		
-			$('.checkAll').click(function () {    
-			     $('input:checkbox.checkable').prop('checked', this.checked);    
-			});
-		});
-		
-		
-		$("#saveDepartamento").click(function(){
-			var ids_Departamentos = [];
-			$('input:checked.checkable').each(function(){
-				var valor = $(this).val();
-				if(valor != undefined){
-					ids_Departamentos.push(valor);
-				}
-			});
-			
-			//var ano = $("#inputAno").val();
-			var ano = 1;
-			if (ids_Departamentos.length != 0){
-				
-				var target = "{%url ajax_save_lista_departamentos%}"
-				var csrftoken = getCookie('csrftoken');
-		      	$.ajax({
-		      		type: "POST",
-		          	url:target,
-		          	data: {"listaIdsDepartamento":ids_Departamentos, "ano":ano},
-		          	beforeSend: function( xhr ) {xhr.setRequestHeader("X-CSRFToken", csrftoken);},
-		          	success: function(data) {
-		          		$( ".teste_dialogo" ).modal("toggle");
-		          		
-		          		
-		          		
-		          	},
-		            error: function(rs, e) {
-		            	 
-		            }
-		     	});
-			}
-			
-		});
+                $(document).ready(function() {
+                        $('#special_table').DataTable({
+                                "oLanguage": {
+                            "sUrl": "/static/dataTables/lang/pt-pt.txt"
+                        },  "aoColumnDefs": [
+                                { "bSortable": false, "aTargets": [ 1 ] }
+                                         ]
+                         /*"sPaginationType": "full_numbers",*/
+                         /*"sDom": '<"dataTables_special_bar"l><"dataTables_special_bar"if><"whiteBox"rt><"pagination_box"p>'*/
+                       
+                               
+                        });
+                        $('.hasTooltip').tooltip({"container": false});
+               
+                        $('.checkAll').click(function () {    
+                             $('input:checkbox.checkable').prop('checked', this.checked);    
+                        });
+                });
+               
+               
+                $("#saveDepartamento").click(function(){
+                        var ids_Departamentos = [];
+                        $('input:checked.checkable').each(function(){
+                                var valor = $(this).val();
+                                if(valor != undefined){
+                                        ids_Departamentos.push(valor);
+                                }
+                        });
+                       
+                        //var ano = $("#inputAno").val();
+                        var ano = 1;
+                        if (ids_Departamentos.length != 0){
+                               
+                                var target = "{%url ajax_save_lista_departamentos%}"
+                                var csrftoken = getCookie('csrftoken');
+                        $.ajax({
+                                type: "POST",
+                                url:target,
+                                data: {"listaIdsDepartamento":ids_Departamentos, "ano":ano},
+                                beforeSend: function( xhr ) {xhr.setRequestHeader("X-CSRFToken", csrftoken);},
+                                success: function(data) {
+                                        $( ".teste_dialogo" ).modal("toggle");
+                                       
+                                       
+                                       
+                                },
+                            error: function(rs, e) {
+                                 
+                            }
+                        });
+                        }
+                       
+                });
 
-		
-	</script>
+               
+        </script>
