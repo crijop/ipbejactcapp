@@ -30,8 +30,8 @@
 <!--------------------------------------------------------------------------------------------------->
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" id = "saveDepartamento">Save changes</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+        <button type="button" onclick="form_escolha_departamentos();" class="btn btn-primary" id = "saveDepartamento">Adicionar</button>
       </div>
     </div>
   </div>
@@ -58,39 +58,7 @@
                 });
                
                
-                $("#saveDepartamento").click(function(){
-                        var ids_Departamentos = [];
-                        $('input:checked.checkable').each(function(){
-                                var valor = $(this).val();
-                                if(valor != undefined){
-                                        ids_Departamentos.push(valor);
-                                }
-                        });
-                       
-                        //var ano = $("#inputAno").val();
-                        var ano = 1;
-                        if (ids_Departamentos.length != 0){
-                               
-                                var target = "{%url ajax_save_lista_departamentos%}"
-                                var csrftoken = getCookie('csrftoken');
-                        $.ajax({
-                                type: "POST",
-                                url:target,
-                                data: {"listaIdsDepartamento":ids_Departamentos, "ano":ano},
-                                beforeSend: function( xhr ) {xhr.setRequestHeader("X-CSRFToken", csrftoken);},
-                                success: function(data) {
-                                        $( ".teste_dialogo" ).modal("toggle");
-                                       
-                                       
-                                       
-                                },
-                            error: function(rs, e) {
-                                 
-                            }
-                        });
-                        }
-                       
-                });
+              
 
                
         </script>

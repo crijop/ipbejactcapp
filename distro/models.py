@@ -192,7 +192,7 @@ class UnidadeCurricular(models.Model):
 
 
 class Ano(models.Model):
-    ano = models.IntegerField(null = True)
+    ano = models.CharField(max_length = 120)
     estado = models.IntegerField(null = True)
     
     def __unicode__(self):
