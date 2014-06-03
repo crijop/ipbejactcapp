@@ -25,6 +25,8 @@ from xlwt.Formatting import Font, Borders, Pattern
 from xlwt.Style import XFStyle, easyxf
 from xlwt.Workbook import Workbook
 
+from datetime import datetime 
+
 from distro.Forms.formsVicP import AdicionarCursoForm
 from distro.models import Departamento, Docente, Contrato, Docente, UnidadeCurricular, Turma, \
     Modulos, TipoAula, Curso, TipoCurso, Ano, DepartamentoAno
@@ -903,13 +905,46 @@ def verCurso(request, id_curso):
 ###########################################################################################
 ###########################FIM Visualizar Cursos###########################################
 ###########################################################################################
+'''
+Verifica se o ano letivo existe
+se não existir cria-o
 
+O Calculo do ano letivo é sempre feito com base no ano atual
+
+Exemplo se ano for 2014, 
+o ano letivo vai ser 2014/2015
+'''
+def check_existencia_ano(currentYear):
+ 
+    ano_letivo = str(currentYear) + "/" + str(currentYear + 1)
+    
+    #ano letivo da base de dados
+    ano_letivo_db = Ano.objects.filter(ano = ano_letivo)
+    
+    
+    if len(ano_letivo_db) == 0:
+       ano = Ano(ano = ano_letivo,
+                 estado = 0)
+       ano.save()
+       
+       ano_letivo_db = Ano.objects.get(ano = ano_letivo)
+       pass
+    else:
+       ano_letivo_db = Ano.objects.get(ano = ano_letivo)
+          
+
+    return  ano_letivo_db
+   
+    pass
 
 ###################Assistente de criação de novo ano##############
 @login_required(redirect_field_name = 'login_redirectUsers')
 @cientificoUserTeste
 def wizard_cna(request, *args, **kwargs):
  
+    currentYear = datetime.now().year
+    
+    ano_letivo = check_existencia_ano(currentYear)
    
     return render_to_response("cientifico/Criar_novo_ano/index_acna.html",
         locals(),
@@ -917,12 +952,13 @@ def wizard_cna(request, *args, **kwargs):
         )
     pass
 
+
 @login_required(redirect_field_name = 'login_redirectUsers')
 @cientificoUserTeste
-def wizard_cna_novo_departamento(request, *args, **kwargs):
+def wizard_cna_novo_departamento(request, id_ano):
     
     
-    
+    ano_letivo_db = Ano.objects.get(id = id_ano)
    
     return render_to_response("cientifico/Criar_novo_ano/novo/total_novo_departamentos.html",
         locals(),

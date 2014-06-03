@@ -92,7 +92,7 @@ urlpatterns = patterns('',
         'ipbejactcapp.distro.view_cientifico.wizard_cna',
         name = 'wizard_cna'),
                        
-   url(r'^distro/vicp/wizard_new_department/$',
+   url(r'^distro/vicp/wizard_new_department/(?P<id_ano>\d+)/$',
     'ipbejactcapp.distro.view_cientifico.wizard_cna_novo_departamento',
     name = 'wizard_cna_n_d'),
                        

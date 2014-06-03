@@ -1,3 +1,5 @@
+$ano = null;
+
 function abrir_departamentos()
 {
 	
@@ -57,53 +59,43 @@ function form_escolha_departamentos($ano)
 {
 
 
-$form = $("#escolha_departamento");
-		
-	$.ajax({
-		type: "GET",
-		url: "/distro/recursosHumanos/escolha_departamento/"+$id,
-		data: $form.serialize(),
-		success: function(response)
-		{
-			$(".alert-danger").remove();
-			
-	
-			if(response.valid == "n")
-			{
-			
-				for(error in response.errors)
-				{
-					$html = '<div class="alert alert-danger">';
-					$html = $html + response.errors[error];
-					$html = $html + '</div>';
-					
-					$("#id_"+error).parent().after($html);
-					
-					//alert(response.html[error]);
-				}
-			}else
-			{
-		
-				$("#buttonConfirm").after(response.html);
-            	 $( ".teste_dialogo" ).dialog({
-      				resizable: true,
-      				draggable: false,
-      				width:800,
-      				modal: true,
-      				title: "Confrmar Edição de Docente",
-      				close: function()
-      				{
-      					$( ".teste_dialogo" ).remove();
-      				}
-			     
-			    });
-			}
-		},
-		error: function(error)
-		{
-			
-		}
-	});
-
+                        var ids_Departamentos = [];
+                        $('input:checked.checkable').each(function(){
+                                var valor = $(this).val();
+                                if(valor != undefined){
+                                        ids_Departamentos.push(valor);
+                                }
+                        });
+                       
+                        //var ano = $("#inputAno").val();
+                        var ano = $ano;
+                        if (ids_Departamentos.length != 0){
+                               
+                                var target = "{%url ajax_save_lista_departamentos%}";
+                                var csrftoken = getCookie('csrftoken');
+                        $.ajax({
+                                type: "POST",
+                                url:target,
+                                data: {"listaIdsDepartamento":ids_Departamentos, "ano":ano},
+                                beforeSend: function( xhr ) {xhr.setRequestHeader("X-CSRFToken", csrftoken);},
+                                success: function(data) {
+                                        $( ".teste_dialogo" ).modal("toggle");
+                                       
+                                       
+                                       
+                                },
+                            error: function(rs, e) {
+                                 
+                            }
+                        });
+                        }
+                       
+            
 }
 
+
+function set_ano(ano)
+{
+	
+	$ano = ano;
+}
