@@ -946,6 +946,8 @@ def wizard_cna(request, *args, **kwargs):
     
     ano_letivo = check_existencia_ano(currentYear)
    
+    request.session["ano_corrente"] = ano_letivo
+   
     return render_to_response("cientifico/Criar_novo_ano/index_acna.html",
         locals(),
         context_instance = RequestContext(request),
@@ -959,6 +961,11 @@ def wizard_cna_novo_departamento(request, id_ano):
     
     
     ano_letivo_db = Ano.objects.get(id = id_ano)
+    
+    if ano_letivo_db.estado == 0:
+        ano = Ano(id = id_ano, estado = 1)
+        ano.save()
+        pass
    
     return render_to_response("cientifico/Criar_novo_ano/novo/total_novo_departamentos.html",
         locals(),
@@ -1073,10 +1080,16 @@ def ajax_abrir_lista_departamentos(request):
 @cientificoUserTeste
 def ajax_save_lista_departamentos(request, *args, **kwargs):
     
+    
+    
     listaIdsDepartamento = request.POST.getlist("listaIdsDepartamento[]")
-    anoId = request.POST.get("ano")
+    anoId = request.session["ano_corrente"].id#request.POST.get("ano")
+
     
     anoObj = Ano.objects.get(id = anoId)
+    
+    
+    
     listObjDepartamento = [Departamento.objects.get(id = departamento) for departamento in listaIdsDepartamento]
     
     
@@ -1098,6 +1111,69 @@ def ajax_save_lista_departamentos(request, *args, **kwargs):
     return HttpResponse(serialized_data, mimetype = "application/json")
 
 
+@login_required(redirect_field_name = 'login_redirectUsers')
+@cientificoUserTeste
+def ajax_carrega_departamentos_usados(request, *args, **kwargs):
+    
+    
+    anoId = request.session["ano_corrente"].id#request.POST.get("ano")
+    
+ 
+    
+    departamentos_usados = DepartamentoAno.objects.filter(ano = anoId)
+    
+    
+
+    html = render_to_string("cientifico/Elementos/rows_departamento.html", locals())
+    serialized_data = simplejson.dumps({"html":html})
+
+    return HttpResponse(serialized_data, mimetype = "application/json")
+
+
+
+@login_required(redirect_field_name = 'login_redirectUsers')
+@cientificoUserTeste
+def ajax_check_estado_ano(request, *args, **kwargs):
+    
+    
+    opcao = request.POST.get("opcao")
+
+
+    anoId = request.session["ano_corrente"].id#request.POST.get("ano")
+    ano = Ano.objects.get(id = anoId)
+    html_url = None
+    estado = None
+    
+    if opcao == "1" or opcao == "2":
+        
+        if ano.estado == 0:
+            estado = 1
+            pass
+        elif ano.estado != 0 or ano.estado != 10:
+            
+            html_url = "cientifico/Elementos/aviso_novo_ano.html"
+            estado = 0
+            
+            pass
+        pass
+    elif opcao == 3:
+        if ano.estado == 0:
+            html_url = "cientifico/Elementos/aviso_carregar_existente.html"
+            estado = 1
+            pass
+        elif ano.estado != 0 and ano.estado != 10:
+            estado = 0
+            pass
+        pass
+ 
+
+    
+   
+    html = render_to_string(html_url, locals())
+    serialized_data = simplejson.dumps({"html":html})
+
+    return HttpResponse(serialized_data, mimetype = "application/json")
+pass
 '''
 Fim das vistas do Ciêntifico
 '''

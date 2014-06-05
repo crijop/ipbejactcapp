@@ -1,0 +1,8 @@
+{% for departamento in departamentos_usados %}
+<tr>
+	<td>{{departamento.departamento.nome}}</td>
+	<td>{{departamento.departamento.abreviatura}}</td>
+	<td>{{departamento.departamento.sede.nome}}</td>
+	<td><input type="checkbox" /></td>
+</tr>
+{% endfor %}

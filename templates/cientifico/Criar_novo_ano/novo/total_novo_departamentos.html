@@ -24,22 +24,25 @@
                                 href="#collapseOne"> Ano 2014/2015 </a>
                         <div class="btn-group btn-group-xs pull-right">
                                 <button onclick="abrir_departamentos();" type="button"
-                                        class="btn btn-default">
+                                        class="btn btn-primary">
                                         <span class="glyphicon glyphicon-certificate"></span> Adicionar
                                         Departamento
                                 </button>
+                                 <button onclick="abrir_departamentos();" type="button"
+                                        class="btn btn-danger">
+                                        <span class="glyphicon glyphicon-remove"></span>Eliminar
                         </div>
 
                 </div>
                 <div id="collapseOne" class="panel-collapse collapse in">
                         <!-- Table -->
-                        <table class="table">
+                        <table class="table departamentos_usados">
                                 <thead>
                                         <tr>
                                                 <th>Nome</th>
                                                 <th>Abreviatura</th>
                                                 <th>Unidade Organica</th>
-                                                <th>#</th>
+                                                <th><input type="checkbox" /></th>
                                         </tr>
                                 </thead>
                                 <tbody>
