@@ -88,6 +88,12 @@ urlpatterns = patterns('',
         'ipbejactcapp.distro.view_cientifico.verCurso',
         name = 'ver_curso'),
    ##################Definir novo ano###############
+      # verifica se existe um ano em construção
+    url(r'^distro/vicp/ajax_check_estado_ano/$',
+        'ipbejactcapp.distro.view_cientifico.ajax_check_estado_ano', \
+        name = "ajax_check_estado_ano"),
+    
+   
        url(r'^distro/vicp/wizard_cna/$',
         'ipbejactcapp.distro.view_cientifico.wizard_cna',
         name = 'wizard_cna'),
@@ -109,6 +115,11 @@ urlpatterns = patterns('',
     url(r'^distro/vicp/ajax_save_lista_departamentos/$',
         'ipbejactcapp.distro.view_cientifico.ajax_save_lista_departamentos', \
         name = "ajax_save_lista_departamentos"),
+                       
+   # carrega departamentos em USO
+    url(r'^distro/vicp/ajax_carrega_departamentos_usados/$',
+        'ipbejactcapp.distro.view_cientifico.ajax_carrega_departamentos_usados', \
+        name = "ajax_carrega_departamentos_usados")
     
     
 )
