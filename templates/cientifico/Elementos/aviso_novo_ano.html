@@ -4,16 +4,16 @@
     <div class="modal-content alert alert-warning">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel"><strong>Aviso!</strong>Ano em construção</h4>
+        <h4 class="modal-title" id="myModalLabel"><strong><span class="glyphicon glyphicon-warning-sign"></span> Aviso!</strong> Ano {{ano.ano}} em construção</h4>
       </div>
       <div class="modal-body">
         <h4><strong>Já existe um ano em construção!</strong></h4>
         <h4>Se continuar com esta acção toda a informação existente será perdida</h4>
-        <h3><strong>Deseja mesmo assim continuar</strong></h3>
+        <h3><strong>Deseja mesmo assim continuar?</strong></h3>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-        <button type="button" data-dismiss="modal" class="btn btn-danger">Continuar</button>
+        <button type="button" data-dismiss="modal" onclick="confirmar_remover_ano_construcao();" class="btn btn-danger">Continuar</button>
       </div>
     </div>
   </div>

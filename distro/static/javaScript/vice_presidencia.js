@@ -140,9 +140,7 @@ function form_escolha_departamentos($ano)
                                         ids_Departamentos.push(valor);
                                 }
                         });
-                       
-                        //var ano = $("#inputAno").val();
-                        var ano = $ano;
+                      
                         if (ids_Departamentos.length != 0){
                                
                                 var target = "/distro/vicp/ajax_save_lista_departamentos/";
@@ -150,7 +148,7 @@ function form_escolha_departamentos($ano)
                         $.ajax({
                                 type: "POST",
                                 url:target,
-                                data: {"listaIdsDepartamento":ids_Departamentos, "ano":$ano},
+                                data: {"listaIdsDepartamento":ids_Departamentos},
                                 beforeSend: function( xhr ) {xhr.setRequestHeader("X-CSRFToken", csrftoken);},
                                 success: function(data) {
                                         $( ".teste_dialogo" ).modal("toggle");
@@ -234,3 +232,89 @@ function set_ano(ano)
 	$ano = ano;
 	
 }
+
+/**
+ * Janela de confirmação da remoção do ano a decorrer
+ * 
+ */
+function confirmar_remover_ano_construcao()
+{
+	
+	
+	var csrftoken = getCookie('csrftoken');
+
+$.ajax({
+      		type: "POST",
+      		data: {},
+          	url:"/distro/vicp/ajax_confirmar_remover_ano_construcao/",
+          	beforeSend: function( xhr ) {xhr.setRequestHeader("X-CSRFToken", csrftoken);},
+          	success: function(response) {
+            	
+          
+          			$(".jumbotron").after(response.html);
+          			
+          			
+          			$( "#modal_confirmar_remover_ano" ).modal({
+					
+					backdrop: "static",
+					show: true
+					});
+					$('#modal_confirmar_remover_ano').on('hidden.bs.modal', function (e) {
+	 					$('#modal_confirmar_remover_ano').remove();
+					});
+	          			
+          			
+          			
+          			
+          		},
+            error: function(rs, e) {
+            	 
+            	 
+            	 
+            }
+     	});
+	
+	
+}
+
+
+function remover_ano_construcao()
+{
+	
+	
+	var csrftoken = getCookie('csrftoken');
+
+$.ajax({
+      		type: "POST",
+      		data: {},
+          	url:"/distro/vicp/ajax_remover_ano_construcao/",
+          	beforeSend: function( xhr ) {xhr.setRequestHeader("X-CSRFToken", csrftoken);},
+          	success: function(response) {
+            	
+          
+          			$(".jumbotron").after(response.html);
+          			
+          			
+          			$( "#modal_sucesso_remover_ano" ).modal({
+					
+					backdrop: "static",
+					show: true
+					});
+					$('#modal_sucesso_remover_ano').on('hidden.bs.modal', function (e) {
+	 					$('#modal_sucesso_remover_ano').remove();
+					});
+	          			
+          			
+          			
+          			
+          		},
+            error: function(rs, e) {
+            	 
+            	 
+            	 
+            }
+     	});
+	
+	
+}
+
