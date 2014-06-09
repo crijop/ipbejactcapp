@@ -93,6 +93,17 @@ urlpatterns = patterns('',
         'ipbejactcapp.distro.view_cientifico.ajax_check_estado_ano', \
         name = "ajax_check_estado_ano"),
     
+    #pede confirmação para eleminar o ano que decorre
+    url(r'^distro/vicp/ajax_confirmar_remover_ano_construcao/$',
+        'ipbejactcapp.distro.view_cientifico.ajax_confirmar_remover_ano_construcao', \
+        name = "ajax_confirmar_remover_ano_construcao"),
+    
+    #eleminar o ano que decorre
+    url(r'^distro/vicp/ajax_remover_ano_construcao/$',
+        'ipbejactcapp.distro.view_cientifico.ajax_remover_ano_construcao', \
+        name = "ajax_remover_ano_construcao"),
+    
+    
    
        url(r'^distro/vicp/wizard_cna/$',
         'ipbejactcapp.distro.view_cientifico.wizard_cna',

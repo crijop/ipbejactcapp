@@ -922,10 +922,12 @@ def check_existencia_ano(currentYear):
     ano_letivo_db = Ano.objects.filter(ano = ano_letivo)
     
     
-    if len(ano_letivo_db) == 0:
+    if len(ano_letivo_db) == 0: 
        ano = Ano(ano = ano_letivo,
                  estado = 0)
        ano.save()
+       
+       print "############################## TESTE"
        
        ano_letivo_db = Ano.objects.get(ano = ano_letivo)
        pass
@@ -946,6 +948,7 @@ def wizard_cna(request, *args, **kwargs):
     
     ano_letivo = check_existencia_ano(currentYear)
    
+    print "################ANO###############", ano_letivo.id
     request.session["ano_corrente"] = ano_letivo
    
     return render_to_response("cientifico/Criar_novo_ano/index_acna.html",
@@ -961,10 +964,11 @@ def wizard_cna_novo_departamento(request, id_ano):
     
     
     ano_letivo_db = Ano.objects.get(id = id_ano)
+
     
     if ano_letivo_db.estado == 0:
-        ano = Ano(id = id_ano, estado = 1)
-        ano.save()
+        ano_letivo_db.estado = 1
+        ano_letivo_db.save()
         pass
    
     return render_to_response("cientifico/Criar_novo_ano/novo/total_novo_departamentos.html",
@@ -1085,6 +1089,7 @@ def ajax_save_lista_departamentos(request, *args, **kwargs):
     listaIdsDepartamento = request.POST.getlist("listaIdsDepartamento[]")
     anoId = request.session["ano_corrente"].id#request.POST.get("ano")
 
+    print "############################ ", anoId
     
     anoObj = Ano.objects.get(id = anoId)
     
@@ -1134,42 +1139,93 @@ def ajax_carrega_departamentos_usados(request, *args, **kwargs):
 @login_required(redirect_field_name = 'login_redirectUsers')
 @cientificoUserTeste
 def ajax_check_estado_ano(request, *args, **kwargs):
+    if request.is_ajax():
+    
+        opcao = request.POST.get("opcao")
     
     
-    opcao = request.POST.get("opcao")
-
-
-    anoId = request.session["ano_corrente"].id#request.POST.get("ano")
-    ano = Ano.objects.get(id = anoId)
-    html_url = None
-    estado = None
-    
-    if opcao == "1" or opcao == "2":
+        anoId = request.session["ano_corrente"].id#request.POST.get("ano")
+        ano = Ano.objects.get(id = anoId)
         
-        if ano.estado == 0:
-            estado = 1
-            pass
-        elif ano.estado != 0 or ano.estado != 10:
+        
+        
+        html_url = None
+        estado = None
+        
+        if opcao == "1" or opcao == "2":
             
-            html_url = "cientifico/Elementos/aviso_novo_ano.html"
-            estado = 0
-            
+            if ano.estado == 0:
+                estado = 1
+                html = "";
+                pass
+            elif ano.estado != 0 or ano.estado != 10:
+                
+                html_url = "cientifico/Elementos/aviso_novo_ano.html"
+                html = render_to_string(html_url, locals())
+                estado = 0
+                
+                pass
             pass
-        pass
-    elif opcao == 3:
-        if ano.estado == 0:
-            html_url = "cientifico/Elementos/aviso_carregar_existente.html"
-            estado = 1
+        elif opcao == 3:
+            if ano.estado == 0:
+                html_url = "cientifico/Elementos/aviso_carregar_existente.html"
+                html = render_to_string(html_url, locals())
+                estado = 1
+                pass
+            elif ano.estado != 0 and ano.estado != 10:
+                estado = 0
+                html = ""
+                pass
             pass
-        elif ano.estado != 0 and ano.estado != 10:
-            estado = 0
-            pass
-        pass
- 
-
+     
     
+        
+        serialized_data = simplejson.dumps({"html":html, "estado":estado})
+    
+        return HttpResponse(serialized_data, mimetype = "application/json")
+    pass
+pass
+
+'''
+Mostra janela de confirmação
+da remoção do ano a decorrer
+'''
+@login_required(redirect_field_name = 'login_redirectUsers')
+@cientificoUserTeste
+def ajax_confirmar_remover_ano_construcao(request, *args, **kwargs):
+    
+    
+    anoId = request.session["ano_corrente"].id
+    ano = Ano.objects.get(id = anoId)
    
-    html = render_to_string(html_url, locals())
+       
+   
+    html = render_to_string("cientifico/Elementos/confirmar_remocao_ano.html", locals())
+    serialized_data = simplejson.dumps({"html":html})
+
+    return HttpResponse(serialized_data, mimetype = "application/json")
+pass
+
+
+'''
+Elimina o ano que decorre
+e mosytra mensagem de sucesso
+'''
+@login_required(redirect_field_name = 'login_redirectUsers')
+@cientificoUserTeste
+def ajax_remover_ano_construcao(request, *args, **kwargs):
+    
+    
+    anoId = request.session["ano_corrente"].id
+    ano = Ano.objects.get(id = anoId)
+    ano.delete()
+       
+       
+    currentYear = datetime.now().year
+    
+    ano_letivo = check_existencia_ano(currentYear)   
+   
+    html = render_to_string("cientifico/Elementos/sucesso_remocao_ano.html", locals())
     serialized_data = simplejson.dumps({"html":html})
 
     return HttpResponse(serialized_data, mimetype = "application/json")
