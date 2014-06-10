@@ -58,6 +58,20 @@ urlpatterns = patterns('',
     ########################################################################################
     
     
+    
+    ########################################################################################
+    # Url's destinados aos templates dos docentes
+    #### 
+    url(r'^distro/docente/', \
+        include('ipbejactcapp.distro.docente.urls_docente')),
+    #####
+    # Fim dos Url's destinados aos templates dos docentes
+    ########################################################################################
+    
+    
+    
+    
+    
     ######################## 08/03/2014 ####################################
     #### Utilizadores do Sistema
     
@@ -263,29 +277,7 @@ urlpatterns = patterns('',
     #####
     # Fim dos Url's destinados aos templates dos Directores de Escola
     ########################################################################################
-    
-    
-    ########################################################################################
-    # Url's destinados aos templates dos docentes
-    ####                   
-    # Url Home Docente
-    url(r'^distro/docente/$',
-        'ipbejactcapp.distro.views.indexDocente',
-        name = 'homeDocente'),
-    
-    # Url Turmas a que os docentes pertence
-    url(r'^distro/docente/turmas',
-        'ipbejactcapp.distro.views.turmasDocentes',
-        name = 'turmasDocentes'),
-                    
-    # Url horas de serviço distinada a cada docente
-    url(r'^distro/docente/horasServico',
-        'ipbejactcapp.distro.views.horasServico',
-        name = 'horasServico'),
-    #####
-    # Fim dos Url's destinados aos templates dos docentes
-    ########################################################################################
-    
+
     
     ########################################################################################
     # Url's destinados aos templates dos Recursos Humanos

@@ -19,8 +19,20 @@
 
 {% block content %}
 	<div class="page-header whiteText">
-	  <h1>{% trans 'Sumário'%}</h1>
+	  <h1>{% trans 'Sumário - Ano '%}{{anoActual}}</h1>
 	</div>
+
+	
+	<form id="filter_ano_form" class="form-horizontal" role="form">
+		 <div class="form-group whiteText">
+	   	 	<div class="col-xs-2">
+		      {%for field in form_combo%}
+		      	{{ field.label_tag }}: {{ field }}
+		      {%endfor%}  
+	    	</div>
+	  	</div>
+	</form>
+	
 	
 	<table cellpadding="0" cellspacing="0" border="0" class="display sumary_table" id="special_table" width="100%">
 	<thead>	
