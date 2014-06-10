@@ -15,29 +15,45 @@
 
 
 {% block content %}
-<div class="page-header whiteText">
-  <h1>{% trans 'Horas de Serviço'%}</h1>
-</div>
-<table cellpadding="0" cellspacing="0" border="0" class="display sumary_table" id="special_table" width="100%">
-	<thead>
-		<tr>
-			<th class="cabecalho_sumario">{% trans 'Curso' %}</th>
-			<th class="cabecalho_sumario">{% trans 'Turma' %}</th>
-			<th class="cabecalho_sumario">{% trans 'Horas de Serviço' %}</th>
-			
-		</tr>
-	</thead>
-	<tbody>
-		{%for id, turma, horas, curso in lista%}
-		<tr>
-			<td>{{ curso }}</td>
-			<td>{{ turma }}</td>
-			<td class="horas_servico">{{ horas }}</td>
-		</tr>
-		{%endfor%}
-	</tbody>
-</table>
+	<div class="page-header whiteText">
+	  <h1>{% trans 'Horas de Serviço'%}<small>{% trans ' Ano '%}{{anoActual}} </small></h1>
+	</div>
 
+	<form id="filter_ano_form" class="form-horizontal" role="form">
+		 <div class="form-group whiteText">
+	   	 	<div class="col-xs-2">
+		      {%for field in form_combo%}
+		      	{{ field.label_tag }}: {{ field }}
+		      {%endfor%}  
+	    	</div>
+	  	</div>
+	</form>
+
+	<table cellpadding="0" cellspacing="0" border="0" class="display sumary_table" id="special_table" width="100%">
+		<thead>
+			<tr>
+				<th class="cabecalho_sumario">{% trans 'Curso' %}</th>
+				<th class="cabecalho_sumario">{% trans 'Turma' %}</th>
+				<th class="cabecalho_sumario">{% trans 'Horas de Serviço' %}</th>
+				
+			</tr>
+		</thead>
+		<tbody>
+			{%for id, turma, horas, curso in lista%}
+			<tr>
+				<td>{{ curso }}</td>
+				<td>{{ turma }}</td>
+				<td class="horas_servico">{{ horas }}</td>
+			</tr>
+			{%endfor%}
+		</tbody>
+		<tfoot>
+		<tr>
+			<th colspan="2" class="sub_cabecalho">Horas Total</th>
+			<th>{{numeroTotalHoras}} </th>
+		</tr>
+	</tfoot>
+	</table>
 
 <script type="text/javascript">
 	$(document).ready(function() {

@@ -13,38 +13,38 @@
 {% endblock %}
 
 {% block content %}
-<div class="page-header whiteText">
-  <h1>{% trans 'Sumário'%}</h1>
-</div>
-<table class="table table-striped table-hover">
-	<tr>
-		<th colspan="2" class="cabecalho_sumario">Estado</th>
-	</tr>
-	<tr>
-		<td colspan="2" >Pendente</td>
-	</tr>
-	<tr>
-		<th colspan="2" class="cabecalho_sumario">Turmas</th>
-	</tr>
-	<tr>
-		<th class="sub_cabecalho"><span>Número de Turmas</span></th>
-		<td>{{  numeroTotalTurmas }}</td>
-	</tr>
-	<tr>
-		<th colspan="2" class="cabecalho_sumario">Horas de Trabalho</th>
-	</tr>
-	<tr>
-		<th class="sub_cabecalho" ><span>Horas de serviço</span></th>
-		<td>{{  horasServico }}</td>
-	</tr>
-	<tr>
-		<th class="sub_cabecalho" ><span>Horas de redução</span></th>
-		<td>{{  reducaoHoras }}</td>
-	</tr>
-	<tr>
-		<th class="sub_cabecalho" ><span>Horas Total</span></th>
-		<td>{{  numeroTotalHoras }}</td>
-	</tr>
-</table>
+	<div class="page-header whiteText">
+	  <h1>{% trans 'Sumário'%}<small>{% trans ' Ano '%}{{anoActual}} </small></h1>
+	</div>
+	
+	<form id="filter_ano_form" class="form-horizontal" role="form">
+		 <div class="form-group whiteText">
+	   	 	<div class="col-xs-2">
+		      {%for field in form_combo%}
+		      	{{ field.label_tag }}: {{ field }}
+		      {%endfor%}  
+	    	</div>
+	  	</div>
+	</form>
+	
+	<!-------------------------------------------------------------Conteudo Estatistico--------------------------------------------------->	
+	<h5 class="whiteText" >{% trans 'Estado'%}</h5>
+	<div  class="alert alert-info alert_info_index">
+		{% trans 'Pendente '%}
+	</div>
+	<h5 class="whiteText" >{% trans 'Turmas'%}</h5>
+	<div  class="alert alert-info alert_info_index">
+		{% trans 'Número de Turmas '%}<span class="badge" > {{numeroTotalTurmas}} </span>
+	</div>
+	<h5 class="whiteText" >{% trans 'Horas'%}</h5>
+	<div  class="alert alert-info alert_info_index">
+		{% trans 'Horas de serviço '%}<span class="badge" > {{horasServico}} </span>
+	</div>
+	<div  class="alert alert-info alert_info_index">
+		{% trans 'Horas de redução '%}<span class="badge" > {{reducaoHoras}} </span>
+	</div>
+	<div  class="alert alert-info alert_info_index">
+		{% trans 'Horas Total '%}<span class="badge" > {{numeroTotalHoras}} </span>
+	</div>
 {% endblock %}
 
