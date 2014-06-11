@@ -160,7 +160,9 @@ Inicio das vistas do Departamento
 @DepUserTeste
 def indexDepartamento(request):
 
-    ano = calcularAno()
+    #ano = calcularAno()
+    ano = Ano.objects.get(id = 3)
+    
     
     id_Departamento = request.session['dep_id']
     
@@ -173,7 +175,7 @@ def indexDepartamento(request):
     listToSendCDoc = []
     
     listaServicoDocente = ServicoDocente.objects.filter(turma__unidade_curricular__departamento_id__exact = id_Departamento, \
-                                                         turma__ano__exact = ano)
+                                                         turma__ucAno__cursosAno__ano = ano)
     
     for servico in listaServicoDocente:
         # Lista de Serviços sem docentes atribuidos
@@ -213,7 +215,7 @@ def indexDepartamento(request):
     for l in listaDocentesDepartamento:
         horasTemp = 0
             
-        moduloTemp = Modulos.objects.filter(servico_docente__turma__ano__exact = ano)\
+        moduloTemp = Modulos.objects.filter(servico_docente__turma__ucAno__cursosAno__ano  = ano)\
                                              .filter(docente_id__exact = l.id)
         for m in moduloTemp:
             horasTemp += m.horas
