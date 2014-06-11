@@ -60,17 +60,17 @@
 <!-------------------------------------------------------------Conteudo Estatistico--------------------------------------------------->	
 <h3 class="whiteText" >{% trans 'Serviços docentes'%}</h3>
 <div  class="alert alert-danger">
-<a class="alert-link" href="{%url turmaSemServDocente ano%}">{% trans 'Disciplinas sem docentes atribuidos no ano '%}{{ano}} <span class="badge" >{{sizeListSDoc}}</span></a>
+<a class="alert-link" href="{%url turmaSemServDocente ano.id%}">{% trans 'Disciplinas sem docentes atribuidos no ano '%}{{ano}} <span class="badge" >{{sizeListSDoc}}</span></a>
 </div>
 <div  class="alert alert-danger">
-<a class="alert-link" href="{%url listarServicoDocente ano %}">{% trans 'Disciplinas com docentes atribuidos no ano '%}{{ano}} <span class="badge" >{{sizeListCDoc}}</span></a>
+<a class="alert-link" href="{%url listarServicoDocente ano.id %}">{% trans 'Disciplinas com docentes atribuidos no ano '%}{{ano}} <span class="badge" >{{sizeListCDoc}}</span></a>
 </div>
 <h3 class="whiteText" >{% trans 'Docentes/horas'%}</h3>
 <div  class="alert alert-danger">
-<a class="alert-link" href="{% url listDocentesDep%}?docExcedHours=False&ano={{ano}}">{% trans 'Docentes a exceder o número de horas '%}<span class="badge" >{{nrDocExcedHoras}}</span></a>
+<a class="alert-link" href="{% url listDocentesDep%}?docExcedHours=False&ano={{ano.id}}">{% trans 'Docentes a exceder o número de horas '%}<span class="badge" >{{nrDocExcedHoras}}</span></a>
 </div>
 <div  class="alert alert-danger">
-<a class="alert-link" href="{% url listDocentesDep%}?docExcedHours=True&ano={{ano}}">{% trans 'Docentes com nenhuma hora atribuida '%}<span class="badge" >{{nrDocSemHoras}}</span></a>
+<a class="alert-link" href="{% url listDocentesDep%}?docExcedHours=True&ano={{ano.id}}">{% trans 'Docentes com nenhuma hora atribuida '%}<span class="badge" >{{nrDocSemHoras}}</span></a>
 </div>
 	
 <!-------------------------------------------------------------PAinel informativo--------------------------------------------------->	
