@@ -9,15 +9,14 @@
 {% endblock %}
 
 {% block Menus %}
-<li {% block MenuInformacao %}class='active'{% endblock %}><a tabindex="3" href='/distro'><span>Informação</span></a></li>
 
 <li class="dropdown {% block Listar %} {% endblock %}">
     <a href="#" class="dropdown-toggle" data-toggle="dropdown">{% trans 'Listar' %}<b class="caret"></b></a>
     <ul class="dropdown-menu">
-    	<li class="dropdown-header">{% trans 'Turma - Ano'%}</li>
+    	<li class="dropdown-header">{% trans 'Turma'%}</li>
     	<li class="divider"></li>
 	    {%for ano in listaAnos%}
-	      <li><a href='{%url listarTurmas ano.ano %}'>{{ano.ano}}</a></li>
+	      <li><a href='{%url listarTurmas ano.id %}'>{{ano.ano}}</a></li>
 	    {%endfor%}
 	    <li class="divider"></li>
 	    <li><a href='{%url listDocentesDep %}'>{% trans 'Docentes' %}</a></li>
@@ -29,7 +28,7 @@
     	<li class="dropdown-header">{% trans 'Ano'%}</li>
     	<li class="divider"></li>
 	    {%for ano in listaAnos%}
-	      <li><a href='{%url listarServicoDocente ano.ano%}'>{{ano.ano}}</a></li>
+	      <li><a href='{%url listarServicoDocente ano.id %}'>{{ano.ano}}</a></li>
 	    {%endfor%}
     </ul>
 </li>
@@ -39,14 +38,14 @@
     	<li class="dropdown-header">{% trans 'Ano'%}</li>
 	    <li class="divider"></li>
 	    {%for ano in listaAnos%}
-	      <li><a href='{%url turmaSemServDocente ano.ano%}'>{{ano.ano}}</a></li>
+	      <li><a href='{%url turmaSemServDocente ano.id %}'>{{ano.ano}}</a></li>
 	    {%endfor%}
     </ul>
 </li>
 <li class="dropdown {% block MenuAjuda %} {% endblock %}">
     <a href="#" class="dropdown-toggle" data-toggle="dropdown">{% trans 'Ajuda' %}<b class="caret"></b></a>
     <ul class="dropdown-menu">
-		<li><a href='{% url ajudaRH 1 %}'>{% trans 'Como Listar Turmas' %}</a></li>
+		<li><a href='#'>{% trans 'Como Listar Turmas' %}</a></li>
 		<li><a href="#">....</a></li>
 		<li><a href="#">....</a></li>
     </ul>

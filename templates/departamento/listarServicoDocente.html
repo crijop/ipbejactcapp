@@ -10,6 +10,9 @@
 </ul>
 {% endblock %}
 
+<!-- Estes blocos é para alterar a classe do menu do index, refere se está ou não activo -->
+{% block ListServDoc %}active{% endblock %}
+
 {% block filtros %}
 	<div class="list-group">
 	  <a href="#" class="list-group-item active">Cursos</a>
@@ -53,7 +56,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			{% for id_servico, unidadeCurricular, turno, tipo, horas, id_turma in listInfo %}
+			{% for id_servico, unidadeCurricular, turno, tipo, horas, id_turma in listToSend %}
 			<tr>
 				<td><a class="tableLink" href="{% url infoModuloTurma id_servico ano %}">{{unidadeCurricular}}</a></td>
 				<td>{{turno}}</td>

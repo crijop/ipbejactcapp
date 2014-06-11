@@ -72,6 +72,11 @@ urlpatterns = patterns('',
     
     
     
+    
+    
+    
+    
+    
     ######################## 08/03/2014 ####################################
     #### Utilizadores do Sistema
     
@@ -173,9 +178,8 @@ urlpatterns = patterns('',
     #####
     # Fim dos Url's destinados aos templates do coordenadores de Cursos
     ########################################################################################
+        
     
-    
-  
     ########################################################################################
     # Url's destinados aos templates do departamento
     #### 
@@ -183,83 +187,83 @@ urlpatterns = patterns('',
     url(r'^distro/departamento/$',
         'ipbejactcapp.distro.views.indexDepartamento',
         name = 'homeDepartamento'),
-    
+     
     # Url para listar turmas
     url(r'^distro/departamento/listarTurmas/(?P<ano>\d+)/$',
         'ipbejactcapp.distro.view_departamento.listarTurmasDepart',
         name = 'listarTurmas'),
-    
+     
     # Url destinados aos filtros na página da listar turmas
     # (Filtra por ordem alfabetica e por curso)
      url(r'^distro/departamento/listarTurmas/(?P<ano>\d+)/filter_abc/$',
         'ipbejactcapp.distro.view_departamento.filter_abc'),
-     
+      
      url(r'^distro/departamento/listarTurmas/(?P<ano>\d+)/filter_curso/$',
         'ipbejactcapp.distro.view_departamento.filter_curso'),
-    
+     
     # Url para listar os docentes
     url(r'^distro/departamento/listDocentes/$', 'ipbejactcapp.distro.view_departamento.listDocentes',
         name = 'listDocentesDep'),
-                       
+                        
     # Url destinados aos filtros na página da lista de docentes
     # (Filtra por ordem alfabetica e por categoria)
     url(r'^distro/departamento/listDocentes/filter_abc/$', 'ipbejactcapp.distro.view_departamento.filter_abcd'),
     url(r'^distro/departamento/listDocentes/filter_cat/$', 'ipbejactcapp.distro.view_departamento.filter_cat'),
-    
+     
     # Url para mostrar a informação de um determinado docente                   
     url(r'^distro/departamento/listDocentes/(?P<id_docente>\d+)/$', 'ipbejactcapp.distro.view_departamento.infoDocenteDep'),
-    
-    
+     
+     
     # turmas sem serviço docente atribuido
     # template de adicionar docente ao serviço docente
     url(r'^distro/departamento/turmaSemSevicoDocente/(?P<ano>\d+)/$',
         'ipbejactcapp.distro.view_departamento.addServicoDocenteDepart',
         name = 'turmaSemServDocente'),
-    
+     
     # Url adicionar o docente ao serviço docente
     # mais propriamente para aparecer o formulario.                    
     url(r'^distro/departamento/turmaSemSevicoDocente/addServicoDocente/(?P<id_servico>\d+)/(?P<id_Departamento>\d+)/(?P<ano>\d+)/$',
         'ipbejactcapp.distro.view_departamento.viewFormClass',
         name = 'addServicoDocentDepart'),
-    
+     
     # Aparece o butão para salvar o formulario quando
     # existe alguma alteração.
     url(r'^distro/departamento/turmaSemSevicoDocente/addServicoDocente/(?P<id_servico>\d+)/(?P<id_Departamento>\d+)/(?P<ano>\d+)/addSaveButton$',
           'ipbejactcapp.distro.view_departamento.showSaveButton'),
-                       
+                        
     # Filtro por ordem alfabetica                   
     url(r'^distro/departamento/turmaSemSevicoDocente/(?P<ano>\d+)/filter_abc/$', 'ipbejactcapp.distro.view_departamento.filter_abc'),
-    
+     
     # Filtro por curso                  
     url(r'^distro/departamento/turmaSemSevicoDocente/(?P<ano>\d+)/filter_curso/$', 'ipbejactcapp.distro.view_departamento.filter_curso'),
-    
+     
     # Mostra a combo de escolha dos departamentos                 
     url(r'^distro/departamento/turmaSemSevicoDocente/addServicoDocente/(?P<id_servico>\d+)/(?P<id_Departamento>\d+)/(?P<ano>\d+)/combotodelegate$', 'ipbejactcapp.distro.view_departamento.addComboToDelegate'),
-    
-    
-                       
+     
+     
+                        
      # #Lista serviços Docente
       url(r'^distro/departamento/listServicoDocente/(?P<ano>\d+)/$',
         'ipbejactcapp.distro.view_departamento.listServicoDocente',
         name = 'listarServicoDocente'),
-    
+     
     # Filtro por ordem alfabetica                   
     url(r'^distro/departamento/listServicoDocente/(?P<ano>\d+)/filter_abc/$', 'ipbejactcapp.distro.view_departamento.filter_abc'),
-    
+     
     # Filtro por curso                  
     url(r'^distro/departamento/listServicoDocente/(?P<ano>\d+)/filter_curso/$', 'ipbejactcapp.distro.view_departamento.filter_curso'),
-                      
+                       
     # Url para mostrar a informação do docente na parte dos modulos...                  
     url(r'^distro/departamento/listServicoDocente/infoModuloDocente/(?P<id_docente>\d+)/(?P<ano>\d+)/$',
         'ipbejactcapp.distro.view_departamento.infoModulosDocente',
         name = 'infoModuloDocente'),
-    
+     
     # Url para mostrar a informação da turma já com os docentes atribuidos a cada modulo
     # nos serviços docentes.                   
     url(r'^distro/departamento/listServicoDocente/infoModuloTurma/(?P<id_servico>\d+)/(?P<ano>\d+)/$',
         'ipbejactcapp.distro.view_departamento.infoModulosTurma',
         name = 'infoModuloTurma'),
-                        
+                         
     #####
     # Fim Url's destinados aos templates do departamento
     ########################################################################################

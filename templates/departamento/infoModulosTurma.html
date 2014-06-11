@@ -13,6 +13,9 @@
 </ul>
 {% endblock %}
 
+<!-- Estes blocos é para alterar a classe do menu do index, refere se está ou não activo -->
+{% block ListServDoc %}active{% endblock %}
+
 {% block content %}
 	<div class="page-header whiteText">
 	  <h1>{% trans 'Informação dos Modulos pertencente á Turma: '%}{{nomeTurma}}</h1>
