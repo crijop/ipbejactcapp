@@ -16,6 +16,9 @@
 </ul>
 {% endblock %}
 
+<!-- Estes blocos é para alterar a classe do menu do index, refere se está ou não activo -->
+{% block Listar %}active{% endblock %}
+
 {% block content %}
 <div class="page-header whiteText">
 	<h1>{% trans 'Informação do Docente:'%} {{docente_name}}</h1>

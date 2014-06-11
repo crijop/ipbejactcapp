@@ -14,14 +14,14 @@
 
 {% block content %}
 	<div class="page-header whiteText">
-	  <h1>{% trans 'Sumário'%}<small>{% trans ' Ano '%}{{anoActual}} </small></h1>
+	  <h1>{% trans 'Sumário'%}<small>{% trans ' Ano '%}{{anoActual}}</small></h1>
 	</div>
 	
 	<form id="filter_ano_form" class="form-horizontal" role="form">
 		 <div class="form-group whiteText">
 	   	 	<div class="col-xs-2">
 		      {%for field in form_combo%}
-		      	{{ field.label_tag }}: {{ field }}
+		      	{{ field.label_tag }}:  {{ field }}
 		      {%endfor%}  
 	    	</div>
 	  	</div>
@@ -46,5 +46,13 @@
 	<div  class="alert alert-info alert_info_index">
 		{% trans 'Horas Total '%}<span class="badge" > {{numeroTotalHoras}} </span>
 	</div>
+	
+	
+<script type="text/javascript">
+$(document).ready(function (){
+	$('#id_ano').removeClass('form-control colorInput');
+	$('#id_ano').addClass('alert-info');
+});
+</script>
 {% endblock %}
 
