@@ -43,6 +43,31 @@ $.ajax({
           			
           			}
           			
+          		}else if($tipo == 3)
+          		{
+          			
+          			if(response.estado == 1)
+          			{
+          				window.location.href = $url;
+          				
+          			}else
+          			{
+          			
+          			$(".jumbotron").after(response.html);
+          			
+          			
+          			$( "#modal_aviso_carregar_novo_ano" ).modal({
+					
+					backdrop: "static",
+					show: true
+					});
+					$('#modal_aviso_carregar_novo_ano').on('hidden.bs.modal', function (e) {
+	 					$('#modal_aviso_carregar_novo_ano').remove();
+					});
+	          			
+          			
+          			}
+          			
           		}
           
             	

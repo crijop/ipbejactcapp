@@ -25,6 +25,8 @@ from xlwt.Formatting import Font, Borders, Pattern
 from xlwt.Style import XFStyle, easyxf
 from xlwt.Workbook import Workbook
 
+from django.db.models import Q
+
 from datetime import datetime 
 
 from distro.Forms.formsVicP import AdicionarCursoForm
@@ -971,6 +973,8 @@ def wizard_cna_novo_departamento(request, id_ano):
         ano_letivo_db.save()
         pass
    
+    departamentos_usados = DepartamentoAno.objects.filter(ano = id_ano)
+
     return render_to_response("cientifico/Criar_novo_ano/novo/total_novo_departamentos.html",
         locals(),
         context_instance = RequestContext(request),
@@ -1064,14 +1068,26 @@ class AddCursoModelFormPreview(FormPreview):
     pass
 
 ######################################################################################################
+def check_departamento_repetido(request):
+    
+    id_ano = request.session["ano_corrente"].id
+    
+    departamentos_usados = DepartamentoAno.objects.filter(ano = id_ano)
+    departamentos = Departamento.objects.filter(~Q(id__in=[departamento_usado.departamento_id for departamento_usado in departamentos_usados]))
+   
+    
+   
+    return departamentos
+    pass
 
 @login_required(redirect_field_name = 'login_redirectUsers')
 @cientificoUserTeste
-def ajax_abrir_lista_departamentos(request):
+def ajax_abrir_lista_departamentos(request, *args, **kwargs):
     
     serialized_data = None
     
-    departamentos = Departamento.objects.all() 
+    departamentos = check_departamento_repetido(request)
+    
         
     html = render_to_string("cientifico/Elementos/teste.html", locals())
     serialized_data = simplejson.dumps({"html":html})
@@ -1151,7 +1167,9 @@ def ajax_check_estado_ano(request, *args, **kwargs):
         
         html_url = None
         estado = None
+        html = None
         
+      
         if opcao == "1" or opcao == "2":
             
             if ano.estado == 0:
@@ -1166,14 +1184,16 @@ def ajax_check_estado_ano(request, *args, **kwargs):
                 
                 pass
             pass
-        elif opcao == 3:
+        elif opcao == "3":
+            
             if ano.estado == 0:
+                print "AQUIIIIIIIIIIII"
                 html_url = "cientifico/Elementos/aviso_carregar_existente.html"
                 html = render_to_string(html_url, locals())
-                estado = 1
+                estado = 0
                 pass
             elif ano.estado != 0 and ano.estado != 10:
-                estado = 0
+                estado = 1
                 html = ""
                 pass
             pass
