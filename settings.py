@@ -1,8 +1,16 @@
 # -*- coding: utf-8 -*-
 # Django settings for ipbejactcapp project.
+import os
+
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
+
+'''RML PDF's'''
+PROJECT_DIR = os.path.abspath(os.path.dirname(__file__))
+RML_DIR = os.path.abspath(os.path.join(PROJECT_DIR, 'rml'))
+WRITE_RML = True
+
 
 ADMINS = (
     ('José Jasnau Caeiro', 'j.caeiro@ipbeja.pt'),

@@ -29,4 +29,30 @@ urlpatterns = patterns('',
     #####
     # Fim dos Url's destinados aos templates dos docentes
     ########################################################################################
+    
+    
+    ########################################################################################
+    # Url's destinados aos pdf's dos docentes
+    ####                   
+    # Url Home Docente
+    url(r'^distro/docente/genpdf/$',
+        'ipbejactcapp.distro.docente.pdf_rml_views.generate_pdf',
+        name = 'print_pdf'),
+    #####
+    # Fim dos Url's destinados aos pdf's dos docentes
+    ########################################################################################
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     )

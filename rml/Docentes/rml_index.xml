@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+
+
+<document filename="test_008_tables.pdf">
+	<!-- Don't remove any of the following main blocks, -->
+	<!-- otherwise the document will not compile. -->
+	<template>
+		<pageTemplate id="main">
+			<pageGraphics>
+				<fill color="green"/>
+				<rect x="1.5cm" y="26cm" height="2cm" width="18cm" stroke="0" fill="1"/>
+				<fill color="#ffffff"/>
+				<setFont name="Helvetica-Bold" size="18"/>
+				<drawCenteredString x="10.5cm" y="27cm">Avedo's Report</drawCenteredString>
+				<setFont name="Helvetica" size="12"/>
+				<drawCenteredString x="10.5cm" y="26.5cm">aas</drawCenteredString>
+				
+				<fill color="#3b5b86"/>
+				<setFont name="Helvetica-Bold" size="8"/>
+				<drawCenteredString x="10.5cm" y="25.5cm">asasa</drawCenteredString>
+				
+				
+				
+				<lineMode width="0.1"/>
+				<fill color="#333333"/>
+				<lines>1.5cm 2cm 19.5cm 2cm</lines>
+				<setFont name="Helvetica" size="9"/>
+				<drawCentredString x="10.5cm" y="1.5cm">- <pageNumber/> -</drawCentredString>
+			</pageGraphics>
+    
+			<frame id="content" x1="1.5cm" y1="2cm" width="18cm" height="23cm" />
+		</pageTemplate>
+		
+		<pageTemplate id="contentPage">
+			<pageGraphics>
+				<lineMode width="0.1"/>
+				<fill color="#333333"/>
+				<lines>1.5cm 27cm 19.5cm 27cm</lines>
+				
+				<fill color="#333333"/>
+				<setFont name="Helvetica" size="8"/>
+				<drawString x="1.5cm" y="27.1cm">Avedo's Report eeee</drawString> 
+				<drawCenteredString x="18.7cm" y="27.1cm">eeee</drawCenteredString>
+				<fill color="#ff0000"/>
+				<circle x="16.5cm" y="27.1cm" radius="0.1cm"/>
+				<lineMode width="0.1"/>
+				<fill color="#333333"/>
+				<lines>1.5cm 2cm 19.5cm 2cm</lines>
+				<setFont name="Helvetica" size="9"/>
+				<drawCentredString x="10.5cm" y="1.5cm">- <pageNumber/> -</drawCentredString>
+			</pageGraphics>
+			<pageGraphics>
+			<image file="/home/admin1/BolsaMerito/ipbejactcapp/rml/Docentes/logo.png" x="369" y="493" width="80" height="80"/>
+			</pageGraphics>
+			
+    
+			<frame id="content" x1="1.5cm" y1="2cm" width="18cm" height="24cm" />
+		</pageTemplate>
+	</template>
+
+	<stylesheet>
+		<!-- Conatins the style information for the document. -->
+		<blockTableStyle id="avedoTable">
+			<blockValign value="TOP" />
+			<blockTopPadding length="2" />
+			<blockBottomPadding length="2" />
+			<blockLeftPadding length="3" />
+			<blockRightPadding length="3" />
+			<lineStyle kind="LINEBELOW" colorName="silver" start="0,1" stop="-1,-2" />
+			<lineStyle kind="LINEAFTER" colorName="silver" start="0,1" stop="-2,-1" />
+			<blockFont name="Helvetica" size="9" start="0,1" stop="-1,-1" />
+			
+			<blockTopPadding length="3" start="0,0" stop="-1,0" />
+			<blockBottomPadding length="3" start="0,0" stop="-1,0" />
+			<blockLeftPadding length="7" start="0,0" stop="-1,0" />
+			<blockRightPadding length="7" start="0,0" stop="-1,0" />
+			<blockFont name="Helvetica-Bold" size="11" start="0,0" stop="-1,0" />
+			<blockTextColor colorName="white" start="0,0" stop="-1,0" />
+			<blockBackground colorName="#3b5b86" start="0,0" stop="-1,0" />
+		</blockTableStyle>
+		<paraStyle 
+			name="style.centered"
+			fontName="Helvetica"
+			fontSize="8"
+			alignment="center" />
+	</stylesheet>
+
+	<story>
+		
+		<!-- Contains all flowable elements of the document. -->
+		<!-- They fill up the frames defined in the template section. -->
+		<para style="style.centered">
+			{{name}}<br />
+			
+			<font size="6" color="#3b5b86">carlos</font>
+		</para>
+		
+		<setNextTemplate name="contentPage" />
+		<nextFrame />
+		
+		<para>
+			And here is some more content on a normal page ... In this case it is 
+			a table that shows the release history of the Ubuntu operating system:
+		</para>
+		
+		<spacer length="1cm" />
+		
+		
+	</story>
+</document>
