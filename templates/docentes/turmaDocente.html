@@ -15,14 +15,18 @@
 {% block menuInfoDocente %} {% endblock %}
 {% block menuTurma %}class="active"{% endblock %}
 
-
-
 {% block content %}
 	<div class="page-header whiteText">
 	  <h1>{% trans 'Sumário'%}<small>{% trans ' Ano '%}{{anoActual}} </small></h1>
 	</div>
-
-	
+	<form id= "form_report" method="post" action ="{%url print_pdf %}" role="form">
+		{% csrf_token %}
+		<input id = "hidden_inputDados" name ="table_json" type="hidden"/>
+		<input id="button_print" value ="{%trans 'Imprimir'%}" type="button"/>
+	</form>
+		
+		
+		
 	<form id="filter_ano_form" class="form-horizontal" role="form">
 		 <div class="form-group whiteText">
 	   	 	<div class="col-xs-2">
@@ -35,21 +39,21 @@
 	
 	
 	<table cellpadding="0" cellspacing="0" border="0" class="display sumary_table" id="special_table" width="100%">
-	<thead>	
-		<tr>
-			<th class="cabecalho_sumario">Curso</th>
-			<th class="cabecalho_sumario">Turma</th>
-		</tr>
-	</thead>
-	<tbody>
-		{%for id, turma, curso in lista%}
+		<thead>	
 			<tr>
-				<td>{{ curso }}</td>
-				<td>{{ turma }}</td>
-		
+				<th class="cabecalho_sumario">Curso</th>
+				<th class="cabecalho_sumario">Turma</th>
 			</tr>
-		{%endfor%}
-	</tbody>
+		</thead>
+		<tbody>
+			{%for id, turma, curso in lista%}
+				<tr>
+					<td>{{ curso }}</td>
+					<td>{{ turma }}</td>
+			
+				</tr>
+			{%endfor%}
+		</tbody>
 	</table>
 	
 	<script type="text/javascript">
@@ -64,6 +68,39 @@
 		        	
 			});
 			$('.hasTooltip').tooltip({"container": false});
-		} );
+		
+		
+		$("#button_print").click(function(){
+			var table = $('#special_table').tableToJSON();
+			var dados_tableStr = JSON.stringify(table);
+			
+			$("#hidden_inputDados").val(dados_tableStr);
+			$("#form_report").submit();
+		});
+		
+		
+		/*
+		$("#pois").click(function(){
+			var table = $('#special_table').tableToJSON();
+			alert(JSON.stringify(table))
+			var value = $("#id_descricao").children(':selected').val();
+	    	var csrftoken = getCookie('csrftoken');
+	      	$.ajax({
+	      		type: "POST",
+	          	url:"",
+	          	data:{table_json:JSON.stringify(table)},
+	          	beforeSend: function( xhr ) {xhr.setRequestHeader("X-CSRFToken", csrftoken);},
+	          	success: function(data) {
+	          		//$("body").append('<iframe src="?'+ data + '" style="display: none;" ></iframe>');
+	          		//window.location.href = "#"
+	            		            	
+	            },
+	            error: function(rs, e) {
+	            	 
+	            }
+	     	});	
+			//alert(JSON.stringify(table));
+			*/	
+		});
 	</script>
 {% endblock %}

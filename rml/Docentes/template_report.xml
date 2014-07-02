@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<document filename="Example.pdf" invariant="1">
+<docinit>
+	<name id="default:image" value="replogo.gif"/>
+</docinit>
+<template pageSize="letter" leftMargin="3.5cm">
+	<pageTemplate id="main" pageSize="(21.0cm,29.7cm)">
+	<pageGraphics>
+		<setFont name="Courier" size="16"/>
+		<image file="{{name_image}}" x="1.5cm" y="26.2cm" width="3.5cm" height="2.5cm"/>
+		
+		<drawRightString x="17.5cm" y="27.2cm">Sistema Distribuição Serviço Docente</drawRightString>
+		
+		<setFont name="Courier" size="10"/>
+		<drawRightString x="18.5cm" y="26.1cm">{{dataGenerateReport}}</drawRightString>
+		<fill color="black"/>  
+        <rect x="1.5cm" y="26cm" height="0.5mm" width="18cm" stroke="0" fill="1"/> 
+	
+	</pageGraphics>
+	<frame id="first" x1="3cm" y1="1cm" width="451" height="698"/>
+	
+	</pageTemplate>
+</template>
+<stylesheet>
+	<initialize>
+	<name id="YourVariableName" value="Type anything you want between these quotes..."/>
+	</initialize>
+		
+	<paraStyle name="h1" fontName="Helvetica-Bold" fontSize="32" leading="36"/>
+	<paraStyle name="h2" fontName="Helvetica-Bold" fontSize="16" leading="20" spaceBefore="12"/>
+	<paraStyle name="normal" fontName="Helvetica" fontSize="10" leading="12" spaceBefore="6"/>
+	<blockTableStyle id="table_dados">
+		<blockAlignment value="center"/>
+		<blockValign value="middle"/>
+		<blockFont name="Helvetica"/>
+		<blockBackground colorName="red" start="0,0" stop="2,0"/>
+		<!-- <lineStyle kind="GRID" colorName="black"/>
+		<lineStyle kind="OUTLINE" colorName="black" thickness="1"/> -->
+	</blockTableStyle>
+	<blockTableStyle id="spartan">
+		<blockAlignment value="center"/>
+		<blockValign value="middle"/>
+		<blockFont name="Helvetica"/>
+	</blockTableStyle>
+</stylesheet>
+
+<story>
+	<para>
+		<b><getName id="YourVariableName"/></b>
+	</para>
+	
+	<para>
+	It should be enclosed in "para" and "/para" tags to turn it into
+	paragraphs. <pageNumber/>
+	</para>
+	
+	<blockTable  style="table_dados">
+		<tr>
+			{%for header in listaHeaders%}
+				<td>{{header}}</td>
+			{%endfor%}
+		</tr>
+		{%for lines in listaLines%}
+			<tr>
+				{%for line in lines%}
+					<td>{{line}}</td>
+				{%endfor%}
+			</tr>
+		{%endfor%}
+	</blockTable>
+
+<nextPage/>
+</story>
+</document>
