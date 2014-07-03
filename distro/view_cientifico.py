@@ -984,8 +984,36 @@ def wizard_cna_novo_departamento(request, id_ano):
 
 @login_required(redirect_field_name = 'login_redirectUsers')
 @cientificoUserTeste
-def wizard_cna_novo_curso(request, *args, **kwargs):
- 
+def wizard_cna_novo_curso(request, id_ano):
+    
+    pagina = int(request.GET.get("pagina"))
+    
+    ano_letivo_db = Ano.objects.get(id = id_ano)
+    
+    departamentos_ano = DepartamentoAno.objects.filter(ano__id = id_ano);
+    
+    n_departamentos_ano = len(departamentos_ano)
+    id_departamentos_ano = n_departamentos_ano - 1
+    
+    id_pagina_prev = 0
+    id_pagina_next = 0
+    id_pagina = int(pagina)
+    
+    if(pagina == 0):
+        
+        id_pagina_next = id_pagina + 1;
+        
+    elif pagina > n_departamentos_ano - 1:
+     
+        id_pagina_prev = id_pagina  - 1;
+    else:
+        
+        id_pagina_next = id_pagina + 1;
+        id_pagina_prev = id_pagina - 1;
+    
+    n_pagina = id_pagina + 1;
+    
+    departamento_ano =  departamentos_ano[id_pagina]
    
     return render_to_response("cientifico/Criar_novo_ano/novo/total_novo_cursos.html",
         locals(),

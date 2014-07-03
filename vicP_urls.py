@@ -130,7 +130,14 @@ urlpatterns = patterns('',
    # carrega departamentos em USO
     url(r'^distro/vicp/ajax_carrega_departamentos_usados/$',
         'ipbejactcapp.distro.view_cientifico.ajax_carrega_departamentos_usados', \
-        name = "ajax_carrega_departamentos_usados")
+        name = "ajax_carrega_departamentos_usados"),
+                       
+                       
+   #***************************************CURSOS***************************/
+     # wizard de cursos
+    url(r'^distro/vicp/wizard_cna_novo_curso/(?P<id_ano>\d+)/$',
+        'ipbejactcapp.distro.view_cientifico.wizard_cna_novo_curso', \
+        name = "wizard_cna_novo_curso")
     
     
 )
