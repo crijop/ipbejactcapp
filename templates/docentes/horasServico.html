@@ -18,7 +18,17 @@
 	<div class="page-header whiteText">
 	  <h1>{% trans 'Horas de Serviço'%}<small>{% trans ' Ano '%}{{anoActual}} </small></h1>
 	</div>
-
+	
+	<form id= "form_report" method="post" action ="{%url print_pdf %}" role="form">
+		{% csrf_token %}
+		<input id = "hidden_inputDados" name ="table_json" type="hidden"/>
+		<input id = "dados_report" value ="{%trans 'Horas de Serviço do Docente'%}" name ="tituloReport" type="hidden"/>
+		<input id = "ano_report" value ="{{anoActual}}" name ="ano" type="hidden"/>
+		<input id = "user_report" value ="{{user.first_name}} {{user.last_name}}" name ="user_name" type="hidden"/>
+		<input id = "tipoReport" value ="1" name ="tipoReport" type="hidden"/>
+		<input id="button_print" value ="{%trans 'Imprimir'%}" type="button" class="btn btn-primary"/>
+	</form>
+	
 	<form id="filter_ano_form" class="form-horizontal" role="form">
 		 <div class="form-group whiteText">
 	   	 	<div class="col-xs-2">
@@ -68,6 +78,16 @@
 		$('.hasTooltip').tooltip({
 			"container" : false
 		});
+		
+		
+		$("#button_print").click(function(){
+			var table = $('#special_table').tableToJSON();
+			var dados_tableStr = JSON.stringify(table);
+			
+			$("#hidden_inputDados").val(dados_tableStr);
+			$("#form_report").submit();
+		});
+		
 	}); 
 </script>
 

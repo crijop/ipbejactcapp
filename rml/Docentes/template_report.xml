@@ -6,7 +6,7 @@
 <template pageSize="letter" leftMargin="3.5cm">
 	<pageTemplate id="main" pageSize="(21.0cm,29.7cm)">
 	<pageGraphics>
-		<setFont name="Courier" size="16"/>
+		<setFont name="Times-Roman" size="18"/>
 		<image file="{{name_image}}" x="1.5cm" y="26.2cm" width="3.5cm" height="2.5cm"/>
 		
 		<drawRightString x="17.5cm" y="27.2cm">Sistema Distribuição Serviço Docente</drawRightString>
@@ -32,8 +32,10 @@
 	<blockTableStyle id="table_dados">
 		<blockAlignment value="center"/>
 		<blockValign value="middle"/>
-		<blockFont name="Helvetica"/>
-		<blockBackground colorName="red" start="0,0" stop="2,0"/>
+		<blockFont name="Times-Bold" size ="12"/>
+		<blockFont name="Times-Roman" size = "10" start="0,1" stop="-1,-1"/>
+		<blockBackground colorName="whitesmoke" start="0,0" stop="5,0"/>
+		<blockBackground colorName="cornsilk" start="0,1" stop="-1,-1"/>
 		<!-- <lineStyle kind="GRID" colorName="black"/>
 		<lineStyle kind="OUTLINE" colorName="black" thickness="1"/> -->
 	</blockTableStyle>
@@ -54,7 +56,7 @@
 	paragraphs. <pageNumber/>
 	</para>
 	
-	<blockTable  style="table_dados">
+	<blockTable  style="table_dados" colWidths="8cm">
 		<tr>
 			{%for header in listaHeaders%}
 				<td>{{header}}</td>
