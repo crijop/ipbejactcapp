@@ -19,13 +19,16 @@
 	<div class="page-header whiteText">
 	  <h1>{% trans 'Sumário'%}<small>{% trans ' Ano '%}{{anoActual}} </small></h1>
 	</div>
+	
 	<form id= "form_report" method="post" action ="{%url print_pdf %}" role="form">
 		{% csrf_token %}
 		<input id = "hidden_inputDados" name ="table_json" type="hidden"/>
-		<input id="button_print" value ="{%trans 'Imprimir'%}" type="button"/>
+		<input id = "dados_report" value ="{%trans 'Turmas do Docente'%}" name ="tituloReport" type="hidden"/>
+		<input id = "ano_report" value ="{{anoActual}}" name ="ano" type="hidden"/>
+		<input id = "user_report" value ="{{user.first_name}} {{user.last_name}}" name ="user_name" type="hidden"/>
+		<input id = "tipoReport" value ="0" name ="tipoReport" type="hidden"/>
+		<input id="button_print" value ="{%trans 'Imprimir'%}" type="button" class="btn btn-primary"/>
 	</form>
-		
-		
 		
 	<form id="filter_ano_form" class="form-horizontal" role="form">
 		 <div class="form-group whiteText">
@@ -37,7 +40,7 @@
 	  	</div>
 	</form>
 	
-	
+	<div id="divteste"></div>
 	<table cellpadding="0" cellspacing="0" border="0" class="display sumary_table" id="special_table" width="100%">
 		<thead>	
 			<tr>
@@ -67,7 +70,8 @@
 		        
 		        	
 			});
-			$('.hasTooltip').tooltip({"container": false});
+			
+		$('.hasTooltip').tooltip({"container": false});
 		
 		
 		$("#button_print").click(function(){

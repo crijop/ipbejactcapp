@@ -1,37 +1,28 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
-
-
 <document filename="test_008_tables.pdf">
-	<!-- Don't remove any of the following main blocks, -->
-	<!-- otherwise the document will not compile. -->
+
 	<template>
 		<pageTemplate id="main">
 			<pageGraphics>
-				<fill color="green"/>
-				<rect x="1.5cm" y="26cm" height="2cm" width="18cm" stroke="0" fill="1"/>
-				<fill color="#ffffff"/>
-				<setFont name="Helvetica-Bold" size="18"/>
-				<drawCenteredString x="10.5cm" y="27cm">Avedo's Report</drawCenteredString>
-				<setFont name="Helvetica" size="12"/>
-				<drawCenteredString x="10.5cm" y="26.5cm">aas</drawCenteredString>
+				<setFont name="Times-Roman" size="18"/>
+				<image file="{{name_image}}" x="1.5cm" y="26.2cm" width="3.5cm" height="2.5cm"/>
 				
-				<fill color="#3b5b86"/>
-				<setFont name="Helvetica-Bold" size="8"/>
-				<drawCenteredString x="10.5cm" y="25.5cm">asasa</drawCenteredString>
+				<drawRightString x="17.5cm" y="27.2cm">Sistema Distribuição Serviço Docente</drawRightString>
 				
-				
-				
-				<lineMode width="0.1"/>
+				<setFont name="Courier" size="10"/>
+				<drawRightString x="18.5cm" y="26.1cm">{{dataGenerateReport}}</drawRightString>
+				<fill color="black"/>  
+		        <rect x="1.5cm" y="26cm" height="0.5mm" width="18cm" stroke="0" fill="1"/> 
 				<fill color="#333333"/>
+				<lineMode width="0.1"/>
 				<lines>1.5cm 2cm 19.5cm 2cm</lines>
-				<setFont name="Helvetica" size="9"/>
 				<drawCentredString x="10.5cm" y="1.5cm">- <pageNumber/> -</drawCentredString>
 			</pageGraphics>
     
 			<frame id="content" x1="1.5cm" y1="2cm" width="18cm" height="23cm" />
 		</pageTemplate>
 		
-		<pageTemplate id="contentPage">
+		<!--<pageTemplate id="contentPage">
 			<pageGraphics>
 				<lineMode width="0.1"/>
 				<fill color="#333333"/>
@@ -39,8 +30,7 @@
 				
 				<fill color="#333333"/>
 				<setFont name="Helvetica" size="8"/>
-				<drawString x="1.5cm" y="27.1cm">Avedo's Report eeee</drawString> 
-				<drawCenteredString x="18.7cm" y="27.1cm">eeee</drawCenteredString>
+				<drawString x="1.5cm" y="27.1cm">Sistema Distribuição Docente</drawString>
 				<fill color="#ff0000"/>
 				<circle x="16.5cm" y="27.1cm" radius="0.1cm"/>
 				<lineMode width="0.1"/>
@@ -49,18 +39,15 @@
 				<setFont name="Helvetica" size="9"/>
 				<drawCentredString x="10.5cm" y="1.5cm">- <pageNumber/> -</drawCentredString>
 			</pageGraphics>
-			<pageGraphics>
-			<image file="/home/admin1/BolsaMerito/ipbejactcapp/rml/Docentes/logo.png" x="369" y="493" width="80" height="80"/>
-			</pageGraphics>
-			
-    
 			<frame id="content" x1="1.5cm" y1="2cm" width="18cm" height="24cm" />
-		</pageTemplate>
+		</pageTemplate>-->
+	
 	</template>
 
 	<stylesheet>
-		<!-- Conatins the style information for the document. -->
-		<blockTableStyle id="avedoTable">
+		<blockTableStyle id="distroTable">
+			<blockAlignment value="CENTER" start="0,0" stop="-1,0" />
+			
 			<blockValign value="TOP" />
 			<blockTopPadding length="2" />
 			<blockBottomPadding length="2" />
@@ -68,43 +55,128 @@
 			<blockRightPadding length="3" />
 			<lineStyle kind="LINEBELOW" colorName="silver" start="0,1" stop="-1,-2" />
 			<lineStyle kind="LINEAFTER" colorName="silver" start="0,1" stop="-2,-1" />
-			<blockFont name="Helvetica" size="9" start="0,1" stop="-1,-1" />
+			<lineStyle kind="GRID" colorName="silver" />
+			<blockFont name="Helvetica" size="8" start="0,1" stop="-1,-1" />
 			
 			<blockTopPadding length="3" start="0,0" stop="-1,0" />
 			<blockBottomPadding length="3" start="0,0" stop="-1,0" />
 			<blockLeftPadding length="7" start="0,0" stop="-1,0" />
 			<blockRightPadding length="7" start="0,0" stop="-1,0" />
-			<blockFont name="Helvetica-Bold" size="11" start="0,0" stop="-1,0" />
+			
+			
+			<blockFont name="Helvetica-Bold" size="10" start="0,0" stop="-1,0" />
 			<blockTextColor colorName="white" start="0,0" stop="-1,0" />
 			<blockBackground colorName="#3b5b86" start="0,0" stop="-1,0" />
+			
+			<!--
+				<blockFont name="Times-Bold" start="0,-1" stop="-1,-1"/>
+				<lineStyle kind="LINEABOVE" colorName="black" start="0,-1" stop="-1,-1"/>
+			 -->
+			 
 		</blockTableStyle>
+		
+		<blockTableStyle id="distroTable_1">
+			<blockAlignment value="CENTER" start="0,0" stop="-1,0" />
+			
+			<blockValign value="TOP" />
+			<blockTopPadding length="2" />
+			<blockBottomPadding length="2" />
+			<blockLeftPadding length="3" />
+			<blockRightPadding length="3" />
+			<lineStyle kind="LINEBELOW" colorName="silver" start="0,1" stop="-1,-2" />
+			<lineStyle kind="LINEAFTER" colorName="silver" start="0,1" stop="-2,-1" />
+			<lineStyle kind="GRID" colorName="silver" />
+			<blockFont name="Helvetica" size="8" start="0,1" stop="-1,-1" />
+			
+			<blockTopPadding length="3" start="0,0" stop="-1,0" />
+			<blockBottomPadding length="3" start="0,0" stop="-1,0" />
+			<blockLeftPadding length="7" start="0,0" stop="-1,0" />
+			<blockRightPadding length="7" start="0,0" stop="-1,0" />
+			
+			
+			<blockFont name="Helvetica-Bold" size="10" start="0,0" stop="-1,0" />
+			<blockTextColor colorName="white" start="0,0" stop="-1,0" />
+			<blockBackground colorName="#3b5b86" start="0,0" stop="-1,0" />
+			
+			<blockFont name="Times-Bold" start="0,-1" stop="-1,-1"/>
+			<lineStyle kind="LINEABOVE" colorName="black" start="0,-1" stop="-1,-1"/>
+			 
+		</blockTableStyle>
+		
+		<!-- 
+		<blockTableStyle id="numeric">
+			<blockFont name="Times-Bold" start="0,0" stop="-1,0"/>
+			<blockAlignment value="CENTER" start="0,0" stop="-1,0"/>
+			<lineStyle kind="LINEABOVE" colorName="purple" start="0,0" stop="-1,0"/>
+			<lineStyle kind="LINEBELOW" colorName="purple" start="0,0" stop="-1,0"/>
+			
+			<blockAlignment value="RIGHT" start="1,1" stop="-1,-1"/>
+			
+			<blockFont name="Times-Bold" start="0,-1" stop="-1,-1"/>
+			<lineStyle kind="LINEABOVE" colorName="purple" start="0,-1" stop="-1,-1"/>
+			<lineStyle kind="LINEBELOW" colorName="purple" start="0,-1" stop="-1,-1" count="5"/>
+			</blockTableStyle>
+		 -->
+		
+		<paraStyle name="h1" fontName="Helvetica-Bold" fontSize="32" leading="36"/>
+		<paraStyle name="h2" fontName="Helvetica-Bold" fontSize="16" leading="20" spaceBefore="12"/>
+		<paraStyle name="normal" fontName="Helvetica" fontSize="10" leading="12" spaceBefore="6"/>
+		
+		
+		<!-- <blockTableStyle id="table_dados">
+			<blockFont name="Times-Bold" size ="12"/>
+			<blockFont name="Times-Roman" size = "10" start="0,1" stop="-1,-1"/>
+			<blockBackground colorName="whitesmoke" start="0,0" stop="5,0"/>
+			<blockBackground colorName="cornsilk" start="0,1" stop="-1,-1"/>
+			<lineStyle kind="GRID" colorName="black"/>
+			<lineStyle kind="OUTLINE" colorName="black" thickness="1"/> -->
+		<!-- </blockTableStyle> -->
+		
+		<!-- <blockTableStyle id="spartan">
+			<blockAlignment value="center"/>
+			<blockValign value="middle"/>
+			<blockFont name="Helvetica"/>
+		</blockTableStyle> -->
 		<paraStyle 
 			name="style.centered"
 			fontName="Helvetica"
-			fontSize="8"
+			fontSize="12"
 			alignment="center" />
 	</stylesheet>
 
 	<story>
-		
-		<!-- Contains all flowable elements of the document. -->
-		<!-- They fill up the frames defined in the template section. -->
 		<para style="style.centered">
-			{{name}}<br />
-			
-			<font size="6" color="#3b5b86">carlos</font>
+			<font size="12">Ano Letivo {{ano}}</font>
 		</para>
 		
-		<setNextTemplate name="contentPage" />
+		<para style="style.centered">
+			{{tituloReport}} {{user_name}}
+			<!-- <font size="6" color="#3b5b86">....</font> -->
+		</para>
+		<spacer length="1cm"/>
+		
+		
+		<blockTable repeatRows="1" {%if tipoReport == "0"%}
+										style="distroTable"
+									{%else%}
+										style="distroTable_1"
+									{%endif%}>
+			<tr>
+				{%for header in listaHeaders%}
+					<td align="center">{{header}}</td>
+				{%endfor%}
+			</tr>
+			{%for lines in listaLines%}
+				<tr>
+					{%for line in lines%}
+						<td>{{line}}</td>
+					{%endfor%}
+				</tr>
+			{%endfor%}
+		</blockTable>
+		
+		<!-- <setNextTemplate name="contentPage" /> -->
 		<nextFrame />
-		
-		<para>
-			And here is some more content on a normal page ... In this case it is 
-			a table that shows the release history of the Ubuntu operating system:
-		</para>
-		
-		<spacer length="1cm" />
-		
 		
 	</story>
 </document>
