@@ -3,7 +3,7 @@
   <div class="modal-dialog">
     <div class="modal-content alert alert-danger">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <button type="button" class="close modal_cancel"  aria-hidden="true">&times;</button>
         <h4 class="modal-title" id="myModalLabel"><strong>
         	<span class="glyphicon glyphicon-warning-sign"></span>
 AVISO!</strong> Está prestes a eliminar o ano {{ano.ano}} em construção!</h4>
@@ -14,8 +14,8 @@ AVISO!</strong> Está prestes a eliminar o ano {{ano.ano}} em construção!</h4>
         <h4>(Inclui, departamentos, cursos, unidades curriculares, turmas, seviços docente)</h4>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-        <button type="button" onclick="remover_ano_construcao();" data-dismiss="modal" class="btn btn-danger">Continuar</button>
+        <button type="button" class="btn btn-default modal_cancel" >Cancelar</button>
+        <button type="button" onclick="remover_ano_construcao();"  class="btn btn-danger">Continuar</button>
       </div>
     </div>
   </div>

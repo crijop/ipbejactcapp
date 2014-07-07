@@ -127,6 +127,11 @@ urlpatterns = patterns('',
         'ipbejactcapp.distro.view_cientifico.ajax_save_lista_departamentos', \
         name = "ajax_save_lista_departamentos"),
                        
+   # apaga departamentos
+    url(r'^distro/vicp/ajax_delete_lista_departamentos/$',
+        'ipbejactcapp.distro.view_cientifico.ajax_delete_lista_departamentos', \
+        name = "ajax_delete_lista_departamentos"),
+                       
    # carrega departamentos em USO
     url(r'^distro/vicp/ajax_carrega_departamentos_usados/$',
         'ipbejactcapp.distro.view_cientifico.ajax_carrega_departamentos_usados', \

@@ -12,7 +12,8 @@
 {% block content %}
 
 <div class="page-header whiteText">
-        <h1>{% trans 'Assistente de criação de novo ano letivo' %} "{{ano_letivo_db.ano}}" -  {% trans 'Adicionar Departamentos' %}</h1>
+        <h1>{% trans 'Assistente de criação de novo ano letivo' %} "{{ano_letivo_db.ano}}"</h1>
+		<h3><strong>{% trans 'Adicionar Departamentos' %}</strong></h3>
 </div>
 <!--------------------------------------------------------------------------------------------------------->
 <div class="panel-group" id="accordion">
@@ -28,7 +29,7 @@
                                         <span class="glyphicon glyphicon-certificate"></span> Adicionar
                                         Departamento
                                 </button>
-                                 <button onclick="abrir_departamentos();" type="button"
+                                 <button onclick="form_apaga_departamentos({{ano_letivo_db.id}});" type="button"
                                         class="btn btn-danger">
                                         <span class="glyphicon glyphicon-remove"></span>Eliminar
                         </div>
@@ -42,7 +43,7 @@
                                                 <th>Nome</th>
                                                 <th>Abreviatura</th>
                                                 <th>Unidade Organica</th>
-                                                <th><input type="checkbox" /></th>
+                                                <th><input type="checkbox" class="checkAll"/></th>
                                         </tr>
                                 </thead>
                                 <tbody>
@@ -58,4 +59,14 @@
 
         <li class="next"><a href="{% url wizard_cna_novo_curso ano_letivo_db.id %}?pagina=0">Seguinte &rarr;</a></li>
 </ul>
+<script>
+
+	   $(document).ready(function() {
+
+	 $('.checkAll').click(function () {    
+
+                             $('input:checkbox').prop('checked', this.checked);    
+                        });
+                     });
+</script>
 {% endblock %}
