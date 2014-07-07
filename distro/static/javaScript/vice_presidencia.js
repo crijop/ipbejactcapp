@@ -28,17 +28,18 @@ $.ajax({
           			}else
           			{
           			
-          			$(".jumbotron").after(response.html);
+          			addToModalList(response.html);
+          			//$(".jumbotron").after(response.html);
           			
           			
-          			$( "#modal_aviso_criar_novo_ano" ).modal({
+          			/*$( "#modal_aviso_criar_novo_ano" ).modal({
 					
 					backdrop: "static",
 					show: true
 					});
 					$('#modal_aviso_criar_novo_ano').on('hidden.bs.modal', function (e) {
 	 					$('#modal_aviso_criar_novo_ano').remove();
-					});
+					});*/
 	          			
           			
           			}
@@ -52,8 +53,10 @@ $.ajax({
           				
           			}else
           			{
+          				
+          				addToModalList(response.html);
           			
-          			$(".jumbotron").after(response.html);
+          			/*$(".jumbotron").after(response.html);
           			
           			
           			$( "#modal_aviso_carregar_novo_ano" ).modal({
@@ -63,7 +66,7 @@ $.ajax({
 					});
 					$('#modal_aviso_carregar_novo_ano').on('hidden.bs.modal', function (e) {
 	 					$('#modal_aviso_carregar_novo_ano').remove();
-					});
+					});*/
 	          			
           			
           			}
@@ -108,7 +111,7 @@ $.ajax({
           	success: function(response) {
             	
           
-            	$(".table").after(response.html);
+            	addToModalList(response.html);
             	 /*$( ".teste_dialogo" ).dialog({
       				resizable: true,
       				draggable: false,
@@ -122,14 +125,14 @@ $.ajax({
 			     
 			    });*/
 					
-				$( ".teste_dialogo" ).modal({
+				/*$( ".teste_dialogo" ).modal({
 					
 					backdrop: "static",
 					show: true
 				});
 				$('.teste_dialogo').on('hidden.bs.modal', function (e) {
  					$('.teste_dialogo').remove();
-				});
+				});*/
 	
 					            	
             	/*$("#id_code").val(data.code);
@@ -176,7 +179,44 @@ function form_escolha_departamentos($ano)
                                 data: {"listaIdsDepartamento":ids_Departamentos},
                                 beforeSend: function( xhr ) {xhr.setRequestHeader("X-CSRFToken", csrftoken);},
                                 success: function(data) {
-                                        $( ".teste_dialogo" ).modal("toggle");
+                                       cancelModal();
+                                       carrega_departamentos_usados();
+                                       
+                                       
+                                },
+                            error: function(rs, e) {
+                                 
+                            }
+                        });
+                        }
+                       
+            
+}
+
+
+function form_apaga_departamentos($ano)
+{
+
+
+                        var ids_Departamentos = [];
+                        $('input:checked').each(function(){
+                                var valor = $(this).val();
+                                if(valor != undefined){
+                                        ids_Departamentos.push(valor);
+                                }
+                        });
+                      
+                        if (ids_Departamentos.length != 0){
+                               
+                                var target = "/distro/vicp/ajax_delete_lista_departamentos/";
+                                var csrftoken = getCookie('csrftoken');
+                        $.ajax({
+                                type: "POST",
+                                url:target,
+                                data: {"listaIdsDepartamento":ids_Departamentos},
+                                beforeSend: function( xhr ) {xhr.setRequestHeader("X-CSRFToken", csrftoken);},
+                                success: function(data) {
+                                 
                                        carrega_departamentos_usados();
                                        
                                        
@@ -275,8 +315,9 @@ $.ajax({
           	beforeSend: function( xhr ) {xhr.setRequestHeader("X-CSRFToken", csrftoken);},
           	success: function(response) {
             	
-          
-          			$(".jumbotron").after(response.html);
+          	addToModalList_after_cancel(response.html);
+     
+          			/*$(".jumbotron").after(response.html);
           			
           			
           			$( "#modal_confirmar_remover_ano" ).modal({
@@ -286,7 +327,7 @@ $.ajax({
 					});
 					$('#modal_confirmar_remover_ano').on('hidden.bs.modal', function (e) {
 	 					$('#modal_confirmar_remover_ano').remove();
-					});
+					});*/
 	          			
           			
           			
@@ -316,8 +357,11 @@ $.ajax({
           	beforeSend: function( xhr ) {xhr.setRequestHeader("X-CSRFToken", csrftoken);},
           	success: function(response) {
             	
+            	
+            	
+            	addToModalList_after_cancel(response.html);
           
-          			$(".jumbotron").after(response.html);
+          			/*$(".jumbotron").after(response.html);
           			
           			
           			$( "#modal_sucesso_remover_ano" ).modal({
@@ -327,7 +371,7 @@ $.ajax({
 					});
 					$('#modal_sucesso_remover_ano').on('hidden.bs.modal', function (e) {
 	 					$('#modal_sucesso_remover_ano').remove();
-					});
+					});*/
 	          			
           			
           			

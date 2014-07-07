@@ -1117,7 +1117,7 @@ def ajax_abrir_lista_departamentos(request, *args, **kwargs):
     departamentos = check_departamento_repetido(request)
     
         
-    html = render_to_string("cientifico/Elementos/teste.html", locals())
+    html = render_to_string("cientifico/Elementos/abrir_lista_departamento.html", locals())
     serialized_data = simplejson.dumps({"html":html})
 
     return HttpResponse(serialized_data, mimetype = "application/json")
@@ -1154,7 +1154,44 @@ def ajax_save_lista_departamentos(request, *args, **kwargs):
     
     #departamentos = Departamento.objects.all() 
         
-    html = render_to_string("cientifico/Elementos/teste.html", locals())
+    html = render_to_string("cientifico/Elementos/abrir_lista_departamento.html", locals())
+    serialized_data = simplejson.dumps({"html":html})
+
+    return HttpResponse(serialized_data, mimetype = "application/json")
+
+
+@login_required(redirect_field_name = 'login_redirectUsers')
+@cientificoUserTeste
+def ajax_delete_lista_departamentos(request, *args, **kwargs):
+    
+    
+    
+    listaIdsDepartamento = request.POST.getlist("listaIdsDepartamento[]")
+    anoId = request.session["ano_corrente"].id#request.POST.get("ano")
+
+    print "############################ ", anoId
+    
+    anoObj = Ano.objects.get(id = anoId)
+    
+    
+    
+    listObjDepartamento = [DepartamentoAno.objects.get(id = departamento) for departamento in listaIdsDepartamento]
+    
+    
+    for departamentoObj in listObjDepartamento:
+        
+        departamentoObj.delete()
+        '''depAno = DepartamentoAno(departamento = departamentoObj,
+                                 ano = anoObj)
+        depAno.save()'''
+        print "Eliminado"
+    
+    
+    #serialized_data = None
+    
+    #departamentos = Departamento.objects.all() 
+        
+    html = "OK"#render_to_string("cientifico/Elementos/abrir_lista_departamento.html", locals())
     serialized_data = simplejson.dumps({"html":html})
 
     return HttpResponse(serialized_data, mimetype = "application/json")
