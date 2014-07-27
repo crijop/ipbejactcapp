@@ -7,17 +7,19 @@ Created on 28/06/2014
 '''
 
 import cStringIO
+import collections
 from datetime import datetime
 from django.http import HttpResponse
 from django.template import Template, Context
 from django.template import loader, Context
+from django.utils.translation import ugettext, ugettext_lazy as _
 import json
 import os
-from django.utils.translation import ugettext, ugettext_lazy as _
 from rlextra.rml2pdf import rml2pdf
 import trml2pdf
 
 from settings import RML_DIR, WRITE_RML, PROJECT_DIR
+
 
 # Criar as tabelas para os dois tipos de report
 # Para o User Docentes
@@ -85,7 +87,10 @@ def generate_pdf(request, *args, **kwargs):
     user_name = request.POST["user_name"]
     tituloReport = request.POST["tituloReport"]
     
-    table_json = json.loads(request.POST["table_json"])
+    if int(tipoReport) == 1:
+        table_json = json.loads(request.POST["table_json"])
+    else:
+        table_json = json.loads(request.POST["table_json"], object_pairs_hook=collections.OrderedDict)
     
     listaHeaders, listaLines = createTable_HorasServDocente(tipoReport, table_json)
     

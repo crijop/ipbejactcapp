@@ -78,6 +78,17 @@
 <div class="page-header whiteText">
   <h1>{% trans 'Lista de Docentes '%}</h1>
 </div>
+
+	<form id= "form_report" method="post" action ="{%url print_pdf %}" role="form">
+		{% csrf_token %}
+		<input id = "hidden_inputDados" name ="table_json" type="hidden"/>
+		<input id = "dados_report" value ="{%trans 'Lista de Docentes'%}" name ="tituloReport" type="hidden"/>
+		<input id = "ano_report" value ="{{anoActual}}" name ="ano" type="hidden"/>
+		<input id = "user_report" value ="{{user.first_name}} {{user.last_name}}" name ="user_name" type="hidden"/>
+		<input id = "tipoReport" value ="0" name ="tipoReport" type="hidden"/>
+		<input id="button_print" value ="{%trans 'Imprimir'%}" type="button" class="btn btn-primary"/>
+	</form><br>
+
 {%comment%}
 <nav role="navigation" class="navbar navbar-default">
 	<div  class="collapse navbar-collapse">
@@ -174,37 +185,27 @@ Página {{ docentes.number }} de {{ docentes.paginator.num_pages }}.
 
 
 <script type="text/javascript">
-
-
-
-$(document).ready(function() {
-	$('#special_table').dataTable({
-		"oLanguage": {
-            "sUrl": "/static/dataTables/lang/pt-pt.txt"
-        },
-         "sPaginationType": "full_numbers",
-         "sDom": '<"dataTables_special_bar"l><"dataTables_special_bar"if><"whiteBox"rt><"pagination_box"p>'
-        
-        	
-	});
-	$('.hasTooltip').tooltip({"container": false});
-} );
+	$(document).ready(function() {
+		$('#special_table').dataTable({
+			"lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
+			"oLanguage": {
+	            "sUrl": "/static/dataTables/lang/pt-pt.txt"
+	        },
+	         "sPaginationType": "full_numbers",
+	         "sDom": '<"dataTables_special_bar"l><"dataTables_special_bar"if><"whiteBox"rt><"pagination_box"p>'
+	        
+	        	
+		});
+		$('.hasTooltip').tooltip({"container": false});
+		
+		$("#button_print").click(function(){
+			var table = $('#special_table').tableToJSON();
+			var dados_tableStr = JSON.stringify(table);
+			
+			$("#hidden_inputDados").val(dados_tableStr);
+			$("#form_report").submit();
+		});
+		
+	} );
 </script>
-
-
-
-
-
-
 {% endblock %}
-
-
-
-
-
-
-
-
-
-
-
