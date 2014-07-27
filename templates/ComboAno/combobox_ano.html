@@ -1,0 +1,11 @@
+{% for field in form_combo %}
+	<div class="form-group whiteText">
+		<label for="col-sm-2 control-label">{{ field.label }} {% if field.field.required %}*{%endif%}</label>
+		{{ field }}
+	</div>
+    {% for error in field.errors %} 
+    	<div class="alert alert-danger">
+    		{{error}}
+    	</div> 
+    {% endfor %}
+{% endfor %}

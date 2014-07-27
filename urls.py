@@ -72,6 +72,15 @@ urlpatterns = patterns('',
     
     
     
+    ########################################################################################
+    # Url's destinados as estatisticas do VICE PRESIDENCIA
+    #####
+    url(r'^distro/statistics/vicp/', \
+        include('ipbejactcapp.distro.estatistica.vicP.urls_vicP_estatistic')),
+    #####
+    # Fim Url's destinados as estatisticas do VICE PRESIDENCIA
+    ########################################################################################
+    
     
     
     

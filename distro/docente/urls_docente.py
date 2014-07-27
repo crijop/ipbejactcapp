@@ -42,17 +42,4 @@ urlpatterns = patterns('',
     # Fim dos Url's destinados aos pdf's dos docentes
     ########################################################################################
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     )

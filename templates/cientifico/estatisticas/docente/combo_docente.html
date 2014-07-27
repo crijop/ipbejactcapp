@@ -1,0 +1,36 @@
+{% for field in form_estatistica_docente %}
+	<div class="form-group whiteText">
+		<label for="col-sm-2 control-label">{{ field.label }} {% if field.field.required %}*{%endif%}</label>
+		{{ field }}
+	</div>
+    {% for error in field.errors %} 
+    	<div class="alert alert-danger">
+    		{{error}}
+    	</div> 
+    {% endfor %}
+{% endfor %}
+
+<div id = "tipo_docente">
+	
+</div>
+
+
+<script type="text/javascript">                           
+	
+	$("#id_tipo_docente").change(function(event){
+    	var value = $("#id_tipo_docente").children(':selected').val();
+    	var csrftoken = getCookie('csrftoken');
+      	$.ajax({
+      		type: "POST",
+          	url:"{%url tipo_docente_option %}",
+          	data:{tipo_docente_option:value},
+          	beforeSend: function( xhr ) {xhr.setRequestHeader("X-CSRFToken", csrftoken);},
+          	success: function(data) {
+          		$("#tipo_docente").html(data);
+            },
+            error: function(rs, e) {
+            	 
+            }
+     	});
+    });
+</script>

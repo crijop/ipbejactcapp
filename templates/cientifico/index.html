@@ -16,6 +16,12 @@
 {% endblock %}
 
 {% block Menus %}
+	<li class="dropdown {% block MenuEstatistica %}{% endblock %}">
+	    <a href="#" class="dropdown-toggle" data-toggle="dropdown">{% trans 'Estatística' %}<b class="caret"></b></a>
+	    <ul class="dropdown-menu">
+	      <li><a href="{%url index_estatisticas %}">{% trans 'Geral' %}</a></li>
+	    </ul>
+	</li>
     <li class="dropdown {% block MenuCriarXML %}{% endblock %}">
 	    <a href="#" class="dropdown-toggle" data-toggle="dropdown">{% trans 'XLS' %}<b class="caret"></b></a>
 	    <ul class="dropdown-menu">
@@ -61,7 +67,7 @@
 	<!-------------------------------------------------------------PAinel informativo--------------------------------------------------->	
 <div class="jumbotron">
 	
-  <h1>{% trans 'Vice Presidencia!'%}</h1>
+  <h1>{% trans 'Vice Presidência!'%}</h1>
   {%comment%}<p>{% trans 'Na área de gestão dos Recursos Humanos, terá a possibilidade de:'%}</p>
   <p>- {% trans 'Adicionar novos docentes ao sistema.'%}</p>
   <p>- {% trans 'Editar a informação de docentes já existentes.'%}</p>
