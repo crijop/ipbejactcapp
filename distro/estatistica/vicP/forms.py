@@ -24,7 +24,7 @@ class Combobox_geral_Statistics(forms.Form):
                   )
                 
     combobox_Geral_option = forms.ChoiceField(choices = MY_CHOICES, \
-                                              label = (u'Tipo Estatística'), \
+                                              label = _(u'Tipo Estatística'), \
                                               widget=forms.Select(attrs={'class':'form-control colorInput'}))
 
 
@@ -37,7 +37,7 @@ class Estatistica_docente(forms.Form):
                   )
                 
     tipo_docente = forms.ChoiceField(choices = MY_CHOICES, \
-                                              label = (u'Docente'), \
+                                              label = _(u'Docente'), \
                                               widget=forms.Select(attrs={'class':'form-control colorInput'}))
     
     
@@ -52,7 +52,7 @@ class Docente_hora(forms.Form):
              ]
 
     valor = forms.ChoiceField(choices=CHOICES, \
-                              label = "Com", \
+                              label = _(u"Com"), \
                               widget=forms.RadioSelect())
     #===========================================================================
     #     
@@ -68,7 +68,8 @@ class Docente_hora(forms.Form):
 
 class Combobox_hora(forms.Form):
     horas = forms.IntegerField(required=False, \
-                               widget=forms.TextInput(attrs={'class':'colorInput size_medio'}) )
+                               widget=forms.TextInput(attrs={'class':'colorInput size_medio', \
+                                                             'autofocus':"autofocus"}) )
     
     
     def __init__(self, label, *args, **kwargs):

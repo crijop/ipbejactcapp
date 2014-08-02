@@ -13,7 +13,7 @@ from django.utils.translation import ugettext, ugettext_lazy as _
 
 from distro.Forms.form_extra import ComboxAno
 from distro.estatistica.vicP.forms import *
-from distro.models import Ano
+from distro.models import Ano, UnidadeCurricular, CursosAno, UC_Ano, Modulos
 
 
 def index_estatisticas(request, *args, **Kwargs):
@@ -131,22 +131,76 @@ def docente_hora(request, *args, **Kwargs):
         )
 
 def search_data(request, *args, **Kwargs):
-    print request.POST
-    anoObj = Ano.objects.get(id = request.POST.get("id_ano"))
-    
     combox_geral_option = request.POST.get("combox_geral_option")
     if combox_geral_option == "4": # Filtro Docente
         id_tipo_docente = request.POST.get("id_tipo_docente")
         if id_tipo_docente == "1": # Por Hora
             radioChoise = request.POST.get("radioChoise")
             if radioChoise == "0": # Docentes com mais de X horas
-                pass
+                # Dados Template
+                TITULO = _(u'Docentes com mais de')
+                horas = request.POST.get("id_horas")
+                HORAS_TEXT = _(u'horas')
+                ANO = _(u'no ano')
+                
+                LHEADERS = [_(u'Docente'), \
+                            _(u'Departamento'), \
+                            _(u'Horas de Serviço') \
+                            ]
+                
+                sinal = 1 # Maior
+                listaInformacao, ano = calcularDocenteHoras(request, sinal)
             elif radioChoise == "1": # Docentes com menos de X horas
-                pass
+                # Dados Template
+                TITULO = _(u'Docentes com menos de')
+                horas = request.POST.get("id_horas")
+                HORAS_TEXT = _(u'horas')
+                ANO = _(u'no ano')
+                
+                LHEADERS = [_(u'Docente'), \
+                            _(u'Departamento'), \
+                            _(u'Horas de Serviço') \
+                            ]
+                
+                sinal = 0 # Menor
+                listaInformacao, ano = calcularDocenteHoras(request, sinal)
+                
+                
             elif radioChoise == "2": # Docentes com o numero de horas entre x e y
                 pass
-            pass
+        
+            template = "cientifico/estatisticas/datatables_dados/datatable_dados.html"
+                
+            return render_to_response(template,
+                locals(),
+                context_instance = RequestContext(request),
+                )
+        
         pass
     pass
         
+
+def calcularDocenteHoras(request, sinal):
+    nrHoras_request = request.POST.get("id_horas")
+    anoObj = Ano.objects.get(id = request.POST.get("id_ano"))
+    cursoAno = CursosAno.objects.filter(ano = anoObj)
+    ucAno = UC_Ano.objects.filter(cursosAno__in = cursoAno)
     
+    # listaInformacao do docente com mais de X horas de serviço
+    listaInformacao = []
+    for i in ucAno:
+        docenteObj = i.unidadeCurricular.regente
+        if docenteObj != None:
+            modulos = Modulos.objects.filter(docente = docenteObj)
+            nrHoras = 0
+            for modulo in modulos:
+                nrHoras += modulo.horas
+            
+            if sinal == 1:
+                if nrHoras > int(nrHoras_request):
+                    listaInformacao.append([docenteObj, modulo, nrHoras])
+            else:
+                if nrHoras < int(nrHoras_request):
+                    listaInformacao.append([docenteObj, modulo, nrHoras])
+    
+    return listaInformacao, anoObj
