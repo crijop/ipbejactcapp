@@ -51,6 +51,12 @@
 	</form>
 	
 	
+	<div id = "datatable_dados">
+	
+	</div>
+	
+	
+	
 	<script type="text/javascript">
 	$(document).ready(function () {                            
 		var csrftoken = getCookie('csrftoken');
@@ -76,7 +82,7 @@
 		          		  radioChoise:radioChoise},
 		          	beforeSend: function( xhr ) {xhr.setRequestHeader("X-CSRFToken", csrftoken);},
 		          	success: function(data) {
-		          		//$("#form_tipo").html(data);
+		          		$("#datatable_dados").html(data);
 		            },
 		            error: function(rs, e) {
 		            	 
