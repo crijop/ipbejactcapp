@@ -31,6 +31,10 @@ urlpatterns = patterns('',
         'ipbejactcapp.distro.estatistica.vicP.modulo_estatistico.docente_hora',
         name = 'docente_hora'),
     
+    url(r'^tipo_estatistica/tipo_docente/search_data/$',
+        'ipbejactcapp.distro.estatistica.vicP.modulo_estatistico.search_data',
+        name = 'search_data'),
+    
     #===========================================================================
     # # Url Turmas a que os docentes pertence
     # url(r'^distro/docente/turmas',

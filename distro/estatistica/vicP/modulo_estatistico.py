@@ -33,6 +33,19 @@ def index_estatisticas(request, *args, **Kwargs):
     if request.method == "POST":
         form_combo = ComboxAno(listaAnos, request.POST, initial = {"ano":ano_selected})
         combobox_geral_Statistics_form = Combobox_geral_Statistics(request.POST)
+        #=======================================================================
+        # 
+        # print request.POST
+        # 
+        # if form_combo.is_valid() and combobox_geral_Statistics_form.is_valid():
+        #     print "ola.------"
+        #     u'tipo_docente': [u'1'], \
+        #     u'ano': [u'1'], \
+        #     u'combobox_Geral_option': [u'4'], \
+        #     u'valor': [u'0'], \
+        #     u'horas': [u'323']}>
+        #=======================================================================
+        
     else:
         form_combo = ComboxAno(listaAnos, initial = {"ano":ano_selected})
         combobox_geral_Statistics_form = Combobox_geral_Statistics()
@@ -51,8 +64,7 @@ def index_estatisticas(request, *args, **Kwargs):
 '''
 def tipo_estatistica(request, *args, **Kwargs):
     estatistica = request.POST.get('tipo_estatistica')
-    
-    if estatistica == "0":
+    if estatistica == "":
         template = "cientifico/estatisticas/null_template.html"
     elif estatistica == "1":
         template = "cientifico/estatisticas/null_template.html"
@@ -78,8 +90,7 @@ def tipo_estatistica(request, *args, **Kwargs):
 '''
 def tipo_docente(request, *args, **Kwargs):
     tipo_docente_option = request.POST.get('tipo_docente_option')
-    
-    if tipo_docente_option == "0":
+    if tipo_docente_option == "":
         template = "cientifico/estatisticas/null_template.html"  
     elif tipo_docente_option == "1":
         docente_hora = Docente_hora() 
@@ -118,3 +129,24 @@ def docente_hora(request, *args, **Kwargs):
         locals(),
         context_instance = RequestContext(request),
         )
+
+def search_data(request, *args, **Kwargs):
+    print request.POST
+    anoObj = Ano.objects.get(id = request.POST.get("id_ano"))
+    
+    combox_geral_option = request.POST.get("combox_geral_option")
+    if combox_geral_option == "4": # Filtro Docente
+        id_tipo_docente = request.POST.get("id_tipo_docente")
+        if id_tipo_docente == "1": # Por Hora
+            radioChoise = request.POST.get("radioChoise")
+            if radioChoise == "0": # Docentes com mais de X horas
+                pass
+            elif radioChoise == "1": # Docentes com menos de X horas
+                pass
+            elif radioChoise == "2": # Docentes com o numero de horas entre x e y
+                pass
+            pass
+        pass
+    pass
+        
+    

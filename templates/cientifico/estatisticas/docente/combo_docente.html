@@ -15,7 +15,22 @@
 </div>
 
 
-<script type="text/javascript">                           
+<script type="text/javascript">
+	var value = $("#id_tipo_docente").children(':selected').val();
+	var csrftoken = getCookie('csrftoken');
+	$.ajax({
+		type: "POST",
+	  	url:"{%url tipo_docente_option %}",
+	  	data:{tipo_docente_option:value},
+	  	beforeSend: function( xhr ) {xhr.setRequestHeader("X-CSRFToken", csrftoken);},
+	  	success: function(data) {
+	  		$("#tipo_docente").html(data);
+	    },
+	    error: function(rs, e) {
+	    	 
+	    }
+	});
+	
 	
 	$("#id_tipo_docente").change(function(event){
     	var value = $("#id_tipo_docente").children(':selected').val();

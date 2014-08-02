@@ -15,7 +15,7 @@ from django.template import loader, Context
 from django.utils.translation import ugettext, ugettext_lazy as _
 import json
 import os
-from rlextra.rml2pdf import rml2pdf
+#from rlextra.rml2pdf import rml2pdf
 import trml2pdf
 
 from settings import RML_DIR, WRITE_RML, PROJECT_DIR
