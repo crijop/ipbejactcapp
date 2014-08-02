@@ -46,17 +46,68 @@
 	   	<span id = "Confirmacao"></span>
 		<div id="buttonConfirm">
 			<input type="hidden" name="{{ stage_field }}" value="1" />
-			<input type="submit" value="{% trans 'Adicionar Curso' %}" class="btn btn-primary btn-lg"/>
+			<input type="button" id = "search" value="{% trans 'pesquisar' %}" class="btn btn-primary btn-lg"/>
 		</div>
 	</form>
 	
 	
 	<script type="text/javascript">
 	$(document).ready(function () {                            
+		var csrftoken = getCookie('csrftoken');
+		$("#search").on("click", function(){
+			
+			var id_ano = $("#id_ano").children(':selected').val();
+			var combox_geral_option = $("#id_combobox_Geral_option").children(':selected').val();
+			var id_tipo_docente = $("#id_tipo_docente").children(':selected').val();
+			var radioChoise = $("input:radio[name='valor']:checked").val()
+			var id_horas = $("#id_horas").val();
+			
+			if (id_ano != "" && combox_geral_option != "" && id_tipo_docente != "" && id_horas != "" && 
+					(radioChoise == "0" || radioChoise == "1" || radioChoise == "2"))
+			{
+				
+				$.ajax({
+		      		type: "POST",
+		          	url:"{%url search_data %}",
+		          	data:{id_ano:id_ano, 
+		          		  combox_geral_option:combox_geral_option, 
+		          		  id_tipo_docente:id_tipo_docente, 
+		          		  id_horas:id_horas, 
+		          		  radioChoise:radioChoise},
+		          	beforeSend: function( xhr ) {xhr.setRequestHeader("X-CSRFToken", csrftoken);},
+		          	success: function(data) {
+		          		//$("#form_tipo").html(data);
+		            },
+		            error: function(rs, e) {
+		            	 
+		            }
+		     	});
+			}else{
+				alert("AVISO");
+			}
+			
+			
+			
+		});
+		
+		var value = $("#id_combobox_Geral_option").children(':selected').val();
+    	
+      	$.ajax({
+      		type: "POST",
+          	url:"{%url tipo_estatistica %}",
+          	data:{tipo_estatistica:value},
+          	beforeSend: function( xhr ) {xhr.setRequestHeader("X-CSRFToken", csrftoken);},
+          	success: function(data) {
+          		$("#form_tipo").html(data);
+            },
+            error: function(rs, e) {
+            	 
+            }
+     	});
+		
 		
 		$("#id_combobox_Geral_option").change(function(event){
 	    	var value = $("#id_combobox_Geral_option").children(':selected').val();
-	    	var csrftoken = getCookie('csrftoken');
 	      	$.ajax({
 	      		type: "POST",
 	          	url:"{%url tipo_estatistica %}",
