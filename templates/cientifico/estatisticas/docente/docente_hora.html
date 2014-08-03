@@ -1,11 +1,11 @@
 <div class="form-group whiteText">
-<label for="col-sm-2 control-label">{{ docente_hora.valor.label }}</label>
+<label for="col-sm-2 control-label">{{ docente_hora.valor.label }}</label> <span id="error_radioHoras"></span>
 
 <div id = "d_value_0">{{docente_hora.valor.0}}  <span id ="s_value_0"> </span></div>
 <div id = "d_value_1">{{docente_hora.valor.1}}  <span id ="s_value_1"> </span></div>
 <div id = "d_value_2">{{docente_hora.valor.2}}  <span id ="s_value_2"> </span></div>
 
-
+<span id="error_horas_input"></span>
 
 <div id = "tipo_docente_hora">
 	
@@ -14,6 +14,10 @@
 <script type="text/javascript">    
 	$("input[name='valor']").change(function(){
 		var value = $(this).val()
+		
+		$("#error_radioHoras").empty();
+		$("#error_horas_input").empty();
+		
     	var csrftoken = getCookie('csrftoken');
       	$.ajax({
       		type: "POST",
@@ -21,7 +25,6 @@
           	data:{docente_hora_tipo:value},
           	beforeSend: function( xhr ) {xhr.setRequestHeader("X-CSRFToken", csrftoken);},
           	success: function(data) {
-          		
           		if (value == "0"){
           			$("#s_value_" + value).html(data);
           			$("#s_value_1").empty();
@@ -42,9 +45,6 @@
             error: function(rs, e) {
             	 
             }
-     	});	
-			
-			
-			
+     	});		
 	});
 </script>

@@ -3,11 +3,13 @@
 		<label for="col-sm-2 control-label">{{ field.label }} {% if field.field.required %}*{%endif%}</label>
 		{{ field }}
 	</div>
-    {% for error in field.errors %} 
-    	<div class="alert alert-danger">
-    		{{error}}
-    	</div> 
-    {% endfor %}
+	<span id="error_combox_docente">
+	    {% for error in field.errors %} 
+	    	<div class="alert alert-danger">
+	    		{{error}}
+	    	</div> 
+	    {% endfor %}
+	</span>
 {% endfor %}
 
 <div id = "tipo_docente">
@@ -18,7 +20,9 @@
 <script type="text/javascript">
 	var value = $("#id_tipo_docente").children(':selected').val();
 	var csrftoken = getCookie('csrftoken');
-	$.ajax({
+	
+	
+	/*$.ajax({
 		type: "POST",
 	  	url:"{%url tipo_docente_option %}",
 	  	data:{tipo_docente_option:value},
@@ -29,12 +33,14 @@
 	    error: function(rs, e) {
 	    	 
 	    }
-	});
+	});*/
 	
 	
 	$("#id_tipo_docente").change(function(event){
     	var value = $("#id_tipo_docente").children(':selected').val();
-    	var csrftoken = getCookie('csrftoken');
+    	
+    	$("#error_combox_docente").empty();
+    	
       	$.ajax({
       		type: "POST",
           	url:"{%url tipo_docente_option %}",
