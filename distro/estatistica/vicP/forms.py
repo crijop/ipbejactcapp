@@ -67,12 +67,12 @@ class Docente_hora(forms.Form):
     
 
 class Combobox_hora(forms.Form):
-    horas = forms.IntegerField(required=False, \
-                               widget=forms.TextInput(attrs={'class':'colorInput size_medio', \
-                                                             'autofocus':"autofocus"}) )
-    
-    
-    def __init__(self, label, *args, **kwargs):
+    def __init__(self, value, *args, **kwargs):
         super(Combobox_hora, self).__init__(*args, **kwargs)
-        self.fields['horas'].label = label
+        if value:
+            self.fields['horas_maximo'] = forms.IntegerField(required = False)
+            self.fields['horas_maximo'].widget = forms.TextInput(attrs={'class': 'colorInput size_medio'})
+        else:
+            self.fields['horas'] = forms.IntegerField(required = False)
+            self.fields['horas'].widget = forms.TextInput(attrs={'class': 'colorInput size_medio'})
     

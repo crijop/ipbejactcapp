@@ -30,11 +30,13 @@
 				<label for="col-sm-2 control-label">{{ field.label }} {% if field.field.required %}*{%endif%}</label>
 				{{ field }}
 			</div>
-	        {% for error in field.errors %} 
-	        	<div class="alert alert-danger">
-	        		{{error}}
-	        	</div> 
-	        {% endfor %}
+			<span id="error_combox_geral_option">
+		        {% for error in field.errors %} 
+		        	<div class="alert alert-danger">
+		        		{{error}}
+		        	</div> 
+		        {% endfor %}
+	       </span>
 	   	{% endfor %}
 	   	
 	   	<div id = "form_tipo">
@@ -60,6 +62,13 @@
 	<script type="text/javascript">
 	$(document).ready(function () {                            
 		var csrftoken = getCookie('csrftoken');
+		
+		
+		$("#id_ano").change(function(event){
+			$("#error_comboAno").empty();
+		});
+		
+		
 		$("#search").on("click", function(){
 			
 			var id_ano = $("#id_ano").children(':selected').val();
@@ -67,29 +76,54 @@
 			var id_tipo_docente = $("#id_tipo_docente").children(':selected').val();
 			var radioChoise = $("input:radio[name='valor']:checked").val()
 			var id_horas = $("#id_horas").val();
+			var horas_maximo = $("#id_horas_maximo").val();
 			
 			if (id_ano != "" && combox_geral_option != "" && id_tipo_docente != "" && id_horas != "" && 
-					(radioChoise == "0" || radioChoise == "1" || radioChoise == "2"))
+					(radioChoise == "0" || radioChoise == "1" || radioChoise == "2") && horas_maximo != "")
 			{
-				
-				$.ajax({
-		      		type: "POST",
-		          	url:"{%url search_data %}",
-		          	data:{id_ano:id_ano, 
-		          		  combox_geral_option:combox_geral_option, 
-		          		  id_tipo_docente:id_tipo_docente, 
-		          		  id_horas:id_horas, 
-		          		  radioChoise:radioChoise},
-		          	beforeSend: function( xhr ) {xhr.setRequestHeader("X-CSRFToken", csrftoken);},
-		          	success: function(data) {
-		          		$("#datatable_dados").html(data);
-		            },
-		            error: function(rs, e) {
-		            	 
-		            }
-		     	});
-			}else{
-				alert("AVISO");
+				if (horas_maximo < id_horas){
+					$("#error_horas_input").html('<div class="alert alert-danger">O Segundo campo não pode ser superior ao primeiro.</div>');
+				}
+				else{
+					$.ajax({
+			      		type: "POST",
+			          	url:"{%url search_data %}",
+			          	data:{id_ano:id_ano, 
+			          		  combox_geral_option:combox_geral_option, 
+			          		  id_tipo_docente:id_tipo_docente, 
+			          		  id_horas:id_horas, 
+			          		  radioChoise:radioChoise,
+			          		  horas_maximo:horas_maximo},
+			          	beforeSend: function( xhr ) {xhr.setRequestHeader("X-CSRFToken", csrftoken);},
+			          	success: function(data) {
+			          		$("#datatable_dados").html(data);
+			            },
+			            error: function(rs, e) {
+			            	 
+			            }
+			     	});
+				}
+			} else{
+				if (id_ano == ""){
+					$("#error_comboAno").html('<div class="alert alert-danger">Campo Obrigatório.</div>');
+				}
+				if (combox_geral_option == ""){
+					$("#error_combox_geral_option").html('<div class="alert alert-danger">Campo Obrigatório.</div>');
+				}
+				if (id_tipo_docente == ""){
+					$("#error_combox_docente").html('<div class="alert alert-danger">Campo Obrigatório.</div>');
+				}
+				if (radioChoise == null){
+					$("#error_radioHoras").html('<div class="alert alert-danger">Deve selecionar uma das seguintes opções.</div>');
+				}
+				if (horas_maximo == null){
+					if (id_horas == ""){
+						$("#error_horas_input").html('<div class="alert alert-danger">Campo Obrigatório.</div>');
+					}
+				}
+				if(horas_maximo == ""){
+					$("#error_horas_input").html('<div class="alert alert-danger">Campo Obrigatório.</div>');
+				}	
 			}
 			
 			
@@ -98,7 +132,7 @@
 		
 		var value = $("#id_combobox_Geral_option").children(':selected').val();
     	
-      	$.ajax({
+      	/*$.ajax({
       		type: "POST",
           	url:"{%url tipo_estatistica %}",
           	data:{tipo_estatistica:value},
@@ -109,11 +143,12 @@
             error: function(rs, e) {
             	 
             }
-     	});
+     	});*/
 		
 		
 		$("#id_combobox_Geral_option").change(function(event){
 	    	var value = $("#id_combobox_Geral_option").children(':selected').val();
+	    	$("#error_combox_geral_option").empty();
 	      	$.ajax({
 	      		type: "POST",
 	          	url:"{%url tipo_estatistica %}",
