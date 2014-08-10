@@ -81,7 +81,7 @@ class TipoCurso(models.Model):
     abreviatura = models.CharField(max_length = 4, unique = True)
     
     def __unicode__(self):
-        return self.abreviatura + '- ' + self.nome
+        return self.abreviatura + ' - ' + self.nome
     pass
 
 class Curso(models.Model):

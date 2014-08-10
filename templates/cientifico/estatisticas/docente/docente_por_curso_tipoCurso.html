@@ -1,23 +1,19 @@
-<table style="width:520px";'>
-	<tr>
-		{% for field in form_estatistica_docente %}
-			<td><div class="form-group whiteText">
-				<label for="col-sm-2 control-label">{{ field.label }} {% if field.field.required %}*{%endif%}</label>
-				{{ field }}
-			</div></td>
-			<span id="error_combox_docente">
-			    {% for error in field.errors %} 
-			    	<td><div class="alert alert-danger">
-			    		{{error}}
-			    	</div> </td>
-			    {% endfor %}
-			</span>
-		{% endfor %}
-	</tr>
-</table>
-	   		
+{% for field in tipo_curso_form %}
+	<div class="form-group whiteText">
+		<label for="col-sm-2 control-label">{{ field.label }} {% if field.field.required %}*{%endif%}</label>
+		{{ field }}
+	</div>
+	<span id="error_combox_docente">
+	    {% for error in field.errors %} 
+	    	<div class="alert alert-danger">
+	    		{{error}}
+	    	</div> 
+	    {% endfor %}
+	</span>
+{% endfor %}
 
-
+<div id = "curso_div">
+</div>
 
 
 <script type="text/javascript">
@@ -38,22 +34,21 @@
 	    }
 	});*/
 	
-	$("#id_tipo_docente").change(function(event){
-    	var value = $("#id_tipo_docente").children(':selected').val();
+	$("#id_tipo_curso").change(function(event){
+    	var value = $("#id_tipo_curso").children(':selected').val();
     	var ano = $("#id_ano").children(':selected').val();
-    	
     	$("#error_combox_docente").empty();
     	
       	$.ajax({
       		type: "POST",
-          	url:"{%url tipo_docente_option %}",
+          	url:"{%url tipo_curso_option %}",
           	data:{
-          			tipo_docente_option:value, 
+          			tipo_curso_option:value, 
           			ano:ano
           		 },
           	beforeSend: function( xhr ) {xhr.setRequestHeader("X-CSRFToken", csrftoken);},
           	success: function(data) {
-          		$("#tipo_docente").html(data);
+          		$("#curso_div").html(data);
             },
             error: function(rs, e) {
             	 

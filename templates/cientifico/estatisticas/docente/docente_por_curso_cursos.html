@@ -1,0 +1,23 @@
+{% for field in curso_form %}
+	<div class="form-group whiteText">
+		<label for="col-sm-2 control-label">{{ field.label }} {% if field.field.required %}*{%endif%}</label>
+		{{ field }}
+	</div>
+	<span id="error_combox_docente">
+	    {% for error in field.errors %} 
+	    	<div class="alert alert-danger">
+	    		{{error}}
+	    	</div> 
+	    {% endfor %}
+	</span>
+{% endfor %}
+
+
+
+
+
+
+
+
+
+

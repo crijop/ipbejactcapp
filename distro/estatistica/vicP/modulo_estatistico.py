@@ -66,14 +66,13 @@ def tipo_estatistica(request, *args, **Kwargs):
     estatistica = request.POST.get('tipo_estatistica')
     if estatistica == "":
         template = "cientifico/estatisticas/null_template.html"
-    elif estatistica == "1":
+    elif estatistica == "1": # Curso
         template = "cientifico/estatisticas/null_template.html"
-    elif estatistica == "2":
+    elif estatistica == "2": # Turma
         template = "cientifico/estatisticas/null_template.html"
-    elif estatistica == "3":
+    elif estatistica == "3": # Disciplina
         template = "cientifico/estatisticas/null_template.html"
-        
-    elif estatistica == "4":
+    elif estatistica == "4": # Docente
         form_estatistica_docente = Estatistica_docente()
         template = "cientifico/estatisticas/docente/combo_docente.html"
     
@@ -90,18 +89,22 @@ def tipo_estatistica(request, *args, **Kwargs):
 '''
 def tipo_docente(request, *args, **Kwargs):
     tipo_docente_option = request.POST.get('tipo_docente_option')
+    ano_Id = request.POST.get("ano")
+    anoObj = Ano.objects.get(id = ano_Id)
+    
     if tipo_docente_option == "":
         template = "cientifico/estatisticas/null_template.html"  
-    elif tipo_docente_option == "1":
+    elif tipo_docente_option == "1": # Por Hora
         docente_hora = Docente_hora() 
         template = "cientifico/estatisticas/docente/docente_hora.html"
+    elif tipo_docente_option == "2": # Por Curso
         
-    elif tipo_docente_option == "2":
-        template = "cientifico/estatisticas/null_template.html"
-    elif tipo_docente_option == "3":
-        template = "cientifico/estatisticas/null_template.html"
+        tipo_curso_form = Tipo_Curso_Form()
         
-    elif tipo_docente_option == "4":
+        template = "cientifico/estatisticas/docente/docente_por_curso_tipoCurso.html"
+    elif tipo_docente_option == "3": #Por Turma
+        template = "cientifico/estatisticas/null_template.html"
+    elif tipo_docente_option == "4": # Por Disciplina
         template = "cientifico/estatisticas/null_template.html"
     
     return render_to_response(template,
@@ -231,3 +234,35 @@ def calcularDocenteHoras(request, sinal):
             
     
     return listaInformacao, anoObj
+
+
+
+# através do tipo de curso
+# filtrar os cursos de um dado tipo
+def tipo_curso(request, *args, **Kwargs):
+    print request.POST
+    tipo_curso_option = request.POST.get("tipo_curso_option")
+    ano_Id = request.POST.get("ano")
+    anoObj = Ano.objects.get(id = ano_Id)
+    
+    if tipo_curso_option == "":
+        template = "cientifico/estatisticas/null_template.html" 
+    else:
+        # Pesquisar a lista de anos de acordo com o ano selecionado
+        tipoCursoObj = TipoCurso.objects.get(id = tipo_curso_option)
+        print "--------------", tipoCursoObj
+        cursosAnoList = CursosAno.objects.filter(ano = anoObj, \
+                                                 curso__tipo_curso = tipoCursoObj)
+        print "aaaaaaaaaaaaa", cursosAnoList
+        curso_form = Cursos_Forn(cursosAnoList)
+        print "CURSOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO"
+        print cursosAnoList
+        print "--------------------"
+        
+        template = "cientifico/estatisticas/docente/docente_por_curso_cursos.html"
+                
+    return render_to_response(template,
+        locals(),
+        context_instance = RequestContext(request),
+        )
+    

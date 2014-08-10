@@ -13,7 +13,9 @@ from django import forms
 class ComboxAno(forms.Form):
     ano = forms.ModelChoiceField(queryset = Ano.objects.all(), required = True, \
                               label = 'Ano', widget = forms.Select(
-                              attrs = {'class':'form-control colorInput', "onchange" : "$('#filter_ano_form').submit()", "name":"ano"}))
+                              attrs = {'class':'form-control colorInput size_20_percent', \
+                                       "onchange" : "$('#filter_ano_form').submit()", \
+                                       "name":"ano"}))
     
     def __init__(self, listaAnos, *args, **kwargs):
         super(ComboxAno, self).__init__(*args, **kwargs)
