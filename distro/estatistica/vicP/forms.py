@@ -8,11 +8,10 @@ Created on 26/07/2014
 @email: baiao@sapo.pt
 '''
 
-from distro.models import Ano
 from django import forms
 from django.utils.translation import ugettext, ugettext_lazy as _
 
-
+from distro.models import Ano, TipoCurso, Curso
 
 
 class Combobox_geral_Statistics(forms.Form):
@@ -25,8 +24,7 @@ class Combobox_geral_Statistics(forms.Form):
                 
     combobox_Geral_option = forms.ChoiceField(choices = MY_CHOICES, \
                                               label = _(u'Tipo Estatística'), \
-                                              widget=forms.Select(attrs={'class':'form-control colorInput'}))
-
+                                              widget=forms.Select(attrs={'class':'form-control colorInput size_30_percent'}))
 
 class Estatistica_docente(forms.Form):
     MY_CHOICES = (('', '-----'),
@@ -38,7 +36,7 @@ class Estatistica_docente(forms.Form):
                 
     tipo_docente = forms.ChoiceField(choices = MY_CHOICES, \
                                               label = _(u'Docente'), \
-                                              widget=forms.Select(attrs={'class':'form-control colorInput'}))
+                                              widget=forms.Select(attrs={'class':'form-control colorInput size_30_percent'}))
     
     
 
@@ -75,4 +73,27 @@ class Combobox_hora(forms.Form):
         else:
             self.fields['horas'] = forms.IntegerField(required = False)
             self.fields['horas'].widget = forms.TextInput(attrs={'class': 'colorInput size_medio'})
+    
+
+
+class Tipo_Curso_Form(forms.Form):
+    tipo_curso = forms.ModelChoiceField(TipoCurso.objects.all(), \
+                                        label = _(u"Tipo Curso"), \
+                                        widget = forms.Select(attrs = {'class':'form-control colorInput size_50_percent'}))
+
+
+class Cursos_Forn(forms.Form):
+    cursoList = forms.ModelChoiceField(Curso.objects.all(), \
+                                       widget = forms.Select(attrs={'class': 'form-control colorInput size_50_percent'}))
+    
+    def __init__(self, query, *args, **kwargs):
+        super(Cursos_Forn, self).__init__(*args, **kwargs)
+        self.fields['cursoList'].queryset = query
+        #self.fields['cursoList'].widget = forms.Select(attrs={'class': 'form-control colorInput size_50_percent'})
+        self.fields['cursoList'].label = _(u"Curso")
+    
+    
+    
+    
+    
     

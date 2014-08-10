@@ -24,23 +24,32 @@
 		{% csrf_token %}
 		
 		{% include "ComboAno/combobox_ano.html" %}
-		
-		{% for field in combobox_geral_Statistics_form %}
-			<div class="form-group whiteText">
-				<label for="col-sm-2 control-label">{{ field.label }} {% if field.field.required %}*{%endif%}</label>
-				{{ field }}
-			</div>
-			<span id="error_combox_geral_option">
-		        {% for error in field.errors %} 
-		        	<div class="alert alert-danger">
-		        		{{error}}
-		        	</div> 
-		        {% endfor %}
-	       </span>
-	   	{% endfor %}
+		<table style="width:520px">
+			<tr>
+				{% for field in combobox_geral_Statistics_form %}
+					<td><div class="form-group whiteText">
+						<label for="col-sm-2 control-label">{{ field.label }} {% if field.field.required %}*{%endif%}</label>
+						{{ field }}
+					</div></td>
+					<span id="error_combox_geral_option">
+				        {% for error in field.errors %} 
+				        	<td><div class="alert alert-danger">
+				        		{{error}}
+				        	</div> </td>
+				        {% endfor %}
+			       </span>
+			   	{% endfor %}
+	   		</tr>
+	   	</table>
 	   	
-	   	<div id = "form_tipo">
+	   	
+	   	<div id = "form_tipo" style="height:94px;width:158px;margin-top:-76px; margin-left:200px;">
 	   	</div>
+	   		
+	   	
+	   	<div id = "tipo_docente">
+	
+		</div>
 	   	
 	    <br />
 	   	<span id="CamposObirgatorio" class="whiteText">(*) - {% trans 'Campos de preenchimento obrigatório' %}</span>

@@ -5,4 +5,29 @@
 	width: 50px !important;
 }
 
+.size_50_percent{
+	display: compact !important;
+	width: 50% !important;
+}
+
+.size_40_percent{
+	display: compact !important;
+	width: 40% !important;
+}
+
+.size_30_percent{
+	display: compact !important;
+	width: 30% !important;
+}
+
+.size_20_percent{
+	display: compact !important;
+	width: 20% !important;
+}
+
+.size_10_percent{
+	display: compact !important;
+	width: 10% !important;
+}
+
 /* FIM SIZE INPUTS*/
