@@ -16,45 +16,11 @@
 		 <h3>Departamento {{departamento_ano}} - {{n_pagina}} de {{n_departamentos_ano}}</h3>
 </div>
 <!--------------------------------------------------------------------------------------------------------->
-<div class="panel-group" id="accordion">
-        <div class="panel panel-default">
-                <!-- Default panel contents -->
-                <div class="panel-heading ">
-
-                        <a data-toggle="collapse" data-parent="#accordion"
-                                href="#collapseOne"> Departamento de {{departamento_ano}}</a>
-                        <div class="btn-group btn-group-xs pull-right">
-                                <button onclick="abrir_departamentos();" type="button"
-                                        class="btn btn-primary">
-                                        <span class="glyphicon glyphicon-certificate"></span> Adicionar
-                                        Departamento
-                                </button>
-                                 <button onclick="abrir_departamentos();" type="button"
-                                        class="btn btn-danger">
-                                        <span class="glyphicon glyphicon-remove"></span>Eliminar
-                        </div>
-
-                </div>
-                <div id="collapseOne" class="panel-collapse collapse in">
-                        <!-- Table -->
-                        <table class="table departamentos_usados">
-                                <thead>
-                                        <tr>
-                                                <th>Nome</th>
-                                                <th>Abreviatura</th>
-                                                <th>Unidade Organica</th>
-                                                <th><input type="checkbox" /></th>
-                                        </tr>
-                                </thead>
-                                <tbody>
-                                	
-                                	{% include "cientifico/Elementos/rows_cursos.html" %}
-                                	
-                                </tbody>
-                        </table>
-                </div>
-        </div>
-</div>
+{% include "cientifico/Elementos/Cursos/tabela_cet.html" %}    
+{% include "cientifico/Elementos/Cursos/tabela_tsp.html" %}    
+{% include "cientifico/Elementos/Cursos/tabela_licenciatura.html" %}    
+{% include "cientifico/Elementos/Cursos/tabela_mestrado.html" %}                         	
+<!--------------------------------------------------------------------------------------------------------->
 <ul class="pager">
 	
 		{% if id_pagina == 0 %}
