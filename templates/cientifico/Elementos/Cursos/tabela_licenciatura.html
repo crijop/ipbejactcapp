@@ -1,0 +1,39 @@
+<div class="panel-group extraMargin" id="accordion">
+        <div class="panel panel-default">
+                <!-- Default panel contents -->
+                <div class="panel-heading ">
+
+                        <a data-toggle="collapse" data-parent="#accordion"
+                                href="#collapseOne"> Licenciatura</a>
+                        <div class="btn-group btn-group-xs pull-right">
+                                <button onclick="abrir_departamentos();" type="button"
+                                        class="btn btn-primary">
+                                        <span class="glyphicon glyphicon-certificate"></span> Adicionar
+                                        Licenciatura
+                                </button>
+                                 <button onclick="abrir_departamentos();" type="button"
+                                        class="btn btn-danger">
+                                        <span class="glyphicon glyphicon-remove"></span>Eliminar
+                        </div>
+
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse in">
+                        <!-- Table -->
+                        <table class="table departamentos_usados">
+                                <thead>
+                                        <tr>
+                                                <th>Nome</th>
+                                                <th>Abreviatura</th>
+                                                <th>Unidade Organica</th>
+                                                <th><input type="checkbox" /></th>
+                                        </tr>
+                                </thead>
+                                <tbody>
+                                	
+                                	{% include "cientifico/Elementos/rows_cursos.html" %}
+                                	
+                                </tbody>
+                        </table>
+                </div>
+        </div>
+</div>
