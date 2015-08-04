@@ -1,0 +1,1 @@
+Aplicações de gestão para o Conselho Técnico Científico do Instituto Politécnico de Beja
